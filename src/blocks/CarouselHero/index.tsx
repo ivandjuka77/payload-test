@@ -252,7 +252,7 @@ export const CarouselHero: React.FC<CarouselHeroProps> = (props) => {
   ] as CarouselHeroSlide[]
 
   return (
-    <section className="w-full relative">
+    <section className="w-full h-full relative">
       {/* Carousel Container */}
       <Carousel
         setApi={setApi}
@@ -262,7 +262,7 @@ export const CarouselHero: React.FC<CarouselHeroProps> = (props) => {
           loop: true,
         }}
       >
-        <CarouselContent className="h-full ">
+        <CarouselContent className="h-full">
           {slides.map((slide, index) => (
             <CarouselItem key={index} className="h-full py-10 basis-full min-w-0 relative">
               {/* Background Image with Overlay */}
