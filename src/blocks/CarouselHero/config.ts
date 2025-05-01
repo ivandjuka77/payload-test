@@ -3,11 +3,13 @@ import type { Field } from 'payload'
 
 export const CarouselHero: Field = {
   name: 'carouselHero',
+
   type: 'group',
   fields: [
     {
       name: 'slides',
       type: 'array',
+      dbName: 'sl',
       fields: [
         {
           name: 'title',
@@ -90,26 +92,19 @@ export const CarouselHero: Field = {
               relationTo: 'media',
               required: true,
             },
-            // linkGroup({
-            //   appearances: ['default'],
-            //   overrides: {
-            //     maxRows: 1,
-            //   },
-            // }),
+            linkGroup({
+              appearances: ['default'],
+              overrides: {
+                maxRows: 1,
+              },
+            }),
           ],
         },
-        // {
-        //   name: 'ctaButton',
-        //   type: 'group',
-        //   fields: [
-        //     linkGroup({
-        //       appearances: ['default'],
-        //       overrides: {
-        //         maxRows: 1,
-        //       },
-        //     }),
-        //   ],
-        // },
+        {
+          name: 'cta',
+          type: 'group',
+          fields: [linkGroup()],
+        },
       ],
     },
   ],

@@ -26,5 +26,5 @@ import type { Page } from '@/payload-types'
 // TODO: Redo the hero rendering so we can use multiple types of heros for different pages
 
 export const RenderCarouselHero: React.FC<Page['carouselHero']> = (props) => {
-  return <CarouselHero />
+  return <CarouselHero {...props} />
 }
