@@ -197,7 +197,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | CarouselHeroBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -886,6 +886,39 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselHeroBlock".
+ */
+export interface CarouselHeroBlock {
+  slides?:
+    | {
+        title: string;
+        subtitle: string;
+        backgroundImage: number | Media;
+        badge: {
+          text: string;
+        };
+        featuredItem: {
+          title: string;
+          description: string;
+          image: number | Media;
+        };
+        featuredCards?:
+          | {
+              title: string;
+              description: string;
+              image: number | Media;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'carouselHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "case-studies".
  */
 export interface CaseStudy {
@@ -1236,6 +1269,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        carouselHero?: T | CarouselHeroBlockSelect<T>;
       };
   meta?:
     | T
@@ -1332,6 +1366,42 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselHeroBlock_select".
+ */
+export interface CarouselHeroBlockSelect<T extends boolean = true> {
+  slides?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        backgroundImage?: T;
+        badge?:
+          | T
+          | {
+              text?: T;
+            };
+        featuredItem?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+            };
+        featuredCards?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

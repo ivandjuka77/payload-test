@@ -1,0 +1,146 @@
+import { linkGroup } from '@/fields/linkGroup'
+import type { Block } from 'payload'
+
+export const CarouselHero: Block = {
+  slug: 'carouselHero',
+  interfaceName: 'CarouselHeroBlock',
+  fields: [
+    {
+      name: 'slides',
+      type: 'array',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'subtitle',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'backgroundImage',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'badge',
+          type: 'group',
+          fields: [
+            // {
+            //   name: 'icon',
+            //   type: 'upload',
+            //   relationTo: 'media',
+            //   required: true,
+            // },
+            {
+              name: 'text',
+              type: 'text',
+              required: true,
+            },
+          ],
+        },
+        {
+          name: 'featuredItem',
+          type: 'group',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              required: true,
+            },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+            // linkGroup({
+            //   appearances: ['default'],
+            //   overrides: {
+            //     maxRows: 1,
+            //   },
+            // }),
+          ],
+        },
+        {
+          name: 'featuredCards',
+          type: 'array',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              required: true,
+            },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+            // linkGroup({
+            //   appearances: ['default'],
+            //   overrides: {
+            //     maxRows: 1,
+            //   },
+            // }),
+          ],
+        },
+        // {
+        //   name: 'ctaButton',
+        //   type: 'group',
+        //   fields: [
+        //     linkGroup({
+        //       appearances: ['default'],
+        //       overrides: {
+        //         maxRows: 1,
+        //       },
+        //     }),
+        //   ],
+        // },
+      ],
+    },
+  ],
+  labels: {
+    plural: 'Carousel Hero',
+    singular: 'Carousel Heros',
+  },
+}
+
+export interface CarouselHeroSlide {
+  title: string
+  subtitle: string
+  backgroundImage: string
+  badge: {
+    icon: string
+    text: string
+  }
+  featuredItem: {
+    title: string
+    description: string
+    image: string
+    link: string
+  }
+  featuredCards: {
+    title: string
+    description: string
+    image: string
+    link: string
+  }[]
+  ctaButton: {
+    text: string
+    link: string
+  }
+}
