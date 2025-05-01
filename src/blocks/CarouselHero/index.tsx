@@ -9,7 +9,11 @@ import Image from 'next/image'
 import { Atom, ChevronRight, MoveRight } from 'lucide-react'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 
-export const CarouselHero: React.FC<CarouselHeroSlide> = (props) => {
+interface CarouselHeroProps {
+  slides?: CarouselHeroSlide[]
+}
+
+export const CarouselHero: React.FC<CarouselHeroProps> = (props) => {
   const [current, setCurrent] = useState(0)
   const [api, setApi] = useState<CarouselApi>()
   const [progress, setProgress] = useState(0)

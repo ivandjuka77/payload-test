@@ -1,9 +1,9 @@
 import { linkGroup } from '@/fields/linkGroup'
-import type { Block } from 'payload'
+import type { Field } from 'payload'
 
-export const CarouselHero: Block = {
-  slug: 'carouselHero',
-  interfaceName: 'CarouselHeroBlock',
+export const CarouselHero: Field = {
+  name: 'carouselHero',
+  type: 'group',
   fields: [
     {
       name: 'slides',
@@ -113,10 +113,7 @@ export const CarouselHero: Block = {
       ],
     },
   ],
-  labels: {
-    plural: 'Carousel Hero',
-    singular: 'Carousel Heros',
-  },
+  label: 'Carousel Hero',
 }
 
 export interface CarouselHeroSlide {
