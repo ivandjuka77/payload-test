@@ -13,14 +13,61 @@ export const Categories: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'name',
   },
   fields: [
     {
-      name: 'title',
+      name: 'name',
       type: 'text',
       required: true,
     },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: true,
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
     ...slugField(),
+    {
+      name: 'featuredProducts',
+      type: 'relationship',
+      relationTo: 'products',
+      hasMany: true,
+      required: false,
+    },
+    {
+      name: 'applications',
+      type: 'array',
+      required: false,
+      fields: [
+        {
+          name: 'imageSrc',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'productComparison',
+      type: 'checkbox',
+      required: false,
+      defaultValue: false,
+    },
   ],
 }

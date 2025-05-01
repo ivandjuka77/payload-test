@@ -54,6 +54,7 @@ export type SupportedTimezones =
   | 'Asia/Singapore'
   | 'Asia/Tokyo'
   | 'Asia/Seoul'
+  | 'Australia/Brisbane'
   | 'Australia/Sydney'
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
@@ -71,6 +72,9 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    products: Product;
+    industries: Industry;
+    'case-studies': CaseStudy;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -87,6 +91,9 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
+    industries: IndustriesSelect<false> | IndustriesSelect<true>;
+    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -97,7 +104,7 @@ export interface Config {
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   globals: {
     header: Header;
@@ -145,7 +152,7 @@ export interface UserAuthOperations {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: string;
+  id: number;
   title: string;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
@@ -172,11 +179,11 @@ export interface Page {
             reference?:
               | ({
                   relationTo: 'pages';
-                  value: string | Page;
+                  value: number | Page;
                 } | null)
               | ({
                   relationTo: 'posts';
-                  value: string | Post;
+                  value: number | Post;
                 } | null);
             url?: string | null;
             label: string;
@@ -188,7 +195,7 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
-    media?: (string | null) | Media;
+    media?: (number | null) | Media;
   };
   layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
   meta?: {
@@ -196,7 +203,7 @@ export interface Page {
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
-    image?: (string | null) | Media;
+    image?: (number | null) | Media;
     description?: string | null;
   };
   publishedAt?: string | null;
@@ -211,10 +218,13 @@ export interface Page {
  * via the `definition` "posts".
  */
 export interface Post {
-  id: string;
+  id: number;
   title: string;
-  heroImage?: (string | null) | Media;
-  content: {
+  type: 'news' | 'research' | 'case-study';
+  featured?: boolean | null;
+  description: string;
+  featuredImage: number | Media;
+  content?: {
     root: {
       type: string;
       children: {
@@ -228,25 +238,32 @@ export interface Post {
       version: number;
     };
     [k: string]: unknown;
-  };
-  relatedPosts?: (string | Post)[] | null;
-  categories?: (string | Category)[] | null;
+  } | null;
+  category: number | Category;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  relatedProducts?: (number | Product)[] | null;
+  relatedServices?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  industries?: (number | Industry)[] | null;
   meta?: {
     title?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
-    image?: (string | null) | Media;
+    image?: (number | null) | Media;
     description?: string | null;
   };
   publishedAt?: string | null;
-  authors?: (string | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
+  author: number | User;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -258,7 +275,7 @@ export interface Post {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
+  id: number;
   alt?: string | null;
   caption?: {
     root: {
@@ -350,14 +367,26 @@ export interface Media {
  * via the `definition` "categories".
  */
 export interface Category {
-  id: string;
-  title: string;
+  id: number;
+  name: string;
+  description: string;
+  image: number | Media;
   slug?: string | null;
   slugLock?: boolean | null;
-  parent?: (string | null) | Category;
+  featuredProducts?: (number | Product)[] | null;
+  applications?:
+    | {
+        imageSrc: number | Media;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  productComparison?: boolean | null;
+  parent?: (number | null) | Category;
   breadcrumbs?:
     | {
-        doc?: (string | null) | Category;
+        doc?: (number | null) | Category;
         url?: string | null;
         label?: string | null;
         id?: string | null;
@@ -368,10 +397,139 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  chemicalName?: string | null;
+  keyProperties?:
+    | {
+        property?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  useCases?:
+    | {
+        name?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  synonyms?:
+    | {
+        synonym?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  chemicalStructureImage: number | Media;
+  casNumber: string;
+  ecNumber?: string | null;
+  molecularFormula?: string | null;
+  molecularWeight?: string | null;
+  VupSpecifications?: {
+    appearance?: string | null;
+    purity?: string | null;
+    acidValue?: string | null;
+    hydroxylValue?: string | null;
+    waterContent?: string | null;
+    ashContent?: string | null;
+    meltingPoint?: string | null;
+    boilingPoint?: string | null;
+    density?: string | null;
+    solubility?: string | null;
+  };
+  challenges?:
+    | {
+        challenge?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  'chemicalFamily (Category)'?:
+    | {
+        family?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  benefits: {
+    benefit?: string | null;
+    id?: string | null;
+  }[];
+  labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
+  categories: {
+    category?: string | null;
+    id?: string | null;
+  }[];
+  industries: {
+    industry?: string | null;
+    id?: string | null;
+  }[];
+  applications: {
+    application?: string | null;
+    id?: string | null;
+  }[];
+  caseStudies?:
+    | {
+        study?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "industries".
+ */
+export interface Industry {
+  id: number;
+  name: string;
+  description: string;
+  featuredImage: number | Media;
+  keyProducts?: (number | Product)[] | null;
+  productCategories?: (number | Category)[] | null;
+  services?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  challenges?:
+    | {
+        title: string;
+        challenge: string;
+        solution: string;
+        image: number | Media;
+        challengeLink?: string | null;
+        relatedProducts?: (number | Product)[] | null;
+        relatedServices?:
+          | {
+              service?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        caseStudies?:
+          | {
+              caseStudy?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   name?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -412,11 +570,11 @@ export interface CallToActionBlock {
           reference?:
             | ({
                 relationTo: 'pages';
-                value: string | Page;
+                value: number | Page;
               } | null)
             | ({
                 relationTo: 'posts';
-                value: string | Post;
+                value: number | Post;
               } | null);
           url?: string | null;
           label: string;
@@ -462,11 +620,11 @@ export interface ContentBlock {
           reference?:
             | ({
                 relationTo: 'pages';
-                value: string | Page;
+                value: number | Page;
               } | null)
             | ({
                 relationTo: 'posts';
-                value: string | Post;
+                value: number | Post;
               } | null);
           url?: string | null;
           label: string;
@@ -487,7 +645,7 @@ export interface ContentBlock {
  * via the `definition` "MediaBlock".
  */
 export interface MediaBlock {
-  media: string | Media;
+  media: number | Media;
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaBlock';
@@ -514,12 +672,12 @@ export interface ArchiveBlock {
   } | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'posts' | null;
-  categories?: (string | Category)[] | null;
+  categories?: (number | Category)[] | null;
   limit?: number | null;
   selectedDocs?:
     | {
         relationTo: 'posts';
-        value: string | Post;
+        value: number | Post;
       }[]
     | null;
   id?: string | null;
@@ -531,7 +689,7 @@ export interface ArchiveBlock {
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
-  form: string | Form;
+  form: number | Form;
   enableIntro?: boolean | null;
   introContent?: {
     root: {
@@ -557,7 +715,7 @@ export interface FormBlock {
  * via the `definition` "forms".
  */
 export interface Form {
-  id: string;
+  id: number;
   title: string;
   fields?:
     | (
@@ -624,6 +782,7 @@ export interface Form {
             label?: string | null;
             width?: number | null;
             defaultValue?: string | null;
+            placeholder?: string | null;
             options?:
               | {
                   label: string;
@@ -727,10 +886,60 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies".
+ */
+export interface CaseStudy {
+  id: number;
+  title: string;
+  featured?: boolean | null;
+  summary: string;
+  featuredImage: number | Media;
+  challenge: string;
+  solution?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  results: string;
+  industry: number | Industry;
+  relatedProducts?: (number | Product)[] | null;
+  relatedServices?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
-  id: string;
+  id: number;
   /**
    * You will need to rebuild the website when changing this field.
    */
@@ -740,11 +949,11 @@ export interface Redirect {
     reference?:
       | ({
           relationTo: 'pages';
-          value: string | Page;
+          value: number | Page;
         } | null)
       | ({
           relationTo: 'posts';
-          value: string | Post;
+          value: number | Post;
         } | null);
     url?: string | null;
   };
@@ -756,8 +965,8 @@ export interface Redirect {
  * via the `definition` "form-submissions".
  */
 export interface FormSubmission {
-  id: string;
-  form: string | Form;
+  id: number;
+  form: number | Form;
   submissionData?:
     | {
         field: string;
@@ -775,18 +984,18 @@ export interface FormSubmission {
  * via the `definition` "search".
  */
 export interface Search {
-  id: string;
+  id: number;
   title?: string | null;
   priority?: number | null;
   doc: {
     relationTo: 'posts';
-    value: string | Post;
+    value: number | Post;
   };
   slug?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
-    image?: (string | null) | Media;
+    image?: (number | null) | Media;
   };
   categories?:
     | {
@@ -803,7 +1012,7 @@ export interface Search {
  * via the `definition` "payload-jobs".
  */
 export interface PayloadJob {
-  id: string;
+  id: number;
   /**
    * Input data provided to the job
    */
@@ -895,52 +1104,64 @@ export interface PayloadJob {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'pages';
-        value: string | Page;
+        value: number | Page;
       } | null)
     | ({
         relationTo: 'posts';
-        value: string | Post;
+        value: number | Post;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
       } | null)
     | ({
         relationTo: 'categories';
-        value: string | Category;
+        value: number | Category;
       } | null)
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: number | Product;
+      } | null)
+    | ({
+        relationTo: 'industries';
+        value: number | Industry;
+      } | null)
+    | ({
+        relationTo: 'case-studies';
+        value: number | CaseStudy;
       } | null)
     | ({
         relationTo: 'redirects';
-        value: string | Redirect;
+        value: number | Redirect;
       } | null)
     | ({
         relationTo: 'forms';
-        value: string | Form;
+        value: number | Form;
       } | null)
     | ({
         relationTo: 'form-submissions';
-        value: string | FormSubmission;
+        value: number | FormSubmission;
       } | null)
     | ({
         relationTo: 'search';
-        value: string | Search;
+        value: number | Search;
       } | null)
     | ({
         relationTo: 'payload-jobs';
-        value: string | PayloadJob;
+        value: number | PayloadJob;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -950,10 +1171,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -973,7 +1194,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -1120,10 +1341,26 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  heroImage?: T;
+  type?: T;
+  featured?: T;
+  description?: T;
+  featuredImage?: T;
   content?: T;
-  relatedPosts?: T;
-  categories?: T;
+  category?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  relatedProducts?: T;
+  relatedServices?:
+    | T
+    | {
+        service?: T;
+        id?: T;
+      };
+  industries?: T;
   meta?:
     | T
     | {
@@ -1132,13 +1369,7 @@ export interface PostsSelect<T extends boolean = true> {
         description?: T;
       };
   publishedAt?: T;
-  authors?: T;
-  populatedAuthors?:
-    | T
-    | {
-        id?: T;
-        name?: T;
-      };
+  author?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -1243,9 +1474,21 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "categories_select".
  */
 export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
+  name?: T;
+  description?: T;
+  image?: T;
   slug?: T;
   slugLock?: T;
+  featuredProducts?: T;
+  applications?:
+    | T
+    | {
+        imageSrc?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  productComparison?: T;
   parent?: T;
   breadcrumbs?:
     | T
@@ -1273,6 +1516,177 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  chemicalName?: T;
+  keyProperties?:
+    | T
+    | {
+        property?: T;
+        id?: T;
+      };
+  useCases?:
+    | T
+    | {
+        name?: T;
+        id?: T;
+      };
+  synonyms?:
+    | T
+    | {
+        synonym?: T;
+        id?: T;
+      };
+  chemicalStructureImage?: T;
+  casNumber?: T;
+  ecNumber?: T;
+  molecularFormula?: T;
+  molecularWeight?: T;
+  VupSpecifications?:
+    | T
+    | {
+        appearance?: T;
+        purity?: T;
+        acidValue?: T;
+        hydroxylValue?: T;
+        waterContent?: T;
+        ashContent?: T;
+        meltingPoint?: T;
+        boilingPoint?: T;
+        density?: T;
+        solubility?: T;
+      };
+  challenges?:
+    | T
+    | {
+        challenge?: T;
+        id?: T;
+      };
+  'chemicalFamily (Category)'?:
+    | T
+    | {
+        family?: T;
+        id?: T;
+      };
+  benefits?:
+    | T
+    | {
+        benefit?: T;
+        id?: T;
+      };
+  labVerified?: T;
+  categories?:
+    | T
+    | {
+        category?: T;
+        id?: T;
+      };
+  industries?:
+    | T
+    | {
+        industry?: T;
+        id?: T;
+      };
+  applications?:
+    | T
+    | {
+        application?: T;
+        id?: T;
+      };
+  caseStudies?:
+    | T
+    | {
+        study?: T;
+        id?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "industries_select".
+ */
+export interface IndustriesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  featuredImage?: T;
+  keyProducts?: T;
+  productCategories?: T;
+  services?:
+    | T
+    | {
+        service?: T;
+        id?: T;
+      };
+  challenges?:
+    | T
+    | {
+        title?: T;
+        challenge?: T;
+        solution?: T;
+        image?: T;
+        challengeLink?: T;
+        relatedProducts?: T;
+        relatedServices?:
+          | T
+          | {
+              service?: T;
+              id?: T;
+            };
+        caseStudies?:
+          | T
+          | {
+              caseStudy?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies_select".
+ */
+export interface CaseStudiesSelect<T extends boolean = true> {
+  title?: T;
+  featured?: T;
+  summary?: T;
+  featuredImage?: T;
+  challenge?: T;
+  solution?: T;
+  results?: T;
+  industry?: T;
+  relatedProducts?: T;
+  relatedServices?:
+    | T
+    | {
+        service?: T;
+        id?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1355,6 +1769,7 @@ export interface FormsSelect<T extends boolean = true> {
               label?: T;
               width?: T;
               defaultValue?: T;
+              placeholder?: T;
               options?:
                 | T
                 | {
@@ -1532,7 +1947,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  * via the `definition` "header".
  */
 export interface Header {
-  id: string;
+  id: number;
   navItems?:
     | {
         link: {
@@ -1541,11 +1956,11 @@ export interface Header {
           reference?:
             | ({
                 relationTo: 'pages';
-                value: string | Page;
+                value: number | Page;
               } | null)
             | ({
                 relationTo: 'posts';
-                value: string | Post;
+                value: number | Post;
               } | null);
           url?: string | null;
           label: string;
@@ -1561,7 +1976,7 @@ export interface Header {
  * via the `definition` "footer".
  */
 export interface Footer {
-  id: string;
+  id: number;
   navItems?:
     | {
         link: {
@@ -1570,11 +1985,11 @@ export interface Footer {
           reference?:
             | ({
                 relationTo: 'pages';
-                value: string | Page;
+                value: number | Page;
               } | null)
             | ({
                 relationTo: 'posts';
-                value: string | Post;
+                value: number | Post;
               } | null);
           url?: string | null;
           label: string;
@@ -1642,14 +2057,18 @@ export interface TaskSchedulePublish {
     doc?:
       | ({
           relationTo: 'pages';
-          value: string | Page;
+          value: number | Page;
         } | null)
       | ({
           relationTo: 'posts';
-          value: string | Post;
+          value: number | Post;
+        } | null)
+      | ({
+          relationTo: 'case-studies';
+          value: number | CaseStudy;
         } | null);
     global?: string | null;
-    user?: (string | null) | User;
+    user?: (number | null) | User;
   };
   output?: unknown;
 }

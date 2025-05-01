@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
-
+import { authenticated } from '../../access/authenticated'
+import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
+import { slugField } from '@/fields/slug'
 import {
   BlocksFeature,
   FixedToolbarFeature,
@@ -8,16 +10,9 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-
-import { authenticated } from '../../access/authenticated'
-import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { populateAuthors } from './hooks/populateAuthors'
-import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
-
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -25,60 +20,24 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { slugField } from '@/fields/slug'
 
-export const Posts: CollectionConfig<'posts'> = {
-  slug: 'posts',
+export const CaseStudies: CollectionConfig = {
+  slug: 'case-studies',
   access: {
     create: authenticated,
     delete: authenticated,
     read: authenticatedOrPublished,
     update: authenticated,
   },
-  defaultPopulate: {
-    title: true,
-    slug: true,
-    category: true,
-    meta: {
-      image: true,
-      description: true,
-    },
-  },
   admin: {
-    defaultColumns: ['title', 'type', 'category', 'publishedAt', 'updatedAt'],
-    livePreview: {
-      url: ({ data, req }) => {
-        const path = generatePreviewPath({
-          slug: typeof data?.slug === 'string' ? data.slug : '',
-          collection: 'posts',
-          req,
-        })
-        return path
-      },
-    },
-    preview: (data, { req }) =>
-      generatePreviewPath({
-        slug: typeof data?.slug === 'string' ? data.slug : '',
-        collection: 'posts',
-        req,
-      }),
     useAsTitle: 'title',
+    defaultColumns: ['title', 'industry', 'publishedAt'],
   },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
-    },
-    {
-      name: 'type',
-      type: 'select',
-      required: true,
-      options: [
-        { label: 'News', value: 'news' },
-        { label: 'Research', value: 'research' },
-        { label: 'Case Study', value: 'case-study' },
-      ],
     },
     {
       name: 'featured',
@@ -92,7 +51,7 @@ export const Posts: CollectionConfig<'posts'> = {
           label: 'Content',
           fields: [
             {
-              name: 'description',
+              name: 'summary',
               type: 'textarea',
               required: true,
             },
@@ -103,7 +62,12 @@ export const Posts: CollectionConfig<'posts'> = {
               required: true,
             },
             {
-              name: 'content',
+              name: 'challenge',
+              type: 'textarea',
+              required: true,
+            },
+            {
+              name: 'solution',
               type: 'richText',
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
@@ -118,27 +82,22 @@ export const Posts: CollectionConfig<'posts'> = {
                 },
               }),
             },
+            {
+              name: 'results',
+              type: 'textarea',
+              required: true,
+            },
           ],
         },
         {
-          label: 'Taxonomy & Relations',
+          label: 'Relations',
           fields: [
             {
-              name: 'category',
+              name: 'industry',
               type: 'relationship',
-              relationTo: 'categories',
+              relationTo: 'industries',
               required: true,
               hasMany: false,
-            },
-            {
-              name: 'tags',
-              type: 'array',
-              fields: [
-                {
-                  name: 'tag',
-                  type: 'text',
-                },
-              ],
             },
             {
               name: 'relatedProducts',
@@ -155,12 +114,6 @@ export const Posts: CollectionConfig<'posts'> = {
                   type: 'text',
                 },
               ],
-            },
-            {
-              name: 'industries',
-              type: 'relationship',
-              relationTo: 'industries',
-              hasMany: true,
             },
           ],
         },
@@ -209,20 +162,8 @@ export const Posts: CollectionConfig<'posts'> = {
         ],
       },
     },
-    {
-      name: 'author',
-      type: 'relationship',
-      relationTo: 'users',
-      hasMany: false,
-      required: true,
-    },
     ...slugField(),
   ],
-  hooks: {
-    afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
-    afterDelete: [revalidateDelete],
-  },
   versions: {
     drafts: {
       autosave: {
