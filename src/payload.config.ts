@@ -6,7 +6,7 @@ import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
-import { Categories } from './collections/Categories'
+import { ProductCategories } from './collections/ProductCategories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -69,7 +69,7 @@ export default buildConfig({
   }),
 
   //* -------- COLLECTIONS -------- *//
-  collections: [Pages, Posts, Media, Categories, Users, Products, Industries, CaseStudies],
+  collections: [Pages, Posts, Media, ProductCategories, Users, Products, Industries, CaseStudies],
   //* -------- /COLLECTIONS -------- *//
 
   cors: [getServerSideURL()].filter(Boolean),

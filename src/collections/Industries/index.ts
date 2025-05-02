@@ -42,7 +42,7 @@ export const Industries: CollectionConfig = {
     {
       name: 'productCategories',
       type: 'relationship',
-      relationTo: 'categories',
+      relationTo: 'productCategories',
       hasMany: true,
     },
     {

@@ -70,7 +70,7 @@ export interface Config {
     pages: Page;
     posts: Post;
     media: Media;
-    categories: Category;
+    productCategories: ProductCategory;
     users: User;
     products: Product;
     industries: Industry;
@@ -89,7 +89,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    productCategories: ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
@@ -234,7 +234,6 @@ export interface Page {
     | CallToActionBlock
     | ContentBlock
     | MediaBlock
-    | ArchiveBlock
     | FormBlock
     | QuickAccessBlock
     | ProductShowcaseBlock
@@ -374,7 +373,6 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  category: number | Category;
   tags?:
     | {
         tag?: string | null;
@@ -404,39 +402,6 @@ export interface Post {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  name: string;
-  description: string;
-  image: number | Media;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  featuredProducts?: (number | Product)[] | null;
-  applications?:
-    | {
-        imageSrc: number | Media;
-        title: string;
-        description: string;
-        id?: string | null;
-      }[]
-    | null;
-  productComparison?: boolean | null;
-  parent?: (number | null) | Category;
-  breadcrumbs?:
-    | {
-        doc?: (number | null) | Category;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -532,7 +497,7 @@ export interface Industry {
   description: string;
   featuredImage: number | Media;
   keyProducts?: (number | Product)[] | null;
-  productCategories?: (number | Category)[] | null;
+  productCategories?: (number | ProductCategory)[] | null;
   services?:
     | {
         service?: string | null;
@@ -564,6 +529,30 @@ export interface Industry {
     | null;
   slug?: string | null;
   slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "productCategories".
+ */
+export interface ProductCategory {
+  id: number;
+  name: string;
+  description: string;
+  image: number | Media;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  featuredProducts?: (number | Product)[] | null;
+  applications?:
+    | {
+        imageSrc: number | Media;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  productComparison?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -692,40 +681,6 @@ export interface MediaBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock".
- */
-export interface ArchiveBlock {
-  introContent?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posts' | null;
-  categories?: (number | Category)[] | null;
-  limit?: number | null;
-  selectedDocs?:
-    | {
-        relationTo: 'posts';
-        value: number | Post;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'archive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1357,8 +1312,8 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
-        relationTo: 'categories';
-        value: number | Category;
+        relationTo: 'productCategories';
+        value: number | ProductCategory;
       } | null)
     | ({
         relationTo: 'users';
@@ -1516,7 +1471,6 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
-        archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         quickAccess?: T | QuickAccessBlockSelect<T>;
         productShowcase?: T | ProductShowcaseBlockSelect<T>;
@@ -1593,20 +1547,6 @@ export interface ContentBlockSelect<T extends boolean = true> {
  */
 export interface MediaBlockSelect<T extends boolean = true> {
   media?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock_select".
- */
-export interface ArchiveBlockSelect<T extends boolean = true> {
-  introContent?: T;
-  populateBy?: T;
-  relationTo?: T;
-  categories?: T;
-  limit?: T;
-  selectedDocs?: T;
   id?: T;
   blockName?: T;
 }
@@ -1785,7 +1725,6 @@ export interface PostsSelect<T extends boolean = true> {
   description?: T;
   featuredImage?: T;
   content?: T;
-  category?: T;
   tags?:
     | T
     | {
@@ -1910,9 +1849,9 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
+ * via the `definition` "productCategories_select".
  */
-export interface CategoriesSelect<T extends boolean = true> {
+export interface ProductCategoriesSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   image?: T;
@@ -1928,15 +1867,6 @@ export interface CategoriesSelect<T extends boolean = true> {
         id?: T;
       };
   productComparison?: T;
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
-      };
   updatedAt?: T;
   createdAt?: T;
 }

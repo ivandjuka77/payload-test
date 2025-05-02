@@ -38,14 +38,13 @@ export const Posts: CollectionConfig<'posts'> = {
   defaultPopulate: {
     title: true,
     slug: true,
-    category: true,
     meta: {
       image: true,
       description: true,
     },
   },
   admin: {
-    defaultColumns: ['title', 'type', 'category', 'publishedAt', 'updatedAt'],
+    defaultColumns: ['title', 'type', 'publishedAt', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) => {
         const path = generatePreviewPath({
@@ -123,13 +122,6 @@ export const Posts: CollectionConfig<'posts'> = {
         {
           label: 'Taxonomy & Relations',
           fields: [
-            {
-              name: 'category',
-              type: 'relationship',
-              relationTo: 'categories',
-              required: true,
-              hasMany: false,
-            },
             {
               name: 'tags',
               type: 'array',
