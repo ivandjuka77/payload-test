@@ -9,6 +9,7 @@ import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { CarouselHero } from '@/blocks/CarouselHero/config'
 import { QuickAccess } from '@/blocks/QuickAccess/config'
+import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -77,7 +78,15 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, QuickAccess],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                QuickAccess,
+                ProductShowcaseBlock,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

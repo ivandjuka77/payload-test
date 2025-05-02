@@ -230,7 +230,53 @@ export interface Page {
         }[]
       | null;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | QuickAccessBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | QuickAccessBlock
+    | {
+        title: string;
+        description: string;
+        products: {
+          product: number | Product;
+          id?: string | null;
+        }[];
+        cta?: {
+          title?: string | null;
+          description?: string | null;
+          links?:
+            | {
+                link: {
+                  type?: ('reference' | 'custom') | null;
+                  newTab?: boolean | null;
+                  reference?:
+                    | ({
+                        relationTo: 'pages';
+                        value: number | Page;
+                      } | null)
+                    | ({
+                        relationTo: 'posts';
+                        value: number | Post;
+                      } | null);
+                  url?: string | null;
+                  label: string;
+                  /**
+                   * Choose how the link should be rendered.
+                   */
+                  appearance?: ('default' | 'outline') | null;
+                };
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'productShowcase';
+      }
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -1357,6 +1403,41 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         quickAccess?: T | QuickAccessBlockSelect<T>;
+        productShowcase?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              products?:
+                | T
+                | {
+                    product?: T;
+                    id?: T;
+                  };
+              cta?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    links?:
+                      | T
+                      | {
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                                appearance?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T

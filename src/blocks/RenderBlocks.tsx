@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
@@ -8,6 +8,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { QuickAccessSection } from '@/blocks/QuickAccess/Component'
+import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -16,6 +17,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   quickAccess: QuickAccessSection,
+  productShowcase: ProductShowcaseBlock,
 }
 
 export const RenderBlocks: React.FC<{
