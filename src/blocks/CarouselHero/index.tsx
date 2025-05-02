@@ -1,10 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
-import { Atom, ChevronRight, MoveRight } from 'lucide-react'
+import { Atom, ChevronRight } from 'lucide-react'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
@@ -278,7 +276,7 @@ export const CarouselHero: React.FC<Page['carouselHero']> = (props) => {
               </div>
 
               {/* Slide Content */}
-              <div className="container relative z-20 h-full flex flex-col justify-between px-4 md:px-6 py-12">
+              <div className="container relative z-20 h-full flex flex-col justify-between px-4 md:px-6 pb-12 pt-20">
                 {/* Top Section - Two Columns on Desktop */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-6">
                   {/* Left Column - Main Content */}
