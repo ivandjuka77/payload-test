@@ -221,7 +221,16 @@ export const Products: CollectionConfig = {
         },
       ],
     },
-    ...slugField(),
+    ...slugField('name'),
   ],
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 100,
+      },
+      schedulePublish: true,
+    },
+    maxPerDoc: 50,
+  },
   timestamps: true,
 }
