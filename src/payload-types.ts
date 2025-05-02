@@ -239,6 +239,7 @@ export interface Page {
     | QuickAccessBlock
     | ProductShowcaseBlock
     | CareerBlock
+    | SustainabilityBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1058,6 +1059,71 @@ export interface CareerBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sustainabilityBlock".
+ */
+export interface SustainabilityBlock {
+  title: string;
+  subtitle?: string | null;
+  image: number | Media;
+  card: {
+    title: string;
+    description?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+  };
+  features?:
+    | {
+        title: string;
+        content: string;
+        id?: string | null;
+      }[]
+    | null;
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'sustainability';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "case-studies".
  */
 export interface CaseStudy {
@@ -1455,6 +1521,7 @@ export interface PagesSelect<T extends boolean = true> {
         quickAccess?: T | QuickAccessBlockSelect<T>;
         productShowcase?: T | ProductShowcaseBlockSelect<T>;
         career?: T | CareerBlockSelect<T>;
+        sustainability?: T | SustainabilityBlockSelect<T>;
       };
   meta?:
     | T
@@ -1631,6 +1698,51 @@ export interface ProductShowcaseBlockSelect<T extends boolean = true> {
 export interface CareerBlockSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
+  features?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sustainabilityBlock_select".
+ */
+export interface SustainabilityBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  image?: T;
+  card?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   features?:
     | T
     | {

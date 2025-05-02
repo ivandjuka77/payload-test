@@ -10,6 +10,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { QuickAccessSection } from '@/blocks/QuickAccess/Component'
 import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/Component'
 import { CareerSection } from '@/blocks/Career/Component'
+import { SustainabilitySection } from '@/blocks/SustainabilitySection/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -20,6 +21,7 @@ const blockComponents = {
   quickAccess: QuickAccessSection,
   productShowcase: ProductShowcaseBlock,
   career: CareerSection,
+  sustainability: SustainabilitySection,
 }
 
 export const RenderBlocks: React.FC<{

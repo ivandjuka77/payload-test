@@ -11,6 +11,7 @@ import { CarouselHero } from '@/blocks/CarouselHero/config'
 import { QuickAccess } from '@/blocks/QuickAccess/config'
 import { ProductShowcase } from '@/blocks/ProductShowcase/config'
 import { Career } from '@/blocks/Career/config'
+import { Sustainability } from '@/blocks/SustainabilitySection/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -88,6 +89,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 QuickAccess,
                 ProductShowcase,
                 Career,
+                Sustainability,
               ],
               required: true,
               admin: {
