@@ -13,10 +13,6 @@ import {
   Zap,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { ProductShowcaseBlock as ProductShowcaseBlockType } from '@/payload-types'
-
-// Update the variant type
-type VariantType = 'modern' | 'bold' | 'detailed'
 
 interface ProductCategoryProps {
   title: string
@@ -26,7 +22,7 @@ interface ProductCategoryProps {
   href: string
   useCases: Array<{ icon: React.ReactNode; name: string }>
   index: number
-  variant: VariantType
+  variant: 'modern' | 'bold' | 'detailed'
 }
 
 function ProductCategory({
@@ -148,12 +144,7 @@ function ProductCategory({
   )
 }
 
-export const ProductShowcaseBlock: React.FC<ProductShowcaseBlockType> = ({
-  title,
-  description,
-  products,
-  cta,
-}) => {
+export const ProductShowcaseBlock: React.FC<any> = ({ title, description, products, cta }) => {
   const categories = [
     {
       icon: <Flask className="h-6 w-6" />,
@@ -224,7 +215,7 @@ export const ProductShowcaseBlock: React.FC<ProductShowcaseBlockType> = ({
               </h3>
               <p className="font-secondary text-white/90 text-lg">{cta?.description}</p>
             </div>
-            {(cta?.links || []).map(({ link }, i) => {
+            {(cta?.links || []).map(({ link }: any, i: number) => {
               return (
                 <Button
                   key={i}
