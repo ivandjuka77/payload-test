@@ -1,13 +1,9 @@
 import { linkGroup } from '@/fields/linkGroup'
-import type { Block } from 'payload'
+import { Block } from 'payload'
 
-export const ProductShowcase: Block = {
-  slug: 'productShowcase',
-  interfaceName: 'ProductShowcaseBlock',
-  labels: {
-    singular: 'Product Showcase',
-    plural: 'Product Showcases',
-  },
+export const Career: Block = {
+  slug: 'career',
+  interfaceName: 'CareerBlock',
   fields: [
     {
       name: 'title',
@@ -15,19 +11,23 @@ export const ProductShowcase: Block = {
       required: true,
     },
     {
-      name: 'description',
-      type: 'textarea',
+      name: 'subtitle',
+      type: 'text',
       required: true,
     },
     {
-      name: 'products',
+      name: 'features',
       type: 'array',
       required: true,
       fields: [
         {
-          name: 'product',
-          type: 'relationship',
-          relationTo: 'products',
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'content',
+          type: 'textarea',
           required: true,
         },
       ],

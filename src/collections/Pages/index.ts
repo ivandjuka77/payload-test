@@ -9,7 +9,8 @@ import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { CarouselHero } from '@/blocks/CarouselHero/config'
 import { QuickAccess } from '@/blocks/QuickAccess/config'
-import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/config'
+import { ProductShowcase } from '@/blocks/ProductShowcase/config'
+import { Career } from '@/blocks/Career/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -85,7 +86,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 Archive,
                 FormBlock,
                 QuickAccess,
-                ProductShowcaseBlock,
+                ProductShowcase,
+                Career,
               ],
               required: true,
               admin: {
