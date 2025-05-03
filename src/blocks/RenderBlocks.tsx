@@ -10,6 +10,8 @@ import { QuickAccessSection } from '@/blocks/QuickAccess/Component'
 import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/Component'
 import { CareerSection } from '@/blocks/Career/Component'
 import { SustainabilitySection } from '@/blocks/SustainabilitySection/Component'
+import { ContentImage } from '@/blocks/ContentImage/Component'
+import { IndustryGrid } from './IndustryShowcase/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -20,6 +22,8 @@ const blockComponents = {
   productShowcase: ProductShowcaseBlock,
   career: CareerSection,
   sustainability: SustainabilitySection,
+  contentImage: ContentImage,
+  industryShowcase: IndustryGrid,
 }
 
 export const RenderBlocks: React.FC<{

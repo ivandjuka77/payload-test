@@ -11,6 +11,8 @@ import { QuickAccess } from '@/blocks/QuickAccess/config'
 import { ProductShowcase } from '@/blocks/ProductShowcase/config'
 import { Career } from '@/blocks/Career/config'
 import { Sustainability } from '@/blocks/SustainabilitySection/config'
+import { ContentImage } from '@/blocks/ContentImage/config'
+import { IndustryShowcase } from '@/blocks/IndustryShowcase/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -88,6 +90,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 ProductShowcase,
                 Career,
                 Sustainability,
+                ContentImage,
+                IndustryShowcase,
               ],
               required: true,
               admin: {

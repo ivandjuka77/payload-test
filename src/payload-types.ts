@@ -239,6 +239,8 @@ export interface Page {
     | ProductShowcaseBlock
     | CareerBlock
     | SustainabilityBlock
+    | ContentImageBlock
+    | IndustryShowcaseBlock
   )[];
   meta?: {
     title?: string | null;
@@ -532,6 +534,7 @@ export interface Industry {
   slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1080,6 +1083,48 @@ export interface SustainabilityBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentImageBlock".
+ */
+export interface ContentImageBlock {
+  title?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contentImage';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IndustryShowcaseBlock".
+ */
+export interface IndustryShowcaseBlock {
+  title: string;
+  subtitle?: string | null;
+  /**
+   * Number of industries to display (1-10)
+   */
+  limit?: number | null;
+  industries: (number | Industry)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'industryShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "case-studies".
  */
 export interface CaseStudy {
@@ -1477,6 +1522,8 @@ export interface PagesSelect<T extends boolean = true> {
         productShowcase?: T | ProductShowcaseBlockSelect<T>;
         career?: T | CareerBlockSelect<T>;
         sustainability?: T | SustainabilityBlockSelect<T>;
+        contentImage?: T | ContentImageBlockSelect<T>;
+        industryShowcase?: T | IndustryShowcaseBlockSelect<T>;
       };
   meta?:
     | T
@@ -1712,6 +1759,29 @@ export interface SustainabilityBlockSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentImageBlock_select".
+ */
+export interface ContentImageBlockSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IndustryShowcaseBlock_select".
+ */
+export interface IndustryShowcaseBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  limit?: T;
+  industries?: T;
   id?: T;
   blockName?: T;
 }
@@ -2024,6 +2094,7 @@ export interface IndustriesSelect<T extends boolean = true> {
   slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

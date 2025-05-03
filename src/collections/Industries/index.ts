@@ -15,6 +15,9 @@ export const Industries: CollectionConfig = {
     useAsTitle: 'name',
     defaultColumns: ['name', 'description'],
   },
+  versions: {
+    drafts: true,
+  },
   fields: [
     {
       name: 'name',
