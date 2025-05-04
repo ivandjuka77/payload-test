@@ -19,6 +19,8 @@ import { getServerSideURL } from './utilities/getURL'
 import { Products } from './collections/Products'
 import { Industries } from './collections/Industries'
 import { CaseStudies } from './collections/CaseStudies'
+import { Services } from './collections/Services'
+import { TeamMembers } from './collections/TeamMembers'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -69,7 +71,18 @@ export default buildConfig({
   }),
 
   //* -------- COLLECTIONS -------- *//
-  collections: [Pages, Posts, Media, ProductCategories, Users, Products, Industries, CaseStudies],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    ProductCategories,
+    Users,
+    Products,
+    Industries,
+    CaseStudies,
+    Services,
+    TeamMembers,
+  ],
   //* -------- /COLLECTIONS -------- *//
 
   cors: [getServerSideURL()].filter(Boolean),

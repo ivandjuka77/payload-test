@@ -22,7 +22,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 
 export const CaseStudies: CollectionConfig = {
-  slug: 'case-studies',
+  slug: 'caseStudies',
   access: {
     create: authenticated,
     delete: authenticated,

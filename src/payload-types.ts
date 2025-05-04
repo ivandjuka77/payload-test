@@ -74,7 +74,9 @@ export interface Config {
     users: User;
     products: Product;
     industries: Industry;
-    'case-studies': CaseStudy;
+    caseStudies: CaseStudy;
+    services: Service;
+    teamMembers: TeamMember;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -93,7 +95,9 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
-    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
+    caseStudies: CaseStudiesSelect<false> | CaseStudiesSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    teamMembers: TeamMembersSelect<false> | TeamMembersSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -1125,7 +1129,7 @@ export interface IndustryShowcaseBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies".
+ * via the `definition` "caseStudies".
  */
 export interface CaseStudy {
   id: number;
@@ -1172,6 +1176,86 @@ export interface CaseStudy {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  title: string;
+  description: string;
+  featuredImage: number | Media;
+  services?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  features?:
+    | {
+        feature?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  team?: (number | TeamMember)[] | null;
+  subServices?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        image: number | Media;
+        displayItems?:
+          | {
+              title?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        features?:
+          | {
+              feature?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  caseStudies?: (number | CaseStudy)[] | null;
+  industries?: (number | Industry)[] | null;
+  accreditation?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teamMembers".
+ */
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  bio?: string | null;
+  image: number | Media;
+  /**
+   * LinkedIn profile URL
+   */
+  linkedin?: string | null;
+  email?: string | null;
+  isHeadOfDepartment?: boolean | null;
+  department?: (number | null) | Service;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1374,8 +1458,16 @@ export interface PayloadLockedDocument {
         value: number | Industry;
       } | null)
     | ({
-        relationTo: 'case-studies';
+        relationTo: 'caseStudies';
         value: number | CaseStudy;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'teamMembers';
+        value: number | TeamMember;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -2098,7 +2190,7 @@ export interface IndustriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies_select".
+ * via the `definition` "caseStudies_select".
  */
 export interface CaseStudiesSelect<T extends boolean = true> {
   title?: T;
@@ -2129,6 +2221,81 @@ export interface CaseStudiesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  featuredImage?: T;
+  services?:
+    | T
+    | {
+        service?: T;
+        id?: T;
+      };
+  features?:
+    | T
+    | {
+        feature?: T;
+        description?: T;
+        id?: T;
+      };
+  team?: T;
+  subServices?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        displayItems?:
+          | T
+          | {
+              title?: T;
+              id?: T;
+            };
+        features?:
+          | T
+          | {
+              feature?: T;
+              description?: T;
+              id?: T;
+            };
+        link?: T;
+        id?: T;
+      };
+  caseStudies?: T;
+  industries?: T;
+  accreditation?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teamMembers_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  bio?: T;
+  image?: T;
+  linkedin?: T;
+  email?: T;
+  isHeadOfDepartment?: T;
+  department?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2510,7 +2677,7 @@ export interface TaskSchedulePublish {
           value: number | Product;
         } | null)
       | ({
-          relationTo: 'case-studies';
+          relationTo: 'caseStudies';
           value: number | CaseStudy;
         } | null);
     global?: string | null;
