@@ -140,14 +140,10 @@ export const Products: CollectionConfig = {
       ],
     },
     {
-      name: 'chemicalFamily (Category)',
-      type: 'array',
-      fields: [
-        {
-          name: 'family',
-          type: 'text',
-        },
-      ],
+      name: 'chemicalFamily',
+      type: 'relationship',
+      relationTo: 'productCategories',
+      hasMany: true,
     },
     {
       name: 'benefits',
@@ -191,14 +187,9 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'industries',
-      type: 'array',
-      required: true,
-      fields: [
-        {
-          name: 'industry',
-          type: 'text',
-        },
-      ],
+      type: 'relationship',
+      relationTo: 'industries',
+      hasMany: true,
     },
     {
       name: 'applications',
@@ -213,13 +204,9 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'caseStudies',
-      type: 'array',
-      fields: [
-        {
-          name: 'study',
-          type: 'text',
-        },
-      ],
+      type: 'relationship',
+      relationTo: 'caseStudies',
+      hasMany: true,
     },
     ...slugField('name'),
   ],
@@ -230,7 +217,6 @@ export const Products: CollectionConfig = {
       },
       schedulePublish: true,
     },
-    maxPerDoc: 50,
   },
   timestamps: true,
 }

@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload'
-import { Media } from '../Media'
 import { authenticated } from '../../access/authenticated'
+
 export const TeamMembers: CollectionConfig = {
   slug: 'teamMembers',
   admin: {

@@ -459,12 +459,7 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
-  'chemicalFamily (Category)'?:
-    | {
-        family?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  chemicalFamily?: (number | ProductCategory)[] | null;
   benefits: {
     benefit?: string | null;
     id?: string | null;
@@ -474,66 +469,12 @@ export interface Product {
     category?: string | null;
     id?: string | null;
   }[];
-  industries: {
-    industry?: string | null;
-    id?: string | null;
-  }[];
+  industries?: (number | Industry)[] | null;
   applications: {
     application?: string | null;
     id?: string | null;
   }[];
-  caseStudies?:
-    | {
-        study?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "industries".
- */
-export interface Industry {
-  id: number;
-  name: string;
-  description: string;
-  featuredImage: number | Media;
-  keyProducts?: (number | Product)[] | null;
-  productCategories?: (number | ProductCategory)[] | null;
-  services?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  challenges?:
-    | {
-        title: string;
-        challenge: string;
-        solution: string;
-        image: number | Media;
-        challengeLink?: string | null;
-        relatedProducts?: (number | Product)[] | null;
-        relatedServices?:
-          | {
-              service?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        caseStudies?:
-          | {
-              caseStudy?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
+  caseStudies?: (number | CaseStudy)[] | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -563,6 +504,167 @@ export interface ProductCategory {
   productComparison?: boolean | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "industries".
+ */
+export interface Industry {
+  id: number;
+  name: string;
+  description: string;
+  featuredImage: number | Media;
+  keyProducts?: (number | Product)[] | null;
+  productCategories?: (number | ProductCategory)[] | null;
+  services?: (number | Service)[] | null;
+  challenges?:
+    | {
+        title: string;
+        challenge: string;
+        solution: string;
+        image: number | Media;
+        challengeLink?: string | null;
+        relatedProducts?: (number | Product)[] | null;
+        relatedServices?: (number | Service)[] | null;
+        caseStudies?: (number | CaseStudy)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  title: string;
+  description: string;
+  featuredImage: number | Media;
+  services?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  features?:
+    | {
+        feature?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  team?: (number | TeamMember)[] | null;
+  subServices?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        image: number | Media;
+        displayItems?:
+          | {
+              title?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        features?:
+          | {
+              feature?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  caseStudies?: (number | CaseStudy)[] | null;
+  industries?: (number | Industry)[] | null;
+  accreditation?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teamMembers".
+ */
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  bio?: string | null;
+  image: number | Media;
+  /**
+   * LinkedIn profile URL
+   */
+  linkedin?: string | null;
+  email?: string | null;
+  isHeadOfDepartment?: boolean | null;
+  department?: (number | null) | Service;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "caseStudies".
+ */
+export interface CaseStudy {
+  id: number;
+  title: string;
+  featured?: boolean | null;
+  summary: string;
+  featuredImage: number | Media;
+  challenge: string;
+  solution?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  results: string;
+  industry: number | Industry;
+  relatedProducts?: (number | Product)[] | null;
+  relatedServices?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1126,136 +1228,6 @@ export interface IndustryShowcaseBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'industryShowcase';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "caseStudies".
- */
-export interface CaseStudy {
-  id: number;
-  title: string;
-  featured?: boolean | null;
-  summary: string;
-  featuredImage: number | Media;
-  challenge: string;
-  solution?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  results: string;
-  industry: number | Industry;
-  relatedProducts?: (number | Product)[] | null;
-  relatedServices?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "services".
- */
-export interface Service {
-  id: number;
-  title: string;
-  description: string;
-  featuredImage: number | Media;
-  services?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  features?:
-    | {
-        feature?: string | null;
-        description?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  team?: (number | TeamMember)[] | null;
-  subServices?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        image: number | Media;
-        displayItems?:
-          | {
-              title?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        features?:
-          | {
-              feature?: string | null;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        link?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  caseStudies?: (number | CaseStudy)[] | null;
-  industries?: (number | Industry)[] | null;
-  accreditation?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "teamMembers".
- */
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  bio?: string | null;
-  image: number | Media;
-  /**
-   * LinkedIn profile URL
-   */
-  linkedin?: string | null;
-  email?: string | null;
-  isHeadOfDepartment?: boolean | null;
-  department?: (number | null) | Service;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2100,12 +2072,7 @@ export interface ProductsSelect<T extends boolean = true> {
         challenge?: T;
         id?: T;
       };
-  'chemicalFamily (Category)'?:
-    | T
-    | {
-        family?: T;
-        id?: T;
-      };
+  chemicalFamily?: T;
   benefits?:
     | T
     | {
@@ -2119,24 +2086,14 @@ export interface ProductsSelect<T extends boolean = true> {
         category?: T;
         id?: T;
       };
-  industries?:
-    | T
-    | {
-        industry?: T;
-        id?: T;
-      };
+  industries?: T;
   applications?:
     | T
     | {
         application?: T;
         id?: T;
       };
-  caseStudies?:
-    | T
-    | {
-        study?: T;
-        id?: T;
-      };
+  caseStudies?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -2153,12 +2110,7 @@ export interface IndustriesSelect<T extends boolean = true> {
   featuredImage?: T;
   keyProducts?: T;
   productCategories?: T;
-  services?:
-    | T
-    | {
-        service?: T;
-        id?: T;
-      };
+  services?: T;
   challenges?:
     | T
     | {
@@ -2168,18 +2120,8 @@ export interface IndustriesSelect<T extends boolean = true> {
         image?: T;
         challengeLink?: T;
         relatedProducts?: T;
-        relatedServices?:
-          | T
-          | {
-              service?: T;
-              id?: T;
-            };
-        caseStudies?:
-          | T
-          | {
-              caseStudy?: T;
-              id?: T;
-            };
+        relatedServices?: T;
+        caseStudies?: T;
         id?: T;
       };
   slug?: T;

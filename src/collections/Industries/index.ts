@@ -50,13 +50,9 @@ export const Industries: CollectionConfig = {
     },
     {
       name: 'services',
-      type: 'array',
-      fields: [
-        {
-          name: 'service',
-          type: 'text',
-        },
-      ],
+      type: 'relationship',
+      relationTo: 'services',
+      hasMany: true,
     },
     {
       name: 'challenges',
@@ -95,23 +91,15 @@ export const Industries: CollectionConfig = {
         },
         {
           name: 'relatedServices',
-          type: 'array',
-          fields: [
-            {
-              name: 'service',
-              type: 'text',
-            },
-          ],
+          type: 'relationship',
+          relationTo: 'services',
+          hasMany: true,
         },
         {
           name: 'caseStudies',
-          type: 'array',
-          fields: [
-            {
-              name: 'caseStudy',
-              type: 'text',
-            },
-          ],
+          type: 'relationship',
+          relationTo: 'caseStudies',
+          hasMany: true,
         },
       ],
     },
