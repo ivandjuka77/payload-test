@@ -26,7 +26,9 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex flex-col items-start space-y-1 justify-between mb-6">
-          <span className="text-sm text-gray-500">CAS: {product.casNumber || '123-45-67'}</span>
+          <span className="text-sm text-gray-500">
+            CAS: {product.technicalSpecifications?.casNumber || '123-45-67'}
+          </span>
           <h3 className="text-2xl font-bold tracking-tight font-primary">{product.name}</h3>
         </div>
 
@@ -39,14 +41,14 @@ export default function ProductCard({ product }: { product: Product }) {
             Key Properties
           </h4>
           <div className="space-y-3 border-l-2 border-primary/20 pl-4">
-            {product.keyProperties?.slice(0, 3).map((value, idx) => (
+            {product.keyFeatures?.slice(0, 3).map((value, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <Check className="h-3.5 w-3.5" />
                 </div>
                 <div>
                   <span className="text-sm font-medium font-secondary text-gray-900">
-                    {value.property}
+                    {value.feature}
                   </span>
                   <div className="h-1 w-12 bg-primary/10 rounded-full mt-1"></div>
                 </div>
@@ -61,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
             Applications & Use Cases
           </h4>
           <div className="grid grid-cols-3 gap-3">
-            {product.useCases?.slice(0, 3).map((useCase, idx) => (
+            {product.applications?.slice(0, 3).map((application, idx) => (
               <div
                 key={idx}
                 className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-24"
@@ -71,7 +73,7 @@ export default function ProductCard({ product }: { product: Product }) {
                   {/* <DynamicIcon name={useCase.icon as any} className='h-5 w-5' /> */}
                 </div>
                 <span className="text-xs text-center font-medium font-secondary line-clamp-2">
-                  {useCase.name}
+                  {application.application}
                 </span>
               </div>
             ))}

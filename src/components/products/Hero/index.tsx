@@ -24,13 +24,16 @@ export function ProductHero({ product }: { product: Product }) {
               </h1>
               <div className="mt-2 space-y-1 text-muted-foreground font-secondary">
                 <p>
-                  <span className="font-medium">Chemical Name:</span> {product.chemicalName}
+                  <span className="font-medium">Chemical Name:</span>{' '}
+                  {product.technicalSpecifications?.chemicalName}
                 </p>
                 <p>
-                  <span className="font-medium">Molecular Formula:</span> {product.molecularFormula}
+                  <span className="font-medium">Molecular Formula:</span>{' '}
+                  {product.technicalSpecifications?.molecularFormula}
                 </p>
                 <p>
-                  <span className="font-medium">CAS Number:</span> {product.casNumber}
+                  <span className="font-medium">CAS Number:</span>{' '}
+                  {product.technicalSpecifications?.casNumber}
                 </p>
               </div>
             </div>

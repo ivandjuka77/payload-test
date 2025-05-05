@@ -19,7 +19,10 @@ export const ProductShowcaseBlock: React.FC<ProductShowcaseBlockProps> = ({
   products,
   cta,
 }) => {
+  console.log('products', products)
   const productsItems = products[0]?.product || []
+
+  console.log('productsItems', productsItems)
 
   if (productsItems.length === 0) {
     return null

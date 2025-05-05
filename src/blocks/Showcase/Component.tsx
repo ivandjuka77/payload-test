@@ -10,7 +10,7 @@ interface ShowcaseProps {
   type: 'product' | 'content' | 'feature'
   title: string
   description: string
-  products?: { product: Product[] }[]
+  products?: Product[]
   contentItems?: { content: Post[] }[]
   features?: { title: string; description: string; media: any }[]
   showCta?: boolean
@@ -31,16 +31,18 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   showCta = true,
   cta,
 }) => {
+  console.log('products', products)
   // Handle different showcase types
   const renderContent = (type: string) => {
     switch (type) {
       case 'product':
-        const productsItems = products?.[0]?.product || []
-        if (productsItems.length === 0) return null
+        if (products?.length === 0) return null
+
+        console.log('products', products)
 
         return (
           <div className="grid gap-8 md:grid-cols-3">
-            {productsItems.map((product: Product, index: number) => (
+            {products?.map((product: Product, index: number) => (
               <ProductCard key={index} product={product} />
             ))}
           </div>

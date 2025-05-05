@@ -1,29 +1,22 @@
 'use client'
 
 import { Card, CardContent } from '@/components/ui/card'
-import { FileText, ShieldCheck, FileBox, Download } from 'lucide-react'
+import { FileText, FileBox, Download } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
 
 export function ProductDetails({ product }: { product: Product }) {
-  // DMPA specific documents
-  const dmpaDocuments = [
+  const technicalDocuments = [
     {
       icon: <FileText className="h-6 w-6 text-primary" />,
       title: 'Technical Data Sheet (TDS)',
-      description:
-        'Complete technical specifications, physical properties, and application information for VUP DMPA.',
-      url: 'https://www.vupas.sk/pictures/cennik/30_45TDS_DMPACAS4767-03-7.pdf',
-      format: 'PDF',
+      description: `Complete technical specifications, physical properties, and application information for ${product.name}`,
     },
     {
-      icon: <ShieldCheck className="h-6 w-6 text-primary" />,
+      icon: <FileText className="h-6 w-6 text-primary" />,
       title: 'Safety Data Sheet (SDS)',
-      description: 'Safety information, handling procedures, and regulatory details for VUP DMPA.',
-      url: '#', // Placeholder for the actual SDS URL
-      format: 'PDF',
+      description: `Safety information, handling procedures, and regulatory details for ${product.name}`,
     },
   ]
 
@@ -64,25 +57,31 @@ export function ProductDetails({ product }: { product: Product }) {
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">Chemical Name</span>
                           <span className="text-sm text-muted-foreground">
-                            3-Hydroxy-2-(hydroxymethyl)-2-methylpropanoic acid
+                            {product.technicalSpecifications?.chemicalName}
                           </span>
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">Synonyms</span>
                           <span className="text-sm text-muted-foreground">
-                            DMPA, 2,2-Bis(hydroxymethyl)propionic acid
+                            {product.technicalSpecifications?.synonyms
+                              ?.map((syn) => syn.synonym)
+                              .join(', ')}
                           </span>
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">CAS Number</span>
-                          <span className="text-sm text-muted-foreground">4767-03-7</span>
+                          <span className="text-sm text-muted-foreground">
+                            {product.technicalSpecifications?.casNumber}
+                          </span>
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">EC Number</span>
-                          <span className="text-sm text-muted-foreground">225-306-3</span>
+                          <span className="text-sm text-muted-foreground">
+                            {product.technicalSpecifications?.ecNumber}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -106,12 +105,9 @@ export function ProductDetails({ product }: { product: Product }) {
                   </div>
                   <Separator className="mb-6" />
                   <div className="grid gap-4">
-                    {dmpaDocuments.map((doc, index) => (
-                      <Link
+                    {technicalDocuments.map((doc, index) => (
+                      <span
                         key={index}
-                        href={doc.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="group flex items-center justify-between p-4 rounded-xl border border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
                       >
                         <div className="flex items-center gap-4">
@@ -128,7 +124,7 @@ export function ProductDetails({ product }: { product: Product }) {
                         <div className="ml-4 p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                           <Download className="h-5 w-5 text-primary group-hover:translate-y-0.5 transition-transform duration-200" />
                         </div>
-                      </Link>
+                      </span>
                     ))}
                   </div>
                 </CardContent>

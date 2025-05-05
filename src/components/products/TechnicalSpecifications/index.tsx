@@ -31,29 +31,31 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                     <TableBody>
                       <TableRow>
                         <TableCell className="font-medium">Chemical Name</TableCell>
-                        <TableCell>{product.chemicalName}</TableCell>
+                        <TableCell>{product.technicalSpecifications?.chemicalName}</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell className="font-medium">Synonyms</TableCell>
                         <TableCell>
-                          {product.synonyms?.map((syn) => syn.synonym).join(', ')}
+                          {product.technicalSpecifications?.synonyms
+                            ?.map((syn) => syn.synonym)
+                            .join(', ')}
                         </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell className="font-medium">CAS Number</TableCell>
-                        <TableCell>{product.casNumber}</TableCell>
+                        <TableCell>{product.technicalSpecifications?.casNumber}</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell className="font-medium">EC Number</TableCell>
-                        <TableCell>{product.ecNumber}</TableCell>
+                        <TableCell>{product.technicalSpecifications?.ecNumber}</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell className="font-medium">Molecular Formula</TableCell>
-                        <TableCell>{product.molecularFormula}</TableCell>
+                        <TableCell>{product.technicalSpecifications?.molecularFormula}</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell className="font-medium">Molecular Weight</TableCell>
-                        <TableCell>{product.molecularWeight}</TableCell>
+                        <TableCell>{product.technicalSpecifications?.molecularWeight}</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>

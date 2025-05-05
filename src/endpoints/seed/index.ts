@@ -478,28 +478,17 @@ export const seed = async ({
         name: 'Dimethylolpropionic Acid (DMPA)',
         description:
           'A unique trifunctional molecule featuring two primary hydroxyl groups and one tertiary carboxylic group, essential for creating high-performance water-soluble alkyds, polyesters, and polyurethane dispersions (PUDs).',
-        chemicalName: '3-Hydroxy-2-(hydroxymethyl)-2-methylpropanoic acid',
-        keyProperties: [
-          { property: 'Enables waterborne formulations' },
-          { property: 'Improves coating properties' },
-          { property: 'Enhances adhesion' },
-          { property: 'High purity & consistency' },
-          { property: 'Versatile reactivity' },
-        ],
-        useCases: [
-          { name: 'Waterborne Coatings' },
-          { name: 'PUDs' },
-          { name: 'Adhesives' },
-          { name: 'Printing Inks' },
-          { name: 'Powder Coatings' },
-          { name: 'Lubricant Additives' },
-        ],
-        synonyms: [{ synonym: '2,2-Bis(hydroxymethyl)propionic acid' }, { synonym: 'DMPA' }],
         chemicalStructureImage: image1Doc.id,
-        casNumber: '4767-03-7',
-        ecNumber: '225-306-3',
-        molecularFormula: 'C₅H₁₀O₄',
-        molecularWeight: '134.13 g/mol',
+        technicalSpecifications: {
+          chemicalName: '3-Hydroxy-2-(hydroxymethyl)-2-methylpropanoic acid',
+          casNumber: '4767-03-7',
+          ecNumber: '225-306-3',
+          synonyms: [{ synonym: '2,2-Bis(hydroxymethyl)propionic acid' }, { synonym: 'DMPA' }],
+          molecularFormula: 'C₅H₁₀O₄',
+          molecularWeight: '134.13 g/mol',
+          labVerified: 'Verified',
+        },
+
         VupSpecifications: {
           appearance: 'White crystalline powder',
           purity: 'min. 98.5 % wt',
@@ -508,29 +497,60 @@ export const seed = async ({
           waterContent: 'max. 0.3 % wt',
           ashContent: 'max. 0.03 % wt',
         },
-        challenges: [{ challenge: 'Concrete Enhancement' }, { challenge: 'Construction Coatings' }],
         chemicalFamily: [hydroxyAcids],
-        benefits: [
-          { benefit: 'Water Solubility / Dispersibility Agent' },
-          { benefit: 'Adhesion Promotion' },
-          { benefit: 'Improved Flexibility' },
-          { benefit: 'Enhanced Gloss' },
-          { benefit: 'Improved Stability (Hydrolytic)' },
-          { benefit: 'Reduced VOC / Waterborne Formulation Enabler' },
-          { benefit: 'Low Toxicity Profile' },
-        ],
-        labVerified: 'Verified',
-        categories: [
+        applications: [
           {
-            category: 'Hydroxy Acids',
+            application: 'Waterborne Coatings (General)',
+            description: 'Enables waterborne formulations',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Polyurethane Dispersions (PUDs)',
+            description: 'Improves coating properties',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Alkyd Resin Coatings',
+            description: 'Enhances adhesion',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polyester Resin Coatings',
+            description: 'Provides versatile reactivity',
+            image: image1Doc.id,
           },
         ],
-        industries: [automotive, coatingsPaintsInks, polymersPlastics],
-        applications: [
-          { application: 'Waterborne Coatings (General)' },
-          { application: 'Polyurethane Dispersions (PUDs)' },
-          { application: 'Alkyd Resin Coatings' },
-          { application: 'Polyester Resin Coatings' },
+        keyFeatures: [
+          {
+            feature: 'Water Solubility / Dispersibility Agent',
+            description: 'Enables waterborne formulations',
+          },
+          { feature: 'Adhesion Promotion', description: 'Improves coating adhesion to substrates' },
+          {
+            feature: 'Improved Flexibility',
+            description: 'Enhances coating flexibility and durability',
+          },
+          { feature: 'Enhanced Gloss', description: 'Provides superior finish quality' },
+          { feature: 'Reduced VOC', description: 'Waterborne formulation enabler' },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What are the main applications for DMPA?',
+            answer:
+              'DMPA is primarily used in waterborne coatings, polyurethane dispersions (PUDs), alkyd resin coatings, and polyester resin coatings.',
+          },
+          {
+            question: 'What makes DMPA unique?',
+            answer:
+              'DMPA is a trifunctional molecule with two primary hydroxyl groups and one tertiary carboxylic group, making it ideal for creating water-soluble polymers.',
+          },
+          {
+            question: 'How does DMPA contribute to VOC reduction?',
+            answer:
+              'DMPA enables the formulation of waterborne coatings, which significantly reduces the need for volatile organic compounds (VOCs) in coating applications.',
+          },
         ],
         slug: 'dmpa',
       },
@@ -542,27 +562,16 @@ export const seed = async ({
         name: 'Dimethylolbutyric Acid (DMBA)',
         description:
           'Enables solvent-free PUD synthesis with improved processing efficiency (lower temperature) and potentially enhanced film resistance.',
-        chemicalName: '2,2-Bis(hydroxymethyl)butyric acid',
-        keyProperties: [
-          { property: 'Enables solvent-free PUD synthesis' },
-          { property: 'Lower processing temperature' },
-          { property: 'Enhanced film resistance' },
-          { property: 'Improved hydrophilicity' },
-          { property: 'High purity (min. 99%)' },
-        ],
-        useCases: [
-          { name: 'Solvent-Free' },
-          { name: 'PUDs' },
-          { name: 'Efficiency' },
-          { name: 'Coatings' },
-          { name: 'Adhesives' },
-        ],
-        synonyms: [{ synonym: '2,2-Bis(hydroxymethyl)butyric acid' }, { synonym: 'DMBA' }],
         chemicalStructureImage: image2Doc.id,
-        casNumber: '10097-02-6',
-        ecNumber: '233-226-5',
-        molecularFormula: 'C₆H₁₂O₄',
-        molecularWeight: '148.16 g/mol',
+        technicalSpecifications: {
+          chemicalName: '2,2-Bis(hydroxymethyl)butyric acid',
+          casNumber: '10097-02-6',
+          ecNumber: '233-226-5',
+          synonyms: [{ synonym: '2,2-Bis(hydroxymethyl)butyric acid' }, { synonym: 'DMBA' }],
+          molecularFormula: 'C₆H₁₂O₄',
+          molecularWeight: '148.16 g/mol',
+          labVerified: 'Verified',
+        },
         VupSpecifications: {
           appearance: 'White crystalline powder',
           purity: 'min. 99.0 % wt',
@@ -571,28 +580,52 @@ export const seed = async ({
           waterContent: 'max. 0.3 % wt',
           ashContent: 'max. 0.03 % wt',
         },
-        challenges: [{ challenge: 'Concrete Enhancement' }, { challenge: 'Construction Coatings' }],
         chemicalFamily: [hydroxyAcids, hinderedAmines],
-        benefits: [
-          { benefit: 'Solvent-Free Processing' },
-          { benefit: 'Lower Processing Temperature' },
-          { benefit: 'Enhanced Film Resistance' },
-          { benefit: 'Improved Hydrophilicity' },
-          { benefit: 'Water Dispersibility Agent' },
-          { benefit: 'Reduced VOC' },
-        ],
-        labVerified: 'Verified',
-        categories: [
+        applications: [
           {
-            category: 'Hydroxy Acids',
+            application: 'Solvent-Free PUDs',
+            description: 'Enables solvent-free processing',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Waterborne Coatings',
+            description: 'Provides water dispersibility',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polyurethane Dispersions',
+            description: 'Enhances film resistance',
+            image: image3Doc.id,
           },
         ],
-        industries: [automotive, coatingsPaintsInks, polymersPlastics],
-        applications: [
-          { application: 'Solvent-Free PUDs' },
-          { application: 'Waterborne Coatings' },
-          { application: 'Low-Temperature Processing' },
-          { application: 'Polyurethane Dispersions' },
+        keyFeatures: [
+          { feature: 'Solvent-Free Processing', description: 'Enables solvent-free PUD synthesis' },
+          {
+            feature: 'Lower Processing Temperature',
+            description: 'Improves manufacturing efficiency',
+          },
+          { feature: 'Enhanced Film Resistance', description: 'Provides superior durability' },
+          { feature: 'Improved Hydrophilicity', description: 'Better water compatibility' },
+          { feature: 'Reduced VOC', description: 'Environmentally friendly formulations' },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'How does DMBA compare to DMPA?',
+            answer:
+              'DMBA offers improved processing efficiency at lower temperatures and potentially enhanced film resistance compared to DMPA.',
+          },
+          {
+            question: 'What are the main applications for DMBA?',
+            answer:
+              'DMBA is primarily used in solvent-free PUDs, waterborne coatings, and polyurethane dispersions requiring enhanced film resistance.',
+          },
+          {
+            question: 'Why choose DMBA for polyurethane dispersions?',
+            answer:
+              'DMBA enables solvent-free PUD synthesis with improved processing efficiency and enhanced film resistance properties.',
+          },
         ],
         slug: 'dmba',
       },
@@ -604,59 +637,78 @@ export const seed = async ({
         name: '3-Hydroxypivalic Acid (HPVA)',
         description:
           'A unique hydroxy acid featuring a neopentyl structure, essential for synthesizing high-performance polyesters and esters with exceptional stability.',
-        chemicalName: '3-Hydroxypivalic Acid',
-        keyProperties: [
-          { property: 'Exceptional stability' },
-          { property: 'Durable polymer building block' },
-          { property: 'Versatile ester intermediate' },
-          { property: 'High purity (min. 98%)' },
-          { property: 'Modifier potential' },
-        ],
-        useCases: [
-          { name: 'Polyester Resins' },
-          { name: 'Powder Coatings' },
-          { name: 'Synthetic Lubricants' },
-          { name: 'Chemical Intermediate' },
-          { name: 'Polymer Modifier' },
-        ],
-        synonyms: [
-          { synonym: 'Hydroxypivalic Acid' },
-          { synonym: '2,2-Dimethyl-3-hydroxypropionic acid' },
-        ],
         chemicalStructureImage: image3Doc.id,
-        casNumber: '4835-90-9',
-        ecNumber: '225-419-8',
-        molecularFormula: 'C₅H₁₀O₃',
-        molecularWeight: '118.13 g/mol',
+        technicalSpecifications: {
+          chemicalName: '3-Hydroxypivalic Acid',
+          casNumber: '4835-90-9',
+          ecNumber: '225-419-8',
+          synonyms: [
+            { synonym: 'Hydroxypivalic Acid' },
+            { synonym: '2,2-Dimethyl-3-hydroxypropionic acid' },
+          ],
+          molecularFormula: 'C₅H₁₀O₃',
+          molecularWeight: '118.13 g/mol',
+          labVerified: 'Verified',
+        },
         VupSpecifications: {
           appearance: 'White crystalline powder/solid',
           purity: 'min. 98.0 % wt',
           meltingPoint: '122 – 124 °C',
         },
-        challenges: [{ challenge: 'Polymer Performance Enhancement' }],
         chemicalFamily: [hydroxyAcids],
-        benefits: [
-          { benefit: 'Enhanced Hydrolytic Stability' },
-          { benefit: 'Improved Thermal Stability' },
-          { benefit: 'Excellent Weather Resistance' },
-          { benefit: 'High Chemical Resistance' },
-          { benefit: 'Durability Enhancement' },
-          { benefit: 'Building Block' },
-          { benefit: 'Good Solubility' },
-          { benefit: 'Low Volatility' },
-        ],
-        labVerified: 'Verified',
-        categories: [
+        applications: [
           {
-            category: 'Hydroxy Acids',
+            application: 'Polyester Resins',
+            description: 'Provides exceptional stability',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Powder Coatings',
+            description: 'Enhances durability',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Coil Coatings',
+            description: 'Improves weather resistance',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Synthetic Lubricants',
+            description: 'Offers thermal stability',
+            image: image1Doc.id,
           },
         ],
-        industries: [automotive, coatingsPaintsInks, polymersPlastics],
-        applications: [
-          { application: 'Polyester Resins' },
-          { application: 'Powder Coatings' },
-          { application: 'Coil Coatings' },
-          { application: 'Synthetic Lubricants' },
+        keyFeatures: [
+          {
+            feature: 'Enhanced Hydrolytic Stability',
+            description: 'Exceptional stability in various conditions',
+          },
+          { feature: 'Improved Thermal Stability', description: 'Withstands high temperatures' },
+          {
+            feature: 'Excellent Weather Resistance',
+            description: 'Durable polymer building block',
+          },
+          { feature: 'High Chemical Resistance', description: 'Resistant to various chemicals' },
+          { feature: 'Low Volatility', description: 'Stable in formulations' },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What makes HPVA unique?',
+            answer:
+              'HPVA features a neopentyl structure that provides exceptional stability in polyesters and esters.',
+          },
+          {
+            question: 'What are the main applications for HPVA?',
+            answer:
+              'HPVA is used in polyester resins, powder coatings, coil coatings, and synthetic lubricants requiring high stability.',
+          },
+          {
+            question: 'Why is HPVA preferred for weather-resistant applications?',
+            answer:
+              'The unique neopentyl structure of HPVA provides excellent weather resistance and durability in outdoor applications.',
+          },
         ],
         slug: 'hpva',
       },

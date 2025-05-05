@@ -46,19 +46,14 @@ export const Showcase: Block = {
     },
     {
       name: 'products',
-      type: 'array',
+      type: 'relationship',
+      relationTo: 'products',
       admin: {
         condition: (_, { type } = {}) => isProductShowcase(type),
       },
-      fields: [
-        {
-          name: 'product',
-          type: 'relationship',
-          relationTo: 'products',
-          hasMany: true,
-          required: true,
-        },
-      ],
+      hasMany: true,
+      required: true,
+      maxDepth: 2,
     },
     {
       name: 'contentItems',

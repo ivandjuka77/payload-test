@@ -14,6 +14,8 @@ import { CaseStudies } from '@/components/products/CaseStudies'
 import { ProductDetails } from '@/components/products/ProductDetails'
 import { FAQ } from '@/components/FAQ'
 import { TypedLocale } from 'payload'
+import { Showcase } from '@/blocks/Showcase/Component'
+import { Product as ProductType } from '@/payload-types'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -61,7 +63,22 @@ export default async function Product({ params: paramsPromise }: Args) {
       <ApplicationsAndIndustries product={product} />
       <CaseStudies product={product} />
       <ProductDetails product={product} />
-      <FAQ product={product} />
+      <FAQ
+        product={product}
+        title="Frequently Asked Questions"
+        description={`Discover answers to common questions about ${product.name}`}
+      />
+      {product.relatedProducts && product.relatedProducts.length > 0 && (
+        <Showcase
+          type="product"
+          contentItems={[]}
+          products={product.relatedProducts as ProductType[]}
+          features={[]}
+          showCta={false}
+          title="Related Products"
+          description="Discover other products that complement your needs"
+        />
+      )}
     </main>
   )
 }

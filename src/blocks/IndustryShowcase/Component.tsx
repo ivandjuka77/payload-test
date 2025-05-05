@@ -2,6 +2,8 @@ import { IndustryCard } from '@/components/IndustryCard'
 import { Industry, IndustryShowcaseBlock } from '@/payload-types'
 
 export const IndustryGrid: React.FC<IndustryShowcaseBlock> = ({ industries, title, subtitle }) => {
+  console.log('industries', industries)
+
   return (
     <section className="container py-16 md:py-20">
       <div className="text-center mb-12">

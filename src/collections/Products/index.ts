@@ -13,13 +13,14 @@ export const Products: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'chemicalName', 'casNumber', 'labVerified'],
+    defaultColumns: ['name', 'chemicalFamily', 'slug'],
   },
   fields: [
     {
       name: 'name',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
@@ -28,38 +29,10 @@ export const Products: CollectionConfig = {
       localized: true,
     },
     {
-      name: 'chemicalName',
-      type: 'text',
-    },
-    {
-      name: 'keyProperties',
-      type: 'array',
-      fields: [
-        {
-          name: 'property',
-          type: 'text',
-        },
-      ],
-    },
-    {
-      name: 'useCases',
-      type: 'array',
-      fields: [
-        {
-          name: 'name',
-          type: 'text',
-        },
-      ],
-    },
-    {
-      name: 'synonyms',
-      type: 'array',
-      fields: [
-        {
-          name: 'synonym',
-          type: 'text',
-        },
-      ],
+      name: 'chemicalFamily',
+      type: 'relationship',
+      relationTo: 'productCategories',
+      hasMany: true,
     },
     {
       name: 'chemicalStructureImage',
@@ -67,22 +40,66 @@ export const Products: CollectionConfig = {
       relationTo: 'media',
       required: true,
     },
+
     {
-      name: 'casNumber',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'ecNumber',
-      type: 'text',
-    },
-    {
-      name: 'molecularFormula',
-      type: 'text',
-    },
-    {
-      name: 'molecularWeight',
-      type: 'text',
+      name: 'technicalSpecifications',
+      interfaceName: 'techSpecs',
+      type: 'group',
+      fields: [
+        {
+          name: 'chemicalName',
+          type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'casNumber',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'ecNumber',
+          type: 'text',
+        },
+        {
+          name: 'synonyms',
+          type: 'array',
+          fields: [
+            {
+              name: 'synonym',
+              type: 'text',
+              localized: true,
+            },
+          ],
+        },
+        {
+          name: 'molecularFormula',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'molecularWeight',
+          type: 'text',
+        },
+        {
+          name: 'labVerified',
+          type: 'select',
+          options: [
+            {
+              label: 'Verified',
+              value: 'Verified',
+            },
+            {
+              label: 'Researched',
+              value: 'Researched',
+            },
+            {
+              label: 'Not Confirmed',
+              value: 'Not Confirmed',
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'VupSpecifications',
@@ -91,6 +108,7 @@ export const Products: CollectionConfig = {
         {
           name: 'appearance',
           type: 'text',
+          localized: true,
         },
         {
           name: 'purity',
@@ -127,70 +145,9 @@ export const Products: CollectionConfig = {
         {
           name: 'solubility',
           type: 'text',
+          localized: true,
         },
       ],
-    },
-    {
-      name: 'challenges',
-      type: 'array',
-      fields: [
-        {
-          name: 'challenge',
-          type: 'text',
-        },
-      ],
-    },
-    {
-      name: 'chemicalFamily',
-      type: 'relationship',
-      relationTo: 'productCategories',
-      hasMany: true,
-    },
-    {
-      name: 'benefits',
-      type: 'array',
-      fields: [
-        {
-          name: 'benefit',
-          type: 'text',
-        },
-      ],
-      required: true,
-    },
-    {
-      name: 'labVerified',
-      type: 'select',
-      options: [
-        {
-          label: 'Verified',
-          value: 'Verified',
-        },
-        {
-          label: 'Researched',
-          value: 'Researched',
-        },
-        {
-          label: 'Not Confirmed',
-          value: 'Not Confirmed',
-        },
-      ],
-    },
-    {
-      name: 'categories',
-      type: 'array',
-      required: true,
-      fields: [
-        {
-          name: 'category',
-          type: 'text',
-        },
-      ],
-    },
-    {
-      name: 'industries',
-      type: 'relationship',
-      relationTo: 'industries',
-      hasMany: true,
     },
     {
       name: 'applications',
@@ -200,6 +157,37 @@ export const Products: CollectionConfig = {
         {
           name: 'application',
           type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'keyFeatures',
+      type: 'array',
+      required: true,
+      fields: [
+        {
+          name: 'feature',
+          type: 'text',
+          localized: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          localized: true,
         },
       ],
     },
@@ -208,6 +196,30 @@ export const Products: CollectionConfig = {
       type: 'relationship',
       relationTo: 'caseStudies',
       hasMany: true,
+    },
+    {
+      name: 'relatedProducts',
+      type: 'relationship',
+      relationTo: 'products',
+      hasMany: true,
+      maxDepth: 3,
+    },
+    {
+      name: 'faq',
+      type: 'array',
+      required: true,
+      fields: [
+        {
+          name: 'question',
+          type: 'text',
+          localized: true,
+        },
+        {
+          name: 'answer',
+          type: 'textarea',
+          localized: true,
+        },
+      ],
     },
     ...slugField('name'),
   ],

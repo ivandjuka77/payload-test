@@ -449,30 +449,9 @@ export interface Product {
   id: number;
   name: string;
   description: string;
-  chemicalName?: string | null;
-  keyProperties?:
-    | {
-        property?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  useCases?:
-    | {
-        name?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  synonyms?:
-    | {
-        synonym?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  chemicalFamily?: (number | ProductCategory)[] | null;
   chemicalStructureImage: number | Media;
-  casNumber: string;
-  ecNumber?: string | null;
-  molecularFormula?: string | null;
-  molecularWeight?: string | null;
+  technicalSpecifications: TechSpecs;
   VupSpecifications?: {
     appearance?: string | null;
     purity?: string | null;
@@ -485,28 +464,24 @@ export interface Product {
     density?: string | null;
     solubility?: string | null;
   };
-  challenges?:
-    | {
-        challenge?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  chemicalFamily?: (number | ProductCategory)[] | null;
-  benefits: {
-    benefit?: string | null;
-    id?: string | null;
-  }[];
-  labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
-  categories: {
-    category?: string | null;
-    id?: string | null;
-  }[];
-  industries?: (number | Industry)[] | null;
   applications: {
-    application?: string | null;
+    application: string;
+    description: string;
+    image: number | Media;
+    id?: string | null;
+  }[];
+  keyFeatures: {
+    feature?: string | null;
+    description?: string | null;
     id?: string | null;
   }[];
   caseStudies?: (number | CaseStudy)[] | null;
+  relatedProducts?: (number | Product)[] | null;
+  faq: {
+    question?: string | null;
+    answer?: string | null;
+    id?: string | null;
+  }[];
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -536,6 +511,74 @@ export interface ProductCategory {
   productComparison?: boolean | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "techSpecs".
+ */
+export interface TechSpecs {
+  chemicalName: string;
+  casNumber: string;
+  ecNumber?: string | null;
+  synonyms?:
+    | {
+        synonym?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  molecularFormula: string;
+  molecularWeight?: string | null;
+  labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "caseStudies".
+ */
+export interface CaseStudy {
+  id: number;
+  title: string;
+  featured?: boolean | null;
+  summary: string;
+  featuredImage: number | Media;
+  challenge: string;
+  solution?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  results: string;
+  industry: number | Industry;
+  relatedProducts?: (number | Product)[] | null;
+  relatedServices?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -647,56 +690,6 @@ export interface TeamMember {
   department?: (number | null) | Service;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "caseStudies".
- */
-export interface CaseStudy {
-  id: number;
-  title: string;
-  featured?: boolean | null;
-  summary: string;
-  featuredImage: number | Media;
-  challenge: string;
-  solution?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  results: string;
-  industry: number | Industry;
-  relatedProducts?: (number | Product)[] | null;
-  relatedServices?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1302,12 +1295,7 @@ export interface ShowcaseBlock {
   type: 'product' | 'content' | 'feature';
   title: string;
   description: string;
-  products?:
-    | {
-        product: (number | Product)[];
-        id?: string | null;
-      }[]
-    | null;
+  products?: (number | Product)[] | null;
   contentItems?:
     | {
         content?: (number | Post)[] | null;
@@ -2028,12 +2016,7 @@ export interface ShowcaseBlockSelect<T extends boolean = true> {
   type?: T;
   title?: T;
   description?: T;
-  products?:
-    | T
-    | {
-        product?: T;
-        id?: T;
-      };
+  products?: T;
   contentItems?:
     | T
     | {
@@ -2252,30 +2235,9 @@ export interface UsersSelect<T extends boolean = true> {
 export interface ProductsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
-  chemicalName?: T;
-  keyProperties?:
-    | T
-    | {
-        property?: T;
-        id?: T;
-      };
-  useCases?:
-    | T
-    | {
-        name?: T;
-        id?: T;
-      };
-  synonyms?:
-    | T
-    | {
-        synonym?: T;
-        id?: T;
-      };
+  chemicalFamily?: T;
   chemicalStructureImage?: T;
-  casNumber?: T;
-  ecNumber?: T;
-  molecularFormula?: T;
-  molecularWeight?: T;
+  technicalSpecifications?: T | TechSpecsSelect<T>;
   VupSpecifications?:
     | T
     | {
@@ -2290,39 +2252,53 @@ export interface ProductsSelect<T extends boolean = true> {
         density?: T;
         solubility?: T;
       };
-  challenges?:
-    | T
-    | {
-        challenge?: T;
-        id?: T;
-      };
-  chemicalFamily?: T;
-  benefits?:
-    | T
-    | {
-        benefit?: T;
-        id?: T;
-      };
-  labVerified?: T;
-  categories?:
-    | T
-    | {
-        category?: T;
-        id?: T;
-      };
-  industries?: T;
   applications?:
     | T
     | {
         application?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  keyFeatures?:
+    | T
+    | {
+        feature?: T;
+        description?: T;
         id?: T;
       };
   caseStudies?: T;
+  relatedProducts?: T;
+  faq?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "techSpecs_select".
+ */
+export interface TechSpecsSelect<T extends boolean = true> {
+  chemicalName?: T;
+  casNumber?: T;
+  ecNumber?: T;
+  synonyms?:
+    | T
+    | {
+        synonym?: T;
+        id?: T;
+      };
+  molecularFormula?: T;
+  molecularWeight?: T;
+  labVerified?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
