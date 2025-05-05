@@ -1,14 +1,12 @@
 import type { Metadata } from 'next'
-
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
+import { cache } from 'react'
 import { homeStatic } from '@/endpoints/seed/home-static'
-
 import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { RenderCarouselHero } from '@/heros/RenderHero'
+import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -63,7 +61,7 @@ export default async function Page({ params: paramsPromise }: Args) {
     return <PayloadRedirects url={url} />
   }
 
-  const { carouselHero, layout } = page
+  const { hero, layout } = page
 
   return (
     <article>
@@ -73,7 +71,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <RenderCarouselHero {...carouselHero} />
+      <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
     </article>
   )

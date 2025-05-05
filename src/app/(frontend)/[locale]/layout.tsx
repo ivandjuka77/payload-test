@@ -1,10 +1,5 @@
 import type { Metadata } from 'next'
-
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
-import React from 'react'
-
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
@@ -30,11 +25,18 @@ const inter = Inter({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
   const { isEnabled } = await draftMode()
+  const { locale } = await params
 
   return (
-    <html className={cn(raleway.variable, inter.variable)} lang="en" suppressHydrationWarning>
+    <html className={cn(raleway.variable, inter.variable)} lang={locale} suppressHydrationWarning>
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />

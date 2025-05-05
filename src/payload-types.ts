@@ -7,6 +7,42 @@
  */
 
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FCards".
+ */
+export type FCards =
+  | {
+      title: string;
+      description: string;
+      image: number | Media;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: number | Page;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: number | Post;
+                  } | null);
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: 'default' | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      id?: string | null;
+    }[]
+  | null;
+/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -118,7 +154,7 @@ export interface Config {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'sk' | 'jp';
   user: User & {
     collection: 'users';
   };
@@ -158,7 +194,37 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title: string;
-  carouselHero?: {
+  hero: {
+    type: 'none' | 'carousel' | 'simple' | 'backgroundImage';
+    title?: string | null;
+    description?: string | null;
+    cta?: {
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: number | Page;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: number | Post;
+                  } | null);
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('default' | 'outline') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+    };
+    media?: (number | null) | Media;
     slides?:
       | {
           title: string;
@@ -167,43 +233,8 @@ export interface Page {
           badge: {
             text: string;
           };
-          featuredItem: {
-            title: string;
-            description: string;
-            image: number | Media;
-          };
-          featuredCards?:
-            | {
-                title: string;
-                description: string;
-                image: number | Media;
-                links?:
-                  | {
-                      link: {
-                        type?: ('reference' | 'custom') | null;
-                        newTab?: boolean | null;
-                        reference?:
-                          | ({
-                              relationTo: 'pages';
-                              value: number | Page;
-                            } | null)
-                          | ({
-                              relationTo: 'posts';
-                              value: number | Post;
-                            } | null);
-                        url?: string | null;
-                        label: string;
-                        /**
-                         * Choose how the link should be rendered.
-                         */
-                        appearance?: 'default' | null;
-                      };
-                      id?: string | null;
-                    }[]
-                  | null;
-                id?: string | null;
-              }[]
-            | null;
+          featuredItem: FItem;
+          featuredCards?: FCards;
           cta?: {
             links?:
               | {
@@ -245,6 +276,7 @@ export interface Page {
     | SustainabilityBlock
     | ContentImageBlock
     | IndustryShowcaseBlock
+    | ShowcaseBlock
   )[];
   meta?: {
     title?: string | null;
@@ -255,6 +287,62 @@ export interface Page {
     description?: string | null;
   };
   publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  type: 'news' | 'research' | 'case-study';
+  featured?: boolean | null;
+  description: string;
+  featuredImage: number | Media;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  relatedProducts?: (number | Product)[] | null;
+  relatedServices?:
+    | {
+        service?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  industries?: (number | Industry)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  author: number | User;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -352,62 +440,6 @@ export interface Media {
       filename?: string | null;
     };
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: number;
-  title: string;
-  type: 'news' | 'research' | 'case-study';
-  featured?: boolean | null;
-  description: string;
-  featuredImage: number | Media;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  tags?:
-    | {
-        tag?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  relatedProducts?: (number | Product)[] | null;
-  relatedServices?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  industries?: (number | Industry)[] | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  author: number | User;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -683,6 +715,39 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FItem".
+ */
+export interface FItem {
+  title: string;
+  description: string;
+  image: number | Media;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: 'default' | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1043,7 +1108,7 @@ export interface ProductShowcaseBlock {
   title: string;
   description: string;
   products: {
-    product: number | Product;
+    product: (number | Product)[];
     id?: string | null;
   }[];
   cta?: {
@@ -1228,6 +1293,67 @@ export interface IndustryShowcaseBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'industryShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ShowcaseBlock".
+ */
+export interface ShowcaseBlock {
+  type: 'product' | 'content' | 'feature';
+  title: string;
+  description: string;
+  products?:
+    | {
+        product: (number | Product)[];
+        id?: string | null;
+      }[]
+    | null;
+  contentItems?:
+    | {
+        content?: (number | Post)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  features?:
+    | {
+        title: string;
+        description?: string | null;
+        media?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  showCta?: boolean | null;
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'showcase';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1509,9 +1635,32 @@ export interface PayloadMigration {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
-  carouselHero?:
+  hero?:
     | T
     | {
+        type?: T;
+        title?: T;
+        description?: T;
+        cta?:
+          | T
+          | {
+              links?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                          appearance?: T;
+                        };
+                    id?: T;
+                  };
+            };
+        media?: T;
         slides?:
           | T
           | {
@@ -1523,36 +1672,8 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     text?: T;
                   };
-              featuredItem?:
-                | T
-                | {
-                    title?: T;
-                    description?: T;
-                    image?: T;
-                  };
-              featuredCards?:
-                | T
-                | {
-                    title?: T;
-                    description?: T;
-                    image?: T;
-                    links?:
-                      | T
-                      | {
-                          link?:
-                            | T
-                            | {
-                                type?: T;
-                                newTab?: T;
-                                reference?: T;
-                                url?: T;
-                                label?: T;
-                                appearance?: T;
-                              };
-                          id?: T;
-                        };
-                    id?: T;
-                  };
+              featuredItem?: T | FItemSelect<T>;
+              featuredCards?: T | FCardsSelect<T>;
               cta?:
                 | T
                 | {
@@ -1588,6 +1709,7 @@ export interface PagesSelect<T extends boolean = true> {
         sustainability?: T | SustainabilityBlockSelect<T>;
         contentImage?: T | ContentImageBlockSelect<T>;
         industryShowcase?: T | IndustryShowcaseBlockSelect<T>;
+        showcase?: T | ShowcaseBlockSelect<T>;
       };
   meta?:
     | T
@@ -1602,6 +1724,55 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FItem_select".
+ */
+export interface FItemSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FCards_select".
+ */
+export interface FCardsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  image?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1846,6 +2017,59 @@ export interface IndustryShowcaseBlockSelect<T extends boolean = true> {
   subtitle?: T;
   limit?: T;
   industries?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ShowcaseBlock_select".
+ */
+export interface ShowcaseBlockSelect<T extends boolean = true> {
+  type?: T;
+  title?: T;
+  description?: T;
+  products?:
+    | T
+    | {
+        product?: T;
+        id?: T;
+      };
+  contentItems?:
+    | T
+    | {
+        content?: T;
+        id?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        media?: T;
+        id?: T;
+      };
+  showCta?: T;
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+      };
   id?: T;
   blockName?: T;
 }

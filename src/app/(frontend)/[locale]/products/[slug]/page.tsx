@@ -13,6 +13,7 @@ import { ApplicationsAndIndustries } from '@/components/products/Applications'
 import { CaseStudies } from '@/components/products/CaseStudies'
 import { ProductDetails } from '@/components/products/ProductDetails'
 import { FAQ } from '@/components/FAQ'
+import { TypedLocale } from 'payload'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -37,13 +38,14 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
+    locale?: TypedLocale
   }>
 }
 
 export default async function Product({ params: paramsPromise }: Args) {
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale } = await paramsPromise
   const url = '/products/' + slug
-  const product = await queryProductBySlug({ slug })
+  const product = await queryProductBySlug({ slug, locale: locale as TypedLocale })
 
   if (!product) return <PayloadRedirects url={url} />
 
@@ -65,29 +67,32 @@ export default async function Product({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
-  const product = await queryProductBySlug({ slug })
+  const { slug = '', locale } = await paramsPromise
+  const product = await queryProductBySlug({ slug, locale: locale as TypedLocale })
 
   return generateMeta({ doc: product })
 }
 
-const queryProductBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
+const queryProductBySlug = cache(
+  async ({ slug, locale }: { slug: string; locale: TypedLocale }) => {
+    const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'products',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
-    pagination: false,
-    where: {
-      slug: {
-        equals: slug,
+    const result = await payload.find({
+      collection: 'products',
+      draft,
+      limit: 1,
+      overrideAccess: draft,
+      pagination: false,
+      locale,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  })
+    })
 
-  return result.docs?.[0] || null
-})
+    return result.docs?.[0] || null
+  },
+)

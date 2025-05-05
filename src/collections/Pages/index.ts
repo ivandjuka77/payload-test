@@ -6,13 +6,13 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { CarouselHero } from '@/blocks/CarouselHero/config'
 import { QuickAccess } from '@/blocks/QuickAccess/config'
 import { ProductShowcase } from '@/blocks/ProductShowcase/config'
 import { Career } from '@/blocks/Career/config'
 import { Sustainability } from '@/blocks/SustainabilitySection/config'
 import { ContentImage } from '@/blocks/ContentImage/config'
 import { IndustryShowcase } from '@/blocks/IndustryShowcase/config'
+import { Showcase } from '@/blocks/Showcase/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -26,6 +26,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
+import { hero } from '@/heros/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -73,7 +74,7 @@ export const Pages: CollectionConfig<'pages'> = {
       type: 'tabs',
       tabs: [
         {
-          fields: [CarouselHero],
+          fields: [hero],
           label: 'Hero',
         },
         {
@@ -92,6 +93,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Sustainability,
                 ContentImage,
                 IndustryShowcase,
+                Showcase,
               ],
               required: true,
               admin: {

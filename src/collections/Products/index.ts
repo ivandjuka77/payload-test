@@ -25,6 +25,7 @@ export const Products: CollectionConfig = {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
     },
     {
       name: 'chemicalName',

@@ -2,9 +2,11 @@ import Tag from '@/components/ui/tag'
 import { Check, ArrowRight, Beaker } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { Product } from '@/payload-types'
+import { Media } from '@/components/Media'
 
-export default function ProductCard({ product }: { product: any }) {
+export default function ProductCard({ product }: { product: Product }) {
+  console.log(product)
   return (
     <div
       key={product.id}
@@ -12,12 +14,9 @@ export default function ProductCard({ product }: { product: any }) {
     >
       <div className="relative h-52 bg-gradient-to-b from-gray-300 to-white overflow-hidden">
         {product.chemicalStructureImage && (
-          <Image
-            src={product.chemicalStructureImage}
-            alt={`${product.name} chemical structure`}
-            className="object-contain p-4 h-full w-full scale-[2]"
-            width={200}
-            height={200}
+          <Media
+            resource={product.chemicalStructureImage}
+            imgClassName="object-contain p-4 h-full w-full scale-[2]"
           />
         )}
         <Tag className="absolute bottom-4 left-4" type="product">
@@ -27,7 +26,7 @@ export default function ProductCard({ product }: { product: any }) {
 
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex flex-col items-start space-y-1 justify-between mb-6">
-          <span className="text-sm text-gray-500">CAS: {product.casNumber || ''}</span>
+          <span className="text-sm text-gray-500">CAS: {product.casNumber || '123-45-67'}</span>
           <h3 className="text-2xl font-bold tracking-tight font-primary">{product.name}</h3>
         </div>
 
@@ -40,13 +39,15 @@ export default function ProductCard({ product }: { product: any }) {
             Key Properties
           </h4>
           <div className="space-y-3 border-l-2 border-primary/20 pl-4">
-            {product.keyProperties?.slice(0, 3).map((prop: any, idx: number) => (
+            {product.keyProperties?.slice(0, 3).map((value, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <Check className="h-3.5 w-3.5" />
                 </div>
                 <div>
-                  <span className="text-sm font-medium font-secondary text-gray-900">{prop}</span>
+                  <span className="text-sm font-medium font-secondary text-gray-900">
+                    {value.property}
+                  </span>
                   <div className="h-1 w-12 bg-primary/10 rounded-full mt-1"></div>
                 </div>
               </div>
@@ -60,7 +61,7 @@ export default function ProductCard({ product }: { product: any }) {
             Applications & Use Cases
           </h4>
           <div className="grid grid-cols-3 gap-3">
-            {product.useCases?.slice(0, 3).map((useCase: any, idx: number) => (
+            {product.useCases?.slice(0, 3).map((useCase, idx) => (
               <div
                 key={idx}
                 className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-24"

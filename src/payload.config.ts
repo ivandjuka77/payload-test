@@ -21,6 +21,7 @@ import { Industries } from './collections/Industries'
 import { CaseStudies } from './collections/CaseStudies'
 import { Services } from './collections/Services'
 import { TeamMembers } from './collections/TeamMembers'
+import { Showcase } from './blocks/Showcase/Component'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -110,5 +111,23 @@ export default buildConfig({
       },
     },
     tasks: [],
+  },
+  localization: {
+    locales: [
+      {
+        label: 'English',
+        code: 'en',
+      },
+      {
+        label: 'Slovak',
+        code: 'sk',
+      },
+      {
+        label: 'Japanese',
+        code: 'jp',
+      },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
   },
 })

@@ -8,7 +8,7 @@ import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 
-export const CarouselHero: React.FC<Page['carouselHero']> = (props) => {
+export const CarouselHero: React.FC<Page['hero']> = (props) => {
   const [current, setCurrent] = useState(0)
   const [api, setApi] = useState<CarouselApi>()
   const [progress, setProgress] = useState(0)

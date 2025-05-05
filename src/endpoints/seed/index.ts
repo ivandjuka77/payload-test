@@ -1,7 +1,5 @@
 import type { CollectionSlug, Payload, PayloadRequest, File } from 'payload'
 
-import { contactForm as contactFormData } from './contact-form'
-import { contact as contactPageData } from './contact-page'
 import { home } from './home'
 import { image1 } from './image-1'
 import { image2 } from './image-2'
@@ -76,6 +74,8 @@ export const seed = async ({
     },
   })
 
+  //* -------------------- SEEDING MEDIA -------------------- *//
+
   payload.logger.info(`— Seeding media...`)
 
   const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
@@ -93,7 +93,7 @@ export const seed = async ({
     ),
   ])
 
-  const [demoAuthor, image1Doc, image2Doc, image3Doc, imageHomeDoc] = await Promise.all([
+  const [image1Doc, image2Doc, image3Doc, imageHomeDoc] = await Promise.all([
     payload.create({
       collection: 'users',
       data: {
@@ -725,20 +725,28 @@ export const seed = async ({
   //   data: contactFormData,
   // })
 
-  // payload.logger.info(`— Seeding pages...`)
+  //* -------------------- SEEDING PAGES -------------------- *//
 
-  // const [_, contactPage] = await Promise.all([
-  //   payload.create({
-  //     collection: 'pages',
-  //     depth: 0,
-  //     data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
-  //   }),
-  //   payload.create({
-  //     collection: 'pages',
-  //     depth: 0,
-  //     data: contactPageData({ contactForm: contactForm }),
-  //   }),
-  // ])
+  payload.logger.info(`— Seeding pages...`)
+
+  const [homePage] = await Promise.all([
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: home({
+        backgroundImage1: imageHomeDoc,
+        featuredImage1: imageHomeDoc,
+        featuredCardImage1: imageHomeDoc,
+        featuredCardImage2: imageHomeDoc,
+        featuredCardImage3: imageHomeDoc,
+        backgroundImage2: imageHomeDoc,
+        featuredImage2: imageHomeDoc,
+        featuredCardImage4: imageHomeDoc,
+        featuredCardImage5: imageHomeDoc,
+        featuredCardImage6: imageHomeDoc,
+      }),
+    }),
+  ])
 
   // payload.logger.info(`— Seeding globals...`)
 

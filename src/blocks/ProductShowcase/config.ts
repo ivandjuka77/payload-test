@@ -28,6 +28,7 @@ export const ProductShowcase: Block = {
           name: 'product',
           type: 'relationship',
           relationTo: 'products',
+          hasMany: true,
           required: true,
         },
       ],

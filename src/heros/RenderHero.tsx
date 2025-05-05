@@ -1,30 +1,27 @@
-import { CarouselHero } from '@/blocks/CarouselHero'
 import type { Page } from '@/payload-types'
 
-// import { HighImpactHero } from '@/heros/HighImpact'
-// import { LowImpactHero } from '@/heros/LowImpact'
-// import { MediumImpactHero } from '@/heros/MediumImpact'
+import { CarouselHero } from '@/heros/CarouselHero'
+import { SimpleHero } from '@/heros/Simple'
+import { BackgroundImage } from '@/heros/BackgroundImage'
 
-// const heroes = {
-//   highImpact: HighImpactHero,
-//   lowImpact: LowImpactHero,
-//   mediumImpact: MediumImpactHero,
-// }
-
-// export const RenderHero: React.FC<Page['hero']> = (props) => {
-//   const { type } = props || {}
-
-//   if (!type || type === 'none') return null
-
-//   const HeroToRender = heroes[type]
-
-//   if (!HeroToRender) return null
-
-//   return <HeroToRender {...props} />
-// }
-
-// TODO: Redo the hero rendering so we can use multiple types of heros for different pages
-
-export const RenderCarouselHero: React.FC<Page['carouselHero']> = (props) => {
-  return <CarouselHero {...props} />
+const heroes = {
+  carousel: CarouselHero,
+  simple: SimpleHero,
+  backgroundImage: BackgroundImage,
 }
+
+export const RenderHero: React.FC<Page['hero']> = (props) => {
+  const { type } = props || {}
+
+  if (!type || type === 'none') return null
+
+  const HeroToRender = heroes[type]
+
+  if (!HeroToRender) return null
+
+  return <HeroToRender {...props} />
+}
+
+// export const RenderCarouselHero: React.FC<Page['carouselHero']> = (props) => {
+//   return <CarouselHero {...props} />
+// }
