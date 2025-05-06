@@ -23,11 +23,13 @@ export const Services: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
     },
     {
       name: 'featuredImage',
@@ -36,11 +38,55 @@ export const Services: CollectionConfig = {
       required: true,
     },
     {
-      name: 'services',
+      name: 'subServices',
       type: 'array',
+      required: true,
       fields: [
         {
-          name: 'service',
+          name: 'title',
+          type: 'text',
+          localized: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          localized: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'displayItems',
+          type: 'array',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              localized: true,
+            },
+          ],
+        },
+        {
+          name: 'features',
+          type: 'array',
+          fields: [
+            {
+              name: 'feature',
+              type: 'text',
+              localized: true,
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              localized: true,
+            },
+          ],
+        },
+        {
+          name: 'link',
           type: 'text',
         },
       ],
@@ -65,65 +111,20 @@ export const Services: CollectionConfig = {
       relationTo: 'teamMembers',
       hasMany: true,
     },
-    {
-      name: 'subServices',
-      type: 'array',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-        },
-        {
-          name: 'image',
-          type: 'upload',
-          relationTo: 'media',
-          required: true,
-        },
-        {
-          name: 'displayItems',
-          type: 'array',
-          fields: [
-            {
-              name: 'title',
-              type: 'text',
-            },
-          ],
-        },
-        {
-          name: 'features',
-          type: 'array',
-          fields: [
-            {
-              name: 'feature',
-              type: 'text',
-            },
-            {
-              name: 'description',
-              type: 'textarea',
-            },
-          ],
-        },
-        {
-          name: 'link',
-          type: 'text',
-        },
-      ],
-    },
+
     {
       name: 'caseStudies',
       type: 'relationship',
       relationTo: 'caseStudies',
       hasMany: true,
+      maxDepth: 3,
     },
     {
       name: 'industries',
       type: 'relationship',
       relationTo: 'industries',
       hasMany: true,
+      maxDepth: 3,
     },
     {
       name: 'accreditation',

@@ -38,6 +38,7 @@ export const CaseStudies: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'featured',
@@ -54,6 +55,7 @@ export const CaseStudies: CollectionConfig = {
               name: 'summary',
               type: 'textarea',
               required: true,
+              localized: true,
             },
             {
               name: 'featuredImage',
@@ -65,10 +67,12 @@ export const CaseStudies: CollectionConfig = {
               name: 'challenge',
               type: 'textarea',
               required: true,
+              localized: true,
             },
             {
               name: 'solution',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -86,6 +90,7 @@ export const CaseStudies: CollectionConfig = {
               name: 'results',
               type: 'textarea',
               required: true,
+              localized: true,
             },
           ],
         },
@@ -98,28 +103,28 @@ export const CaseStudies: CollectionConfig = {
               relationTo: 'industries',
               required: true,
               hasMany: false,
+              maxDepth: 3,
             },
             {
               name: 'relatedProducts',
               type: 'relationship',
               relationTo: 'products',
               hasMany: true,
+              maxDepth: 3,
             },
             {
               name: 'relatedServices',
-              type: 'array',
-              fields: [
-                {
-                  name: 'service',
-                  type: 'text',
-                },
-              ],
+              type: 'relationship',
+              relationTo: 'services',
+              hasMany: true,
+              maxDepth: 3,
             },
           ],
         },
         {
           name: 'meta',
           label: 'SEO',
+          localized: true,
           fields: [
             OverviewField({
               titlePath: 'meta.title',

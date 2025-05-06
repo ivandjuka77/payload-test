@@ -23,10 +23,12 @@ export const TeamMembers: CollectionConfig = {
       name: 'role',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'bio',
       type: 'textarea',
+      localized: true,
     },
     {
       name: 'image',
@@ -53,6 +55,8 @@ export const TeamMembers: CollectionConfig = {
       name: 'department',
       type: 'relationship',
       relationTo: 'services',
+      hasMany: true,
+      maxDepth: 3,
     },
   ],
   timestamps: true,

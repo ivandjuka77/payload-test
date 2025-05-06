@@ -326,12 +326,7 @@ export interface Post {
       }[]
     | null;
   relatedProducts?: (number | Product)[] | null;
-  relatedServices?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  relatedServices?: (number | Service)[] | null;
   industries?: (number | Industry)[] | null;
   meta?: {
     title?: string | null;
@@ -559,12 +554,7 @@ export interface CaseStudy {
   results: string;
   industry: number | Industry;
   relatedProducts?: (number | Product)[] | null;
-  relatedServices?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  relatedServices?: (number | Service)[] | null;
   meta?: {
     title?: string | null;
     /**
@@ -620,12 +610,26 @@ export interface Service {
   title: string;
   description: string;
   featuredImage: number | Media;
-  services?:
-    | {
-        service?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  subServices: {
+    title?: string | null;
+    description?: string | null;
+    image: number | Media;
+    displayItems?:
+      | {
+          title?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    features?:
+      | {
+          feature?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    link?: string | null;
+    id?: string | null;
+  }[];
   features?:
     | {
         feature?: string | null;
@@ -634,28 +638,6 @@ export interface Service {
       }[]
     | null;
   team?: (number | TeamMember)[] | null;
-  subServices?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        image: number | Media;
-        displayItems?:
-          | {
-              title?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        features?:
-          | {
-              feature?: string | null;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        link?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   caseStudies?: (number | CaseStudy)[] | null;
   industries?: (number | Industry)[] | null;
   accreditation?:
@@ -687,7 +669,7 @@ export interface TeamMember {
   linkedin?: string | null;
   email?: string | null;
   isHeadOfDepartment?: boolean | null;
-  department?: (number | null) | Service;
+  department?: (number | Service)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -2074,12 +2056,7 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
       };
   relatedProducts?: T;
-  relatedServices?:
-    | T
-    | {
-        service?: T;
-        id?: T;
-      };
+  relatedServices?: T;
   industries?: T;
   meta?:
     | T
@@ -2344,12 +2321,7 @@ export interface CaseStudiesSelect<T extends boolean = true> {
   results?: T;
   industry?: T;
   relatedProducts?: T;
-  relatedServices?:
-    | T
-    | {
-        service?: T;
-        id?: T;
-      };
+  relatedServices?: T;
   meta?:
     | T
     | {
@@ -2372,20 +2344,6 @@ export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   featuredImage?: T;
-  services?:
-    | T
-    | {
-        service?: T;
-        id?: T;
-      };
-  features?:
-    | T
-    | {
-        feature?: T;
-        description?: T;
-        id?: T;
-      };
-  team?: T;
   subServices?:
     | T
     | {
@@ -2408,6 +2366,14 @@ export interface ServicesSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  features?:
+    | T
+    | {
+        feature?: T;
+        description?: T;
+        id?: T;
+      };
+  team?: T;
   caseStudies?: T;
   industries?: T;
   accreditation?:

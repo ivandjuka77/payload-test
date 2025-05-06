@@ -68,6 +68,7 @@ export const Posts: CollectionConfig<'posts'> = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'type',
@@ -94,16 +95,19 @@ export const Posts: CollectionConfig<'posts'> = {
               name: 'description',
               type: 'textarea',
               required: true,
+              localized: true,
             },
             {
               name: 'featuredImage',
               type: 'upload',
               relationTo: 'media',
               required: true,
+              localized: true,
             },
             {
               name: 'content',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -137,28 +141,28 @@ export const Posts: CollectionConfig<'posts'> = {
               type: 'relationship',
               relationTo: 'products',
               hasMany: true,
+              maxDepth: 3,
             },
             {
               name: 'relatedServices',
-              type: 'array',
-              fields: [
-                {
-                  name: 'service',
-                  type: 'text',
-                },
-              ],
+              type: 'relationship',
+              relationTo: 'services',
+              hasMany: true,
+              maxDepth: 3,
             },
             {
               name: 'industries',
               type: 'relationship',
               relationTo: 'industries',
               hasMany: true,
+              maxDepth: 3,
             },
           ],
         },
         {
           name: 'meta',
           label: 'SEO',
+          localized: true,
           fields: [
             OverviewField({
               titlePath: 'meta.title',
