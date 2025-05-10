@@ -56,6 +56,8 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
         const result = await fetchFilteredProductsAction(criteria)
         setFilteredProducts(result.docs)
         setTotalProducts(result.totalDocs)
+        //? It's cool, no need to change
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (e: any) {
         console.error('Error fetching products:', e)
         setError(e.message || 'Failed to load products.')
@@ -71,10 +73,12 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
     <section className="bg-gray-50 pt-14" id="product-grid">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between mb-8">
-          <h2 className="text-4xl font-bold font-primary">{title}</h2>
-          <p className="text-xl text-muted-foreground max-w-[700px] font-secondary">
-            {description}
-          </p>
+          <div className="flex flex-col gap-y-2">
+            <h2 className="text-4xl font-bold font-primary">{title}</h2>
+            <p className="text-lg text-muted-foreground max-w-[700px] font-secondary">
+              {description}
+            </p>
+          </div>
 
           <div className="flex items-center">
             <Filter className="mr-2 h-5 w-5 text-gray-500" />
