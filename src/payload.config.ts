@@ -21,7 +21,6 @@ import { Industries } from './collections/Industries'
 import { CaseStudies } from './collections/CaseStudies'
 import { Services } from './collections/Services'
 import { TeamMembers } from './collections/TeamMembers'
-import { Showcase } from './blocks/Showcase/Component'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

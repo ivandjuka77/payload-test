@@ -4,14 +4,15 @@ import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
+import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { ProductCategoryHero } from '@/heros/ProductCategoryHero'
-import { ProductShowcaseBlock } from '@/blocks/ProductShowcase/Component'
 import { IndustryApplications } from '@/components/IndustryApplications'
 import { ContactCTA } from '@/components/CTA'
+import { Showcase } from '@/blocks/Showcase/Component'
+import { Product as ProductType } from '@/payload-types'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -58,10 +59,14 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
 
       <ProductCategoryHero category={category} />
 
-      <ProductShowcaseBlock
+      <Showcase
+        type="product"
+        contentItems={[]}
+        products={category.featuredProducts as ProductType[]}
+        features={[]}
+        showCta={false}
         title="Products"
-        description="Products"
-        products={category.featuredProducts}
+        description="Discover the products that are right for you"
       />
 
       <IndustryApplications

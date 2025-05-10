@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -16,6 +15,7 @@ import { FAQ } from '@/components/FAQ'
 import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
+import { BlockShowcase } from '@/components/BlockShowcase'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -60,6 +60,11 @@ export default async function Product({ params: paramsPromise }: Args) {
 
       <ProductHero product={product} />
       <TechnicalSpecifications product={product} />
+      <BlockShowcase
+        title="Key Features & Benefits"
+        description={`Discover the unique advantages of VUP's ${product.name} for your applications.`}
+        features={product.keyFeatures}
+      />
       <ApplicationsAndIndustries product={product} />
       <CaseStudies product={product} />
       <ProductDetails product={product} />
