@@ -476,6 +476,7 @@ export const seed = async ({
       collection: 'products',
       data: {
         name: 'Dimethylolpropionic Acid (DMPA)',
+        _status: 'published',
         description:
           'A unique trifunctional molecule featuring two primary hydroxyl groups and one tertiary carboxylic group, essential for creating high-performance water-soluble alkyds, polyesters, and polyurethane dispersions (PUDs).',
         chemicalStructureImage: image1Doc.id,
@@ -560,6 +561,7 @@ export const seed = async ({
       collection: 'products',
       data: {
         name: 'Dimethylolbutyric Acid (DMBA)',
+        _status: 'published',
         description:
           'Enables solvent-free PUD synthesis with improved processing efficiency (lower temperature) and potentially enhanced film resistance.',
         chemicalStructureImage: image2Doc.id,
@@ -635,6 +637,7 @@ export const seed = async ({
       collection: 'products',
       data: {
         name: '3-Hydroxypivalic Acid (HPVA)',
+        _status: 'published',
         description:
           'A unique hydroxy acid featuring a neopentyl structure, essential for synthesizing high-performance polyesters and esters with exceptional stability.',
         chemicalStructureImage: image3Doc.id,
