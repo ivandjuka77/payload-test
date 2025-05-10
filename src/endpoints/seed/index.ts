@@ -381,7 +381,7 @@ export const seed = async ({
       data: {
         name: 'Hydroxy Acids',
         description:
-          'Hydroxy acids are a type of organic compound that contain one or more hydroxyl groups (-OH) attached to a carbon atom.',
+          'Hydroxy acids are a type of organic compound that contain one or more hydroxyl groups (-OH) attached to a carbon atom. They play a critical role in enabling environmentally friendly waterborne systems (PUDs, alkyds, polyesters) and enhancing the stability and durability of polymers used in demanding applications like coatings, inks, adhesives, and lubricants.',
         image: imageHomeDoc.id,
         slug: 'hydroxy-acids',
         productComparison: false,
@@ -860,6 +860,59 @@ export const seed = async ({
   //       ],
   //     },
   //   }),
+
+  // Update all product categories with featured products
+  payload.logger.info('— Updating product categories with featured products...')
+
+  await Promise.all([
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'hydroxy-acids',
+          },
+        },
+        data: {
+          featuredProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating hydroxy-acids category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'hindered-amines',
+          },
+        },
+        data: {
+          featuredProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating hindered-amines category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'glycol-ethers',
+          },
+        },
+        data: {
+          featuredProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating glycol-ethers category: ${err}`)
+      }),
+  ])
 
   payload.logger.info('Seeded database successfully!')
 }

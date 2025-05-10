@@ -65,17 +65,20 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
         products={category.featuredProducts as ProductType[]}
         features={[]}
         showCta={false}
-        title="Products"
-        description="Discover the products that are right for you"
+        title={`Our ${category.name} Portfolio`}
+        description={`Discover our range of high-quality ${category.name} products for your specific application needs.`}
       />
 
       <IndustryApplications
-        title={category.name}
-        description={category.description}
+        title={`Industry Applications for ${category.name}`}
+        description={`Our ${category.name} serve diverse applications across industry sectors.`}
         applications={category.applications}
       />
 
-      <ContactCTA title="Contact Us" description="Contact us for more information" />
+      <ContactCTA
+        title="Need Technical Support or Product Information?"
+        description="Our experts are ready to assist you with hydroxy acids selection and application guidance for your specific needs."
+      />
     </main>
   )
 }

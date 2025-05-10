@@ -1,5 +1,3 @@
-'use client'
-
 import { Badge } from '@/components/ui/badge'
 import { ProductCategory } from '@/payload-types'
 import { ArrowRight } from 'lucide-react'
@@ -39,10 +37,10 @@ export function IndustryApplications({
               key={index}
               className="group relative overflow-hidden rounded-lg border border-gray-100 aspect-[16/9]"
             >
-              {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"
-                style={{ backgroundImage: `url(${app.imageSrc})` }}
+                //@ts-expect-error - Type seems to be wrong, but it's a Media type and url exists
+                style={{ backgroundImage: `url(${app.imageSrc?.url})` }}
               />
 
               {/* Gradient Overlay */}
