@@ -1,36 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-import { ArrowRight, Users, Briefcase, Heart, Sparkles, Beaker } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Briefcase } from 'lucide-react'
 import { CareerBlock } from '@/payload-types'
+import { CMSLink } from '@/components/Link'
 
 export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features, cta }) => {
-  const values = [
-    {
-      icon: <Beaker className="h-6 w-6" />,
-      title: 'Scientific Excellence',
-      description:
-        'We pursue the highest standards in chemical innovation and research methodologies.',
-    },
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: 'People First',
-      description: 'We prioritize the well-being, growth, and development of our team members.',
-    },
-    {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: 'Sustainable Innovation',
-      description:
-        "We develop solutions that address today's needs while preserving tomorrow's resources.",
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: 'Inclusive Collaboration',
-      description:
-        'We value diverse perspectives and foster an environment where everyone belongs.',
-    },
-  ]
   return (
     <section className="w-full py-16 md:py-24 relative bg-white">
       <div className="container px-4 md:px-6">
@@ -75,15 +49,8 @@ export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto font-secondary">
               {cta.description}
             </p>
-            {(cta?.links || []).map(({ link }: any, i: number) => {
-              return (
-                <Button asChild size="lg" key={i}>
-                  <Link href={link.url || '#'} className="inline-flex items-center gap-2">
-                    {link.label}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              )
+            {(cta?.links || []).map(({ link }, i) => {
+              return <CMSLink key={i} size="lg" {...link} />
             })}
           </div>
         )}

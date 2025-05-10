@@ -13,6 +13,8 @@ import { SustainabilitySection } from '@/blocks/SustainabilitySection/Component'
 import { ContentImage } from '@/blocks/ContentImage/Component'
 import { IndustryGrid } from './IndustryShowcase/Component'
 import { Showcase } from '@/blocks/Showcase/Component'
+import { NewsSection } from '@/blocks/News/Component'
+
 const blockComponents = {
   content: ContentBlock,
   cta: CallToActionBlock,
@@ -25,6 +27,7 @@ const blockComponents = {
   contentImage: ContentImage,
   industryShowcase: IndustryGrid,
   showcase: Showcase,
+  news: NewsSection,
 }
 
 export const RenderBlocks: React.FC<{

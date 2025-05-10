@@ -13,6 +13,7 @@ import { Sustainability } from '@/blocks/SustainabilitySection/config'
 import { ContentImage } from '@/blocks/ContentImage/config'
 import { IndustryShowcase } from '@/blocks/IndustryShowcase/config'
 import { Showcase } from '@/blocks/Showcase/config'
+import { News } from '@/blocks/News/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -95,6 +96,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 ContentImage,
                 IndustryShowcase,
                 Showcase,
+                News,
               ],
               required: true,
               admin: {

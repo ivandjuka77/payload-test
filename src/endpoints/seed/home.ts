@@ -848,6 +848,16 @@ export function home(args: HomeArgs) {
           ],
         },
       },
+      {
+        blockName: null,
+        blockType: 'news',
+        title: 'News & Insights',
+        description:
+          "Stay updated with VUP's latest achievements, innovations, and industry insights.",
+        badge: 'Latest Updates',
+        linkLabel: 'View all news and publications',
+        newsItems: [],
+      },
     ],
     meta: {
       title: 'VUP Chemical Solutions',

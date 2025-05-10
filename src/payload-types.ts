@@ -277,6 +277,7 @@ export interface Page {
     | ContentImageBlock
     | IndustryShowcaseBlock
     | ShowcaseBlock
+    | NewsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1327,6 +1328,20 @@ export interface ShowcaseBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewsBlock".
+ */
+export interface NewsBlock {
+  title: string;
+  description?: string | null;
+  badge?: string | null;
+  linkLabel?: string | null;
+  newsItems?: (number | Post)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'news';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1680,6 +1695,7 @@ export interface PagesSelect<T extends boolean = true> {
         contentImage?: T | ContentImageBlockSelect<T>;
         industryShowcase?: T | IndustryShowcaseBlockSelect<T>;
         showcase?: T | ShowcaseBlockSelect<T>;
+        news?: T | NewsBlockSelect<T>;
       };
   meta?:
     | T
@@ -2035,6 +2051,19 @@ export interface ShowcaseBlockSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewsBlock_select".
+ */
+export interface NewsBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  badge?: T;
+  linkLabel?: T;
+  newsItems?: T;
   id?: T;
   blockName?: T;
 }
