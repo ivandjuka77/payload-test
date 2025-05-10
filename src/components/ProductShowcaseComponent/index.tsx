@@ -25,9 +25,13 @@ export function ProductShowcase({
 
         {/* Cards with improved layout and spacing */}
         <div className="grid gap-8 md:grid-cols-3">
-          {products.map((product, index) => (
-            <ProductCard key={index} product={product} />
-          ))}
+          {products && products.length > 0 ? (
+            products.map((product, index) => <ProductCard key={index} product={product} />)
+          ) : (
+            <div className="flex justify-center items-center text-muted-foreground text-center font-secondary w-full mt-6 text-lg md:text-xl">
+              No products found
+            </div>
+          )}
         </div>
       </div>
     </section>

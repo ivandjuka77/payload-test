@@ -7,6 +7,8 @@ import { imageHero1 } from './image-hero-1'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { products } from './products'
+import { industries } from './industries'
 
 const collections: CollectionSlug[] = [
   'services',
@@ -301,6 +303,7 @@ export const seed = async ({
       collection: 'industries',
       data: {
         name: 'The Automotive Industry',
+        _status: 'published',
         description:
           'We provide essential chemical intermediates for the automotive industry, including low-VOC coatings, adhesives, and cleaning agents that meet strict quality and environmental standards. Our solutions help manufacturers innovate and ensure compliance.',
         featuredImage: image1Doc.id,
@@ -326,6 +329,7 @@ export const seed = async ({
       collection: 'industries',
       data: {
         name: 'Coatings, Paints & Inks',
+        _status: 'published',
         description:
           'The coatings, paints, and inks industry continuously seeks innovations that enhance performance, durability, and environmental compatibility. Formulators face challenges in meeting stringent regulations while delivering exceptional protection, aesthetics, and functionality.',
         featuredImage: image2Doc.id,
@@ -350,6 +354,7 @@ export const seed = async ({
       collection: 'industries',
       data: {
         name: 'Polymers & Plastics',
+        _status: 'published',
         description:
           'The Polymers & Plastics industry relies on innovative chemistry to create materials with specific functionalities, enhanced durability, and improved processing characteristics.',
         featuredImage: image1Doc.id,
@@ -784,7 +789,7 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [homePage] = await Promise.all([
+  const [homePage, productsPage, industriesPage] = await Promise.all([
     payload.create({
       collection: 'pages',
       depth: 0,
@@ -800,6 +805,18 @@ export const seed = async ({
         featuredCardImage5: imageHomeDoc,
         featuredCardImage6: imageHomeDoc,
       }),
+    }),
+
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: products({ featuredImage1: imageHomeDoc }),
+    }),
+
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: industries({ featuredImage1: imageHomeDoc }),
     }),
   ])
 

@@ -9,6 +9,7 @@ import PageClient from './page.client'
 import { IndustryChallenges } from '@/components/IndustryChallenges/Component'
 import { ProductShowcase } from '@/components/ProductShowcaseComponent'
 import { Product } from '@/payload-types'
+import { SimpleHero } from '@/heros/Simple'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -50,23 +51,21 @@ export default async function Industry({ params: paramsPromise }: Args) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      {/* TODO: Add industry-specific components here */}
-      <IndustryChallenges industry={industry} />
-      <ProductShowcase
-        products={industry.keyProducts as Product[]}
-        title={
-          'Key VUP Products for the ' + industry.name + industry.name.endsWith('Industry')
-            ? ''
-            : ' Industry'
-        }
-        description={
-          'Explore our core portfolio of chemical intermediates and solutions for the ' +
-          industry.name +
-          industry.name.endsWith('Industry')
-            ? ''
-            : ' industry'
-        }
+      <SimpleHero
+        type="simple"
+        title={industry.name}
+        description={industry.description}
+        media={industry.featuredImage}
       />
+
+      <IndustryChallenges industry={industry} />
+      {industry.keyProducts && industry.keyProducts.length > 0 && (
+        <ProductShowcase
+          products={industry.keyProducts as Product[]}
+          title="Featured VUP Products"
+          description="Explore our core portfolio of chemical intermediates and solutions for this industry"
+        />
+      )}
     </main>
   )
 }
