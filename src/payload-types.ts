@@ -278,6 +278,7 @@ export interface Page {
     | IndustryShowcaseBlock
     | ShowcaseBlock
     | NewsBlock
+    | ProductFilterBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1342,6 +1343,47 @@ export interface NewsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductFilterBlock".
+ */
+export interface ProductFilterBlock {
+  title?: string | null;
+  description?: string | null;
+  enabledFilters?: ('category' | 'industry' | 'application')[] | null;
+  showCta?: boolean | null;
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'productFilter';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1696,6 +1738,7 @@ export interface PagesSelect<T extends boolean = true> {
         industryShowcase?: T | IndustryShowcaseBlockSelect<T>;
         showcase?: T | ShowcaseBlockSelect<T>;
         news?: T | NewsBlockSelect<T>;
+        productFilter?: T | ProductFilterBlockSelect<T>;
       };
   meta?:
     | T
@@ -2064,6 +2107,39 @@ export interface NewsBlockSelect<T extends boolean = true> {
   badge?: T;
   linkLabel?: T;
   newsItems?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductFilterBlock_select".
+ */
+export interface ProductFilterBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  enabledFilters?: T;
+  showCta?: T;
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+      };
   id?: T;
   blockName?: T;
 }

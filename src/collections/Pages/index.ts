@@ -14,6 +14,7 @@ import { ContentImage } from '@/blocks/ContentImage/config'
 import { IndustryShowcase } from '@/blocks/IndustryShowcase/config'
 import { Showcase } from '@/blocks/Showcase/config'
 import { News } from '@/blocks/News/config'
+import { ProductFilter } from '@/blocks/ProductFilter/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -97,6 +98,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 IndustryShowcase,
                 Showcase,
                 News,
+                ProductFilter,
               ],
               required: true,
               admin: {

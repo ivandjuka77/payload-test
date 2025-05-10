@@ -14,6 +14,7 @@ import { ContentImage } from '@/blocks/ContentImage/Component'
 import { IndustryGrid } from './IndustryShowcase/Component'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { NewsSection } from '@/blocks/News/Component'
+import { ProductFilter } from '@/blocks/ProductFilter/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -28,6 +29,7 @@ const blockComponents = {
   industryShowcase: IndustryGrid,
   showcase: Showcase,
   news: NewsSection,
+  productFilter: ProductFilter,
 }
 
 export const RenderBlocks: React.FC<{
