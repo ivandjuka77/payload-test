@@ -5,8 +5,13 @@ import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
 
-export default function ProductCard({ product }: { product: Product }) {
-  console.log(product)
+export default function ProductCard({
+  product,
+  variant = 'default',
+}: {
+  product: Product
+  variant?: 'default' | 'compact'
+}) {
   return (
     <div
       key={product.id}
@@ -36,26 +41,28 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.description}
         </p>
 
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold mb-3 text-gray-900 uppercase tracking-wider">
-            Key Properties
-          </h4>
-          <div className="space-y-3 border-l-2 border-primary/20 pl-4">
-            {product.keyFeatures?.slice(0, 3).map((value, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Check className="h-3.5 w-3.5" />
+        {variant === 'default' && (
+          <div className="mb-6">
+            <h4 className="text-sm font-semibold mb-3 text-gray-900 uppercase tracking-wider">
+              Key Properties
+            </h4>
+            <div className="space-y-3 border-l-2 border-primary/20 pl-4">
+              {product.keyFeatures?.slice(0, 3).map((value, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Check className="h-3.5 w-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium font-secondary text-gray-900">
+                      {value.feature}
+                    </span>
+                    <div className="h-1 w-12 bg-primary/10 rounded-full mt-1"></div>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-sm font-medium font-secondary text-gray-900">
-                    {value.feature}
-                  </span>
-                  <div className="h-1 w-12 bg-primary/10 rounded-full mt-1"></div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="mb-6 bg-gray-50 rounded-lg p-4 border border-gray-100 mt-auto">
           <h4 className="text-sm font-semibold mb-3 text-gray-900 flex items-center">
@@ -66,10 +73,9 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.applications?.slice(0, 3).map((application, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-24"
+                className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-32"
               >
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  {}
                   {/* <DynamicIcon name={useCase.icon as any} className='h-5 w-5' /> */}
                 </div>
                 <span className="text-xs text-center font-medium font-secondary line-clamp-2">
