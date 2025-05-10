@@ -931,6 +931,59 @@ export const seed = async ({
       }),
   ])
 
+  // Update all industries with featured products
+  payload.logger.info('— Updating industries with featured products...')
+
+  await Promise.all([
+    payload
+      .update({
+        collection: 'industries',
+        where: {
+          slug: {
+            equals: 'automotive',
+          },
+        },
+        data: {
+          keyProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating automotive industry: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'industries',
+        where: {
+          slug: {
+            equals: 'coatings-paints-inks',
+          },
+        },
+        data: {
+          keyProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating coatings-paints-inks industry: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'industries',
+        where: {
+          slug: {
+            equals: 'polymers-plastics',
+          },
+        },
+        data: {
+          keyProducts: [dmpa.id, dmba.id, hpva.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating polymers-plastics industry: ${err}`)
+      }),
+  ])
+
   payload.logger.info('Seeded database successfully!')
 }
 
