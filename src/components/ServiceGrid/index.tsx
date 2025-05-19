@@ -3,8 +3,15 @@
 import { cn } from '@/utilities/ui'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { Service } from '@/payload-types'
 
-export function ServicesGrid({ title, description, services }: any) {
+type Props = {
+  title: string
+  description: string
+  services: Service['subServices']
+}
+
+export function ServicesGrid({ title, description, services }: Props) {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     const element = document.getElementById(id)
@@ -30,7 +37,7 @@ export function ServicesGrid({ title, description, services }: any) {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service: any, index: any) => (
+          {services.map((service, index) => (
             <div
               key={index}
               className={cn(
@@ -41,7 +48,7 @@ export function ServicesGrid({ title, description, services }: any) {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"
-                style={{ backgroundImage: `url(${service.imageSrc})` }}
+                style={{ backgroundImage: `url(${service.image.url})` }}
               />
 
               {/* Gradient Overlay */}
@@ -60,7 +67,7 @@ export function ServicesGrid({ title, description, services }: any) {
                 <div className="flex items-center mt-2">
                   <Link
                     href={`#${service.link}`}
-                    onClick={(e) => handleScroll(e, service.link)}
+                    onClick={(e) => handleScroll(e, service.link || '')}
                     className="text-xs font-medium text-blue-300 group-hover:text-blue-200 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
                   >
                     Learn More

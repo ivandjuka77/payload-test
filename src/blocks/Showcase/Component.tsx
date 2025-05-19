@@ -4,14 +4,17 @@ import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
-import { Product, Post } from '@/payload-types'
+import { Product, Post, Industry, ProductCategory } from '@/payload-types'
+import CategoryCard from '@/components/CategoryCard'
 
 interface ShowcaseProps {
-  type: 'product' | 'content' | 'feature'
+  type: 'product' | 'category' | 'industry' | 'blogs' | 'feature'
   title: string
   description: string
   products?: Product[]
-  contentItems?: { content: Post[] }[]
+  categories?: ProductCategory[]
+  industries?: Industry[]
+  articles?: { content: Post[] }[]
   features?: { title: string; description: string; media: any }[]
   showCta?: boolean
   cta?: {
@@ -26,12 +29,13 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   title,
   description,
   products,
-  contentItems,
+  categories,
+  industries,
+  articles,
   features,
   showCta = true,
   cta,
 }) => {
-  console.log('products', products)
   // Handle different showcase types
   const renderContent = (type: string) => {
     switch (type) {
@@ -48,19 +52,15 @@ export const Showcase: React.FC<ShowcaseProps> = ({
           </div>
         )
 
-      case 'content':
-        const contentList = contentItems?.[0]?.content || []
-        if (contentList.length === 0) return null
+      case 'category':
+        if (categories?.length === 0) return null
+
+        console.log('categories', categories)
 
         return (
           <div className="grid gap-8 md:grid-cols-3">
-            {contentList.map((post: Post, index: number) => (
-              // Will implement ContentCard component later
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-                {/* <ContentCard post={post} /> */}
-                <h3 className="font-bold text-xl mb-2">{post.title}</h3>
-                <p className="text-muted-foreground">Content card placeholder</p>
-              </div>
+            {categories?.map((category: ProductCategory, index: number) => (
+              <CategoryCard key={index} category={category} />
             ))}
           </div>
         )

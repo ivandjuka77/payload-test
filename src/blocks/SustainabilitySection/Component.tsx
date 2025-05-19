@@ -24,32 +24,13 @@ export const SustainabilitySection: React.FC<SustainabilityBlock> = ({
   features,
   cta,
 }) => {
-  //   const initiatives = [
-  //     {
-  //       icon: <Recycle className="h-6 w-6" />,
-  //       title: 'Circular Chemistry',
-  //       description:
-  //         'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
-  //     },
-  //     {
-  //       icon: <Droplet className="h-6 w-6" />,
-  //       title: 'Water Conservation',
-  //       description:
-  //         'Implementing advanced water treatment and recycling technologies to reduce consumption and protect local watersheds.',
-  //     },
-  //     {
-  //       icon: <Factory className="h-6 w-6" />,
-  //       title: 'Clean Manufacturing',
-  //       description:
-  //         'Transforming our production facilities with energy-efficient equipment and zero-emission technologies.',
-  //     },
-  //     {
-  //       icon: <TreePine className="h-6 w-6" />,
-  //       title: 'Biodiversity Protection',
-  //       description:
-  //         'Supporting conservation efforts and ensuring our operations have minimal impact on local ecosystems.',
-  //     },
-  //   ]
+  //TODO: Remove hardcoded icons
+  const icons = [
+    <Recycle key="recycle" className="w-6 h-6" />,
+    <Droplet key="droplet" className="w-6 h-6" />,
+    <Factory key="factory" className="w-6 h-6" />,
+    <TreePine key="tree" className="w-6 h-6" />,
+  ]
 
   return (
     <section className="w-full py-16 md:py-24 relative bg-white">
@@ -117,7 +98,7 @@ export const SustainabilitySection: React.FC<SustainabilityBlock> = ({
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
                 <div className="p-3 rounded-lg bg-[#00CC65]/10 text-[#00CC65] w-fit mb-4">
-                  {/* {feature.icon} */} ICON HERE
+                  {icons[index]}
                 </div>
                 <h3 className="text-xl font-bold mb-2 font-primary">{feature.title}</h3>
                 <p className="text-muted-foreground font-secondary">{feature.content}</p>

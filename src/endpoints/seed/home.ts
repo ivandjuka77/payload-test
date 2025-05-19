@@ -1,31 +1,74 @@
-import type { Media } from '@/payload-types'
+import type { Media, Post, ProductCategory } from '@/payload-types'
 
 type HomeArgs = {
-  backgroundImage1: Media
-  featuredImage1: Media
-  featuredCardImage1: Media
-  featuredCardImage2: Media
-  featuredCardImage3: Media
-  backgroundImage2: Media
-  featuredImage2: Media
-  featuredCardImage4: Media
-  featuredCardImage5: Media
-  featuredCardImage6: Media
+  // Assets
+  slide1HeroBgDoc: Media
+  slide1HeroFeaturedItemDoc: Media
+  slide1HeroCard1Doc: Media
+  slide1HeroCard2Doc: Media
+  slide1HeroCard3Doc: Media
+  slide2HeroBgDoc: Media
+  slide2HeroFeaturedItemDoc: Media
+  slide2HeroCard1Doc: Media
+  slide2HeroCard2Doc: Media
+  slide2HeroCard3Doc: Media
+  slide3HeroBgDoc: Media
+  slide3HeroFeaturedItemDoc: Media
+  slide3HeroCard1Doc: Media
+  slide3HeroCard2Doc: Media
+  slide3HeroCard3Doc: Media
+  quickAccessCard1Doc: Media
+  quickAccessCard2Doc: Media
+  quickAccessCard3Doc: Media
+  quickAccessCard4Doc: Media
+  featuredImage1Doc: Media
+
+  // Categories
+  hydroxyAcids: ProductCategory
+  hinderedAmines: ProductCategory
+  glycolEthers: ProductCategory
+
+  // Posts
+  post1: Post
+  post2: Post
+  post3: Post
+
+  // Sustainability
+  sustainabilityImage1Doc: Media
 }
 
 export function home(args: HomeArgs) {
   const {
-    backgroundImage1,
-    featuredImage1,
-    featuredCardImage1,
-    featuredCardImage2,
-    featuredCardImage3,
-    backgroundImage2,
-    featuredImage2,
-    featuredCardImage4,
-    featuredCardImage5,
-    featuredCardImage6,
+    slide1HeroBgDoc,
+    slide1HeroFeaturedItemDoc,
+    slide1HeroCard1Doc,
+    slide1HeroCard2Doc,
+    slide1HeroCard3Doc,
+    slide2HeroBgDoc,
+    slide2HeroFeaturedItemDoc,
+    slide2HeroCard1Doc,
+    slide2HeroCard2Doc,
+    slide2HeroCard3Doc,
+    slide3HeroBgDoc,
+    slide3HeroFeaturedItemDoc,
+    slide3HeroCard1Doc,
+    slide3HeroCard2Doc,
+    slide3HeroCard3Doc,
+    featuredImage1Doc,
+    quickAccessCard1Doc,
+    quickAccessCard2Doc,
+    quickAccessCard3Doc,
+    quickAccessCard4Doc,
+    hydroxyAcids,
+    hinderedAmines,
+    glycolEthers,
+    post1,
+    post2,
+    post3,
+    sustainabilityImage1Doc,
   } = args
+
+  const featuredImage1 = featuredImage1Doc
 
   return {
     title: 'Home',
@@ -37,13 +80,13 @@ export function home(args: HomeArgs) {
         {
           title: 'Advancing Scientific Research',
           subtitle: 'Pioneering chemical innovations for researchers and academic institutions',
-          backgroundImage: backgroundImage1,
+          backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
               title: 'Research Partnerships',
               description:
                 'Collaborate with our scientists on groundbreaking chemical research initiatives',
-              image: featuredCardImage1,
+              image: slide1HeroCard1Doc,
               links: [
                 {
                   link: {
@@ -56,15 +99,15 @@ export function home(args: HomeArgs) {
               ],
             },
             {
-              title: 'Research Partnerships',
+              title: 'Laboratory Materials',
               description:
-                'Collaborate with our scientists on groundbreaking chemical research initiatives',
-              image: featuredCardImage2,
+                'High-purity compounds and reagents for precise experimental requirements',
+              image: slide1HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/research-partnerships',
+                    url: '/lab-materials',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -72,15 +115,15 @@ export function home(args: HomeArgs) {
               ],
             },
             {
-              title: 'Research Partnerships',
+              title: 'Academic Programs',
               description:
-                'Collaborate with our scientists on groundbreaking chemical research initiatives',
-              image: featuredCardImage3,
+                'Supporting educational institutions with specialized chemistry programs',
+              image: slide1HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/research-partnerships',
+                    url: '/academic-collaborations',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -89,18 +132,19 @@ export function home(args: HomeArgs) {
             },
           ],
           badge: {
+            icon: 'atom',
             text: '25+ years of research expertise',
           },
           featuredItem: {
             title: 'Novel Catalytic Systems',
             description:
               'Our latest breakthrough in transition metal catalysis enables reactions at lower temperatures with higher yields.',
-            image: featuredImage1,
+            image: slide1HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/catalytic-systems',
+                  url: '/research/catalytic-systems',
                   label: 'Learn More',
                   appearance: 'default',
                 },
@@ -112,8 +156,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/solutions',
-                  label: 'View Solutions',
+                  url: '/research',
+                  label: 'Explore Research Solutions',
                   appearance: 'default',
                 },
               },
@@ -123,18 +167,18 @@ export function home(args: HomeArgs) {
         {
           title: 'Industrial Chemical Solutions',
           subtitle: 'High-performance formulations engineered for your production needs',
-          backgroundImage: backgroundImage2,
+          backgroundImage: slide2HeroBgDoc,
           featuredCards: [
             {
               title: 'Coating Systems',
               description:
                 'Advanced polymer coatings with superior durability and corrosion resistance',
-              image: featuredCardImage4,
+              image: slide2HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/coating-systems',
+                    url: '/products/coatings',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -142,15 +186,14 @@ export function home(args: HomeArgs) {
               ],
             },
             {
-              title: 'Coating Systems',
-              description:
-                'Advanced polymer coatings with superior durability and corrosion resistance',
-              image: featuredCardImage5,
+              title: 'Adhesive Solutions',
+              description: 'High-performance bonding agents for demanding industrial applications',
+              image: slide2HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/coating-systems',
+                    url: '/products/adhesives',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -158,15 +201,14 @@ export function home(args: HomeArgs) {
               ],
             },
             {
-              title: 'Coating Systems',
-              description:
-                'Advanced polymer coatings with superior durability and corrosion resistance',
-              image: featuredCardImage6,
+              title: 'Custom Formulations',
+              description: 'Tailored chemical compounds developed to your exact specifications',
+              image: slide2HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/coating-systems',
+                    url: '/custom-formulations',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -175,18 +217,19 @@ export function home(args: HomeArgs) {
             },
           ],
           badge: {
+            icon: 'building2',
             text: '300+ patented formulations',
           },
           featuredItem: {
             title: 'Ultra-Durable Coating System',
             description:
               'Our advanced polymer coating provides unmatched corrosion resistance for industrial applications.',
-            image: featuredImage2,
+            image: slide2HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/coating-systems',
+                  url: '/products/coating-systems',
                   label: 'Learn More',
                   appearance: 'default',
                 },
@@ -198,8 +241,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/industrial-solutions',
-                  label: 'Explore Industrial Solutions',
+                  url: '/industrial',
+                  label: 'View Industrial Solutions',
                   appearance: 'default',
                 },
               },
@@ -209,18 +252,18 @@ export function home(args: HomeArgs) {
         {
           title: 'Chemistry for a Sustainable Future',
           subtitle: 'Environmentally responsible innovations and green chemistry solutions',
-          backgroundImage: backgroundImage1,
+          backgroundImage: slide3HeroBgDoc,
           featuredCards: [
             {
               title: 'Bio-Based Polymers',
               description:
                 'Plant-derived alternatives with 70% lower carbon footprint than conventional options',
-              image: featuredCardImage1,
+              image: slide3HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/bio-based-polymers',
+                    url: '/sustainable-products/biopolymers',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -231,12 +274,12 @@ export function home(args: HomeArgs) {
               title: 'Green Manufacturing',
               description:
                 'Eco-friendly processes that minimize waste and reduce environmental impact',
-              image: featuredCardImage2,
+              image: slide3HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/green-manufacturing',
+                    url: '/green-initiatives/manufacturing',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -246,7 +289,7 @@ export function home(args: HomeArgs) {
             {
               title: 'Circular Economy Solutions',
               description: 'Innovative approaches to product lifecycle and materials recycling',
-              image: featuredCardImage3,
+              image: slide3HeroCard3Doc,
               links: [
                 {
                   link: {
@@ -260,18 +303,19 @@ export function home(args: HomeArgs) {
             },
           ],
           badge: {
+            icon: 'globe',
             text: '50+ global partnerships for sustainability',
           },
           featuredItem: {
             title: 'Bio-Based Polymers',
             description:
               'Our plant-derived polymers offer the same performance as petroleum-based alternatives with 70% lower carbon footprint.',
-            image: featuredImage1,
+            image: slide3HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/bio-based-polymers',
+                  url: '/sustainable-products/biopolymers',
                   label: 'Learn More',
                   appearance: 'default',
                 },
@@ -283,7 +327,7 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-solutions',
+                  url: '/sustainability',
                   label: 'Discover Sustainable Solutions',
                   appearance: 'default',
                 },
@@ -305,7 +349,7 @@ export function home(args: HomeArgs) {
             title: 'Products & Solutions',
             description:
               'Discover our specialty chemicals engineered for performance across diverse applications.',
-            backgroundImage: featuredImage1,
+            backgroundImage: quickAccessCard1Doc,
             links: [
               {
                 link: {
@@ -321,7 +365,7 @@ export function home(args: HomeArgs) {
             title: 'Industries Served',
             description:
               'See how our chemical expertise drives innovation across global industries.',
-            backgroundImage: featuredImage1,
+            backgroundImage: quickAccessCard2Doc,
             links: [
               {
                 link: {
@@ -337,7 +381,7 @@ export function home(args: HomeArgs) {
             title: 'Research & Innovation',
             description:
               'Explore our cutting-edge research facilities and breakthrough technologies.',
-            backgroundImage: featuredImage1,
+            backgroundImage: quickAccessCard3Doc,
             links: [
               {
                 link: {
@@ -353,7 +397,7 @@ export function home(args: HomeArgs) {
             title: 'Sustainability ',
             description:
               'Learn about our commitment to environmentally responsible chemical production.',
-            backgroundImage: featuredImage1,
+            backgroundImage: quickAccessCard4Doc,
             links: [
               {
                 link: {
@@ -369,355 +413,40 @@ export function home(args: HomeArgs) {
         blockType: 'quickAccess',
       },
       {
-        type: 'product',
+        type: 'category',
         title: 'Key Areas of Expertise',
         description:
           'Discover how our chemical expertise can transform your business needs and drive innovation',
-        showCta: false,
+        showCta: true,
         blockName: null,
         contentItems: [],
         features: [],
         blockType: 'showcase',
-
-        products: [
-          {
-            id: 1,
-            name: 'Dimethylolbutyric Acid (DMBA)',
-            description:
-              'Enables solvent-free PUD synthesis with improved processing efficiency (lower temperature) and potentially enhanced film resistance.',
-
-            chemicalFamily: [1, 2],
-            chemicalStructureImage: featuredImage1,
-            technicalSpecifications: {
-              chemicalName: '2,2-Bis(hydroxymethyl)butyric acid',
-              casNumber: '10097-02-6',
-              ecNumber: '233-226-5',
-
-              synonyms: [
-                {
-                  synonym: '2,2-Bis(hydroxymethyl)butyric acid',
-                },
-
-                {
-                  synonym: 'DMBA',
-                },
-              ],
-              molecularFormula: 'C₆H₁₂O₄',
-              molecularWeight: '148.16 g/mol',
-              labVerified: 'Verified',
-            },
-            VupSpecifications: {
-              appearance: 'White crystalline powder',
-              purity: 'min. 99.0 % wt',
-              acidValue: 'min. 375 mg KOH/g',
-              hydroxylValue: 'min. 750 mg KOH/g',
-              waterContent: 'max. 0.3 % wt',
-              ashContent: 'max. 0.03 % wt',
-              meltingPoint: null,
-              boilingPoint: null,
-              density: null,
-              solubility: null,
-            },
-            applications: [
-              {
-                image: featuredImage1,
-                application: 'Solvent-Free PUDs',
-                description: 'Enables solvent-free processing',
-              },
-              {
-                image: featuredImage1,
-                application: 'Waterborne Coatings',
-                description: 'Provides water dispersibility',
-              },
-
-              {
-                image: featuredImage1,
-                application: 'Polyurethane Dispersions',
-                description: 'Enhances film resistance',
-              },
-            ],
-            keyFeatures: [
-              {
-                feature: 'Solvent-Free Processing',
-                description: 'Enables solvent-free PUD synthesis',
-              },
-              {
-                feature: 'Lower Processing Temperature',
-                description: 'Improves manufacturing efficiency',
-              },
-              {
-                feature: 'Enhanced Film Resistance',
-                description: 'Provides superior durability',
-              },
-              {
-                feature: 'Improved Hydrophilicity',
-                description: 'Better water compatibility',
-              },
-
-              {
-                feature: 'Reduced VOC',
-                description: 'Environmentally friendly formulations',
-              },
-            ],
-            caseStudies: [],
-
-            relatedProducts: [],
-
-            faq: [
-              {
-                question: 'How does DMBA compare to DMPA?',
-                answer:
-                  'DMBA offers improved processing efficiency at lower temperatures and potentially enhanced film resistance compared to DMPA.',
-              },
-              {
-                question: 'What are the main applications for DMBA?',
-                answer:
-                  'DMBA is primarily used in solvent-free PUDs, waterborne coatings, and polyurethane dispersions requiring enhanced film resistance.',
-              },
-
-              {
-                question: 'Why choose DMBA for polyurethane dispersions?',
-                answer:
-                  'DMBA enables solvent-free PUD synthesis with improved processing efficiency and enhanced film resistance properties.',
-              },
-            ],
-            slug: 'dmba',
-            slugLock: true,
-            updatedAt: '2025-05-10T03:06:07.735Z',
-            createdAt: '2025-05-10T03:06:07.735Z',
-            _status: 'published',
-          },
-          {
-            id: 2,
-            name: 'Dimethylolpropionic Acid (DMPA)',
-            description:
-              'A unique trifunctional molecule featuring two primary hydroxyl groups and one tertiary carboxylic group, essential for creating high-performance water-soluble alkyds, polyesters, and polyurethane dispersions (PUDs).',
-
-            chemicalFamily: [1],
-            chemicalStructureImage: featuredImage1,
-            technicalSpecifications: {
-              chemicalName: '3-Hydroxy-2-(hydroxymethyl)-2-methylpropanoic acid',
-              casNumber: '4767-03-7',
-              ecNumber: '225-306-3',
-
-              synonyms: [
-                {
-                  synonym: '2,2-Bis(hydroxymethyl)propionic acid',
-                },
-
-                {
-                  synonym: 'DMPA',
-                },
-              ],
-              molecularFormula: 'C₅H₁₀O₄',
-              molecularWeight: '134.13 g/mol',
-              labVerified: 'Verified',
-            },
-            VupSpecifications: {
-              appearance: 'White crystalline powder',
-              purity: 'min. 98.5 % wt',
-              acidValue: 'min. 412 mg KOH/g',
-              hydroxylValue: 'min. 824 mg KOH/g',
-              waterContent: 'max. 0.3 % wt',
-              ashContent: 'max. 0.03 % wt',
-              meltingPoint: null,
-              boilingPoint: null,
-              density: null,
-              solubility: null,
-            },
-            applications: [
-              {
-                image: featuredImage1,
-                application: 'Waterborne Coatings (General)',
-                description: 'Enables waterborne formulations',
-              },
-              {
-                image: featuredImage1,
-                application: 'Polyurethane Dispersions (PUDs)',
-                description: 'Improves coating properties',
-              },
-              {
-                image: featuredImage1,
-                application: 'Alkyd Resin Coatings',
-                description: 'Enhances adhesion',
-              },
-
-              {
-                image: featuredImage1,
-                application: 'Polyester Resin Coatings',
-                description: 'Provides versatile reactivity',
-              },
-            ],
-            keyFeatures: [
-              {
-                feature: 'Water Solubility / Dispersibility Agent',
-                description: 'Enables waterborne formulations',
-              },
-              {
-                feature: 'Adhesion Promotion',
-                description: 'Improves coating adhesion to substrates',
-              },
-              {
-                feature: 'Improved Flexibility',
-                description: 'Enhances coating flexibility and durability',
-              },
-              {
-                feature: 'Enhanced Gloss',
-                description: 'Provides superior finish quality',
-              },
-
-              {
-                feature: 'Reduced VOC',
-                description: 'Waterborne formulation enabler',
-              },
-            ],
-            caseStudies: [],
-
-            relatedProducts: [],
-
-            faq: [
-              {
-                question: 'What are the main applications for DMPA?',
-                answer:
-                  'DMPA is primarily used in waterborne coatings, polyurethane dispersions (PUDs), alkyd resin coatings, and polyester resin coatings.',
-              },
-              {
-                question: 'What makes DMPA unique?',
-                answer:
-                  'DMPA is a trifunctional molecule with two primary hydroxyl groups and one tertiary carboxylic group, making it ideal for creating water-soluble polymers.',
-              },
-
-              {
-                question: 'How does DMPA contribute to VOC reduction?',
-                answer:
-                  'DMPA enables the formulation of waterborne coatings, which significantly reduces the need for volatile organic compounds (VOCs) in coating applications.',
-              },
-            ],
-            slug: 'dmpa',
-            slugLock: true,
-            updatedAt: '2025-05-10T03:06:07.738Z',
-            createdAt: '2025-05-10T03:06:07.739Z',
-            _status: 'published',
-          },
-          {
-            id: 3,
-            name: '3-Hydroxypivalic Acid (HPVA)',
-            description:
-              'A unique hydroxy acid featuring a neopentyl structure, essential for synthesizing high-performance polyesters and esters with exceptional stability.',
-
-            chemicalFamily: [1],
-            chemicalStructureImage: featuredImage1,
-            technicalSpecifications: {
-              chemicalName: '3-Hydroxypivalic Acid',
-              casNumber: '4835-90-9',
-              ecNumber: '225-419-8',
-
-              synonyms: [
-                {
-                  synonym: 'Hydroxypivalic Acid',
-                },
-
-                {
-                  synonym: '2,2-Dimethyl-3-hydroxypropionic acid',
-                },
-              ],
-              molecularFormula: 'C₅H₁₀O₃',
-              molecularWeight: '118.13 g/mol',
-              labVerified: 'Verified',
-            },
-            VupSpecifications: {
-              appearance: 'White crystalline powder/solid',
-              purity: 'min. 98.0 % wt',
-              acidValue: null,
-              hydroxylValue: null,
-              waterContent: null,
-              ashContent: null,
-              meltingPoint: '122 – 124 °C',
-              boilingPoint: null,
-              density: null,
-              solubility: null,
-            },
-            applications: [
-              {
-                image: featuredImage1,
-                application: 'Polyester Resins',
-                description: 'Provides exceptional stability',
-              },
-              {
-                image: featuredImage1,
-                application: 'Powder Coatings',
-                description: 'Enhances durability',
-              },
-              {
-                image: featuredImage1,
-                application: 'Coil Coatings',
-                description: 'Improves weather resistance',
-              },
-
-              {
-                image: featuredImage1,
-                application: 'Synthetic Lubricants',
-                description: 'Offers thermal stability',
-              },
-            ],
-            keyFeatures: [
-              {
-                feature: 'Enhanced Hydrolytic Stability',
-                description: 'Exceptional stability in various conditions',
-              },
-              {
-                feature: 'Improved Thermal Stability',
-                description: 'Withstands high temperatures',
-              },
-              {
-                feature: 'Excellent Weather Resistance',
-                description: 'Durable polymer building block',
-              },
-              {
-                feature: 'High Chemical Resistance',
-                description: 'Resistant to various chemicals',
-              },
-
-              {
-                feature: 'Low Volatility',
-                description: 'Stable in formulations',
-              },
-            ],
-            caseStudies: [],
-
-            relatedProducts: [],
-
-            faq: [
-              {
-                question: 'What makes HPVA unique?',
-                answer:
-                  'HPVA features a neopentyl structure that provides exceptional stability in polyesters and esters.',
-              },
-              {
-                question: 'What are the main applications for HPVA?',
-                answer:
-                  'HPVA is used in polyester resins, powder coatings, coil coatings, and synthetic lubricants requiring high stability.',
-              },
-
-              {
-                question: 'Why is HPVA preferred for weather-resistant applications?',
-                answer:
-                  'The unique neopentyl structure of HPVA provides excellent weather resistance and durability in outdoor applications.',
-              },
-            ],
-            slug: 'hpva',
-            slugLock: true,
-            updatedAt: '2025-05-10T03:06:07.738Z',
-            createdAt: '2025-05-10T03:06:07.740Z',
-            _status: 'published',
-          },
-        ],
-
+        categories: [hydroxyAcids, hinderedAmines, glycolEthers],
         cta: {
-          title: null,
-          description: null,
-          links: [],
+          title: 'Need a specialized chemical solution?',
+          description: 'Our experts can develop custom formulations for your specific requirements',
+          links: [
+            {
+              link: {
+                type: 'custom',
+                url: '/contact',
+                label: 'Contact Us',
+                appearance: 'default',
+              },
+            },
+          ],
         },
+      },
+      {
+        blockName: null,
+        blockType: 'news',
+        title: 'News & Insights',
+        description:
+          "Stay updated with VUP's latest achievements, innovations, and industry insights.",
+        badge: 'Latest Updates',
+        linkLabel: 'View all news and publications',
+        items: [post1, post2, post3],
       },
       {
         title: 'Build Your Career With Purpose',
@@ -770,7 +499,7 @@ export function home(args: HomeArgs) {
         subtitle:
           "We're reimagining chemical processes to protect our planet while delivering the innovative solutions our customers need.",
 
-        image: featuredImage1,
+        image: sustainabilityImage1Doc,
         blockName: null,
         features: [
           {
@@ -788,7 +517,6 @@ export function home(args: HomeArgs) {
             content:
               'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
           },
-
           {
             title: 'Circular Chemistry',
             content:
@@ -847,16 +575,6 @@ export function home(args: HomeArgs) {
             },
           ],
         },
-      },
-      {
-        blockName: null,
-        blockType: 'news',
-        title: 'News & Insights',
-        description:
-          "Stay updated with VUP's latest achievements, innovations, and industry insights.",
-        badge: 'Latest Updates',
-        linkLabel: 'View all news and publications',
-        newsItems: [],
       },
     ],
     meta: {

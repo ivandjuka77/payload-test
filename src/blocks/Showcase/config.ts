@@ -4,6 +4,7 @@ import type { Block } from 'payload'
 const isProductShowcase = (type: string) => ['product'].includes(type)
 const isContentShowcase = (type: string) => ['content'].includes(type)
 const isFeatureShowcase = (type: string) => ['feature'].includes(type)
+const isCategoryShowcase = (type: string) => ['category'].includes(type)
 
 export const Showcase: Block = {
   slug: 'showcase',
@@ -31,6 +32,10 @@ export const Showcase: Block = {
           label: 'Feature Showcase',
           value: 'feature',
         },
+        {
+          label: 'Category Showcase',
+          value: 'category',
+        },
       ],
       required: true,
     },
@@ -50,6 +55,17 @@ export const Showcase: Block = {
       relationTo: 'products',
       admin: {
         condition: (_, { type } = {}) => isProductShowcase(type),
+      },
+      hasMany: true,
+      required: true,
+      maxDepth: 2,
+    },
+    {
+      name: 'categories',
+      type: 'relationship',
+      relationTo: 'productCategories',
+      admin: {
+        condition: (_, { type } = {}) => isCategoryShowcase(type),
       },
       hasMany: true,
       required: true,

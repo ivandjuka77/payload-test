@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-
-import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -14,6 +12,7 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { DefaultTypedEditorState } from 'node_modules/@payloadcms/richtext-lexical/dist/nodeTypes'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -60,15 +59,25 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <PostHero post={post} />
 
-      <div className="flex flex-col items-center gap-4 pt-8">
+      <div className="flex flex-col items-center gap-4 pt-14">
         <div className="container">
-          <RichText className="max-w-[48rem] mx-auto" data={post.content} enableGutter={false} />
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
+          <RichText
+            className="max-w-[48rem] mx-auto"
+            data={post.content as DefaultTypedEditorState}
+            enableGutter={false}
+          />
+          {/* {post.relatedProducts && post.relatedProducts.length > 0 && (
             <RelatedPosts
               className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
-              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+              docs={post.relatedProducts.filter((product) => typeof product === 'object')}
             />
           )}
+          {post.relatedServices && post.relatedServices.length > 0 && (
+            <RelatedPosts
+              className="mt-12 max-w-[52rem] lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr]"
+              docs={post.relatedServices.filter((service) => typeof service === 'object')}
+            />
+          )} */}
         </div>
       </div>
     </article>

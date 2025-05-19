@@ -11,7 +11,7 @@ import { ServicesGrid } from '@/components/ServiceGrid'
 import { SubServiceBreakdown } from '@/components/SubServiceBreakdown'
 import { TeamSection } from '@/components/TeamMembers'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
-import { Industry } from '@/payload-types'
+import { Industry, TeamMember } from '@/payload-types'
 import { CaseStudiesShowcase } from '@/components/CaseStudiesShowcase'
 
 export async function generateStaticParams() {
@@ -68,7 +68,7 @@ export default async function Service({ params: paramsPromise }: Args) {
       <TeamSection
         title={service.title + ' Team'}
         description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
-        team={service.team}
+        team={service.team as TeamMember[]}
       />
       <IndustryShowcaseComponent
         title={service.title + ' Industries'}

@@ -7,6 +7,7 @@ export const News: Block = {
     singular: 'News Section',
     plural: 'News Sections',
   },
+
   fields: [
     {
       name: 'title',
@@ -35,11 +36,12 @@ export const News: Block = {
       localized: true,
     },
     {
-      name: 'newsItems',
+      name: 'items',
       type: 'relationship',
       relationTo: 'posts',
       hasMany: true,
-      maxDepth: 3,
+      maxDepth: 4,
+      required: true,
     },
   ],
 }

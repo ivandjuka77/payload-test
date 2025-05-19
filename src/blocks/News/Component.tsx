@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { ArrowRight, Calendar, FileText, Rss } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -12,6 +10,8 @@ interface FeaturedNewsItemProps {
 }
 
 function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
+  console.log('post', post)
+
   return (
     <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary via-primary/70 to-white shadow-md hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col md:flex-row h-full">
@@ -113,9 +113,11 @@ export const NewsSection: React.FC<NewsBlock> = ({
   title,
   description,
   badge,
-  newsItems,
+  items,
   linkLabel,
 }) => {
+  console.log('items', items)
+
   return (
     <section className="w-full py-16 md:py-24 relative bg-gray-50">
       <div className="container px-4 md:px-6">
@@ -144,11 +146,11 @@ export const NewsSection: React.FC<NewsBlock> = ({
         </div>
 
         <div className="space-y-12">
-          {newsItems?.[0] && <FeaturedNewsItem post={newsItems[0] as Post} />}
+          {items?.[0] && <FeaturedNewsItem post={items[0] as Post} />}
 
           {/* Secondary articles - grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newsItems
+            {items
               ?.slice(1)
               .map((item, index) => (
                 <CompactNewsItem

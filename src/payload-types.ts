@@ -1276,10 +1276,11 @@ export interface IndustryShowcaseBlock {
  * via the `definition` "ShowcaseBlock".
  */
 export interface ShowcaseBlock {
-  type: 'product' | 'content' | 'feature';
+  type: 'product' | 'content' | 'feature' | 'category';
   title: string;
   description: string;
   products?: (number | Product)[] | null;
+  categories?: (number | ProductCategory)[] | null;
   contentItems?:
     | {
         content?: (number | Post)[] | null;
@@ -1336,7 +1337,7 @@ export interface NewsBlock {
   description?: string | null;
   badge?: string | null;
   linkLabel?: string | null;
-  newsItems?: (number | Post)[] | null;
+  items: (number | Post)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'news';
@@ -2058,6 +2059,7 @@ export interface ShowcaseBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   products?: T;
+  categories?: T;
   contentItems?:
     | T
     | {
@@ -2106,7 +2108,7 @@ export interface NewsBlockSelect<T extends boolean = true> {
   description?: T;
   badge?: T;
   linkLabel?: T;
-  newsItems?: T;
+  items?: T;
   id?: T;
   blockName?: T;
 }

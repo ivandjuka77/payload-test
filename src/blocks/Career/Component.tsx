@@ -1,10 +1,18 @@
 'use client'
 
-import { Briefcase } from 'lucide-react'
+import { Beaker, Briefcase, Heart, Sparkles, Users } from 'lucide-react'
 import { CareerBlock } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 
 export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features, cta }) => {
+  //TODO: Remove hardcoded icons
+  const icons = [
+    <Beaker key="beaker" className="w-6 h-6" />,
+    <Heart key="heart" className="w-6 h-6" />,
+    <Sparkles key="sparkles" className="w-6 h-6" />,
+    <Users key="user" className="w-6 h-6" />,
+  ]
+
   return (
     <section className="w-full py-16 md:py-24 relative bg-white">
       <div className="container px-4 md:px-6">
@@ -29,10 +37,7 @@ export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features
               className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                  {/* {feature.icon} */}
-                  ICON HERE
-                </div>
+                <div className="p-3 rounded-lg bg-primary/10 text-primary">{icons[index]}</div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 font-primary">{feature.title}</h3>
                   <p className="text-muted-foreground font-secondary">{feature.content}</p>
