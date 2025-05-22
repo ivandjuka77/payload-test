@@ -12,7 +12,7 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
-import { DefaultTypedEditorState } from 'node_modules/@payloadcms/richtext-lexical/dist/nodeTypes'
+import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
