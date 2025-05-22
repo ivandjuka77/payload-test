@@ -17,11 +17,11 @@ export default function ProductCard({
       key={product.id}
       className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
     >
-      <div className="relative h-52 bg-gradient-to-b from-gray-300 to-white overflow-hidden">
+      <div className="relative h-64 bg-gradient-to-b from-gray-300 to-white overflow-hidden flex items-center justify-center">
         {product.chemicalStructureImage && (
           <Media
             resource={product.chemicalStructureImage}
-            imgClassName="object-contain p-4 h-full w-full scale-[2]"
+            imgClassName="object-contain p-4 h-full w-full"
           />
         )}
         <Tag className="absolute bottom-4 left-4" type="product">

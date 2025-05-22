@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
+import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
@@ -16,7 +16,7 @@ export default async function IndustriesPage() {
   const url = '/industries'
 
   const page = await queryIndustriesPage()
-  const industries = await queryIndustries()
+  const industries = await queryIndustries({ limit: 100 })
 
   if (!page) {
     return <PayloadRedirects url={url} />
@@ -65,14 +65,14 @@ async function queryIndustriesPage() {
   return result.docs?.[0] || null
 }
 
-async function queryIndustries() {
+export async function queryIndustries({ limit = 100 }: { limit?: number }) {
   const { isEnabled: draft } = await draftMode()
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
     collection: 'industries',
     draft,
-    limit: 100,
+    limit: limit || 100,
     pagination: false,
     overrideAccess: draft,
   })

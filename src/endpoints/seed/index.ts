@@ -91,6 +91,8 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding media...`)
 
+  // -------------------- DEMO IMAGES -------------------- //
+
   const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
     fetchFileByURL(
       'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post1.webp',
@@ -129,11 +131,167 @@ export const seed = async ({
     }),
   ])
 
-  const [dmpaStructureBuffer, dmbaStructureBuffer, hpvaStructureBuffer] = await Promise.all([
-    fetchFileByURL('https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg'),
-    fetchFileByURL('https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg'),
-    fetchFileByURL('https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg'),
+  // -------------------- PRODUCTS -------------------- //
+
+  const [
+    dmpaStructureBuffer,
+    dmbaStructureBuffer,
+    hpvaStructureBuffer,
+    hTempoStructureBuffer,
+    troloxStructureBuffer,
+    tempoStructureBuffer,
+    // tempStructureBuffer,
+    dapegStructureBuffer,
+    benzoyloxyTmpStructureBuffer,
+    acetamidoTempoStructureBuffer,
+    temponeStructureBuffer,
+    // colaminStructureBuffer,
+    colaminPhosphateStructureBuffer,
+    // colaminPhosphatesodiumSaltStructureBuffer,
+    vupinStructureBuffer,
+  ] = await Promise.all([
+    fetchFileByURL('http://localhost:3000/assets/products/dmpa-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/dmba-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/hpva-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/h-tempo-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/trolox-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/tempo-sf.png'),
+    // fetchFileByURL('http://localhost:3000/assets/products/temp-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/dapeg-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/benzoyloxy-tmp-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/acetamido-tempo-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/tempone-sf.png'),
+    // fetchFileByURL('http://localhost:3000/assets/products/colamin-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/colamin-phosphate-sf.png'),
+    // fetchFileByURL('http://localhost:3000/assets/products/colamin-phosphate-sodium-salt-sf.png'),
+    fetchFileByURL('http://localhost:3000/assets/products/vupin-sf.png'),
   ])
+
+  const [
+    dmpaStructureDoc,
+    dmbaStructureDoc,
+    hpvaStructureDoc,
+    hTempoStructureDoc,
+    troloxStructureDoc,
+    tempoStructureDoc,
+    // tempStructureDoc,
+    dapegStructureDoc,
+    benzoyloxyTmpStructureDoc,
+    acetamidoTempoStructureDoc,
+    temponeStructureDoc,
+    // colaminStructureDoc,
+    colaminPhosphateStructureDoc,
+    // colaminPhosphatesodiumSaltStructureDoc,
+    vupinStructureDoc,
+  ] = await Promise.all([
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'DMPA Structure',
+      },
+      file: dmpaStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'DMBA Structure',
+      },
+      file: dmbaStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'HPVA Structure',
+      },
+      file: hpvaStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'HTempo Structure',
+      },
+      file: hTempoStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Trolox Structure',
+      },
+      file: troloxStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'TEMPO Structure',
+      },
+      file: tempoStructureBuffer,
+    }),
+    // payload.create({
+    //   collection: 'media',
+    //   data: {
+    //     alt: 'TEMP Structure',
+    //   },
+    //   file: tempStructureBuffer,
+    // }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'DAPEG Structure',
+      },
+      file: dapegStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Benzoyloxy TMP Structure',
+      },
+      file: benzoyloxyTmpStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Acetamido TEMPO Structure',
+      },
+      file: acetamidoTempoStructureBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'TEMPONE Structure',
+      },
+      file: temponeStructureBuffer,
+    }),
+    // payload.create({
+    //   collection: 'media',
+    //   data: {
+    //     alt: 'COLAMIN Structure',
+    //   },
+    //   file: colaminStructureBuffer,
+    // }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'COLAMIN Phosphate Structure',
+      },
+      file: colaminPhosphateStructureBuffer,
+    }),
+    // payload.create({
+    //   collection: 'media',
+    //   data: {
+    //     alt: 'COLAMIN Phosphate Sodium Salt Structure',
+    //   },
+    //   file: colaminPhosphatesodiumSaltStructureBuffer,
+    // }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'VUPIN Structure',
+      },
+      file: vupinStructureBuffer,
+    }),
+  ])
+
+  // -------------------- HOMEPAGE IMAGES -------------------- //
 
   const [
     slide1HeroBgBuffer,
@@ -368,7 +526,8 @@ export const seed = async ({
     }),
   ])
 
-  // Category assets
+  // -------------------- APPLICATIONS -------------------- //
+
   const [
     applicationsImage1Buffer,
     applicationsImage2Buffer,
@@ -437,10 +596,554 @@ export const seed = async ({
     }),
   ])
 
+  // -------------------- INDUSTRIES -------------------- //
+
+  const [
+    automotiveBuffer,
+    coatingsPaintsInksBuffer,
+    polymersPlasticsBuffer,
+    adhesivesSealantsBuffer,
+    pharmaceuticalsBuffer,
+    petrochemicalsRefineriesBuffer,
+    batteryEnergyStorageBuffer,
+    buildingConstructionBuffer,
+  ] = await Promise.all([
+    fetchFileByURL('https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/16751235/pexels-photo-16751235/free-photo-of-paint-stick-on-blue-wall.jpeg',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/31115985/pexels-photo-31115985/free-photo-of-close-up-of-white-plastic-screw-caps-in-bulk.jpeg',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/6124242/pexels-photo-6124242.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg'),
+    fetchFileByURL('https://images.pexels.com/photos/9800022/pexels-photo-9800022.jpeg'),
+    fetchFileByURL('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg'),
+  ])
+
+  // Industry Challenge Images
+  const [
+    // Automotive Industry Challenges
+    automotiveChallenge1Buffer,
+    automotiveChallenge2Buffer,
+    automotiveChallenge3Buffer,
+    automotiveChallenge4Buffer,
+
+    // Coatings, Paints & Inks Challenges
+    coatingsChallenge1Buffer,
+    coatingsChallenge2Buffer,
+    coatingsChallenge3Buffer,
+
+    // Polymers & Plastics Challenges
+    polymersChallenge1Buffer,
+    polymersChallenge2Buffer,
+    polymersChallenge3Buffer,
+    polymersChallenge4Buffer,
+    polymersChallenge5Buffer,
+
+    // Adhesives & Sealants Challenges
+    adhesivesChallenge1Buffer,
+    adhesivesChallenge2Buffer,
+    adhesivesChallenge3Buffer,
+    adhesivesChallenge4Buffer,
+
+    // Pharmaceuticals & Biotechnology Challenges
+    pharmaChallenge1Buffer,
+    pharmaChallenge2Buffer,
+    pharmaChallenge3Buffer,
+    pharmaChallenge4Buffer,
+
+    // Petrochemicals & Refineries Challenges
+    petroChallenge1Buffer,
+    petroChallenge2Buffer,
+    petroChallenge3Buffer,
+    petroChallenge4Buffer,
+
+    // Battery & Energy Storage Challenges
+    batteryChallenge1Buffer,
+    batteryChallenge2Buffer,
+    batteryChallenge3Buffer,
+
+    // Building & Construction Challenges
+    constructionChallenge1Buffer,
+    constructionChallenge2Buffer,
+    constructionChallenge3Buffer,
+    constructionChallenge4Buffer,
+  ] = await Promise.all([
+    // Automotive Industry Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/8478276/pexels-photo-8478276.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/10162529/pexels-photo-10162529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5506047/pexels-photo-5506047.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
+    ),
+
+    // Coatings, Paints & Inks Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682142471398-ccc685f5c849?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBvd2RlcmVkJTIwY29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682142462983-82489bc75cd9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGNvYXRpbmd8ZW58MHx8MHx8fDA%3D',
+    ),
+
+    // Polymers & Plastics Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/15158323/pexels-photo-15158323/free-photo-of-blue-guitar-pick-in-hand.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1681426678542-613c306013e1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1624804642361-a070c6497471?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9seXVyZXRoYW5lJTIwYnVpbGRpbmclMjBibG9ja3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1674641195187-99d2160eed5a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1669301638284-ed33553ef8fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TW9ub21lcnMlMjBmb3IlMjBQb2x5bWVyJTIwU3ludGhlc2lzfGVufDB8fDB8fHww',
+    ),
+
+    // Adhesives & Sealants Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1683141430181-f4cfe16b1e62?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2VhbGFudHxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/7180822/pexels-photo-7180822.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5963144/pexels-photo-5963144.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/3735769/pexels-photo-3735769.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+
+    // Pharmaceuticals & Biotechnology Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1661956660871-2cd646709c90?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1663039952394-00e73f235728?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1729949129758-0b668478dce5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1631980838946-755ba8443ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+
+    // Petrochemicals & Refineries Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682144394281-372331accc78?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1570615541379-e6b7ab6d4eb9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGV0cm9jaGVtaWNhbCUyMHN5bnRoZXNpc3xlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682144440391-bece4365baa3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBldHJvY2hlbWljYWxzfGVufDB8fDB8fHww',
+    ),
+
+    // Battery & Energy Storage Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1723507297320-2366db25341e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8T3JnYW5pYyUyMFJhZGljYWwlMjBCYXR0ZXJpZXMlMjAoT1JCcyl8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/7904403/pexels-photo-7904403.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1581244249923-172ef5029576?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGJhdHRlcmllc3xlbnwwfHwwfHx8MA%3D%3D',
+    ),
+
+    // Building & Construction Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5691692/pexels-photo-5691692.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5691644/pexels-photo-5691644.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+  ])
+
+  const [
+    automotiveDoc,
+    coatingsPaintsInksDoc,
+    polymersPlasticsDoc,
+    adhesivesSealantsDoc,
+    pharmaceuticalsDoc,
+    petrochemicalsRefineriesDoc,
+    batteryEnergyStorageDoc,
+    buildingConstructionDoc,
+  ] = await Promise.all([
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Automotive Industry',
+      },
+      file: automotiveBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Coatings, Paints & Inks Industry',
+      },
+      file: coatingsPaintsInksBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Polymers & Plastics Industry',
+      },
+      file: polymersPlasticsBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Adhesives & Sealants Industry',
+      },
+      file: adhesivesSealantsBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Pharmaceuticals & Biotechnology Industry',
+      },
+      file: pharmaceuticalsBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Petrochemicals & Refineries Industry',
+      },
+      file: petrochemicalsRefineriesBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Battery Energy Storage Industry',
+      },
+      file: batteryEnergyStorageBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Building & Construction Industry',
+      },
+      file: buildingConstructionBuffer,
+    }),
+  ])
+
+  // Industry Challenge Images
+  const [
+    // Automotive Industry Challenges
+    automotiveChallenge1Doc,
+    automotiveChallenge2Doc,
+    automotiveChallenge3Doc,
+    automotiveChallenge4Doc,
+
+    // Coatings, Paints & Inks Challenges
+    coatingsChallenge1Doc,
+    coatingsChallenge2Doc,
+    coatingsChallenge3Doc,
+
+    // Polymers & Plastics Challenges
+    polymersChallenge1Doc,
+    polymersChallenge2Doc,
+    polymersChallenge3Doc,
+    polymersChallenge4Doc,
+    polymersChallenge5Doc,
+
+    // Adhesives & Sealants Challenges
+    adhesivesChallenge1Doc,
+    adhesivesChallenge2Doc,
+    adhesivesChallenge3Doc,
+    adhesivesChallenge4Doc,
+
+    // Pharmaceuticals & Biotechnology Challenges
+    pharmaChallenge1Doc,
+    pharmaChallenge2Doc,
+    pharmaChallenge3Doc,
+    pharmaChallenge4Doc,
+
+    // Petrochemicals & Refineries Challenges
+    petroChallenge1Doc,
+    petroChallenge2Doc,
+    petroChallenge3Doc,
+    petroChallenge4Doc,
+
+    // Battery & Energy Storage Challenges
+    batteryChallenge1Doc,
+    batteryChallenge2Doc,
+    batteryChallenge3Doc,
+
+    // Building & Construction Challenges
+    constructionChallenge1Doc,
+    constructionChallenge2Doc,
+    constructionChallenge3Doc,
+    constructionChallenge4Doc,
+  ] = await Promise.all([
+    // Automotive Industry Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Advanced Automotive Coatings Challenge',
+      },
+      file: automotiveChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'High-Performance Automotive Adhesives Challenge',
+      },
+      file: automotiveChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Surface Preparation & Cleaning Challenge',
+      },
+      file: automotiveChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Component Testing & Compliance Challenge',
+      },
+      file: automotiveChallenge4Buffer,
+    }),
+
+    // Coatings, Paints & Inks Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Waterborne Coatings Challenge',
+      },
+      file: coatingsChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Powder Coatings & Resin Modification Challenge',
+      },
+      file: coatingsChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Environmental Regulations Challenge',
+      },
+      file: coatingsChallenge3Buffer,
+    }),
+
+    // Polymers & Plastics Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Polymer Stabilization Challenge',
+      },
+      file: polymersChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Controlled Polymerization Challenge',
+      },
+      file: polymersChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Polyurethane Building Blocks Challenge',
+      },
+      file: polymersChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Crosslinking & Property Enhancement Challenge',
+      },
+      file: polymersChallenge4Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Monomers for Polymer Synthesis Challenge',
+      },
+      file: polymersChallenge5Buffer,
+    }),
+
+    // Adhesives & Sealants Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Waterborne Adhesive Systems Challenge',
+      },
+      file: adhesivesChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Reactive Hot Melt Adhesives Challenge',
+      },
+      file: adhesivesChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Enhanced Strength & Durability Challenge',
+      },
+      file: adhesivesChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Performance Additives & Custom Solutions Challenge',
+      },
+      file: adhesivesChallenge4Buffer,
+    }),
+
+    // Pharmaceuticals & Biotechnology Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'API Synthesis Challenge',
+      },
+      file: pharmaChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Biomedical Materials Challenge',
+      },
+      file: pharmaChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Diagnostic Aids Challenge',
+      },
+      file: pharmaChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Drug Discovery Challenge',
+      },
+      file: pharmaChallenge4Buffer,
+    }),
+
+    // Petrochemicals & Refineries Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Fuel Processing & Storage Challenge',
+      },
+      file: petroChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Petrochemical Synthesis Challenge',
+      },
+      file: petroChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Downstream Raw Materials Challenge',
+      },
+      file: petroChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Process Optimization Challenge',
+      },
+      file: petroChallenge4Buffer,
+    }),
+
+    // Battery & Energy Storage Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Organic Radical Batteries Challenge',
+      },
+      file: batteryChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Redox Flow Batteries Challenge',
+      },
+      file: batteryChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Material Development Challenge',
+      },
+      file: batteryChallenge3Buffer,
+    }),
+
+    // Building & Construction Challenges
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Concrete & Cement Enhancement Challenge',
+      },
+      file: constructionChallenge1Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Plasters & Coatings Challenge',
+      },
+      file: constructionChallenge2Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Formwork Release Challenge',
+      },
+      file: constructionChallenge3Buffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Construction Adhesives & Sealants Challenge',
+      },
+      file: constructionChallenge4Buffer,
+    }),
+  ])
+
   //* -------------------- SEEDING SERVICES -------------------- *//
   payload.logger.info('— Seeding services...')
 
-  const [researchDevelopment, analyticalTesting] = await Promise.all([
+  const [
+    researchDevelopment,
+    analyticalTesting,
+    cosmeticsManufacturing,
+    regulatoryTechnicalSupport,
+    customSynthesisManufacturing,
+  ] = await Promise.all([
     payload.create({
       collection: 'services',
       data: {
@@ -448,14 +1151,6 @@ export const seed = async ({
         description:
           "VUP's R&D division serves as a cornerstone for solving difficult chemistry-related problems for diverse industries. We offer focused contract R&D, custom synthesis (from grams to pilot scale), route scouting, process development, optimization, and scale-up for chemical specialties, fine chemicals, and unique intermediates.",
         featuredImage: image1Doc.id,
-        services: [
-          { service: 'Route Scouting & Feasibility' },
-          { service: 'Custom Synthesis' },
-          { service: 'Process Development' },
-          { service: 'Process Scale-Up' },
-          { service: 'Analytical Development' },
-          { service: 'Technical Support' },
-        ],
         features: [
           {
             feature: 'Experience',
@@ -523,7 +1218,6 @@ export const seed = async ({
         slug: 'research-development',
       },
     }),
-
     payload.create({
       collection: 'services',
       data: {
@@ -531,12 +1225,6 @@ export const seed = async ({
         description:
           'Comprehensive analytical testing and method development services with state-of-the-art equipment and experienced specialists. We provide accurate, reliable results with fast turnaround times.',
         featuredImage: image2Doc.id,
-        services: [
-          { service: 'Method Development' },
-          { service: 'Quality Control Testing' },
-          { service: 'Stability Studies' },
-          { service: 'Material Characterization' },
-        ],
         features: [
           {
             feature: 'Modern Equipment',
@@ -604,6 +1292,260 @@ export const seed = async ({
         slug: 'analytical-testing',
       },
     }),
+    payload.create({
+      collection: 'services',
+      data: {
+        title: 'Custom Cosmetics Manufacturing',
+        description:
+          "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs. We offer flexible white label and private label solutions, from formulation development to large-scale production, ensuring high-quality, compliant products manufactured in Europe.",
+        featuredImage: image1Doc.id,
+        features: [
+          {
+            feature: 'Experience',
+            description:
+              '70+ years of chemical production expertise with dedicated cosmetics department since 1990',
+          },
+          {
+            feature: 'Quality',
+            description: 'ISO 9001 certified manufacturing with rigorous quality controls',
+          },
+          {
+            feature: 'Compliance',
+            description: 'Full adherence to EU cosmetic regulations and safety standards',
+          },
+          {
+            feature: 'Capacity',
+            description: 'Scalable production from small batches to large-scale manufacturing',
+          },
+        ],
+        subServices: [
+          {
+            title: 'White Label Services',
+            description:
+              "Brand and sell VUP's existing, market-tested cosmetic formulations including hand creams, body lotions, massage oils and gels.",
+            image: image1Doc.id,
+            displayItems: [
+              { title: 'Hand Creams & Body Lotions' },
+              { title: 'Massage Oils & Gels' },
+              { title: 'Medical & Diagnostic Gels' },
+            ],
+            features: [
+              {
+                feature: 'Proven Formulas',
+                description: 'Market-tested, award-winning product formulations',
+              },
+              {
+                feature: 'Quick Launch',
+                description: 'Faster time-to-market with existing formulations',
+              },
+            ],
+            link: 'white-label',
+          },
+          {
+            title: 'Private Label Services',
+            description:
+              'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements.',
+            image: image2Doc.id,
+            displayItems: [
+              { title: 'Custom Formulation' },
+              { title: 'Product Development' },
+              { title: 'Regulatory Support' },
+            ],
+            features: [
+              {
+                feature: 'Customization',
+                description: 'Tailored formulations to meet your exact needs',
+              },
+              {
+                feature: 'Full Support',
+                description: 'From concept to finished product',
+              },
+            ],
+            link: 'private-label',
+          },
+        ],
+        slug: 'cosmetics-manufacturing',
+      },
+    }),
+    payload.create({
+      collection: 'services',
+      data: {
+        title: 'Regulatory & Technical Support',
+        description:
+          "Navigate complex chemical regulations and overcome technical hurdles with VUP's expert support. We combine deep regulatory knowledge (REACH, ISO 9001) and 70+ years of chemical R&D expertise with accredited analytical capabilities (SNAS S-118) to provide reliable compliance guidance and effective technical solutions.",
+        featuredImage: image1Doc.id,
+        features: [
+          {
+            feature: 'REACH Expertise',
+            description: 'Proven experience with successful REACH registrations and compliance',
+          },
+          {
+            feature: 'Accredited Labs',
+            description:
+              'SNAS S-118 accredited analytical, technical-safety, and ecological laboratories',
+          },
+          {
+            feature: 'Quality Certified',
+            description: 'ISO 9001 certified quality management system',
+          },
+          {
+            feature: 'Industry Recognition',
+            description: 'Responsible Care certification and R&D Competency Certificate',
+          },
+        ],
+        subServices: [
+          {
+            title: 'Regulatory Support',
+            description:
+              'Comprehensive guidance for chemical regulations including REACH compliance, ISO 9001 quality systems, cosmetics & medical device regulations, and safety & environmental compliance.',
+            image: image1Doc.id,
+            displayItems: [
+              { title: 'REACH Compliance' },
+              { title: 'Quality Management Systems' },
+              { title: 'Safety & Environmental Regulations' },
+              { title: 'Certification Support' },
+            ],
+            features: [
+              {
+                feature: 'Expert Guidance',
+                description: 'Direct support from experienced regulatory specialists',
+              },
+              {
+                feature: 'Comprehensive Coverage',
+                description: 'Support across multiple regulatory frameworks',
+              },
+            ],
+            link: 'regulatory-support',
+          },
+          {
+            title: 'Technical Support',
+            description:
+              'In-depth technical consultation leveraging our R&D knowledge and analytical capabilities to help solve product and process challenges.',
+            image: image2Doc.id,
+            displayItems: [
+              { title: 'Product Expertise' },
+              { title: 'Problem Solving' },
+              { title: 'Technical Data Provision' },
+              { title: 'Process Consultation' },
+            ],
+            features: [
+              {
+                feature: 'Analytical Support',
+                description: 'Access to accredited laboratory services',
+              },
+              {
+                feature: 'Expert Consultation',
+                description: '70+ years of chemical R&D expertise',
+              },
+            ],
+            link: 'technical-support',
+          },
+        ],
+        slug: 'regulatory-technical-support',
+      },
+    }),
+    payload.create({
+      collection: 'services',
+      data: {
+        title: 'Custom Synthesis & Manufacturing',
+        description:
+          'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. We leverage 70+ years of R&D experience to tackle complex synthesis challenges and offer flexible production from grams to pilot-scale tonnes, all supported by accredited quality control and secure IP handling.',
+        featuredImage: image1Doc.id,
+        features: [
+          {
+            feature: 'Expert Problem Solving',
+            description: "Leverage VUP's 70+ years R&D experience for complex synthetic challenges",
+          },
+          {
+            feature: 'Quality Assured',
+            description:
+              'High-purity focus with rigorous QC backed by ISO 9001 and SNAS accredited labs',
+          },
+          {
+            feature: 'Scalability',
+            description: 'Seamless transition from gram-scale synthesis to pilot-scale production',
+          },
+          {
+            feature: 'IP Security',
+            description:
+              'Strict confidentiality agreements and secure handling of intellectual property',
+          },
+        ],
+        subServices: [
+          {
+            title: 'Custom Synthesis',
+            description:
+              'Specialized synthesis of non-catalogue fine chemicals, complex intermediates, reference standards, and chemical specialties. We tackle challenging multi-step synthetic routes leveraging our deep expertise in specific chemistries.',
+            image: image1Doc.id,
+            displayItems: [
+              { title: 'Route Scouting & Feasibility' },
+              { title: 'Laboratory Scale Synthesis' },
+              { title: 'High Purity Standards' },
+              { title: 'Multi-step Synthesis' },
+            ],
+            features: [
+              {
+                feature: 'Synthesis Expertise',
+                description:
+                  'Deep knowledge in complex organic synthesis and specialized chemistries',
+              },
+              {
+                feature: 'Scale Range',
+                description: 'From laboratory grams to kilogram quantities',
+              },
+            ],
+            link: 'custom-synthesis',
+          },
+          {
+            title: 'Process Development & Scale-Up',
+            description:
+              'Optimization of synthetic routes for improved efficiency, safety, yield, and cost-effectiveness. We provide comprehensive process development and scale-up services from laboratory to pilot plant validation.',
+            image: image2Doc.id,
+            displayItems: [
+              { title: 'Process Optimization' },
+              { title: 'Safety Assessment' },
+              { title: 'Yield Improvement' },
+              { title: 'Scale-up Validation' },
+            ],
+            features: [
+              {
+                feature: 'Production Capacity',
+                description: 'Pilot plant infrastructure with up to 250 t/yr capacity',
+              },
+              {
+                feature: 'Technical Support',
+                description: 'Comprehensive process documentation and validation',
+              },
+            ],
+            link: 'process-development',
+          },
+          {
+            title: 'Small-Scale & Toll Manufacturing',
+            description:
+              'Reliable contract manufacturing of fine chemicals and specialties utilizing our versatile pilot plant infrastructure. We offer flexible toll manufacturing services for kilogram to multi-tonne campaigns.',
+            image: image1Doc.id,
+            displayItems: [
+              { title: 'Contract Manufacturing' },
+              { title: 'Toll Processing' },
+              { title: 'Quality Control' },
+              { title: 'Regulatory Support' },
+            ],
+            features: [
+              {
+                feature: 'Manufacturing Flexibility',
+                description: 'Adaptable production capabilities for various batch sizes',
+              },
+              {
+                feature: 'Quality Systems',
+                description: 'ISO 9001 certified manufacturing processes',
+              },
+            ],
+            link: 'toll-manufacturing',
+          },
+        ],
+        slug: 'custom-synthesis-manufacturing',
+      },
+    }),
   ])
 
   //* -------------------- SEEDING INDUSTRIES -------------------- *//
@@ -617,6 +1559,7 @@ export const seed = async ({
     pharmaceuticals,
     petrochemicalsRefineries,
     batteryEnergyStorage,
+    buildingConstruction,
   ] = await Promise.all([
     payload.create({
       collection: 'industries',
@@ -625,7 +1568,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'We provide essential chemical intermediates for the automotive industry, including low-VOC coatings, adhesives, and cleaning agents that meet strict quality and environmental standards. Our solutions help manufacturers innovate and ensure compliance.',
-        featuredImage: image1Doc.id,
+        featuredImage: automotiveDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -634,7 +1577,7 @@ export const seed = async ({
               'Developing durable, high-performance, and environmentally compliant coatings (primers, basecoats, clearcoats) for vehicle bodies and components.',
             solution:
               'We supply key raw materials essential for modern automotive coatings. DMPA (CAS 4767-03-7) and DMBA (CAS 10097-02-6) are critical for producing waterborne Polyurethane Dispersions (PUDs) and polyester/alkyd resins used in eco-friendly, low-VOC automotive paints, contributing to excellent finish quality.',
-            image: image2Doc.id,
+            image: automotiveChallenge1Doc.id,
             challengeLink: 'advanced-automotive-coatings',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -643,7 +1586,6 @@ export const seed = async ({
         slug: 'automotive',
       },
     }),
-
     payload.create({
       collection: 'industries',
       data: {
@@ -651,7 +1593,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The coatings, paints, and inks industry continuously seeks innovations that enhance performance, durability, and environmental compatibility. Formulators face challenges in meeting stringent regulations while delivering exceptional protection, aesthetics, and functionality.',
-        featuredImage: image2Doc.id,
+        featuredImage: coatingsPaintsInksDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -660,7 +1602,7 @@ export const seed = async ({
               'Developing stable, high-performance waterborne coatings with reduced environmental impact requires specialized hydrophilic monomers.',
             solution:
               'Our DMPA and DMBA are versatile building blocks ensuring stable dispersion of resins in water, leading to lower VOC formulations with enhanced adhesion, gloss, and impact resistance.',
-            image: image3Doc.id,
+            image: coatingsChallenge1Doc.id,
             challengeLink: 'waterborne-coatings',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -676,7 +1618,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The Polymers & Plastics industry relies on innovative chemistry to create materials with specific functionalities, enhanced durability, and improved processing characteristics.',
-        featuredImage: image1Doc.id,
+        featuredImage: polymersPlasticsDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -685,7 +1627,7 @@ export const seed = async ({
               'Protecting polymers from degradation caused by UV light, heat, and oxidation is crucial for extending product lifespan and maintaining performance.',
             solution:
               'We offer Hindered Amines, including Hindered Amine Light Stabilizers (HALS) derived from our TAA production line.',
-            image: image2Doc.id,
+            image: polymersChallenge1Doc.id,
             challengeLink: 'polymer-stabilization',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -701,7 +1643,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The Adhesives & Sealants industry demands materials that provide strong, durable bonds, excellent flexibility, and resistance to environmental factors, while increasingly favouring sustainable, low-VOC formulations. VUP, a.s. contributes key chemical intermediates that enable the development of advanced adhesive and sealant systems. We provide specialized building blocks like Dimethylolbutanoic Acid (DMBA) for high-performance waterborne adhesives, Hydroxypivalic Acid (HPVA) derivatives for reactive hot melts, and essential crosslinkers, supporting formulators in meeting performance and regulatory challenges.',
-        featuredImage: image1Doc.id,
+        featuredImage: adhesivesSealantsDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -710,7 +1652,7 @@ export const seed = async ({
               'Formulating high-performance waterborne adhesives requires intermediates that ensure stability, strong bonding, and water resistance.',
             solution:
               'Dimethylolbutanoic Acid (DMBA, CAS 10097-02-6) is a crucial component for waterborne polyurethane, epoxy, and polyester adhesives. Its superior water solubility improves processing efficiency, while its function as a cross-linking agent provides exceptional bonding strength and improved water resistance. Its potentially faster reaction rate can also enhance production throughput. We also offer DMPA, a related methylolalkanoic acid also used in PUDs for adhesives.',
-            image: image2Doc.id,
+            image: adhesivesChallenge1Doc.id,
             challengeLink: 'waterborne-adhesive-systems',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -726,7 +1668,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The Pharmaceutical and Biotechnology sectors demand exceptional purity, innovative chemistry, and strict adherence to regulatory standards. VUP, a.s. partners with companies in these critical industries by providing key chemical intermediates, specialized diagnostic aids, advanced biomedical materials, and expert R&D and custom synthesis services. Leveraging our 70+ years of chemical expertise, ISO 9001:2015 certification, and accredited analytical capabilities, we support the development and production of vital healthcare solutions.',
-        featuredImage: image3Doc.id,
+        featuredImage: pharmaceuticalsDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -735,7 +1677,7 @@ export const seed = async ({
               'Sourcing high-purity, reliably supplied raw materials and intermediates is crucial for Active Pharmaceutical Ingredient (API) manufacturing.',
             solution:
               "We specialize in the production of TEMPO (CAS 2564-83-2) and related nitroxide radicals, which serve as versatile catalysts, antioxidants, and raw materials, including use in APIs targeting Parkinson's disease. VUP's Custom Synthesis service provides tailored production of other complex organic intermediates needed for drug development pipelines, backed by robust quality control.",
-            image: image1Doc.id,
+            image: pharmaChallenge1Doc.id,
             challengeLink: 'api-synthesis',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -751,7 +1693,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'Born from the Petrochemical Research Institute founded in 1950, VUP, a.s. possesses deep historical roots and extensive expertise in petrochemical science and technology. While not a large-scale refiner, we partner with the Petrochemicals & Refineries sector by providing specialized chemical products (like fuel stabilizers and inhibitors), advanced analytical services, custom synthesis of intermediates, and expert R&D support for process optimization and development. Our commitment to quality (ISO 9001) and safety (Responsible Care) makes us a reliable partner for this demanding industry.',
-        featuredImage: image2Doc.id,
+        featuredImage: petrochemicalsRefineriesDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -760,7 +1702,7 @@ export const seed = async ({
               'Ensuring fuel stability during processing, transportation, and storage is critical to prevent degradation, gum formation, and maintain quality specifications.',
             solution:
               'We produce specialized additives like VUPIN H37-B (Antioxidant/UV Stabilizer) designed for fuel processing and storage. Additionally, our expertise extends to polymerization inhibitors like H-TEMPO, which has been successfully used for years in refinery FCC units (e.g., at Slovnaft) to prevent unwanted reactions.',
-            image: image3Doc.id,
+            image: petroChallenge1Doc.id,
             challengeLink: 'fuel-processing-storage',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -776,7 +1718,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The global search for efficient, sustainable, and safe energy storage solutions is driving innovation beyond traditional lithium-ion batteries. Organic Radical Batteries (ORBs) represent a promising frontier, utilizing redox-active organic molecules like TEMPO (2,2,6,6-Tetramethylpiperidinooxy) and its derivatives. VUP, a.s., with its long-standing expertise in the R&D and production of high-purity TEMPO compounds, is positioned to support the development of this next generation of energy storage technology. Our scalable production capabilities and ongoing research efforts aim to provide key materials for ORBs and advanced redox flow batteries.',
-        featuredImage: image1Doc.id,
+        featuredImage: batteryEnergyStorageDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -785,7 +1727,7 @@ export const seed = async ({
               'Developing high-performance, metal-free, and potentially safer battery systems for applications ranging from portable electronics to grid storage.',
             solution:
               'TEMPO and its derivatives exhibit remarkable electrochemical performance, acting as highly efficient and reversible charge carriers. Their potential use as redox-active materials in ORB electrodes offers advantages like potentially high power density and fast charge/discharge rates. VUP produces high-purity TEMPO suitable for electrochemical research and development in this field.',
-            image: image2Doc.id,
+            image: batteryChallenge1Doc.id,
             challengeLink: 'organic-radical-batteries',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -796,7 +1738,7 @@ export const seed = async ({
               'Improving the energy density, efficiency, and cost-effectiveness of aqueous redox flow batteries for grid-scale energy storage.',
             solution:
               "Research indicates significant potential for TEMPO-based catholytes to enhance the performance of aqueous redox flow batteries. VUP's expertise in TEMPO chemistry positions us to collaborate on developing and supplying tailored TEMPO derivatives optimized for stability and electrochemical potential in flow battery systems.",
-            image: image3Doc.id,
+            image: batteryChallenge2Doc.id,
             challengeLink: 'redox-flow-batteries',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -807,7 +1749,7 @@ export const seed = async ({
               'Optimizing the performance of TEMPO-based batteries requires understanding structure-property relationships and potentially synthesizing novel derivatives with enhanced stability, solubility, or redox potential. Performance optimization regarding energy density and charge/discharge efficiency is a key focus.',
             solution:
               'Leveraging our deep expertise in nitroxide radical chemistry and R&D capabilities, we partner with researchers and companies to develop and synthesize custom TEMPO derivatives. Our goal is to address specific performance bottlenecks and contribute to advancements in ORB and flow battery technology through targeted material innovation. VUP has technologies involving TEMPO ready for scaling up.',
-            image: image1Doc.id,
+            image: batteryChallenge3Doc.id,
             challengeLink: 'material-development',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -823,7 +1765,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The Building & Construction industry continuously seeks materials and chemical solutions that improve durability, process efficiency, safety, and sustainability. VUP, a.s. contributes to this sector by providing specialized chemical preparations designed to enhance concrete and plaster properties (VUPPOR, VUPRANYL), improve formwork efficiency (VUPOFORM), and supply key intermediates (DMBA, DMPA) used in high-performance coatings and adhesives essential for modern construction. Our focus is on delivering reliable chemical solutions that add value to building materials and processes.',
-        featuredImage: image2Doc.id,
+        featuredImage: buildingConstructionDoc.id,
         services: [researchDevelopment, analyticalTesting],
         challenges: [
           {
@@ -832,7 +1774,7 @@ export const seed = async ({
               'Improving the workability of concrete mixes and enhancing the properties of finished concrete products like paving stones, panels, and structures is key for efficiency and performance.',
             solution:
               'VUPPOR is specifically designed as an additive for concrete products. It improves processability and enhances thermal insulation properties. Recommended for a wide range of concrete items including pavings, edge-stones, gardening parts, construction panels, and monolithic constructions, VUPPOR contributes to better quality finished products. It is physiologically harmless and requires no special handling measures beyond standard practices.',
-            image: image3Doc.id,
+            image: constructionChallenge1Doc.id,
             challengeLink: 'concrete-cement-enhancement',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -843,7 +1785,7 @@ export const seed = async ({
               'Enhancing the durability, application properties, and crack resistance of synthetic plasters and water-soluble coatings used in construction. Meeting low-VOC requirements for architectural coatings.',
             solution:
               'VUPRANYL, a stable water dispersion, serves as an additive for synthetic plasters and water-soluble coatings, leading to longer durability and a significant decrease in crack formation. Additionally, key intermediates like DMBA (CAS 10097-02-6) and DMPA (CAS 4767-03-7) are crucial for producing the waterborne polyurethane and polyester resins used in durable, low-VOC architectural and protective coatings, offering excellent adhesion and flexibility.',
-            image: image1Doc.id,
+            image: constructionChallenge2Doc.id,
             challengeLink: 'plasters-coatings',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -854,7 +1796,7 @@ export const seed = async ({
               'Ensuring clean and easy release of concrete from formwork without damaging the forms or the concrete surface, while maintaining worker safety and environmental considerations.',
             solution:
               'VUPOFORM acts as a highly effective deforming (release) agent for all types of building forms. Its insolubility in water provides an excellent separation effect, allowing for multiple reuses of the form without reapplication. It does not attack sealing materials or corrode metal equipment. VUPOFORM offers significant safety and environmental benefits: negligible volatility (no air pollution), elimination of oil contamination in wastewater, and no special safety measures required for handling.',
-            image: image2Doc.id,
+            image: constructionChallenge3Doc.id,
             challengeLink: 'formwork-release',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -865,7 +1807,7 @@ export const seed = async ({
               'Modern construction relies on high-performance adhesives and sealants for bonding diverse materials, ensuring structural integrity, and providing effective sealing against environmental elements.',
             solution:
               'We supply key chemical intermediates like DMBA (CAS 10097-02-6), used in waterborne polyurethane, epoxy, and polyester adhesives where it enhances bonding strength and water resistance. Hydroxypivalic Acid (HPVA, CAS 4835-90-9), via its derivative HPN, contributes to the performance of adhesives and sealants by balancing hardness, flexibility, and adhesion, potentially enabling low-VOC formulations.',
-            image: image3Doc.id,
+            image: constructionChallenge4Doc.id,
             challengeLink: 'construction-adhesives-sealants',
             relatedServices: [researchDevelopment, analyticalTesting],
             caseStudies: [],
@@ -1189,6 +2131,14 @@ export const seed = async ({
     colaminPhosphate,
     colaminPhosphatesodiumSalt,
     vupin,
+    pentamethylpiperidine,
+    pentamethylpiperidinol,
+    aminoTmp,
+    hals770,
+    hals765,
+    aminoTempo,
+    spiroTempoAcid,
+    galvinoxyl,
   ] = await Promise.all([
     payload.create({
       collection: 'products',
@@ -1197,7 +2147,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A unique trifunctional molecule featuring two primary hydroxyl groups and one tertiary carboxylic group, essential for creating high-performance water-soluble alkyds, polyesters, and polyurethane dispersions (PUDs).',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: dmpaStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '3-Hydroxy-2-(hydroxymethyl)-2-methylpropanoic acid',
           casNumber: '4767-03-7',
@@ -1281,7 +2231,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'Enables solvent-free PUD synthesis with improved processing efficiency (lower temperature) and potentially enhanced film resistance.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: dmbaStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,2-Bis(hydroxymethyl)butyric acid',
           casNumber: '10097-02-6',
@@ -1356,7 +2306,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A unique hydroxy acid featuring a neopentyl structure, essential for synthesizing high-performance polyesters and esters with exceptional stability.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: hpvaStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '3-Hydroxypivalic Acid',
           casNumber: '4835-90-9',
@@ -1439,7 +2389,7 @@ export const seed = async ({
         _status: 'published',
         description:
           "A key functionalized derivative of TEMPO, featuring both a stable nitroxyl radical and a reactive hydroxyl group. Serves as a versatile antioxidant, catalyst, spin label, and a crucial intermediate for synthesizing specialty chemicals, including VUP's VUPIN range of polymerization inhibitors.",
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: hTempoStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl',
           casNumber: '2226-96-2',
@@ -1521,7 +2471,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A potent, water-soluble analog of Vitamin E, widely recognized as the benchmark standard for measuring antioxidant capacity in TEAC assays and a valuable research tool for oxidative stress studies.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: troloxStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '6-Hydroxy-2,5,7,8-tetramethylchroman-2-carboxylic acid',
           casNumber: '53188-07-1',
@@ -1588,7 +2538,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A highly versatile and stable nitroxyl radical, renowned for its utility as a catalyst in selective organic oxidations and as a mediator in controlled radical polymerization (NMP).',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: tempoStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,2,6,6-Tetramethyl-1-piperidinyloxyl',
           casNumber: '2564-83-2',
@@ -1715,7 +2665,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A specialized polymer featuring polyethylene glycol (PEG) chains capped at both ends with reactive primary amine groups. Essential for creating advanced hydrophilic and lubricious coatings, particularly for biomedical devices, and serves as a key building block for surface modification, PEGylation, and specialty polymer synthesis.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: dapegStructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'α-(3-Aminopropyl)-ω-(3-aminopropoxy)poly(oxy-1,2-ethanediyl)',
           casNumber: '34901-14-9',
@@ -1781,7 +2731,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A functionalized hindered amine intermediate based on the TEMP structure. This compound serves as a valuable precursor for producing specific Hindered Amine Light Stabilizers (HALS) or other functional molecules where a benzoate-protected hydroxyl group is required on the piperidine ring.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: benzoyloxyTmpStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '(2,2,6,6-Tetramethylpiperidin-4-yl) benzoate',
           casNumber: '3589-98-4',
@@ -1847,7 +2797,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A functionalized derivative of the stable nitroxyl radical TEMPO, primarily used as a valuable spin label probe for Electron Paramagnetic Resonance (EPR) spectroscopy in biochemical and materials science research.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: acetamidoTempoStructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'N-(1-Oxyl-2,2,6,6-tetramethylpiperidin-4-yl)acetamide',
           casNumber: '14691-89-5',
@@ -1913,7 +2863,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A ketone-functionalized derivative of the stable nitroxyl radical TEMPO. This versatile compound serves as an oxidant and catalyst in specific organic synthesis reactions, potentially offering different reactivity or selectivity compared to TEMPO or H-TEMPO, and acts as an intermediate for further functionalization.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: temponeStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,2,6,6-Tetramethyl-4-oxopiperidin-1-oxyl',
           casNumber: '2896-70-0',
@@ -1976,7 +2926,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'A unique compound providing both the fundamental phospholipid precursor, Phosphorylethanolamine, and the essential mineral, Calcium. This synergistic combination supports both cellular membrane integrity and bone health, making it valuable for specialized dietary supplements, veterinary nutrition, and pharmaceutical applications.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: colaminPhosphateStructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'Calcium bis(2-aminoethyl hydrogen phosphate)',
           casNumber: '17257-58-0',
@@ -2108,7 +3058,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'The sodium salt form of the fundamental phospholipid precursor, Phosphorylethanolamine. This salt may provide advantages in specific formulations where enhanced solubility, stability at certain pH values, or different handling characteristics are required compared to the parent compound.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: image1Doc.id,
         technicalSpecifications: {
           chemicalName: 'Sodium (2-aminoethyl) phosphate',
           casNumber: '3842-01-5',
@@ -2174,7 +3124,7 @@ export const seed = async ({
         _status: 'published',
         description:
           'An effective liquid polymerization inhibitor formulation developed by VUP, a.s. It combines a potent TEMPO-based active ingredient (4-Hydroxy-TEMPO) with a high-performance glycol ether solvent (2-Butoxyethanol) to prevent unwanted polymerization in various petrochemical streams and monomer handling processes, ensuring process safety and efficiency.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: vupinStructureDoc.id,
         technicalSpecifications: {
           chemicalName:
             'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl in 2-Butoxyethanol',
@@ -2230,6 +3180,424 @@ export const seed = async ({
           },
         ],
         slug: 'vupin-h37b',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: '1,2,2,6,6-Pentamethylpiperidine',
+        _status: 'published',
+        description:
+          'An N-methylated hindered amine intermediate used for synthesizing specific types of HALS (like Tinuvin 765/292) and other functional molecules.',
+        chemicalStructureImage: image1Doc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2,2,6,6-Pentamethylpiperidine',
+          casNumber: '79-55-0',
+          synonyms: [{ synonym: 'N-Methyl-2,2,6,6-tetramethylpiperidine' }],
+          molecularFormula: 'C₁₀H₂₁N',
+          molecularWeight: '155.28 g/mol',
+          labVerified: 'Verified',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'HALS Synthesis',
+            description: 'Key intermediate for Tinuvin 765/292',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Organic Synthesis',
+            description: 'Versatile building block',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'N-methylated intermediate',
+            description: 'Specific HALS precursor',
+          },
+          {
+            feature: 'High purity',
+            description: 'Research grade quality',
+          },
+        ],
+        faq: [
+          {
+            question: 'What is the main use of Pentamethylpiperidine?',
+            answer:
+              'It is primarily used as an intermediate in the synthesis of specific HALS like Tinuvin 765/292.',
+          },
+        ],
+        slug: 'pentamethylpiperidine',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: '1,2,2,6,6-Pentamethyl-4-piperidinol',
+        _status: 'published',
+        description:
+          'A functionalized N-methylated hindered amine containing a hydroxyl group, used as an intermediate for HALS synthesis (e.g., Tinuvin 765/292). VUP Lab Verified Synthesis.',
+        chemicalStructureImage: image2Doc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2,2,6,6-Pentamethyl-4-piperidinol',
+          casNumber: '2403-89-6',
+          synonyms: [{ synonym: 'N-Methyl-4-hydroxy-2,2,6,6-tetramethylpiperidine' }],
+          molecularFormula: 'C₁₀H₂₁NO',
+          molecularWeight: '171.28 g/mol',
+          labVerified: 'Verified',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'HALS Synthesis',
+            description: 'Intermediate for Tinuvin 765/292',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Specialty Chemicals',
+            description: 'Building block synthesis',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Functionalized intermediate',
+            description: 'Contains hydroxyl group',
+          },
+          {
+            feature: 'Lab verified synthesis',
+            description: 'Quality assured product',
+          },
+        ],
+        faq: [
+          {
+            question: 'What makes Pentamethylpiperidinol unique?',
+            answer:
+              'It contains both N-methyl and hydroxyl functionalities, making it a specific intermediate for HALS synthesis.',
+          },
+        ],
+        slug: 'pentamethylpiperidinol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: '4-Amino-2,2,6,6-tetramethylpiperidine',
+        _status: 'published',
+        description:
+          'A functionalized hindered amine containing a primary amino group, serving as a versatile intermediate for HALS and other specialty chemicals.',
+        chemicalStructureImage: image3Doc.id,
+        technicalSpecifications: {
+          chemicalName: '4-Amino-2,2,6,6-tetramethylpiperidine',
+          casNumber: '36768-62-4',
+          synonyms: [
+            { synonym: '4-Amino-TMP' },
+            { synonym: 'Piperidinamine, 2,2,6,6-tetramethyl-4-' },
+          ],
+          molecularFormula: 'C₉H₂₀N₂',
+          molecularWeight: '156.27 g/mol',
+          labVerified: 'Verified',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'HALS Synthesis',
+            description: 'Versatile intermediate',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Specialty Chemicals',
+            description: 'Building block',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Primary amino group',
+            description: 'Versatile functionality',
+          },
+          {
+            feature: 'Multiple applications',
+            description: 'Broad utility',
+          },
+        ],
+        faq: [
+          {
+            question: 'What is special about 4-Amino-TMP?',
+            answer:
+              'It contains a primary amino group, making it a versatile intermediate for various HALS and specialty chemicals.',
+          },
+        ],
+        slug: 'amino-tetramethylpiperidine',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: 'bis(2,2,6,6-tetramethyl-4-piperidyl) sebacate',
+        _status: 'published',
+        description:
+          'Widely used high-molecular-weight HALS light stabilizer (equivalent to Tinuvin 770) for polymers like polyolefins and ABS. VUP Lab Verified Synthesis.',
+        chemicalStructureImage: image1Doc.id,
+        technicalSpecifications: {
+          chemicalName: 'bis(2,2,6,6-tetramethyl-4-piperidyl) sebacate',
+          casNumber: '52829-07-9',
+          synonyms: [
+            { synonym: 'Tinuvin 770' },
+            { synonym: 'HALS 770' },
+            { synonym: 'Lowilite 77' },
+            { synonym: 'Sabostab UV 70' },
+            { synonym: 'ADK Stab LA-77' },
+          ],
+          molecularFormula: 'C₂₈H₅₂N₂O₄',
+          molecularWeight: '484.72 g/mol',
+          labVerified: 'Verified',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Polyolefin Stabilization',
+            description: 'Light stabilization',
+            image: image1Doc.id,
+          },
+          {
+            application: 'ABS Protection',
+            description: 'UV protection',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'High molecular weight',
+            description: 'Low volatility',
+          },
+          {
+            feature: 'Proven performance',
+            description: 'Industry standard',
+          },
+        ],
+        faq: [
+          {
+            question: 'What polymers can HALS 770 stabilize?',
+            answer:
+              'HALS 770 is particularly effective in polyolefins and ABS, providing excellent UV and light stabilization.',
+          },
+        ],
+        slug: 'hals-770',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: 'bis(1,2,2,6,6-pentamethyl-4-piperidyl) sebacate',
+        _status: 'published',
+        description:
+          'High-performance liquid HALS light stabilizer (equivalent to Tinuvin 765/292), often used in coatings, inks, and plastics. VUP Lab Verified Synthesis.',
+        chemicalStructureImage: image2Doc.id,
+        technicalSpecifications: {
+          chemicalName: 'bis(1,2,2,6,6-pentamethyl-4-piperidyl) sebacate',
+          casNumber: '41556-26-7',
+          synonyms: [
+            { synonym: 'Tinuvin 765' },
+            { synonym: 'Tinuvin 292' },
+            { synonym: 'HALS 765' },
+            { synonym: 'Lowilite 76' },
+            { synonym: 'ADK Stab LA-72' },
+            { synonym: 'Sabostab UV 62' },
+          ],
+          molecularFormula: 'C₃₀H₅₆N₂O₄',
+          molecularWeight: '512.77 g/mol',
+          labVerified: 'Verified',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Coating Stabilization',
+            description: 'UV protection',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Ink Stabilization',
+            description: 'Light stability',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Liquid form',
+            description: 'Easy processing',
+          },
+          {
+            feature: 'Broad compatibility',
+            description: 'Multiple applications',
+          },
+        ],
+        faq: [
+          {
+            question: 'What are the main applications of HALS 765?',
+            answer:
+              'HALS 765 is primarily used in coatings, inks, and plastics for UV and light stabilization.',
+          },
+        ],
+        slug: 'hals-765',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: '4-Amino-TEMPO',
+        _status: 'published',
+        description:
+          'Amino-functionalized TEMPO derivative used as a spin label or building block for functional materials and bioconjugation. VUP Lab Researched.',
+        chemicalStructureImage: image3Doc.id,
+        technicalSpecifications: {
+          chemicalName: '4-Amino-2,2,6,6-tetramethylpiperidinyloxyl',
+          casNumber: '14691-88-4',
+          synonyms: [
+            { synonym: '4-Amino-2,2,6,6-tetramethylpiperidinyloxyl' },
+            { synonym: 'TEMPO-amine' },
+          ],
+          molecularFormula: 'C₉H₁₈N₂O',
+          molecularWeight: '170.25 g/mol',
+          labVerified: 'Researched',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Spin Labeling',
+            description: 'EPR studies',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Bioconjugation',
+            description: 'Molecular tagging',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Amino functionality',
+            description: 'Versatile coupling',
+          },
+          {
+            feature: 'Stable radical',
+            description: 'Reliable spin label',
+          },
+        ],
+        faq: [
+          {
+            question: 'What makes 4-Amino-TEMPO useful?',
+            answer:
+              'The combination of a stable nitroxyl radical and a reactive amino group makes it valuable for spin labeling and bioconjugation applications.',
+          },
+        ],
+        slug: 'amino-tempo',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
+        _status: 'published',
+        description:
+          'Carboxylic acid functionalized TEMPO derivative with a spiro structure, used as a specialized spin label or building block. VUP Lab Researched.',
+        chemicalStructureImage: image1Doc.id,
+        technicalSpecifications: {
+          chemicalName:
+            '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
+          casNumber: '71792-73-7',
+          synonyms: [{ synonym: 'Spiro-TEMPO-acid' }],
+          molecularFormula: 'C₁₂H₂₀NO₅',
+          molecularWeight: '258.29 g/mol',
+          labVerified: 'Researched',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Spin Labeling',
+            description: 'Specialized probe',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Building Block',
+            description: 'Synthetic intermediate',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Spiro structure',
+            description: 'Unique geometry',
+          },
+          {
+            feature: 'Carboxylic functionality',
+            description: 'Reactive handle',
+          },
+        ],
+        faq: [
+          {
+            question: 'What is unique about this spiro-TEMPO derivative?',
+            answer:
+              'It combines a spiro structure with carboxylic acid functionality, making it useful for specialized spin labeling applications.',
+          },
+        ],
+        slug: 'spiro-tempo-acid',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        name: 'Galvinoxyl Free Radical',
+        _status: 'published',
+        description:
+          'A stable phenoxyl radical (structurally different from TEMPO) used as a radical scavenger standard in research. (Note: VUP production not confirmed).',
+        chemicalStructureImage: image2Doc.id,
+        technicalSpecifications: {
+          chemicalName:
+            '2,6-di-tert-butyl-4-((3,5-di-tert-butyl-4-oxocyclohexa-2,5-dien-1-ylidene)methyl)phenoxy radical',
+          casNumber: '2370-18-5',
+          synonyms: [
+            {
+              synonym:
+                '2,6-di-tert-butyl-4-((3,5-di-tert-butyl-4-oxocyclohexa-2,5-dien-1-ylidene)methyl)phenoxy radical',
+            },
+          ],
+          molecularFormula: 'C₂₉H₄₁O₂',
+          molecularWeight: '421.64 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Radical Scavenging',
+            description: 'Research standard',
+            image: image1Doc.id,
+          },
+          {
+            application: 'Antioxidant Research',
+            description: 'Reference compound',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Stable phenoxyl radical',
+            description: 'Reliable standard',
+          },
+          {
+            feature: 'Research grade',
+            description: 'High purity',
+          },
+        ],
+        faq: [
+          {
+            question: 'How is Galvinoxyl different from TEMPO?',
+            answer:
+              'Galvinoxyl is a phenoxyl-based radical, structurally distinct from the nitroxyl-based TEMPO, and is primarily used as a radical scavenging standard.',
+          },
+        ],
+        slug: 'galvinoxyl',
       },
     }),
   ])
@@ -2464,7 +3832,7 @@ export const seed = async ({
           },
         },
         data: {
-          featuredProducts: [dmpa.id, dmba.id, hpva.id],
+          featuredProducts: [hTempo.id, tempo.id, temp.id],
         },
       })
       .catch((err) => {
@@ -2476,15 +3844,92 @@ export const seed = async ({
         collection: 'productCategories',
         where: {
           slug: {
-            equals: 'glycol-ethers',
+            equals: 'chromanols-derivatives',
           },
         },
         data: {
-          featuredProducts: [dmpa.id, dmba.id, hpva.id],
+          featuredProducts: [trolox.id],
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating glycol-ethers category: ${err}`)
+        payload.logger.error(`— Error updating chromanols-derivatives category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'diaminopolyethylene-glycols',
+          },
+        },
+        data: {
+          featuredProducts: [dapeg.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating diaminopolyethylene-glycols category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'specialty-hindered-amines',
+          },
+        },
+        data: {
+          featuredProducts: [
+            pentamethylpiperidine.id,
+            pentamethylpiperidinol.id,
+            aminoTmp.id,
+            hals770.id,
+            hals765.id,
+            aminoTempo.id,
+            spiroTempoAcid.id,
+            galvinoxyl.id,
+          ],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating specialty-hindered-amines category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'phospholipid-precursors',
+          },
+        },
+        data: {
+          featuredProducts: [
+            colaminPhosphate.id,
+            colaminPhosphate.id,
+            colaminPhosphatesodiumSalt.id,
+          ],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating phospholipid-precursors category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        where: {
+          slug: {
+            equals: 'polymerisation-inhibitors',
+          },
+        },
+        data: {
+          featuredProducts: [vupin.id],
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`— Error updating polymerisation-inhibitors category: ${err}`)
       }),
   ])
 

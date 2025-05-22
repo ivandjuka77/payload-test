@@ -1,7 +1,7 @@
 'use client'
 
 import { Product, ProductFilterBlock } from '@/payload-types'
-import { useEffect, useState, useTransition } from 'react'
+import { useEffect, useState, useTransition, useCallback } from 'react'
 import {
   Select,
   SelectContent,
@@ -14,11 +14,8 @@ import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
 import { Search, Filter, Loader, MessageSquare, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { fetchFilteredProductsAction } from '@/actions/productActions'
-
-const categoryOptions = ['All Categories', 'Organic Chemicals', 'Inorganic Chemicals', 'Solvents']
-const industryOptions = ['All Industries', 'Pharmaceutical', 'Agriculture', 'Manufacturing']
-const applicationOptions = ['All Applications', 'Research', 'Production', 'Analysis']
+import { fetchFilteredProductsAction, fetchFilterOptionsAction } from '@/actions/productActions'
+import debounce from 'lodash/debounce'
 
 export const ProductFilter: React.FC<ProductFilterBlock> = ({
   title,
@@ -27,11 +24,18 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   showCta,
   cta,
 }) => {
-  // State for filters
+  // State for immediate UI updates
   const [searchQuery, setSearchQuery] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('All Categories')
   const [industryFilter, setIndustryFilter] = useState('All Industries')
   const [applicationFilter, setApplicationFilter] = useState('All Applications')
+
+  // State for filter options
+  const [categoryOptions, setCategoryOptions] = useState<string[]>(['All Categories'])
+  const [industryOptions, setIndustryOptions] = useState<string[]>(['All Industries'])
+  const [applicationOptions, setApplicationOptions] = useState<string[]>(['All Applications'])
+
+  // State for filtered results
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [totalProducts, setTotalProducts] = useState(0)
@@ -39,7 +43,54 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
 
   const [isPending, startTransition] = useTransition()
 
-  // Apply filters when any filter changes
+  // Fetch filter options on component mount
+  useEffect(() => {
+    const loadFilterOptions = async () => {
+      try {
+        const options = await fetchFilterOptionsAction()
+        setCategoryOptions(options.categories)
+        setIndustryOptions(options.industries)
+        setApplicationOptions(options.applications)
+      } catch (error) {
+        console.error('Error loading filter options:', error)
+        setError('Failed to load filter options.')
+      }
+    }
+
+    loadFilterOptions()
+  }, [])
+
+  // Debounced function to apply filters
+  const applyFilters = useCallback(
+    debounce(
+      async (criteria: {
+        searchQuery: string
+        categoryFilter: string
+        industryFilter: string
+        applicationFilter: string
+      }) => {
+        setIsLoading(true)
+        setError(null)
+
+        try {
+          const result = await fetchFilteredProductsAction(criteria)
+          setFilteredProducts(result.docs)
+          setTotalProducts(result.totalDocs)
+        } catch (e: any) {
+          console.error('Error fetching products:', e)
+          setError(e.message || 'Failed to load products.')
+          setFilteredProducts([])
+          setTotalProducts(0)
+        } finally {
+          setIsLoading(false)
+        }
+      },
+      300,
+    ),
+    [],
+  )
+
+  // Effect to trigger filter application
   useEffect(() => {
     const criteria = {
       searchQuery,
@@ -48,26 +99,31 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
       applicationFilter,
     }
 
-    setIsLoading(true)
-    setError(null)
-
-    startTransition(async () => {
-      try {
-        const result = await fetchFilteredProductsAction(criteria)
-        setFilteredProducts(result.docs)
-        setTotalProducts(result.totalDocs)
-        //? It's cool, no need to change
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (e: any) {
-        console.error('Error fetching products:', e)
-        setError(e.message || 'Failed to load products.')
-        setFilteredProducts([])
-        setTotalProducts(0)
-      } finally {
-        setIsLoading(false)
-      }
+    startTransition(() => {
+      applyFilters(criteria)
     })
-  }, [searchQuery, categoryFilter, industryFilter, applicationFilter])
+
+    return () => {
+      applyFilters.cancel()
+    }
+  }, [searchQuery, categoryFilter, industryFilter, applicationFilter, applyFilters])
+
+  // Handlers for immediate state updates
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value)
+  }
+
+  const handleCategoryChange = (value: string) => {
+    setCategoryFilter(value)
+  }
+
+  const handleIndustryChange = (value: string) => {
+    setIndustryFilter(value)
+  }
+
+  const handleApplicationChange = (value: string) => {
+    setApplicationFilter(value)
+  }
 
   return (
     <section className="bg-gray-50 pt-14" id="product-grid">
@@ -94,15 +150,14 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
               placeholder="Search products..."
               className="pl-10 pr-4 py-2 w-full"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              disabled={isPending}
+              onChange={handleSearchChange}
             />
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
 
           {/* Category Filter */}
           {enabledFilters?.includes('category') && (
-            <Select value={categoryFilter} onValueChange={setCategoryFilter} disabled={isPending}>
+            <Select value={categoryFilter} onValueChange={handleCategoryChange}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
@@ -118,7 +173,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
 
           {/* Industry Filter */}
           {enabledFilters?.includes('industry') && (
-            <Select value={industryFilter} onValueChange={setIndustryFilter} disabled={isPending}>
+            <Select value={industryFilter} onValueChange={handleIndustryChange}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="All Industries" />
               </SelectTrigger>
@@ -134,11 +189,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
 
           {/* Application Filter */}
           {enabledFilters?.includes('application') && (
-            <Select
-              value={applicationFilter}
-              onValueChange={setApplicationFilter}
-              disabled={isPending}
-            >
+            <Select value={applicationFilter} onValueChange={handleApplicationChange}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="All Applications" />
               </SelectTrigger>

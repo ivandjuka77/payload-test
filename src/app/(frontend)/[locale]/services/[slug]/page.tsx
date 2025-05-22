@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
-import configPromise from '@payload-config'
+import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
@@ -111,3 +111,16 @@ const queryServiceBySlug = cache(async ({ slug }: { slug: string }) => {
 
   return result.docs?.[0] || null
 })
+
+export async function queryServices({ limit }: { limit: number }) {
+  const payload = await getPayload({ config: configPromise })
+  const services = await payload.find({
+    collection: 'services',
+    draft: false,
+    limit,
+    overrideAccess: false,
+    pagination: false,
+  })
+
+  return services.docs || []
+}
