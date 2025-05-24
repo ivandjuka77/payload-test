@@ -15,6 +15,8 @@ import { IndustryGrid } from './IndustryShowcase/Component'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { NewsSection } from '@/blocks/News/Component'
 import { ProductFilter } from '@/blocks/ProductFilter/Component'
+import { VerticalCards } from '@/blocks/VerticalCards/Component'
+import { GridImageCards } from '@/blocks/GridImageCards/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -30,6 +32,8 @@ const blockComponents = {
   showcase: Showcase,
   news: NewsSection,
   productFilter: ProductFilter,
+  verticalCards: VerticalCards,
+  gridImageCards: GridImageCards,
 }
 
 export const RenderBlocks: React.FC<{

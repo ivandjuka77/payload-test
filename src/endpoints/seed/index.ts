@@ -1148,6 +1148,7 @@ export const seed = async ({
       collection: 'services',
       data: {
         title: 'Research & Development',
+        _status: 'published',
         description:
           "VUP's R&D division serves as a cornerstone for solving difficult chemistry-related problems for diverse industries. We offer focused contract R&D, custom synthesis (from grams to pilot scale), route scouting, process development, optimization, and scale-up for chemical specialties, fine chemicals, and unique intermediates.",
         featuredImage: image1Doc.id,
@@ -1222,6 +1223,7 @@ export const seed = async ({
       collection: 'services',
       data: {
         title: 'Analytical Testing Services',
+        _status: 'published',
         description:
           'Comprehensive analytical testing and method development services with state-of-the-art equipment and experienced specialists. We provide accurate, reliable results with fast turnaround times.',
         featuredImage: image2Doc.id,
@@ -1296,6 +1298,7 @@ export const seed = async ({
       collection: 'services',
       data: {
         title: 'Custom Cosmetics Manufacturing',
+        _status: 'published',
         description:
           "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs. We offer flexible white label and private label solutions, from formulation development to large-scale production, ensuring high-quality, compliant products manufactured in Europe.",
         featuredImage: image1Doc.id,
@@ -1371,6 +1374,7 @@ export const seed = async ({
       collection: 'services',
       data: {
         title: 'Regulatory & Technical Support',
+        _status: 'published',
         description:
           "Navigate complex chemical regulations and overcome technical hurdles with VUP's expert support. We combine deep regulatory knowledge (REACH, ISO 9001) and 70+ years of chemical R&D expertise with accredited analytical capabilities (SNAS S-118) to provide reliable compliance guidance and effective technical solutions.",
         featuredImage: image1Doc.id,
@@ -1448,6 +1452,7 @@ export const seed = async ({
       collection: 'services',
       data: {
         title: 'Custom Synthesis & Manufacturing',
+        _status: 'published',
         description:
           'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. We leverage 70+ years of R&D experience to tackle complex synthesis challenges and offer flexible production from grams to pilot-scale tonnes, all supported by accredited quality control and secure IP handling.',
         featuredImage: image1Doc.id,
@@ -3817,6 +3822,7 @@ export const seed = async ({
         },
         data: {
           featuredProducts: [dmpa.id, dmba.id, hpva.id],
+          image: dmpaStructureDoc.id,
         },
       })
       .catch((err) => {
@@ -3833,6 +3839,7 @@ export const seed = async ({
         },
         data: {
           featuredProducts: [hTempo.id, tempo.id, temp.id],
+          image: hTempoStructureDoc.id,
         },
       })
       .catch((err) => {
@@ -3849,6 +3856,7 @@ export const seed = async ({
         },
         data: {
           featuredProducts: [trolox.id],
+          image: troloxStructureDoc.id,
         },
       })
       .catch((err) => {
@@ -3865,6 +3873,7 @@ export const seed = async ({
         },
         data: {
           featuredProducts: [dapeg.id],
+          image: dapegStructureDoc.id,
         },
       })
       .catch((err) => {
@@ -3890,6 +3899,7 @@ export const seed = async ({
             spiroTempoAcid.id,
             galvinoxyl.id,
           ],
+          image: pentamethylpiperidine.id,
         },
       })
       .catch((err) => {
@@ -3910,6 +3920,7 @@ export const seed = async ({
             colaminPhosphate.id,
             colaminPhosphatesodiumSalt.id,
           ],
+          image: colaminPhosphate.id,
         },
       })
       .catch((err) => {
@@ -3926,6 +3937,7 @@ export const seed = async ({
         },
         data: {
           featuredProducts: [vupin.id],
+          image: vupinStructureDoc.id,
         },
       })
       .catch((err) => {

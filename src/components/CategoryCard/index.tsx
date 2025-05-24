@@ -19,12 +19,9 @@ export default function CategoryCard({
       key={category.id}
       className="group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
     >
-      <div className="relative h-52 bg-gradient-to-b from-gray-300 to-white overflow-hidden">
+      <div className="relative h-64 bg-gradient-to-b from-gray-300 to-white overflow-hidden flex items-center justify-center">
         {category.image && (
-          <Media
-            resource={category.image}
-            imgClassName="object-contain p-4 h-full w-full scale-[2]"
-          />
+          <Media resource={category.image} imgClassName="object-contain p-4 h-full w-full" />
         )}
         <Tag className="absolute bottom-4 left-4" type="product">
           Product Category
@@ -86,10 +83,10 @@ export default function CategoryCard({
         </div>
 
         <div className="flex w-full items-center justify-between gap-2">
-          <Link href={`/products/${category.slug}`} className="w-full">
-            <Button variant="default" className="mr-2 w-full gap-x-2">
+          <Link href={`/products/category/${category.slug}`} className="w-full">
+            <Button variant="default" className="w-full">
               Explore Category
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 ml-2" />
             </Button>
           </Link>
         </div>

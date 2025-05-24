@@ -279,6 +279,8 @@ export interface Page {
     | ShowcaseBlock
     | NewsBlock
     | ProductFilterBlock
+    | VerticalCardsBlock
+    | GridImageCardsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1385,6 +1387,80 @@ export interface ProductFilterBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "VerticalCardsBlock".
+ */
+export interface VerticalCardsBlock {
+  title?: string | null;
+  subtitle?: string | null;
+  cards?:
+    | {
+        image: number | Media;
+        title: string;
+        subtitle?: string | null;
+        paragraph?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'verticalCards';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridImageCardsBlock".
+ */
+export interface GridImageCardsBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  cards?:
+    | {
+        image: number | Media;
+        title: string;
+        paragraph?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        highlights?:
+          | {
+              highlight?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gridImageCards';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1740,6 +1816,8 @@ export interface PagesSelect<T extends boolean = true> {
         showcase?: T | ShowcaseBlockSelect<T>;
         news?: T | NewsBlockSelect<T>;
         productFilter?: T | ProductFilterBlockSelect<T>;
+        verticalCards?: T | VerticalCardsBlockSelect<T>;
+        gridImageCards?: T | GridImageCardsBlockSelect<T>;
       };
   meta?:
     | T
@@ -2141,6 +2219,50 @@ export interface ProductFilterBlockSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "VerticalCardsBlock_select".
+ */
+export interface VerticalCardsBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  cards?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        subtitle?: T;
+        paragraph?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridImageCardsBlock_select".
+ */
+export interface GridImageCardsBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  cards?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        paragraph?: T;
+        highlights?:
+          | T
+          | {
+              highlight?: T;
+              id?: T;
+            };
+        id?: T;
       };
   id?: T;
   blockName?: T;

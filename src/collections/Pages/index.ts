@@ -15,6 +15,8 @@ import { IndustryShowcase } from '@/blocks/IndustryShowcase/config'
 import { Showcase } from '@/blocks/Showcase/config'
 import { News } from '@/blocks/News/config'
 import { ProductFilter } from '@/blocks/ProductFilter/config'
+import { VerticalCards } from '@/blocks/VerticalCards/config'
+import { GridImageCards } from '@/blocks/GridImageCards/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -99,6 +101,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 Showcase,
                 News,
                 ProductFilter,
+                VerticalCards,
+                GridImageCards,
               ],
               required: true,
               admin: {
