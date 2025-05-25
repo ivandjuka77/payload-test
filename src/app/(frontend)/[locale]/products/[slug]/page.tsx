@@ -76,7 +76,6 @@ export default async function Product({ params: paramsPromise }: Args) {
       {product.relatedProducts && product.relatedProducts.length > 0 && (
         <Showcase
           type="product"
-          contentItems={[]}
           products={product.relatedProducts as ProductType[]}
           features={[]}
           showCta={false}

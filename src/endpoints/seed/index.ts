@@ -11,6 +11,7 @@ import { products } from './products'
 import { industries } from './industries'
 import { post4 } from './posts/post-4'
 import { sustainability } from './sustainability'
+import { careers } from './careers'
 
 const collections: CollectionSlug[] = [
   'services',
@@ -20,6 +21,7 @@ const collections: CollectionSlug[] = [
   'media',
   'posts',
   'pages',
+  'careers',
 ]
 // const globals: GlobalSlug[] = ['header', 'footer']
 
@@ -3953,6 +3955,198 @@ export const seed = async ({
     }),
   ])
 
+  //* -------------------- SEEDING CAREERS -------------------- *//
+
+  payload.logger.info(`— Seeding careers...`)
+
+  const [chemist, analyst] = await Promise.all([
+    payload.create({
+      collection: 'careers',
+      depth: 0,
+      data: {
+        title: 'Senior Research Chemist',
+        category: 'Research and Development',
+        location: 'Prievidza, Slovakia',
+        type: 'fulltime',
+        description: {
+          root: {
+            children: [
+              {
+                children: [
+                  {
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: 'We are seeking a ',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 1,
+                    mode: 'normal',
+                    style: '',
+                    text: 'highly motivated Senior Research Scientist',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: ' to join our R&D team in Prievidza. You will lead innovative research projects focused on developing new chemical products and optimizing existing processes. This role offers the opportunity to work with ',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 2,
+                    mode: 'normal',
+                    style: '',
+                    text: 'cutting-edge technology',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: ' and contribute to sustainable chemistry solutions that make a real impact on global industries.',
+                    type: 'text',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                type: 'paragraph',
+                version: 1,
+                textFormat: 0,
+                textStyle: '',
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            type: 'root',
+            version: 1,
+          },
+        },
+        keyResponsibilities: [
+          {
+            responsibility:
+              'Design and execute complex research projects in organic and analytical chemistry, focusing on sustainable chemical processes',
+          },
+          {
+            responsibility:
+              'Lead cross-functional teams to develop new chemical products and processes, managing project timelines and deliverables',
+          },
+        ],
+        requirements: [
+          {
+            requirement:
+              'PhD in Chemistry, Chemical Engineering, or related field with demonstrated research excellence',
+          },
+          {
+            requirement:
+              '5+ years of experience in chemical research and development, preferably in specialty chemicals or pharmaceuticals',
+          },
+        ],
+        preferredQualifications: [],
+        benefits: [],
+        slug: 'senior-research-chemist',
+        slugLock: false,
+        _status: 'published',
+      },
+    }),
+    payload.create({
+      collection: 'careers',
+      depth: 0,
+      data: {
+        title: 'Analytical Chemist',
+        category: 'Quality Control',
+        location: 'Prievidza, Slovakia',
+        type: 'fulltime',
+        description: {
+          root: {
+            children: [
+              {
+                children: [
+                  {
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: 'We are looking for an experienced ',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 1,
+                    mode: 'normal',
+                    style: '',
+                    text: 'Analytical Chemist',
+                    type: 'text',
+                    version: 1,
+                  },
+                  {
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: ' to join our Quality Control laboratory. In this role, you will perform complex analytical testing and method development to support our product development and manufacturing processes.',
+                    type: 'text',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                type: 'paragraph',
+                version: 1,
+                textFormat: 0,
+                textStyle: '',
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            type: 'root',
+            version: 1,
+          },
+        },
+        keyResponsibilities: [
+          {
+            responsibility:
+              'Conduct analytical testing using advanced instrumentation including HPLC, GC, and spectroscopic methods',
+          },
+          {
+            responsibility:
+              'Develop and validate analytical methods for quality control and research applications',
+          },
+        ],
+        requirements: [
+          {
+            requirement: 'MSc or PhD in Analytical Chemistry or related field',
+          },
+          {
+            requirement:
+              '3+ years experience with analytical instrumentation and method development',
+          },
+        ],
+        preferredQualifications: [],
+        benefits: [],
+        slug: 'analytical-chemist',
+        slugLock: false,
+        _status: 'published',
+      },
+    }),
+  ])
+
   //* -------------------- SEEDING AUTHORS -------------------- *//
 
   payload.logger.info(`— Seeding authors...`)
@@ -4052,69 +4246,76 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [homePage, productsPage, industriesPage, sustainabilityPage] = await Promise.all([
-    payload.create({
-      collection: 'pages',
-      depth: 0,
-      data: home({
-        slide1HeroBgDoc: slide1HeroBgDoc,
-        slide1HeroFeaturedItemDoc: slide1HeroFeaturedItemDoc,
-        slide1HeroCard1Doc: slide1HeroCard1Doc,
-        slide1HeroCard2Doc: slide1HeroCard2Doc,
-        slide1HeroCard3Doc: slide1HeroCard3Doc,
-        slide2HeroBgDoc: slide2HeroBgDoc,
-        slide2HeroFeaturedItemDoc: slide2HeroFeaturedItemDoc,
-        slide2HeroCard1Doc: slide2HeroCard1Doc,
-        slide2HeroCard2Doc: slide2HeroCard2Doc,
-        slide2HeroCard3Doc: slide2HeroCard3Doc,
-        slide3HeroBgDoc: slide3HeroBgDoc,
-        slide3HeroFeaturedItemDoc: slide3HeroFeaturedItemDoc,
-        slide3HeroCard1Doc: slide3HeroCard1Doc,
-        slide3HeroCard2Doc: slide3HeroCard2Doc,
-        slide3HeroCard3Doc: slide3HeroCard3Doc,
-        quickAccessCard1Doc: quickAccessCard1Doc,
-        quickAccessCard2Doc: quickAccessCard2Doc,
-        quickAccessCard3Doc: quickAccessCard3Doc,
-        quickAccessCard4Doc: quickAccessCard4Doc,
-        featuredImage1Doc: image1Doc,
-        hydroxyAcids,
-        hinderedAmines,
-        glycolEthers,
-        post1: post4Doc,
-        post2: post1Doc,
-        post3: post2Doc,
-        sustainabilityImage1Doc: sustainabilityImage1Doc,
+  const [homePage, productsPage, industriesPage, sustainabilityPage, careersPage] =
+    await Promise.all([
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        data: home({
+          slide1HeroBgDoc: slide1HeroBgDoc,
+          slide1HeroFeaturedItemDoc: slide1HeroFeaturedItemDoc,
+          slide1HeroCard1Doc: slide1HeroCard1Doc,
+          slide1HeroCard2Doc: slide1HeroCard2Doc,
+          slide1HeroCard3Doc: slide1HeroCard3Doc,
+          slide2HeroBgDoc: slide2HeroBgDoc,
+          slide2HeroFeaturedItemDoc: slide2HeroFeaturedItemDoc,
+          slide2HeroCard1Doc: slide2HeroCard1Doc,
+          slide2HeroCard2Doc: slide2HeroCard2Doc,
+          slide2HeroCard3Doc: slide2HeroCard3Doc,
+          slide3HeroBgDoc: slide3HeroBgDoc,
+          slide3HeroFeaturedItemDoc: slide3HeroFeaturedItemDoc,
+          slide3HeroCard1Doc: slide3HeroCard1Doc,
+          slide3HeroCard2Doc: slide3HeroCard2Doc,
+          slide3HeroCard3Doc: slide3HeroCard3Doc,
+          quickAccessCard1Doc: quickAccessCard1Doc,
+          quickAccessCard2Doc: quickAccessCard2Doc,
+          quickAccessCard3Doc: quickAccessCard3Doc,
+          quickAccessCard4Doc: quickAccessCard4Doc,
+          featuredImage1Doc: image1Doc,
+          hydroxyAcids,
+          hinderedAmines,
+          glycolEthers,
+          post1: post4Doc,
+          post2: post1Doc,
+          post3: post2Doc,
+          sustainabilityImage1Doc: sustainabilityImage1Doc,
+        }),
       }),
-    }),
 
-    payload.create({
-      collection: 'pages',
-      depth: 0,
-      data: products({ featuredImage1: image1Doc }),
-    }),
-
-    payload.create({
-      collection: 'pages',
-      depth: 0,
-      data: industries({ featuredImage1: image1Doc }),
-    }),
-
-    payload.create({
-      collection: 'pages',
-      depth: 0,
-      data: sustainability({
-        heroImage: sustainabilityHeroImageDoc,
-        pillar1Image: sustainabilityPillar1Doc,
-        pillar2Image: sustainabilityPillar2Doc,
-        pillar3Image: sustainabilityPillar3Doc,
-        pillar4Image: sustainabilityPillar4Doc,
-        focus1Image: sustainabilityFocus1Doc,
-        focus2Image: sustainabilityFocus2Doc,
-        focus3Image: sustainabilityFocus3Doc,
-        focus4Image: sustainabilityFocus4Doc,
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        data: products({ featuredImage1: image1Doc }),
       }),
-    }),
-  ])
+
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        data: industries({ featuredImage1: image1Doc }),
+      }),
+
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        data: sustainability({
+          heroImage: sustainabilityHeroImageDoc,
+          pillar1Image: sustainabilityPillar1Doc,
+          pillar2Image: sustainabilityPillar2Doc,
+          pillar3Image: sustainabilityPillar3Doc,
+          pillar4Image: sustainabilityPillar4Doc,
+          focus1Image: sustainabilityFocus1Doc,
+          focus2Image: sustainabilityFocus2Doc,
+          focus3Image: sustainabilityFocus3Doc,
+          focus4Image: sustainabilityFocus4Doc,
+        }),
+      }),
+
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        data: careers({ featuredImage1: image1Doc }),
+      }),
+    ])
 
   //* -------------------- SEEDING GLOBALS -------------------- *//
 

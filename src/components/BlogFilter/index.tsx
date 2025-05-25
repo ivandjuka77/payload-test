@@ -19,9 +19,10 @@ import { Post } from '@/payload-types'
 interface ArticlesGridProps {
   articles: Post[]
   allTags: string[]
+  showFilters?: boolean
 }
 
-export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
+export function ArticlesGrid({ articles, allTags, showFilters = true }: ArticlesGridProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedType, setSelectedType] = useState<string>('all')
   const [selectedTag, setSelectedTag] = useState<string>('all')
@@ -33,6 +34,8 @@ export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
   const types = ['all', 'news', 'research', 'case-study']
 
   const filteredArticles = useMemo(() => {
+    if (!showFilters) return articles
+
     return articles.filter((article) => {
       const matchesSearch =
         article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -45,7 +48,7 @@ export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
 
       return matchesSearch && matchesType && matchesTag
     })
-  }, [articles, searchQuery, selectedType, selectedTag])
+  }, [articles, searchQuery, selectedType, selectedTag, showFilters])
 
   const fallbackImageUrl = 'https://via.placeholder.com/400x300.png?text=No+Image'
 
@@ -54,48 +57,50 @@ export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
       <div className="container px-4 md:px-6">
         <div className="space-y-8">
           {/* Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                type="search"
-                placeholder="Search articles..."
-                className="pl-10"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+          {showFilters && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Input
+                  type="search"
+                  placeholder="Search articles..."
+                  className="pl-10"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
+              <Select value={selectedType} onValueChange={setSelectedType}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select type" />
+                </SelectTrigger>
+                <SelectContent>
+                  {types.map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={selectedTag} onValueChange={setSelectedTag}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select tag" />
+                </SelectTrigger>
+                <SelectContent>
+                  {tags.map((tag) => (
+                    <SelectItem key={tag} value={tag}>
+                      {tag === 'all' ? 'All Tags' : tag}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <div className="text-sm text-muted-foreground self-center">
+                {filteredArticles.length} articles found
+              </div>
             </div>
-
-            <Select value={selectedType} onValueChange={setSelectedType}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select type" />
-              </SelectTrigger>
-              <SelectContent>
-                {types.map((type) => (
-                  <SelectItem key={type} value={type}>
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select value={selectedTag} onValueChange={setSelectedTag}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select tag" />
-              </SelectTrigger>
-              <SelectContent>
-                {tags.map((tag) => (
-                  <SelectItem key={tag} value={tag}>
-                    {tag === 'all' ? 'All Tags' : tag}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <div className="text-sm text-muted-foreground self-center">
-              {filteredArticles.length} articles found
-            </div>
-          </div>
+          )}
 
           {/* Articles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

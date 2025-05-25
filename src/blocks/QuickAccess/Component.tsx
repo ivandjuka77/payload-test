@@ -63,7 +63,7 @@ function QuickAccessCard({
           }}
         ></div>
         <div
-          className={`absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-95`}
+          className={`absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
           style={{
             backgroundColor: gradientFrom[index],
           }}

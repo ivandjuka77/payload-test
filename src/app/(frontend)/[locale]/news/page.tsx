@@ -3,8 +3,8 @@ import { ArticlesGrid } from '@/components/BlogFilter'
 import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
 import PageClient from './page.client'
-import { Rss } from 'lucide-react'
 import { Newsletter } from '@/components/Newsletter'
+import { Pagination } from '@/components/Pagination'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -12,17 +12,27 @@ export const revalidate = 600
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
-  const postsData = await payload.find({
+  // Get first page of posts (page 1)
+  const posts = await payload.find({
+    collection: 'posts',
+    depth: 3,
+    limit: 9,
+    page: 1,
+    overrideAccess: false,
+  })
+
+  // Get all tags for filtering
+  const allPostsData = await payload.find({
     collection: 'posts',
     depth: 1,
     limit: 0,
     overrideAccess: false,
   })
 
-  const allPosts = postsData.docs
-
   const allTags = Array.from(
-    new Set(allPosts.flatMap((post) => post.tags?.map((tag) => tag.tag).filter(Boolean) || [])),
+    new Set(
+      allPostsData.docs.flatMap((post) => post.tags?.map((tag) => tag.tag).filter(Boolean) || []),
+    ),
   ) as string[]
 
   return (
@@ -47,7 +57,15 @@ export default async function Page() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl" />
         </div>
       </section>
-      <ArticlesGrid articles={allPosts} allTags={allTags} />
+
+      <ArticlesGrid articles={posts.docs} allTags={allTags} showFilters={false} />
+
+      <div className="container mb-8">
+        {posts?.page && posts?.totalPages > 1 && (
+          <Pagination page={posts.page} totalPages={posts.totalPages} />
+        )}
+      </div>
+
       <Newsletter />
     </div>
   )

@@ -48,6 +48,7 @@ export function ServicesGrid({ title, description, services }: Props) {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"
+                //@ts-expect-error This is working correctly
                 style={{ backgroundImage: `url(${service.image.url})` }}
               />
 

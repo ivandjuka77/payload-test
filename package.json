@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "vup-website",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "description": "VUP Website",
   "license": "MIT",
   "type": "module",
   "scripts": {
