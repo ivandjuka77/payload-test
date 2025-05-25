@@ -516,6 +516,15 @@ export interface ProductCategory {
       }[]
     | null;
   productComparison?: boolean | null;
+  parent?: (number | null) | ProductCategory;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | ProductCategory;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -2539,6 +2548,15 @@ export interface ProductCategoriesSelect<T extends boolean = true> {
         id?: T;
       };
   productComparison?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
