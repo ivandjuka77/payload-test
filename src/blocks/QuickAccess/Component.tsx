@@ -1,6 +1,3 @@
-'use client'
-
-import type React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Beaker, FlaskConical as Flask, Factory, Microscope, Leaf } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -43,16 +40,16 @@ function QuickAccessCard({
   ]
 
   const icons = [
-    <Flask key="flask" className="w-8 h-8 text-white" />,
-    <Factory key="factory" className="w-8 h-8 text-white" />,
-    <Microscope key="microscope" className="w-8 h-8 text-white" />,
-    <Leaf key="leaf" className="w-8 h-8 text-white" />,
+    <Flask key="flask" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />,
+    <Factory key="factory" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />,
+    <Microscope key="microscope" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />,
+    <Leaf key="leaf" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />,
   ]
 
   const iconBg = ['bg-blue-600', 'bg-[#FF5733]', 'bg-purple-500', 'bg-green-500']
 
   return (
-    <div className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-lg sm:rounded-xl transition-all duration-300 hover:shadow-xl">
       <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
         <MediaComponent resource={backgroundImage} alt={title} fill imgClassName="object-cover" />
         <div
@@ -70,17 +67,19 @@ function QuickAccessCard({
         ></div>
       </div>
 
-      <div className="relative z-10 p-6 md:p-8 h-full flex flex-col">
+      <div className="relative z-10 p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col">
         <div
-          className={`w-14 h-14 rounded-full ${iconBg[index]} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 shadow-lg group-hover:shadow-xl`}
+          className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full ${iconBg[index]} flex items-center justify-center mb-4 sm:mb-5 md:mb-6 transition-transform duration-300 group-hover:scale-110 shadow-lg group-hover:shadow-xl`}
         >
           {icons[index]}
         </div>
         {/* Animated line */}
-        <div className="w-12 h-1 bg-white mb-4 transition-all duration-300 group-hover:w-20 group-hover:bg-white"></div>
+        <div className="w-8 sm:w-10 md:w-12 h-1 bg-white mb-3 sm:mb-4 transition-all duration-300 group-hover:w-16 sm:group-hover:w-18 md:group-hover:w-20 group-hover:bg-white"></div>
         {/* Title and description */}
-        <CardTitle className="text-2xl font-primary text-white mb-3">{title}</CardTitle>
-        <CardDescription className="font-secondary text-white text-base mb-6">
+        <CardTitle className="text-lg sm:text-xl md:text-2xl font-primary text-white mb-2 sm:mb-3">
+          {title}
+        </CardTitle>
+        <CardDescription className="font-secondary text-white text-sm sm:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
           {description}
         </CardDescription>
         <div className="mt-auto">
@@ -93,10 +92,10 @@ function QuickAccessCard({
             >
               <Link
                 href={link.url || ''}
-                className="flex items-center gap-2 hover:text-white hover:underline"
+                className="flex items-center gap-1.5 sm:gap-2 hover:text-white hover:underline text-sm sm:text-base"
               >
                 {link.label}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:translate-x-1" />
               </Link>
             </Button>
           ))}
@@ -111,25 +110,25 @@ export const QuickAccessSection: React.FC<QuickAccessBlock> = ({ title, descript
 
   return (
     <div className="relative w-full bg-primary/5">
-      <section className="relative py-20 overflow-hidden">
-        <div className="container relative z-10">
-          <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <Beaker className="w-4 h-4 mr-2" />
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
+        <div className="container relative z-10 px-4 sm:px-6">
+          <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16 lg:mb-24">
+            <div className="inline-flex items-center px-3 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-5 md:mb-6">
+              <Beaker className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
               <span>Chemical Solutions</span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-primary mb-4 relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-primary mb-3 sm:mb-4 relative">
               {title}
-              <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary"></span>
+              <span className="absolute -bottom-2 sm:-bottom-3 left-1/2 transform -translate-x-1/2 w-12 sm:w-14 md:w-16 h-1 bg-primary"></span>
             </h2>
 
-            <p className="mt-6 text-lg md:text-xl max-w-3xl font-secondary text-muted-foreground">
+            <p className="mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl max-w-2xl sm:max-w-3xl font-secondary text-muted-foreground px-4 sm:px-0">
               {description}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
             {cards.map((card, index) => (
               <QuickAccessCard key={index} {...card} index={index} />
             ))}

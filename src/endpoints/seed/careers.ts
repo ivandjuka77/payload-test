@@ -8,7 +8,7 @@ export function careers({ featuredImage1 }: CareersArgs) {
   return {
     title: 'Career',
     hero: {
-      type: 'simple',
+      type: 'simple' as const,
       title: 'Shape the Future of Chemistry',
       description:
         "At VUP, we're more than just a chemical company. We're a community of innovators, researchers, and problem-solvers dedicated to creating sustainable solutions through chemistry.",
@@ -99,6 +99,6 @@ export function careers({ featuredImage1 }: CareersArgs) {
     },
     slug: 'careers',
     slugLock: true,
-    _status: 'published',
+    _status: 'published' as const,
   }
 }

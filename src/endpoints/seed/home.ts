@@ -21,7 +21,6 @@ type HomeArgs = {
   quickAccessCard2Doc: Media
   quickAccessCard3Doc: Media
   quickAccessCard4Doc: Media
-  featuredImage1Doc: Media
 
   // Categories
   hydroxyAcids: ProductCategory
@@ -54,7 +53,6 @@ export function home(args: HomeArgs) {
     slide3HeroCard1Doc,
     slide3HeroCard2Doc,
     slide3HeroCard3Doc,
-    featuredImage1Doc,
     quickAccessCard1Doc,
     quickAccessCard2Doc,
     quickAccessCard3Doc,
@@ -68,12 +66,10 @@ export function home(args: HomeArgs) {
     sustainabilityImage1Doc,
   } = args
 
-  const featuredImage1 = featuredImage1Doc
-
   return {
     title: 'Home',
     hero: {
-      type: 'carousel',
+      type: 'carousel' as const,
       title: 'VUP Chem',
       description: 'This is the description',
       slides: [
@@ -582,6 +578,6 @@ export function home(args: HomeArgs) {
       description: 'Leading provider of specialized chemical solutions and research services',
     },
     slug: 'home',
-    _status: 'published',
+    _status: 'published' as const,
   }
 }

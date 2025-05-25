@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Atom, ChevronRight } from 'lucide-react'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
@@ -13,25 +13,39 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
   const [api, setApi] = useState<CarouselApi>()
   const [progress, setProgress] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null)
   const slideIntervalMs = 5000 // 5 seconds
   const progressSteps = 50 // Number of steps for smooth progress animation
 
-  // Function to reset and restart both intervals
-  const resetAndStartIntervals = () => {
-    // Clear existing intervals
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    if (progressIntervalRef.current) clearInterval(progressIntervalRef.current)
+  // Function to clear all intervals
+  const clearAllIntervals = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = null
+    }
+    if (progressIntervalRef.current) {
+      clearInterval(progressIntervalRef.current)
+      progressIntervalRef.current = null
+    }
+  }, [])
+
+  // Function to start intervals (only when not paused and API is ready)
+  const startIntervals = useCallback(() => {
+    // Clear any existing intervals first
+    clearAllIntervals()
 
     // Reset progress
     setProgress(0)
 
-    // Only set up intervals if not paused
-    if (!isPaused) {
+    // Only set up intervals if not paused and API is available
+    if (!isPaused && api && isInitialized) {
       // Setup new slide interval
       intervalRef.current = setInterval(() => {
-        api?.scrollNext()
+        if (api && api.canScrollNext()) {
+          api.scrollNext()
+        }
       }, slideIntervalMs)
 
       // Setup new progress animation interval
@@ -42,228 +56,155 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
         })
       }, slideIntervalMs / progressSteps)
     }
-  }
+  }, [api, isPaused, isInitialized, clearAllIntervals])
 
   // Function to pause the carousel
-  const togglePause = () => {
-    const newPausedState = !isPaused
-    setIsPaused(newPausedState)
+  const togglePause = useCallback(() => {
+    setIsPaused((prev) => {
+      const newPausedState = !prev
 
-    if (newPausedState) {
-      // Pause by clearing intervals
-      if (intervalRef.current) clearInterval(intervalRef.current)
-      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current)
-    } else {
-      // Resume by restarting intervals
-      resetAndStartIntervals()
+      if (newPausedState) {
+        // Pause by clearing intervals
+        clearAllIntervals()
+      }
+      // Note: We don't start intervals here because the useEffect will handle it
+
+      return newPausedState
+    })
+  }, [clearAllIntervals])
+
+  // Handle manual navigation with button clicks
+  const handlePrev = useCallback(() => {
+    if (api && api.canScrollPrev()) {
+      api.scrollPrev()
     }
-  }
+    // Don't restart intervals here - let the 'select' event handler do it
+  }, [api])
+
+  const handleNext = useCallback(() => {
+    if (api && api.canScrollNext()) {
+      api.scrollNext()
+    }
+    // Don't restart intervals here - let the 'select' event handler do it
+  }, [api])
+
+  const handleGoToSlide = useCallback(
+    (index: number) => {
+      if (api) {
+        api.scrollTo(index)
+      }
+      // Don't restart intervals here - let the 'select' event handler do it
+    },
+    [api],
+  )
+
+  // Effect to handle API initialization
+  useEffect(() => {
+    if (api && !isInitialized) {
+      // Wait for the API to be fully ready
+      const timer = setTimeout(() => {
+        setIsInitialized(true)
+        setCurrent(api.selectedScrollSnap())
+      }, 100)
+
+      return () => clearTimeout(timer)
+    }
+  }, [api, isInitialized])
+
+  // Effect to manage intervals based on pause state and initialization
+  useEffect(() => {
+    if (!isInitialized) return
+
+    if (isPaused) {
+      clearAllIntervals()
+    } else {
+      startIntervals()
+    }
+  }, [isPaused, isInitialized, startIntervals, clearAllIntervals])
 
   // Auto-slide and progress tracking effect
   useEffect(() => {
-    if (!api) return
+    if (!api || !isInitialized) return
 
-    // Setup initial intervals (if not paused)
-    if (!isPaused) {
-      resetAndStartIntervals()
-    }
-
-    // Update current slide index and reset progress on slide change
-    api.on('select', () => {
+    // Update current slide index and restart intervals on slide change
+    const handleSelect = () => {
       setCurrent(api.selectedScrollSnap())
-      resetAndStartIntervals()
-    })
-
-    // When user interacts, pause but don't reset
-    api.on('pointerDown', () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current)
-    })
-
-    // When user stops interacting, reset and restart (if not paused)
-    api.on('pointerUp', () => {
+      // Only restart if not paused
       if (!isPaused) {
-        resetAndStartIntervals()
+        startIntervals()
       }
-    })
-
-    // Clean up all intervals on component unmount
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [api, isPaused])
 
-  // Handle manual navigation with button clicks
-  const handlePrev = () => {
-    api?.scrollPrev()
-    resetAndStartIntervals()
-  }
+    // When user interacts, temporarily pause
+    const handlePointerDown = () => {
+      clearAllIntervals()
+    }
 
-  const handleNext = () => {
-    api?.scrollNext()
-    resetAndStartIntervals()
-  }
+    // When user stops interacting, restart if not paused
+    const handlePointerUp = () => {
+      if (!isPaused) {
+        startIntervals()
+      }
+    }
 
-  const handleGoToSlide = (index: number) => {
-    api?.scrollTo(index)
-    resetAndStartIntervals()
-  }
+    // Handle API reinitialization
+    const handleReInit = () => {
+      setCurrent(api.selectedScrollSnap())
+      if (!isPaused) {
+        startIntervals()
+      }
+    }
 
-  // Carousel items with different backgrounds and content for different audiences
-  // const slides = [
-  //   {
-  //     title: 'Advancing Scientific Research',
-  //     subtitle: 'Pioneering chemical innovations for researchers and academic institutions',
-  //     backgroundImage: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg',
-  //     badge: {
-  //       icon: 'atom',
-  //       text: '25+ years of research expertise',
-  //     },
-  //     featuredItem: {
-  //       title: 'Novel Catalytic Systems',
-  //       description:
-  //         'Our latest breakthrough in transition metal catalysis enables reactions at lower temperatures with higher yields.',
-  //       image:
-  //         'https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //       link: '/research/catalytic-systems',
-  //     },
-  //     featuredCards: [
-  //       {
-  //         title: 'Research Partnerships',
-  //         description:
-  //           'Collaborate with our scientists on groundbreaking chemical research initiatives',
-  //         image:
-  //           'https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  //         link: '/research-partnerships',
-  //       },
-  //       {
-  //         title: 'Laboratory Materials',
-  //         description: 'High-purity compounds and reagents for precise experimental requirements',
-  //         image: 'https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg',
-  //         link: '/lab-materials',
-  //       },
-  //       {
-  //         title: 'Academic Programs',
-  //         description: 'Supporting educational institutions with specialized chemistry programs',
-  //         image:
-  //           'https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  //         link: '/academic-collaborations',
-  //       },
-  //     ],
-  //     ctaButton: {
-  //       text: 'Explore Research Solutions',
-  //       link: '/research',
-  //     },
-  //   },
-  //   {
-  //     title: 'Industrial Chemical Solutions',
-  //     subtitle: 'High-performance formulations engineered for your production needs',
-  //     backgroundImage:
-  //       'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
-  //     badge: {
-  //       icon: 'building2',
-  //       text: '300+ patented formulations',
-  //     },
-  //     featuredItem: {
-  //       title: 'Ultra-Durable Coating System',
-  //       description:
-  //         'Our advanced polymer coating provides unmatched corrosion resistance for industrial applications.',
-  //       image:
-  //         'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //       link: '/products/coating-systems',
-  //     },
-  //     featuredCards: [
-  //       {
-  //         title: 'Coating Systems',
-  //         description:
-  //           'Advanced polymer coatings with superior durability and corrosion resistance',
-  //         image: 'https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg',
-  //         link: '/products/coatings',
-  //       },
-  //       {
-  //         title: 'Adhesive Solutions',
-  //         description: 'High-performance bonding agents for demanding industrial applications',
-  //         image:
-  //           'https://images.pexels.com/photos/5622896/pexels-photo-5622896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //         link: '/products/adhesives',
-  //       },
-  //       {
-  //         title: 'Custom Formulations',
-  //         description: 'Tailored chemical compounds developed to your exact specifications',
-  //         image: 'https://images.pexels.com/photos/5691520/pexels-photo-5691520.jpeg',
-  //         link: '/custom-formulations',
-  //       },
-  //     ],
-  //     ctaButton: {
-  //       text: 'View Industrial Solutions',
-  //       link: '/industrial',
-  //     },
-  //   },
-  //   {
-  //     title: 'Chemistry for a Sustainable Future',
-  //     subtitle: 'Environmentally responsible innovations and green chemistry solutions',
-  //     backgroundImage: 'https://images.pexels.com/photos/339614/pexels-photo-339614.jpeg',
-  //     badge: {
-  //       icon: 'globe',
-  //       text: '50+ global partnerships for sustainability',
-  //     },
-  //     featuredItem: {
-  //       title: 'Bio-Based Polymers',
-  //       description:
-  //         'Our plant-derived polymers offer the same performance as petroleum-based alternatives with 70% lower carbon footprint.',
-  //       image:
-  //         'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //       link: '/sustainable-products/biopolymers',
-  //     },
-  //     featuredCards: [
-  //       {
-  //         title: 'Bio-Based Polymers',
-  //         description:
-  //           'Plant-derived alternatives with 70% lower carbon footprint than conventional options',
-  //         image: 'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg',
-  //         link: '/sustainable-products/biopolymers',
-  //       },
-  //       {
-  //         title: 'Green Manufacturing',
-  //         description: 'Eco-friendly processes that minimize waste and reduce environmental impact',
-  //         image:
-  //           'https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg?auto=compress&cs=tinysrgb&w=1200',
-  //         link: '/green-initiatives/manufacturing',
-  //       },
-  //       {
-  //         title: 'Circular Economy Solutions',
-  //         description: 'Innovative approaches to product lifecycle and materials recycling',
-  //         image: 'https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg',
-  //         link: '/circular-economy',
-  //       },
-  //     ],
-  //     ctaButton: {
-  //       text: 'Discover Sustainable Solutions',
-  //       link: '/sustainability',
-  //     },
-  //   },
-  // ] as CarouselHeroSlide[]
+    api.on('select', handleSelect)
+    api.on('pointerDown', handlePointerDown)
+    api.on('pointerUp', handlePointerUp)
+    api.on('reInit', handleReInit)
 
-  if (!props || !props.slides) return null
+    // Initial setup
+    if (!isPaused) {
+      startIntervals()
+    }
 
-  console.log(typeof props.slides[0]?.cta)
+    // Clean up all intervals and event listeners on component unmount
+    return () => {
+      clearAllIntervals()
+      api.off('select', handleSelect)
+      api.off('pointerDown', handlePointerDown)
+      api.off('pointerUp', handlePointerUp)
+      api.off('reInit', handleReInit)
+    }
+  }, [api, isPaused, isInitialized, startIntervals, clearAllIntervals])
+
+  // Reset state when component unmounts or props change
+  useEffect(() => {
+    return () => {
+      clearAllIntervals()
+      setIsInitialized(false)
+      setCurrent(0)
+      setProgress(0)
+    }
+  }, [clearAllIntervals])
+
+  if (!props || !props.slides || props.slides.length === 0) return null
 
   return (
     <section className="w-full h-full relative">
-      {/* Carousel Container */}
       <Carousel
         setApi={setApi}
         className="h-full w-full"
         opts={{
           align: 'start',
           loop: true,
+          skipSnaps: false,
+          dragFree: false,
         }}
       >
         <CarouselContent className="h-full">
           {props.slides.map((slide, index) => (
-            <CarouselItem key={index} className="h-full py-10 basis-full min-w-0 relative">
+            <CarouselItem
+              key={index}
+              className="h-full py-6 sm:py-8 md:py-10 basis-full min-w-0 relative pt-24"
+            >
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-primary/70 z-10" />
                 <Media
@@ -271,44 +212,46 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                   alt={slide.title}
                   fill
                   imgClassName="object-cover"
-                  priority
+                  priority={index === 0}
                 />
               </div>
 
               {/* Slide Content */}
-              <div className="container relative z-20 h-full flex flex-col justify-between px-4 md:px-6 pb-12 pt-20">
+              <div className="container relative z-20 h-full flex flex-col justify-between px-4 sm:px-5 md:px-6 pb-16 sm:pb-14 md:pb-12 pt-12 sm:pt-16 md:pt-20">
                 {/* Top Section - Two Columns on Desktop */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 mb-4 sm:mb-6">
                   {/* Left Column - Main Content */}
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-5 md:space-y-6">
                     {/* Slide Icon Badge */}
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium mb-2">
+                    <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium mb-1 sm:mb-2">
                       {/* <div className='mr-2 text-white'>{slide.badge.icon}</div> */}
-                      <div className="mr-2 text-white">
-                        <Atom className="h-4 w-4" />
+                      <div className="mr-1.5 sm:mr-2 text-white">
+                        <Atom className="h-3 w-3 sm:h-4 sm:w-4" />
                       </div>
                       <span>{slide.badge.text}</span>
                     </div>
 
                     {/* Slide Heading */}
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-primary leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white font-primary leading-tight">
                       {slide.title}
                     </h2>
 
                     {/* Slide Description */}
-                    <p className="text-xl text-white/90 font-secondary">{slide.subtitle}</p>
+                    <p className="text-base sm:text-lg md:text-xl text-white/90 font-secondary">
+                      {slide.subtitle}
+                    </p>
 
                     {slide.cta && slide.cta.links && slide.cta.links.length > 0 && (
-                      <div className="pt-4">
-                        <ul className="flex gap-4">
+                      <div className="pt-2 sm:pt-3 md:pt-4">
+                        <ul className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                           {slide.cta.links.map(({ link }, i) => (
                             <li key={i}>
                               <Button
                                 asChild
                                 size="lg"
-                                className="bg-white text-primary hover:bg-white/90 rounded-md py-6 px-8 text-base group"
+                                className="bg-white text-primary hover:bg-white/90 rounded-md py-4 sm:py-5 md:py-6 px-6 sm:px-7 md:px-8 text-sm sm:text-base group w-full sm:w-auto"
                               >
-                                <CMSLink {...link} className="flex items-center">
+                                <CMSLink {...link} className="flex items-center justify-center">
                                   <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                 </CMSLink>
                               </Button>
@@ -320,79 +263,83 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                   </div>
 
                   {/* Right Column - Featured Research */}
-                  <div className="hidden lg:block">
-                    <div className="relative rounded-xl overflow-hidden h-full">
-                      {/* Featured image as background */}
-                      <Media
-                        resource={slide.featuredItem.image}
-                        alt={slide.featuredItem.title}
-                        fill
-                        imgClassName="object-cover z-0"
-                      />
+                  {slide.featuredItem && (
+                    <div className="hidden lg:block">
+                      <div className="relative rounded-xl overflow-hidden h-full">
+                        {/* Featured image as background */}
+                        <Media
+                          resource={slide.featuredItem.image}
+                          alt={slide.featuredItem.title}
+                          fill
+                          imgClassName="object-cover z-0"
+                        />
 
-                      {/* Gradient overlay for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/60 to-primary-dark/20 z-10"></div>
+                        {/* Gradient overlay for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/60 to-primary-dark/20 z-10"></div>
 
-                      {/* Additional dark gradient overlay at the bottom */}
-                      <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        {/* Additional dark gradient overlay at the bottom */}
+                        <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
 
-                      {/* Featured content floating on image */}
-                      <div className="relative p-6 z-20 h-full flex flex-col justify-end">
-                        <h3 className="text-white font-semibold mb-3 font-primary text-xl">
-                          {slide.featuredItem.title}
-                        </h3>
-                        <p className="text-white/90 text-sm mb-4">
-                          {slide.featuredItem.description}
-                        </p>
-                        {/* <Link
-                          href={slide.featuredItem.link}
-                          className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
-                        >
-                          Learn more
-                          <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link> */}
+                        {/* Featured content floating on image */}
+                        <div className="relative p-6 z-20 h-full flex flex-col justify-end">
+                          <h3 className="text-white font-semibold mb-3 font-primary text-xl">
+                            {slide.featuredItem.title}
+                          </h3>
+                          <p className="text-white/90 text-sm mb-4">
+                            {slide.featuredItem.description}
+                          </p>
+                          {/* <Link
+                            href={slide.featuredItem.link}
+                            className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
+                          >
+                            Learn more
+                            <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </Link> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Featured Cards - Full Width Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-auto">
-                  {slide.featuredCards?.map((card, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white/20 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden hover:bg-white/30 transition-all group"
-                    >
-                      {/* Card Image */}
-                      <div className="relative h-32 w-full">
-                        <Media
-                          resource={card.image}
-                          alt={card.title}
-                          fill
-                          imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>
-                      </div>
+                {slide.featuredCards && slide.featuredCards.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-auto">
+                    {slide.featuredCards.map((card, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden hover:bg-white/30 transition-all group"
+                      >
+                        {/* Card Image */}
+                        <div className="relative h-24 sm:h-28 md:h-32 w-full">
+                          <Media
+                            resource={card.image}
+                            alt={card.title}
+                            fill
+                            imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>
+                        </div>
 
-                      {/* Card Content */}
-                      <div className="p-4">
-                        <h3 className="text-white font-semibold mb-1 font-primary text-lg group-hover:text-white/90">
-                          {card.title}
-                        </h3>
-                        <p className="text-white/80 text-sm mb-3 line-clamp-2">
-                          {card.description}
-                        </p>
-                        {/* <Link
-                          href={card.link}
-                          className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
-                        >
-                          Learn more
-                          <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link> */}
+                        {/* Card Content */}
+                        <div className="p-3 sm:p-4">
+                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90">
+                            {card.title}
+                          </h3>
+                          <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">
+                            {card.description}
+                          </p>
+                          {/* <Link
+                            href={card.link}
+                            className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
+                          >
+                            Learn more
+                            <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </Link> */}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </CarouselItem>
           ))}
@@ -400,18 +347,18 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
       </Carousel>
 
       {/* Carousel Controls */}
-      <div className="absolute bottom-6 right-8 z-30">
-        <div className="flex flex-col items-end space-y-4">
+      <div className="absolute bottom-4 sm:bottom-5 md:bottom-6 right-4 sm:right-6 md:right-8 z-30">
+        <div className="flex flex-col items-end space-y-3 sm:space-y-4">
           {/* Navigation Arrows with Pause Button */}
-          <div className="flex justify-center w-full space-x-2">
+          <div className="flex justify-center w-full space-x-1.5 sm:space-x-2">
             <Button
               variant="outline"
               size="icon"
               onClick={handlePrev}
               disabled={!api?.canScrollPrev()}
-              className="h-10 w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
             >
-              <ChevronRight className="h-5 w-5 -rotate-180" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 -rotate-180" />
               <span className="sr-only">Previous slide</span>
             </Button>
 
@@ -420,7 +367,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
               variant="outline"
               size="icon"
               onClick={togglePause}
-              className="h-10 w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
             >
               {isPaused ? (
                 <>
@@ -432,7 +379,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   >
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
@@ -448,7 +395,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                   >
                     <rect x="6" y="4" width="4" height="16"></rect>
                     <rect x="14" y="4" width="4" height="16"></rect>
@@ -463,20 +410,20 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
               size="icon"
               onClick={handleNext}
               disabled={!api?.canScrollNext()}
-              className="h-10 w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border-white/20 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="sr-only">Next slide</span>
             </Button>
           </div>
 
           {/* Progress Indicators */}
-          <div className="flex space-x-2">
+          <div className="flex space-x-1.5 sm:space-x-2">
             {props.slides.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => handleGoToSlide(idx)}
-                className="w-12 h-1 rounded-full relative overflow-hidden bg-white/30"
+                className="w-8 sm:w-10 md:w-12 h-1 rounded-full relative overflow-hidden bg-white/30"
                 aria-label={`Go to slide ${idx + 1}`}
               >
                 {/* Filled progress bar - doesn't animate when paused */}

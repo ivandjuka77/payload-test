@@ -10,7 +10,7 @@ export function products(args: ProductsArgs) {
   return {
     title: 'Products',
     hero: {
-      type: 'backgroundImage',
+      type: 'backgroundImage' as const,
       title: 'Products',
       description: 'Products',
       cta: {
@@ -40,6 +40,6 @@ export function products(args: ProductsArgs) {
       description: null,
     },
     slug: 'products',
-    _status: 'published',
+    _status: 'published' as const,
   }
 }

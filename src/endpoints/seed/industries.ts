@@ -10,7 +10,7 @@ export function industries(args: IndustriesArgs) {
   return {
     title: 'Industries',
     hero: {
-      type: 'backgroundImage',
+      type: 'backgroundImage' as const,
       title: 'Industries We Serve',
       description:
         'At VUP, we develop, manufacture, and supply specialized chemical solutions that power innovation across diverse industries worldwide. Our deep expertise and commitment to quality enable our customers to create products that meet the highest performance, safety, and sustainability standards.',
@@ -172,6 +172,6 @@ export function industries(args: IndustriesArgs) {
       description: null,
     },
     slug: 'industries',
-    _status: 'published',
+    _status: 'published' as const,
   }
 }

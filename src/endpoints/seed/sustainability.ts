@@ -29,7 +29,7 @@ export function sustainability(args: SustainabilityArgs) {
     title: 'Sustainability',
 
     hero: {
-      type: 'backgroundImage',
+      type: 'backgroundImage' as const,
       title: 'Building a Responsible Future',
       description:
         'At VUP, a.s., our legacy of over 70 years in chemical research and production is deeply intertwined with a commitment to responsible practices and sustainable development.',
@@ -404,6 +404,6 @@ export function sustainability(args: SustainabilityArgs) {
     publishedAt: '2025-05-24T10:24:53.543Z',
     slug: 'sustainability',
     slugLock: true,
-    _status: 'published',
+    _status: 'published' as const,
   }
 }
