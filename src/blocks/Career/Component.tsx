@@ -14,7 +14,7 @@ export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features
   ]
 
   return (
-    <section className="w-full py-16 md:py-24 relative bg-white">
+    <section className="w-full py-16 md:py-24 relative bg-gray-50">
       <div className="container px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
@@ -48,7 +48,7 @@ export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features
         </div>
 
         {/* Bottom CTA */}
-        {cta && (
+        {cta && cta?.title && cta?.description && (
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold mb-4 font-primary">{cta.title}</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto font-secondary">

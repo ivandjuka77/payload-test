@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
 import { ServiceCard } from '@/components/ServiceCard'
-import { Industry, Product } from '@/payload-types'
+import { Industry, Product, Service } from '@/payload-types'
 import { Media } from '../Media'
 
 interface IndustryChallengesProps {
@@ -118,8 +118,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                     }`}
                   >
                     {challenge.relatedServices.map((service, index) => (
-                      // <ServiceCard key={index} service={service} />
-                      <div key={index}>SERVICE DATA</div>
+                      <ServiceCard key={index} service={service as Service} />
                     ))}
                   </div>
                 </div>

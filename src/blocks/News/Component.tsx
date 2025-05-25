@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Calendar, FileText, Rss } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { NewsBlock, Post } from '@/payload-types'
+import { Media as MediaType, NewsBlock, Post } from '@/payload-types'
 import { Media } from '@/components/Media'
 
 interface FeaturedNewsItemProps {
@@ -10,12 +10,10 @@ interface FeaturedNewsItemProps {
 }
 
 function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
-  console.log('post', post)
-
   return (
     <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary via-primary/70 to-white shadow-md hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col md:flex-row h-full">
-        <div className="pl-16 py-16 md:w-3/5 flex flex-col justify-center">
+        <div className="px-16 py-16 md:w-3/5 flex flex-col justify-center">
           <div className="inline-flex items-center  px-3 py-1 rounded-full bg-white text-primary text-sm font-medium mb-6 w-fit">
             <FileText className="w-4 h-4 mr-2" />
             <span>{post.type}</span>
@@ -25,14 +23,16 @@ function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
             {post.title}
           </h3>
 
-          <p className="text-muted-foreground mb-6 font-secondary text-white">{post.description}</p>
+          <p className="text-muted-foreground mb-6 font-secondary text-white">
+            {post.meta?.description}
+          </p>
 
           <Button
             asChild
             variant="outline"
             className="w-fit group/btn bg-transparent border-white text-white hover:bg-white hover:text-primary px-8"
           >
-            <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2">
+            <Link href={`/news/${post.slug}`} className="inline-flex items-center gap-2">
               Read {post.type}
               <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
             </Link>
@@ -41,7 +41,7 @@ function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
 
         <div className="relative md:w-2/5 h-96 md:h-auto overflow-hidden">
           <Media
-            resource={post.featuredImage}
+            resource={post.meta?.image as MediaType}
             fill
             imgClassName="object-cover transition-transform duration-500 group-hover:scale-105"
           />
@@ -56,7 +56,7 @@ interface CompactNewsItemProps {
   type: Post['type']
   title: string
   description: string
-  featuredImage: Post['featuredImage']
+  featuredImage: MediaType
   slug: string
   publishedAt: string | null
 }
@@ -98,7 +98,7 @@ function CompactNewsItem({
         </p>
 
         <Link
-          href={`/blog/${slug}`}
+          href={`/news/${slug}`}
           className="mt-auto inline-flex items-center gap-1 text-primary hover:underline text-sm font-medium group/link"
         >
           Continue reading
@@ -116,7 +116,7 @@ export const NewsSection: React.FC<NewsBlock> = ({
   items,
   linkLabel,
 }) => {
-  console.log('items', items)
+  if (!items) return null
 
   return (
     <section className="w-full py-16 md:py-24 relative bg-gray-50">
@@ -138,7 +138,7 @@ export const NewsSection: React.FC<NewsBlock> = ({
           </div>
 
           <Button asChild variant="link">
-            <Link href="/blog" className="inline-flex items-center gap-2">
+            <Link href="/news" className="inline-flex items-center gap-2">
               {linkLabel}
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -157,8 +157,8 @@ export const NewsSection: React.FC<NewsBlock> = ({
                   key={index}
                   type={(item as Post).type}
                   title={(item as Post).title}
-                  description={(item as Post).description}
-                  featuredImage={(item as Post).featuredImage}
+                  description={(item as Post).meta?.description || ''}
+                  featuredImage={(item as Post).meta?.image as MediaType}
                   slug={(item as Post).slug || ''}
                   publishedAt={(item as Post).publishedAt || null}
                 />

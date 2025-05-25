@@ -38,6 +38,10 @@ export const Posts: CollectionConfig<'posts'> = {
   defaultPopulate: {
     title: true,
     slug: true,
+    type: true,
+    updatedAt: true,
+    featured: true,
+    tags: true,
     meta: {
       image: true,
       description: true,
@@ -128,6 +132,7 @@ export const Posts: CollectionConfig<'posts'> = {
           fields: [
             {
               name: 'tags',
+              interfaceName: 'TagsField',
               type: 'array',
               fields: [
                 {

@@ -21,6 +21,7 @@ import { Industries } from './collections/Industries'
 import { CaseStudies } from './collections/CaseStudies'
 import { Services } from './collections/Services'
 import { TeamMembers } from './collections/TeamMembers'
+import { Careers } from './collections/Careers'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -82,6 +83,7 @@ export default buildConfig({
     CaseStudies,
     Services,
     TeamMembers,
+    Careers,
   ],
   //* -------- /COLLECTIONS -------- *//
 

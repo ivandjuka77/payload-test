@@ -17,6 +17,7 @@ import { News } from '@/blocks/News/config'
 import { ProductFilter } from '@/blocks/ProductFilter/config'
 import { VerticalCards } from '@/blocks/VerticalCards/config'
 import { GridImageCards } from '@/blocks/GridImageCards/config'
+import { Careers } from '@/blocks/Careers/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -103,6 +104,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 ProductFilter,
                 VerticalCards,
                 GridImageCards,
+                Careers,
               ],
               required: true,
               admin: {

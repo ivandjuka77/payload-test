@@ -1,11 +1,10 @@
 import { Media } from '@/components/Media'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '../ui/button'
 import Link from 'next/link'
+import { Service } from '@/payload-types'
 
-export function ServiceCard({ service }: { service: any }) {
+export function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
+    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-all h-full flex flex-col">
       <div className="relative h-48 overflow-hidden">
         <Media
           resource={service.featuredImage}
@@ -13,10 +12,10 @@ export function ServiceCard({ service }: { service: any }) {
           imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
-      <div className="p-6">
-        {service.tags.length > 0 && (
+      <div className="p-6 flex-grow flex flex-col justify-between">
+        {/* {service.tags && service.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-3">
-            {service.tags.map((tag: any, index: any) => (
+            {service.tags.map((tag: string, index: number) => (
               <Badge
                 key={index}
                 variant="secondary"
@@ -26,18 +25,19 @@ export function ServiceCard({ service }: { service: any }) {
               </Badge>
             ))}
           </div>
-        )}
-        <h3 className="text-xl font-semibold mb-2 font-primary group-hover:text-primary transition-colors">
-          {service.name}
-        </h3>
-        <p className="text-muted-foreground text-sm font-secondary mb-4">{service.description}</p>
-        <Button
-          variant="outline"
-          className="text-primary border-primary/20 hover:bg-primary/5 hover:text-primary/90 w-full"
-          asChild
+        )} */}
+        <div>
+          <h3 className="text-xl font-semibold mb-2 font-primary group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+          <p className="text-muted-foreground text-sm font-secondary mb-4">{service.description}</p>
+        </div>
+        <Link
+          href={`/services/${service.slug}`}
+          className="inline-block w-full text-center py-2 px-4 text-primary border border-primary/20 rounded-md hover:bg-primary/5 hover:text-primary/90 transition-colors mt-auto"
         >
-          <Link href={service.link}>View Service Details</Link>
-        </Button>
+          View Service Details
+        </Link>
       </div>
     </div>
   )

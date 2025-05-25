@@ -8,6 +8,16 @@
 
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TagsField".
+ */
+export type TagsField =
+  | {
+      tag?: string | null;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FCards".
  */
 export type FCards =
@@ -113,6 +123,7 @@ export interface Config {
     caseStudies: CaseStudy;
     services: Service;
     teamMembers: TeamMember;
+    careers: Career;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -134,6 +145,7 @@ export interface Config {
     caseStudies: CaseStudiesSelect<false> | CaseStudiesSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
     teamMembers: TeamMembersSelect<false> | TeamMembersSelect<true>;
+    careers: CareersSelect<false> | CareersSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -281,6 +293,7 @@ export interface Page {
     | ProductFilterBlock
     | VerticalCardsBlock
     | GridImageCardsBlock
+    | CareersBlock
   )[];
   meta?: {
     title?: string | null;
@@ -323,12 +336,7 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  tags?:
-    | {
-        tag?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  tags?: TagsField;
   relatedProducts?: (number | Product)[] | null;
   relatedServices?: (number | Service)[] | null;
   industries?: (number | Industry)[] | null;
@@ -582,6 +590,7 @@ export interface Industry {
   id: number;
   name: string;
   description: string;
+  summary: string;
   featuredImage: number | Media;
   keyProducts?: (number | Product)[] | null;
   productCategories?: (number | ProductCategory)[] | null;
@@ -1461,6 +1470,86 @@ export interface GridImageCardsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CareersBlock".
+ */
+export interface CareersBlock {
+  title: string;
+  description: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'careers';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "careers".
+ */
+export interface Career {
+  id: number;
+  title: string;
+  /**
+   * e.g. Engineering, Marketing, Sales, etc.
+   */
+  category: string;
+  /**
+   * City, Country or Remote
+   */
+  location: string;
+  type: 'fulltime' | 'parttime' | 'intern' | 'contract';
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * List the key responsibilities for this role
+   */
+  keyResponsibilities: {
+    responsibility?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * List the required qualifications and experience
+   */
+  requirements: {
+    requirement?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * List any preferred but not required qualifications
+   */
+  preferredQualifications?:
+    | {
+        qualification?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * List any benefits offered with this position
+   */
+  benefits?:
+    | {
+        benefit?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1512,10 +1601,27 @@ export interface Search {
   id: number;
   title?: string | null;
   priority?: number | null;
-  doc: {
-    relationTo: 'posts';
-    value: number | Post;
-  };
+  doc:
+    | {
+        relationTo: 'posts';
+        value: number | Post;
+      }
+    | {
+        relationTo: 'products';
+        value: number | Product;
+      }
+    | {
+        relationTo: 'productCategories';
+        value: number | ProductCategory;
+      }
+    | {
+        relationTo: 'industries';
+        value: number | Industry;
+      }
+    | {
+        relationTo: 'services';
+        value: number | Service;
+      };
   slug?: string | null;
   meta?: {
     title?: string | null;
@@ -1672,6 +1778,10 @@ export interface PayloadLockedDocument {
         value: number | TeamMember;
       } | null)
     | ({
+        relationTo: 'careers';
+        value: number | Career;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -1818,6 +1928,7 @@ export interface PagesSelect<T extends boolean = true> {
         productFilter?: T | ProductFilterBlockSelect<T>;
         verticalCards?: T | VerticalCardsBlockSelect<T>;
         gridImageCards?: T | GridImageCardsBlockSelect<T>;
+        careers?: T | CareersBlockSelect<T>;
       };
   meta?:
     | T
@@ -2269,6 +2380,16 @@ export interface GridImageCardsBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CareersBlock_select".
+ */
+export interface CareersBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -2278,12 +2399,7 @@ export interface PostsSelect<T extends boolean = true> {
   description?: T;
   featuredImage?: T;
   content?: T;
-  tags?:
-    | T
-    | {
-        tag?: T;
-        id?: T;
-      };
+  tags?: T | TagsFieldSelect<T>;
   relatedProducts?: T;
   relatedServices?: T;
   industries?: T;
@@ -2301,6 +2417,14 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TagsField_select".
+ */
+export interface TagsFieldSelect<T extends boolean = true> {
+  tag?: T;
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2513,6 +2637,7 @@ export interface TechSpecsSelect<T extends boolean = true> {
 export interface IndustriesSelect<T extends boolean = true> {
   name?: T;
   description?: T;
+  summary?: T;
   featuredImage?: T;
   keyProducts?: T;
   productCategories?: T;
@@ -2633,6 +2758,46 @@ export interface TeamMembersSelect<T extends boolean = true> {
   department?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "careers_select".
+ */
+export interface CareersSelect<T extends boolean = true> {
+  title?: T;
+  category?: T;
+  location?: T;
+  type?: T;
+  description?: T;
+  keyResponsibilities?:
+    | T
+    | {
+        responsibility?: T;
+        id?: T;
+      };
+  requirements?:
+    | T
+    | {
+        requirement?: T;
+        id?: T;
+      };
+  preferredQualifications?:
+    | T
+    | {
+        qualification?: T;
+        id?: T;
+      };
+  benefits?:
+    | T
+    | {
+        benefit?: T;
+        id?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

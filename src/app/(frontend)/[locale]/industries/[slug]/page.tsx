@@ -8,8 +8,8 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { IndustryChallenges } from '@/components/IndustryChallenges/Component'
 import { ProductShowcase } from '@/components/ProductShowcaseComponent'
-import { Product } from '@/payload-types'
-import { SimpleHero } from '@/heros/Simple'
+import { Media, Product } from '@/payload-types'
+import IndustryHero from '@/components/IndustryHero'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -48,14 +48,13 @@ export default async function Industry({ params: paramsPromise }: Args) {
     <main>
       <PageClient />
 
-      {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      <SimpleHero
-        type="simple"
+      <IndustryHero
+        image={industry.featuredImage as Media}
         title={industry.name}
-        description={industry.description}
-        media={industry.featuredImage}
+        summary={industry.summary}
+        challenges={industry.challenges as any}
       />
 
       <IndustryChallenges industry={industry} />

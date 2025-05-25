@@ -40,7 +40,7 @@ export const News: Block = {
       type: 'relationship',
       relationTo: 'posts',
       hasMany: true,
-      maxDepth: 4,
+      maxDepth: 10,
       required: true,
     },
   ],

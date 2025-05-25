@@ -17,6 +17,7 @@ import { NewsSection } from '@/blocks/News/Component'
 import { ProductFilter } from '@/blocks/ProductFilter/Component'
 import { VerticalCards } from '@/blocks/VerticalCards/Component'
 import { GridImageCards } from '@/blocks/GridImageCards/Component'
+import { Careers } from '@/blocks/Careers/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -34,6 +35,7 @@ const blockComponents = {
   productFilter: ProductFilter,
   verticalCards: VerticalCards,
   gridImageCards: GridImageCards,
+  careers: Careers,
 }
 
 export const RenderBlocks: React.FC<{

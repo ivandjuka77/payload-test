@@ -32,6 +32,12 @@ export const Industries: CollectionConfig = {
       localized: true,
     },
     {
+      name: 'summary',
+      type: 'text',
+      required: true,
+      localized: true,
+    },
+    {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',

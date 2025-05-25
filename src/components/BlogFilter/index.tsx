@@ -50,7 +50,7 @@ export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
   const fallbackImageUrl = 'https://via.placeholder.com/400x300.png?text=No+Image'
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 ">
       <div className="container px-4 md:px-6">
         <div className="space-y-8">
           {/* Filters */}
@@ -153,7 +153,7 @@ export function ArticlesGrid({ articles, allTags }: ArticlesGridProps) {
 
                   <Button asChild variant="outline" className="w-fit mt-auto">
                     <Link
-                      href={article.slug ? `/posts/${article.slug}` : '#'}
+                      href={article.slug ? `/news/${article.slug}` : '#'}
                       className="inline-flex items-center gap-2"
                     >
                       Read more
