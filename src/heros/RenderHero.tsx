@@ -3,11 +3,13 @@ import type { Page } from '@/payload-types'
 import { CarouselHero } from '@/heros/CarouselHero'
 import { SimpleHero } from '@/heros/Simple'
 import { BackgroundImage } from '@/heros/BackgroundImage'
+import { BackgroundImageCompact } from '@/heros/BackgroundImageCompact'
 
 const heroes = {
   carousel: CarouselHero,
   simple: SimpleHero,
   backgroundImage: BackgroundImage,
+  backgroundImageCompact: BackgroundImageCompact,
 }
 
 export const RenderHero: React.FC<Page['hero']> = (props) => {

@@ -7,6 +7,7 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
+import Link from 'next/link'
 
 export const CarouselHero: React.FC<Page['hero']> = (props) => {
   const [current, setCurrent] = useState(0)
@@ -288,13 +289,23 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                           <p className="text-white/90 text-sm mb-4">
                             {slide.featuredItem.description}
                           </p>
-                          {/* <Link
-                            href={slide.featuredItem.link}
-                            className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
-                          >
-                            Learn more
-                            <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                          </Link> */}
+                          {slide.featuredItem.links && slide.featuredItem.links.length > 0 && (
+                            <ul className="flex flex-col gap-2">
+                              {slide.featuredItem.links.map(({ link }, i) => (
+                                <li key={i}>
+                                  <Button
+                                    asChild
+                                    size="sm"
+                                    className="bg-transparent text-white hover:bg-transparent hover:text-white/90 border-none rounded-md py-2 px-0 text-sm group w-auto"
+                                  >
+                                    <CMSLink {...link} className="flex items-center justify-start">
+                                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                    </CMSLink>
+                                  </Button>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -328,13 +339,23 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                           <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">
                             {card.description}
                           </p>
-                          {/* <Link
-                            href={card.link}
-                            className="inline-flex items-center text-white hover:text-white/90 text-sm font-medium group"
-                          >
-                            Learn more
-                            <MoveRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                          </Link> */}
+                          {card.links && card.links.length > 0 && (
+                            <ul className="flex flex-col gap-2">
+                              {card.links.map(({ link }, i) => (
+                                <li key={i}>
+                                  <Button
+                                    asChild
+                                    size="sm"
+                                    className="bg-transparent text-white hover:bg-transparent hover:text-white/90 border-none rounded-md py-2 px-0 text-sm group w-auto"
+                                  >
+                                    <CMSLink {...link} className="flex items-center justify-start">
+                                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                    </CMSLink>
+                                  </Button>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                     ))}

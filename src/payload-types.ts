@@ -207,7 +207,7 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'carousel' | 'simple' | 'backgroundImage';
+    type: 'none' | 'carousel' | 'simple' | 'backgroundImage' | 'backgroundImageCompact';
     title?: string | null;
     description?: string | null;
     cta?: {

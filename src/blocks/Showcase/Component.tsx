@@ -1,22 +1,16 @@
-'use client'
-
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
 import { Product, Post, Industry, ProductCategory } from '@/payload-types'
 import CategoryCard from '@/components/CategoryCard'
 import SimpleCTA from '@/components/SimpleCTA'
 
 interface ShowcaseProps {
-  type: 'product' | 'category' | 'industry' | 'blogs' | 'feature'
+  type: 'product' | 'category' | 'industry' | 'blogs'
   title: string
   description: string
   products?: Product[]
   categories?: ProductCategory[]
   industries?: Industry[]
   articles?: { content: Post[] }[]
-  features?: { title: string; description: string; media: any }[]
   showCta?: boolean
   cta?: {
     title: string
@@ -33,7 +27,6 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   categories,
   // industries,
   // articles,
-  features,
   showCta = true,
   cta,
 }) => {
@@ -42,8 +35,6 @@ export const Showcase: React.FC<ShowcaseProps> = ({
     switch (type) {
       case 'product':
         if (products?.length === 0) return null
-
-        console.log('products', products)
 
         return (
           <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -56,33 +47,10 @@ export const Showcase: React.FC<ShowcaseProps> = ({
       case 'category':
         if (categories?.length === 0) return null
 
-        console.log('categories', categories)
-
         return (
           <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {categories?.map((category: ProductCategory, index: number) => (
               <CategoryCard key={index} category={category} />
-            ))}
-          </div>
-        )
-
-      case 'feature':
-        if (!features || features.length === 0) return null
-
-        return (
-          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              // Will implement FeatureCard component later
-              <div
-                key={index}
-                className="bg-white p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                {/* <FeatureCard feature={feature} /> */}
-                <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
             ))}
           </div>
         )

@@ -350,8 +350,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-solutions',
-                  label: 'Discover Sustainable Solutions',
+                  url: '/products',
+                  label: 'Explore Products',
                   appearance: 'default',
                 },
               },
@@ -366,8 +366,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-solutions',
-                  label: 'Discover Sustainable Solutions',
+                  url: '/industries',
+                  label: 'View Industries',
                   appearance: 'default',
                 },
               },
@@ -382,8 +382,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-solutions',
-                  label: 'Discover Sustainable Solutions',
+                  url: '/research-development',
+                  label: 'Explore Services',
                   appearance: 'default',
                 },
               },
@@ -398,8 +398,8 @@ export function home(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-solutions',
-                  label: 'Discover Sustainable Solutions',
+                  url: '/sustainability',
+                  label: 'Our Commitment',
                   appearance: 'default',
                 },
               },
@@ -410,9 +410,9 @@ export function home(args: HomeArgs) {
       },
       {
         type: 'category',
-        title: 'Key Areas of Expertise',
+        title: 'Leading Chemical Innovation',
         description:
-          'Discover how our chemical expertise can transform your business needs and drive innovation',
+          'Advanced chemistry expertise, superior product quality, and industry-leading innovation combined to deliver the chemical solutions your business demands.',
         showCta: true,
         blockName: null,
         contentItems: [],
@@ -504,19 +504,19 @@ export function home(args: HomeArgs) {
               'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
           },
           {
-            title: 'Circular Chemistry',
+            title: 'Water Conservation',
             content:
-              'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
+              'Implementing advanced water treatment and recycling technologies to reduce consumption and protect local watersheds.',
           },
           {
-            title: 'Circular Chemistry',
+            title: 'Clean Manufacturing',
             content:
-              'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
+              'Transforming our production facilities with energy-efficient equipment and zero-emission technologies.',
           },
           {
-            title: 'Circular Chemistry',
+            title: 'Biodiversity Protection',
             content:
-              'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
+              'Supporting conservation efforts and ensuring our operations have minimal impact on local ecosystems.',
           },
         ],
         blockType: 'sustainability',

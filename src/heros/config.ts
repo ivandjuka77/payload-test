@@ -1,12 +1,4 @@
 import type { Field } from 'payload'
-
-import {
-  FixedToolbarFeature,
-  HeadingFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from '@payloadcms/richtext-lexical'
-
 import { linkGroup } from '@/fields/linkGroup'
 
 export interface CarouselHeroSlide {
@@ -62,6 +54,10 @@ export const hero: Field = {
         {
           label: 'Background Image',
           value: 'backgroundImage',
+        },
+        {
+          label: 'Background Image Compact',
+          value: 'backgroundImageCompact',
         },
       ],
       required: true,
