@@ -1,10 +1,6 @@
-'use client'
-
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
 import { Product } from '@/payload-types'
+import { CMSLink } from '@/components/Link'
 
 interface ProductShowcaseBlockProps {
   title: string
@@ -19,10 +15,7 @@ export const ProductShowcaseBlock: React.FC<ProductShowcaseBlockProps> = ({
   products,
   cta,
 }) => {
-  console.log('products', products)
   const productsItems = products[0]?.product || []
-
-  console.log('productsItems', productsItems)
 
   if (productsItems.length === 0) {
     return null
@@ -57,19 +50,8 @@ export const ProductShowcaseBlock: React.FC<ProductShowcaseBlockProps> = ({
               </h3>
               <p className="font-secondary text-white/90 text-lg">{cta?.description}</p>
             </div>
-            {(cta?.links || []).map(({ link }: any, i: number) => {
-              return (
-                <Button
-                  key={i}
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white shadow-md"
-                >
-                  <Link href={link?.url || '#'} className="flex items-center">
-                    {link?.label}
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              )
+            {(cta?.links || []).map(({ link }, i) => {
+              return <CMSLink key={i} size="lg" {...link} />
             })}
           </div>
         )}

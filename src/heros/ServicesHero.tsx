@@ -1,78 +1,135 @@
 'use client'
 
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { ChevronRight, FileText } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Media } from '@/components/Media'
 import { Service } from '@/payload-types'
+import { cn } from '@/utilities/ui'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 type Props = {
   service: Service
 }
 
 export function ServiceHero({ service }: Props) {
+  const accreditations = service.accreditations as Service['accreditations']
+  const subServices = service.subServices || []
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 150
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
-    <section className="relative w-full min-h-[600px] flex items-center">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Media resource={service.featuredImage} fill imgClassName="object-cover" />
-        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-      </div>
-
-      <div className="container relative z-10 px-4 md:px-6 mx-auto py-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-white font-primary mb-6">
-            {service.title}
-          </h1>
-          <p className="text-xl text-white/90 font-secondary mb-8 max-w-2xl">
-            {service.description}
-          </p>
-
-          {service.accreditation && service.accreditation.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-8">
-              {service.accreditation.map((accreditation: any, index: any) => (
-                <Badge key={index} className="bg-white/20 hover:bg-white/30 text-white border-0">
-                  {accreditation.name}: {accreditation.code}
-                </Badge>
-              ))}
+    <section className="relative w-full bg-background pt-10">
+      {/* Hero Section */}
+      <div className="container mx-auto px-4 md:px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground font-primary mb-6">
+                {service.title}
+              </h1>
+              <p className="text-xl text-muted-foreground font-secondary mb-8">
+                {service.description}
+              </p>
             </div>
-          )}
 
-          {/* {service.team[0] && (
-            <div className="inline-block bg-primary-dark/60 px-4 py-2 rounded-md mb-8">
-              <p className="text-white/90 text-sm">Head of Department</p>
-              <p className="text-white font-semibold">{service.team[0]}</p>
-            </div>
-          )} */}
-
-          {service.features && service.features.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-              {service.features.map((highlight: any, index: any) => (
-                <div
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm p-3 rounded-lg text-center"
-                >
-                  <p className="text-white font-semibold text-lg">{highlight.value}</p>
-                  <p className="text-white/70 text-xs">{highlight.label}</p>
+            {accreditations && accreditations.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold text-foreground">Accreditations:</h3>
+                <div className="flex flex-wrap gap-2">
+                  {accreditations.map((accreditation, index) => (
+                    <Badge key={index} variant="secondary" className="px-4 py-1 text-sm">
+                      {accreditation.accreditation}
+                    </Badge>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            )}
 
-          {/* {pdfLink && (
-            <Button asChild className="bg-white hover:bg-white/90 text-primary border-0">
-              <Link href={pdfLink} className="flex items-center">
-                <FileText className="mr-2 h-4 w-4" />
-                Download Certificate
-                <ChevronRight className="ml-2 h-4 w-4" />
+            {/* CTA */}
+            <div className="flex justify-start">
+              <Link
+                href={`#${subServices[0].link}`}
+                onClick={(e) => handleScroll(e, subServices[0].link || '')}
+              >
+                <Button className="rounded-md text-base p-6 bg-primary text-white hover:bg-primary/90 flex flex-row items-center gap-x-2">
+                  Explore Services
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
               </Link>
-            </Button>
-          )} */}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="aspect-[3/2] relative rounded-lg overflow-hidden shadow-2xl">
+              <Media resource={service.featuredImage} fill imgClassName="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Services Grid Section - Right below hero, above the fold */}
+      {subServices.length > 0 && (
+        <div className="container mx-auto px-4 md:px-6 pb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {subServices.map((subService, index) => (
+              <div
+                key={index}
+                className={cn(
+                  'group relative overflow-hidden rounded-lg border border-gray-100',
+                  'aspect-[16/8]',
+                )}
+              >
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"
+                  //@ts-expect-error This is working correctly
+                  style={{ backgroundImage: `url(${subService.image.url})` }}
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/20 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
+
+                {/* Content Container */}
+                <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col gap-2">
+                  <div>
+                    <h3 className="text-md font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
+                      {subService.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-gray-300 line-clamp-2 opacity-85">
+                      {subService.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <Link
+                      href={`#${subService.link}`}
+                      onClick={(e) => handleScroll(e, subService.link || '')}
+                      className="text-xs font-medium text-blue-300 group-hover:text-blue-200 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
+                    >
+                      Learn More
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   )
 }

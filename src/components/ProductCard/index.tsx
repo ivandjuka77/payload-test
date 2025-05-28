@@ -1,9 +1,11 @@
 import Tag from '@/components/ui/tag'
-import { Check, ArrowRight, Beaker } from 'lucide-react'
+import { Check, Beaker, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { ProductInquiryModal } from '../ProductInquiryModal/index'
 
 export default function ProductCard({
   product,
@@ -75,7 +77,15 @@ export default function ProductCard({
               <Beaker className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
               Applications & Use Cases
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+            <div
+              className={`grid gap-2 sm:gap-3 ${
+                product.applications?.length === 1
+                  ? 'grid-cols-1'
+                  : product.applications?.length === 2
+                    ? 'grid-cols-1 sm:grid-cols-2'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              }`}
+            >
               {product.applications?.slice(0, 3).map((application, idx) => (
                 <div
                   key={idx}
@@ -94,17 +104,19 @@ export default function ProductCard({
         )}
 
         <div className="flex flex-col sm:flex-row w-full items-center gap-2 mt-auto">
-          <Link href={'contact'} className="w-full sm:w-3/5">
-            <Button variant="default" className="w-full text-sm sm:text-base">
+          <Dialog>
+            <DialogTrigger className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-sm sm:text-base sm:w-3/5">
               Request Quote
-              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2" />
-            </Button>
-          </Link>
+              <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2" />
+            </DialogTrigger>
+            <DialogContent className=" w-full !max-w-[90vw] md:!max-w-[70vw] rounded-md">
+              <ProductInquiryModal product={product} />
+            </DialogContent>
+          </Dialog>
 
           <Link href={`/products/${product.slug}`} className="w-full sm:w-2/5">
             <Button variant="outline" className="w-full text-sm sm:text-base">
               View Details
-              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2" />
             </Button>
           </Link>
         </div>

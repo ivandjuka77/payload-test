@@ -32,6 +32,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
 import { hero } from '@/heros/config'
+import { Certifications } from '@/blocks/Certifications/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -105,6 +106,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 VerticalCards,
                 GridImageCards,
                 Careers,
+                Certifications,
               ],
               required: true,
               admin: {

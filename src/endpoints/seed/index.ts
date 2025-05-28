@@ -13,6 +13,8 @@ import { post4 } from './posts/post-4'
 import { sustainability } from './sustainability'
 import { careers } from './careers'
 
+const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+
 const collections: CollectionSlug[] = [
   'services',
   'industries',
@@ -135,6 +137,22 @@ export const seed = async ({
     }),
   ])
 
+  // -------------------- MISC -------------------- //
+
+  const [ecovadisMedalBuffer] = await Promise.all([
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/ecovadis.png'),
+  ])
+
+  const [ecovadisMedalDoc] = await Promise.all([
+    payload.create({
+      collection: 'media',
+      data: {
+        alt: 'Ecovadis Medal',
+      },
+      file: ecovadisMedalBuffer,
+    }),
+  ])
+
   // -------------------- PRODUCTS -------------------- //
 
   const [
@@ -154,21 +172,21 @@ export const seed = async ({
     // colaminPhosphatesodiumSaltStructureBuffer,
     vupinStructureBuffer,
   ] = await Promise.all([
-    fetchFileByURL('http://localhost:3000/assets/products/dmpa-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/dmba-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/hpva-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/h-tempo-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/trolox-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/tempo-sf.png'),
-    // fetchFileByURL('http://localhost:3000/assets/products/temp-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/dapeg-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/benzoyloxy-tmp-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/acetamido-tempo-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/tempone-sf.png'),
-    // fetchFileByURL('http://localhost:3000/assets/products/colamin-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/colamin-phosphate-sf.png'),
-    // fetchFileByURL('http://localhost:3000/assets/products/colamin-phosphate-sodium-salt-sf.png'),
-    fetchFileByURL('http://localhost:3000/assets/products/vupin-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/dmpa-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/dmba-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/hpva-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/h-tempo-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/trolox-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/tempo-sf.png'),
+    // fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/temp-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/dapeg-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/benzoyloxy-tmp-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/acetamido-tempo-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/tempone-sf.png'),
+    // fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/colamin-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/colamin-phosphate-sf.png'),
+    // fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/colamin-phosphate-sodium-salt-sf.png'),
+    fetchFileByURL(NEXT_PUBLIC_SERVER_URL + '/assets/products/vupin-sf.png'),
   ])
 
   const [
@@ -1272,45 +1290,67 @@ export const seed = async ({
         title: 'Research & Development',
         _status: 'published',
         description:
-          "VUP's R&D division serves as a cornerstone for solving difficult chemistry-related problems for diverse industries. We offer focused contract R&D, custom synthesis (from grams to pilot scale), route scouting, process development, optimization, and scale-up for chemical specialties, fine chemicals, and unique intermediates.",
+          "VUP's R&D division solves complex chemistry challenges across diverse industries.With 70+ years of chemical expertise, we transform ideas into viable technological solutions tailored to your needs.",
         featuredImage: image1Doc.id,
         features: [
           {
             feature: 'Experience',
-            description: '70+ years of expertise in chemical development and innovation',
+            description:
+              '70+ years of expertise in chemical development and innovation with a proven track record of solving complex chemistry challenges',
           },
           {
             feature: 'Patents Granted',
-            description: 'Over 900 patents demonstrating our innovation capabilities',
+            description:
+              'Over 900 patents demonstrating our innovation capabilities and commitment to advancing chemical science',
           },
           {
             feature: 'Quality Management',
-            description: 'ISO 9001 certified processes ensuring consistent quality',
+            description:
+              'ISO 9001 certified processes ensuring consistent quality and reliable project execution across all R&D activities',
           },
           {
             feature: 'Pilot Capacity',
-            description: '250 t/yr capacity for process scale-up and validation',
+            description:
+              '250 t/yr capacity for process scale-up and validation with dedicated pilot plant facilities for comprehensive testing',
+          },
+          {
+            feature: 'Integrated Solutions',
+            description:
+              'Seamless support from analytical services to production capabilities, providing complete technological foundations for commercialization',
+          },
+          {
+            feature: 'Proven Track Record',
+            description:
+              'Successful collaborations with leading international partners including DSM, UPM, and Perstorp across diverse chemical sectors',
           },
         ],
         subServices: [
           {
             title: 'Route Scouting & Feasibility',
             description:
-              'Expert evaluation and design of synthetic routes through comprehensive literature research and practical chemistry expertise.',
+              'Expert evaluation and design of synthetic routes through comprehensive literature research, patent analysis, and practical chemistry expertise to identify optimal pathways for your target compounds. Our experienced team conducts thorough feasibility studies, evaluating technical risks and commercial viability to ensure the most efficient and cost-effective synthetic approach for your specific requirements.',
             image: image1Doc.id,
             displayItems: [
-              { title: 'Literature & Patent Analysis' },
-              { title: 'Route Evaluation' },
-              { title: 'Risk Assessment' },
+              { item: 'Literature & Patent Analysis' },
+              { item: 'Synthetic Route Design' },
+              { item: 'Technical Risk Assessment' },
+              { item: 'Commercial Feasibility Evaluation' },
             ],
             features: [
               {
                 feature: 'Comprehensive Research',
-                description: 'Extensive literature and patent analysis',
+                description:
+                  'Extensive literature and patent analysis combined with practical chemistry insights to identify the most promising synthetic routes while avoiding potential IP conflicts.',
               },
               {
                 feature: 'Risk Mitigation',
-                description: 'Detailed technical and commercial risk assessment',
+                description:
+                  'Detailed technical and commercial risk assessment including safety considerations, regulatory requirements, and scalability challenges to minimize project uncertainties.',
+              },
+              {
+                feature: 'Expert Evaluation',
+                description:
+                  'Practical chemistry insights from experienced specialists with deep knowledge in petrochemicals, organic synthesis, and specialty chemical development.',
               },
             ],
             link: 'route-scouting',
@@ -1318,24 +1358,163 @@ export const seed = async ({
           {
             title: 'Custom Synthesis',
             description:
-              'Laboratory-scale synthesis of novel and known compounds, from grams to kilograms, with expertise in complex multi-step synthesis.',
+              'Laboratory-scale synthesis of novel and known compounds, intermediates, and chemical specialties from grams to kilograms, with expertise in complex multi-step synthesis and challenging chemistry. Our flexible laboratory setups and experienced chemists handle demanding synthetic challenges including acetylene chemistry, TEMPO derivatives, methylolalkanoic acids, and other specialized chemical transformations.',
             image: image2Doc.id,
             displayItems: [
-              { title: 'Scale Flexibility' },
-              { title: 'Complex Chemistry' },
-              { title: 'Quality Control' },
+              { item: 'Gram to Kilogram Scale' },
+              { item: 'Complex Multi-Step Synthesis' },
+              { item: 'Novel Compound Development' },
+              { item: 'Intermediate Production' },
             ],
             features: [
               {
-                feature: 'Scale Options',
-                description: 'From milligrams to kilograms capability',
+                feature: 'Scale Flexibility',
+                description:
+                  'From milligrams to kilograms capability with consistent quality and reproducibility, utilizing flexible laboratory synthesis setups adapted to specific project requirements.',
+              },
+              {
+                feature: 'Complex Chemistry',
+                description:
+                  'Expertise in challenging reagents, multi-step reactions, and specialized areas including acetylene chemistry, TEMPO derivatives, and polyurethane catalysts.',
               },
               {
                 feature: 'Quality Assurance',
-                description: 'Comprehensive analytical support',
+                description:
+                  'Comprehensive analytical support through our SNAS-accredited ATBEL division ensuring product purity and specification compliance throughout the synthesis process.',
               },
             ],
             link: 'custom-synthesis',
+          },
+          {
+            title: 'Process Development & Optimization',
+            description:
+              'Developing safe, efficient, and scalable synthetic processes with focus on optimizing reaction conditions, improving yields and purity, reducing costs, and implementing greener chemistry principles. Our team specializes in reaction calorimetry, distillation optimization, crystallization studies, and solvent elimination strategies to create robust, environmentally conscious manufacturing processes.',
+            image: image1Doc.id,
+            displayItems: [
+              { item: 'Reaction Optimization' },
+              { item: 'Yield Improvement' },
+              { item: 'Cost Reduction' },
+              { item: 'Green Chemistry Implementation' },
+            ],
+            features: [
+              {
+                feature: 'Process Efficiency',
+                description:
+                  'Optimization of reaction conditions, catalyst selection, and process parameters to maximize efficiency while maintaining product quality and safety standards.',
+              },
+              {
+                feature: 'Sustainability Focus',
+                description:
+                  'Implementation of greener chemistry principles including solvent elimination, waste reduction, and energy-efficient processes to minimize environmental impact.',
+              },
+              {
+                feature: 'Safety Enhancement',
+                description:
+                  'Development of safe and reliable synthetic processes with comprehensive safety parameter measurements and risk assessment protocols.',
+              },
+            ],
+            link: 'process-development',
+          },
+          {
+            title: 'Process Scale-Up & Verification',
+            description:
+              'Validating processes at laboratory and pilot plant scale utilizing pilot capacities up to 250 t/yr for specific products, gathering essential data for technological foundations and commercial viability. Our dedicated pilot plant facilities provide comprehensive process verification, enabling seamless technology transfer and de-risking commercial production scale-up.',
+            image: image2Doc.id,
+            displayItems: [
+              { item: 'Pilot Plant Validation' },
+              { item: 'Scale-Up Data Generation' },
+              { item: 'Process Verification' },
+              { item: 'Technology Transfer Support' },
+            ],
+            features: [
+              {
+                feature: 'Pilot Plant Facilities',
+                description:
+                  'Dedicated facilities with up to 250 t/yr capacity equipped with flexible reactor systems for comprehensive process verification and scale-up validation.',
+              },
+              {
+                feature: 'Data Generation',
+                description:
+                  'Comprehensive data collection including reaction kinetics, heat transfer, mass balance, and safety parameters to establish solid technological foundations.',
+              },
+              {
+                feature: 'Commercial Readiness',
+                description:
+                  'Validation protocols and technology transfer support ensuring seamless transition from pilot scale to commercial production with minimized technical risks.',
+              },
+            ],
+            link: 'process-scale-up',
+          },
+          {
+            title: 'Analytical Method Development',
+            description:
+              'Creating and validating analytical methods for raw materials, intermediates, and final products in collaboration with our SNAS-accredited ATBEL division, ensuring reliable quality control throughout development. Our comprehensive analytical capabilities include GC, LC, GC-MS, FT-IR, NMR, and specialized testing methods tailored to support your R&D and production requirements.',
+            image: image1Doc.id,
+            displayItems: [
+              { item: 'Method Creation & Validation' },
+              { item: 'Raw Material Analysis' },
+              { item: 'Product Quality Control' },
+              { item: 'SNAS Accredited Testing' },
+            ],
+            features: [
+              {
+                feature: 'Accredited Laboratory',
+                description:
+                  'SNAS accredited ATBEL division providing reliable analytical services with comprehensive quality management systems and certified procedures.',
+              },
+              {
+                feature: 'Comprehensive Analysis',
+                description:
+                  'Full spectrum analytical capabilities including GC, LC, NMR, FT-IR, AAS, titration, and physical-safety testing to support all phases of chemical development.',
+              },
+              {
+                feature: 'Method Validation',
+                description:
+                  'Rigorous validation protocols ensuring method reliability, accuracy, and precision according to international standards and regulatory requirements.',
+              },
+            ],
+            link: 'analytical-method-development',
+          },
+          {
+            title: 'Purification & Isolation',
+            description:
+              'Developing comprehensive strategies for achieving desired product purity through advanced separation techniques including distillation, crystallization, filtration, and extraction methods. Our expertise in purification processes ensures optimal product quality while maintaining cost-effectiveness and scalability for commercial applications.',
+            image: image2Doc.id,
+            displayItems: [
+              { item: 'Distillation Optimization' },
+              { item: 'Crystallization Studies' },
+              { item: 'Advanced Filtration' },
+              { item: 'Extraction Methods' },
+            ],
+            features: [
+              {
+                feature: 'Advanced Techniques',
+                description:
+                  'Expertise in multiple purification methods including fractional distillation, recrystallization, chromatographic separation, and membrane filtration technologies.',
+              },
+              {
+                feature: 'Purity Optimization',
+                description:
+                  'Systematic approach to achieving target purity levels while optimizing yield and minimizing waste through tailored purification strategies.',
+              },
+              {
+                feature: 'Scalability Focus',
+                description:
+                  'Development of purification processes with commercial scalability in mind, ensuring smooth transition from laboratory to production scale.',
+              },
+            ],
+            link: 'purification-isolation',
+          },
+        ],
+        accreditations: [
+          {
+            accreditation: 'ISO 9001 Certification',
+          },
+          {
+            accreditation: 'R&D Competency Certificate',
+          },
+          {
+            accreditation: 'SNAS Accreditation',
           },
         ],
         slug: 'research-development',
@@ -1347,70 +1526,141 @@ export const seed = async ({
         title: 'Analytical Testing Services',
         _status: 'published',
         description:
-          'Comprehensive analytical testing and method development services with state-of-the-art equipment and experienced specialists. We provide accurate, reliable results with fast turnaround times.',
+          'Accredited analytical, technical-safety, and ecological testing services with SNAS S-118 (ISO/IEC 17025) certification. Comprehensive chemical analysis and regulatory compliance testing.',
         featuredImage: image2Doc.id,
         features: [
           {
-            feature: 'Modern Equipment',
-            description: 'Latest analytical instruments for precise results',
+            feature: 'SNAS Accreditation',
+            description:
+              'SNAS S-118 accreditation according to ISO/IEC 17025 ensuring reliable, internationally recognized analytical results with rigorous quality controls',
           },
           {
-            feature: 'Expert Team',
-            description: 'Highly qualified analytical chemists',
+            feature: 'Comprehensive Testing',
+            description:
+              'Wide range of analytical techniques including chromatography, spectroscopy, titrimetric analysis, and physical-chemical testing in one accredited facility',
           },
           {
-            feature: 'Fast Turnaround',
-            description: 'Efficient processing of analytical requests',
+            feature: 'Expert Leadership',
+            description:
+              'Led by Ing. Ľudovít Žiak, PhD., with over 15 years of analytical laboratory experience and specialized expertise in workplace atmosphere monitoring',
           },
           {
-            feature: 'Quality System',
-            description: 'ISO 17025 accredited laboratory',
+            feature: 'Regulatory Compliance',
+            description:
+              'Testing according to international standards (OECD, ISO, DIN) and regulations including REACH compliance and automotive standards',
           },
         ],
         subServices: [
           {
-            title: 'Method Development',
+            title: 'Chromatographic Analysis',
             description:
-              'Development and validation of analytical methods tailored to your specific needs.',
+              'Advanced chromatographic techniques including gas chromatography (GC, GC-MS), high-performance liquid chromatography (HPLC), and isotachophoresis (ITP) for composition analysis, VOC determination, impurity identification, and anion determination. Our state-of-the-art equipment enables precise analysis of complex mixtures with method development capabilities.',
             image: image1Doc.id,
             displayItems: [
-              { title: 'HPLC Method Development' },
-              { title: 'GC Method Development' },
-              { title: 'Validation Studies' },
+              { item: 'Gas Chromatography (GC, GC-MS)' },
+              { item: 'High-Performance Liquid Chromatography (HPLC)' },
+              { item: 'Isotachophoresis (ITP)' },
+              { item: 'VOC Analysis (PV3341)' },
             ],
             features: [
               {
-                feature: 'Custom Methods',
-                description: 'Tailored analytical solutions',
+                feature: 'Advanced Instrumentation',
+                description:
+                  'Modern GC, HPLC, and GC-MS systems for precise composition analysis, impurity identification, and trace analysis with excellent sensitivity and reproducibility.',
               },
               {
-                feature: 'Validation',
-                description: 'Comprehensive method validation',
+                feature: 'Method Development',
+                description:
+                  'Custom analytical method development and validation capabilities to meet specific client requirements and regulatory standards.',
               },
             ],
-            link: 'method-development',
+            link: 'chromatographic-analysis',
           },
           {
-            title: 'Quality Control Testing',
+            title: 'Spectroscopic Analysis',
             description:
-              'Routine quality control testing with reliable results and quick turnaround times.',
+              'Comprehensive spectroscopic analysis using atomic absorption spectrometry (AAS), infrared spectroscopy (FT-IR), nuclear magnetic resonance (NMR), UV/VIS spectrometry, and mass spectrometry for substance identification, metal determination, and structural analysis. Our spectroscopic capabilities support both qualitative and quantitative analysis needs.',
             image: image2Doc.id,
             displayItems: [
-              { title: 'Raw Material Testing' },
-              { title: 'Product Testing' },
-              { title: 'Impurity Analysis' },
+              { item: 'Atomic Absorption Spectrometry (AAS)' },
+              { item: 'Infrared Spectroscopy (FT-IR)' },
+              { item: 'Nuclear Magnetic Resonance (NMR)' },
+              { item: 'UV/VIS Spectrometry' },
             ],
             features: [
               {
-                feature: 'Rapid Testing',
-                description: 'Fast and accurate results',
+                feature: 'Multi-technique Approach',
+                description:
+                  'Comprehensive spectroscopic suite enabling complete structural characterization and identification of unknown substances with high confidence.',
               },
               {
-                feature: 'Quality Assurance',
-                description: 'Rigorous quality controls',
+                feature: 'Metal Analysis',
+                description:
+                  'Specialized atomic absorption spectrometry capabilities for accurate determination of metals in various sample matrices.',
               },
             ],
-            link: 'quality-control',
+            link: 'spectroscopic-analysis',
+          },
+          {
+            title: 'Physical & Technical-Safety Testing',
+            description:
+              'Physical property determination and technical-safety testing according to OECD and ISO standards including melting point, boiling point, density, vapour pressure, surface tension, water solubility, flash point, and flammability testing. Essential for regulatory compliance, safety assessments, and product characterization across multiple industries.',
+            image: image1Doc.id,
+            displayItems: [
+              { item: 'Physical Properties (OECD Standards)' },
+              { item: 'Flash Point & Flammability' },
+              { item: 'Workplace Atmosphere Monitoring' },
+              { item: 'REACH Compliance Testing' },
+            ],
+            features: [
+              {
+                feature: 'OECD Compliance',
+                description:
+                  'Testing according to internationally recognized OECD guidelines ensuring regulatory compliance for chemical registration and safety assessments.',
+              },
+              {
+                feature: 'Safety Monitoring',
+                description:
+                  'Specialized workplace atmosphere monitoring and measurement of chemical factors to ensure occupational health and safety compliance.',
+              },
+            ],
+            link: 'physical-safety-testing',
+          },
+          {
+            title: 'Titrimetric & Gravimetric Analysis',
+            description:
+              'Classical analytical techniques including Karl Fischer titration for water content determination, acid and hydroxyl value measurements, iodometric titrations, and gravimetric determinations for moisture, ash, and extractable substances. These proven methods provide reliable quantitative analysis for quality control and specification testing.',
+            image: image2Doc.id,
+            displayItems: [
+              { item: 'Karl Fischer Titration' },
+              { item: 'Acid & Hydroxyl Value' },
+              { item: 'Gravimetric Determinations' },
+              { item: 'Moisture & Ash Content' },
+            ],
+            features: [
+              {
+                feature: 'Proven Methods',
+                description:
+                  'Well-established analytical techniques providing reliable and accurate quantitative results for routine quality control and specification testing.',
+              },
+              {
+                feature: 'Quality Control',
+                description:
+                  'Essential testing for raw materials, in-process monitoring, and final product quality assurance across various industries.',
+              },
+            ],
+            link: 'titrimetric-gravimetric',
+          },
+        ],
+        accreditations: [
+          {
+            accreditation: 'SNAS S-118 Accreditation',
+          },
+          {
+            accreditation: 'ISO 9001 Certification',
+          },
+          {
+            accreditation: 'R&D Competency Certificate',
           },
         ],
         slug: 'analytical-testing',
@@ -1422,46 +1672,67 @@ export const seed = async ({
         title: 'Custom Cosmetics Manufacturing',
         _status: 'published',
         description:
-          "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs. We offer flexible white label and private label solutions, from formulation development to large-scale production, ensuring high-quality, compliant products manufactured in Europe.",
+          "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs.",
         featuredImage: image1Doc.id,
         features: [
           {
-            feature: 'Experience',
+            feature: 'Proven Experience',
             description:
-              '70+ years of chemical production expertise with dedicated cosmetics department since 1990',
+              '70+ years of chemical production expertise with dedicated cosmetics department since 1990, serving as a major producer of protective hand creams in Slovakia and Czech Republic',
           },
           {
-            feature: 'Quality',
-            description: 'ISO 9001 certified manufacturing with rigorous quality controls',
+            feature: 'Quality Certified',
+            description:
+              'ISO 9001:2015 certified manufacturing with rigorous quality controls and adherence to European cosmetic legislation ensuring compliant, high-quality products',
           },
           {
-            feature: 'Compliance',
-            description: 'Full adherence to EU cosmetic regulations and safety standards',
+            feature: 'Award-Winning Products',
+            description:
+              'Slovak Gold award-winning Peggy Massage Gels and proven formulations including Fortea hand creams, body lotions, and medical diagnostic gels',
           },
           {
-            feature: 'Capacity',
-            description: 'Scalable production from small batches to large-scale manufacturing',
+            feature: 'Scalable Production',
+            description:
+              'Flexible manufacturing capacity from small batches to large-scale production with packaging options including tubes, bottles, dispensers, and canisters',
+          },
+          {
+            feature: 'Development Capabilities',
+            description:
+              'In-house formulation labs with expert cosmetic chemists creating custom solutions based on client specifications, market trends, and regulatory requirements',
+          },
+          {
+            feature: 'Medical Grade Expertise',
+            description:
+              'Specialized production of medical and diagnostic gels including sonography gels (Gelson) and ECG/EEG conductive gels with health certificates',
           },
         ],
         subServices: [
           {
             title: 'White Label Services',
             description:
-              "Brand and sell VUP's existing, market-tested cosmetic formulations including hand creams, body lotions, massage oils and gels.",
+              "Brand and sell VUP's existing, market-tested cosmetic formulations including award-winning products. Our white label portfolio features proven formulations like Fortea hand creams and body lotions with various natural extracts and propolis, Fortea massage oils with essential oils, Slovak Gold award-winning Peggy massage gels with plant extracts (marigold, chestnut, capsaicin, menthol, comfrey, arnica), and medical diagnostic gels including alcohol-free Gelson sonography gel and EV ECG/EEG conductive gel.",
             image: image1Doc.id,
             displayItems: [
-              { title: 'Hand Creams & Body Lotions' },
-              { title: 'Massage Oils & Gels' },
-              { title: 'Medical & Diagnostic Gels' },
+              { item: 'Fortea Hand Creams & Body Lotions' },
+              { item: 'Award-Winning Peggy Massage Gels' },
+              { item: 'Fortea Massage Oils' },
+              { item: 'Medical Diagnostic Gels (Gelson, EV Gel)' },
             ],
             features: [
               {
-                feature: 'Proven Formulas',
-                description: 'Market-tested, award-winning product formulations',
+                feature: 'Market-Tested Formulas',
+                description:
+                  'Proven formulations with established market success including award-winning products and major market share in protective hand creams across Slovakia and Czech Republic.',
               },
               {
-                feature: 'Quick Launch',
-                description: 'Faster time-to-market with existing formulations',
+                feature: 'Quick Market Entry',
+                description:
+                  'Faster time-to-market with existing formulations that have undergone rigorous testing and compliance verification, reducing development time and regulatory risks.',
+              },
+              {
+                feature: 'Diverse Product Range',
+                description:
+                  'Comprehensive portfolio spanning skin care, massage products, and medical diagnostic gels with various natural extracts, essential oils, and specialized formulations.',
               },
             ],
             link: 'white-label',
@@ -1469,24 +1740,76 @@ export const seed = async ({
           {
             title: 'Private Label Services',
             description:
-              'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements.',
+              'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements. Our experienced team utilizes dedicated development laboratories to create tailored formulations incorporating desired ingredients, functions, and market trends such as natural extracts, paraben-free formulations, and hypoallergenic solutions. We provide comprehensive support from initial concept through finished product, including custom packaging solutions and regulatory compliance assistance.',
             image: image2Doc.id,
             displayItems: [
-              { title: 'Custom Formulation' },
-              { title: 'Product Development' },
-              { title: 'Regulatory Support' },
+              { item: 'Custom Formulation Development' },
+              { item: 'Product Range Expertise' },
+              { item: 'Regulatory Compliance Support' },
+              { item: 'Packaging Customization' },
             ],
             features: [
               {
-                feature: 'Customization',
-                description: 'Tailored formulations to meet your exact needs',
+                feature: 'Expert Formulation Team',
+                description:
+                  'Skilled cosmetic chemists and formulation experts led by experienced professionals creating innovative solutions tailored to your brand vision and target market requirements.',
               },
               {
-                feature: 'Full Support',
-                description: 'From concept to finished product',
+                feature: 'Comprehensive Product Range',
+                description:
+                  'Proven capability across skin care products, massage oils and gels, medical diagnostic gels, and openness to developing new formulation types based on client needs.',
+              },
+              {
+                feature: 'End-to-End Support',
+                description:
+                  'Complete turnkey solutions from initial formulation through production, packaging, quality control, and regulatory documentation including CPNP notification support.',
               },
             ],
             link: 'private-label',
+          },
+          {
+            title: 'Quality Assurance & Compliance',
+            description:
+              'Rigorous quality management ensuring adherence to European cosmetic legislation and medical device requirements. Our comprehensive quality system includes in-house microbiological testing according to international standards (STN ISO 21527-2, STN EN ISO 21149), raw material and product quality control via SNAS S-118 accredited ATBEL laboratories using advanced analytical techniques (GC-MS, HPLC, FT-IR), and complete documentation supporting regulatory compliance including Certificates of Analysis and Product Information File elements.',
+            image: image1Doc.id,
+            displayItems: [
+              { item: 'European Regulatory Compliance' },
+              { item: 'Microbiological Testing' },
+              { item: 'Accredited Analytical Testing' },
+              { item: 'Complete Documentation' },
+            ],
+            features: [
+              {
+                feature: 'Certified Quality Systems',
+                description:
+                  'ISO 9001:2015 certified quality management system covering cosmetic production with Responsible Care certification ensuring consistent quality and environmental responsibility.',
+              },
+              {
+                feature: 'Advanced Testing Capabilities',
+                description:
+                  'In-house microbiological laboratories and SNAS S-118 accredited analytical facilities providing comprehensive quality control from raw materials to finished products.',
+              },
+              {
+                feature: 'Regulatory Expertise',
+                description:
+                  'Deep understanding of EU cosmetic regulations and medical device requirements with proven track record including health certificates for medical products like Gelson gel.',
+              },
+            ],
+            link: 'quality-compliance',
+          },
+        ],
+        accreditations: [
+          {
+            accreditation: 'ISO 9001:2015 Certification',
+          },
+          {
+            accreditation: 'SNAS S-118 Accreditation',
+          },
+          {
+            accreditation: 'Responsible Care Certification',
+          },
+          {
+            accreditation: 'R&D Competency Certificate',
           },
         ],
         slug: 'cosmetics-manufacturing',
@@ -1498,73 +1821,164 @@ export const seed = async ({
         title: 'Regulatory & Technical Support',
         _status: 'published',
         description:
-          "Navigate complex chemical regulations and overcome technical hurdles with VUP's expert support. We combine deep regulatory knowledge (REACH, ISO 9001) and 70+ years of chemical R&D expertise with accredited analytical capabilities (SNAS S-118) to provide reliable compliance guidance and effective technical solutions.",
+          'Navigate complex chemical regulations and overcome technical hurdles with expert support combining deep regulatory knowledge and 70+ years of R&D expertise.',
         featuredImage: image1Doc.id,
         features: [
           {
             feature: 'REACH Expertise',
-            description: 'Proven experience with successful REACH registrations and compliance',
+            description:
+              'Proven experience with successful REACH registrations including DMPA, DMBA, and TEMPO derivatives, providing practical guidance based on real-world compliance achievements.',
           },
           {
-            feature: 'Accredited Labs',
+            feature: 'Accredited Testing',
             description:
-              'SNAS S-118 accredited analytical, technical-safety, and ecological laboratories',
+              'SNAS S-118 accredited analytical, technical-safety, and ecological laboratories providing reliable data for regulatory submissions and compliance documentation.',
           },
           {
             feature: 'Quality Certified',
-            description: 'ISO 9001 certified quality management system',
+            description:
+              'ISO 9001:2015 certified quality management system ensuring consistent service delivery and reliable consultation processes across all regulatory and technical support activities.',
           },
           {
             feature: 'Industry Recognition',
-            description: 'Responsible Care certification and R&D Competency Certificate',
+            description:
+              'Responsible Care certification and R&D Competency Certificate from Ministry of Education demonstrating commitment to safety, environment, and technical excellence.',
+          },
+          {
+            feature: 'Expert Team',
+            description:
+              'Direct access to experienced department heads in R&D, analytics, and commercial operations with cross-functional expertise in regulatory compliance and technical problem-solving.',
+          },
+          {
+            feature: 'Comprehensive Support',
+            description:
+              'End-to-end support from initial regulatory assessment through technical data provision to final compliance documentation and ongoing consultation services.',
           },
         ],
         subServices: [
           {
-            title: 'Regulatory Support',
+            title: 'REACH Compliance Support',
             description:
-              'Comprehensive guidance for chemical regulations including REACH compliance, ISO 9001 quality systems, cosmetics & medical device regulations, and safety & environmental compliance.',
+              "Comprehensive REACH guidance based on VUP's direct experience with successful full and intermediate registrations. We provide practical support for data gathering, dossier preparation, and compliance strategy development, leveraging our proven track record with substances like DMPA, DMBA, and TEMPO derivatives. Our accredited laboratories ensure reliable technical data for regulatory submissions.",
             image: image1Doc.id,
             displayItems: [
-              { title: 'REACH Compliance' },
-              { title: 'Quality Management Systems' },
-              { title: 'Safety & Environmental Regulations' },
-              { title: 'Certification Support' },
+              { item: 'Registration Strategy Development' },
+              { item: 'Technical Data Generation' },
+              { item: 'Dossier Preparation Support' },
+              { item: 'Compliance Assessment' },
             ],
             features: [
               {
-                feature: 'Expert Guidance',
-                description: 'Direct support from experienced regulatory specialists',
+                feature: 'Proven Experience',
+                description:
+                  'Direct experience with successful REACH registrations across multiple substance categories, providing practical insights and proven strategies for compliance.',
               },
               {
-                feature: 'Comprehensive Coverage',
-                description: 'Support across multiple regulatory frameworks',
+                feature: 'Data Generation',
+                description:
+                  'Access to SNAS S-118 accredited laboratories for generating reliable physical-chemical, technical-safety, and ecological data required for REACH submissions.',
+              },
+              {
+                feature: 'Strategic Guidance',
+                description:
+                  'Expert consultation on registration strategies, data requirements, and cost-effective approaches to meeting REACH obligations while minimizing regulatory risks.',
               },
             ],
-            link: 'regulatory-support',
+            link: 'reach-compliance',
           },
           {
-            title: 'Technical Support',
+            title: 'Quality Management Systems',
             description:
-              'In-depth technical consultation leveraging our R&D knowledge and analytical capabilities to help solve product and process challenges.',
+              'Expert consultation for implementing and maintaining ISO 9001 quality management systems in chemical R&D and production environments. Drawing from our own ISO 9001:2015 certification experience, we provide practical guidance for establishing robust quality processes, documentation systems, and continuous improvement frameworks tailored to chemical industry requirements.',
             image: image2Doc.id,
             displayItems: [
-              { title: 'Product Expertise' },
-              { title: 'Problem Solving' },
-              { title: 'Technical Data Provision' },
-              { title: 'Process Consultation' },
+              { item: 'ISO 9001 Implementation' },
+              { item: 'Quality Process Development' },
+              { item: 'Documentation Systems' },
+              { item: 'Audit Preparation' },
             ],
             features: [
               {
-                feature: 'Analytical Support',
-                description: 'Access to accredited laboratory services',
+                feature: 'Practical Experience',
+                description:
+                  'Guidance based on our own successful ISO 9001:2015 implementation and maintenance across R&D, production, and analytical testing operations.',
               },
               {
-                feature: 'Expert Consultation',
-                description: '70+ years of chemical R&D expertise',
+                feature: 'Industry-Specific',
+                description:
+                  'Tailored approaches for chemical industry quality management addressing unique challenges in R&D, manufacturing, and analytical testing environments.',
               },
             ],
-            link: 'technical-support',
+            link: 'quality-management',
+          },
+          {
+            title: 'Safety & Environmental Compliance',
+            description:
+              'Comprehensive support for chemical safety and environmental compliance including workplace safety assessments, environmental impact evaluations, and regulatory guidance. Our Responsible Care certification and extensive safety testing capabilities ensure reliable guidance for safe handling, storage, disposal, and environmental protection measures across chemical operations.',
+            image: image1Doc.id,
+            displayItems: [
+              { item: 'Safety Assessment Support' },
+              { item: 'Environmental Impact Evaluation' },
+              { item: 'Workplace Atmosphere Monitoring' },
+              { item: 'Responsible Care Implementation' },
+            ],
+            features: [
+              {
+                feature: 'Certified Expertise',
+                description:
+                  'Responsible Care certification demonstrating commitment to safety and environmental protection with proven implementation experience.',
+              },
+              {
+                feature: 'Testing Capabilities',
+                description:
+                  'Access to accredited safety testing including workplace atmosphere monitoring, flash point determination, and environmental impact assessments.',
+              },
+            ],
+            link: 'safety-environmental',
+          },
+          {
+            title: 'Technical Consultation',
+            description:
+              'In-depth technical consultation leveraging 70+ years of chemical R&D expertise and analytical capabilities to solve complex product and process challenges. Our experienced team provides expert advice on chemical processes, product optimization, troubleshooting, and application development, supported by comprehensive analytical testing and technical data provision from our accredited laboratories.',
+            image: image2Doc.id,
+            displayItems: [
+              { item: 'Process Optimization' },
+              { item: 'Product Development Support' },
+              { item: 'Technical Problem Solving' },
+              { item: 'Application Guidance' },
+            ],
+            features: [
+              {
+                feature: 'R&D Expertise',
+                description:
+                  'Access to 70+ years of chemical R&D experience with proven track record in complex synthesis, process development, and product optimization across diverse chemical sectors.',
+              },
+              {
+                feature: 'Analytical Support',
+                description:
+                  'Comprehensive analytical capabilities through SNAS S-118 accredited laboratories providing technical data, troubleshooting support, and product characterization services.',
+              },
+              {
+                feature: 'Cross-Functional Teams',
+                description:
+                  'Collaborative approach combining regulatory awareness, technical depth, and analytical expertise to provide comprehensive solutions for complex technical challenges.',
+              },
+            ],
+            link: 'technical-consultation',
+          },
+        ],
+        accreditations: [
+          {
+            accreditation: 'ISO 9001:2015 Certification',
+          },
+          {
+            accreditation: 'SNAS S-118 Accreditation',
+          },
+          {
+            accreditation: 'Responsible Care Certification',
+          },
+          {
+            accreditation: 'R&D Competency Certificate',
           },
         ],
         slug: 'regulatory-technical-support',
@@ -1576,49 +1990,67 @@ export const seed = async ({
         title: 'Custom Synthesis & Manufacturing',
         _status: 'published',
         description:
-          'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. We leverage 70+ years of R&D experience to tackle complex synthesis challenges and offer flexible production from grams to pilot-scale tonnes, all supported by accredited quality control and secure IP handling.',
+          'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. Complex chemistry, reliably delivered.',
         featuredImage: image1Doc.id,
         features: [
           {
             feature: 'Expert Problem Solving',
-            description: "Leverage VUP's 70+ years R&D experience for complex synthetic challenges",
+            description:
+              "Leverage VUP's 70+ years R&D experience for complex synthetic challenges including multi-step routes and specialized chemistries with proven track record in demanding applications.",
           },
           {
             feature: 'Quality Assured',
             description:
-              'High-purity focus with rigorous QC backed by ISO 9001 and SNAS accredited labs',
+              'High-purity focus with rigorous QC backed by ISO 9001:2015 certified processes and SNAS S-118 accredited analytical laboratories ensuring reliable, internationally recognized results.',
           },
           {
             feature: 'Scalability',
-            description: 'Seamless transition from gram-scale synthesis to pilot-scale production',
+            description:
+              'Seamless transition from gram-scale synthesis to pilot-scale production with flexible manufacturing capacity up to 250 t/yr utilizing versatile pilot plant infrastructure.',
           },
           {
             feature: 'IP Security',
             description:
-              'Strict confidentiality agreements and secure handling of intellectual property',
+              'Strict confidentiality agreements and secure handling of intellectual property with proven experience in protecting client innovations and proprietary synthetic routes.',
+          },
+          {
+            feature: 'European Partner',
+            description:
+              'Reliable EU-based synthesis and manufacturing services ensuring regulatory compliance, secure supply chains, and cost-effective solutions within the European market.',
+          },
+          {
+            feature: 'Integrated Services',
+            description:
+              'Combined R&D, synthesis, analytical, and regulatory expertise providing comprehensive solutions from initial route development through commercial production and compliance support.',
           },
         ],
         subServices: [
           {
             title: 'Custom Synthesis',
             description:
-              'Specialized synthesis of non-catalogue fine chemicals, complex intermediates, reference standards, and chemical specialties. We tackle challenging multi-step synthetic routes leveraging our deep expertise in specific chemistries.',
+              'Specialized synthesis of non-catalogue fine chemicals, complex intermediates, reference standards, and chemical specialties. We tackle challenging multi-step synthetic routes leveraging our deep expertise in acetylene chemistry, TEMPO derivatives, hydroxy acids, and other specialized chemistries. From route scouting and feasibility studies to laboratory-scale synthesis, we deliver high-purity compounds tailored to your specific requirements.',
             image: image1Doc.id,
             displayItems: [
-              { title: 'Route Scouting & Feasibility' },
-              { title: 'Laboratory Scale Synthesis' },
-              { title: 'High Purity Standards' },
-              { title: 'Multi-step Synthesis' },
+              { item: 'Route Scouting & Feasibility Studies' },
+              { item: 'Laboratory Scale Synthesis (g-kg)' },
+              { item: 'High Purity Standards' },
+              { item: 'Multi-step Complex Synthesis' },
             ],
             features: [
               {
                 feature: 'Synthesis Expertise',
                 description:
-                  'Deep knowledge in complex organic synthesis and specialized chemistries',
+                  'Deep knowledge in complex organic synthesis including acetylene chemistry, TEMPO derivatives, and specialized functional molecules with proven commercial success.',
               },
               {
                 feature: 'Scale Range',
-                description: 'From laboratory grams to kilogram quantities',
+                description:
+                  'Flexible synthesis capabilities from laboratory grams to kilogram quantities with consistent quality and reproducibility across all scales.',
+              },
+              {
+                feature: 'Purity Focus',
+                description:
+                  'Emphasis on achieving high purity standards tailored to client specifications with comprehensive analytical characterization and quality documentation.',
               },
             ],
             link: 'custom-synthesis',
@@ -1626,22 +2058,29 @@ export const seed = async ({
           {
             title: 'Process Development & Scale-Up',
             description:
-              'Optimization of synthetic routes for improved efficiency, safety, yield, and cost-effectiveness. We provide comprehensive process development and scale-up services from laboratory to pilot plant validation.',
+              'Optimization of synthetic routes for improved efficiency, safety, yield, and cost-effectiveness. We provide comprehensive process development services from laboratory optimization through pilot plant validation, generating robust technological foundations for commercial production. Our experienced team combines practical chemistry knowledge with engineering expertise to ensure successful scale-up transitions.',
             image: image2Doc.id,
             displayItems: [
-              { title: 'Process Optimization' },
-              { title: 'Safety Assessment' },
-              { title: 'Yield Improvement' },
-              { title: 'Scale-up Validation' },
+              { item: 'Process Optimization' },
+              { item: 'Safety Assessment & Validation' },
+              { item: 'Yield Improvement Studies' },
+              { item: 'Scale-up Validation' },
             ],
             features: [
               {
                 feature: 'Production Capacity',
-                description: 'Pilot plant infrastructure with up to 250 t/yr capacity',
+                description:
+                  'Pilot plant infrastructure with up to 250 t/yr capacity featuring versatile reactors and downstream processing units for comprehensive scale-up validation.',
               },
               {
-                feature: 'Technical Support',
-                description: 'Comprehensive process documentation and validation',
+                feature: 'Technical Documentation',
+                description:
+                  'Comprehensive process documentation including safety assessments, operating procedures, and technological foundations supporting commercial implementation.',
+              },
+              {
+                feature: 'Risk Mitigation',
+                description:
+                  'Systematic approach to identifying and addressing scale-up challenges including safety considerations, equipment limitations, and process optimization opportunities.',
               },
             ],
             link: 'process-development',
@@ -1649,25 +2088,46 @@ export const seed = async ({
           {
             title: 'Small-Scale & Toll Manufacturing',
             description:
-              'Reliable contract manufacturing of fine chemicals and specialties utilizing our versatile pilot plant infrastructure. We offer flexible toll manufacturing services for kilogram to multi-tonne campaigns.',
+              'Reliable contract manufacturing of fine chemicals and specialties utilizing our versatile pilot plant infrastructure. We offer flexible toll manufacturing services for kilogram to multi-tonne campaigns based on established processes, whether VUP-developed or client-provided. Our ISO 9001:2015 certified manufacturing processes ensure consistent quality and reliable delivery for your production needs.',
             image: image1Doc.id,
             displayItems: [
-              { title: 'Contract Manufacturing' },
-              { title: 'Toll Processing' },
-              { title: 'Quality Control' },
-              { title: 'Regulatory Support' },
+              { item: 'Contract Manufacturing (kg-tonne)' },
+              { item: 'Toll Processing Services' },
+              { item: 'Rigorous Quality Control' },
+              { item: 'Regulatory Compliance Support' },
             ],
             features: [
               {
                 feature: 'Manufacturing Flexibility',
-                description: 'Adaptable production capabilities for various batch sizes',
+                description:
+                  'Adaptable production capabilities utilizing versatile pilot plant equipment for various batch sizes and chemical processes with proven reliability.',
               },
               {
                 feature: 'Quality Systems',
-                description: 'ISO 9001 certified manufacturing processes',
+                description:
+                  'ISO 9001:2015 certified manufacturing processes with rigorous in-process and final product QC using SNAS S-118 accredited analytical laboratories.',
+              },
+              {
+                feature: 'Supply Chain Reliability',
+                description:
+                  'Secure European manufacturing base ensuring reliable supply chains, regulatory compliance, and cost-effective production within the EU market.',
               },
             ],
             link: 'toll-manufacturing',
+          },
+        ],
+        accreditations: [
+          {
+            accreditation: 'ISO 9001:2015 Certification',
+          },
+          {
+            accreditation: 'SNAS S-118 Accreditation',
+          },
+          {
+            accreditation: 'R&D Competency Certificate',
+          },
+          {
+            accreditation: 'Responsible Care Certification',
           },
         ],
         slug: 'custom-synthesis-manufacturing',
@@ -3987,7 +4447,7 @@ export const seed = async ({
                     format: 1,
                     mode: 'normal',
                     style: '',
-                    text: 'highly motivated Senior Research Scientist',
+                    text: 'highly motivated Senior Research Chemist',
                     type: 'text',
                     version: 1,
                   },
@@ -4014,7 +4474,7 @@ export const seed = async ({
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: ' and contribute to sustainable chemistry solutions that make a real impact on global industries.',
+                    text: ' and contribute to sustainable chemistry solutions that make a real impact on global industries. As part of our team with 70+ years of chemical expertise and over 900 patents, you will drive innovation in specialty chemicals while working on projects that span from laboratory-scale synthesis to industrial production.',
                     type: 'text',
                     version: 1,
                   },
@@ -4038,25 +4498,116 @@ export const seed = async ({
         keyResponsibilities: [
           {
             responsibility:
-              'Design and execute complex research projects in organic and analytical chemistry, focusing on sustainable chemical processes',
+              'Design and execute complex research projects in organic and analytical chemistry, focusing on sustainable chemical processes and green chemistry principles',
           },
           {
             responsibility:
-              'Lead cross-functional teams to develop new chemical products and processes, managing project timelines and deliverables',
+              'Lead cross-functional teams to develop new chemical products and processes, managing project timelines, budgets, and deliverables from concept to commercialization',
+          },
+          {
+            responsibility:
+              'Conduct route scouting and feasibility studies for synthetic pathways, utilizing literature research, patent analysis, and practical chemistry expertise',
+          },
+          {
+            responsibility:
+              'Develop and optimize synthetic methods for specialty chemicals, intermediates, and active pharmaceutical ingredients with focus on scalability',
+          },
+          {
+            responsibility:
+              'Collaborate with analytical and process development teams to establish robust analytical methods and quality control procedures',
+          },
+          {
+            responsibility:
+              'Mentor junior scientists and provide technical guidance on complex chemical synthesis and purification challenges',
+          },
+          {
+            responsibility:
+              'Prepare technical reports, patent applications, and scientific publications documenting research findings and innovations',
+          },
+          {
+            responsibility:
+              'Interface with clients and partners to understand technical requirements and provide expert chemical consultation',
           },
         ],
         requirements: [
           {
             requirement:
-              'PhD in Chemistry, Chemical Engineering, or related field with demonstrated research excellence',
+              'PhD in Chemistry, Chemical Engineering, or related field with demonstrated research excellence and strong publication record',
           },
           {
             requirement:
-              '5+ years of experience in chemical research and development, preferably in specialty chemicals or pharmaceuticals',
+              '7+ years of experience in chemical research and development, preferably in specialty chemicals, pharmaceuticals, or fine chemicals industry',
+          },
+          {
+            requirement:
+              'Expertise in organic synthesis, including multi-step synthesis, purification techniques, and reaction optimization',
+          },
+          {
+            requirement:
+              'Strong knowledge of analytical techniques (NMR, GC-MS, HPLC, IR spectroscopy) for compound characterization and purity analysis',
+          },
+          {
+            requirement:
+              'Experience with process development and scale-up from laboratory to pilot plant operations',
+          },
+          {
+            requirement:
+              'Proven track record of project management and leading technical teams in research environments',
+          },
+          {
+            requirement:
+              'Excellent written and verbal communication skills in English; knowledge of Slovak or German is a plus',
+          },
+          {
+            requirement:
+              'Strong problem-solving abilities and innovative thinking for developing novel chemical solutions',
           },
         ],
-        preferredQualifications: [],
-        benefits: [],
+        preferredQualifications: [
+          {
+            qualification:
+              'Experience with green chemistry principles and sustainable manufacturing processes',
+          },
+          {
+            qualification:
+              'Knowledge of regulatory requirements for chemical products (REACH, FDA, ICH guidelines)',
+          },
+          {
+            qualification:
+              'Experience with computational chemistry tools and molecular modeling software',
+          },
+          {
+            qualification:
+              'Previous work in catalyst development, polymerization chemistry, or pharmaceutical intermediates',
+          },
+          {
+            qualification: 'Patent application experience and intellectual property development',
+          },
+        ],
+        benefits: [
+          {
+            benefit:
+              'Competitive salary commensurate with experience and performance-based bonuses',
+          },
+          {
+            benefit: 'Comprehensive health insurance and wellness programs for you and your family',
+          },
+          {
+            benefit:
+              'Professional development opportunities including conference attendance and continuing education support',
+          },
+          {
+            benefit:
+              'Access to state-of-the-art laboratory facilities and analytical instrumentation',
+          },
+          {
+            benefit: 'Flexible working arrangements and generous vacation policy',
+          },
+          {
+            benefit:
+              'Opportunity to work on internationally recognized projects with leading industry partners',
+          },
+        ],
         slug: 'senior-research-chemist',
         slugLock: false,
         _status: 'published',
@@ -4098,7 +4649,7 @@ export const seed = async ({
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: ' to join our Quality Control laboratory. In this role, you will perform complex analytical testing and method development to support our product development and manufacturing processes.',
+                    text: ' to join our SNAS-accredited Quality Control laboratory (ATBEL division). In this role, you will perform complex analytical testing and method development to support our product development and manufacturing processes. You will work in our ISO/IEC 17025 certified facility, ensuring the highest standards of analytical excellence while contributing to the development of innovative chemical solutions for international markets.',
                     type: 'text',
                     version: 1,
                   },
@@ -4122,24 +4673,127 @@ export const seed = async ({
         keyResponsibilities: [
           {
             responsibility:
-              'Conduct analytical testing using advanced instrumentation including HPLC, GC, and spectroscopic methods',
+              'Conduct analytical testing using advanced instrumentation including HPLC, GC-MS, NMR, FT-IR, AAS, and UV-Vis spectroscopy',
           },
           {
             responsibility:
-              'Develop and validate analytical methods for quality control and research applications',
+              'Develop and validate analytical methods for quality control, raw material analysis, and product characterization according to international standards',
+          },
+          {
+            responsibility:
+              'Perform quantitative and qualitative analysis of organic and inorganic compounds, including impurity profiling and stability studies',
+          },
+          {
+            responsibility:
+              'Execute method transfer and validation protocols for new analytical procedures, ensuring compliance with regulatory requirements',
+          },
+          {
+            responsibility:
+              'Support research and development projects by providing analytical expertise and troubleshooting analytical challenges',
+          },
+          {
+            responsibility:
+              'Maintain and calibrate analytical instruments, ensuring optimal performance and compliance with maintenance schedules',
+          },
+          {
+            responsibility:
+              'Prepare detailed analytical reports and certificates of analysis for internal and external customers',
+          },
+          {
+            responsibility:
+              'Participate in laboratory quality management system activities including internal audits and continuous improvement initiatives',
+          },
+          {
+            responsibility:
+              'Collaborate with production and R&D teams to resolve analytical issues and optimize testing procedures',
           },
         ],
         requirements: [
           {
-            requirement: 'MSc or PhD in Analytical Chemistry or related field',
+            requirement:
+              'MSc or PhD in Analytical Chemistry, Chemistry, or related field with strong academic performance',
           },
           {
             requirement:
-              '3+ years experience with analytical instrumentation and method development',
+              '4+ years of hands-on experience with analytical instrumentation and method development in industrial or research laboratory setting',
+          },
+          {
+            requirement:
+              'Proficiency in chromatographic techniques (HPLC, GC) and spectroscopic methods (NMR, FT-IR, UV-Vis)',
+          },
+          {
+            requirement:
+              'Experience with method validation, statistical analysis, and uncertainty calculations according to ICH/USP guidelines',
+          },
+          {
+            requirement:
+              'Knowledge of quality management systems (ISO/IEC 17025, ISO 9001) and good laboratory practices (GLP)',
+          },
+          {
+            requirement:
+              'Strong attention to detail and ability to work accurately under time constraints while maintaining high quality standards',
+          },
+          {
+            requirement:
+              'Excellent data analysis and interpretation skills with proficiency in analytical software packages',
+          },
+          {
+            requirement:
+              'Good communication skills in English; knowledge of Slovak language is preferred',
           },
         ],
-        preferredQualifications: [],
-        benefits: [],
+        preferredQualifications: [
+          {
+            qualification:
+              'Experience with mass spectrometry techniques (LC-MS, GC-MS) and structural elucidation',
+          },
+          {
+            qualification:
+              'Knowledge of pharmaceutical or specialty chemical analysis and regulatory requirements',
+          },
+          {
+            qualification:
+              'Experience with titration methods, thermal analysis, and physical-chemical property testing',
+          },
+          {
+            qualification: 'Familiarity with LIMS systems and laboratory automation technologies',
+          },
+          {
+            qualification:
+              'Previous work in accredited testing laboratory environment with external customer service',
+          },
+          {
+            qualification:
+              'Understanding of environmental and workplace atmosphere monitoring methods',
+          },
+        ],
+        benefits: [
+          {
+            benefit: 'Competitive salary with annual performance reviews and merit-based increases',
+          },
+          {
+            benefit: 'Comprehensive health and dental insurance coverage with family options',
+          },
+          {
+            benefit:
+              'Professional development opportunities including training on new analytical techniques and equipment',
+          },
+          {
+            benefit:
+              'Access to cutting-edge analytical instrumentation and modern laboratory facilities',
+          },
+          {
+            benefit:
+              'Flexible working hours and excellent work-life balance in a collaborative environment',
+          },
+          {
+            benefit:
+              'Opportunity to work with international clients and contribute to globally recognized analytical standards',
+          },
+          {
+            benefit: 'Pension plan and additional financial benefits package',
+          },
+        ],
         slug: 'analytical-chemist',
         slugLock: false,
         _status: 'published',
@@ -4306,6 +4960,7 @@ export const seed = async ({
           pillar2Image: sustainabilityPillar2Doc,
           pillar3Image: sustainabilityPillar3Doc,
           pillar4Image: sustainabilityPillar4Doc,
+          certificateImage1: ecovadisMedalDoc,
           focus1Image: sustainabilityFocus1Doc,
           focus2Image: sustainabilityFocus2Doc,
           focus3Image: sustainabilityFocus3Doc,

@@ -62,7 +62,6 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
       <Showcase
         type="product"
         products={category.featuredProducts as ProductType[]}
-        features={[]}
         showCta={false}
         title={`Our ${category.name} Portfolio`}
         description={`Discover our range of high-quality ${category.name} products for your specific application needs.`}

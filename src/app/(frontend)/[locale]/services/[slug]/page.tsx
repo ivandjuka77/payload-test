@@ -5,14 +5,14 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
 import { ServiceHero } from '@/heros/ServicesHero'
-import { ServicesGrid } from '@/components/ServiceGrid'
+// import { ServicesGrid } from '@/components/ServiceGrid'
 import { SubServiceBreakdown } from '@/components/SubServiceBreakdown'
 import { TeamSection } from '@/components/TeamMembers'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
 import { Industry, TeamMember } from '@/payload-types'
 import { CaseStudiesShowcase } from '@/components/CaseStudiesShowcase'
+import ServiceFeatures from '@/components/ServiceFeatures'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -49,17 +49,17 @@ export default async function Service({ params: paramsPromise }: Args) {
 
   return (
     <main>
-      <PageClient />
-
-      {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       <ServiceHero service={service} />
-      <ServicesGrid
+      {/* <ServicesGrid
         title={service.title + ' Services'}
         description="From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
         services={service.subServices}
-      />
+      /> */}
+
+      <ServiceFeatures serviceName={service.title} features={service.features} />
+
       <SubServiceBreakdown
         title={service.title + ' Services'}
         description="From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
@@ -70,16 +70,20 @@ export default async function Service({ params: paramsPromise }: Args) {
         description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
         team={service.team as TeamMember[]}
       />
-      <IndustryShowcaseComponent
-        title={service.title + ' Industries'}
-        subtitle="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
-        industries={service.industries as Industry[]}
-      />
-      <CaseStudiesShowcase
-        title={service.title + ' Case Studies'}
-        description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
-        caseStudies={service.caseStudies}
-      />
+      {service.industries && service.industries.length > 0 && (
+        <IndustryShowcaseComponent
+          title={service.title + ' Industries'}
+          subtitle="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          industries={service.industries as Industry[]}
+        />
+      )}
+      {service.caseStudies && service.caseStudies.length > 0 && (
+        <CaseStudiesShowcase
+          title={service.title + ' Case Studies'}
+          description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          caseStudies={service.caseStudies}
+        />
+      )}
     </main>
   )
 }

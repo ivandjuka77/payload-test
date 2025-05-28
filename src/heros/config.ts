@@ -28,6 +28,7 @@ export interface CarouselHeroSlide {
 }
 
 const isCarousel = (type: string) => ['carousel'].includes(type)
+const isMinimal = (type: string) => ['minimal'].includes(type)
 
 export const hero: Field = {
   name: 'hero',
@@ -59,6 +60,10 @@ export const hero: Field = {
           label: 'Background Image Compact',
           value: 'backgroundImageCompact',
         },
+        {
+          label: 'Minimal',
+          value: 'minimal',
+        },
       ],
       required: true,
     },
@@ -83,14 +88,14 @@ export const hero: Field = {
       type: 'group',
       fields: [linkGroup()],
       admin: {
-        condition: (_, { type } = {}) => !isCarousel(type),
+        condition: (_, { type } = {}) => !isCarousel(type) && !isMinimal(type),
       },
     },
     {
       name: 'media',
       type: 'upload',
       admin: {
-        condition: (_, { type } = {}) => !isCarousel(type),
+        condition: (_, { type } = {}) => !isCarousel(type) && !isMinimal(type),
       },
       relationTo: 'media',
       required: true,

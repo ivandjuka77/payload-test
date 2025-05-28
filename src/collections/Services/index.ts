@@ -32,6 +32,17 @@ export const Services: CollectionConfig = {
       localized: true,
     },
     {
+      name: 'accreditations',
+      type: 'array',
+      fields: [
+        {
+          name: 'accreditation',
+          type: 'text',
+          localized: true,
+        },
+      ],
+    },
+    {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',
@@ -40,30 +51,30 @@ export const Services: CollectionConfig = {
     {
       name: 'subServices',
       type: 'array',
-      required: true,
       fields: [
         {
           name: 'title',
           type: 'text',
+          required: true,
           localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
+          required: true,
           localized: true,
         },
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
-          required: true,
         },
         {
           name: 'displayItems',
           type: 'array',
           fields: [
             {
-              name: 'title',
+              name: 'item',
               type: 'text',
               localized: true,
             },
@@ -77,11 +88,13 @@ export const Services: CollectionConfig = {
               name: 'feature',
               type: 'text',
               localized: true,
+              required: true,
             },
             {
               name: 'description',
               type: 'textarea',
               localized: true,
+              required: true,
             },
           ],
         },
@@ -125,20 +138,6 @@ export const Services: CollectionConfig = {
       relationTo: 'industries',
       hasMany: true,
       maxDepth: 3,
-    },
-    {
-      name: 'accreditation',
-      type: 'array',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-        },
-      ],
     },
     ...slugField(),
   ],

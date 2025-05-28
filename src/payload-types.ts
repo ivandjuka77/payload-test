@@ -207,7 +207,7 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'carousel' | 'simple' | 'backgroundImage' | 'backgroundImageCompact';
+    type: 'none' | 'carousel' | 'simple' | 'backgroundImage' | 'backgroundImageCompact' | 'minimal';
     title?: string | null;
     description?: string | null;
     cta?: {
@@ -294,6 +294,7 @@ export interface Page {
     | VerticalCardsBlock
     | GridImageCardsBlock
     | CareersBlock
+    | CertificationsBlock
   )[];
   meta?: {
     title?: string | null;
@@ -631,27 +632,35 @@ export interface Service {
   id: number;
   title: string;
   description: string;
+  accreditations?:
+    | {
+        accreditation?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   featuredImage: number | Media;
-  subServices: {
-    title?: string | null;
-    description?: string | null;
-    image: number | Media;
-    displayItems?:
-      | {
-          title?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    features?:
-      | {
-          feature?: string | null;
-          description?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    link?: string | null;
-    id?: string | null;
-  }[];
+  subServices?:
+    | {
+        title: string;
+        description: string;
+        image?: (number | null) | Media;
+        displayItems?:
+          | {
+              item?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        features?:
+          | {
+              feature: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   features?:
     | {
         feature?: string | null;
@@ -662,13 +671,6 @@ export interface Service {
   team?: (number | TeamMember)[] | null;
   caseStudies?: (number | CaseStudy)[] | null;
   industries?: (number | Industry)[] | null;
-  accreditation?:
-    | {
-        title?: string | null;
-        description?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -1490,6 +1492,33 @@ export interface CareersBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CertificationsBlock".
+ */
+export interface CertificationsBlock {
+  title: string;
+  subtitle: string;
+  featuredCertification: {
+    title: string;
+    subtitle: string;
+    description: string;
+    articleLink: string;
+    image: number | Media;
+  };
+  certifications?:
+    | {
+        title: string;
+        subtitle: string;
+        description: string;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'certifications';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "careers".
  */
 export interface Career {
@@ -1938,6 +1967,7 @@ export interface PagesSelect<T extends boolean = true> {
         verticalCards?: T | VerticalCardsBlockSelect<T>;
         gridImageCards?: T | GridImageCardsBlockSelect<T>;
         careers?: T | CareersBlockSelect<T>;
+        certifications?: T | CertificationsBlockSelect<T>;
       };
   meta?:
     | T
@@ -2399,6 +2429,34 @@ export interface CareersBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CertificationsBlock_select".
+ */
+export interface CertificationsBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  featuredCertification?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        articleLink?: T;
+        image?: T;
+      };
+  certifications?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -2715,6 +2773,12 @@ export interface CaseStudiesSelect<T extends boolean = true> {
 export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  accreditations?:
+    | T
+    | {
+        accreditation?: T;
+        id?: T;
+      };
   featuredImage?: T;
   subServices?:
     | T
@@ -2725,7 +2789,7 @@ export interface ServicesSelect<T extends boolean = true> {
         displayItems?:
           | T
           | {
-              title?: T;
+              item?: T;
               id?: T;
             };
         features?:
@@ -2748,13 +2812,6 @@ export interface ServicesSelect<T extends boolean = true> {
   team?: T;
   caseStudies?: T;
   industries?: T;
-  accreditation?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        id?: T;
-      };
   slug?: T;
   slugLock?: T;
   updatedAt?: T;

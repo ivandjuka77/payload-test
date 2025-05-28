@@ -4,12 +4,14 @@ import { CarouselHero } from '@/heros/CarouselHero'
 import { SimpleHero } from '@/heros/Simple'
 import { BackgroundImage } from '@/heros/BackgroundImage'
 import { BackgroundImageCompact } from '@/heros/BackgroundImageCompact'
+import { MinimalHero } from '@/heros/MinimalHero'
 
 const heroes = {
   carousel: CarouselHero,
   simple: SimpleHero,
   backgroundImage: BackgroundImage,
   backgroundImageCompact: BackgroundImageCompact,
+  minimal: MinimalHero,
 }
 
 export const RenderHero: React.FC<Page['hero']> = (props) => {

@@ -26,22 +26,21 @@ export function SubServiceBreakdown({ title, description, services, className }:
           {services &&
             services.map((service, index) => (
               <div key={index} id={service.link || ''} className="relative">
-                {/* Service Header with Image */}
                 <div className="flex flex-col lg:flex-row gap-12 mb-12">
                   <div className="flex-1 space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-4xl font-semibold font-primary">{service.title}</h3>
                       <p className="text-lg text-gray-600 font-secondary">{service.description}</p>
                     </div>
-                    {service.features && service.features.length > 0 && (
+                    {service.displayItems && service.displayItems.length > 0 && (
                       <div className="flex flex-wrap gap-3">
-                        {service.features.map((feature, featureIndex) => (
+                        {service.displayItems.map((item, itemIndex) => (
                           <div
-                            key={featureIndex}
+                            key={itemIndex}
                             className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary font-secondary text-sm"
                           >
                             <Check className="h-4 w-4 mr-2 flex-shrink-0" />
-                            <span>{feature.feature}</span>
+                            <span>{item.item}</span>
                           </div>
                         ))}
                       </div>
@@ -52,22 +51,20 @@ export function SubServiceBreakdown({ title, description, services, className }:
                   </div>
                 </div>
 
-                {/* Service Content */}
                 <div className="space-y-12">
-                  {/* Display Items */}
                   <div className="grid md:grid-cols-2 gap-8">
-                    {service.displayItems &&
-                      service.displayItems.map((item, itemIndex) => (
+                    {service.features &&
+                      service.features.map((item, itemIndex) => (
                         <div key={itemIndex} className="bg-gray-50/50 p-6 rounded-lg">
                           <h4 className="text-xl font-semibold mb-3 font-primary text-primary">
-                            {item.title}
+                            {item.feature}
                           </h4>
+                          <p className="text-gray-600 font-secondary">{item.description}</p>
                         </div>
                       ))}
                   </div>
                 </div>
 
-                {/* Divider for all but last item */}
                 {index !== services.length - 1 && (
                   <div className="absolute bottom-[-4rem] left-0 w-full h-px bg-gray-200" />
                 )}

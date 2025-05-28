@@ -1,6 +1,5 @@
 import { Badge } from '@/components/ui/badge'
 import { ProductCategory } from '@/payload-types'
-import { ArrowRight } from 'lucide-react'
 
 interface IndustryApplicationsProps {
   title: string
@@ -49,7 +48,7 @@ export function IndustryApplications({
               {/* Content Container */}
               <div className="absolute inset-x-0 bottom-0 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Main Content */}
-                <div className="p-4 pb-0 group-hover:pb-4 transition-all duration-250">
+                <div className="p-4 transition-all duration-250">
                   <h3 className="text-lg font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
                     {app.title}
                   </h3>
@@ -59,14 +58,14 @@ export function IndustryApplications({
                 </div>
 
                 {/* Additional Info - Hidden by default, shown on hover */}
-                <div className="h-0 overflow-hidden transition-all duration-300 ease-out group-hover:h-[40px] px-4 pb-4">
+                {/* <div className="h-0 overflow-hidden transition-all duration-300 ease-out group-hover:h-[40px] px-4 pb-4">
                   <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[50ms]">
                     <span className="flex items-center text-xs px-2.5 py-1 bg-blue-500/20 text-blue-300 rounded-full border border-blue-400/20">
                       Learn more about {app.title.toLowerCase()}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

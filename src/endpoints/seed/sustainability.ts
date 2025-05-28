@@ -6,6 +6,7 @@ type SustainabilityArgs = {
   pillar2Image: Media
   pillar3Image: Media
   pillar4Image: Media
+  certificateImage1: Media
   focus1Image: Media
   focus2Image: Media
   focus3Image: Media
@@ -19,6 +20,7 @@ export function sustainability(args: SustainabilityArgs) {
     pillar2Image,
     pillar3Image,
     pillar4Image,
+    certificateImage1,
     focus1Image,
     focus2Image,
     focus3Image,
@@ -194,6 +196,51 @@ export function sustainability(args: SustainabilityArgs) {
           },
         ],
         blockType: 'verticalCards',
+      },
+      {
+        blockName: null,
+        certifications: [
+          {
+            media: {},
+            title: 'ISO 9001',
+            subtitle: 'Quality Management System',
+            description:
+              'VUP maintains ISO 9001 certification, covering our R&D of chemical processes, chemical specialties, small-scale chemical products, production and sales of cleaning and cosmetic products, analyses, and laboratory testing.',
+          },
+          {
+            media: {},
+            title: 'Responsible Care®',
+            subtitle: 'Global Chemical Industry Initiative',
+            description:
+              'As a participant in the Responsible Care initiative, VUP is committed to continuously improving our performance in environmental protection, health, safety, and security.',
+          },
+          {
+            media: {},
+            title: 'SNAS Accreditation',
+            subtitle: 'No. S-118 for ATBEL Labs',
+            description:
+              'Our ATBEL division is accredited by SNAS, confirming the competence and reliability of our testing services according to international standards.',
+          },
+          {
+            media: {},
+            title: 'R&D Competency Certificate',
+            subtitle: 'Ministry of Education, Slovak Republic',
+            description:
+              "Awarded by the Ministry of Education, Slovak Republic, recognizing VUP's capabilities and expertise in conducting research and development.",
+          },
+        ],
+        featuredCertification: {
+          title: 'EcoVadis Silver Medal',
+          subtitle: 'Top 9% Globally',
+          description:
+            'Awarded the Silver Medal by EcoVadis, placing VUP in the top 9% of companies worldwide within our specialty chemical research and production sector. This rating reflects our advanced practices in Environmental Responsibility, Labor & Human Rights, Ethics, and Sustainable Procurement.',
+          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
+          image: certificateImage1.id,
+        },
+        blockType: 'certifications',
+        title: 'Certified Sustainability Dedication',
+        subtitle:
+          'Our dedication to sustainability and quality is validated by independent assessments and internationally recognized certifications that demonstrate our commitment to responsible manufacturing and business excellence.',
       },
       {
         badge: 'Strategic Focus Areas',

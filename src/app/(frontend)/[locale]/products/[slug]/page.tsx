@@ -77,7 +77,6 @@ export default async function Product({ params: paramsPromise }: Args) {
         <Showcase
           type="product"
           products={product.relatedProducts as ProductType[]}
-          features={[]}
           showCta={false}
           title="Related Products"
           description="Discover other products that complement your needs"

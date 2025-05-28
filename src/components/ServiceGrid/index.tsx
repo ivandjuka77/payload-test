@@ -30,14 +30,14 @@ export function ServicesGrid({ title, description, services }: Props) {
   return (
     <section className="py-24 bg-background">
       <div className="container">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl font-primary font-bold mb-4">{title}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-secondary">
             {description}
           </p>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+          {services?.map((service, index) => (
             <div
               key={index}
               className={cn(
