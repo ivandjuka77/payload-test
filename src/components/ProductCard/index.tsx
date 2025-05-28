@@ -1,5 +1,5 @@
 import Tag from '@/components/ui/tag'
-import { Check, Beaker, ArrowUpRight } from 'lucide-react'
+import { Check, Beaker, ArrowUpRight, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
@@ -12,8 +12,116 @@ export default function ProductCard({
   variant = 'default',
 }: {
   product: Product
-  variant?: 'default' | 'compact'
+  variant?: 'default' | 'compact' | 'horizontal'
 }) {
+  // Horizontal variant for full-width layout
+  if (variant === 'horizontal') {
+    return (
+      <div
+        key={product.id}
+        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 "
+      >
+        <div className="flex flex-col md:flex-row h-full">
+          <div className="px-6 py-6 md:px-12 md:py-12 md:w-3/5 flex flex-col justify-center">
+            <h3 className="text-xl md:text-3xl font-bold mb-4 font-primary text-gray-900">
+              {product.name}
+            </h3>
+            <span className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+              CAS:{' '}
+              <span className="font-normal">
+                {product.technicalSpecifications?.casNumber || '123-45-67'}
+              </span>
+            </span>
+
+            <p className="text-gray-600 mb-6 font-secondary text-base leading-relaxed">
+              {product.description}
+            </p>
+
+            {/* Key Properties */}
+            {product.keyFeatures && product.keyFeatures.length > 0 && (
+              <div className="mb-8">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                  Key Properties
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md">
+                  {product.keyFeatures.slice(0, 4).map((value, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-medium text-gray-700">{value.feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Applications */}
+            {product.applications && product.applications.length > 0 && (
+              <div className="mb-8">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4 flex items-center">
+                  <Beaker className="h-4 w-4 mr-2 text-primary" />
+                  Applications
+                </h4>
+                <div className="flex flex-wrap gap-2 max-w-md">
+                  {product.applications.slice(0, 3).map((application, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm"
+                    >
+                      {application.application}
+                    </span>
+                  ))}
+                  {product.applications.length > 3 && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-sm">
+                      +{product.applications.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Dialog>
+                <DialogTrigger className="inline-flex items-center gap-2 w-fit bg-primary text-white hover:bg-primary/90 px-8 rounded-md font-medium transition-colors">
+                  Request Quote
+                  <ArrowUpRight className="h-4 w-4" />
+                </DialogTrigger>
+                <DialogContent className="w-full !max-w-[90vw] md:!max-w-[70vw] rounded-md">
+                  <ProductInquiryModal product={product} />
+                </DialogContent>
+              </Dialog>
+
+              <Link href={`/products/${product.slug}`}>
+                <Button variant="outline" className="px-8 py-3 rounded-md font-medium">
+                  View Details
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right image */}
+          <div className="relative md:w-2/5 h-64 md:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+            {product.chemicalStructureImage ? (
+              <Media
+                resource={product.chemicalStructureImage}
+                imgClassName="object-contain p-8 h-full w-full"
+              />
+            ) : (
+              <div className="text-gray-400 text-center">
+                <Beaker className="h-12 w-12 mx-auto mb-2" />
+                <span className="text-sm">Chemical Structure</span>
+              </div>
+            )}
+            <Tag className="absolute top-4 right-4" type="product">
+              Product
+            </Tag>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Original vertical layout for 'default' and 'compact' variants
   return (
     <div
       key={product.id}

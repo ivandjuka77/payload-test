@@ -31,7 +31,7 @@ type HomeArgs = {
   post1: Post
   post2: Post
   post3: Post
-
+  post4: Post
   // Sustainability
   sustainabilityImage1Doc: Media
 }
@@ -63,6 +63,7 @@ export function home(args: HomeArgs) {
     post1,
     post2,
     post3,
+    post4,
     sustainabilityImage1Doc,
   } = args
 
@@ -442,7 +443,7 @@ export function home(args: HomeArgs) {
           "Stay updated with VUP's latest achievements, innovations, and industry insights.",
         badge: 'Latest Updates',
         linkLabel: 'View all news and publications',
-        items: [post1, post2, post3],
+        items: [post1, post2, post3, post4],
       },
       {
         title: 'Build Your Career With Purpose',

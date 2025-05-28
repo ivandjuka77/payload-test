@@ -97,7 +97,7 @@ export function careers({ featuredImage1 }: CareersArgs) {
       image: null,
       description: null,
     },
-    slug: 'careers',
+    slug: 'career',
     slugLock: true,
     _status: 'published' as const,
   }

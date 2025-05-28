@@ -214,10 +214,6 @@ export default function Navbar({ industries, productCategories, services }: Navb
     return allItems.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   }
 
-  const featuredProducts = productCategories.flatMap(
-    (category) => category.featuredProducts,
-  ) as Product[]
-
   return (
     <header
       className={cn(
@@ -387,57 +383,60 @@ export default function Navbar({ industries, productCategories, services }: Navb
       >
         <div className="container mx-auto py-8 px-6">
           <div className="grid grid-cols-3 gap-6">
-            {productCategories.map((productCategory, index) => (
-              <Link
-                key={index}
-                href={`/products/category/${productCategory.slug}`}
-                className="group p-5 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
-              >
-                <div className="flex flex-col">
-                  <div className="flex items-start gap-4">
-                    <div className="text-blue-500 mt-1">{productCategoryIcons[index]}</div>
-                    <div>
-                      <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {productCategory.name}
-                      </h3>
-                      <p className="mt-1 text-xs font-secondary text-gray-500 leading-relaxed line-clamp-2">
-                        {productCategory.description}
-                      </p>
+            {productCategories.map((productCategory, index) => {
+              const featuredProducts = productCategory.featuredProducts as Product[]
+              return (
+                <Link
+                  key={index}
+                  href={`/products/category/${productCategory.slug}`}
+                  className="group p-5 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                >
+                  <div className="flex flex-col">
+                    <div className="flex items-start gap-4">
+                      <div className="text-blue-500 mt-1">{productCategoryIcons[index]}</div>
+                      <div>
+                        <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {productCategory.name}
+                        </h3>
+                        <p className="mt-1 text-xs font-secondary text-gray-500 leading-relaxed line-clamp-2">
+                          {productCategory.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Products */}
+                    <div className="mt-3 ml-8">
+                      <ul className="space-y-1">
+                        {featuredProducts.slice(0, 3).map((item, idx) => (
+                          <li key={idx} className="text-xs text-gray-600 flex items-center">
+                            <ArrowRight size={10} className="mr-1.5 text-blue-500" />
+                            <Link
+                              href={`/products/${item.slug}`}
+                              className="hover:text-blue-600 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Applications as badges */}
+                    <div className="mt-3 ml-8 flex flex-wrap gap-2">
+                      {productCategory.applications?.slice(0, 2).map((app, idx) => (
+                        <span
+                          key={idx}
+                          className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors"
+                        >
+                          {app.title}
+                        </span>
+                      ))}
                     </div>
                   </div>
-
-                  {/* Products */}
-                  <div className="mt-3 ml-8">
-                    <ul className="space-y-1">
-                      {featuredProducts.slice(0, 3).map((item, idx) => (
-                        <li key={idx} className="text-xs text-gray-600 flex items-center">
-                          <ArrowRight size={10} className="mr-1.5 text-blue-500" />
-                          <Link
-                            href={`/products/${item.slug}`}
-                            className="hover:text-blue-600 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Applications as badges */}
-                  <div className="mt-3 ml-8 flex flex-wrap gap-2">
-                    {productCategory.applications?.slice(0, 2).map((app, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors"
-                      >
-                        {app.title}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            })}
           </div>
           <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
             <p className="text-sm text-gray-500">
@@ -511,7 +510,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
               </Link>
             ))}
           </div>
-          <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+          {/* <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
             <p className="text-sm text-gray-500">
               Partner with us for end-to-end chemical solutions tailored to your business
             </p>
@@ -522,7 +521,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
               View all services
               <ArrowRight size={14} className="ml-1" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 

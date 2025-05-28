@@ -7,7 +7,6 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
-import Link from 'next/link'
 
 export const CarouselHero: React.FC<Page['hero']> = (props) => {
   const [current, setCurrent] = useState(0)
@@ -213,7 +212,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                   alt={slide.title}
                   fill
                   imgClassName="object-cover"
-                  priority={index === 0}
+                  priority
                 />
               </div>
 
@@ -272,6 +271,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                           resource={slide.featuredItem.image}
                           alt={slide.featuredItem.title}
                           fill
+                          priority
                           imgClassName="object-cover z-0"
                         />
 
@@ -326,6 +326,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                             resource={card.image}
                             alt={card.title}
                             fill
+                            priority
                             imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>

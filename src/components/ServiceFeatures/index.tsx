@@ -1,4 +1,5 @@
 import { Service } from '@/payload-types'
+import { CheckCircle } from 'lucide-react'
 
 export default function ServiceFeatures({
   serviceName,
@@ -8,39 +9,29 @@ export default function ServiceFeatures({
   features: Service['features']
 }) {
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose VUP?</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section className="w-full py-20 bg-white">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4 font-primary">
+            Why Choose VUP?
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-[800px] font-secondary">
             Our {serviceName.toLowerCase()} services are designed to meet your specific needs and
             help you achieve your goals.
           </p>
-          <div className="w-24 h-1 bg-primary mx-auto mt-4"></div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {features?.map((feature, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 ${
-                features.length % 2 === 1 && index === features.length - 1
-                  ? 'md:col-span-2 md:max-w-md md:mx-auto'
-                  : ''
-              }`}
+              className="bg-gray-50/50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-600 rounded-t-2xl"></div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 flex items-center gap-x-2">
-                    {feature.feature}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-basse">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
+              <h4 className="text-2xl font-semibold flex flex-row items-center gap-x-4 mb-3 font-primary ">
+                <CheckCircle className="h-6 w-6 text-primary" />
+                {feature.feature}
+              </h4>
+              <p className="text-muted-foreground font-secondary">{feature.description}</p>
             </div>
           ))}
         </div>

@@ -6,7 +6,6 @@ import { draftMode } from 'next/headers'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
 import { Industry } from '@/payload-types'
@@ -26,7 +25,6 @@ export default async function IndustriesPage() {
 
   return (
     <article>
-      <PageClient />
       <PayloadRedirects disableNotFound url={url} />
       {draft && <LivePreviewListener />}
       <RenderHero {...hero} />

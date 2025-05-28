@@ -5245,7 +5245,7 @@ export const seed = async ({
     payload.create({
       collection: 'industries',
       data: {
-        name: 'Solutions for The Automotive Industry',
+        name: 'Automotive Industry',
         _status: 'published',
         description:
           'The automotive industry demands materials that deliver superior performance, durability, aesthetics, and meet increasingly strict environmental and safety standards. VUP, a.s. supports automotive manufacturers and suppliers by providing essential chemical intermediates for advanced, low-VOC coatings and high-performance adhesives, specialized cleaning agents for production processes, and tailored analytical testing services that ensure compliance with automotive standards. We partner with the industry to enable innovation in vehicle materials and manufacturing.',
@@ -6242,6 +6242,7 @@ export const seed = async ({
           post1: post4Doc,
           post2: post1Doc,
           post3: post2Doc,
+          post4: post3Doc,
           sustainabilityImage1Doc: sustainabilityImage1Doc,
         }),
       }),

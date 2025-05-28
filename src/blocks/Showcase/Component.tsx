@@ -36,10 +36,19 @@ export const Showcase: React.FC<ShowcaseProps> = ({
       case 'product':
         if (products?.length === 0) return null
 
+        const gridClasses =
+          products?.length === 1
+            ? 'grid gap-4 sm:gap-6 md:gap-8 grid-cols-1'
+            : 'grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+
         return (
-          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={gridClasses}>
             {products?.map((product: Product, index: number) => (
-              <ProductCard key={index} product={product} />
+              <ProductCard
+                key={index}
+                product={product}
+                variant={products.length === 1 ? 'horizontal' : 'default'}
+              />
             ))}
           </div>
         )

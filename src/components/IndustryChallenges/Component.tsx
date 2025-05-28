@@ -80,14 +80,18 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                   </div>
 
                   <div
-                    className={`grid gap-x-8 ${
-                      challenge.relatedProducts.length === 3
-                        ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-                        : 'grid-cols-1 md:grid-cols-2'
-                    }`}
+                    className={
+                      challenge.relatedProducts.length === 1
+                        ? 'grid gap-4 sm:gap-6 md:gap-8 grid-cols-1'
+                        : 'grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                    }
                   >
                     {challenge.relatedProducts.map((product, index) => (
-                      <ProductCard key={index} product={product as Product} />
+                      <ProductCard
+                        key={index}
+                        product={product as Product}
+                        variant={challenge.relatedProducts?.length === 1 ? 'horizontal' : 'default'}
+                      />
                     ))}
                   </div>
                 </div>

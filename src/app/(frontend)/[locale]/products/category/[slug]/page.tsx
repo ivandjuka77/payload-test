@@ -6,7 +6,6 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { ProductCategoryHero } from '@/heros/ProductCategoryHero'
 import { IndustryApplications } from '@/components/IndustryApplications'
@@ -50,9 +49,6 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
 
   return (
     <main>
-      <PageClient />
-
-      {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
       {draft && <LivePreviewListener />}
