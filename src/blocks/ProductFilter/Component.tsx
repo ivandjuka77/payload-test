@@ -12,7 +12,16 @@ import {
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import ProductCard from '@/components/ProductCard'
-import { Search, Filter, Loader, MessageSquare, ArrowRight } from 'lucide-react'
+import {
+  Search,
+  Filter,
+  Loader,
+  MessageSquare,
+  ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import Link from 'next/link'
 import { fetchFilteredProductsAction, fetchFilterOptionsAction } from '@/actions/productActions'
 import debounce from 'lodash/debounce'
@@ -29,6 +38,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   const [categoryFilter, setCategoryFilter] = useState('All Categories')
   const [industryFilter, setIndustryFilter] = useState('All Industries')
   const [applicationFilter, setApplicationFilter] = useState('All Applications')
+  const [currentPage, setCurrentPage] = useState(1)
 
   // State for filter options
   const [categoryOptions, setCategoryOptions] = useState<string[]>(['All Categories'])
@@ -39,9 +49,15 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [totalProducts, setTotalProducts] = useState(0)
+  const [totalPages, setTotalPages] = useState(0)
+  const [hasNextPage, setHasNextPage] = useState(false)
+  const [hasPrevPage, setHasPrevPage] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const [isPending, startTransition] = useTransition()
+
+  // Constants
+  const PRODUCTS_PER_PAGE = 9
 
   // Fetch filter options on component mount
   useEffect(() => {
@@ -68,19 +84,29 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
         categoryFilter: string
         industryFilter: string
         applicationFilter: string
+        page: number
       }) => {
         setIsLoading(true)
         setError(null)
 
         try {
-          const result = await fetchFilteredProductsAction(criteria)
+          const result = await fetchFilteredProductsAction({
+            ...criteria,
+            limit: PRODUCTS_PER_PAGE,
+          })
           setFilteredProducts(result.docs)
           setTotalProducts(result.totalDocs)
-        } catch (e: any) {
-          console.error('Error fetching products:', e)
-          setError(e.message || 'Failed to load products.')
+          setTotalPages(result.totalPages)
+          setHasNextPage(result.hasNextPage)
+          setHasPrevPage(result.hasPrevPage)
+        } catch (error) {
+          console.error('Error fetching products:', error)
+          setError(error instanceof Error ? error.message : 'Failed to load products.')
           setFilteredProducts([])
           setTotalProducts(0)
+          setTotalPages(0)
+          setHasNextPage(false)
+          setHasPrevPage(false)
         } finally {
           setIsLoading(false)
         }
@@ -97,6 +123,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
       categoryFilter,
       industryFilter,
       applicationFilter,
+      page: currentPage,
     }
 
     startTransition(() => {
@@ -106,23 +133,81 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
     return () => {
       applyFilters.cancel()
     }
-  }, [searchQuery, categoryFilter, industryFilter, applicationFilter, applyFilters])
+  }, [searchQuery, categoryFilter, industryFilter, applicationFilter, currentPage, applyFilters])
 
   // Handlers for immediate state updates
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
+    setCurrentPage(1) // Reset to first page when search changes
   }
 
   const handleCategoryChange = (value: string) => {
     setCategoryFilter(value)
+    setCurrentPage(1) // Reset to first page when filter changes
   }
 
   const handleIndustryChange = (value: string) => {
     setIndustryFilter(value)
+    setCurrentPage(1) // Reset to first page when filter changes
   }
 
   const handleApplicationChange = (value: string) => {
     setApplicationFilter(value)
+    setCurrentPage(1) // Reset to first page when filter changes
+  }
+
+  // Reset filters function
+  const resetFilters = () => {
+    setSearchQuery('')
+    setCategoryFilter('All Categories')
+    setIndustryFilter('All Industries')
+    setApplicationFilter('All Applications')
+    setCurrentPage(1)
+  }
+
+  // Pagination handlers
+  const handlePreviousPage = () => {
+    if (hasPrevPage) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const handleNextPage = () => {
+    if (hasNextPage) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  // Check if any filters are active
+  const hasActiveFilters =
+    searchQuery.trim() !== '' ||
+    categoryFilter !== 'All Categories' ||
+    industryFilter !== 'All Industries' ||
+    applicationFilter !== 'All Applications'
+
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    const pages = []
+    const maxVisiblePages = 5
+    const halfVisible = Math.floor(maxVisiblePages / 2)
+
+    let startPage = Math.max(1, currentPage - halfVisible)
+    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1)
+
+    // Adjust start page if we're near the end
+    if (endPage - startPage < maxVisiblePages - 1) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1)
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i)
+    }
+
+    return pages
   }
 
   return (
@@ -142,7 +227,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] gap-4 mb-8">
           {/* Search Input */}
           <div className="relative">
             <Input
@@ -202,17 +287,36 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
               </SelectContent>
             </Select>
           )}
+
+          {/* Reset Filters Button */}
+          <div className="flex items-center">
+            <Button
+              variant="outline"
+              onClick={resetFilters}
+              disabled={!hasActiveFilters}
+              className="flex items-center gap-2 h-10 px-4 whitespace-nowrap"
+            >
+              <X className="h-4 w-4" />
+              Reset Filters
+            </Button>
+          </div>
         </div>
 
         {/* Results Section */}
-        <div className="mb-4">
+        <div className="mb-4 flex justify-between items-center">
           <p className="text-gray-600">
-            Showing {filteredProducts.length} of {totalProducts} products
+            Showing {Math.min((currentPage - 1) * PRODUCTS_PER_PAGE + 1, totalProducts)}-
+            {Math.min(currentPage * PRODUCTS_PER_PAGE, totalProducts)} of {totalProducts} products
           </p>
+          {totalPages > 1 && (
+            <p className="text-gray-600">
+              Page {currentPage} of {totalPages}
+            </p>
+          )}
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {isLoading ? (
             <div className="col-span-full py-16 flex justify-center items-center">
               <Loader className="h-10 w-10 text-primary animate-spin" />
@@ -220,15 +324,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           ) : error ? (
             <div className="col-span-full py-16 text-center text-red-500">
               <p className="text-xl mb-4">{error}</p>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSearchQuery('')
-                  setCategoryFilter('All Categories')
-                  setIndustryFilter('All Industries')
-                  setApplicationFilter('All Applications')
-                }}
-              >
+              <Button variant="outline" onClick={resetFilters}>
                 Try Clearing Filters
               </Button>
             </div>
@@ -239,20 +335,51 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           ) : (
             <div className="col-span-full py-16 text-center">
               <p className="text-xl text-gray-500 mb-4">No products match your current filters.</p>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSearchQuery('')
-                  setCategoryFilter('All Categories')
-                  setIndustryFilter('All Industries')
-                  setApplicationFilter('All Applications')
-                }}
-              >
+              <Button variant="outline" onClick={resetFilters}>
                 Clear All Filters
               </Button>
             </div>
           )}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && !isLoading && (
+          <div className="flex justify-center items-center gap-x-4 pb-16">
+            {/* Previous Button */}
+            <Button
+              variant="outline"
+              onClick={handlePreviousPage}
+              disabled={!hasPrevPage}
+              className="flex items-center gap-1"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+
+            {/* Page Numbers */}
+            <div className="flex gap-1">
+              {getPageNumbers().map((page) => (
+                <Button
+                  key={page}
+                  variant={currentPage === page ? 'default' : 'outline'}
+                  onClick={() => handlePageChange(page)}
+                  className="w-10 h-10 p-0"
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <Button
+              variant="outline"
+              onClick={handleNextPage}
+              disabled={!hasNextPage}
+              className="flex items-center gap-1"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
 
         {/* CTA Section */}
         {showCta && cta && (

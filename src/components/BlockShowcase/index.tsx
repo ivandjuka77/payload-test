@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Product } from '@/payload-types'
+import { CheckCircle } from 'lucide-react'
 
 interface BlockShowcaseProps {
   title: string
@@ -29,7 +30,7 @@ export function BlockShowcase(props: BlockShowcaseProps) {
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-center mb-4">
                   <div className="mr-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    {/* {feature.icon} */}ICON HERE
+                    <CheckCircle className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold font-primary">{feature.feature}</h3>
                 </div>

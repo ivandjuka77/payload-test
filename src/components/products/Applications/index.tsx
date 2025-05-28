@@ -1,6 +1,4 @@
-import { Badge } from '@/components/ui/badge'
 import { Product } from '@/payload-types'
-import { Media } from '@/components/Media'
 
 interface ApplicationsAndIndustriesProps {
   product: Product
@@ -19,31 +17,33 @@ export function ApplicationsAndIndustries({ product }: ApplicationsAndIndustries
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
-          {product.applications.map((item, index) => (
+        <div
+          className={`grid grid-cols-1 ${product.applications.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-4`}
+        >
+          {product.applications.map((item) => (
             <div
               key={item.id}
-              className={`p-6 border bg-white hover:bg-gray-50/50 transition-colors group cursor-pointer ${
-                index % 2 === 0 ? 'border-primary/20' : 'border-gray-200'
-              } flex flex-col`}
+              className={`group relative overflow-hidden rounded-lg border border-gray-100 ${product.applications.length % 2 === 0 ? 'aspect-[5/2]' : 'aspect-[16/9]'}`}
             >
-              <div className="relative h-48 mb-4 overflow-hidden rounded-md">
-                <Media
-                  resource={item.image}
-                  fill
-                  imgClassName="object-cover transition-transform group-hover:scale-105"
-                />
-                <Badge className="absolute bottom-2 left-2 bg-primary/90 hover:bg-primary/80">
-                  Application
-                </Badge>
-              </div>
+              <div
+                className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"
+                //@ts-expect-error - Type seems to be wrong, but it's a Media type and url exists
+                style={{ backgroundImage: `url(${item.image?.url})` }}
+              />
 
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors font-primary">
-                {item.application}
-              </h3>
-              <p className="text-muted-foreground text-sm font-secondary flex-grow">
-                {item.description}
-              </p>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
+
+              {/* Content Container */}
+              <div className="absolute inset-x-0 bottom-0 transition-transform duration-300 ease-out group-hover:-translate-y-2">
+                {/* Main Content */}
+                <div className="p-4 transition-all duration-250">
+                  <h3 className="text-lg font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
+                    {item.application}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-300 opacity-85">{item.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

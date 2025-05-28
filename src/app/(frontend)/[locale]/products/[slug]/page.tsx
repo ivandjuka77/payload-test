@@ -3,7 +3,7 @@ import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
+import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { ProductHero } from '@/components/products/Hero'
@@ -59,20 +59,26 @@ export default async function Product({ params: paramsPromise }: Args) {
       <PayloadRedirects disableNotFound url={url} />
 
       <ProductHero product={product} />
-      <TechnicalSpecifications product={product} />
-      <BlockShowcase
-        title="Key Features & Benefits"
-        description={`Discover the unique advantages of VUP's ${product.name} for your applications.`}
-        features={product.keyFeatures}
-      />
-      <ApplicationsAndIndustries product={product} />
-      <CaseStudies product={product} />
+      {product.technicalSpecifications && <TechnicalSpecifications product={product} />}
+      {product.keyFeatures && product.keyFeatures.length > 0 && (
+        <BlockShowcase
+          title="Key Features & Benefits"
+          description={`Discover the unique advantages of VUP's ${product.name} for your applications.`}
+          features={product.keyFeatures}
+        />
+      )}
+      {product.applications && product.applications.length > 0 && (
+        <ApplicationsAndIndustries product={product} />
+      )}
+      {product.caseStudies && product.caseStudies.length > 0 && <CaseStudies product={product} />}
       <ProductDetails product={product} />
-      <FAQ
-        product={product}
-        title="Frequently Asked Questions"
-        description={`Discover answers to common questions about ${product.name}`}
-      />
+      {product.faq && product.faq.length > 0 && (
+        <FAQ
+          product={product}
+          title="Frequently Asked Questions"
+          description={`Discover answers to common questions about ${product.name}`}
+        />
+      )}
       {product.relatedProducts && product.relatedProducts.length > 0 && (
         <Showcase
           type="product"
