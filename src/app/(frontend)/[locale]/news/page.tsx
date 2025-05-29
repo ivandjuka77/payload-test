@@ -58,7 +58,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <ArticlesGrid articles={posts.docs} allTags={allTags} showFilters={false} />
+      <ArticlesGrid articles={posts.docs} allTags={allTags} showFilters={true} />
 
       <div className="container mb-8">
         {posts?.page && posts?.totalPages > 1 && (

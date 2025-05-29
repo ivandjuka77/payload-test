@@ -9,7 +9,7 @@ import { revalidateRedirects } from '@/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
-import { beforeSyncWithSearch } from '@/search/beforeSync'
+// import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -82,8 +82,73 @@ export const plugins: Plugin[] = [
     },
   }),
   searchPlugin({
-    collections: ['posts', 'products', 'productCategories', 'industries', 'services'],
-    beforeSync: beforeSyncWithSearch,
+    collections: ['posts', 'products', 'productCategories', 'industries', 'services', 'careers'],
+    beforeSync: ({ originalDoc, searchDoc }) => {
+      const collection = searchDoc.doc.relationTo
+
+      if (collection === 'posts') {
+        return {
+          ...searchDoc,
+          title: originalDoc.title,
+          slug: originalDoc.slug,
+          description: originalDoc.description,
+        }
+      }
+
+      if (collection === 'products') {
+        return {
+          ...searchDoc,
+          title: originalDoc.name,
+          slug: originalDoc.slug,
+          description: originalDoc.description,
+        }
+      }
+
+      if (collection === 'productCategories') {
+        return {
+          ...searchDoc,
+          title: originalDoc.name,
+          slug: originalDoc.slug,
+          description: originalDoc.description,
+        }
+      }
+
+      if (collection === 'industries') {
+        return {
+          ...searchDoc,
+          title: originalDoc.name,
+          slug: originalDoc.slug,
+          description: originalDoc.description,
+        }
+      }
+
+      if (collection === 'services') {
+        return {
+          ...searchDoc,
+          title: originalDoc.title,
+          slug: originalDoc.slug,
+          description: originalDoc.description,
+        }
+      }
+
+      if (collection === 'careers') {
+        return {
+          ...searchDoc,
+          title: originalDoc.title,
+          slug: originalDoc.slug,
+        }
+      }
+
+      return searchDoc
+    },
+    defaultPriorities: {
+      products: 1,
+      productCategories: 2,
+      industries: 3,
+      services: 4,
+      posts: 5,
+      careers: 6,
+    },
     searchOverrides: {
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields]

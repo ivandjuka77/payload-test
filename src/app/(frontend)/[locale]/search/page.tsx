@@ -26,6 +26,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       slug: true,
       categories: true,
       meta: true,
+      description: true,
     },
     // pagination: false reduces overhead if you don't need totalDocs
     pagination: false,
@@ -53,6 +54,11 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
                   like: query,
                 },
               },
+              {
+                description: {
+                  like: query,
+                },
+              },
             ],
           },
         }
@@ -77,6 +83,22 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       ) : (
         <div className="container">No results found.</div>
       )}
+
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="col-span-1">
+            <h2 className="text-2xl font-bold">Search Results</h2>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {posts.docs.map((post) => (
+            <div key={post.id}>
+              <h2 className="text-2xl font-bold">{post.title}</h2>
+              <p className="text-sm text-gray-500">{post.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

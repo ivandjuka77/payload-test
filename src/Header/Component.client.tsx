@@ -11,8 +11,6 @@ import {
   Factory,
   FlaskConical,
   Atom,
-  FileText,
-  Home,
   Palette,
   ArrowRight,
   Microscope,
@@ -28,12 +26,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
+import { SearchDialog, MobileSearch } from '@/components/Search'
 
 const navItems = [
   { name: 'About', href: '/about-us' },
@@ -165,11 +162,8 @@ interface NavbarProps {
 
 export default function Navbar({ industries, productCategories, services }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  // const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -181,37 +175,6 @@ export default function Navbar({ industries, productCategories, services }: Navb
 
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
-  }
-
-  // Quick links for search dialog when no query is entered
-  const quickLinks = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'About', href: '/about', icon: FileText },
-    { name: 'Products', href: '/products', icon: FlaskConical },
-    { name: 'Industries', href: '/industries', icon: Factory },
-    { name: 'Research', href: '/research', icon: Atom },
-    { name: 'Sustainability', href: '/sustainability', icon: Palette },
-  ]
-
-  // Filter search results based on query
-  //TODO: Connect with payload search
-  const getSearchResults = () => {
-    if (!searchQuery.trim()) return []
-
-    const allItems = [
-      ...navItems.map((item) => ({
-        name: item.name,
-        href: item.href,
-        type: 'Page',
-      })),
-      ...industries.map((industry) => ({
-        name: industry.name,
-        href: `/industries/${industry.slug}`,
-        type: 'Industry',
-      })),
-    ]
-
-    return allItems.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   }
 
   return (
@@ -265,85 +228,15 @@ export default function Navbar({ industries, productCategories, services }: Navb
         {/* Right side actions */}
         <div className="flex items-center space-x-5">
           {/* Search Dialog Trigger */}
-          <Dialog open={isSearchDialogOpen} onOpenChange={setIsSearchDialogOpen}>
-            <DialogTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-700 hover:text-blue-600 h-10 w-10"
-              >
-                <Search size={22} />
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[550px] p-0">
-              <div className="flex flex-col h-[450px]">
-                <div className="flex items-center border-b px-3">
-                  <Search className="mr-2 h-4 w-4 shrink-0 text-gray-500" />
-                  <Input
-                    className="flex h-12 w-full ring-0 bg-transparent py-3 text-sm outline-none placeholder:text-gray-500 disabled:cursor-not-allowed disabled:opacity-50 border-0 focus-visible:ring-0 focus:ring-0 focus:outline-none focus-visible:outline-none focus:border-0 focus-visible:border-0 shadow-none"
-                    placeholder="Type a command or search..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    autoFocus
-                    style={{ boxShadow: 'none' }}
-                  />
-                  <div className="flex items-center gap-1">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-6 w-6 text-gray-500"
-                      onClick={() => setIsSearchDialogOpen(false)}
-                    >
-                      <X size={12} />
-                    </Button>
-                  </div>
-                </div>
-                <ScrollArea className="flex-1 px-3 py-2">
-                  {searchQuery.trim() === '' ? (
-                    <div className="py-2">
-                      <h4 className="mb-2 text-xs font-semibold text-gray-500">Links</h4>
-                      <div className="space-y-1">
-                        {quickLinks.map((link, index) => (
-                          <Link
-                            key={index}
-                            href={link.href}
-                            className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                            onClick={() => setIsSearchDialogOpen(false)}
-                          >
-                            <link.icon className="h-4 w-4 text-gray-500" />
-                            {link.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="py-2">
-                      <h4 className="mb-2 text-xs font-semibold text-gray-500">Search Results</h4>
-                      <div className="space-y-1">
-                        {getSearchResults().length > 0 ? (
-                          getSearchResults().map((result, index) => (
-                            <Link
-                              key={index}
-                              href={result.href}
-                              className="flex items-center justify-between rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                              onClick={() => setIsSearchDialogOpen(false)}
-                            >
-                              <span>{result.name}</span>
-                              <span className="text-xs text-gray-500">{result.type}</span>
-                            </Link>
-                          ))
-                        ) : (
-                          <div className="px-3 py-6 text-center text-sm text-gray-500">
-                            No results found for &quot;{searchQuery}&quot;
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </ScrollArea>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <SearchDialog>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-700 hover:text-blue-600 h-10 w-10"
+            >
+              <Search size={22} />
+            </Button>
+          </SearchDialog>
 
           {/* Language selector */}
           <DropdownMenu>
@@ -510,18 +403,6 @@ export default function Navbar({ industries, productCategories, services }: Navb
               </Link>
             ))}
           </div>
-          {/* <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
-            <p className="text-sm text-gray-500">
-              Partner with us for end-to-end chemical solutions tailored to your business
-            </p>
-            <Link
-              href="/services"
-              className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
-            >
-              View all services
-              <ArrowRight size={14} className="ml-1" />
-            </Link>
-          </div> */}
         </div>
       </div>
 
@@ -558,41 +439,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
             </div>
 
             {/* Search */}
-            <div className="p-4 border-b border-gray-100">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input
-                  placeholder="Search..."
-                  className="pl-10 h-10"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
-              {searchQuery.trim() && (
-                <div className="mt-2 max-h-32 overflow-y-auto">
-                  {getSearchResults().length > 0 ? (
-                    <div className="space-y-1">
-                      {getSearchResults().map((result, index) => (
-                        <Link
-                          key={index}
-                          href={result.href}
-                          className="flex items-center justify-between p-2 text-sm text-gray-700 hover:bg-gray-50 rounded"
-                          onClick={() => {
-                            setIsMobileMenuOpen(false)
-                            setSearchQuery('')
-                          }}
-                        >
-                          <span>{result.name}</span>
-                          <span className="text-xs text-gray-500">{result.type}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="p-2 text-sm text-gray-500 text-center">No results found</div>
-                  )}
-                </div>
-              )}
-            </div>
+            <MobileSearch onResultClick={() => setIsMobileMenuOpen(false)} />
 
             {/* Navigation Items */}
             <div className="py-4">
@@ -742,24 +589,6 @@ export default function Navbar({ industries, productCategories, services }: Navb
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="border-t border-gray-100 p-4">
-              <h4 className="text-sm font-semibold text-gray-500 mb-3">Quick Links</h4>
-              <div className="grid grid-cols-2 gap-2">
-                {quickLinks.slice(0, 4).map((link, index) => (
-                  <Link
-                    key={index}
-                    href={link.href}
-                    className="flex items-center gap-2 p-2 text-sm text-gray-600 hover:bg-gray-50 rounded transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <link.icon className="h-4 w-4 text-gray-400" />
-                    {link.name}
-                  </Link>
-                ))}
               </div>
             </div>
           </ScrollArea>

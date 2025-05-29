@@ -1659,8 +1659,13 @@ export interface Search {
     | {
         relationTo: 'services';
         value: number | Service;
+      }
+    | {
+        relationTo: 'careers';
+        value: number | Career;
       };
   slug?: string | null;
+  description?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -3048,6 +3053,7 @@ export interface SearchSelect<T extends boolean = true> {
   priority?: T;
   doc?: T;
   slug?: T;
+  description?: T;
   meta?:
     | T
     | {
