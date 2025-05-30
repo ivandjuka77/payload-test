@@ -31,6 +31,7 @@ import { cn } from '@/utilities/ui'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
 import { SearchDialog, MobileSearch } from '@/components/Search'
+import Image from 'next/image'
 
 const navItems = [
   { name: 'About', href: '/about-us' },
@@ -187,10 +188,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-10">
-          <div className="flex items-center">
-            <span className="font-primary font-bold text-3xl ">VUP</span>
-            <span className="text-sm font-secondary ml-2 text-gray-600">Chemistry</span>
-          </div>
+          <Image src="/assets/logo-vup.png" alt="VUP Logo" width={150} height={50} />
         </Link>
 
         {/* Desktop Navigation */}
