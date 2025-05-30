@@ -7,6 +7,14 @@
     & h4 {
       margin: 0;
     }
+
+    padding: 14px 30px;
+
+    &.type-success {
+      background-color: #3266cc;
+      // opacity: 0.8;
+      color: white;
+    }
   }
 
   &__instructions {
