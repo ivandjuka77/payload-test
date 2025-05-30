@@ -315,29 +315,14 @@ export const seed = async ({
 
   // -------------------- HOMEPAGE IMAGES -------------------- //
 
+  // Batch 1: Hero Carousel Images - Slide 1
   const [
     slide1HeroBgBuffer,
     slide1HeroFeaturedItemBuffer,
     slide1HeroCard1Buffer,
     slide1HeroCard2Buffer,
     slide1HeroCard3Buffer,
-    slide2HeroBgBuffer,
-    slide2HeroFeaturedItemBuffer,
-    slide2HeroCard1Buffer,
-    slide2HeroCard2Buffer,
-    slide2HeroCard3Buffer,
-    slide3HeroBgBuffer,
-    slide3HeroFeaturedItemBuffer,
-    slide3HeroCard1Buffer,
-    slide3HeroCard2Buffer,
-    slide3HeroCard3Buffer,
-    quickAccessCard1Buffer,
-    quickAccessCard2Buffer,
-    quickAccessCard3Buffer,
-    quickAccessCard4Buffer,
-    sustainabilityImage1Buffer,
   ] = await Promise.all([
-    // Hero Carousel
     fetchFileByURL('https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg'),
     fetchFileByURL(
       'https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -349,37 +334,6 @@ export const seed = async ({
     fetchFileByURL(
       'https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1200',
     ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    ),
-    fetchFileByURL('https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg'),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/5622896/pexels-photo-5622896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    ),
-    fetchFileByURL('https://images.pexels.com/photos/5691520/pexels-photo-5691520.jpeg'),
-    fetchFileByURL('https://images.pexels.com/photos/339614/pexels-photo-339614.jpeg'),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    ),
-    fetchFileByURL('https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg'),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL('https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg'),
-
-    // Quick Access Cards
-    fetchFileByURL('https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg'),
-    fetchFileByURL('https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg'),
-    fetchFileByURL('https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg'),
-    fetchFileByURL('https://images.pexels.com/photos/1048018/pexels-photo-1048018.jpeg'),
-
-    // Sustainability
-    fetchFileByURL(
-      'https://images.pexels.com/photos/15480413/pexels-photo-15480413/free-photo-of-modern-futuristic-construction-in-city.jpeg',
-    ),
   ])
 
   const [
@@ -388,21 +342,6 @@ export const seed = async ({
     slide1HeroCard1Doc,
     slide1HeroCard2Doc,
     slide1HeroCard3Doc,
-    slide2HeroBgDoc,
-    slide2HeroFeaturedItemDoc,
-    slide2HeroCard1Doc,
-    slide2HeroCard2Doc,
-    slide2HeroCard3Doc,
-    slide3HeroBgDoc,
-    slide3HeroFeaturedItemDoc,
-    slide3HeroCard1Doc,
-    slide3HeroCard2Doc,
-    slide3HeroCard3Doc,
-    quickAccessCard1Doc,
-    quickAccessCard2Doc,
-    quickAccessCard3Doc,
-    quickAccessCard4Doc,
-    sustainabilityImage1Doc,
   ] = await Promise.all([
     payload.create({
       collection: 'media',
@@ -439,6 +378,36 @@ export const seed = async ({
       },
       file: slide1HeroCard3Buffer,
     }),
+  ])
+
+  // Batch 2: Hero Carousel Images - Slide 2
+  const [
+    slide2HeroBgBuffer,
+    slide2HeroFeaturedItemBuffer,
+    slide2HeroCard1Buffer,
+    slide2HeroCard2Buffer,
+    slide2HeroCard3Buffer,
+  ] = await Promise.all([
+    fetchFileByURL(
+      'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5622896/pexels-photo-5622896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/5691520/pexels-photo-5691520.jpeg'),
+  ])
+
+  const [
+    slide2HeroBgDoc,
+    slide2HeroFeaturedItemDoc,
+    slide2HeroCard1Doc,
+    slide2HeroCard2Doc,
+    slide2HeroCard3Doc,
+  ] = await Promise.all([
     payload.create({
       collection: 'media',
       data: {
@@ -474,6 +443,34 @@ export const seed = async ({
       },
       file: slide2HeroCard3Buffer,
     }),
+  ])
+
+  // Batch 3: Hero Carousel Images - Slide 3
+  const [
+    slide3HeroBgBuffer,
+    slide3HeroFeaturedItemBuffer,
+    slide3HeroCard1Buffer,
+    slide3HeroCard2Buffer,
+    slide3HeroCard3Buffer,
+  ] = await Promise.all([
+    fetchFileByURL('https://images.pexels.com/photos/339614/pexels-photo-339614.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL('https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg'),
+  ])
+
+  const [
+    slide3HeroBgDoc,
+    slide3HeroFeaturedItemDoc,
+    slide3HeroCard1Doc,
+    slide3HeroCard2Doc,
+    slide3HeroCard3Doc,
+  ] = await Promise.all([
     payload.create({
       collection: 'media',
       data: {
@@ -509,8 +506,32 @@ export const seed = async ({
       },
       file: slide3HeroCard3Buffer,
     }),
+  ])
 
-    // Quick Access Cards
+  // Batch 4: Quick Access Cards and Sustainability Image
+  const [
+    quickAccessCard1Buffer,
+    quickAccessCard2Buffer,
+    quickAccessCard3Buffer,
+    quickAccessCard4Buffer,
+    sustainabilityImage1Buffer,
+  ] = await Promise.all([
+    fetchFileByURL('https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg'),
+    fetchFileByURL('https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg'),
+    fetchFileByURL('https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg'),
+    fetchFileByURL('https://images.pexels.com/photos/1048018/pexels-photo-1048018.jpeg'),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/15480413/pexels-photo-15480413/free-photo-of-modern-futuristic-construction-in-city.jpeg',
+    ),
+  ])
+
+  const [
+    quickAccessCard1Doc,
+    quickAccessCard2Doc,
+    quickAccessCard3Doc,
+    quickAccessCard4Doc,
+    sustainabilityImage1Doc,
+  ] = await Promise.all([
     payload.create({
       collection: 'media',
       data: {
@@ -646,165 +667,6 @@ export const seed = async ({
     fetchFileByURL('https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg'),
   ])
 
-  // Industry Challenge Images
-  const [
-    // Automotive Industry Challenges
-    automotiveChallenge1Buffer,
-    automotiveChallenge2Buffer,
-    automotiveChallenge3Buffer,
-    automotiveChallenge4Buffer,
-
-    // Coatings, Paints & Inks Challenges
-    coatingsChallenge1Buffer,
-    coatingsChallenge2Buffer,
-    coatingsChallenge3Buffer,
-
-    // Polymers & Plastics Challenges
-    polymersChallenge1Buffer,
-    polymersChallenge2Buffer,
-    polymersChallenge3Buffer,
-    polymersChallenge4Buffer,
-    polymersChallenge5Buffer,
-
-    // Adhesives & Sealants Challenges
-    adhesivesChallenge1Buffer,
-    adhesivesChallenge2Buffer,
-    adhesivesChallenge3Buffer,
-    adhesivesChallenge4Buffer,
-
-    // Pharmaceuticals & Biotechnology Challenges
-    pharmaChallenge1Buffer,
-    pharmaChallenge2Buffer,
-    pharmaChallenge3Buffer,
-    pharmaChallenge4Buffer,
-
-    // Petrochemicals & Refineries Challenges
-    petroChallenge1Buffer,
-    petroChallenge2Buffer,
-    petroChallenge3Buffer,
-    petroChallenge4Buffer,
-
-    // Battery & Energy Storage Challenges
-    batteryChallenge1Buffer,
-    batteryChallenge2Buffer,
-    batteryChallenge3Buffer,
-
-    // Building & Construction Challenges
-    constructionChallenge1Buffer,
-    constructionChallenge2Buffer,
-    constructionChallenge3Buffer,
-    constructionChallenge4Buffer,
-  ] = await Promise.all([
-    // Automotive Industry Challenges
-    fetchFileByURL(
-      'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/8478276/pexels-photo-8478276.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/10162529/pexels-photo-10162529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/5506047/pexels-photo-5506047.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
-    ),
-
-    // Coatings, Paints & Inks Challenges
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1682142471398-ccc685f5c849?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBvd2RlcmVkJTIwY29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1682142462983-82489bc75cd9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGNvYXRpbmd8ZW58MHx8MHx8fDA%3D',
-    ),
-
-    // Polymers & Plastics Challenges
-    fetchFileByURL(
-      'https://images.pexels.com/photos/15158323/pexels-photo-15158323/free-photo-of-blue-guitar-pick-in-hand.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1681426678542-613c306013e1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1624804642361-a070c6497471?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9seXVyZXRoYW5lJTIwYnVpbGRpbmclMjBibG9ja3N8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1674641195187-99d2160eed5a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1669301638284-ed33553ef8fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TW9ub21lcnMlMjBmb3IlMjBQb2x5bWVyJTIwU3ludGhlc2lzfGVufDB8fDB8fHww',
-    ),
-
-    // Adhesives & Sealants Challenges
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1683141430181-f4cfe16b1e62?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2VhbGFudHxlbnwwfHwwfHx8MA%3D%3D',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/7180822/pexels-photo-7180822.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/5963144/pexels-photo-5963144.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/3735769/pexels-photo-3735769.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-
-    // Pharmaceuticals & Biotechnology Challenges
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1661956660871-2cd646709c90?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1663039952394-00e73f235728?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1729949129758-0b668478dce5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1631980838946-755ba8443ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
-    ),
-
-    // Petrochemicals & Refineries Challenges
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1682144394281-372331accc78?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1570615541379-e6b7ab6d4eb9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGV0cm9jaGVtaWNhbCUyMHN5bnRoZXNpc3xlbnwwfHwwfHx8MA%3D%3D',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1682144440391-bece4365baa3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBldHJvY2hlbWljYWxzfGVufDB8fDB8fHww',
-    ),
-
-    // Battery & Energy Storage Challenges
-    fetchFileByURL(
-      'https://plus.unsplash.com/premium_photo-1723507297320-2366db25341e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8T3JnYW5pYyUyMFJhZGljYWwlMjBCYXR0ZXJpZXMlMjAoT1JCcyl8ZW58MHx8MHx8fDA%3D',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/7904403/pexels-photo-7904403.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.unsplash.com/photo-1581244249923-172ef5029576?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGJhdHRlcmllc3xlbnwwfHwwfHx8MA%3D%3D',
-    ),
-
-    // Building & Construction Challenges
-    fetchFileByURL(
-      'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/5691692/pexels-photo-5691692.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-    fetchFileByURL(
-      'https://images.pexels.com/photos/5691644/pexels-photo-5691644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    ),
-  ])
-
   const [
     automotiveDoc,
     coatingsPaintsInksDoc,
@@ -873,7 +735,175 @@ export const seed = async ({
     }),
   ])
 
-  // Industry Challenge Images
+  // Industry Challenge Images - Batch 1: Automotive & Coatings
+  const [
+    // Automotive Industry Challenges
+    automotiveChallenge1Buffer,
+    automotiveChallenge2Buffer,
+    automotiveChallenge3Buffer,
+    automotiveChallenge4Buffer,
+
+    // Coatings, Paints & Inks Challenges
+    coatingsChallenge1Buffer,
+    coatingsChallenge2Buffer,
+    coatingsChallenge3Buffer,
+  ] = await Promise.all([
+    // Automotive Industry Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/8478276/pexels-photo-8478276.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/10162529/pexels-photo-10162529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5506047/pexels-photo-5506047.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load',
+    ),
+
+    // Coatings, Paints & Inks Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682142471398-ccc685f5c849?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBvd2RlcmVkJTIwY29hdGluZ3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682142462983-82489bc75cd9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGNvYXRpbmd8ZW58MHx8MHx8fDA%3D',
+    ),
+  ])
+
+  // Industry Challenge Images - Batch 2: Polymers & Adhesives
+  const [
+    // Polymers & Plastics Challenges
+    polymersChallenge1Buffer,
+    polymersChallenge2Buffer,
+    polymersChallenge3Buffer,
+    polymersChallenge4Buffer,
+    polymersChallenge5Buffer,
+
+    // Adhesives & Sealants Challenges
+    adhesivesChallenge1Buffer,
+    adhesivesChallenge2Buffer,
+    adhesivesChallenge3Buffer,
+    adhesivesChallenge4Buffer,
+  ] = await Promise.all([
+    // Polymers & Plastics Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/15158323/pexels-photo-15158323/free-photo-of-blue-guitar-pick-in-hand.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1681426678542-613c306013e1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1624804642361-a070c6497471?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9seXVyZXRoYW5lJTIwYnVpbGRpbmclMjBibG9ja3N8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1674641195187-99d2160eed5a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cG9seW1lcnxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1669301638284-ed33553ef8fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TW9ub21lcnMlMjBmb3IlMjBQb2x5bWVyJTIwU3ludGhlc2lzfGVufDB8fDB8fHww',
+    ),
+
+    // Adhesives & Sealants Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1683141430181-f4cfe16b1e62?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2VhbGFudHxlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/7180822/pexels-photo-7180822.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5963144/pexels-photo-5963144.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/3735769/pexels-photo-3735769.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+  ])
+
+  // Industry Challenge Images - Batch 3: Pharma & Petro
+  const [
+    // Pharmaceuticals & Biotechnology Challenges
+    pharmaChallenge1Buffer,
+    pharmaChallenge2Buffer,
+    pharmaChallenge3Buffer,
+    pharmaChallenge4Buffer,
+
+    // Petrochemicals & Refineries Challenges
+    petroChallenge1Buffer,
+    petroChallenge2Buffer,
+    petroChallenge3Buffer,
+    petroChallenge4Buffer,
+  ] = await Promise.all([
+    // Pharmaceuticals & Biotechnology Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1661956660871-2cd646709c90?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1663039952394-00e73f235728?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1729949129758-0b668478dce5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1631980838946-755ba8443ab7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    ),
+
+    // Petrochemicals & Refineries Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682144394281-372331accc78?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1570615541379-e6b7ab6d4eb9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGV0cm9jaGVtaWNhbCUyMHN5bnRoZXNpc3xlbnwwfHwwfHx8MA%3D%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682144440391-bece4365baa3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGV0cm9jaGVtaWNhbHN8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBldHJvY2hlbWljYWxzfGVufDB8fDB8fHww',
+    ),
+  ])
+
+  // Industry Challenge Images - Batch 4: Battery & Construction
+  const [
+    // Battery & Energy Storage Challenges
+    batteryChallenge1Buffer,
+    batteryChallenge2Buffer,
+    batteryChallenge3Buffer,
+
+    // Building & Construction Challenges
+    constructionChallenge1Buffer,
+    constructionChallenge2Buffer,
+    constructionChallenge3Buffer,
+    constructionChallenge4Buffer,
+  ] = await Promise.all([
+    // Battery & Energy Storage Challenges
+    fetchFileByURL(
+      'https://plus.unsplash.com/premium_photo-1723507297320-2366db25341e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8T3JnYW5pYyUyMFJhZGljYWwlMjBCYXR0ZXJpZXMlMjAoT1JCcyl8ZW58MHx8MHx8fDA%3D',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/7904403/pexels-photo-7904403.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.unsplash.com/photo-1581244249923-172ef5029576?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGJhdHRlcmllc3xlbnwwfHwwfHx8MA%3D%3D',
+    ),
+
+    // Building & Construction Challenges
+    fetchFileByURL(
+      'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5691692/pexels-photo-5691692.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+    fetchFileByURL(
+      'https://images.pexels.com/photos/5691644/pexels-photo-5691644.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    ),
+  ])
+
+  // Industry Challenge Images - Batch 1: Automotive & Coatings Documents
   const [
     // Automotive Industry Challenges
     automotiveChallenge1Doc,
@@ -885,42 +915,6 @@ export const seed = async ({
     coatingsChallenge1Doc,
     coatingsChallenge2Doc,
     coatingsChallenge3Doc,
-
-    // Polymers & Plastics Challenges
-    polymersChallenge1Doc,
-    polymersChallenge2Doc,
-    polymersChallenge3Doc,
-    polymersChallenge4Doc,
-    polymersChallenge5Doc,
-
-    // Adhesives & Sealants Challenges
-    adhesivesChallenge1Doc,
-    adhesivesChallenge2Doc,
-    adhesivesChallenge3Doc,
-    adhesivesChallenge4Doc,
-
-    // Pharmaceuticals & Biotechnology Challenges
-    pharmaChallenge1Doc,
-    pharmaChallenge2Doc,
-    pharmaChallenge3Doc,
-    pharmaChallenge4Doc,
-
-    // Petrochemicals & Refineries Challenges
-    petroChallenge1Doc,
-    petroChallenge2Doc,
-    petroChallenge3Doc,
-    petroChallenge4Doc,
-
-    // Battery & Energy Storage Challenges
-    batteryChallenge1Doc,
-    batteryChallenge2Doc,
-    batteryChallenge3Doc,
-
-    // Building & Construction Challenges
-    constructionChallenge1Doc,
-    constructionChallenge2Doc,
-    constructionChallenge3Doc,
-    constructionChallenge4Doc,
   ] = await Promise.all([
     // Automotive Industry Challenges
     payload.create({
@@ -974,7 +968,23 @@ export const seed = async ({
       },
       file: coatingsChallenge3Buffer,
     }),
+  ])
 
+  // Industry Challenge Images - Batch 2: Polymers & Adhesives Documents
+  const [
+    // Polymers & Plastics Challenges
+    polymersChallenge1Doc,
+    polymersChallenge2Doc,
+    polymersChallenge3Doc,
+    polymersChallenge4Doc,
+    polymersChallenge5Doc,
+
+    // Adhesives & Sealants Challenges
+    adhesivesChallenge1Doc,
+    adhesivesChallenge2Doc,
+    adhesivesChallenge3Doc,
+    adhesivesChallenge4Doc,
+  ] = await Promise.all([
     // Polymers & Plastics Challenges
     payload.create({
       collection: 'media',
@@ -1041,7 +1051,22 @@ export const seed = async ({
       },
       file: adhesivesChallenge4Buffer,
     }),
+  ])
 
+  // Industry Challenge Images - Batch 3: Pharma & Petro Documents
+  const [
+    // Pharmaceuticals & Biotechnology Challenges
+    pharmaChallenge1Doc,
+    pharmaChallenge2Doc,
+    pharmaChallenge3Doc,
+    pharmaChallenge4Doc,
+
+    // Petrochemicals & Refineries Challenges
+    petroChallenge1Doc,
+    petroChallenge2Doc,
+    petroChallenge3Doc,
+    petroChallenge4Doc,
+  ] = await Promise.all([
     // Pharmaceuticals & Biotechnology Challenges
     payload.create({
       collection: 'media',
@@ -1101,7 +1126,21 @@ export const seed = async ({
       },
       file: petroChallenge4Buffer,
     }),
+  ])
 
+  // Industry Challenge Images - Batch 4: Battery & Construction Documents
+  const [
+    // Battery & Energy Storage Challenges
+    batteryChallenge1Doc,
+    batteryChallenge2Doc,
+    batteryChallenge3Doc,
+
+    // Building & Construction Challenges
+    constructionChallenge1Doc,
+    constructionChallenge2Doc,
+    constructionChallenge3Doc,
+    constructionChallenge4Doc,
+  ] = await Promise.all([
     // Battery & Energy Storage Challenges
     payload.create({
       collection: 'media',
@@ -6476,7 +6515,6 @@ export const seed = async ({
 
 async function fetchFileByURL(url: string): Promise<File> {
   const res = await fetch(url, {
-    credentials: 'include',
     method: 'GET',
   })
 
@@ -6485,14 +6523,56 @@ async function fetchFileByURL(url: string): Promise<File> {
   }
 
   const data = await res.arrayBuffer()
-  const filename = url.split('/').pop() || 'file'
-  const extension = filename.split('.').pop() || 'jpg'
-  const nameWithoutExt = filename.split('.')[0]
+
+  let pathname
+  try {
+    pathname = new URL(url).pathname
+  } catch (e) {
+    const urlParts = url.split('?')[0]
+    pathname = urlParts.substring(urlParts.lastIndexOf('/') + 1)
+  }
+
+  let baseFilename = pathname.substring(pathname.lastIndexOf('/') + 1) || 'file'
+
+  let sanitizedBaseName = baseFilename.replace(/\.[^/.]+$/, '')
+  sanitizedBaseName = sanitizedBaseName.replace(/[^a-zA-Z0-9_-]/g, '_')
+
+  let extension = ''
+  const nameParts = baseFilename.split('.')
+  if (nameParts.length > 1) {
+    const lastPart = nameParts.pop()
+    if (lastPart && /^[a-zA-Z0-9]{2,5}$/.test(lastPart)) {
+      extension = lastPart.toLowerCase()
+    }
+  }
+
+  const contentType = res.headers.get('content-type')
+  let mimeType = contentType || 'application/octet-stream'
+
+  if (!extension && contentType && contentType.startsWith('image/')) {
+    const guessedExtension = contentType.split('/')[1].split('+')[0]
+    if (guessedExtension && !guessedExtension.includes('*')) {
+      extension = guessedExtension.replace('jpeg', 'jpg')
+    }
+  }
+
+  if (!extension) {
+    extension = 'jpg'
+    if (!mimeType.startsWith('image/')) mimeType = 'image/jpeg'
+  } else if (!mimeType.startsWith('image/')) {
+    mimeType = `image/${extension === 'jpg' ? 'jpeg' : extension}`
+  }
+
+  if (!sanitizedBaseName) {
+    sanitizedBaseName = 'image'
+  }
+
+  const finalFileName = `${sanitizedBaseName}-${Date.now()}.${extension}`
 
   return {
-    name: `${nameWithoutExt}-${Date.now()}.${extension}`,
+    name: finalFileName,
     data: Buffer.from(data),
-    mimetype: `image/${extension}`,
+    mimetype: mimeType,
     size: data.byteLength,
   }
 }
