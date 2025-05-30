@@ -74,7 +74,10 @@ export default buildConfig({
     // Postgres-specific arguments go here.
     // `pool` is required.
     pool: {
+      max: 3,
       connectionString: process.env.DATABASE_URI,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 5000,
     },
   }),
 
