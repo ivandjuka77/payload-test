@@ -30,7 +30,7 @@ const BeforeDashboard: React.FC = () => {
         <li>
           <strong>SEEDING</strong>
           {
-            ' - This essentially serves as a reset button for the website. If you made some changes and want to start over, you can click this button to reset the database to the default state of the website: '
+            ' - This essentially serves as a reset button for the website. If you made some changes and want to start over, you can click this button to reset the database to the default state of the website (NOTE: Currently only Ivan should do this until we have a proper testing environment): '
           }
           <SeedButton />
         </li>

@@ -75,13 +75,9 @@ export default buildConfig({
   //   },
   // }),
   db: postgresAdapter({
-    // Postgres-specific arguments go here.
-    // `pool` is required.
     pool: {
-      max: 3,
+      max: 5,
       connectionString: process.env.DATABASE_URI,
-      idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 5000,
     },
   }),
 

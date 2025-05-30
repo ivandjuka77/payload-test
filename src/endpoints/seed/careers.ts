@@ -26,19 +26,9 @@ export function careers({ featuredImage1 }: CareersArgs) {
           },
           {
             link: {
-              type: 'reference',
+              type: 'custom',
               newTab: null,
-
-              reference: {
-                relationTo: 'pages',
-
-                value: {
-                  id: 4,
-                  title: 'Home',
-                  slug: 'home',
-                },
-              },
-              url: '',
+              url: '/about-us',
               label: 'About Us',
               appearance: 'default',
             },
