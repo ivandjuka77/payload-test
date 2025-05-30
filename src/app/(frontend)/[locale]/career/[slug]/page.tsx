@@ -5,6 +5,7 @@ import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
+import { queryCareers } from '@/utilities/queryCareers'
 import PageClient from './page.client'
 import JobHeader from '@/components/career/Header'
 import JobDetails from '@/components/career/JobDetails'
@@ -144,16 +145,3 @@ const queryCareerBySlug = cache(async ({ slug }: { slug: string }) => {
 
   return result.docs?.[0] || null
 })
-
-export async function queryCareers({ limit }: { limit: number }) {
-  const payload = await getPayload({ config: configPromise })
-  const careers = await payload.find({
-    collection: 'careers',
-    draft: false,
-    limit,
-    overrideAccess: false,
-    pagination: false,
-  })
-
-  return careers.docs || []
-}

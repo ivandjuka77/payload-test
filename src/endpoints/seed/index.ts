@@ -6532,7 +6532,7 @@ async function fetchFileByURL(url: string): Promise<File> {
     pathname = urlParts.substring(urlParts.lastIndexOf('/') + 1)
   }
 
-  let baseFilename = pathname.substring(pathname.lastIndexOf('/') + 1) || 'file'
+  const baseFilename = pathname.substring(pathname.lastIndexOf('/') + 1) || 'file'
 
   let sanitizedBaseName = baseFilename.replace(/\.[^/.]+$/, '')
   sanitizedBaseName = sanitizedBaseName.replace(/[^a-zA-Z0-9_-]/g, '_')

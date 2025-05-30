@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { ArrowRight, Briefcase, Building, Users } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { queryCareers } from '@/app/(frontend)/[locale]/career/[slug]/page'
+import { queryCareers } from '@/utilities/queryCareers'
 import RichText from '@/components/RichText'
-import { CareersBlock } from '@/payload-types'
+import { CareersBlock, Career } from '@/payload-types'
 
 export const Careers: React.FC<CareersBlock> = async ({ title, description }) => {
   const careers = await queryCareers({ limit: 5 })
@@ -19,7 +19,7 @@ export const Careers: React.FC<CareersBlock> = async ({ title, description }) =>
         </div>
 
         <div className="grid gap-y-10 w-full mx-auto">
-          {careers.map((position, index) => (
+          {careers.map((position: Career, index: number) => (
             <div
               key={index}
               className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow"
