@@ -26,6 +26,10 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         protocol: 'https',
       },
+      {
+        protocol: 'https',
+        hostname: 'elnpbywhaolyzgvwyuqf.supabase.co',
+      },
     ],
   },
   reactStrictMode: true,

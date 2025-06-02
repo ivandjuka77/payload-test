@@ -25,6 +25,9 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
 
+const supabaseProjectRef = process.env.SUPABASE_PROJECT_REF || 'elnpbywhaolyzgvwyuqf'
+const s3BucketFromEnv = process.env.S3_BUCKET || 'vup-payload'
+
 export const plugins: Plugin[] = [
   redirectsPlugin({
     collections: ['pages', 'posts'],
@@ -161,9 +164,14 @@ export const plugins: Plugin[] = [
     collections: {
       media: {
         prefix: 'media',
+        generateFileURL: ({ filename, prefix }) => {
+          const filePathInBucket = prefix ? `${prefix}/${filename}` : filename
+
+          return `https://${supabaseProjectRef}.supabase.co/storage/v1/object/public/vup-payload/${filePathInBucket}`
+        },
       },
     },
-    bucket: process.env.S3_BUCKET || '',
+    bucket: s3BucketFromEnv,
     config: {
       forcePathStyle: true,
       credentials: {

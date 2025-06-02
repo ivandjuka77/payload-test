@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, ImageUploadFormatOptions } from 'payload'
 
 import {
   FixedToolbarFeature,
@@ -13,6 +13,18 @@ import { authenticated } from '../access/authenticated'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+const formatOptions: ImageUploadFormatOptions = {
+  format: 'webp' as const,
+  options: {
+    quality: 75,
+    alphaQuality: 85,
+    effort: 5,
+    lossless: false,
+    smartSubsample: true,
+    force: true,
+  },
+}
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -43,37 +55,47 @@ export const Media: CollectionConfig = {
     staticDir: path.resolve(dirname, '../../public/media'),
     adminThumbnail: 'thumbnail',
     focalPoint: true,
+    formatOptions,
+    resizeOptions: {
+      width: 1200,
+      height: 1200,
+      fit: 'inside',
+      position: 'center',
+      withoutEnlargement: true,
+    },
     imageSizes: [
       {
         name: 'thumbnail',
         width: 300,
+        formatOptions,
       },
       {
         name: 'square',
-        width: 500,
-        height: 500,
+        width: 400,
+        height: 400,
+        formatOptions,
       },
       {
         name: 'small',
-        width: 600,
+        width: 500,
+        formatOptions,
       },
       {
         name: 'medium',
-        width: 900,
+        width: 800,
+        formatOptions,
       },
       {
         name: 'large',
-        width: 1400,
-      },
-      {
-        name: 'xlarge',
-        width: 1920,
+        width: 1200,
+        formatOptions,
       },
       {
         name: 'og',
         width: 1200,
         height: 630,
         crop: 'center',
+        formatOptions,
       },
     ],
   },
