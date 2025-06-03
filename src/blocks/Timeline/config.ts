@@ -1,4 +1,11 @@
 import type { Block } from 'payload'
+import {
+  FixedToolbarFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+  OrderedListFeature,
+  UnorderedListFeature,
+} from '@payloadcms/richtext-lexical'
 
 export const Timeline: Block = {
   slug: 'timeline',
@@ -42,9 +49,31 @@ export const Timeline: Block = {
         {
           name: 'content',
           type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => {
+              return [
+                ...rootFeatures,
+                FixedToolbarFeature(),
+                InlineToolbarFeature(),
+                UnorderedListFeature(),
+                OrderedListFeature(),
+              ]
+            },
+          }),
           label: 'Content',
           required: true,
-          admin: {},
+        },
+        {
+          name: 'keyAchievements',
+          type: 'array',
+          label: 'Key Achievements',
+          fields: [
+            {
+              name: 'achievement',
+              type: 'text',
+              label: 'Achievement',
+            },
+          ],
         },
         {
           name: 'imageUrl',

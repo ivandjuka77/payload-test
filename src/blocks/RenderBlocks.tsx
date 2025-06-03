@@ -1,7 +1,5 @@
 import { Fragment } from 'react'
-
 import type { Page } from '@/payload-types'
-
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
@@ -19,6 +17,7 @@ import { VerticalCards } from '@/blocks/VerticalCards/Component'
 import { GridImageCards } from '@/blocks/GridImageCards/Component'
 import { Careers } from '@/blocks/Careers/Component'
 import { CertificationsSection } from '@/blocks/Certifications/Component'
+import { Timeline } from '@/blocks/Timeline/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -38,6 +37,7 @@ const blockComponents = {
   gridImageCards: GridImageCards,
   careers: Careers,
   certifications: CertificationsSection,
+  timeline: Timeline,
 }
 
 export const RenderBlocks: React.FC<{

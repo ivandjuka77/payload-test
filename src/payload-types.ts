@@ -295,6 +295,7 @@ export interface Page {
     | GridImageCardsBlock
     | CareersBlock
     | CertificationsBlock
+    | TimelineBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1512,6 +1513,45 @@ export interface CertificationsBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock".
+ */
+export interface TimelineBlock {
+  badge: string;
+  title: string;
+  subtitle: string;
+  items: {
+    period: string;
+    content: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    keyAchievements?:
+      | {
+          achievement?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    imageUrl: number | Media;
+    highlight: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'timeline';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "careers".
  */
 export interface Career {
@@ -1966,6 +2006,7 @@ export interface PagesSelect<T extends boolean = true> {
         gridImageCards?: T | GridImageCardsBlockSelect<T>;
         careers?: T | CareersBlockSelect<T>;
         certifications?: T | CertificationsBlockSelect<T>;
+        timeline?: T | TimelineBlockSelect<T>;
       };
   meta?:
     | T
@@ -2448,6 +2489,32 @@ export interface CertificationsBlockSelect<T extends boolean = true> {
         subtitle?: T;
         description?: T;
         image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock_select".
+ */
+export interface TimelineBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  items?:
+    | T
+    | {
+        period?: T;
+        content?: T;
+        keyAchievements?:
+          | T
+          | {
+              achievement?: T;
+              id?: T;
+            };
+        imageUrl?: T;
+        highlight?: T;
         id?: T;
       };
   id?: T;
