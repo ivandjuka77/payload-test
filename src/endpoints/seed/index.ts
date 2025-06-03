@@ -12,6 +12,7 @@ import { industries } from './industries'
 import { post4 } from './posts/post-4'
 import { sustainability } from './sustainability'
 import { careers } from './careers'
+import { aboutUs } from './about-us'
 
 const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
@@ -6323,6 +6324,20 @@ export const seed = async ({
         depth: 0,
         // @ts-expect-error This is working, but payload is not happy
         data: careers({ featuredImage1: image1Doc }),
+      }),
+
+      payload.create({
+        collection: 'pages',
+        depth: 0,
+        // @ts-expect-error This is working, but payload is not happy
+        data: aboutUs({
+          timeline1Image: image1Doc,
+          timeline2Image: image2Doc,
+          timeline3Image: image3Doc,
+          timeline4Image: image1Doc,
+          content1Image: image2Doc,
+          content2Image: image3Doc,
+        }),
       }),
     ])
 
