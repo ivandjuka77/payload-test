@@ -1268,6 +1268,7 @@ export interface ContentImageBlock {
     [k: string]: unknown;
   } | null;
   image: number | Media;
+  layout?: ('left' | 'right') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentImage';
@@ -2316,6 +2317,7 @@ export interface ContentImageBlockSelect<T extends boolean = true> {
   title?: T;
   content?: T;
   image?: T;
+  layout?: T;
   id?: T;
   blockName?: T;
 }

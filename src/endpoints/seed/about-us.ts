@@ -34,6 +34,423 @@ export function aboutUs(args: AboutUsArgs) {
     },
     layout: [
       {
+        title: 'Our Mission',
+
+        content: {
+          root: {
+            type: 'root',
+            format: '',
+            indent: 0,
+            version: 1,
+
+            children: [
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'Our mission is to ',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+
+                  {
+                    mode: 'normal',
+                    text: 'continuously accelerate our research and production by applying innovative solutions, as well as to maintain excellence in service and delivery that results in opportunities for our partners.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 1,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'We strive to:',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                tag: 'ul',
+                type: 'list',
+                start: 1,
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    type: 'listitem',
+                    value: 1,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Develop and deliver high-quality, specialized chemical products and services.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                  },
+                  {
+                    type: 'listitem',
+                    value: 2,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Foster innovation through dedicated R&D and cutting-edge technologies.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                  },
+                  {
+                    type: 'listitem',
+                    value: 3,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Build lasting partnerships based on trust, expertise, and mutual success.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                  },
+                  {
+                    type: 'listitem',
+                    value: 4,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Operate responsibly, with a strong commitment to sustainability and regulatory compliance.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                  },
+                  {
+                    type: 'listitem',
+                    value: 5,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Be a recognized leader in chemical specialties, known for our problem-solving capabilities and customer focus.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                  },
+                ],
+                listType: 'bullet',
+                direction: 'ltr',
+              },
+            ],
+            direction: 'ltr',
+          },
+        },
+        image: content1Image.id,
+        blockName: null,
+        blockType: 'contentImage',
+        layout: 'left',
+      },
+      {
+        title: 'Our Vision & Values',
+
+        content: {
+          root: {
+            type: 'root',
+            format: '',
+            indent: 0,
+            version: 1,
+
+            children: [
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'Our vision is to become a well-networked, internationally recognized chemical research and production center that produces unique chemical specialties, licenses its technologies, and offers original solutions worldwide, striving to be the preferred partner for companies seeking expert chemical solutions by driving progress and creating value through scientific excellence and sustainable practices.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: "The core principles that guide every aspect of VUP's operations and interactions are:",
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                tag: 'ul',
+                type: 'list',
+                start: 1,
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    type: 'listitem',
+                    value: 1,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Innovation & Expertise:',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 1,
+                        version: 1,
+                      },
+
+                      {
+                        mode: 'normal',
+                        text: ' We are driven by scientific curiosity and over 70 years of accumulated knowledge, constantly seeking innovative solutions to complex chemical challenges.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 1,
+                  },
+                  {
+                    type: 'listitem',
+                    value: 2,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Quality & Excellence:',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 1,
+                        version: 1,
+                      },
+
+                      {
+                        mode: 'normal',
+                        text: ' We are committed to the highest standards in our products, services, and processes, validated by our ISO 9001 certification and accredited laboratories.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 1,
+                  },
+                  {
+                    type: 'listitem',
+                    value: 3,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Partnership & Collaboration:',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 1,
+                        version: 1,
+                      },
+
+                      {
+                        mode: 'normal',
+                        text: ' We believe in building strong, transparent, and mutually beneficial relationships with our clients, suppliers, and employees.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 1,
+                  },
+                  {
+                    type: 'listitem',
+                    value: 4,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Integrity & Ethics:',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 1,
+                        version: 1,
+                      },
+
+                      {
+                        mode: 'normal',
+                        text: ' We conduct our business with honesty, transparency, and a strong ethical compass, ensuring compliance and building trust.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 1,
+                  },
+                  {
+                    type: 'listitem',
+                    value: 5,
+                    format: '',
+                    indent: 0,
+                    version: 1,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'Future-Readiness:',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 1,
+                        version: 1,
+                      },
+
+                      {
+                        mode: 'normal',
+                        text: ' We invest in new technologies and sustainable practices to ensure we are prepared for the challenges and opportunities of tomorrow.',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 0,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 1,
+                  },
+                ],
+                listType: 'bullet',
+                direction: 'ltr',
+                textFormat: 1,
+              },
+            ],
+            direction: 'ltr',
+            textFormat: 1,
+          },
+        },
+        image: content2Image.id,
+        blockName: null,
+        blockType: 'contentImage',
+        layout: 'right',
+      },
+      {
         badge: 'Our Journey',
         title: 'A Timeline of Innovation',
         subtitle:
@@ -268,419 +685,59 @@ export function aboutUs(args: AboutUsArgs) {
         blockType: 'timeline',
       },
       {
-        title: 'Our Mission',
-
-        content: {
-          root: {
-            type: 'root',
-            format: '',
-            indent: 0,
-            version: 1,
-
-            children: [
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'Our mission is to ',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-
-                  {
-                    mode: 'normal',
-                    text: 'continuously accelerate our research and production by applying innovative solutions, as well as to maintain excellence in service and delivery that results in opportunities for our partners.',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 1,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'We strive to:',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                tag: 'ul',
-                type: 'list',
-                start: 1,
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    type: 'listitem',
-                    value: 1,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Develop and deliver high-quality, specialized chemical products and services.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 2,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Foster innovation through dedicated R&D and cutting-edge technologies.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 3,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Build lasting partnerships based on trust, expertise, and mutual success.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 4,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Operate responsibly, with a strong commitment to sustainability and regulatory compliance.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Be a recognized leader in chemical specialties, known for our problem-solving capabilities and customer focus.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                ],
-                listType: 'bullet',
-                direction: 'ltr',
-              },
-            ],
-            direction: 'ltr',
-          },
-        },
-        image: content1Image.id,
+        title: 'Our Team: The Experts Behind VUP',
+        subtitle:
+          'At VUP, our strength lies in our dedicated and experienced team of scientists, engineers, technicians, and professionals. We foster a culture of collaboration, innovation, and continuous learning.',
         blockName: null,
-        blockType: 'contentImage',
-      },
-      {
-        title: 'Our Vision & Values',
+        blockType: 'team',
 
-        content: {
-          root: {
-            type: 'root',
-            format: '',
-            indent: 0,
-            version: 1,
-
-            children: [
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'Our vision is to become a well-networked, internationally recognized chemical research and production center that produces unique chemical specialties, licenses its technologies, and offers original solutions worldwide, striving to be the preferred partner for companies seeking expert chemical solutions by driving progress and creating value through scientific excellence and sustainable practices.',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: "The core principles that guide every aspect of VUP's operations and interactions are:",
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                tag: 'ul',
-                type: 'list',
-                start: 1,
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    type: 'listitem',
-                    value: 1,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Innovation & Expertise:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We are driven by scientific curiosity and over 70 years of accumulated knowledge, constantly seeking innovative solutions to complex chemical challenges.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 2,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Quality & Excellence:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We are committed to the highest standards in our products, services, and processes, validated by our ISO 9001 certification and accredited laboratories.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 3,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Partnership & Collaboration:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We believe in building strong, transparent, and mutually beneficial relationships with our clients, suppliers, and employees.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 4,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Integrity & Ethics:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We conduct our business with honesty, transparency, and a strong ethical compass, ensuring compliance and building trust.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Future-Readiness:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We invest in new technologies and sustainable practices to ensure we are prepared for the challenges and opportunities of tomorrow.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                ],
-                listType: 'bullet',
-                direction: 'ltr',
-                textFormat: 1,
-              },
-            ],
-            direction: 'ltr',
-            textFormat: 1,
+        teamMembers: [
+          {
+            name: 'Roman Karlubik',
+            role: 'Chief Executive Officer',
+            bio: "Leading VUP's strategic direction and commitment to innovation and sustainable growth.",
+            image: timeline1Image.id,
+            linkedin: null,
+            email: null,
+            isHeadOfDepartment: null,
           },
-        },
-        image: content2Image.id,
-        blockName: null,
-        blockType: 'contentImage',
+          {
+            name: 'Ing. Peter Grolmus',
+            role: 'Director of Research & Development',
+            bio: "Overseeing VUP's extensive R&D programs, driving innovation in chemical synthesis, process development, and new product creation.",
+            image: timeline2Image.id,
+            linkedin: null,
+            email: null,
+            isHeadOfDepartment: true,
+          },
+          {
+            name: 'Ing. Ján Chalupka',
+            role: 'Head of Commercial Department',
+            bio: "Managing VUP's commercial strategy, client partnerships, and market development for our diverse product and service portfolio.",
+            image: timeline3Image.id,
+            linkedin: null,
+            email: null,
+            isHeadOfDepartment: true,
+          },
+          {
+            name: 'Ing. Ľudovít Žiak, PhD',
+            role: 'Head of ATBEL Division (Analytical, Technical-Safety, and Ecological Laboratories)',
+            bio: 'Leading our SNAS S-118 accredited laboratories, ensuring high-quality analytical services, technical safety testing, and environmental monitoring.\n',
+            image: timeline4Image.id,
+            linkedin: null,
+            email: null,
+            isHeadOfDepartment: true,
+          },
+          {
+            name: 'Ing. Denisa Juríčeková',
+            role: 'Head of Production Department for Cosmetics',
+            bio: "Overseeing the development, manufacturing, and quality assurance of VUP's cosmetic products, including custom and private label solutions.\n",
+            image: timeline1Image.id,
+            linkedin: null,
+            email: null,
+            isHeadOfDepartment: true,
+          },
+        ],
       },
     ],
 

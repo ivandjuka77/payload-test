@@ -37,5 +37,11 @@ export const ContentImage: Block = {
       relationTo: 'media',
       required: true,
     },
+    {
+      name: 'layout',
+      type: 'select',
+      options: ['left', 'right'],
+      defaultValue: 'left',
+    },
   ],
 }
