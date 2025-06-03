@@ -18,6 +18,7 @@ import { GridImageCards } from '@/blocks/GridImageCards/Component'
 import { Careers } from '@/blocks/Careers/Component'
 import { CertificationsSection } from '@/blocks/Certifications/Component'
 import { Timeline } from '@/blocks/Timeline/Component'
+import { Team } from '@/blocks/Team/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -38,6 +39,7 @@ const blockComponents = {
   careers: Careers,
   certifications: CertificationsSection,
   timeline: Timeline,
+  team: Team,
 }
 
 export const RenderBlocks: React.FC<{

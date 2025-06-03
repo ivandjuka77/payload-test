@@ -296,6 +296,7 @@ export interface Page {
     | CareersBlock
     | CertificationsBlock
     | TimelineBlock
+    | TeamBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1552,6 +1553,18 @@ export interface TimelineBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock".
+ */
+export interface TeamBlock {
+  title?: string | null;
+  subtitle?: string | null;
+  teamMembers?: (number | TeamMember)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'team';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "careers".
  */
 export interface Career {
@@ -2007,6 +2020,7 @@ export interface PagesSelect<T extends boolean = true> {
         careers?: T | CareersBlockSelect<T>;
         certifications?: T | CertificationsBlockSelect<T>;
         timeline?: T | TimelineBlockSelect<T>;
+        team?: T | TeamBlockSelect<T>;
       };
   meta?:
     | T
@@ -2517,6 +2531,17 @@ export interface TimelineBlockSelect<T extends boolean = true> {
         highlight?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock_select".
+ */
+export interface TeamBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  teamMembers?: T;
   id?: T;
   blockName?: T;
 }

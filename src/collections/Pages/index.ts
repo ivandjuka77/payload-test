@@ -19,6 +19,7 @@ import { VerticalCards } from '@/blocks/VerticalCards/config'
 import { GridImageCards } from '@/blocks/GridImageCards/config'
 import { Careers } from '@/blocks/Careers/config'
 import { Timeline } from '@/blocks/Timeline/config'
+import { Team } from '@/blocks/Team/config'
 
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -109,6 +110,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Careers,
                 Certifications,
                 Timeline,
+                Team,
               ],
               required: true,
               admin: {
