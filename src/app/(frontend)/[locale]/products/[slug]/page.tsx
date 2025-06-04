@@ -15,25 +15,29 @@ import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
+import { getInitializedPayload } from '@/utilities/payloadClient'
 
 // Force static generation without revalidation since products rarely change
 export const dynamic = 'force-static'
 export const dynamicParams = false // Return 404 for non-existent product pages instead of SSR fallback
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
+  console.log('[generateStaticParams] Attempting to get Payload client...')
+  const payload = await getInitializedPayload()
+  console.log('[generateStaticParams] Payload client obtained. Fetching products for params...')
   const products = await payload.find({
     collection: 'products',
     draft: false,
-    limit: 1000,
+    limit: 50,
     overrideAccess: false,
     pagination: false,
     select: {
       slug: true,
     },
   })
+  console.log(`[generateStaticParams] Found ${products.docs.length} products for param generation.`)
 
-  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const locales = ['', 'sk', 'jp']
   const params = products.docs.flatMap(({ slug }) => {
     return locales.map((locale) => ({
       locale,
@@ -41,8 +45,9 @@ export async function generateStaticParams() {
     }))
   })
 
-  console.log('Products', params.length)
-
+  console.log(
+    `[generateStaticParams] Total params generated: ${params.length}. Products: ${products.docs.length}, Locales: ${locales.length}`,
+  )
   return params
 }
 
