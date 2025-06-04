@@ -1,11 +1,11 @@
 // import { HeaderClient } from './Component.client'
-import { getCachedGlobal } from '@/utilities/getGlobals'
+// import { getCachedGlobal } from '@/utilities/getGlobals'
 
 import type { Header } from '@/payload-types'
 import Navbar from './Component.client'
-import { queryIndustries } from '@/app/(frontend)/[locale]/industries/page'
 import { queryProductCategories } from '@/app/(frontend)/[locale]/products/page'
 import { queryServices } from '@/app/(frontend)/[locale]/services/[slug]/page'
+import { queryIndustries } from '@/utilities/queries'
 
 export async function Header() {
   //? Not sure what is this, check if it's needed

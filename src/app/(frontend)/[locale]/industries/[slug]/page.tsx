@@ -24,9 +24,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = industries.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = industries.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Industries', params.length)
 
   return params
 }

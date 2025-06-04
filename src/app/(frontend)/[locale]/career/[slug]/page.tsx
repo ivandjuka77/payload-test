@@ -27,9 +27,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = careers.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = careers.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Careers', params.length)
 
   return params
 }

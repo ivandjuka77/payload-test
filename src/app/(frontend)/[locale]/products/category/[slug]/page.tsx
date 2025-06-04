@@ -26,9 +26,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = categories.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = categories.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Product Categories', params.length)
 
   return params
 }

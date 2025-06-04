@@ -27,9 +27,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = services.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = services.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Services', params.length)
 
   return params
 }
@@ -37,6 +43,7 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
+    locale?: string
   }>
 }
 

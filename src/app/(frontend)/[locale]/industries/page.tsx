@@ -8,7 +8,7 @@ import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
-import { Industry } from '@/payload-types'
+import { queryIndustries } from '@/utilities/queries'
 
 export default async function IndustriesPage() {
   const { isEnabled: draft } = await draftMode()
@@ -61,19 +61,4 @@ async function queryIndustriesPage() {
   })
 
   return result.docs?.[0] || null
-}
-
-export async function queryIndustries({ limit = 100 }: { limit?: number }) {
-  const { isEnabled: draft } = await draftMode()
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'industries',
-    draft,
-    limit: limit || 100,
-    pagination: false,
-    overrideAccess: draft,
-  })
-
-  return result.docs as Industry[]
 }

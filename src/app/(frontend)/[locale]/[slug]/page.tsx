@@ -7,7 +7,7 @@ import { cache } from 'react'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
-import PageClient from './page.client'
+// import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import SustainabilityPartner from '@/components/SustainabilityPartner'
 
@@ -24,13 +24,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = pages.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
+  })
+
+  console.log('Pages', params.length)
 
   return params
 }

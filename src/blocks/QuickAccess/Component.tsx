@@ -110,8 +110,8 @@ export const QuickAccessSection: React.FC<QuickAccessBlock> = ({ title, descript
 
   return (
     <div className="relative w-full bg-primary/5">
-      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
-        <div className="container relative z-10 px-4 sm:px-6">
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden px-4 sm:px-6 lg:px-0">
+        <div className="container relative z-10">
           <div className="flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16 lg:mb-24">
             <div className="inline-flex items-center px-3 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-5 md:mb-6">
               <Beaker className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
@@ -123,7 +123,7 @@ export const QuickAccessSection: React.FC<QuickAccessBlock> = ({ title, descript
               <span className="absolute -bottom-2 sm:-bottom-3 left-1/2 transform -translate-x-1/2 w-12 sm:w-14 md:w-16 h-1 bg-primary"></span>
             </h2>
 
-            <p className="mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl max-w-2xl sm:max-w-3xl font-secondary text-muted-foreground px-4 sm:px-0">
+            <p className="mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl max-w-2xl sm:max-w-3xl font-secondary text-muted-foreground">
               {description}
             </p>
           </div>

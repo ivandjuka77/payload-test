@@ -30,9 +30,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = products.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp'] // '' represents default (English)
+  const params = products.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Products', params.length)
 
   return params
 }
