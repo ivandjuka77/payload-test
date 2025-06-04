@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
-import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
@@ -16,6 +15,10 @@ import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
+
+// Force static generation without revalidation since products rarely change
+export const dynamic = 'force-static'
+export const dynamicParams = false // Return 404 for non-existent product pages instead of SSR fallback
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -105,17 +108,16 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   return generateMeta({ doc: product })
 }
 
+// Optimized query function for static generation
 const queryProductBySlug = cache(
   async ({ slug, locale }: { slug: string; locale: TypedLocale }) => {
-    const { isEnabled: draft } = await draftMode()
-
     const payload = await getPayload({ config: configPromise })
 
     const result = await payload.find({
       collection: 'products',
-      draft,
+      draft: false,
       limit: 1,
-      overrideAccess: draft,
+      overrideAccess: false,
       pagination: false,
       locale,
       where: {
