@@ -141,10 +141,7 @@ export const Timeline: React.FC<{
               </div>
 
               <motion.div
-                className={cn(
-                  'w-1/2 px-12',
-                  index % 2 === 0 ? 'text-right pr-24' : 'text-left pl-24',
-                )}
+                className={cn('w-1/2 px-12', index % 2 === 0 ? 'pr-24' : 'pl-24')}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, y: 10 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
