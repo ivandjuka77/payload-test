@@ -17,9 +17,9 @@ import { Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
 
 // Ensure pages are statically generated at build time with no ISR
-export const dynamic = 'force-static'
-export const dynamicParams = false
-export const revalidate = false
+// export const dynamic = 'force-static'
+// export const dynamicParams = false
+// export const revalidate = false
 
 // This function runs at build time to generate all possible [slug] paths
 export async function generateStaticParams() {
@@ -34,11 +34,6 @@ export async function generateStaticParams() {
       overrideAccess: false,
       pagination: false,
       depth: 0, // Minimize data fetched since we only need slugs
-      where: {
-        _status: {
-          equals: 'published',
-        },
-      },
       select: {
         slug: true,
       }, // Only fetch the slug field
