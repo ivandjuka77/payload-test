@@ -15,40 +15,53 @@ import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
-import { getInitializedPayload } from '@/utilities/payloadClient'
 
-// Force static generation without revalidation since products rarely change
+// Ensure pages are statically generated at build time with no ISR
 export const dynamic = 'force-static'
-export const dynamicParams = false // Return 404 for non-existent product pages instead of SSR fallback
+export const dynamicParams = false
+export const revalidate = false
 
+// This function runs at build time to generate all possible [slug] paths
 export async function generateStaticParams() {
-  console.log('[generateStaticParams] Attempting to get Payload client...')
-  const payload = await getInitializedPayload()
-  console.log('[generateStaticParams] Payload client obtained. Fetching products for params...')
-  const products = await payload.find({
-    collection: 'products',
-    draft: false,
-    limit: 50,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-  console.log(`[generateStaticParams] Found ${products.docs.length} products for param generation.`)
+  try {
+    // Use getPayload directly with config for more reliable build-time behavior
+    const payload = await getPayload({ config: configPromise })
 
-  const locales = ['', 'sk', 'jp']
-  const params = products.docs.flatMap(({ slug }) => {
-    return locales.map((locale) => ({
-      locale,
-      slug,
-    }))
-  })
+    // Fetch ALL products without limit
+    const products = await payload.find({
+      collection: 'products',
+      draft: false,
+      overrideAccess: false,
+      pagination: false,
+      depth: 0, // Minimize data fetched since we only need slugs
+      where: {
+        _status: {
+          equals: 'published',
+        },
+      },
+      select: {
+        slug: true,
+      }, // Only fetch the slug field
+    })
 
-  console.log(
-    `[generateStaticParams] Total params generated: ${params.length}. Products: ${products.docs.length}, Locales: ${locales.length}`,
-  )
-  return params
+    const locales = ['', 'sk', 'jp'] // Your supported locales
+
+    // Generate params for each product + locale combination
+    const params = products.docs.flatMap(({ slug }) =>
+      locales.map((locale) => ({
+        locale,
+        slug,
+      })),
+    )
+
+    console.log(`[generateStaticParams] Successfully generated ${params.length} static paths`)
+    console.log(`Products: ${products.docs.length}, Locales: ${locales.length}`)
+
+    return params
+  } catch (error) {
+    console.error('[generateStaticParams] Error generating static paths:', error)
+    throw error // Let the build fail if we can't generate paths
+  }
 }
 
 type Args = {
