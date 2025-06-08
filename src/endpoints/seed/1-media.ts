@@ -6,7 +6,9 @@ import { image2 } from './images/image-2'
 import { imageHero1 } from './images/image-hero-1'
 import { Media } from '@/payload-types'
 
-const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+const NEXT_PUBLIC_SERVER_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL ||
+  'https://payload-test-git-staging-ivandjuka77s-projects.vercel.app'
 
 // A centralized array of objects is much more maintainable
 const filesToSeed = [
@@ -481,6 +483,8 @@ const filesToSeed = [
 
 export const seedMedia = async (payload: Payload) => {
   payload.logger.info('— Seeding media...')
+
+  payload.logger.info(`NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}`)
 
   // --------------------
   // Step 1: Fetch all file buffers in parallel
