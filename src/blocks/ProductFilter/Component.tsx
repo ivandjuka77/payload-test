@@ -211,7 +211,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   }
 
   return (
-    <section className="bg-gray-50 pt-14" id="product-grid">
+    <section className="bg-gray-50 pt-14 px-4 sm:px-6 lg:px-0" id="product-grid">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between mb-8">
           <div className="flex flex-col gap-y-2">

@@ -19,11 +19,11 @@ export default function IndustryHero({
     title: string
     challenge: string
     challengeLink: string
-    image: string
+    image: number | MediaType
   }[]
 }) {
   return (
-    <section className="relative w-full min-h-[650px] flex flex-col overflow-hidden pb-10">
+    <section className="relative w-full min-h-[650px] flex flex-col overflow-hidden pb-10 px-4 sm:px-6 lg:px-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Media resource={image} imgClassName="object-cover h-full w-full" />
@@ -45,18 +45,18 @@ export default function IndustryHero({
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 flex-grow pt-20 px-4 md:px-6">
+      <div className="relative z-10 flex-grow pt-20">
         <div className="container mx-auto pt-16 pb-0">
           <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-4">
               {title}
             </h1>
-            <p className="text-lg text-white/90 font-secondary mb-6">{summary}</p>
+            <p className="text-base sm:text-lg text-white/90 font-secondary mb-6">{summary}</p>
 
             <div className="flex flex-wrap gap-4 mb-6">
               <Button
                 variant="outline"
-                className="px-6 bg-primary text-white hover:bg-primary/90 border-none"
+                className="px-4 sm:px-6 bg-primary text-white hover:bg-primary/90 border-none text-sm sm:text-base"
               >
                 <Link
                   href={`#${challenges[0]?.challengeLink}`}
@@ -84,9 +84,9 @@ export default function IndustryHero({
 
       {challenges && challenges.length > 0 && (
         <div className="relative z-10 w-full backdrop-blur-sm pb-4">
-          <div className="container px-4 md:px-6 mx-auto">
+          <div className="container mx-auto">
             <div className="flex flex-col items-center mb-6">
-              <h2 className="text-xl font-semibold font-primary text-white mb-2">
+              <h2 className="text-lg sm:text-xl font-semibold font-primary text-white mb-2">
                 Key Applications
               </h2>
               <div className="h-1 w-16 bg-primary rounded-full"></div>
@@ -107,7 +107,7 @@ export default function IndustryHero({
                     <div className="absolute inset-0 bg-black/30 hover:bg-black/20 transition-colors"></div>
                   </div>
                   <div className="flex flex-col flex-grow">
-                    <h3 className="font-primary font-semibold text-base text-white mt-2 h-[3em] line-clamp-2">
+                    <h3 className="font-primary font-semibold text-sm sm:text-base text-white mt-2 h-[3em] line-clamp-2">
                       {challenge.title}
                     </h3>
                     <p className="font-secondary text-xs text-white/70 h-[2.4em] line-clamp-2 mt-2">
@@ -117,7 +117,7 @@ export default function IndustryHero({
                       <Button
                         variant="outline"
                         size="sm"
-                        className="px-0 h-6 text-primary-light text-white hover:text-primary bg-transparent hover:bg-transparent border-none"
+                        className="px-0 h-6 text-primary-light text-white hover:text-primary bg-transparent hover:bg-transparent border-none text-xs sm:text-sm"
                         asChild
                       >
                         <Link

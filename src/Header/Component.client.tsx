@@ -30,7 +30,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
-import { SearchDialog, MobileSearch } from '@/components/Search'
+import { SearchDialog } from '@/components/Search'
 import Image from 'next/image'
 
 const navItems = [
@@ -88,7 +88,7 @@ function IndustriesMegaMenu({
 }) {
   return (
     <div className="container mx-auto py-6 px-6">
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {industries.map((industry) => {
           return (
             <Link
@@ -185,10 +185,16 @@ export default function Navbar({ industries, productCategories, services }: Navb
         isScrolled ? 'py-4' : 'py-6',
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-10">
-          <Image src="/assets/logo-vup.png" alt="VUP Logo" width={150} height={50} />
+          <Image
+            src="/assets/logo-vup.png"
+            alt="VUP Logo"
+            width={150}
+            height={50}
+            className="h-auto w-28 lg:w-[150px]"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -224,7 +230,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
         </nav>
 
         {/* Right side actions */}
-        <div className="flex items-center space-x-5">
+        <div className="flex items-center space-x-2 lg:space-x-5">
           {/* Search Dialog Trigger */}
           <SearchDialog>
             <Button
@@ -237,18 +243,20 @@ export default function Navbar({ industries, productCategories, services }: Navb
           </SearchDialog>
 
           {/* Language selector */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Select language">
-                <Globe className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {languages.map((lang) => (
-                <DropdownMenuItem key={lang.code}>{lang.code}</DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="hidden lg:block">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label="Select language">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {languages.map((lang) => (
+                  <DropdownMenuItem key={lang.code}>{lang.code}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
 
           {/* Mobile menu toggle */}
           <Button
@@ -273,7 +281,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
         onMouseLeave={() => setActiveDropdown(null)}
       >
         <div className="container mx-auto py-8 px-6">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {productCategories.map((productCategory, index) => {
               const featuredProducts = productCategory.featuredProducts as Product[]
               return (
@@ -368,7 +376,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
         onMouseLeave={() => setActiveDropdown(null)}
       >
         <div className="container mx-auto py-8 px-6">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Link
                 key={index}
@@ -435,9 +443,6 @@ export default function Navbar({ industries, productCategories, services }: Navb
                 <X size={20} />
               </Button>
             </div>
-
-            {/* Search */}
-            <MobileSearch onResultClick={() => setIsMobileMenuOpen(false)} />
 
             {/* Navigation Items */}
             <div className="py-4">

@@ -12,13 +12,13 @@ interface IndustryChallengesProps {
 
 export function IndustryChallenges({ industry }: IndustryChallengesProps) {
   return (
-    <section className="w-full bg-muted/30 py-12 md:py-16 lg:py-20">
+    <section className="w-full bg-muted/30 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="font-primary text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          <h2 className="font-primary text-2xl sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Industry Challenges
           </h2>
-          <p className="mt-4 font-secondary text-muted-foreground">
+          <p className="mt-4 font-secondary text-sm sm:text-base text-muted-foreground">
             Discover the unique challenges faced by {industry.name} and how VUP Solutions can help
             overcome them.
           </p>
@@ -31,24 +31,28 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
               id={challenge.challengeLink ?? ''}
               className="py-16 border-b border-border last:border-0"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
                 <div className="space-y-6">
-                  <h3 className="font-primary text-3xl font-bold tracking-tight text-foreground">
+                  <h3 className="font-primary text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                     {challenge.title}
                   </h3>
 
                   <div className="space-y-2">
-                    <h4 className="font-primary text-xl font-semibold text-foreground">
+                    <h4 className="font-primary text-lg sm:text-xl font-semibold text-foreground">
                       Challenge:
                     </h4>
-                    <p className="font-secondary text-muted-foreground">{challenge.challenge}</p>
+                    <p className="font-secondary text-sm sm:text-base text-muted-foreground">
+                      {challenge.challenge}
+                    </p>
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="font-primary text-xl font-semibold text-foreground">
+                    <h4 className="font-primary text-lg sm:text-xl font-semibold text-foreground">
                       VUP Solutions:
                     </h4>
-                    <p className="font-secondary text-muted-foreground">{challenge.solution}</p>
+                    <p className="font-secondary text-sm sm:text-base text-muted-foreground">
+                      {challenge.solution}
+                    </p>
                   </div>
                 </div>
 
@@ -63,14 +67,14 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
               </div>
 
               {challenge.relatedProducts && challenge.relatedProducts.length > 0 && (
-                <div className="mt-12 bg-gray-50/50 py-12 rounded-lg">
+                <div className="mt-12 bg-gray-50/50 py-8 sm:py-12 rounded-lg">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                    <h4 className="font-primary text-2xl font-semibold text-foreground">
+                    <h4 className="font-primary text-xl sm:text-2xl font-semibold text-foreground">
                       Relevant Products
                     </h4>
                     <Button
                       variant="link"
-                      className="text-primary mt-2 md:mt-0 px-0 flex items-center gap-1 hover:gap-2 transition-all"
+                      className="text-primary mt-2 md:mt-0 px-0 flex items-center gap-1 hover:gap-2 transition-all text-sm sm:text-base"
                       asChild
                     >
                       <Link href="/products">
@@ -98,14 +102,14 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
               )}
 
               {challenge.relatedServices && challenge.relatedServices.length > 0 && (
-                <div className="mt-12 bg-gray-50/50 py-12 rounded-lg">
+                <div className="mt-12 bg-gray-50/50 py-8 sm:py-12 rounded-lg">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                    <h4 className="font-primary text-2xl font-semibold text-foreground">
+                    <h4 className="font-primary text-xl sm:text-2xl font-semibold text-foreground">
                       Relevant Services
                     </h4>
                     <Button
                       variant="link"
-                      className="text-primary mt-2 md:mt-0 px-0 flex items-center gap-1 hover:gap-2 transition-all"
+                      className="text-primary mt-2 md:mt-0 px-0 flex items-center gap-1 hover:gap-2 transition-all text-sm sm:text-base"
                       asChild
                     >
                       <Link href="/services">
@@ -115,7 +119,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                   </div>
 
                   <div
-                    className={`grid gap-6 ${
+                    className={`grid gap-4 sm:gap-6 ${
                       challenge.relatedServices.length === 3
                         ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                         : 'grid-cols-1 md:grid-cols-2'

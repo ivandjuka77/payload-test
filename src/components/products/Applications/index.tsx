@@ -6,19 +6,19 @@ interface ApplicationsAndIndustriesProps {
 
 export function ApplicationsAndIndustries({ product }: ApplicationsAndIndustriesProps) {
   return (
-    <section className="w-full relative py-20">
-      <div className="container px-4 md:px-6">
+    <section className="w-full relative py-20 px-4 sm:px-6 lg:px-0">
+      <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4 font-primary">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4 font-primary">
             Applications & Industries
           </h2>
-          <p className="text-lg text-muted-foreground max-w-[800px] font-secondary">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-[800px] font-secondary">
             {product.description}
           </p>
         </div>
 
         <div
-          className={`grid grid-cols-1 ${product.applications.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-4`}
+          className={`grid grid-cols-1 ${product.applications.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-3 sm:gap-4`}
         >
           {product.applications.map((item) => (
             <div
@@ -37,11 +37,13 @@ export function ApplicationsAndIndustries({ product }: ApplicationsAndIndustries
               {/* Content Container */}
               <div className="absolute inset-x-0 bottom-0 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Main Content */}
-                <div className="p-4 transition-all duration-250">
-                  <h3 className="text-lg font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
+                <div className="p-3 sm:p-4 transition-all duration-250">
+                  <h3 className="text-base sm:text-lg font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
                     {item.application}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-300 opacity-85">{item.description}</p>
+                  <p className="mt-2 text-xs sm:text-sm text-gray-300 opacity-85">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             </div>

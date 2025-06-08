@@ -60,9 +60,9 @@ export default async function Post({ params: paramsPromise }: Args) {
       <PostHero post={post} />
 
       <div className="flex flex-col items-center gap-4 pt-14">
-        <div className="container">
+        <div className="container px-4 sm:px-6 lg:px-0">
           <RichText
-            className="max-w-[48rem] mx-auto"
+            className="max-w-[90%] sm:max-w-[48rem] mx-auto"
             data={post.content as DefaultTypedEditorState}
             enableGutter={false}
           />

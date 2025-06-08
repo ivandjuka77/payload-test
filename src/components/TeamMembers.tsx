@@ -12,12 +12,12 @@ export function TeamSection({
   team: TeamMember[]
 }) {
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container px-4 md:px-6 mx-auto">
+    <section className="w-full py-20 bg-gradient-to-b from-background to-muted/20 px-4 sm:px-6 lg:px-0">
+      <div className="container mx-auto lg:px-6">
         <div className="max-w-4xl mx-auto mb-12 text-center">
-          <h2 className="text-3xl font-bold text-primary font-primary mb-4">{title}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-primary font-primary mb-4">{title}</h2>
           {description && (
-            <p className="text-lg text-foreground/80 font-secondary">{description}</p>
+            <p className="text-base md:text-lg text-foreground/80 font-secondary">{description}</p>
           )}
         </div>
 
@@ -44,10 +44,10 @@ export function TeamSection({
 
                 <div className="p-6">
                   <div className="flex flex-col items-start mb-4">
-                    <h3 className="text-xl font-bold text-foreground font-primary">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground font-primary">
                       {member.name}
                     </h3>
-                    <p className="text-primary font-medium text-sm">{member.role}</p>
+                    <p className="text-primary font-medium text-sm md:text-base">{member.role}</p>
                   </div>
 
                   {/* {member.qualifications && member.qualifications.length > 0 && (
@@ -59,7 +59,7 @@ export function TeamSection({
                   )} */}
 
                   {member.bio && (
-                    <p className="text-foreground/70 font-secondary text-sm leading-relaxed line-clamp-4">
+                    <p className="text-foreground/70 font-secondary text-sm md:text-base leading-relaxed line-clamp-4">
                       {member.bio}
                     </p>
                   )}

@@ -162,6 +162,13 @@ export const Posts: CollectionConfig<'posts'> = {
               hasMany: true,
               maxDepth: 3,
             },
+            {
+              name: 'relatedPosts',
+              type: 'relationship',
+              relationTo: 'posts',
+              hasMany: true,
+              maxDepth: 3,
+            },
           ],
         },
         {

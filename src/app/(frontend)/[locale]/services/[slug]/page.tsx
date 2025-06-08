@@ -72,11 +72,13 @@ export default async function Service({ params: paramsPromise }: Args) {
         description="From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
         services={service.subServices}
       />
-      <TeamSection
-        title={service.title + ' Team'}
-        description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
-        team={service.team as TeamMember[]}
-      />
+      {service.team && service.team.length > 0 && (
+        <TeamSection
+          title={service.title + ' Team'}
+          description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          team={service.team as TeamMember[]}
+        />
+      )}
       {service.industries && service.industries.length > 0 && (
         <IndustryShowcaseComponent
           title={service.title + ' Industries'}

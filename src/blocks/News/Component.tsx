@@ -122,8 +122,8 @@ export const NewsSection: React.FC<NewsBlock> = ({
   if (!items) return null
 
   return (
-    <section className="w-full py-12 sm:py-14 md:py-16 lg:py-24 relative bg-gray-50">
-      <div className="container px-4 sm:px-5 md:px-6">
+    <section className="w-full py-12 sm:py-14 md:py-16 lg:py-24 relative bg-gray-50 px-4 sm:px-6 lg:px-0">
+      <div className="container">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 md:mb-12">
           <div className="flex flex-col gap-3 sm:gap-4">
             <div className="inline-flex w-fit items-center px-2.5 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2">

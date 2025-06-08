@@ -6,7 +6,7 @@ export const SimpleHero: React.FC<Page['hero']> = (props) => {
   const { title, description, cta, media } = props
 
   return (
-    <section className="relative w-full bg-background py-12 md:py-16 lg:py-20">
+    <section className="relative w-full bg-background py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-center">

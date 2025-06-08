@@ -1,4 +1,4 @@
-import type { Media } from '@/payload-types'
+import type { Media, TeamMember } from '@/payload-types'
 
 type AboutUsArgs = {
   timeline1Image: Media
@@ -7,9 +7,13 @@ type AboutUsArgs = {
   timeline4Image: Media
   content1Image: Media
   content2Image: Media
+  ceo: TeamMember
+  rd: TeamMember
+  commercial: TeamMember
+  atbel: TeamMember
+  cosmetics: TeamMember
 }
-
-export function aboutUs(args: AboutUsArgs) {
+export async function aboutUs(args: AboutUsArgs) {
   const {
     timeline1Image,
     timeline2Image,
@@ -17,15 +21,31 @@ export function aboutUs(args: AboutUsArgs) {
     timeline4Image,
     content1Image,
     content2Image,
+    ceo,
+    rd,
+    commercial,
+    atbel,
+    cosmetics,
   } = args
 
   return {
-    title: 'About Us',
+    title: {
+      en: 'About Us',
+      sk: 'O nás',
+      jp: '会社概要',
+    },
     hero: {
       type: 'minimal',
-      title: 'About us ',
-      description: 'This is the about us description',
-
+      title: {
+        en: 'About us',
+        sk: 'O nás',
+        jp: '会社概要',
+      },
+      description: {
+        en: 'This is the about us description',
+        sk: 'Toto je popis o nás',
+        jp: '会社概要の説明です',
+      },
       cta: {
         links: [],
       },
@@ -34,22 +54,23 @@ export function aboutUs(args: AboutUsArgs) {
     },
     layout: [
       {
-        title: 'Our Mission',
-
+        title: {
+          en: 'Our Mission',
+          sk: 'Naše poslanie',
+          jp: '私たちのミッション',
+        },
         content: {
           root: {
             type: 'root',
             format: '',
             indent: 0,
             version: 1,
-
             children: [
               {
                 type: 'paragraph',
                 format: '',
                 indent: 0,
                 version: 1,
-
                 children: [
                   {
                     mode: 'normal',
@@ -60,7 +81,6 @@ export function aboutUs(args: AboutUsArgs) {
                     format: 0,
                     version: 1,
                   },
-
                   {
                     mode: 'normal',
                     text: 'continuously accelerate our research and production by applying innovative solutions, as well as to maintain excellence in service and delivery that results in opportunities for our partners.',
@@ -214,13 +234,16 @@ export function aboutUs(args: AboutUsArgs) {
           },
         },
         image: content1Image.id,
-        blockName: null,
+        blockName: 'Mission',
         blockType: 'contentImage',
         layout: 'left',
       },
       {
-        title: 'Our Vision & Values',
-
+        title: {
+          en: 'Our Vision & Values',
+          sk: 'Naša vízia a hodnoty',
+          jp: '私たちのビジョンと価値観',
+        },
         content: {
           root: {
             type: 'root',
@@ -446,17 +469,28 @@ export function aboutUs(args: AboutUsArgs) {
           },
         },
         image: content2Image.id,
-        blockName: null,
+        blockName: 'Vision',
         blockType: 'contentImage',
         layout: 'right',
       },
       {
-        badge: 'Our Journey',
-        title: 'A Timeline of Innovation',
-        subtitle:
-          'VUP, a.s. has a rich history rooted in the petrochemical industry, evolving into a modern center for specialized chemical research and production.',
-        blockName: null,
-
+        badge: {
+          en: 'Our Journey',
+          sk: 'Naša cesta',
+          jp: '私たちの歩み',
+        },
+        title: {
+          en: 'A Timeline of Innovation',
+          sk: 'Časová os inovácií',
+          jp: 'イノベーションの歴史',
+        },
+        subtitle: {
+          en: 'VUP, a.s. has a rich history rooted in the petrochemical industry, evolving into a modern center for specialized chemical research and production.',
+          sk: 'VUP, a.s. má bohatú históriu zakorenenú v petrochemickom priemysle a vyvíja sa na moderné centrum pre špecializovaný chemický výskum a výrobu.',
+          jp: 'VUP, a.s.は、石油化学産業に根ざした豊かな歴史を持ち、専門的な化学研究と生産のための現代的なセンターへと進化しています。',
+        },
+        blockName: 'Timeline',
+        blockType: 'timeline',
         items: [
           {
             period: 'Pre-1996',
@@ -682,65 +716,23 @@ export function aboutUs(args: AboutUsArgs) {
             ],
           },
         ],
-        blockType: 'timeline',
       },
       {
-        title: 'Our Team: The Experts Behind VUP',
-        subtitle:
-          'At VUP, our strength lies in our dedicated and experienced team of scientists, engineers, technicians, and professionals. We foster a culture of collaboration, innovation, and continuous learning.',
-        blockName: null,
+        title: {
+          en: 'Our Team: The Experts Behind VUP',
+          sk: 'Náš tím: Experti za VUP',
+          jp: '私たちのチーム：VUPを支える専門家たち',
+        },
+        subtitle: {
+          en: 'At VUP, our strength lies in our dedicated and experienced team of scientists, engineers, technicians, and professionals. We foster a culture of collaboration, innovation, and continuous learning.',
+          sk: 'V spoločnosti VUP spočíva naša sila v oddanom a skúsenom tíme vedcov, inžinierov, technikov a odborníkov. Podporujeme kultúru spolupráce, inovácie a neustáleho vzdelávania.',
+          jp: 'VUPでは、献身的で経験豊富な科学者、エンジニア、技術者、専門家のチームに私たちの強みがあります。私たちは、協力、革新、継続的な学習の文化を育んでいます。',
+        },
+        blockName: 'Team',
         blockType: 'team',
-
-        teamMembers: [
-          {
-            name: 'Roman Karlubik',
-            role: 'Chief Executive Officer',
-            bio: "Leading VUP's strategic direction and commitment to innovation and sustainable growth.",
-            image: timeline1Image.id,
-            linkedin: null,
-            email: null,
-            isHeadOfDepartment: null,
-          },
-          {
-            name: 'Ing. Peter Grolmus',
-            role: 'Director of Research & Development',
-            bio: "Overseeing VUP's extensive R&D programs, driving innovation in chemical synthesis, process development, and new product creation.",
-            image: timeline2Image.id,
-            linkedin: null,
-            email: null,
-            isHeadOfDepartment: true,
-          },
-          {
-            name: 'Ing. Ján Chalupka',
-            role: 'Head of Commercial Department',
-            bio: "Managing VUP's commercial strategy, client partnerships, and market development for our diverse product and service portfolio.",
-            image: timeline3Image.id,
-            linkedin: null,
-            email: null,
-            isHeadOfDepartment: true,
-          },
-          {
-            name: 'Ing. Ľudovít Žiak, PhD',
-            role: 'Head of ATBEL Division (Analytical, Technical-Safety, and Ecological Laboratories)',
-            bio: 'Leading our SNAS S-118 accredited laboratories, ensuring high-quality analytical services, technical safety testing, and environmental monitoring.\n',
-            image: timeline4Image.id,
-            linkedin: null,
-            email: null,
-            isHeadOfDepartment: true,
-          },
-          {
-            name: 'Ing. Denisa Juríčeková',
-            role: 'Head of Production Department for Cosmetics',
-            bio: "Overseeing the development, manufacturing, and quality assurance of VUP's cosmetic products, including custom and private label solutions.\n",
-            image: timeline1Image.id,
-            linkedin: null,
-            email: null,
-            isHeadOfDepartment: true,
-          },
-        ],
+        teamMembers: [ceo.id, rd.id, commercial.id, atbel.id, cosmetics.id],
       },
     ],
-
     meta: {
       title: null,
       image: null,

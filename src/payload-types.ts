@@ -343,6 +343,7 @@ export interface Post {
   relatedProducts?: (number | Product)[] | null;
   relatedServices?: (number | Service)[] | null;
   industries?: (number | Industry)[] | null;
+  relatedPosts?: (number | Post)[] | null;
   meta?: {
     title?: string | null;
     /**
@@ -681,7 +682,7 @@ export interface TeamMember {
   name: string;
   role: string;
   bio?: string | null;
-  image: number | Media;
+  image?: (number | null) | Media;
   /**
    * LinkedIn profile URL
    */
@@ -2562,6 +2563,7 @@ export interface PostsSelect<T extends boolean = true> {
   relatedProducts?: T;
   relatedServices?: T;
   industries?: T;
+  relatedPosts?: T;
   meta?:
     | T
     | {

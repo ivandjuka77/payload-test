@@ -11,8 +11,8 @@ export async function Footer() {
   const navItems = footerData?.navItems || []
 
   return (
-    <footer className="mt-auto border-t border-border bg-gray-50 dark:bg-card text-gray-900 dark:text-white">
-      <div className="container px-4 md:px-6 py-12">
+    <footer className="mt-auto border-t border-border bg-gray-50 dark:bg-card text-gray-900 dark:text-white px-4 sm:px-6 lg:px-0">
+      <div className="container py-12">
         {/* Top section with newsletter */}
         <div className="bg-primary/5 rounded-xl p-6 md:p-8 mb-12">
           <NewsletterFooter />

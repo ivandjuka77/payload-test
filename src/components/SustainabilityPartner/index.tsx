@@ -6,26 +6,26 @@ import Link from 'next/link'
 
 export default function SustainabilityPartner() {
   return (
-    <section className="bg-gray-50 pb-24">
-      <div className="container ">
-        <div className="bg-gradient-to-br from-[hsl(149.71,100%,40%)] to-[hsl(149.71,100%,40%)]/80 rounded-2xl p-12 text-white text-center">
-          <div className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
-              <Handshake className="w-4 h-4 mr-2" />
+    <section className="bg-gray-50 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-0">
+      <div className="container">
+        <div className="rounded-2xl bg-gradient-to-br from-[hsl(149.71,100%,40%)] to-[hsl(149.71,100%,40%)]/80 p-6 text-center text-white sm:p-10 md:p-12">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-4 inline-flex items-center rounded-full bg-white/20 px-4 py-1 text-sm font-medium text-white md:mb-6">
+              <Handshake className="mr-2 h-4 w-4" />
               <span>Partner with Us</span>
             </div>
 
-            <h2 className="text-4xl font-bold font-primary mb-6">
+            <h2 className="font-primary mb-4 text-3xl font-bold sm:text-4xl md:mb-6">
               Partner with a Sustainable Leader
             </h2>
 
-            <p className="text-xl mb-8 font-secondary">
+            <p className="mb-8 font-secondary text-lg sm:text-xl">
               Our EcoVadis Silver rating and long-standing certifications are testaments to our
               dedication. Let&apos;s discuss how our commitment can support your sustainability
               objectives.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 asChild
                 size="lg"
@@ -41,7 +41,7 @@ export default function SustainabilityPartner() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white/10"
+                className="border-white bg-transparent text-white hover:bg-white/10"
               >
                 <Link href="/certifications" className="inline-flex items-center gap-2">
                   View Our Certifications

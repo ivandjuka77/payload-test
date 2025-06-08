@@ -19,35 +19,38 @@ export default function ProductCard({
     return (
       <div
         key={product.id}
-        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 "
+        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
       >
-        <div className="flex flex-col md:flex-row h-full">
-          <div className="px-6 py-6 md:px-12 md:py-12 md:w-3/5 flex flex-col justify-center">
-            <h3 className="text-xl md:text-3xl font-bold mb-4 font-primary text-gray-900">
+        <div className="flex flex-col-reverse lg:flex-row h-full">
+          {/* Content section */}
+          <div className="p-6 sm:p-8 lg:px-12 lg:py-12 lg:w-3/5 flex flex-col justify-center">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 font-primary text-gray-900">
               {product.name}
             </h3>
-            <span className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <span className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
               CAS:{' '}
               <span className="font-normal">
                 {product.technicalSpecifications?.casNumber || '123-45-67'}
               </span>
             </span>
 
-            <p className="text-gray-600 mb-6 font-secondary text-base leading-relaxed">
+            <p className="text-gray-600 mb-4 sm:mb-6 font-secondary text-sm sm:text-base leading-relaxed">
               {product.description}
             </p>
 
             {/* Key Properties */}
             {product.keyFeatures && product.keyFeatures.length > 0 && (
-              <div className="mb-8">
-                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+              <div className="mb-6 sm:mb-8">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
                   Key Properties
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-md">
                   {product.keyFeatures.slice(0, 4).map((value, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
+                    <div key={idx} className="flex items-center gap-2 sm:gap-3">
                       <CheckCircle className="h-4 w-4 text-primary" />
-                      <span className="text-sm font-medium text-gray-700">{value.feature}</span>
+                      <span className="text-xs sm:text-sm font-medium text-gray-700">
+                        {value.feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -56,8 +59,8 @@ export default function ProductCard({
 
             {/* Applications */}
             {product.applications && product.applications.length > 0 && (
-              <div className="mb-8">
-                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4 flex items-center">
+              <div className="mb-6 sm:mb-8">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4 flex items-center">
                   <Beaker className="h-4 w-4 mr-2 text-primary" />
                   Applications
                 </h4>
@@ -65,13 +68,13 @@ export default function ProductCard({
                   {product.applications.slice(0, 3).map((application, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm"
+                      className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs sm:text-sm"
                     >
                       {application.application}
                     </span>
                   ))}
                   {product.applications.length > 3 && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-sm">
+                    <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs sm:text-sm">
                       +{product.applications.length - 3} more
                     </span>
                   )}
@@ -80,9 +83,9 @@ export default function ProductCard({
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
               <Dialog>
-                <DialogTrigger className="inline-flex items-center gap-2 w-fit bg-primary text-white hover:bg-primary/90 px-8 rounded-md font-medium transition-colors">
+                <DialogTrigger className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base">
                   Request Quote
                   <ArrowUpRight className="h-4 w-4" />
                 </DialogTrigger>
@@ -91,8 +94,11 @@ export default function ProductCard({
                 </DialogContent>
               </Dialog>
 
-              <Link href={`/products/${product.slug}`}>
-                <Button variant="outline" className="px-8 py-3 rounded-md font-medium">
+              <Link href={`/products/${product.slug}`} className="w-full xs:w-fit">
+                <Button
+                  variant="outline"
+                  className="w-full xs:w-auto px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base"
+                >
                   View Details
                 </Button>
               </Link>
@@ -100,19 +106,19 @@ export default function ProductCard({
           </div>
 
           {/* Right image */}
-          <div className="relative md:w-2/5 h-64 md:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+          <div className="relative lg:w-2/5 h-48 sm:h-56 lg:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
             {product.chemicalStructureImage ? (
               <Media
                 resource={product.chemicalStructureImage}
-                imgClassName="object-contain p-8 h-full w-full"
+                imgClassName="object-contain p-6 sm:p-8 h-full w-full"
               />
             ) : (
               <div className="text-gray-400 text-center">
-                <Beaker className="h-12 w-12 mx-auto mb-2" />
-                <span className="text-sm">Chemical Structure</span>
+                <Beaker className="h-8 sm:h-12 w-8 sm:w-12 mx-auto mb-2" />
+                <span className="text-xs sm:text-sm">Chemical Structure</span>
               </div>
             )}
-            <Tag className="absolute top-4 right-4" type="product">
+            <Tag className="absolute top-3 sm:top-4 right-3 sm:right-4" type="product">
               Product
             </Tag>
           </div>
@@ -180,7 +186,7 @@ export default function ProductCard({
         </div>
 
         {variant === 'default' && (
-          <div className="mb-4 sm:mb-5 md:mb-6 bg-gray-50 rounded-lg p-2 sm:p-3 md:p-4 border border-gray-100">
+          <div className="mb-4 sm:mb-5 md:mb-6 bg-gray-50 rounded-lg p-2 sm:p-3 md:p-4 border border-gray-100 hidden md:block">
             <h4 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-gray-900 flex items-center">
               <Beaker className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
               Applications & Use Cases
