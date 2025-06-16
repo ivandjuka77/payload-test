@@ -10,6 +10,20 @@ import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
 import { queryIndustries } from '@/utilities/queries'
 
+export async function generateStaticParams() {
+  const locales = ['', 'sk', 'jp'] // Your supported locales
+
+  // For the main industries page, we only need to generate one path per locale
+  const params = locales.map((locale) => ({
+    locale,
+  }))
+
+  console.log(`[generateStaticParams] Generated paths for industries index page`)
+  console.log(`Locales: ${locales.length}`)
+
+  return params
+}
+
 export default async function IndustriesPage() {
   const { isEnabled: draft } = await draftMode()
   const url = '/industries'

@@ -4,7 +4,7 @@ import type { SeededMedia } from './1-media'
 export const seedServices = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('— Seeding services...')
 
-  const { image1Doc, image2Doc } = media
+  const { demoImageDoc, image2Doc } = media
 
   const [
     researchDevelopment,
@@ -20,7 +20,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           "VUP's R&D division solves complex chemistry challenges across diverse industries.With 70+ years of chemical expertise, we transform ideas into viable technological solutions tailored to your needs.",
-        featuredImage: image1Doc.id,
+        featuredImage: demoImageDoc.id,
         features: [
           {
             feature: 'Experience',
@@ -58,7 +58,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Route Scouting & Feasibility',
             description:
               'Expert evaluation and design of synthetic routes through comprehensive literature research, patent analysis, and practical chemistry expertise to identify optimal pathways for your target compounds. Our experienced team conducts thorough feasibility studies, evaluating technical risks and commercial viability to ensure the most efficient and cost-effective synthetic approach for your specific requirements.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Literature & Patent Analysis' },
               { item: 'Synthetic Route Design' },
@@ -118,7 +118,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Process Development & Optimization',
             description:
               'Developing safe, efficient, and scalable synthetic processes with focus on optimizing reaction conditions, improving yields and purity, reducing costs, and implementing greener chemistry principles. Our team specializes in reaction calorimetry, distillation optimization, crystallization studies, and solvent elimination strategies to create robust, environmentally conscious manufacturing processes.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Reaction Optimization' },
               { item: 'Yield Improvement' },
@@ -178,7 +178,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Analytical Method Development',
             description:
               'Creating and validating analytical methods for raw materials, intermediates, and final products in collaboration with our SNAS-accredited ATBEL division, ensuring reliable quality control throughout development. Our comprehensive analytical capabilities include GC, LC, GC-MS, FT-IR, NMR, and specialized testing methods tailored to support your R&D and production requirements.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Method Creation & Validation' },
               { item: 'Raw Material Analysis' },
@@ -284,7 +284,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Chromatographic Analysis',
             description:
               'Advanced chromatographic techniques including gas chromatography (GC, GC-MS), high-performance liquid chromatography (HPLC), and isotachophoresis (ITP) for composition analysis, VOC determination, impurity identification, and anion determination. Our state-of-the-art equipment enables precise analysis of complex mixtures with method development capabilities.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Gas Chromatography (GC, GC-MS)' },
               { item: 'High-Performance Liquid Chromatography (HPLC)' },
@@ -334,7 +334,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Physical & Technical-Safety Testing',
             description:
               'Physical property determination and technical-safety testing according to OECD and ISO standards including melting point, boiling point, density, vapour pressure, surface tension, water solubility, flash point, and flammability testing. Essential for regulatory compliance, safety assessments, and product characterization across multiple industries.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Physical Properties (OECD Standards)' },
               { item: 'Flash Point & Flammability' },
@@ -402,7 +402,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs.",
-        featuredImage: image1Doc.id,
+        featuredImage: demoImageDoc.id,
         features: [
           {
             feature: 'Proven Experience',
@@ -440,7 +440,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'White Label Services',
             description:
               "Brand and sell VUP's existing, market-tested cosmetic formulations including award-winning products. Our white label portfolio features proven formulations like Fortea hand creams and body lotions with various natural extracts and propolis, Fortea massage oils with essential oils, Slovak Gold award-winning Peggy massage gels with plant extracts (marigold, chestnut, capsaicin, menthol, comfrey, arnica), and medical diagnostic gels including alcohol-free Gelson sonography gel and EV ECG/EEG conductive gel.",
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Fortea Hand Creams & Body Lotions' },
               { item: 'Award-Winning Peggy Massage Gels' },
@@ -500,7 +500,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Quality Assurance & Compliance',
             description:
               'Rigorous quality management ensuring adherence to European cosmetic legislation and medical device requirements. Our comprehensive quality system includes in-house microbiological testing according to international standards (STN ISO 21527-2, STN EN ISO 21149), raw material and product quality control via SNAS S-118 accredited ATBEL laboratories using advanced analytical techniques (GC-MS, HPLC, FT-IR), and complete documentation supporting regulatory compliance including Certificates of Analysis and Product Information File elements.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'European Regulatory Compliance' },
               { item: 'Microbiological Testing' },
@@ -551,7 +551,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Navigate complex chemical regulations and overcome technical hurdles with expert support combining deep regulatory knowledge and 70+ years of R&D expertise.',
-        featuredImage: image1Doc.id,
+        featuredImage: demoImageDoc.id,
         features: [
           {
             feature: 'REACH Expertise',
@@ -589,7 +589,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'REACH Compliance Support',
             description:
               "Comprehensive REACH guidance based on VUP's direct experience with successful full and intermediate registrations. We provide practical support for data gathering, dossier preparation, and compliance strategy development, leveraging our proven track record with substances like DMPA, DMBA, and TEMPO derivatives. Our accredited laboratories ensure reliable technical data for regulatory submissions.",
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Registration Strategy Development' },
               { item: 'Technical Data Generation' },
@@ -644,7 +644,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Safety & Environmental Compliance',
             description:
               'Comprehensive support for chemical safety and environmental compliance including workplace safety assessments, environmental impact evaluations, and regulatory guidance. Our Responsible Care certification and extensive safety testing capabilities ensure reliable guidance for safe handling, storage, disposal, and environmental protection measures across chemical operations.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Safety Assessment Support' },
               { item: 'Environmental Impact Evaluation' },
@@ -720,7 +720,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. Complex chemistry, reliably delivered.',
-        featuredImage: image1Doc.id,
+        featuredImage: demoImageDoc.id,
         features: [
           {
             feature: 'Expert Problem Solving',
@@ -758,7 +758,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Custom Synthesis',
             description:
               'Specialized synthesis of non-catalogue fine chemicals, complex intermediates, reference standards, and chemical specialties. We tackle challenging multi-step synthetic routes leveraging our deep expertise in acetylene chemistry, TEMPO derivatives, hydroxy acids, and other specialized chemistries. From route scouting and feasibility studies to laboratory-scale synthesis, we deliver high-purity compounds tailored to your specific requirements.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Route Scouting & Feasibility Studies' },
               { item: 'Laboratory Scale Synthesis (g-kg)' },
@@ -818,7 +818,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Small-Scale & Toll Manufacturing',
             description:
               'Reliable contract manufacturing of fine chemicals and specialties utilizing our versatile pilot plant infrastructure. We offer flexible toll manufacturing services for kilogram to multi-tonne campaigns based on established processes, whether VUP-developed or client-provided. Our ISO 9001:2015 certified manufacturing processes ensure consistent quality and reliable delivery for your production needs.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
             displayItems: [
               { item: 'Contract Manufacturing (kg-tonne)' },
               { item: 'Toll Processing Services' },

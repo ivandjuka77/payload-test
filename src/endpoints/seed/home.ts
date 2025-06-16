@@ -33,7 +33,7 @@ type HomeArgs = {
   post3: Post
   post4: Post
   // Sustainability
-  sustainabilityImage1Doc: Media
+  sustainabilitydemoImageDoc: Media
 }
 
 export function home(args: HomeArgs) {
@@ -64,7 +64,7 @@ export function home(args: HomeArgs) {
     post2,
     post3,
     post4,
-    sustainabilityImage1Doc,
+    sustainabilitydemoImageDoc,
   } = args
 
   return {
@@ -496,7 +496,7 @@ export function home(args: HomeArgs) {
         subtitle:
           "We're reimagining chemical processes to protect our planet while delivering the innovative solutions our customers need.",
 
-        image: sustainabilityImage1Doc,
+        image: sustainabilitydemoImageDoc,
         blockName: null,
         features: [
           {

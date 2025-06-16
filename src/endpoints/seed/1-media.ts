@@ -1,9 +1,5 @@
 import type { Payload } from 'payload'
 import { fetchFileByURL } from './utils'
-// The data objects for specific images are still needed
-import { image1 } from './images/image-1'
-import { image2 } from './images/image-2'
-import { imageHero1 } from './images/image-hero-1'
 import { Media } from '@/payload-types'
 
 const NEXT_PUBLIC_SERVER_URL =
@@ -14,28 +10,24 @@ const NEXT_PUBLIC_SERVER_URL =
 const filesToSeed = [
   // Demo Images
   {
-    key: 'image1Doc',
-    url: 'https://raw.githubusercontent.com/payloadcms/payload/main/templates/website/src/endpoints/seed/image-post1.webp',
-    alt: 'Post 1 Image',
-    data: image1,
+    key: 'demoImageDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
+    alt: 'Demo Image 1',
   },
   {
     key: 'image2Doc',
-    url: 'https://raw.githubusercontent.com/payloadcms/payload/main/templates/website/src/endpoints/seed/image-post2.webp',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
     alt: 'Post 2 Image',
-    data: image2,
   },
   {
     key: 'image3Doc',
-    url: 'https://raw.githubusercontent.com/payloadcms/payload/main/templates/website/src/endpoints/seed/image-post3.webp',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
     alt: 'Post 3 Image',
-    data: image2,
   }, // Re-using image2 data as in original
   {
     key: 'imageHomeDoc',
-    url: 'https://raw.githubusercontent.com/payloadcms/payload/main/templates/website/src/endpoints/seed/image-hero1.webp',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
     alt: 'Hero Image',
-    data: imageHero1,
   },
   // Misc
   {
@@ -201,13 +193,13 @@ const filesToSeed = [
     alt: 'Quick Access Card 4',
   },
   {
-    key: 'sustainabilityImage1Doc',
+    key: 'sustainabilitydemoImageDoc',
     url: 'https://images.pexels.com/photos/15480413/pexels-photo-15480413/free-photo-of-modern-futuristic-construction-in-city.jpeg',
     alt: 'Sustainability Image 1',
   },
   // Applications
   {
-    key: 'applicationsImage1Doc',
+    key: 'applicationsdemoImageDoc',
     url: 'https://plus.unsplash.com/premium_photo-1682142455929-cfdbbf6d7f4e',
     alt: 'Waterborne Coatings Application',
   },
@@ -481,15 +473,39 @@ const filesToSeed = [
   },
 ]
 
-export const seedMedia = async (payload: Payload) => {
-  payload.logger.info('— Seeding media...')
+// Helper function to create only missing media
+async function createMissingMedia(
+  payload: Payload,
+  missingKeys: string[],
+  mediaMap: Record<string, Media>,
+): Promise<void> {
+  const missingFiles = filesToSeed.filter((file) => missingKeys.includes(file.key))
 
+  payload.logger.info(`— Creating ${missingFiles.length} missing media files...`)
+
+  for (const file of missingFiles) {
+    try {
+      payload.logger.info(`  ⏳ Creating ${file.key} (${file.alt})...`)
+      const buffer = await fetchFileByURL(file.url)
+      const doc = await payload.create({
+        collection: 'media',
+        file: buffer,
+        data: { alt: file.alt },
+      })
+      mediaMap[file.key] = doc
+      payload.logger.info(`  ✅ Successfully created ${file.key} → ID: ${doc.id}`)
+    } catch (error) {
+      payload.logger.error(`  ❌ Failed to create ${file.key}: ${error}`)
+    }
+  }
+}
+
+// Extract original logic into separate function
+async function createAllMedia(payload: Payload): Promise<Record<string, Media>> {
+  payload.logger.info('— Creating fresh media documents...')
   payload.logger.info(`NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}`)
 
-  // --------------------
   // Step 1: Fetch all file buffers in parallel
-  // This is efficient and less likely to cause issues.
-  // --------------------
   payload.logger.info(`— Fetching ${filesToSeed.length} files...`)
   const fileBuffers = await Promise.all(filesToSeed.map((file) => fetchFileByURL(file.url)))
 
@@ -498,10 +514,7 @@ export const seedMedia = async (payload: Payload) => {
     buffer: fileBuffers[i],
   }))
 
-  // --------------------
   // Step 2: Batch-create all media documents
-  // This is the crucial part to avoid socket exhaustion.
-  // --------------------
   payload.logger.info(`— Creating ${filesWithBuffers.length} media documents in batches...`)
   const BATCH_SIZE = 40
   const createdDocs = []
@@ -513,33 +526,166 @@ export const seedMedia = async (payload: Payload) => {
       `  - Processing batch ${batchNumber} of ${Math.ceil(filesWithBuffers.length / BATCH_SIZE)}...`,
     )
 
-    const createPromises = batch.map(
-      (file) =>
-        payload
-          .create({
-            collection: 'media',
-            file: file.buffer,
-            data: file.data || { alt: file.alt }, // Use specific data if provided, otherwise just alt
-          })
-          .then((doc) => ({ key: file.key, doc })), // Pass the key along with the created doc
+    const createPromises = batch.map((file) =>
+      payload
+        .create({
+          collection: 'media',
+          file: file.buffer,
+          data: { alt: file.alt },
+        })
+        .then((doc) => ({ key: file.key, doc })),
     )
 
     const batchResults = await Promise.all(createPromises)
     createdDocs.push(...batchResults)
   }
 
-  // --------------------
   // Step 3: Reconstruct the original return object dynamically
-  // This ensures that other seeding scripts that depend on this one will not break.
-  // --------------------
   const seededMediaObject = createdDocs.reduce((acc: Record<string, Media>, { key, doc }) => {
     acc[key] = doc
     return acc
   }, {})
 
-  payload.logger.info('✓ Media seeded successfully!')
-
+  payload.logger.info('✅ All media created successfully!')
   return seededMediaObject
+}
+
+export const seedMedia = async (payload: Payload, useExisting = true) => {
+  payload.logger.info('— Seeding media...')
+
+  if (useExisting) {
+    payload.logger.info('🔍 Using existing media documents...')
+
+    // Query all existing media documents
+    const existingMedia = await payload.find({
+      collection: 'media',
+      limit: 1000, // Increase if you have more media files
+      depth: 0, // Don't need deep population for this
+    })
+
+    payload.logger.info(
+      `📊 Found ${existingMedia.docs.length} existing media documents in database`,
+    )
+
+    // Create mapping of expected keys to existing media
+    const mediaMap: Record<string, Media> = {}
+    const foundKeys: string[] = []
+    const missingKeys: string[] = []
+
+    payload.logger.info('🔗 Starting media mapping process...')
+
+    // Try to map each expected file to an existing media document
+    filesToSeed.forEach(({ key, alt, url }) => {
+      let found: Media | undefined
+      let matchStrategy = ''
+
+      // Strategy 1: Exact alt text match (most reliable)
+      found = existingMedia.docs.find((doc) => doc.alt === alt)
+      if (found) {
+        matchStrategy = 'exact alt match'
+      }
+
+      if (!found) {
+        // Strategy 2: Case-insensitive alt text match
+        found = existingMedia.docs.find((doc) => doc.alt?.toLowerCase() === alt.toLowerCase())
+        if (found) {
+          matchStrategy = 'case-insensitive alt match'
+        }
+      }
+
+      if (!found) {
+        // Strategy 3: Match by filename patterns from URL
+        const urlFilename = url.split('/').pop()?.split('?')[0]?.toLowerCase()
+        if (urlFilename) {
+          found = existingMedia.docs.find((doc) => {
+            const docFilename = doc.filename?.toLowerCase()
+            return docFilename?.includes(urlFilename) || urlFilename.includes(docFilename || '')
+          })
+          if (found) {
+            matchStrategy = 'filename pattern match'
+          }
+        }
+      }
+
+      if (!found) {
+        // Strategy 4: Match by key patterns (fallback)
+        const keyPattern = key
+          .replace('Doc', '')
+          .replace(/([A-Z])/g, ' $1') // Convert camelCase to words
+          .toLowerCase()
+          .trim()
+
+        found = existingMedia.docs.find((doc) => {
+          const altWords = doc.alt?.toLowerCase() || ''
+          const filenameWords = doc.filename?.toLowerCase() || ''
+
+          return (
+            altWords.includes(keyPattern) ||
+            filenameWords.includes(keyPattern) ||
+            keyPattern
+              .split(' ')
+              .every((word) => altWords.includes(word) || filenameWords.includes(word))
+          )
+        })
+        if (found) {
+          matchStrategy = 'key pattern match'
+        }
+      }
+
+      // Record the result
+      if (found) {
+        mediaMap[key] = found
+        foundKeys.push(key)
+        payload.logger.info(`  ✅ ${key} → "${found.alt}" (ID: ${found.id}) [${matchStrategy}]`)
+      } else {
+        missingKeys.push(key)
+        payload.logger.warn(`  ❌ ${key} → Expected: "${alt}" [no match found]`)
+      }
+    })
+
+    // Summary logging
+    payload.logger.info(`\n📈 MAPPING SUMMARY:`)
+    payload.logger.info(`  ✅ Successfully mapped: ${foundKeys.length}/${filesToSeed.length} files`)
+    payload.logger.info(`  ❌ Missing files: ${missingKeys.length}`)
+
+    if (missingKeys.length > 0) {
+      payload.logger.warn(`\n⚠️  Missing media keys: ${missingKeys.join(', ')}`)
+
+      // Optional: Create only missing media files (if not too many)
+      if (missingKeys.length <= 10) {
+        payload.logger.info(`🔧 Creating missing media files (${missingKeys.length} items)...`)
+        await createMissingMedia(payload, missingKeys, mediaMap)
+        payload.logger.info(`✅ Missing media creation completed`)
+      } else {
+        payload.logger.warn(
+          `⚠️  Too many missing files (${missingKeys.length}). Skipping automatic creation.`,
+        )
+        payload.logger.info(`💡 Consider running with useExisting=false to create all media fresh.`)
+      }
+
+      // Debug: Show some existing media for reference
+      if (existingMedia.docs.length > 0 && existingMedia.docs.length <= 20) {
+        payload.logger.info(`\n🔍 Available media in database:`)
+        existingMedia.docs.slice(0, 10).forEach((doc, i) => {
+          payload.logger.info(`  ${i + 1}. "${doc.alt}" (${doc.filename}) - ID: ${doc.id}`)
+        })
+        if (existingMedia.docs.length > 10) {
+          payload.logger.info(`  ... and ${existingMedia.docs.length - 10} more`)
+        }
+      }
+    } else {
+      payload.logger.info(`🎉 Perfect! All required media files found and mapped successfully!`)
+    }
+
+    payload.logger.info(
+      `✅ Media mapping completed - returning ${Object.keys(mediaMap).length} media documents`,
+    )
+    return mediaMap
+  }
+
+  // Original seeding logic for when useExisting = false
+  payload.logger.info('🆕 Creating fresh media documents...')
+  return await createAllMedia(payload)
 }
 
 // The type is now dynamically created from the keys of the final object

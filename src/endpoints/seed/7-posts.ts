@@ -11,7 +11,7 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
   payload.logger.info('— Seeding posts...')
 
   // Destructure the needed documents
-  const { image1Doc, image2Doc, image3Doc } = media
+  const { demoImageDoc, image2Doc, image3Doc } = media
 
   // Note: Do not create posts with `Promise.all` because we want the posts
   // to be created in order. This way, we can sort them by `createdAt` or `publishedAt`
@@ -22,7 +22,7 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
     context: {
       disableRevalidate: true,
     },
-    data: post1({ featuredImage: image1Doc, contentImage: image2Doc, author: demoAuthor }),
+    data: post1({ featuredImage: demoImageDoc, contentImage: image2Doc, author: demoAuthor }),
   })
 
   const post2Doc = await payload.create({
@@ -40,7 +40,7 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
     context: {
       disableRevalidate: true,
     },
-    data: post3({ featuredImage: image3Doc, contentImage: image1Doc, author: demoAuthor }),
+    data: post3({ featuredImage: image3Doc, contentImage: demoImageDoc, author: demoAuthor }),
   })
 
   const post4Doc = await payload.create({
@@ -49,7 +49,7 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
     context: {
       disableRevalidate: true,
     },
-    data: post4({ featuredImage: image1Doc, contentImage: image3Doc, author: demoAuthor }),
+    data: post4({ featuredImage: demoImageDoc, contentImage: image3Doc, author: demoAuthor }),
   })
 
   // Update each post with related posts to establish relationships.

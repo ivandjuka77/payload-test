@@ -77,7 +77,7 @@ export default buildConfig({
   // }),
   db: postgresAdapter({
     pool: {
-      max: 3,
+      max: 2,
       connectionString: process.env.DATABASE_URI,
     },
   }),

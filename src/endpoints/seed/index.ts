@@ -36,19 +36,28 @@ const collections: CollectionSlug[] = [
 export const seed = async ({
   payload,
   req,
+  useExistingMedia = true,
 }: {
   payload: Payload
   req: PayloadRequest
+  useExistingMedia?: boolean
 }): Promise<void> => {
   payload.logger.info('Seeding database...')
+
+  // Modify collections array to conditionally exclude media
+  const collectionsToDelete = useExistingMedia
+    ? collections.filter((col) => col !== 'media') // Exclude media from deletion
+    : collections // Include media for deletion
 
   // we need to clear the media directory before seeding
   // as well as the collections and globals
   // this is because while `yarn seed` drops the database
   // the custom `/api/seed` endpoint does not
-  payload.logger.info(`— Clearing collections and globals...`)
+  payload.logger.info(
+    `— Clearing collections: ${collectionsToDelete.join(', ')}${useExistingMedia ? ' (preserving existing media)' : ''}...`,
+  )
 
-  // clear the database
+  // clear the database (conditionally excluding media)
   // await Promise.all(
   //   globals.map((global) =>
   //     payload.updateGlobal({
@@ -64,22 +73,20 @@ export const seed = async ({
   //   ),
   // )
 
-  //* CLEAR DATABASE *//
-
   await Promise.all(
-    collections.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
+    collectionsToDelete.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
   )
 
   await Promise.all(
-    collections
+    collectionsToDelete
       .filter((collection) => Boolean(payload.collections[collection].config.versions))
       .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
   )
 
   // --------------------
-  // 1. Seed Media
+  // 1. Seed Media (or use existing)
   // --------------------
-  const media = await seedMedia(payload)
+  const media = await seedMedia(payload, useExistingMedia)
 
   // --------------------
   // 2. Seed Users
@@ -156,7 +163,7 @@ export const seed = async ({
           post2: posts.post1Doc,
           post3: posts.post2Doc,
           post4: posts.post3Doc,
-          sustainabilityImage1Doc: media.sustainabilityImage1Doc,
+          sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
         }),
       }),
 
@@ -164,14 +171,14 @@ export const seed = async ({
         collection: 'pages',
         depth: 0,
         // @ts-expect-error This is working, but payload is not happy
-        data: productsPageData({ featuredImage1: media.image1Doc }),
+        data: productsPageData({ featuredImage1: media.demoImageDoc }),
       }),
 
       payload.create({
         collection: 'pages',
         depth: 0,
         // @ts-expect-error This is working, but payload is not happy
-        data: industriesPageData({ featuredImage1: media.image1Doc }),
+        data: industriesPageData({ featuredImage1: media.demoImageDoc }),
       }),
 
       payload.create({
@@ -196,7 +203,7 @@ export const seed = async ({
         collection: 'pages',
         depth: 0,
         // @ts-expect-error This is working, but payload is not happy
-        data: careersPageData({ featuredImage1: media.image1Doc }),
+        data: careersPageData({ featuredImage1: media.demoImageDoc }),
       }),
 
       // payload.create({
@@ -204,10 +211,10 @@ export const seed = async ({
       //   depth: 0,
       //   // @ts-expect-error This is working, but payload is not happy
       //   data: aboutUsPageData({
-      //     timeline1Image: image1Doc,
+      //     timeline1Image: demoImageDoc,
       //     timeline2Image: image2Doc,
       //     timeline3Image: image3Doc,
-      //     timeline4Image: image1Doc,
+      //     timeline4Image: demoImageDoc,
       //     content1Image: image2Doc,
       //     content2Image: image3Doc,
       //     ceo: ceoDoc,

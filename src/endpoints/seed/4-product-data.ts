@@ -6,11 +6,11 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('— Seeding product categories and products...')
 
   const {
-    image1Doc,
+    demoImageDoc,
     image2Doc,
     image3Doc,
     imageHomeDoc,
-    applicationsImage1Doc,
+    applicationsdemoImageDoc,
     applicationsImage2Doc,
     applicationsImage3Doc,
     applicationsImage4Doc,
@@ -55,7 +55,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: false,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Waterborne Coatings',
             description:
               'Eco-friendly coating solutions with reduced VOCs and excellent performance for sustainable industrial applications.',
@@ -104,7 +104,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: true,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Polymer Light Stabilization',
             description:
               'HALS intermediates and ready-to-use light stabilizers protecting polymers from UV degradation and extending service life.',
@@ -153,7 +153,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: true,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Paints & Coatings',
             description:
               'Essential solvents in paints, lacquers, and varnishes providing excellent dissolution properties and film formation.',
@@ -202,7 +202,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: true,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Dietary Supplements',
             description:
               'Cognitive health and cellular integrity formulations targeting general wellness and brain function support.',
@@ -251,7 +251,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: true,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Refinery Operations',
             description:
               'FCC gasoline stabilization and pygas processing solutions preventing unwanted polymerisation in critical refinery streams.',
@@ -300,7 +300,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         productComparison: true,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'HALS Synthesis Intermediates',
             description:
               'Advanced intermediates like pentamethylpiperidine and amino-TMP for synthesizing high-performance hindered amine light stabilizers.',
@@ -344,12 +344,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Diaminopolyethylene Glycols',
         description:
           'VUP is the unique global producer of high-purity DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
-        image: image1Doc.id,
+        image: demoImageDoc.id,
         slug: 'diaminopolyethylene-glycols',
         productComparison: false,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Biomedical Coatings',
             description:
               'Essential raw material for creating highly lubricious and hydrophilic coatings on medical devices such as catheters, guidewires, and implants.',
@@ -387,12 +387,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Chromanols & Derivatives',
         description:
           'Potent antioxidants featuring the core structure of Vitamin E, including Trolox and related chromanol derivatives used as research tools, analytical standards, and specialty intermediates.',
-        image: image1Doc.id,
+        image: demoImageDoc.id,
         slug: 'chromanols-derivatives',
         productComparison: false,
         applications: [
           {
-            imageSrc: applicationsImage1Doc.id,
+            imageSrc: applicationsdemoImageDoc.id,
             title: 'Antioxidant Research & Development',
             description:
               'Essential tools for studying antioxidant mechanisms and developing new protective formulations against oxidative stress.',
@@ -490,7 +490,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Solvent-Free PUDs',
             description:
               'Enables synthesis of high-performance waterborne polyurethane dispersions without organic solvents for eco-friendly coatings.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Electronic Coatings',
@@ -508,7 +508,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'High-Performance Coatings',
             description:
               'Formulates waterborne systems requiring enhanced water resistance, hydrolytic stability, and low-VOC compliance.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -601,7 +601,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Waterborne PUDs',
             description:
               'Key internal emulsifier for stable polyurethane dispersions enabling low-VOC automotive and industrial coatings.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Water-Soluble Alkyds',
@@ -619,7 +619,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Electro-deposition Coatings',
             description:
               'Provides acid functionality crucial for automotive primers and demanding industrial E-coat applications.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -718,7 +718,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polyester Resins for Coatings',
             description:
               'Key building block for high-performance polyester resins used in durable powder coatings and coil coatings with excellent weatherability and chemical resistance.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Ester Synthesis (HPN)',
@@ -736,7 +736,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Chemical Intermediate',
             description:
               'Used in synthesis pathways for pharmaceuticals, agrochemicals, or specialty chemicals requiring its unique neopentyl structure.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Polyurethane Modification',
@@ -841,7 +841,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polymerization Inhibitor Synthesis',
             description:
               'Key raw material for producing formulated liquid polymerization inhibitors like the VUPIN range used in petrochemicals and monomer stabilization applications.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Catalysis & Oxidation',
@@ -859,7 +859,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Antioxidant Research',
             description:
               'Employed as a water-soluble antioxidant standard or protective agent in biochemical and cell-based studies investigating oxidative stress mechanisms.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -962,7 +962,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Antioxidant Capacity Assays',
             description:
               'The reference standard compound for TEAC and similar assays measuring the total antioxidant capacity of food, beverages, natural extracts, and biological samples.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Oxidative Stress Research',
@@ -980,7 +980,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Pharmaceutical R&D Screening',
             description:
               'Used as a screening tool in pharmaceutical and cosmetic R&D to evaluate the antioxidant potential of new compounds or formulations.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Analytical Reference Standard',
@@ -1086,7 +1086,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Selective Oxidation Catalyst',
             description:
               'Widely used as catalyst for efficient and selective oxidation of primary alcohols to aldehydes and secondary alcohols to ketones under mild conditions in fine chemical and pharmaceutical synthesis.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Controlled Radical Polymerization',
@@ -1104,7 +1104,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Pharmaceutical Intermediates',
             description:
               "Key precursor for synthesizing valuable derivatives including potential Active Pharmaceutical Ingredients (APIs) such as compounds for Parkinson's treatment.",
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Cellulose Oxidation',
@@ -1189,7 +1189,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'The foundational intermediate for producing a wide range of Hindered Amine Light Stabilizers (HALS) and the versatile stable radical TEMPO. VUP produces high-purity TEMP (min. 99%) at its pilot plant facility.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: demoImageDoc.id,
         technicalSpecifications: {
           chemicalName: '2,2,6,6-Tetramethylpiperidine',
           casNumber: '768-66-1',
@@ -1209,7 +1209,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'HALS Manufacturing',
             description:
               'Essential intermediate for producing various Hindered Amine Light Stabilizers used extensively in the plastics and coatings industries for UV protection.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'TEMPO Synthesis',
@@ -1319,7 +1319,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Biomedical Device Coatings',
             description:
               'Creating lubricious, hydrophilic, and biocompatible coatings for catheters, guidewires, stents, and other medical devices to improve patient comfort and device performance.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Surface Modification',
@@ -1337,7 +1337,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Advanced Polymer Synthesis',
             description:
               'Building block for synthesizing hydrogels for tissue engineering and drug delivery, block copolymers, and other functional polymer architectures.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'PEGDAA Synthesis',
@@ -1445,7 +1445,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'HALS Synthesis',
             description:
               'Used as a precursor in multi-step syntheses to produce specific types of Hindered Amine Light Stabilizers requiring the benzoate-protected hydroxyl functionality.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Organic Synthesis',
@@ -1550,7 +1550,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'EPR Spectroscopy',
             description:
               'Primary application as a spin label probe to study protein structure, conformational changes, lipid membrane fluidity, and molecular binding interactions.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Biochemical Research',
@@ -1568,7 +1568,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Materials Science Research',
             description:
               'Applied in studying structure-property relationships in synthetic materials and monitoring changes in molecular environments during processing.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -1662,7 +1662,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Selective Oxidation Catalyst',
             description:
               'Functions as catalyst for specific oxidation reactions, potentially offering different selectivity and performance characteristics compared to other TEMPO derivatives in certain transformations.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Intermediate Synthesis',
@@ -1680,7 +1680,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Materials Science',
             description:
               'Potential incorporation into functional polymers or advanced materials requiring stable radical centers for specialized properties and performance characteristics.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -1776,7 +1776,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Dietary Supplements',
             description:
               'Excellent ingredient for advanced supplements targeting both bone health (providing calcium) and cellular health/cognitive function (providing the PE precursor).',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Veterinary Nutrition',
@@ -1794,7 +1794,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Biochemical Research',
             description:
               'Tool for studying the interplay between calcium signaling/metabolism and phospholipid synthesis or membrane function in research applications.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -1868,7 +1868,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'High-purity fundamental biochemical precursor required for synthesizing phosphatidylethanolamine (PE), a critical phospholipid component of all cell membranes. Essential for cellular structure and function in pharmaceutical applications.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: demoImageDoc.id,
         technicalSpecifications: {
           chemicalName: '2-Aminoethyl dihydrogen phosphate',
           casNumber: '1071-23-4',
@@ -1894,7 +1894,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Pharmaceutical Synthesis',
             description:
               'Used as intermediate in drug synthesis or as active ingredient in specific formulations targeting cellular health and membrane integrity.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Dietary Supplements',
@@ -1912,7 +1912,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Cell Culture Media',
             description:
               'Essential component in defined media for optimal growth and health of mammalian cell lines in biopharmaceutical production and research.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Biochemical Research',
@@ -2021,7 +2021,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Liquid Formulations',
             description:
               'Enhanced water solubility makes it ideal for liquid supplements and pharmaceutical solutions where faster dissolution and improved compatibility are required.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Dietary Supplements',
@@ -2039,7 +2039,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Pharmaceutical Formulations',
             description:
               'Used as intermediate or excipient where specific solubility profile and pH characteristics of the sodium salt offer formulation advantages over the parent compound.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2136,7 +2136,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'FCC Gasoline Stabilization',
             description:
               'Used as additive component in FCC gasoline packages for refineries, preventing degradation and ensuring stable fuel quality during storage and distribution.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Monomer Stabilization',
@@ -2154,7 +2154,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Refinery Operations',
             description:
               'Component in specialized additive packages for various refinery streams requiring polymerization inhibition and process equipment protection.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2228,7 +2228,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'An N-methylated hindered amine intermediate used for synthesizing specific types of HALS (Hindered Amine Light Stabilizers) like Tinuvin 765/292 and other functional molecules requiring this specialized piperidine structure.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: demoImageDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2,2,6,6-Pentamethylpiperidine',
           casNumber: '79-55-0',
@@ -2251,7 +2251,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'HALS Synthesis',
             description:
               'Key intermediate for synthesizing Tinuvin 765/292 and related high-performance HALS compounds used in polymer stabilization applications.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Organic Synthesis',
@@ -2269,7 +2269,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Custom Chemical Manufacturing',
             description:
               'Intermediate for contract manufacturing and custom synthesis projects requiring specific N-methylated hindered amine structures.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2362,7 +2362,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'HALS Synthesis',
             description:
               'Critical intermediate for synthesizing Tinuvin 765/292 where both N-methyl and hydroxyl functionalities are required for the final product structure.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Specialty Chemical Synthesis',
@@ -2380,7 +2380,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polymer Additive Development',
             description:
               'Intermediate for developing new polymer stabilizers and additives requiring specific steric and electronic properties.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2471,7 +2471,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'HALS Synthesis',
             description:
               'Key intermediate for synthesizing advanced hindered amine light stabilizers with specific functionality requirements. The primary amino group enables coupling reactions and derivatization pathways.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Pharmaceutical Intermediates',
@@ -2489,7 +2489,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Research Applications',
             description:
               'Valuable tool in academic and industrial research for studying steric hindrance effects and developing new synthetic methodologies. Used in catalyst development and mechanism studies.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2563,7 +2563,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Industry-standard high-molecular-weight HALS (equivalent to Tinuvin 770) providing superior UV protection for polyolefins, ABS, and other polymers. Low volatility and excellent thermal stability make it ideal for demanding outdoor applications requiring long-term performance.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: demoImageDoc.id,
         technicalSpecifications: {
           chemicalName: 'bis(2,2,6,6-tetramethyl-4-piperidyl) sebacate',
           casNumber: '52829-07-9',
@@ -2589,7 +2589,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polyolefin Stabilization',
             description:
               'Primary application in PP, PE, and other polyolefins for outdoor use requiring excellent UV protection. Provides long-term stability against photodegradation and maintains mechanical properties.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'ABS Protection',
@@ -2607,7 +2607,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Automotive Components',
             description:
               'Critical for automotive plastics exposed to UV radiation including bumpers, trim, and interior components. Provides durability and appearance retention over vehicle lifetime.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -2709,7 +2709,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Automotive Coatings',
             description:
               'Provides long-term UV protection for automotive topcoats and clearcoats, maintaining gloss and preventing color degradation in harsh outdoor conditions.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Printing Inks',
@@ -2721,7 +2721,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Industrial Coatings',
             description:
               'Stabilizes high-performance industrial coatings against UV degradation, extending service life in outdoor architectural and marine applications.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Wood Finishes',
@@ -2826,7 +2826,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'EPR Spin Labeling',
             description:
               'Used as paramagnetic probe in electron paramagnetic resonance studies for investigating molecular dynamics and protein conformational changes.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Bioconjugation Chemistry',
@@ -2838,7 +2838,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polymer Modification',
             description:
               'Incorporates stable radical functionality into polymer chains for developing materials with unique magnetic and electronic properties.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Redox Chemistry',
@@ -2908,7 +2908,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A stable nitroxyl radical with unique spiro structure and carboxylic acid functionality. Ideal for bioconjugation, spin labeling, and analytical applications requiring robust paramagnetic properties. VUP Lab Researched quality ensures reliable performance.',
-        chemicalStructureImage: image1Doc.id,
+        chemicalStructureImage: demoImageDoc.id,
         technicalSpecifications: {
           chemicalName:
             '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
@@ -2929,7 +2929,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Protein Spin Labeling',
             description:
               'Covalent attachment to proteins via amide bond formation for EPR spectroscopy studies. The spiro structure provides unique steric environment and reduced mobility.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Bioconjugation Chemistry',
@@ -2947,7 +2947,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'EPR Spectroscopy Research',
             description:
               'Standard probe for electron paramagnetic resonance studies requiring well-defined spin environments. Useful in distance measurements and conformational analysis.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
@@ -3044,7 +3044,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Radical Scavenging Standards',
             description:
               'Reference compound for calibrating radical scavenging assays and antioxidant activity measurements. Provides reproducible results in analytical testing.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
           {
             application: 'Antioxidant Research',
@@ -3062,7 +3062,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polymer Stabilization Research',
             description:
               'Research tool for studying polymerization inhibition mechanisms and evaluating stabilizer effectiveness. Helps develop new antioxidant systems.',
-            image: image1Doc.id,
+            image: demoImageDoc.id,
           },
         ],
         keyFeatures: [
