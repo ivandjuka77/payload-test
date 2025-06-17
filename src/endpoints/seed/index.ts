@@ -16,17 +16,6 @@ import { seedCareers } from './6-careers'
 import { seedPosts } from './7-posts'
 import { seedTeamMembers } from './8-team-members'
 
-const collections: CollectionSlug[] = [
-  'services',
-  'industries',
-  'productCategories',
-  'products',
-  'media',
-  'posts',
-  'pages',
-  'careers',
-  'teamMembers',
-]
 // const globals: GlobalSlug[] = ['header', 'footer']
 
 // Next.js revalidation errors are normal when seeding the database without a server running
@@ -44,10 +33,48 @@ export const seed = async ({
 }): Promise<void> => {
   payload.logger.info('Seeding database...')
 
-  // Modify collections array to conditionally exclude media
+  // Define the order for deletion. Collections with dependencies should be deleted before their dependencies.
+  // This is a likely safe order, but you may need to adjust it based on your specific schema.
+  const orderedCollections: CollectionSlug[] = [
+    'search',
+    'pages',
+    'posts',
+    'industries',
+    'products',
+    'productCategories',
+    'careers',
+    'teamMembers',
+    'services',
+    'media',
+    // 'users' // Be cautious deleting users, especially the one you might log in with.
+  ]
+
   const collectionsToDelete = useExistingMedia
-    ? collections.filter((col) => col !== 'media') // Exclude media from deletion
-    : collections // Include media for deletion
+    ? orderedCollections.filter((col) => col !== 'media') // Exclude media from deletion
+    : orderedCollections // Include media for deletion
+
+  payload.logger.info(
+    `— Clearing collections: ${collectionsToDelete.join(', ')}${useExistingMedia ? ' (preserving existing media)' : ''}...`,
+  )
+
+  // --- START: MODIFIED DELETION LOGIC ---
+  // Delete documents sequentially to respect relationships
+  try {
+    for (const collection of collectionsToDelete) {
+      payload.logger.info(`  - Deleting collection: ${collection}`)
+      await payload.db.deleteMany({ collection, req, where: {} })
+
+      // Also clear out versions for the collection if enabled
+      if (payload.collections[collection].config.versions) {
+        await payload.db.deleteVersions({ collection, req, where: {} })
+      }
+    }
+  } catch (error) {
+    payload.logger.error(`Error during collection clearing: ${error}`)
+    // Optional: throw the error to stop the entire seed process if clearing fails
+    throw error
+  }
+  // --- END: MODIFIED DELETION LOGIC ---
 
   // we need to clear the media directory before seeding
   // as well as the collections and globals

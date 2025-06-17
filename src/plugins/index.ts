@@ -169,9 +169,9 @@ export const plugins: Plugin[] = [
           const filePathInBucket = prefix ? `${prefix}/${filename}` : filename
 
           // if (env === 'development') {
-          // return `${process.env.S3_PUBLIC_URL}/object/public/${s3BucketFromEnv}/${filePathInBucket}`
+          return `${process.env.S3_PUBLIC_URL}/object/public/${s3BucketFromEnv}/${filePathInBucket}`
 
-          return `https://ludwreuxuzoyeevqvihu.supabase.co/storage/v1/object/public/${s3BucketFromEnv}/${filePathInBucket}`
+          // return `https://ludwreuxuzoyeevqvihu.supabase.co/storage/v1/object/public/${s3BucketFromEnv}/${filePathInBucket}`
           // }
 
           // return `https://${supabaseProjectRef}.supabase.co/storage/v1/object/public/vup-payload/${filePathInBucket}`
