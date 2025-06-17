@@ -15,6 +15,7 @@ import { seedIndustries } from './5-industries'
 import { seedCareers } from './6-careers'
 import { seedPosts } from './7-posts'
 import { seedTeamMembers } from './8-team-members'
+import { seedForms } from './9-forms'
 
 // const globals: GlobalSlug[] = ['header', 'footer']
 
@@ -37,28 +38,25 @@ export const seed = async ({
   // This is a likely safe order, but you may need to adjust it based on your specific schema.
   const orderedCollections: CollectionSlug[] = [
     'search',
+    'form-submissions', // Delete form-submissions first to avoid foreign key constraints
+    'forms',
     'pages',
     'posts',
+    'media',
+    // 'users',
+    'careers',
+    'caseStudies',
     'industries',
+    'services',
+    'teamMembers',
     'products',
     'productCategories',
-    'careers',
-    'teamMembers',
-    'services',
-    'media',
-    // 'users' // Be cautious deleting users, especially the one you might log in with.
   ]
 
   const collectionsToDelete = useExistingMedia
     ? orderedCollections.filter((col) => col !== 'media') // Exclude media from deletion
     : orderedCollections // Include media for deletion
 
-  payload.logger.info(
-    `— Clearing collections: ${collectionsToDelete.join(', ')}${useExistingMedia ? ' (preserving existing media)' : ''}...`,
-  )
-
-  // --- START: MODIFIED DELETION LOGIC ---
-  // Delete documents sequentially to respect relationships
   try {
     for (const collection of collectionsToDelete) {
       payload.logger.info(`  - Deleting collection: ${collection}`)
@@ -100,15 +98,8 @@ export const seed = async ({
   //   ),
   // )
 
-  await Promise.all(
-    collectionsToDelete.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
-  )
-
-  await Promise.all(
-    collectionsToDelete
-      .filter((collection) => Boolean(payload.collections[collection].config.versions))
-      .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
-  )
+  // REMOVED: Duplicate deletion attempts that were causing constraint violations
+  // The deletion is already handled above in the proper order
 
   // --------------------
   // 1. Seed Media (or use existing)
@@ -152,6 +143,11 @@ export const seed = async ({
   // 8. Seed Team Members
   // --------------------
   const teamMembers = await seedTeamMembers(payload, media)
+
+  // --------------------
+  // 9. Seed Forms
+  // --------------------
+  const forms = await seedForms(payload)
 
   //* -------------------- SEEDING PAGES -------------------- *//
 

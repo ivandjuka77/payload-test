@@ -2,17 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import {
-  Search,
-  X,
-  Loader2,
-  FileText,
-  Home,
-  FlaskConical,
-  Factory,
-  Atom,
-  Palette,
-} from 'lucide-react'
+import { Search, X, Loader2, FlaskConical, Factory, Atom, LeafIcon } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
@@ -137,12 +127,11 @@ export default function SearchDialog({ children }: SearchDialogProps) {
 
   // Quick links for search dialog when no query is entered
   const quickLinks = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'About', href: '/about', icon: FileText },
     { name: 'Products', href: '/products', icon: FlaskConical },
     { name: 'Industries', href: '/industries', icon: Factory },
     { name: 'Research', href: '/research', icon: Atom },
-    { name: 'Sustainability', href: '/sustainability', icon: Palette },
+    { name: 'Sustainability', href: '/sustainability', icon: LeafIcon },
+    { name: 'Services', href: '/services', icon: FlaskConical },
   ]
 
   // Reset search when dialog closes
@@ -198,20 +187,6 @@ export default function SearchDialog({ children }: SearchDialogProps) {
                       {link.name}
                     </Link>
                   ))}
-                </div>
-
-                <div className="mt-6">
-                  <h4 className="mb-2 text-xs font-semibold text-gray-500">Browse</h4>
-                  <div className="space-y-1">
-                    <Link
-                      href="/search"
-                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => handleDialogClose(false)}
-                    >
-                      <Search className="h-4 w-4 text-gray-500" />
-                      Advanced Search
-                    </Link>
-                  </div>
                 </div>
               </div>
             ) : (
@@ -272,13 +247,6 @@ export default function SearchDialog({ children }: SearchDialogProps) {
                   ) : !isSearching ? (
                     <div className="px-3 py-6 text-center text-sm text-gray-500">
                       <div className="mb-2">No results found for &quot;{searchQuery}&quot;</div>
-                      <Link
-                        href={`/search?q=${encodeURIComponent(searchQuery)}`}
-                        className="text-blue-600 hover:text-blue-700 text-xs"
-                        onClick={() => handleDialogClose(false)}
-                      >
-                        Try advanced search →
-                      </Link>
                     </div>
                   ) : null}
                 </div>

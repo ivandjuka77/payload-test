@@ -28,6 +28,21 @@ interface FilterOptions {
   applications: string[]
 }
 
+interface ProductInquiryData {
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+  company: string
+  jobTitle?: string
+  country?: string
+  inquiryType: string
+  quantity?: string
+  message: string
+  productId: number
+  productName: string
+}
+
 export async function fetchFilteredProductsAction(
   criteria: FilterCriteria,
 ): Promise<PaginatedResult> {
@@ -234,5 +249,73 @@ export async function fetchFilterOptionsAction(): Promise<FilterOptions> {
   } catch (error) {
     console.error('Error fetching filter options:', error)
     throw new Error('Failed to fetch filter options. Please try again.')
+  }
+}
+
+export async function submitProductInquiry(
+  inquiryData: ProductInquiryData,
+): Promise<{ success: boolean; message: string }> {
+  const payload = await getPayload({ config: configPromise })
+
+  try {
+    // Find the product inquiry form (should exist from seeding)
+    const productInquiryForm = await payload.find({
+      collection: 'forms',
+      where: {
+        title: { equals: 'Product Inquiry Form' },
+      },
+    })
+
+    if (productInquiryForm.docs.length === 0) {
+      throw new Error('Product Inquiry Form not found. Please ensure the database has been seeded.')
+    }
+
+    const formId = productInquiryForm.docs[0].id
+
+    // Create the form submission data
+    const submissionData = [
+      { field: 'firstName', value: inquiryData.firstName },
+      { field: 'lastName', value: inquiryData.lastName },
+      { field: 'email', value: inquiryData.email },
+      { field: 'company', value: inquiryData.company },
+      { field: 'inquiryType', value: inquiryData.inquiryType },
+      { field: 'message', value: inquiryData.message },
+      { field: 'productId', value: inquiryData.productId.toString() },
+      { field: 'productName', value: inquiryData.productName },
+    ]
+
+    // Add optional fields if they exist
+    if (inquiryData.phone) {
+      submissionData.push({ field: 'phone', value: inquiryData.phone })
+    }
+    if (inquiryData.jobTitle) {
+      submissionData.push({ field: 'jobTitle', value: inquiryData.jobTitle })
+    }
+    if (inquiryData.country) {
+      submissionData.push({ field: 'country', value: inquiryData.country })
+    }
+    if (inquiryData.quantity) {
+      submissionData.push({ field: 'quantity', value: inquiryData.quantity })
+    }
+
+    // Create form submission with the existing form
+    await payload.create({
+      collection: 'form-submissions',
+      data: {
+        form: formId,
+        submissionData,
+      },
+    })
+
+    return {
+      success: true,
+      message: 'Product inquiry submitted successfully. We will get back to you within 24 hours.',
+    }
+  } catch (error) {
+    console.error('Error submitting product inquiry:', error)
+    return {
+      success: false,
+      message: 'Failed to submit inquiry. Please try again or contact us directly.',
+    }
   }
 }
