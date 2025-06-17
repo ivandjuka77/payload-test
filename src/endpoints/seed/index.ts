@@ -42,7 +42,6 @@ export const seed = async ({
     'forms',
     'pages',
     'posts',
-    'media',
     // 'users',
     'careers',
     'caseStudies',
@@ -50,7 +49,8 @@ export const seed = async ({
     'services',
     'teamMembers',
     'products',
-    'productCategories',
+    'productCategories', // This must be deleted before 'media'
+    'media',
   ]
 
   const collectionsToDelete = useExistingMedia

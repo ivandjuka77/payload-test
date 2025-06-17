@@ -4,6 +4,203 @@ import { contactForm } from './contact-form'
 export const seedForms = async (payload: Payload) => {
   payload.logger.info('— Seeding forms...')
 
+  // Create Contact Form
+  const contactFormDoc = await payload.create({
+    collection: 'forms',
+    data: {
+      title: 'Contact Form',
+      submitButtonLabel: 'Send Message',
+      confirmationType: 'message',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  detail: 0,
+                  format: 0,
+                  mode: 'normal',
+                  style: '',
+                  text: 'Thank you for reaching out. A member of our team will contact you within 24 hours.',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      emails: [
+        {
+          emailTo: 'contact@vupchemicals.com',
+          emailFrom: 'noreply@vupchemicals.com',
+          subject: 'New Contact Form Submission - {{subject}}',
+          message: {
+            root: {
+              type: 'root',
+              children: [
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 1, // bold
+                      mode: 'normal',
+                      style: '',
+                      text: 'New Contact Form Submission',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Name: {{name}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Email: {{email}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Subject: {{subject}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Message: {{message}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+          },
+        },
+      ],
+      fields: [
+        {
+          blockType: 'text',
+          name: 'name',
+          label: 'Name',
+          width: 50,
+          required: true,
+        },
+        {
+          blockType: 'email',
+          name: 'email',
+          label: 'Email',
+          width: 50,
+          required: true,
+        },
+        {
+          blockType: 'select',
+          name: 'subject',
+          label: 'Subject',
+          width: 100,
+          required: true,
+          options: [
+            {
+              label: 'Product Inquiry',
+              value: 'product',
+            },
+            {
+              label: 'Technical Support',
+              value: 'support',
+            },
+            {
+              label: 'Partnership',
+              value: 'partnership',
+            },
+            {
+              label: 'Other',
+              value: 'other',
+            },
+          ],
+        },
+        {
+          blockType: 'textarea',
+          name: 'message',
+          label: 'Message',
+          width: 100,
+          required: true,
+        },
+      ],
+    },
+  })
+
+  payload.logger.info(`✓ Contact Form created with ID: ${contactFormDoc.id}`)
+
   // Create Product Inquiry Form
   const productInquiryForm = await payload.create({
     collection: 'forms',
@@ -347,12 +544,6 @@ export const seedForms = async (payload: Payload) => {
         },
       ],
     },
-  })
-
-  // Create Contact Form (existing)
-  const contactFormDoc = await payload.create({
-    collection: 'forms',
-    data: contactForm,
   })
 
   payload.logger.info('✓ Forms seeded')

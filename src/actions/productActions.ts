@@ -43,6 +43,13 @@ interface ProductInquiryData {
   productName: string
 }
 
+interface ContactFormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
 export async function fetchFilteredProductsAction(
   criteria: FilterCriteria,
 ): Promise<PaginatedResult> {
@@ -316,6 +323,57 @@ export async function submitProductInquiry(
     return {
       success: false,
       message: 'Failed to submit inquiry. Please try again or contact us directly.',
+    }
+  }
+}
+
+export async function submitContactForm(
+  contactData: ContactFormData,
+): Promise<{ success: boolean; message: string }> {
+  const payload = await getPayload({ config: configPromise })
+
+  try {
+    // Find the contact form (should exist from seeding)
+    const contactForm = await payload.find({
+      collection: 'forms',
+      where: {
+        title: { equals: 'Contact Form' },
+      },
+    })
+
+    if (contactForm.docs.length === 0) {
+      throw new Error('Contact Form not found. Please ensure the database has been seeded.')
+    }
+
+    const formId = contactForm.docs[0].id
+
+    // Create the form submission data
+    const submissionData = [
+      { field: 'name', value: contactData.name },
+      { field: 'email', value: contactData.email },
+      { field: 'subject', value: contactData.subject },
+      { field: 'message', value: contactData.message },
+    ]
+
+    // Create the form submission
+    const submission = await payload.create({
+      collection: 'form-submissions',
+      data: {
+        form: formId,
+        submissionData,
+      },
+    })
+
+    return {
+      success: true,
+      message: 'Contact form submitted successfully! We will get back to you within 24 hours.',
+    }
+  } catch (error) {
+    console.error('Error submitting contact form:', error)
+    return {
+      success: false,
+      message:
+        'There was an error submitting your message. Please try again or contact us directly.',
     }
   }
 }
