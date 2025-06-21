@@ -553,6 +553,745 @@ export const seedIndustries = async (
     }),
   ])
 
+  payload.logger.info('— Adding Slovak translations for industries...')
+
+  await Promise.all([
+    // Automotive
+
+    payload.update({
+      collection: 'industries',
+      id: automotive.id,
+      locale: 'sk',
+      data: {
+        name: 'Automobilový priemysel',
+        description:
+          'Automobilový priemysel vyžaduje materiály, ktoré poskytujú vynikajúci výkon, odolnosť, estetiku a spĺňajú čoraz prísnejšie environmentálne a bezpečnostné normy. VUP, a.s. podporuje výrobcov a dodávateľov v automobilovom priemysle poskytovaním základných chemických medziproduktov pre pokročilé nátery s nízkym obsahom VOC a vysokovýkonné lepidlá, špecializovaných čistiacich prostriedkov pre výrobné procesy a na mieru šitých analytických testovacích služieb, ktoré zabezpečujú súlad s automobilovými normami. Spolupracujeme s priemyslom na umožnení inovácií v oblasti materiálov a výroby vozidiel.',
+        summary:
+          'VUP poskytuje základné chemické medziprodukty a služby pre inovácie v automobilovom priemysle so zameraním na vynikajúci výkon, odolnosť a súlad s prísnymi environmentálnymi a bezpečnostnými normami, čím umožňuje pokrok v materiáloch a výrobe vozidiel.',
+        challenges: [
+          {
+            title: 'Pokročilé automobilové nátery (OEM & Refinish)',
+            challenge:
+              'Vývoj odolných, vysokovýkonných a ekologicky vyhovujúcich náterov (základné nátery, vrchné nátery, laky) pre karosérie a komponenty vozidiel.',
+            solution:
+              'Dodávame kľúčové suroviny nevyhnutné pre moderné automobilové nátery. DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6) sú kritické pre výrobu vodou riediteľných polyuretánových disperzií (PUD) a polyesterových/alkydových živíc používaných v ekologických automobilových farbách s nízkym obsahom VOC, ktoré prispievajú k vynikajúcej kvalite povrchovej úpravy. HPVA (CAS 4835-90-9), najmä prostredníctvom svojho derivátu HPN, sa používa v základných náteroch a rozpúšťadlových farbách na zlepšenie vlastností, ako je odolnosť proti odštiepeniu. Tieto metylolalkánové kyseliny sú životne dôležitými zložkami pre prvotriedne automobilové nátery.',
+            image: automotiveChallenge1Doc.id,
+          },
+          {
+            title: 'Vysokovýkonné automobilové lepidlá',
+            challenge:
+              'Bezpečné a trvanlivé spájanie rôznych materiálov je v modernej konštrukcii vozidiel nevyhnutné a často si vyžaduje vysokovýkonné lepidlá vrátane vodou riediteľných systémov.',
+            solution:
+              'DMBA (CAS 10097-02-6) slúži ako kľúčová zložka vo vodou riediteľných polyuretánových, epoxidových a polyesterových lepidlách používaných pri montáži automobilov. Zvyšuje pevnosť spoja a zlepšuje odolnosť voči vode, čím prispieva k celkovej štrukturálnej integrite a dlhej životnosti vozidla.',
+            image: automotiveChallenge2Doc.id,
+          },
+          {
+            title: 'Príprava a čistenie povrchov',
+            challenge:
+              'Zabezpečenie správneho vyčistenia a odmastenia povrchov je rozhodujúce pre dosiahnutie optimálnej priľnavosti a kvality povrchovej úpravy pri lakovaní, tesnení a lepení počas výroby a opráv automobilov.',
+            solution:
+              'Ponúkame OP VUPOL, špecializovaný odmasťovací prostriedok odporúčaný na použitie v automobilovom priemysle. Je účinný pre aplikácie, ako je odmasťovanie brzdových obložení a príprava povrchov pred lepením, tesnením alebo lakovaním.',
+            image: automotiveChallenge3Doc.id,
+          },
+          {
+            title: 'Testovanie komponentov a zhoda (VOC)',
+            challenge:
+              'Splnenie prísnych priemyselných noriem a predpisov pre materiály používané v interiéroch a komponentoch vozidiel, najmä pokiaľ ide o emisie prchavých organických zlúčenín (VOC) z plastov.',
+            solution:
+              'Naše akreditované analytické laboratóriá ATBEL (SNAS S-118) poskytujú špecializované testovacie služby pre automobilový sektor, vrátane stanovenia obsahu VOC v plastoch podľa automobilovej normy PV3341. Ponúkame tiež regulačnú podporu týkajúcu sa zhody chemických surovín (napr. REACH).',
+            image: automotiveChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: automotive.id,
+      locale: 'jp',
+      data: {
+        name: '自動車産業',
+        description:
+          '自動車産業では、優れた性能、耐久性、美観を提供し、ますます厳しくなる環境および安全基準を満たす材料が求められています。VUP, a.s.は、先進的な低VOCコーティングや高性能接着剤に不可欠な化学中間体、生産プロセス用の特殊洗浄剤、および自動車基準への準拠を保証する特注の分析試験サービスを提供することで、自動車メーカーおよびサプライヤーをサポートしています。私たちは、車両材料と製造における技術革新を可能にするために、業界と提携しています。',
+        summary:
+          'VUPは、優れた性能、耐久性、および厳しい環境・安全基準への準拠に重点を置き、車両材料と製造の進歩を可能にする、自動車技術革新に不可欠な化学中間体とサービスを提供しています。',
+        challenges: [
+          {
+            title: '先進自動車用コーティング（OEMおよび補修用）',
+            challenge:
+              '車体および部品向けに、耐久性、高性能、環境対応性に優れたコーティング（プライマー、ベースコート、クリアコート）を開発すること。',
+            solution:
+              '現代の自動車用コーティングに不可欠な主要原料を供給しています。DMPA（CAS 4767-03-7）およびDMBA（CAS 10097-02-6）は、環境に優しい低VOC自動車用塗料に使用される水性ポリウレタンディスパージョン（PUD）およびポリエステル/アルキド樹脂の製造に不可欠であり、優れた仕上げ品質に貢献します。HPVA（CAS 4835-90-9）は、特にその誘導体であるHPNを介して、プライマーや溶剤系塗料に使用され、耐チップ性などの特性を向上させます。これらのメチロールアルカン酸は、最高級の自動車用コーティングに不可欠な成分です。',
+            image: automotiveChallenge1Doc.id,
+          },
+          {
+            title: '高性能自動車用接着剤',
+            challenge:
+              '現代の車両構造において、多様な材料を安全かつ耐久性をもって接着することは不可欠であり、水性システムを含む高性能接着剤がしばしば要求されます。',
+            solution:
+              'DMBA（CAS 10097-02-6）は、自動車組立に使用される水性ポリウレタン、エポキシ、ポリエステル接着剤の重要な構成要素として機能します。接着強度を高め、耐水性を向上させることで、車両全体の構造的完全性と長寿命化に貢献します。',
+            image: automotiveChallenge2Doc.id,
+          },
+          {
+            title: '表面処理と洗浄',
+            challenge:
+              '自動車の製造および修理における塗装、シーリング、接着作業で最適な密着性と仕上げ品質を達成するためには、表面が適切に洗浄され、脱脂されていることが重要です。',
+            solution:
+              '当社は、自動車産業での使用を推奨される特殊脱脂剤OP VUPOLを提供しています。ブレーキライニングの脱脂や、接着、シーリング、塗装前の表面処理などの用途に効果的です。',
+            image: automotiveChallenge3Doc.id,
+          },
+          {
+            title: '部品試験とコンプライアンス（VOC）',
+            challenge:
+              '車両内装および部品に使用される材料、特にプラスチックからの揮発性有機化合物（VOC）排出に関して、厳しい業界基準および規制を満たすこと。',
+            solution:
+              '当社の認定分析試験所ATBEL（SNAS S-118）は、PV3341自動車基準に従ったプラスチック中のVOC含有量の測定を含む、自動車セクター向けの専門的な試験サービスを提供しています。また、化学原料のコンプライアンス（例：REACH）に関する規制サポートも提供しています。',
+            image: automotiveChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    //  Coating, Paints & Inks
+
+    payload.update({
+      collection: 'industries',
+      id: coatingsPaintsInks.id,
+      locale: 'sk',
+      data: {
+        name: 'Nátery, Farby a Atramenty',
+        description:
+          'Priemysel náterov, farieb a atramentov neustále hľadá inovácie, ktoré zlepšujú výkon, trvanlivosť a environmentálnu kompatibilitu. Výrobcovia čelia výzvam pri plnení prísnych predpisov (ako sú ciele s nízkym obsahom VOC) a zároveň poskytujú výnimočnú ochranu, estetiku a funkčnosť. VUP, a.s. využíva viac ako 70 rokov chemických skúseností na poskytovanie základných stavebných blokov, ako je kyselina dimetylolpropiónová (DMPA) a unikátna kyselina dimetylolbutánová (DMBA), spolu s ďalšími kľúčovými medziproduktmi, čo umožňuje výrobu pokročilých vodou riediteľných systémov a vysokovýkonných náterov. Ako kľúčový európsky výrobca sme vaším spoľahlivým partnerom pre tieto kritické suroviny, podporovaní robustným výskumom a vývojom a regulačným know-how.',
+        summary:
+          'VUP ponúka kľúčové stavebné bloky pre vodou riediteľné systémy a nátery, zabezpečujúc výkon a súlad s predpismi.',
+        challenges: [
+          {
+            title: 'Vodou riediteľné nátery (PUD, Alkydy, Polyestery)',
+            challenge:
+              'Vývoj stabilných, vysokovýkonných vodou riediteľných náterov so zníženým dopadom na životné prostredie si vyžaduje špecializované hydrofilné monoméry.',
+            solution:
+              'Naša DMPA (CAS 4767-03-7) je všestranný stavebný blok zabezpečujúci stabilnú disperziu živíc (polyuretánov, alkydov, polyesterov) vo vode, čo vedie k formuláciám s nižším obsahom VOC so zlepšenou priľnavosťou, leskom a odolnosťou proti nárazu. Naša unikátna DMBA (CAS 10097-02-6) ponúka potenciálne výhody ako vynikajúca rozpustnosť a rýchlejšie reakčné rýchlosti, čo je prospešné pre optimalizáciu výroby polyuretánu a aplikačných vlastností. Obidva sú plne registrované v systéme REACH, čo podporuje súlad s predpismi. Ponúkame tiež kyselinu hydroxypivalovú (HPVA, CAS 4835-90-9), ďalší kľúčový medziprodukt pre trvanlivé vodou riediteľné živice.',
+            image: coatingsChallenge1Doc.id,
+          },
+          {
+            title: 'Práškové nátery a modifikácia živíc',
+            challenge:
+              'Dosiahnutie optimálneho toku, vyrovnávania, trvanlivosti a flexibility v práškových náteroch a iných živicových systémoch si často vyžaduje špecifické medziprodukty.',
+            solution:
+              'Kyselina hydroxypivalová (HPVA) slúži ako kľúčový medziprodukt pre výrobu živíc, vrátane polyesterov používaných v práškových náteroch, kde jej derivát (HPN) zlepšuje tok a vyrovnávanie. Akrylátové estery polyhydroxyalkoholov pôsobia ako všestranné monoméry poskytujúce zosieťovacie body, ktoré ovplyvňujú tvrdosť, flexibilitu a trvanlivosť vo výslednom náterovom filme. Naše kapacity Zákazkovej syntézy môžu ďalej riešiť špecifické potreby monomérov alebo aditív.',
+            image: coatingsChallenge2Doc.id,
+          },
+          {
+            title: 'Plnenie environmentálnych predpisov (nízke VOC)',
+            challenge:
+              'Dodržiavanie prísnych environmentálnych predpisov, najmä pokiaľ ide o emisie prchavých organických zlúčenín (VOC), je rozhodujúce pre prístup na trh.',
+            solution:
+              'Dodávaním kľúčových monomérov ako DMPA a DMBA, ktoré umožňujú vysokovýkonné vodou riediteľné formulácie, VUP priamo podporuje prechod priemyslu k technológiám náterov s nižším obsahom VOC a udržateľnejším technológiám. Naše výrobky sú registrované v systéme REACH a naše služby Regulačnej podpory môžu pomôcť klientom pri navigácii požiadaviek na zhodu pre ich formulácie.',
+            image: coatingsChallenge3Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: coatingsPaintsInks.id,
+      locale: 'jp',
+      data: {
+        name: 'コーティング、塗料、インク',
+        description:
+          'コーティング、塗料、インク業界は、性能、耐久性、環境適合性を向上させる技術革新を絶えず求めています。配合設計者は、優れた保護性、美観、機能性を提供しつつ、厳しい規制（低VOC目標など）を満たすという課題に直面しています。VUP, a.s.は、70年以上にわたる化学の専門知識を活用し、ジメチロールプロピオン酸（DMPA）やユニークなジメチロールブタン酸（DMBA）などの基本的な構成要素を他の主要な中間体とともに提供し、先進的な水性システムや高性能コーティングの生産を可能にします。ヨーロッパの主要な生産者として、私たちは堅牢な研究開発と規制に関するノウハウに支えられた、これらの重要な原材料の信頼できるパートナーです。',
+        summary:
+          'VUPは、水性システムおよびコーティングの主要な構成要素を提供し、性能と規制順守を保証します。',
+        challenges: [
+          {
+            title: '水性コーティング（PUD、アルキド、ポリエステル）',
+            challenge:
+              '環境への影響を低減した、安定で高性能な水性コーティングを開発するには、特殊な親水性モノマーが必要です。',
+            solution:
+              '当社のDMPA（CAS 4767-03-7）は、樹脂（ポリウレタン、アルキド、ポリエステル）を水中で安定的に分散させる多用途な構成要素であり、密着性、光沢、耐衝撃性を向上させた低VOC配合を実現します。当社独自のDMBA（CAS 10097-02-6）は、優れた溶解性や速い反応速度といった潜在的な利点を提供し、ポリウレタンの生産および塗布特性の最適化に有益です。両方とも完全にREACH登録されており、規制順守をサポートします。また、耐久性のある水性樹脂のもう一つの重要な中間体であるヒドロキシピバリン酸（HPVA, CAS 4835-90-9）も提供しています。',
+            image: coatingsChallenge1Doc.id,
+          },
+          {
+            title: '粉体塗装と樹脂改質',
+            challenge:
+              '粉体塗装や他の樹脂システムにおいて、最適な流動性、レベリング性、耐久性、柔軟性を達成するには、特定の​​中間体が必要となることがよくあります。',
+            solution:
+              'ヒドロキシピバリン酸（HPVA）は、粉体塗装で使用されるポリエステルなどの樹脂を製造するための主要な中間体として機能し、その誘導体（HPN）は流動性とレベリング性を向上させます。多価アルコールのアクリレートエステルは、架橋点を提供する多用途なモノマーとして機能し、最終的な塗膜の硬度、柔軟性、耐久性に影響を与えます。当社のカスタム合成能力は、特定のモノマーや添加剤のニーズにさらに対応できます。',
+            image: coatingsChallenge2Doc.id,
+          },
+          {
+            title: '環境規制への対応（低VOC）',
+            challenge:
+              '特に揮発性有機化合物（VOC）の排出に関する厳しい環境規制を遵守することは、市場アクセスにとって不可欠です。',
+            solution:
+              '高性能な水性配合を可能にするDMPAやDMBAのような主要モノマーを供給することにより、VUPは業界がより低VOCで持続可能なコーティング技術へ移行することを直接支援します。当社の製品はREACHに登録されており、当社の規制サポートサービスは、クライアントが自社の配合に関するコンプライアンス要件を乗り越えるのを支援します。',
+            image: coatingsChallenge3Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Polymers & Plastics
+
+    payload.update({
+      collection: 'industries',
+      id: polymersPlastics.id,
+      locale: 'sk',
+      data: {
+        name: 'Polyméry a Plasty',
+        description:
+          'Priemysel polymérov a plastov sa spolieha na inovatívnu chémiu pri vytváraní materiálov so špecifickými funkciami, zvýšenou odolnosťou a zlepšenými spracovateľskými vlastnosťami. Od riadenia polymerizačných reakcií až po ochranu konečných produktov pred degradáciou hrajú špecializované chemické prísady a medziprodukty kľúčovú úlohu. VUP, a.s. poskytuje kľúčové stavebné bloky, stabilizátory (ako sú bránené amíny/HALS), zosieťovacie činidlá a mediátory polymerizácie (ako TEMPO), podporované rozsiahlymi službami v oblasti výskumu a vývoja a analytickými službami, čo umožňuje našim partnerom vyvíjať pokročilé polymérne riešenia.',
+        summary:
+          'VUP ponúka stavebné bloky a stabilizátory pre polyméry, zvyšujúc odolnosť a spracovanie s pokročilou podporou výskumu a vývoja.',
+        challenges: [
+          {
+            title: 'Stabilizácia polymérov (svetlo, teplo, oxidácia)',
+            challenge:
+              'Ochrana polymérov pred degradáciou spôsobenou UV žiarením, teplom a oxidáciou je kľúčová pre predĺženie životnosti produktu a udržanie výkonu, najmä v náročných aplikáciách.',
+            solution:
+              'Ponúkame bránené amíny, vrátane svetelných stabilizátorov na báze bránených amínov (HALS) odvodených z našej výrobnej linky TAA. Tieto aditíva pôsobia ako silné lapače radikálov, významne inhibujú degradáciu polymérov, zabraňujú praskaniu a zmene farby a zlepšujú dlhodobú odolnosť plastov a náterov. Naše deriváty TEMPO tiež prispievajú k stabilite polymérov.',
+            image: polymersChallenge1Doc.id,
+          },
+          {
+            title: 'Riadená polymerizácia a architektúra',
+            challenge:
+              'Dosiahnutie špecifických vlastností polymérov si často vyžaduje presnú kontrolu molekulovej hmotnosti, polydisperzity a architektúry počas syntézy.',
+            solution:
+              'TEMPO (CAS 2564-83-2) funguje ako vysoko účinný mediátor v nitroxidom sprostredkovanej polymerizácii (NMP), čo umožňuje syntézu polymérov s dobre definovanými štruktúrami. Táto kontrola umožňuje vývoj materiálov so zlepšenými výkonnostnými charakteristikami prispôsobenými pre špecifické aplikácie. H-TEMPO (CAS 2226-96-2) môže slúžiť ako inhibítor polymerizácie na kontrolu procesu alebo skladovanie.',
+            image: polymersChallenge2Doc.id,
+          },
+          {
+            title: 'Stavebné bloky pre polyuretány',
+            challenge:
+              'Formulácia vysokovýkonných polyuretánov (disperzií, elastomérov, lepidiel) si vyžaduje špecifické medziprodukty na dodanie požadovaných vlastností, ako je dispergovateľnosť vo vode, flexibilita a priľnavosť.',
+            solution:
+              "Poskytujeme kľúčové metylolalkánové kyseliny DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6), ktoré sú nevyhnutné pre vytváranie stabilných vodou riediteľných PUD s vylepšeným výkonom. HPVA slúži ako medziprodukt pre odolné polyesterové a polyuretánové živice. Trimetylolétán (TME, CAS 77-85-0) ponúka alternatívny polyolový stavebný blok. Okrem toho, O,O'-Bis(3-aminopropyl)polyetylénglykol sa môže použiť ako reaktívna zložka na dodanie flexibility a hydrofilnosti.",
+            image: polymersChallenge3Doc.id,
+          },
+          {
+            title: 'Zosieťovanie a zlepšenie vlastností',
+            challenge:
+              'Zlepšenie mechanickej pevnosti, tepelnej stability, elasticity a chemickej odolnosti polymérov často zahŕňa vytváranie zosieťovaných sietí v materiáli.',
+            solution:
+              'Ponúkame zosieťovacie činidlá ako Tetravup (značka VUP) a dihydrazid kyseliny adipovej. Tieto multifunkčné molekuly reagujú s polymérnymi reťazcami na zlepšenie štrukturálnej integrity a výkonnostných charakteristík kritických pre náročné aplikácie v lepidlách, náteroch, elastoméroch a plastoch.',
+            image: polymersChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: polymersPlastics.id,
+      locale: 'jp',
+      data: {
+        name: 'ポリマー・プラスチック',
+        description:
+          'ポリマー・プラスチック産業は、特定の機能性、向上した耐久性、改善された加工特性を持つ材料を創出するために、革新的な化学に依存しています。重合反応の制御から最終製品の劣化防止まで、特殊な化学添加剤と中間体が重要な役割を果たします。VUP, a.s.は、主要な構成単位、安定剤（ヒンダードアミン/HALSなど）、架橋剤、重合メディエーター（TEMPOなど）を、広範な研究開発および分析サービスに支えられて提供し、パートナーが先進的なポリマーソリューションを開発できるようにします。',
+        summary:
+          'VUPはポリマー向けの構成単位と安定剤を提供し、先進的な研究開発支援により耐久性と加工性を向上させます。',
+        challenges: [
+          {
+            title: 'ポリマーの安定化（光、熱、酸化）',
+            challenge:
+              '紫外線、熱、酸化によるポリマーの劣化から保護することは、製品寿命を延ばし、特に要求の厳しい用途で性能を維持するために不可欠です。',
+            solution:
+              '当社のTAA生産ラインから誘導されるヒンダードアミン光安定剤（HALS）を含むヒンダードアミンを提供しています。これらの添加剤は強力なラジカル捕捉剤として機能し、ポリマーの劣化を著しく抑制し、ひび割れや変色を防ぎ、プラスチックやコーティングの長期耐久性を向上させます。当社のTEMPO誘導体もポリマーの安定性に貢献します。',
+            image: polymersChallenge1Doc.id,
+          },
+          {
+            title: '制御重合と構造制御',
+            challenge:
+              '特定のポリマー特性を達成するには、合成中に分子量、多分散性、および構造を精密に制御することがしばしば必要です。',
+            solution:
+              'TEMPO（CAS 2564-83-2）は、ニトロキシド媒介重合（NMP）において非常に効果的なメディエーターとして機能し、明確に定義された構造を持つポリマーの合成を可能にします。この制御により、特定の用途に合わせた高性能特性を持つ材料の開発が可能になります。H-TEMPO（CAS 2226-96-2）は、プロセス制御や保管のための重合禁止剤として使用できます。',
+            image: polymersChallenge2Doc.id,
+          },
+          {
+            title: 'ポリウレタンの構成単位',
+            challenge:
+              '高性能ポリウレタン（ディスパージョン、エラストマー、接着剤）を配合するには、水分散性、柔軟性、接着性などの所望の特性を付与するための特定の中間体が必要です。',
+            solution:
+              "安定した高性能な水性PUDを創出するために不可欠な、主要なメチロールアルカン酸であるDMPA（CAS 4767-03-7）とDMBA（CAS 10097-02-6）を提供します。HPVAは耐久性のあるポリエステルおよびポリウレタン樹脂の中間体として機能します。トリメチロールエタン（TME, CAS 77-85-0）は代替のポリオール構成単位を提供します。さらに、O,O'-ビス(3-アミノプロピル)ポリエチレングリコールは、柔軟性と親水性を付与する反応性成分として使用できます。",
+            image: polymersChallenge3Doc.id,
+          },
+          {
+            title: '架橋と特性向上',
+            challenge:
+              'ポリマーの機械的強度、熱安定性、弾性、および耐薬品性を向上させるには、材料内に架橋ネットワークを形成することがしばしば含まれます。',
+            solution:
+              'Tetravup（VUPブランド）やアジピン酸ジヒドラジドなどの架橋剤を提供しています。これらの多機能分子はポリマー鎖と反応し、接着剤、コーティング、エラストマー、プラスチックなどの要求の厳しい用途に不可欠な構造的完全性と性能特性を向上させます。',
+            image: polymersChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Adhesives & Sealants
+
+    payload.update({
+      collection: 'industries',
+      id: adhesivesSealants.id,
+      locale: 'sk',
+      data: {
+        name: 'Lepidlá a Tmely',
+        description:
+          'Priemysel lepidiel a tmelov vyžaduje materiály, ktoré poskytujú pevné, trvanlivé spoje, vynikajúcu flexibilitu a odolnosť voči environmentálnym faktorom, pričom čoraz viac uprednostňuje udržateľné formulácie s nízkym obsahom VOC. VUP, a.s. prispieva kľúčovými chemickými medziproduktmi, ktoré umožňujú vývoj pokročilých systémov lepidiel a tmelov. Poskytujeme špecializované stavebné bloky, ako je kyselina dimetylolbutánová (DMBA) pre vysokovýkonné vodou riediteľné lepidlá, deriváty kyseliny hydroxypivalovej (HPVA) pre reaktívne tavné lepidlá a nevyhnutné zosieťovacie činidlá, čím podporujeme výrobcov pri plnení výkonnostných a regulačných výziev.',
+        summary:
+          'VUP dodáva medziprodukty pre lepidlá, ktoré zvyšujú pevnosť, flexibilitu a udržateľnosť vďaka riešeniam s nízkym obsahom VOC.',
+        challenges: [
+          {
+            title: 'Vodou riediteľné lepiace systémy (polyuretán, polyester, epoxid)',
+            challenge:
+              'Formulácia vysokovýkonných vodou riediteľných lepidiel si vyžaduje medziprodukty, ktoré zabezpečujú stabilitu, pevné lepenie a odolnosť voči vode.',
+            solution:
+              'Kyselina dimetylolbutánová (DMBA, CAS 10097-02-6) je kľúčovou zložkou pre vodou riediteľné polyuretánové, epoxidové a polyesterové lepidlá. Jej vynikajúca rozpustnosť vo vode zlepšuje efektivitu spracovania, zatiaľ čo jej funkcia ako zosieťovacieho činidla poskytuje výnimočnú pevnosť spoja a zlepšenú odolnosť voči vode. Jej potenciálne rýchlejšia reakčná rýchlosť môže tiež zvýšiť výrobnú kapacitu. Ponúkame tiež DMPA, príbuznú metylolalkánovú kyselinu, ktorá sa tiež používa v PUD pre lepidlá.',
+            image: adhesivesChallenge1Doc.id,
+          },
+          {
+            title: 'Reaktívne tavné lepidlá a modifikácia živíc',
+            challenge:
+              'Vývoj reaktívnych tavných lepidiel bez rozpúšťadiel s dobrou priehľadnosťou, priľnavosťou a flexibilitou si vyžaduje špecifické stavebné bloky.',
+            solution:
+              'Kyselina hydroxypivalová (HPVA, CAS 4835-90-9) je prekurzorom pre neopentylglykolester kyseliny hydroxypivalovej (HPN). HPN pôsobí ako stavebný blok pre polyuretánové živice používané v lepidlách, pričom prispieva k priaznivej rovnováhe tvrdosti, flexibility a priľnavosti. V reaktívnych tavných lepidlách môže HPN zlepšiť priehľadnosť a znížiť požiadavky na rozpúšťadlá, čím podporuje formulácie s nižším obsahom VOC. Polyhydroxyalkoholy od VUP tiež slúžia ako medziprodukty pre živice používané v tomto sektore.',
+            image: adhesivesChallenge2Doc.id,
+          },
+          {
+            title: 'Zvýšená pevnosť a trvanlivosť prostredníctvom zosieťovania',
+            challenge:
+              'Dosiahnutie potrebnej mechanickej pevnosti, tepelnej stability a chemickej odolnosti vo vysokovýkonných lepidlách a tmeloch si často vyžaduje účinné zosieťovanie.',
+            solution:
+              'Poskytujeme kľúčové zosieťovacie činidlá, ako je dihydrazid kyseliny adipovej. Tieto komponenty reagujú v rámci formulácie lepidla alebo tmelu na vytvorenie robustných polymérnych sietí, čím sa výrazne zvyšuje trvanlivosť a výkonnostné charakteristiky požadované pre náročné aplikácie.',
+            image: adhesivesChallenge3Doc.id,
+          },
+          {
+            title: 'Výkonnostné aditíva a zákazkové riešenia',
+            challenge:
+              'Unikátne aplikácie môžu vyžadovať špecializované aditíva alebo medziprodukty na dosiahnutie špecifických výkonnostných cieľov, ktoré štandardné komponenty nespĺňajú.',
+            solution:
+              'Deriváty TEMPO vykazujú potenciál na zlepšenie polymerizačných procesov alebo na zlepšenie tepelnej/mechanickej pevnosti lepidiel. Naše služby Zákazkovej syntézy nám navyše umožňujú vyvíjať a vyrábať špecifické monoméry alebo aditíva prispôsobené vašim jedinečným potrebám na formuláciu lepidiel alebo tmelov, podporené našimi rozsiahlymi schopnosťami v oblasti výskumu a vývoja.',
+            image: adhesivesChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: adhesivesSealants.id,
+      locale: 'jp',
+      data: {
+        name: '接着剤・シーラント',
+        description:
+          '接着剤・シーラント業界では、強力で耐久性のある接着、優れた柔軟性、環境要因への耐性を備え、同時に持続可能で低VOCの配合がますます好まれる材料が求められています。VUP, a.s.は、先進的な接着剤およびシーラントシステムの開発を可能にする主要な化学中間体を提供します。高性能水性接着剤向けのジメチロールブタン酸（DMBA）、反応性ホットメルト向けのヒドロキシピバリン酸（HPVA）誘導体、不可欠な架橋剤などの特殊な構成単位を提供し、配合設計者が性能および規制上の課題を克服するのを支援します。',
+        summary:
+          'VUPは接着剤用の中間体を供給し、低VOCソリューションで強度、柔軟性、持続可能性を向上させます。',
+        challenges: [
+          {
+            title: '水性接着剤システム（ポリウレタン、ポリエステル、エポキシ）',
+            challenge:
+              '高性能な水性接着剤を配合するには、安定性、強力な接着力、耐水性を確保する中間体が必要です。',
+            solution:
+              'ジメチロールブタン酸（DMBA、CAS 10097-02-6）は、水性のポリウレタン、エポキシ、ポリエステル接着剤にとって重要な成分です。その優れた水溶性は加工効率を向上させ、架橋剤としての機能は卓越した接着強度と向上した耐水性を提供します。反応速度が速い可能性もあり、生産スループットを向上させることもできます。また、接着剤用のPUDで使用される関連メチロールアルカン酸であるDMPAも提供しています。',
+            image: adhesivesChallenge1Doc.id,
+          },
+          {
+            title: '反応性ホットメルト接着剤と樹脂改質',
+            challenge:
+              '良好な透明性、接着性、柔軟性を備えた無溶剤の反応性ホットメルトを開発するには、特定の構成単位が必要です。',
+            solution:
+              'ヒドロキシピバリン酸（HPVA、CAS 4835-90-9）は、ヒドロキシピバリン酸ネオペンチルグリコールエステル（HPN）の前駆体です。HPNは接着剤に使用されるポリウレタン樹脂の構成単位として機能し、硬度、柔軟性、接着性の好ましいバランスをもたらします。反応性ホットメルトにおいて、HPNは透明性を向上させ、溶剤要件を削減し、低VOC配合をサポートします。VUPの多価アルコールも、この分野で使用される樹脂の中間体として機能します。',
+            image: adhesivesChallenge2Doc.id,
+          },
+          {
+            title: '架橋による強度と耐久性の向上',
+            challenge:
+              '高性能の接着剤やシーラントで必要な機械的強度、熱安定性、耐薬品性を達成するには、効果的な架橋がしばしば必要です。',
+            solution:
+              'アジピン酸ジヒドラジドなどの主要な架橋剤を提供しています。これらの成分は接着剤やシーラントの配合内で反応し、堅牢なポリマーネットワークを形成し、要求の厳しい用途に必要な耐久性と性能特性を大幅に向上させます。',
+            image: adhesivesChallenge3Doc.id,
+          },
+          {
+            title: '高性能添加剤とカスタムソリューション',
+            challenge:
+              '独自の用途では、標準的な成分では満たされない特定の性能目標を達成するために、特殊な添加剤や中間体が必要になる場合があります。',
+            solution:
+              'TEMPO誘導体は、重合プロセスを強化したり、接着剤の熱的/機械的強度を向上させる可能性を示しています。さらに、当社のカスタム合成サービスにより、広範な研究開発能力に裏打ちされた、お客様独自の接着剤やシーラントの配合ニーズに合わせた特定のモノマーや添加剤を開発・製造することができます。',
+            image: adhesivesChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Pharmaceuticals
+
+    payload.update({
+      collection: 'industries',
+      id: pharmaceuticals.id,
+      locale: 'sk',
+      data: {
+        name: 'Farmácia a Biotechnológia',
+        description:
+          'Farmaceutický a biotechnologický sektor vyžadujú výnimočnú čistotu, inovatívnu chémiu a prísne dodržiavanie regulačných noriem. VUP, a.s. spolupracuje so spoločnosťami v týchto kritických odvetviach poskytovaním kľúčových chemických medziproduktov, špecializovaných diagnostických pomôcok, pokročilých biomedicínskych materiálov a expertných služieb v oblasti výskumu, vývoja a zákazkovej syntézy. Využívajúc naše viac ako 70-ročné chemické skúsenosti, certifikáciu ISO 9001:2015 a akreditované analytické kapacity, podporujeme vývoj a výrobu životne dôležitých riešení v zdravotníctve.',
+        summary:
+          'VUP poskytuje medziprodukty a služby pre farmáciu a biotechnológiu, zaručujúc čistotu a súlad s predpismi prostredníctvom inovatívnej chémie.',
+        challenges: [
+          {
+            title: 'Syntéza API a farmaceutické medziprodukty',
+            challenge:
+              'Získavanie vysoko čistých, spoľahlivo dodávaných surovín a medziproduktov je kľúčové pre výrobu aktívnych farmaceutických zložiek (API).',
+            solution:
+              'Špecializujeme sa na výrobu TEMPO (CAS 2564-83-2) a príbuzných nitroxidových radikálov, ktoré slúžia ako všestranné katalyzátory, antioxidanty a suroviny, vrátane použitia v API zameraných na Parkinsonovu chorobu. Služba Zákazkovej syntézy od VUP poskytuje na mieru šitú výrobu ďalších komplexných organických medziproduktov potrebných pre vývojové pipeline liekov, podloženú robustnou kontrolou kvality.',
+            image: pharmaChallenge1Doc.id,
+          },
+          {
+            title: 'Biomedicínske materiály a povlaky pre zdravotnícke pomôcky',
+            challenge:
+              'Vývoj pokročilých zdravotníckych pomôcok a terapií si často vyžaduje špecializované biokompatibilné materiály s unikátnymi funkčnými vlastnosťami.',
+            solution:
+              "VUP je unikátnym globálnym výrobcom O,O'-Bis(3-aminopropyl)polyetylénglykolu (DAPEG), vysokohodnotného medziproduktu používaného na vytváranie lubrikačných, hydrofilných povlakov pre cievne intervenčné pomôcky a iné chirurgické aplikácie. Na tomto základe sme vyvinuli pilotné kapacity pre PEG-diakrylamid (PEGDAA), derivát s významným potenciálom v tkanivovom inžinierstve, 3D biotlači a systémoch na podávanie liečiv. Náš tím výskumu a vývoja aktívne spolupracuje s partnermi ako DSM Biomedical v tejto oblasti.",
+            image: pharmaChallenge2Doc.id,
+          },
+          {
+            title: 'Diagnostické pomôcky a zdravotnícke výrobky',
+            challenge:
+              'Spoľahlivé a bezpečné spotrebné materiály sú nevyhnutné pre rutinné diagnostické postupy v zdravotníckych zariadeniach.',
+            solution:
+              'Vyrábame vysokokvalitné diagnostické gély, vrátane GELSON pre sonografiu a EV GEL pre EKG/EEG vyšetrenia. Tieto produkty sú formulované s použitím bezpečných surovín dermatologickej/kozmetickej kvality, sú bez alkoholu, nedráždivé a spĺňajú príslušné zdravotné normy (Gelson má zdravotný certifikát MZ SR). VUP tiež vyrába ďalšie čisté chemikálie a produkty pre zdravotnícke aplikácie.',
+            image: pharmaChallenge3Doc.id,
+          },
+          {
+            title: 'Objavovanie liekov a výskumné chemikálie',
+            challenge:
+              'Výskumníci potrebujú prístup k špecializovaným, vysoko čistým chemikáliám a reagenciám na identifikáciu cieľov, skríning a predklinické štúdie.',
+            solution:
+              'Naše deriváty TEMPO slúžia ako dôležité nástroje (antioxidanty, spinové značky) vo farmaceutickom výskume. VUP tiež vyrába unikátne laboratórne chemikálie špecificky pre medicínske aplikácie a ponúka služby Zákazkovej syntézy na poskytnutie výskumníkom nových zlúčenín alebo špecifických medziproduktov potrebných pre ich objaviteľské programy.',
+            image: pharmaChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: pharmaceuticals.id,
+      locale: 'jp',
+      data: {
+        name: '医薬品・バイオテクノロジー',
+        description:
+          '医薬品およびバイオテクノロジー分野では、卓越した純度、革新的な化学、そして規制基準の厳格な遵守が求められます。VUP, a.s.は、主要な化学中間体、特殊な診断補助剤、先進的な生物医学材料、専門的な研究開発およびカスタム合成サービスを提供することで、これらの重要な産業の企業と提携しています。70年以上にわたる化学の専門知識、ISO 9001:2015認証、認定された分析能力を活用し、不可欠なヘルスケアソリューションの開発と生産を支援します。',
+        summary:
+          'VUPは医薬品・バイオテクノロジー向けの中間体とサービスを提供し、革新的な化学で純度とコンプライアンスを保証します。',
+        challenges: [
+          {
+            title: 'API合成と医薬品中間体',
+            challenge:
+              '原薬（API）製造には、高純度で信頼性の高い供給が可能な原材料と中間体の調達が不可欠です。',
+            solution:
+              '当社は、TEMPO（CAS 2564-83-2）および関連するニトロキシドラジカルの製造を専門としています。これらは多目的な触媒、抗酸化剤、原料として機能し、パーキンソン病を対象とするAPIにも使用されます。VUPのカスタム合成サービスは、堅牢な品質管理に裏打ちされた、医薬品開発パイプラインに必要な他の複雑な有機中間体の特注生産を提供します。',
+            image: pharmaChallenge1Doc.id,
+          },
+          {
+            title: '生物医学材料とデバイスコーティング',
+            challenge:
+              '先進的な医療機器や治療法の開発には、独自の機能特性を持つ特殊な生体適合性材料がしばしば必要とされます。',
+            solution:
+              "VUPは、血管インターベンションデバイスやその他の外科用途向けの潤滑性、親水性コーティングを作成するために使用される高価値中間体であるO,O'-ビス(3-アミノプロピル)ポリエチレングリコール（DAPEG）のユニークな世界的生産者です。これを基に、組織工学、3Dバイオプリンティング、ドラッグデリバリーシステムで大きな可能性を秘めた誘導体であるPEG-ジアクリルアミド（PEGDAA）のパイロット能力を開発しました。当社の研究開発チームは、この分野でDSM Biomedicalなどのパートナーと積極的に協力しています。",
+            image: pharmaChallenge2Doc.id,
+          },
+          {
+            title: '診断補助剤とヘルスケア製品',
+            challenge: '医療現場での日常的な診断手順には、信頼性が高く安全な消耗品が不可欠です。',
+            solution:
+              '当社は、超音波検査用のGELSONや心電図/脳波検査用のEV GELなど、高品質の診断用ゲルを製造しています。これらの製品は、安全な皮膚科学/化粧品グレードの原料を使用して処方されており、アルコールフリーで非刺激性であり、関連する健康基準を満たしています（GelsonはMoH SKの健康証明書を保持しています）。VUPはまた、他のファインケミカルやヘルスケア用途の製品も製造しています。',
+            image: pharmaChallenge3Doc.id,
+          },
+          {
+            title: '創薬と研究用化学品',
+            challenge:
+              '研究者は、標的同定、スクリーニング、および前臨床研究のために、特殊で高純度の化学品や試薬へのアクセスを必要とします。',
+            solution:
+              '当社のTEMPO誘導体は、医薬品研究において重要なツール（抗酸化剤、スピンラベル）として機能します。VUPはまた、医療用途に特化したユニークな実験用化学品を製造しており、研究者が発見プログラムに必要な新規化合物や特定の中間体を提供するためのカスタム合成サービスも提供しています。',
+            image: pharmaChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Petrochemicals & Refineries
+
+    payload.update({
+      collection: 'industries',
+      id: petrochemicalsRefineries.id,
+      locale: 'sk',
+      data: {
+        name: 'Petrochémia a Rafinérie',
+        description:
+          'Spoločnosť VUP, a.s., ktorá vznikla z Výskumného ústavu pre petrochémiu založeného v roku 1950, má hlboké historické korene a rozsiahle odborné znalosti v petrochemickej vede a technológii. Hoci nie sme veľkou rafinériou, spolupracujeme s odvetvím petrochémie a rafinérií poskytovaním špecializovaných chemických produktov (ako sú stabilizátory a inhibítory palív), pokročilých analytických služieb, zákazkovej syntézy medziproduktov a odbornej podpory výskumu a vývoja pre optimalizáciu a vývoj procesov. Náš záväzok ku kvalite (ISO 9001) a bezpečnosti (Responsible Care) z nás robí spoľahlivého partnera pre tento náročný priemysel.',
+        summary:
+          'VUP ponúka špecializované produkty a služby pre petrochemický priemysel so zameraním na kvalitu, bezpečnosť a optimalizáciu procesov.',
+        challenges: [
+          {
+            title: 'Spracovanie, skladovanie a stabilita palív',
+            challenge:
+              'Zabezpečenie stability paliva počas spracovania, prepravy a skladovania je kľúčové na zabránenie degradácii, tvorbe živíc a udržanie kvalitatívnych špecifikácií.',
+            solution:
+              'Vyrábame špecializované aditíva ako VUPIN H37-B (antioxidant/UV stabilizátor) určené na spracovanie a skladovanie palív. Naše odborné znalosti sa navyše vzťahujú na inhibítory polymerizácie ako H-TEMPO, ktorý sa už roky úspešne používa v rafinérskych jednotkách FCC (napr. v Slovnafte) na zabránenie nežiaducim reakciám.',
+            image: petroChallenge1Doc.id,
+          },
+          {
+            title: 'Petrochemická syntéza a špeciálne medziprodukty',
+            challenge:
+              'Petrochemický priemysel vyžaduje širokú škálu špecializovaných medziproduktov pre nadväzujúce aplikácie alebo špecifické procesné potreby, čo si často vyžaduje schopnosti zákazkovej chemickej syntézy.',
+            solution:
+              'S využitím našej silnej základne v oblasti výskumu a vývoja ponúkame služby Zákazkovej syntézy pre špeciálne organické medziprodukty. Naše historické a prebiehajúce výskumné odborné znalosti zahŕňajú oblasti priamo relevantné pre petrochemické suroviny a deriváty, ako sú acetylénové alkoholy, epoxidy, polyhydroxyalkoholy, vyššie aldehydy a brómované uhľovodíky.',
+            image: petroChallenge2Doc.id,
+          },
+          {
+            title: 'Suroviny pre nadväzujúce priemyselné odvetvia',
+            challenge:
+              'Rafinérie a petrochemické závody poskytujú základné stavebné kamene pre početné nadväzujúce priemyselné odvetvia, ako sú polyméry, plasty, nátery a lepidlá. Dodávatelia medziproduktov pre tieto odvetvia sú kľúčovými partnermi.',
+            solution:
+              'Vyrábame kľúčové medziprodukty ako DMPA, DMBA a HPVA, ktoré sú odvodené z petrochemických hodnotových reťazcov a sú nevyhnutnými surovinami na výrobu vysokovýkonných polyuretánov (PUD), polyesterov a alkydov, ktoré sa vo veľkej miere používajú v náteroch, lepidlách a polymérnych aplikáciách.',
+            image: petroChallenge3Doc.id,
+          },
+          {
+            title: 'Optimalizácia procesov, analýza a bezpečnosť',
+            challenge:
+              'Optimalizácia rafinérskych a petrochemických procesov, zabezpečenie kvality produktov a udržiavanie vysokých bezpečnostných štandardov si vyžaduje robustnú analytickú podporu a technické odborné znalosti.',
+            solution:
+              'Naše služby v oblasti výskumu a vývoja môžu pomôcť pri vývoji a optimalizácii procesov. Naša akreditovaná divízia ATBEL (SNAS S-118) poskytuje komplexné analytické služby relevantné pre toto odvetvie, vrátane plynovej/kvapalinovej chromatografie na analýzu zloženia, stanovenie VOC, testovanie fyzikálnych vlastností a rozsiahle technicko-bezpečnostné analýzy (bod vzplanutia, horľavosť atď.), ktoré sú kľúčové pre bezpečnú manipuláciu a kontrolu procesov.',
+            image: petroChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: petrochemicalsRefineries.id,
+      locale: 'jp',
+      data: {
+        name: '石油化学・製油所',
+        description:
+          '1950年に設立された石油化学研究所から生まれたVUP, a.s.は、石油化学の科学と技術において深い歴史的ルーツと広範な専門知識を有しています。大規模な精製業者ではありませんが、特殊化学製品（燃料安定剤や禁止剤など）、高度な分析サービス、中間体のカスタム合成、プロセス最適化と開発のための専門的な研究開発支援を提供することで、石油化学・製油所セクターと提携しています。品質（ISO 9001）と安全（レスポンシブル・ケア）へのコミットメントにより、この要求の厳しい業界にとって信頼できるパートナーとなっています。',
+        summary:
+          'VUPは石油化学向けに特化した製品とサービスを提供し、品質、安全性、プロセスの最適化に重点を置いています。',
+        challenges: [
+          {
+            title: '燃料の処理、保管、安定性',
+            challenge:
+              '処理、輸送、保管中の燃料の安定性を確保することは、劣化やガムの生成を防ぎ、品質仕様を維持するために不可欠です。',
+            solution:
+              '燃料の処理および保管用に設計されたVUPIN H37-B（酸化防止剤/紫外線安定剤）などの特殊添加剤を製造しています。さらに、当社の専門知識はH-TEMPOのような重合禁止剤にも及び、これは製油所のFCCユニット（例：Slovnaft）で不要な反応を防ぐために長年成功裏に使用されています。',
+            image: petroChallenge1Doc.id,
+          },
+          {
+            title: '石油化学合成と特殊中間体',
+            challenge:
+              '石油化学産業は、下流の用途や特定のプロセスニーズのために幅広い特殊中間体を必要とし、しばしばカスタム化学合成能力が求められます。',
+            solution:
+              '当社の強力な研究開発基盤を活用し、特殊有機中間体向けのカスタム合成サービスを提供しています。当社の歴史的かつ継続的な研究専門知識には、アセチレンアルコール、エポキシド、多価アルコール、高級アルデヒド、臭素化炭化水素など、石油化学原料および誘導体に直接関連する分野が含まれます。',
+            image: petroChallenge2Doc.id,
+          },
+          {
+            title: '下流産業向けの原材料',
+            challenge:
+              '製油所や石油化学プラントは、ポリマー、プラスチック、コーティング、接着剤など、数多くの下流産業の基本的な構成要素を提供します。これらのセクターへの中間体供給業者は重要なパートナーです。',
+            solution:
+              'DMPA、DMBA、HPVAなどの主要な中間体を製造しています。これらは石油化学のバリューチェーンから派生し、コーティング、接着剤、ポリマー用途で広範に使用される高性能ポリウレタン（PUD）、ポリエステル、アルキドの製造に不可欠な原材料です。',
+            image: petroChallenge3Doc.id,
+          },
+          {
+            title: 'プロセスの最適化、分析、安全性',
+            challenge:
+              '製油所および石油化学プロセスの最適化、製品品質の確保、高い安全基準の維持には、堅牢な分析サポートと技術的専門知識が必要です。',
+            solution:
+              '当社の研究開発サービスは、プロセスの開発と最適化を支援できます。当社の認定ATBEL部門（SNAS S-118）は、組成分析のためのガスクロマトグラフィー/液体クロマトグラフィー、VOC測定、物理的特性試験、安全な取り扱いとプロセス制御に不可欠な広範な技術安全分析（引火点、可燃性など）を含む、このセクターに関連する包括的な分析サービスを提供します。',
+            image: petroChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Battery Energy Storage
+
+    payload.update({
+      collection: 'industries',
+      id: batteryEnergyStorage.id,
+      locale: 'sk',
+      data: {
+        name: 'Batérie a Ukladanie Energie',
+        description:
+          'Globálne hľadanie účinných, udržateľných a bezpečných riešení na ukladanie energie poháňa inovácie nad rámec tradičných lítium-iónových batérií. Organické radikálové batérie (ORB) predstavujú sľubnú hranicu, využívajúc redoxne aktívne organické molekuly ako TEMPO (2,2,6,6-tetrametylpiperidin-1-oxyl) a jeho deriváty. VUP, a.s., so svojimi dlhoročnými skúsenosťami vo výskume, vývoji a výrobe vysoko čistých zlúčenín TEMPO, je pripravená podporiť vývoj tejto novej generácie technológie na ukladanie energie. Naše škálovateľné výrobné kapacity a pokračujúce výskumné úsilie majú za cieľ poskytovať kľúčové materiály pre ORB a pokročilé redoxné prietokové batérie.',
+        summary:
+          'VUP podporuje inovácie v ukladaní energie zlúčeninami TEMPO pre ORB a redoxné prietokové batérie so zameraním na udržateľnosť a účinnosť.',
+        challenges: [
+          {
+            title: 'Organické radikálové batérie (ORB)',
+            challenge:
+              'Vývoj vysokovýkonných, bezkovových a potenciálne bezpečnejších batériových systémov pre aplikácie od prenosnej elektroniky po ukladanie energie v sieti.',
+            solution:
+              'TEMPO a jeho deriváty vykazujú pozoruhodný elektrochemický výkon, pôsobiac ako vysoko účinné a reverzibilné nosiče náboja. Ich potenciálne použitie ako redoxne aktívnych materiálov v elektródach ORB ponúka výhody ako potenciálne vysoká hustota výkonu a rýchle nabíjanie/vybíjanie. VUP vyrába vysoko čisté TEMPO vhodné pre elektrochemický výskum a vývoj v tejto oblasti.',
+            image: batteryChallenge1Doc.id,
+          },
+          {
+            title: 'Vodné redoxné prietokové batérie',
+            challenge:
+              'Zlepšenie energetickej hustoty, účinnosti a nákladovej efektívnosti vodných redoxných prietokových batérií pre ukladanie energie v sieti.',
+            solution:
+              'Výskum naznačuje významný potenciál pre katolytov na báze TEMPO na zlepšenie výkonu vodných redoxných prietokových batérií. Odborné znalosti VUP v chémii TEMPO nás stavajú do pozície spolupracovať na vývoji a dodávaní na mieru šitých derivátov TEMPO optimalizovaných pre stabilitu a elektrochemický potenciál v systémoch prietokových batérií.',
+            image: batteryChallenge2Doc.id,
+          },
+          {
+            title: 'Vývoj a optimalizácia materiálov',
+            challenge:
+              'Optimalizácia výkonu batérií na báze TEMPO si vyžaduje pochopenie vzťahov medzi štruktúrou a vlastnosťami a potenciálne syntézu nových derivátov so zlepšenou stabilitou, rozpustnosťou alebo redoxným potenciálom. Kľúčovým zameraním je optimalizácia výkonu týkajúca sa hustoty energie a účinnosti nabíjania/vybíjania.',
+            solution:
+              'Využívajúc naše hlboké odborné znalosti v chémii nitroxidových radikálov a schopnosti v oblasti výskumu a vývoja, spolupracujeme s výskumníkmi a spoločnosťami na vývoji a syntéze vlastných derivátov TEMPO. Naším cieľom je riešiť špecifické výkonnostné prekážky a prispievať k pokroku v technológii ORB a prietokových batérií prostredníctvom cielenej inovácie materiálov. VUP má technológie zahŕňajúce TEMPO pripravené na škálovanie.',
+            image: batteryChallenge3Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: batteryEnergyStorage.id,
+      locale: 'jp',
+      data: {
+        name: 'バッテリー・エネルギー貯蔵',
+        description:
+          '効率的で持続可能、かつ安全なエネルギー貯蔵ソリューションを世界的に探求する動きが、従来のリチウムイオン電池を超える技術革新を推進しています。有機ラジカル電池（ORB）は、TEMPO（2,2,6,6-テトラメチルピペリジノオキシ）やその誘導体のようなレドックス活性な有機分子を利用し、有望なフロンティアを代表しています。VUP, a.s.は、高純度TEMPO化合物の研究開発と生産における長年の専門知識を活かし、この次世代のエネルギー貯蔵技術の開発をサポートする態勢を整えています。当社のスケーラブルな生産能力と継続的な研究努力は、ORBおよび先進的なレドックスフロー電池向けの主要材料を提供することを目指しています。',
+        summary:
+          'VUPは、持続可能性と効率性に焦点を当て、ORBおよびレドックスフロー電池向けのTEMPO化合物でエネルギー貯蔵の革新を支援します。',
+        challenges: [
+          {
+            title: '有機ラジカル電池（ORB）',
+            challenge:
+              'ポータブル電子機器からグリッドストレージまでの用途向けに、高性能で金属フリー、かつ潜在的により安全なバッテリーシステムを開発すること。',
+            solution:
+              'TEMPOとその誘導体は、非常に効率的で可逆的な電荷キャリアとして機能し、顕著な電気化学的性能を示します。ORB電極のレドックス活性材料としての潜在的な使用は、高い出力密度や高速な充放電速度などの利点を提供します。VUPは、この分野の電気化学的研究開発に適した高純度のTEMPOを生産しています。',
+            image: batteryChallenge1Doc.id,
+          },
+          {
+            title: '水系レドックスフロー電池',
+            challenge:
+              'グリッドスケールのエネルギー貯蔵向けに、水系レドックスフロー電池のエネルギー密度、効率、および費用対効果を向上させること。',
+            solution:
+              '研究によれば、TEMPOベースのカソライトが水系レドックスフロー電池の性能を向上させる大きな可能性があることが示されています。VUPのTEMPO化学における専門知識は、フロー電池システムにおける安定性と電気化学ポテンシャルに最適化された特注のTEMPO誘導体の開発と供給で協力する上で有利な立場にあります。',
+            image: batteryChallenge2Doc.id,
+          },
+          {
+            title: '材料開発と最適化',
+            challenge:
+              'TEMPOベースの電池の性能を最適化するには、構造と特性の関係を理解し、安定性、溶解度、またはレドックスポテンシャルが向上した新規誘導体を合成する可能性があります。エネルギー密度と充放電効率に関する性能最適化が主要な焦点です。',
+            solution:
+              'ニトロキシドラジカル化学と研究開発能力における深い専門知識を活用し、研究者や企業と提携してカスタムTEMPO誘導体を開発・合成します。私たちの目標は、特定の性能のボトルネックに対処し、的を絞った材料革新を通じてORBおよびフロー電池技術の進歩に貢献することです。VUPは、スケールアップ準備が整ったTEMPO関連技術を保有しています。',
+            image: batteryChallenge3Doc.id,
+          },
+        ],
+      },
+    }),
+
+    // Building & Construction
+
+    payload.update({
+      collection: 'industries',
+      id: buildingConstruction.id,
+      locale: 'sk',
+      data: {
+        name: 'Stavebníctvo',
+        description:
+          'Stavebný priemysel neustále hľadá materiály a chemické riešenia, ktoré zlepšujú trvanlivosť, efektivitu procesov, bezpečnosť a udržateľnosť. VUP, a.s. prispieva do tohto sektora poskytovaním špecializovaných chemických prípravkov určených na zlepšenie vlastností betónu a omietok (VUPPOR, VUPRANYL), zlepšenie efektivity debnenia (VUPOFORM) a dodávaním kľúčových medziproduktov (DMBA, DMPA) používaných vo vysokovýkonných náteroch a lepidlách nevyhnutných pre moderné stavebníctvo. Naším zameraním je dodávať spoľahlivé chemické riešenia, ktoré pridávajú hodnotu stavebným materiálom a procesom.',
+        summary:
+          'VUP vylepšuje stavebné materiály chemickými riešeniami pre trvanlivosť, efektivitu a udržateľnosť.',
+        challenges: [
+          {
+            title: 'Zlepšenie betónových a cementových výrobkov',
+            challenge:
+              'Zlepšenie spracovateľnosti betónových zmesí a vylepšenie vlastností hotových betónových výrobkov, ako sú dlažobné kocky, panely a konštrukcie, je kľúčové pre efektivitu a výkon.',
+            solution:
+              'VUPPOR je špeciálne navrhnutý ako prísada do betónových výrobkov. Zlepšuje spracovateľnosť a zvyšuje tepelnoizolačné vlastnosti. Odporúča sa pre širokú škálu betónových výrobkov vrátane dlažieb, obrubníkov, záhradných dielcov, stavebných panelov a monolitických konštrukcií. VUPPOR prispieva k lepšej kvalite hotových výrobkov. Je fyziologicky neškodný a nevyžaduje žiadne špeciálne manipulačné opatrenia nad rámec bežnej praxe.',
+            image: constructionChallenge1Doc.id,
+          },
+          {
+            title: 'Zlepšovanie omietok a náterov',
+            challenge:
+              'Zvýšenie trvanlivosti, aplikačných vlastností a odolnosti proti praskaniu syntetických omietok a vodou riediteľných náterov používaných v stavebníctve. Splnenie požiadaviek na nízky obsah VOC pre architektonické nátery.',
+            solution:
+              'VUPRANYL, stabilná vodná disperzia, slúži ako prísada do syntetických omietok a vodou riediteľných náterov, čo vedie k dlhšej životnosti a výraznému zníženiu tvorby trhlín. Okrem toho sú kľúčové medziprodukty ako DMBA (CAS 10097-02-6) a DMPA (CAS 4767-03-7) rozhodujúce pre výrobu vodou riediteľných polyuretánových a polyesterových živíc používaných v trvanlivých, nízko-VOC architektonických a ochranných náteroch, ktoré ponúkajú vynikajúcu priľnavosť a flexibilitu.',
+            image: constructionChallenge2Doc.id,
+          },
+          {
+            title: 'Efektívne uvoľňovanie z debnenia (odformovanie)',
+            challenge:
+              'Zabezpečenie čistého a ľahkého uvoľnenia betónu z debnenia bez poškodenia foriem alebo povrchu betónu, pri zachovaní bezpečnosti pracovníkov a environmentálnych ohľadov.',
+            solution:
+              'VUPOFORM pôsobí ako vysoko účinný odformovací prostriedok pre všetky typy stavebných foriem. Jeho nerozpustnosť vo vode poskytuje vynikajúci separačný efekt, čo umožňuje viacnásobné opätovné použitie formy bez opätovnej aplikácie. Nenapáda tesniace materiály ani nekoroduje kovové zariadenia. VUPOFORM ponúka významné bezpečnostné a environmentálne výhody: zanedbateľnú prchavosť (žiadne znečistenie ovzdušia), elimináciu kontaminácie odpadových vôd olejom a žiadne špeciálne bezpečnostné opatrenia potrebné pri manipulácii.',
+            image: constructionChallenge3Doc.id,
+          },
+          {
+            title: 'Vysokovýkonné stavebné lepidlá a tmely',
+            challenge:
+              'Moderné stavebníctvo sa spolieha na vysokovýkonné lepidlá a tmely na spájanie rôznych materiálov, zabezpečenie štrukturálnej integrity a poskytovanie účinného tesnenia proti environmentálnym vplyvom.',
+            solution:
+              'Dodávame kľúčové chemické medziprodukty ako DMBA (CAS 10097-02-6), používané vo vodou riediteľných polyuretánových, epoxidových a polyesterových lepidlách, kde zvyšuje pevnosť spoja a odolnosť voči vode. Kyselina hydroxypivalová (HPVA, CAS 4835-90-9), prostredníctvom svojho derivátu HPN, prispieva k výkonu lepidiel a tmelov vyvažovaním tvrdosti, flexibility a priľnavosti, čo potenciálne umožňuje formulácie s nízkym obsahom VOC.',
+            image: constructionChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+
+    payload.update({
+      collection: 'industries',
+      id: buildingConstruction.id,
+      locale: 'jp',
+      data: {
+        name: '建築・建設',
+        description:
+          '建築・建設業界は、耐久性、プロセス効率、安全性、および持続可能性を向上させる材料と化学ソリューションを絶えず求めています。VUP, a.s.は、コンクリートおよび石膏の特性を向上させるための特殊化学調製品（VUPPOR、VUPRANYL）、型枠の効率を改善するための製品（VUPOFORM）、および現代建築に不可欠な高性能コーティングや接着剤に使用される主要中間体（DMBA、DMPA）を提供することで、この分野に貢献しています。私たちは、建築材料とプロセスに付加価値をもたらす信頼性の高い化学ソリューションを提供することに重点を置いています。',
+        summary:
+          'VUPは、耐久性、効率性、持続可能性のための化学ソリューションで建築材料を強化します。',
+        challenges: [
+          {
+            title: 'コンクリート・セメント製品の強化',
+            challenge:
+              'コンクリート混合物の作業性を改善し、敷石、パネル、構造物などの完成したコンクリート製品の特性を向上させることは、効率と性能の鍵です。',
+            solution:
+              'VUPPORは、コンクリート製品向けの添加剤として特別に設計されています。加工性を向上させ、断熱特性を高めます。舗装材、縁石、ガーデニング部品、建設パネル、一体構造物など、幅広いコンクリート製品に推奨され、VUPPORはより高品質な完成品に貢献します。生理学的に無害であり、標準的な慣行を超える特別な取り扱い措置は必要ありません。',
+            image: constructionChallenge1Doc.id,
+          },
+          {
+            title: '石膏とコーティングの改善',
+            challenge:
+              '建設で使用される合成石膏および水溶性コーティングの耐久性、塗布特性、およびひび割れ耐性を向上させること。建築用コーティングの低VOC要件を満たすこと。',
+            solution:
+              '安定した水分散液であるVUPRANYLは、合成石膏および水溶性コーティングの添加剤として機能し、耐久性を延ばし、ひび割れの発生を大幅に減少させます。さらに、DMBA（CAS 10097-02-6）やDMPA（CAS 4767-03-7）などの主要な中間体は、優れた密着性と柔軟性を提供する、耐久性のある低VOC建築用および保護用コーティングに使用される水性ポリウレタンおよびポリエステル樹脂の製造に不可欠です。',
+            image: constructionChallenge2Doc.id,
+          },
+          {
+            title: '効率的な型枠剥離（離型）',
+            challenge:
+              '作業員の安全と環境への配慮を維持しつつ、型枠やコンクリート表面を損傷することなく、コンクリートを型枠からきれいに簡単に剥離させること。',
+            solution:
+              'VUPOFORMは、あらゆる種類の建築用型枠に対して非常に効果的な離型剤として機能します。水に不溶性であるため、優れた分離効果を発揮し、再塗布なしで型枠を複数回再利用できます。シーリング材を侵したり、金属機器を腐食させたりしません。VUPOFORMは、無視できる揮発性（大気汚染なし）、廃水中の油汚染の排除、取り扱いに特別な安全対策が不要といった、重要な安全性と環境上の利点を提供します。',
+            image: constructionChallenge3Doc.id,
+          },
+          {
+            title: '高性能建築用接着剤・シーラント',
+            challenge:
+              '現代の建設は、多様な材料を接着し、構造的完全性を確保し、環境要素に対する効果的なシーリングを提供するために、高性能の接着剤とシーラントに依存しています。',
+            solution:
+              '当社は、DMBA（CAS 10097-02-6）などの主要な化学中間体を供給しています。これは水性のポリウレタン、エポキシ、ポリエステル接着剤で使用され、接着強度と耐水性を向上させます。ヒドロキシピバリン酸（HPVA、CAS 4835-90-9）は、その誘導体であるHPNを介して、硬度、柔軟性、接着性のバランスを取ることで接着剤とシーラントの性能に貢献し、低VOC配合を可能にする可能性があります。',
+            image: constructionChallenge4Doc.id,
+          },
+        ],
+      },
+    }),
+  ])
+
   payload.logger.info('✓ Industries seeded')
 
   return {

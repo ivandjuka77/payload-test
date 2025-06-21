@@ -50,7 +50,6 @@ export const Products: CollectionConfig = {
           name: 'chemicalName',
           type: 'text',
           required: true,
-          localized: true,
         },
         {
           name: 'casNumber',
@@ -68,7 +67,6 @@ export const Products: CollectionConfig = {
             {
               name: 'synonym',
               type: 'text',
-              localized: true,
             },
           ],
         },

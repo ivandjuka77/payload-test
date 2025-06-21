@@ -18,7 +18,7 @@ export async function POST(request: Request): Promise<Response> {
 
   try {
     // Parse request body for options
-    let useExistingMedia = false // Default to using existing media
+    let useExistingMedia = true // Default to using existing media
 
     try {
       const body = await request.json()

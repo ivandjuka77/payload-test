@@ -35,10 +35,9 @@ export const seed = async ({
   payload.logger.info('Seeding database...')
 
   // Define the order for deletion. Collections with dependencies should be deleted before their dependencies.
-  // This is a likely safe order, but you may need to adjust it based on your specific schema.
   const orderedCollections: CollectionSlug[] = [
     'search',
-    'form-submissions', // Delete form-submissions first to avoid foreign key constraints
+    'form-submissions',
     'forms',
     'pages',
     'posts',
@@ -49,30 +48,27 @@ export const seed = async ({
     'services',
     'teamMembers',
     'products',
-    'productCategories', // This must be deleted before 'media'
+    'productCategories',
     'media',
   ]
 
   const collectionsToDelete = useExistingMedia
-    ? orderedCollections.filter((col) => col !== 'media') // Exclude media from deletion
-    : orderedCollections // Include media for deletion
+    ? orderedCollections.filter((col) => col !== 'media')
+    : orderedCollections
 
   try {
     for (const collection of collectionsToDelete) {
       payload.logger.info(`  - Deleting collection: ${collection}`)
       await payload.db.deleteMany({ collection, req, where: {} })
 
-      // Also clear out versions for the collection if enabled
       if (payload.collections[collection].config.versions) {
         await payload.db.deleteVersions({ collection, req, where: {} })
       }
     }
   } catch (error) {
     payload.logger.error(`Error during collection clearing: ${error}`)
-    // Optional: throw the error to stop the entire seed process if clearing fails
     throw error
   }
-  // --- END: MODIFIED DELETION LOGIC ---
 
   // we need to clear the media directory before seeding
   // as well as the collections and globals
@@ -97,9 +93,6 @@ export const seed = async ({
   //     }),
   //   ),
   // )
-
-  // REMOVED: Duplicate deletion attempts that were causing constraint violations
-  // The deletion is already handled above in the proper order
 
   // --------------------
   // 1. Seed Media (or use existing)

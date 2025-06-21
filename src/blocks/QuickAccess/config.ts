@@ -10,11 +10,13 @@ export const QuickAccess: Block = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'cards',
@@ -24,11 +26,13 @@ export const QuickAccess: Block = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'description',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'backgroundImage',
