@@ -1,0 +1,89 @@
+{
+  "productCategory": {
+    "productCategory": "Product Category",
+    "exploreProperties": "Explore Properties",
+    "ourProductPortfolio": "Our {categoryName} Portfolio",
+    "ourProductPortfolioDescription": "Discover our range of high-quality {categoryName} products for your specific application needs.",
+    "industryApplications": "Industry Applications for {categoryName}",
+    "industryApplicationsDescription": "Our {categoryName} serve diverse applications across industry sectors.",
+    "needTechnicalSupport": "Need Technical Support or Product Information?",
+    "needTechnicalSupportDescription": "Our experts are ready to assist you with {categoryName} selection and application guidance for your specific needs.",
+    "contactOurExperts": "Contact Our Experts"
+  },
+  "product": {
+    "hero": {
+      "badge": "Product",
+      "chemicalName": "Chemical Name",
+      "molecularFormula": "Molecular Formula",
+      "casNumber": "CAS Number",
+      "requestQuote": "Request a Quote"
+    },
+    "sections": {
+      "technicalSpecifications": "Technical Specifications",
+      "keyFeatures": "Key Features & Benefits",
+      "applications": "Applications",
+      "caseStudies": "Case Studies",
+      "productDetails": "Product Information & Technical Documents",
+      "faq": "Frequently Asked Questions",
+      "relatedProducts": "Related Products"
+    },
+    "descriptions": {
+      "technicalSpecifications": "Discover the technical specifications of our {productName} products.",
+      "keyFeatures": "Discover the unique advantages of VUP's {productName} for your applications.",
+      "applications": "Discover the applications of our {productName} products.",
+      "caseStudies": "Discover the case studies of our {productName} products.",
+      "productDetails": "Essential information and documentation for {productName}",
+      "faq": "Discover the frequently asked questions about our {productName} products.",
+      "relatedProducts": "Discover the related products of our {productName} products."
+    },
+    "tables": {
+      "chemicalIdentity": {
+        "title": "Chemical Identity",
+        "chemicalName": "Chemical Name",
+        "synonyms": "Synonyms",
+        "casNumber": "CAS Number",
+        "ecNumber": "EC Number",
+        "molecularFormula": "Molecular Formula",
+        "molecularWeight": "Molecular Weight"
+      },
+      "specifications": {
+        "title": "VUP Specifications (Standard Grade)",
+        "property": "Property",
+        "specification": "Specification",
+        "appearance": "Appearance",
+        "purity": "Purity",
+        "acidValue": "Acid Value",
+        "hydroxylValue": "Hydroxyl Value",
+        "waterContent": "Water Content",
+        "ashContent": "Ash Content",
+        "note": "Note: Specifications that are provided above are typical values and should not be considered as guaranteed analysis."
+      }
+    },
+    "productInfo": {
+      "title": "Product Identification",
+      "description": "Key product details and identifiers",
+      "documents": {
+        "title": "Technical Documents",
+        "description": "Download product documentation",
+        "tds": {
+          "title": "Technical Data Sheet (TDS)",
+          "description": "Complete technical specifications, physical properties, and application information for {productName}"
+        },
+        "sds": {
+          "title": "Safety Data Sheet (SDS)",
+          "description": "Safety information, handling procedures, and regulatory details for {productName}"
+        }
+      },
+      "cta": {
+        "title": "Need additional technical information or regulatory documentation?",
+        "button": "Contact Our Technical Team"
+      }
+    },
+    "caseStudies": {
+      "title": "Application Case Studies",
+      "viewAll": "View All Case Studies",
+      "readStudy": "Read Case Study",
+      "application": "Application"
+    }
+  }
+}

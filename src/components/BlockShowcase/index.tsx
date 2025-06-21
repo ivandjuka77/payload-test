@@ -14,7 +14,7 @@ export function BlockShowcase(props: BlockShowcaseProps) {
       <div className="container">
         <div className="flex flex-col items-center text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4 font-primary">
-            Key Features & Benefits
+            {props.title}
           </h2>
           <p className="text-sm sm:text-base lg:text-xl text-muted-foreground max-w-[800px] font-secondary">
             {props.description}
@@ -22,7 +22,7 @@ export function BlockShowcase(props: BlockShowcaseProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {props.features.map((feature, index) => (
+          {props.features?.map((feature, index) => (
             <Card
               key={index}
               className="border-primary/10 shadow-sm hover:shadow-md transition-shadow"

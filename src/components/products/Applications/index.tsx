@@ -2,28 +2,34 @@ import { Product } from '@/payload-types'
 
 interface ApplicationsAndIndustriesProps {
   product: Product
+  title: string
+  description: string
 }
 
-export function ApplicationsAndIndustries({ product }: ApplicationsAndIndustriesProps) {
+export function ApplicationsAndIndustries({
+  product,
+  title,
+  description,
+}: ApplicationsAndIndustriesProps) {
   return (
     <section className="w-full relative py-20 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4 font-primary">
-            Applications & Industries
+            {title}
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-[800px] font-secondary">
-            {product.description}
+            {description}
           </p>
         </div>
 
         <div
-          className={`grid grid-cols-1 ${product.applications.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-3 sm:gap-4`}
+          className={`grid grid-cols-1 ${product.applications?.length && product.applications.length % 2 === 0 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'} gap-3 sm:gap-4`}
         >
-          {product.applications.map((item) => (
+          {product.applications?.map((item) => (
             <div
               key={item.id}
-              className={`group relative overflow-hidden rounded-lg border border-gray-100 ${product.applications.length % 2 === 0 ? 'aspect-[5/2]' : 'aspect-[16/9]'}`}
+              className={`group relative overflow-hidden rounded-lg border border-gray-100 ${product.applications?.length && product.applications.length % 2 === 0 ? 'aspect-[5/2]' : 'aspect-[16/9]'}`}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transform group-hover:scale-[1.01] transition-transform duration-300"

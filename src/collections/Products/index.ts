@@ -150,32 +150,31 @@ export const Products: CollectionConfig = {
     {
       name: 'applications',
       type: 'array',
-      required: true,
+      required: false,
+      localized: true,
       fields: [
         {
           name: 'application',
           type: 'text',
-          required: true,
           localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          required: true,
           localized: true,
         },
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
-          required: true,
         },
       ],
     },
     {
       name: 'keyFeatures',
       type: 'array',
-      required: true,
+      required: false,
+      localized: true,
       fields: [
         {
           name: 'feature',
@@ -205,7 +204,8 @@ export const Products: CollectionConfig = {
     {
       name: 'faq',
       type: 'array',
-      required: true,
+      required: false,
+      localized: true,
       fields: [
         {
           name: 'question',

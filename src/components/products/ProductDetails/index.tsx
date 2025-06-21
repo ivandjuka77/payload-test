@@ -6,17 +6,54 @@ import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
 
-export function ProductDetails({ product }: { product: Product }) {
-  const technicalDocuments = [
+type Props = {
+  product: Product
+  title: string
+  description: string
+  productInfo: {
+    title: string
+    description: string
+    chemicalName: string
+    synonyms: string
+    casNumber: string
+    ecNumber: string
+  }
+  documents: {
+    title: string
+    description: string
+    tds: {
+      title: string
+      description: string
+    }
+    sds: {
+      title: string
+      description: string
+    }
+  }
+  cta: {
+    title: string
+    button: string
+  }
+}
+
+export function ProductDetails({
+  product,
+  title,
+  description,
+  productInfo,
+  documents,
+  cta,
+}: Props) {
+  const technicalDocumentsArray = [
     {
       icon: <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />,
-      title: 'Technical Data Sheet (TDS)',
-      description: `Complete technical specifications, physical properties, and application information for ${product.name}`,
+      title: documents.tds.title,
+      description: documents.tds.description,
     },
     {
       icon: <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />,
-      title: 'Safety Data Sheet (SDS)',
-      description: `Safety information, handling procedures, and regulatory details for ${product.name}`,
+      title: documents.sds.title,
+      description: documents.sds.description,
     },
   ]
 
@@ -26,10 +63,10 @@ export function ProductDetails({ product }: { product: Product }) {
         <div className="">
           <div className="flex flex-col items-center text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4 font-primary">
-              Product Information & Technical Documents
+              {title}
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-[800px] font-secondary mb-2">
-              Essential information and documentation for Dimethylolpropionic Acid (DMPA)
+              {description}
             </p>
           </div>
 
@@ -45,10 +82,10 @@ export function ProductDetails({ product }: { product: Product }) {
                     </div>
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold font-primary">
-                        Product Identification
+                        {productInfo.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-muted-foreground">
-                        Key product details and identifiers
+                        {productInfo.description}
                       </p>
                     </div>
                   </div>
@@ -57,14 +94,18 @@ export function ProductDetails({ product }: { product: Product }) {
                     <div className="p-3 sm:p-4">
                       <div className="grid gap-y-4">
                         <div className="flex justify-between items-center">
-                          <span className="text-xs sm:text-sm font-medium">Chemical Name</span>
+                          <span className="text-xs sm:text-sm font-medium">
+                            {productInfo.chemicalName}
+                          </span>
                           <span className="text-xs sm:text-sm text-muted-foreground">
                             {product.technicalSpecifications?.chemicalName}
                           </span>
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
-                          <span className="text-xs sm:text-sm font-medium">Synonyms</span>
+                          <span className="text-xs sm:text-sm font-medium">
+                            {productInfo.synonyms}
+                          </span>
                           <span className="text-xs sm:text-sm text-muted-foreground">
                             {product.technicalSpecifications?.synonyms
                               ?.map((syn) => syn.synonym)
@@ -73,14 +114,18 @@ export function ProductDetails({ product }: { product: Product }) {
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
-                          <span className="text-xs sm:text-sm font-medium">CAS Number</span>
+                          <span className="text-xs sm:text-sm font-medium">
+                            {productInfo.casNumber}
+                          </span>
                           <span className="text-xs sm:text-sm text-muted-foreground">
                             {product.technicalSpecifications?.casNumber}
                           </span>
                         </div>
                         <Separator />
                         <div className="flex justify-between items-center">
-                          <span className="text-xs sm:text-sm font-medium">EC Number</span>
+                          <span className="text-xs sm:text-sm font-medium">
+                            {productInfo.ecNumber}
+                          </span>
                           <span className="text-xs sm:text-sm text-muted-foreground">
                             {product.technicalSpecifications?.ecNumber}
                           </span>
@@ -100,16 +145,16 @@ export function ProductDetails({ product }: { product: Product }) {
                     </div>
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold font-primary">
-                        Technical Documents
+                        {documents.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-muted-foreground">
-                        Download product documentation
+                        {documents.description}
                       </p>
                     </div>
                   </div>
                   <Separator className="mb-6" />
                   <div className="grid gap-3 sm:gap-4">
-                    {technicalDocuments.map((doc, index) => (
+                    {technicalDocumentsArray.map((doc, index) => (
                       <span
                         key={index}
                         className="group flex items-center justify-between p-3 sm:p-4 rounded-xl border border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
@@ -141,7 +186,7 @@ export function ProductDetails({ product }: { product: Product }) {
           <div>
             <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center justify-center">
               <p className="text-xs sm:text-sm text-muted-foreground font-secondary text-center md:text-left">
-                Need additional technical information or regulatory documentation?
+                {cta.title}
               </p>
               <Button
                 className="bg-primary hover:bg-primary/90 text-white text-sm sm:text-base"
@@ -149,7 +194,7 @@ export function ProductDetails({ product }: { product: Product }) {
                   document.getElementById('inquiry-form')?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Contact Our Technical Team
+                {cta.button}
               </Button>
             </div>
           </div>

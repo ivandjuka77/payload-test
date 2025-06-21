@@ -468,24 +468,30 @@ export interface Product {
     density?: string | null;
     solubility?: string | null;
   };
-  applications: {
-    application: string;
-    description: string;
-    image: number | Media;
-    id?: string | null;
-  }[];
-  keyFeatures: {
-    feature?: string | null;
-    description?: string | null;
-    id?: string | null;
-  }[];
+  applications?:
+    | {
+        application?: string | null;
+        description?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  keyFeatures?:
+    | {
+        feature?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   caseStudies?: (number | CaseStudy)[] | null;
   relatedProducts?: (number | Product)[] | null;
-  faq: {
-    question?: string | null;
-    answer?: string | null;
-    id?: string | null;
-  }[];
+  faq?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -506,9 +512,9 @@ export interface ProductCategory {
   featuredProducts?: (number | Product)[] | null;
   applications?:
     | {
-        imageSrc: number | Media;
-        title: string;
-        description: string;
+        imageSrc?: (number | null) | Media;
+        title?: string | null;
+        description?: string | null;
         id?: string | null;
       }[]
     | null;

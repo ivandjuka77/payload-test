@@ -6,9 +6,10 @@ import { Mail } from 'lucide-react'
 interface ContactCTAProps {
   title: string
   description: string
+  cta: string
 }
 
-export function ContactCTA({ title, description }: ContactCTAProps) {
+export function ContactCTA({ title, description, cta }: ContactCTAProps) {
   return (
     <section className="w-full py-16 bg-primary/5 px-4 sm:px-6 lg:px-0">
       <div className="container mx-auto">
@@ -22,7 +23,7 @@ export function ContactCTA({ title, description }: ContactCTAProps) {
           <div className="flex flex-col lg:flex-row gap-4 justify-center">
             <Button className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              Contact Our Experts
+              {cta}
             </Button>
           </div>
         </div>

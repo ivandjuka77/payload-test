@@ -51,6 +51,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         description:
           'High-purity hydroxy acids including DMPA, DMBA, and HPVA. Essential building blocks for environmentally friendly waterborne systems (PUDs, alkyds, polyesters) and high-performance polymers used in coatings, inks, adhesives, and lubricants.',
         image: imageHomeDoc.id,
+
         slug: 'hydroxy-acids',
         productComparison: false,
         applications: [
@@ -101,6 +102,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'High-purity hindered amines with sterically hindered piperidine structure and stable radicals. Essential building blocks for HALS light stabilizers, TEMPO derivatives for selective oxidation, and versatile intermediates for demanding applications.',
         image: image2Doc.id,
         slug: 'hindered-amines',
+
         productComparison: true,
         applications: [
           {
@@ -150,6 +152,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'Versatile oxygenated solvents containing both ether and alcohol functional groups. Derived from ethylene or propylene glycol, these compounds excel as coupling agents and solvents across industrial applications.',
         image: image3Doc.id,
         slug: 'glycol-ethers',
+
         productComparison: true,
         applications: [
           {
@@ -199,6 +202,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
         image: image3Doc.id,
         slug: 'phospholipid-precursors',
+
         productComparison: true,
         applications: [
           {
@@ -248,6 +252,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'Advanced liquid polymerisation inhibitor formulations, including our VUPIN range based on proven H-TEMPO chemistry, designed to enhance process safety, protect equipment, and ensure product quality in demanding petrochemical applications.',
         image: image3Doc.id,
         slug: 'polymerisation-inhibitors',
+
         productComparison: true,
         applications: [
           {
@@ -297,6 +302,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'VUP leverages extensive R&D expertise to offer specialized derivatives including HALS intermediates, ready-to-use HALS products, and unique functionalized TEMPO derivatives for research and advanced materials.',
         image: image3Doc.id,
         slug: 'specialty-hindered-amines',
+
         productComparison: true,
         applications: [
           {
@@ -346,6 +352,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'VUP is the unique global producer of high-purity DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
         image: demoImageDoc.id,
         slug: 'diaminopolyethylene-glycols',
+
         productComparison: false,
         applications: [
           {
@@ -389,6 +396,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           'Potent antioxidants featuring the core structure of Vitamin E, including Trolox and related chromanol derivatives used as research tools, analytical standards, and specialty intermediates.',
         image: demoImageDoc.id,
         slug: 'chromanols-derivatives',
+
         productComparison: false,
         applications: [
           {
@@ -441,6 +449,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Hydroxykyseliny',
         description:
           'Vysokočisté hydroxykyseliny vrátane DMPA, DMBA a HPVA. Základné stavebné bloky pre environmentálne šetrné systémy na vodnej báze (PUD, alkydové, polyesterové) a vysokovýkonné polymery používané v náteroch, tiskových farbách, lepidlách a mazivách.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Vodouriediteľné nátery',
+            description:
+              'Ekologické riešenia náterov so zníženým obsahom VOC a vynikajúcim výkonom pre udržateľné priemyselné aplikácie.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Polyuretánové disperzie',
+            description:
+              'Vysokokvalitné vodouriediteľné PUD systémy umožňujúce pokročilé nátery s vynikajúcimi vlastnosťami a nízkym dopadom na životné prostredie.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Odolné polyestery',
+            description:
+              'Stavebné bloky pre vysoko odolné polyestery vyžadujúce výnimočnú tepelnú, hydrolytickú a poveternostnú odolnosť.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Práškové nátery',
+            description:
+              'Kľúčové medziprodukty pre prémiovú technológiu bezrozpúšťadlových náterov ponúkajúcu vynikajúci povrch a environmentálne výhody.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Lepidlá a atramenty',
+            description:
+              'Základné zložky pre vysokopevnostné lepiace formulácie a živé, odolné tlačiarenské aplikácie.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Syntetické mazivá',
+            description:
+              'Kritické medziprodukty pre pokročilé priemyselné mazivá poskytujúce výnimočný výkon v extrémnych podmienkach.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -451,6 +497,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Stericky bránené amíny',
         description:
           'Vysokočisté stericky bránené amíny so stericky bránenou piperidínovou štruktúrou a stabilnými radikálmi. Základné stavebné bloky pre svetelné stabilizátory HALS, deriváty TEMPO pre selektívnu oxidáciu a všestranné medziprodukty pre náročné aplikácie.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Svetelná stabilizácia polymérov',
+            description:
+              'Medziprodukty HALS a hotové svetelné stabilizátory chrániace polyméry pred UV degradáciou a predlžujúce ich životnosť.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Inhibícia polymerizácie',
+            description:
+              'Stabilné radikálové systémy pre riadené radikálové procesy a presnú kontrolu polymerizácie v priemyselných aplikáciách.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Selektívna oxidácia',
+            description:
+              'Katalyzátory na báze TEMPO umožňujúce efektívne a vysoko selektívne chemické transformácie v organickej syntéze.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Farmaceutické medziprodukty',
+            description:
+              'Špecializované deriváty TEMPO slúžiace ako kľúčové stavebné bloky a medziprodukty API vo farmaceutickej syntéze.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Spinové značenie / EPR spektroskopia',
+            description:
+              'Pokročilé stabilné radikálové sondy pre molekulárnu analýzu a spektroskopické výskumné aplikácie.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Pokročilá chemická syntéza',
+            description:
+              'Všestranné medziprodukty stericky bránených amínov a funkčné molekuly pre zložité syntetické cesty a výskum.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -461,6 +545,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Glykolové étery',
         description:
           'Všestranné kyslíkaté rozpúšťadlá obsahujúce éterové aj alkoholové funkčné skupiny. Odvodené od etylénglykolový alebo propylénglykolový, tieto zlúčeniny vynikajú ako spojivá a rozpúšťadlá v priemyselných aplikáciách.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Farby a nátery',
+            description:
+              'Základné rozpúšťadlá vo farbách, lakoch a fermežiach poskytujúce vynikajúce rozpúšťacie vlastnosti a tvorbu filmu.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Čistiace prostriedky',
+            description:
+              'Účinné rozpúšťadlá pre priemyselné a domáce čistiace prostriedky s vynikajúcimi odmasťovacími schopnosťami.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Tlačiarenské farby',
+            description:
+              'Vysokovýkonné rozpúšťadlá umožňujúce optimálny tok farby a kvalitu tlače v komerčných tlačiarenských aplikáciách.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Spojovacie činidlá',
+            description:
+              'Zlepšujú miešateľnosť medzi vodnou a organickou fázou alebo rôznymi organickými kvapalinami vo formuláciách.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Chemické medziprodukty',
+            description:
+              'Stavebné bloky pre syntézu acetátov a iných derivátov vo výrobe špeciálnych chemikálií.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Špeciálne produkty',
+            description:
+              'Funkčné zložky vo formuláciách VUP, ako sú inhibítory polymerizácie VUPIN, ako nosiče a rozpúšťadlá.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -471,6 +593,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Prekurzory fosfolipidov',
         description:
           'Základné biochemické stavebné bloky pre syntézu fosfolipidov - základ zdravých bunkových membrán. VUP dodáva vysokočistý Colamin Phosphate a jeho soli, kľúčové pre doplnky stravy, veterinárne a farmaceutické aplikácie.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Doplnky stravy',
+            description:
+              'Formulácie pre kognitívne zdravie a celulárnu integritu zamerané na podporu všeobecného zdravia a funkcie mozgu.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Veterinárna výživa',
+            description:
+              'Kŕmne doplnkové látky zlepšujúce zdravie zvierat, vývoj a bunkovú funkciu vo veterinárnych aplikáciách.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Farmaceutické formulácie',
+            description:
+              'Vysokočisté medziprodukty a pomocné látky pre farmaceutickú výrobu a vývoj liekov.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Médiá pre bunkové kultúry',
+            description:
+              'Základné zložky pre výskum v bunkovej biológii, tkanivové kultúry a biotechnologické aplikácie.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Biochemický výskum',
+            description:
+              'Reagencie prémiovej kvality pre vedecké skúmanie a štúdium metabolizmu fosfolipidov.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Kozmetické formulácie',
+            description:
+              'Špecializované zložky pre pokročilé produkty starostlivosti o pleť zamerané na bunkové zdravie a integritu membrán.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -481,6 +641,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Inhibítory polymerizácie',
         description:
           'Pokročilé kvapalné formulácie inhibítorov polymerizácie, vrátane našej rady VUPIN založenej na osvedčenej chémii H-TEMPO, navrhnuté na zvýšenie bezpečnosti procesov, ochranu zariadení a zabezpečenie kvality produktov v náročných petrochemických aplikáciách.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Prevádzka rafinérií',
+            description:
+              'Stabilizácia FCC benzínu a riešenia spracovania pygasu zabraňujúce nežiaducej polymerizácii v kritických prúdoch rafinérie.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Skladovanie a preprava monomérov',
+            description:
+              'Bezpečné manipulačné a skladovacie riešenia pre reaktívne monoméry vrátane styrénu, akrylátov a vinylových zlúčenín.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Procesy čistenia monomérov',
+            description:
+              'Ochrana destilačných kolón zabraňujúca zanášaniu a zabezpečujúca prevádzkovú účinnosť počas čistenia monomérov.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Prevádzka olefínových závodov',
+            description:
+              'Systémy ochrany etylénových závodov udržiavajúce spoľahlivosť procesu a zabraňujúce poškodeniu zariadení nežiaducimi reakciami.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Ochrana zariadení',
+            description:
+              'Dlhodobá ochrana majetku prostredníctvom účinnej kontroly polymerizácie a stratégií prevencie zanášania.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Bezpečnosť a spoľahlivosť procesu',
+            description:
+              'Zvýšená prevádzková bezpečnosť vďaka osvedčenej technológii zachytávania radikálov na báze TEMPO a spoľahlivému inhibičnému výkonu.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -491,6 +689,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Špeciálne stericky bránené amíny a deriváty',
         description:
           'VUP využíva rozsiahle odborné znalosti v R&D na ponuku špecializovaných derivátov vrátane medziprodukto HALS, hotových produktov HALS a jedinečných funkcionalizovaných derivátov TEMPO pre výskum a pokročilé materiály.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Medziprodukty pre syntézu HALS',
+            description:
+              'Pokročilé medziprodukty ako pentametylpiperidín a amino-TMP na syntézu vysokovýkonných stericky bránených amínových svetelných stabilizátorov.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Svetelná stabilizácia polymérov',
+            description:
+              'Hotové produkty HALS ekvivalentné Tinuvin 770 a 765/292 na ochranu polymérov, náterov a plastov pred UV degradáciou.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Spinové značenie a EPR spektroskopia',
+            description:
+              'Funkcionalizované deriváty TEMPO ako amino-TEMPO a spiro-TEMPO-kyselina pre biokonjugáciu a pokročilé analytické štúdie.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Stavebné bloky pre zákazkovú syntézu',
+            description:
+              'Všestranné funkcionalizované deriváty slúžiace ako východiskové materiály pre špecializovanú chemickú syntézu a vývoj materiálov.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Výskum radikálovej chémie',
+            description:
+              'Stabilné radikálové zlúčeniny a medziprodukty na štúdium radikálových mechanizmov a vývoj nových aplikácií na báze radikálov.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Vývoj pokročilých materiálov',
+            description:
+              'Špecializované deriváty umožňujúce inovácie vo funkčných materiáloch, biokonjugátoch a chemických produktoch novej generácie.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -501,6 +737,38 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Diaminopolyetylénglykoly',
         description:
           'VUP je jedinečný globálny výrobca vysokočistých polymérov DAPEG s PEG reťazcami s reaktívnymi aminovými koncovými skupinami, nevyhnutné pre biomedicínske nátery a aplikácie povrchovej modifikácie.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Biomedicínske nátery',
+            description:
+              'Základná surovina na vytváranie vysoko lubrikačných a hydrofilných náterov na zdravotníckych pomôckach, ako sú katétre, vodiace drôty a implantáty.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Povrchová modifikácia',
+            description:
+              'Umožňuje kovalentné pripojenie PEG reťazcov na povrchy ako nanočastice a biosenzory na dodanie odolnosti voči proteínom a biokompatibility.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Aplikácie PEGylácie',
+            description:
+              'Používa sa v biokonjugácii na pripojenie PEG reťazcov k proteínom, peptidom a molekulám liečiv prostredníctvom reaktívnych amínových skupín.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Pokročilá syntéza polymérov',
+            description:
+              'Slúži ako difunkčný stavebný blok pre špecializované polyméry ako hydrogély, blokové kopolyméry a dendriméry obsahujúce PEG segmenty.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Výskumné chemikálie',
+            description:
+              'Vysokočistý reagent pre základný výskum v oblasti biomateriálov, povrchovej chémie a aplikácií polymérnej chémie.',
+          },
+        ],
       },
     }),
     payload.update({
@@ -511,6 +779,38 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Chromanoly a deriváty',
         description:
           'Silné antioxidanty obsahujúce základnú štruktúru vitamínu E, vrátane Troloxu a príbuzných derivátov chromanolu používaných ako výskumné nástroje, analytické štandardy a špeciálne medziprodukty.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Výskum a vývoj antioxidantov',
+            description:
+              'Základné nástroje na štúdium antioxidačných mechanizmov a vývoj nových ochranných formulácií proti oxidačnému stresu.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Analytické štandardy (TEAC test)',
+            description:
+              'Trolox slúži ako referenčný štandard v testoch TEAC (Trolox Equivalent Antioxidant Capacity) na meranie antioxidačnej aktivity.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Štúdie oxidačného stresu',
+            description:
+              'Vodourozpustné analógy vitamínu E používané v bunkovom a biologickom výskume na skúmanie mechanizmov oxidačného poškodenia.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Kozmetický a farmaceutický výskum',
+            description:
+              'Skríningové zlúčeniny pre antioxidačné vlastnosti v kozmetických formuláciách a programoch farmaceutického vývoja.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Špeciálna chemická syntéza',
+            description:
+              'Cenné medziprodukty a stavebné bloky na syntézu pokročilých antioxidačných zlúčenín s prispôsobenými vlastnosťami.',
+          },
+        ],
       },
     }),
   ])
@@ -530,6 +830,43 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'ヒドロキシ酸',
         description:
           'DMPA、DMBA、HPVAを含む高純度ヒドロキシ酸。環境に優しい水系システム（PUD、アルキド、ポリエステル）と、コーティング、インク、接着剤、潤滑油に使用される高性能ポリマーの必須構成要素です。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '水性コーティング',
+            description:
+              '持続可能な産業用途向けに、VOCを削減し優れた性能を発揮する環境に優しいコーティングソリューション。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'ポリウレタンディスパージョン',
+            description:
+              '優れた特性と低い環境負荷で高度なコーティングを可能にする高品質な水性PUDシステム。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '高耐久性ポリエステル',
+            description:
+              '卓越した熱、加水分解、耐候性を必要とする高耐久性ポリエステルのためのビルディングブロック。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '粉体塗装',
+            description:
+              '優れた仕上がりと環境上の利点を提供する、プレミアムな無溶剤コーティング技術の主要な中間体。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '接着剤とインク',
+            description:
+              '高強度の接着剤配合および鮮やかで耐久性のある印刷用途に不可欠なコンポーネント。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: '合成潤滑油',
+            description: '過酷な条件下で卓越した性能を発揮する高度な産業用潤滑油の重要な中間体。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -540,6 +877,43 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: '立体障害アミン',
         description:
           '立体障害ピペリジン構造と安定ラジカルを持つ高純度立体障害アミン。HALS光安定剤、選択酸化用TEMPO誘導体、要求の厳しい用途向けの多用途中間体の必須構成要素です。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'ポリマーの光安定化',
+            description:
+              'ポリマーを紫外線による劣化から保護し、耐用年数を延ばすHALS中間体および即時使用可能な光安定剤。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '重合禁止',
+            description:
+              '産業用途におけるラジカルプロセスの制御と精密な重合制御のための安定ラジカルシステム。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '選択的酸化',
+            description:
+              '有機合成における効率的で高選択的な化学変換を可能にするTEMPOベースの触媒。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '医薬品中間体',
+            description:
+              '医薬品合成における重要なビルディングブロックおよびAPI中間体として機能する特殊なTEMPO誘導体。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'スピンラベリング / EPR分光法',
+            description: '分子分析および分光学的研究用途のための高度な安定ラジカルプローブ。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: '高度な化学合成',
+            description:
+              '複雑な合成経路と研究のための多用途な立体障害アミン中間体および官能性分子。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -550,6 +924,41 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'グリコールエーテル',
         description:
           'エーテルとアルコール官能基の両方を含む多用途の酸素系溶媒。エチレングリコールまたはプロピレングリコールから誘導され、これらの化合物は工業用途でカップリング剤と溶媒として優れています。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '塗料とコーティング',
+            description:
+              '塗料、ラッカー、ワニスに不可欠な溶剤で、優れた溶解特性と塗膜形成を提供します。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '洗浄剤配合',
+            description: '優れた脱脂能力を持つ産業用および家庭用洗浄製品の効果的な溶剤。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '印刷インキ',
+            description: '商業印刷用途で最適なインクフローと印刷品質を可能にする高性能溶剤。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'カップリング剤',
+            description: '配合物中の水と有機相、または異なる有機液体間の混和性を向上させます。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '化学中間体',
+            description:
+              '特殊化学品製造における酢酸エステルおよびその他の誘導体の合成のためのビルディングブロック。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: '特殊製品',
+            description:
+              'VUPIN重合禁止剤のようなVUP配合物において、担体および溶剤としての機能性成分。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -560,6 +969,39 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'リン脂質前駆体',
         description:
           '健康な細胞膜の基盤であるリン脂質合成の必須生化学構成要素。VUPは高純度のColamin Phosphateとその塩類を供給し、サプリメント、獣医学、製薬用途に重要です。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '栄養補助食品',
+            description:
+              '一般的な健康維持と脳機能サポートを目的とした、認知機能と細胞の完全性のための配合。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '動物栄養学',
+            description: '獣医学的応用において動物の健康、発育、細胞機能を向上させる飼料添加物。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '製剤',
+            description: '医薬品製造および医薬品開発のための高純度中間体および賦形剤。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '細胞培養培地',
+            description: '細胞生物学研究、組織培養、およびバイオテクノロジー応用のための必須成分。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '生化学研究',
+            description: '科学的調査およびリン脂質代謝研究のためのプレミアムグレード試薬。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: '化粧品配合',
+            description: '細胞の健康と膜の完全性を対象とした高度なスキンケア製品のための特殊成分。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -570,6 +1012,42 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: '重合禁止剤',
         description:
           '実績のあるH-TEMPO化学に基づくVUPINシリーズを含む先進的な液体重合禁止剤製剤。要求の厳しい石油化学用途でプロセス安全性を向上させ、設備を保護し、製品品質を確保するよう設計されています。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '製油所業務',
+            description:
+              '重要な製油所ストリームでの不要な重合を防ぐFCCガソリン安定化およびパイガス処理ソリューション。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'モノマーの貯蔵と輸送',
+            description:
+              'スチレン、アクリレート、ビニル化合物などの反応性モノマーの安全な取り扱いおよび貯蔵ソリューション。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'モノマー精製プロセス',
+            description: 'モノマー精製中のファウリングを防ぎ、運転効率を確保する蒸留塔の保護。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'オレフィンプラントの運転',
+            description:
+              'プロセスの信頼性を維持し、不要な反応による機器の損傷を防ぐエチレンプラント保護システム。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '機器保護',
+            description: '効果的な重合制御とファウリング防止戦略による長期的な資産保全。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'プロセスの安全性と信頼性',
+            description:
+              '実績のあるTEMPOベースのラジカル捕捉技術と信頼性の高い禁止性能による運転安全性の向上。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -580,6 +1058,43 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: '特殊立体障害アミンと誘導体',
         description:
           'VUPは豊富なR&D専門知識を活用して、HALS中間体、既製HALS製品、研究と先進材料用の独特な機能化TEMPO誘導体を含む特殊誘導体を提供します。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'HALS合成中間体',
+            description:
+              '高性能な立体障害アミン光安定剤を合成するためのペンタメチルピペリジンやアミノTMPなどの高度な中間体。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'ポリマーの光安定化',
+            description:
+              'ポリマー、コーティング、プラスチックを紫外線劣化から保護するためのTinuvin 770および765/292と同等の即時使用可能なHALS製品。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'スピンラベリングとEPR分光法',
+            description:
+              '生体共役および高度な分析研究のためのアミノTEMPOやスピロTEMPO酸などの機能化TEMPO誘導体。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'カスタム合成ビルディングブロック',
+            description:
+              '特殊な化学合成および材料開発の出発物質として機能する多用途な機能化誘導体。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'ラジカル化学研究',
+            description:
+              'ラジカル機構の研究や新しいラジカルベースのアプリケーションを開発するための安定ラジカル化合物および中間体。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: '先端材料開発',
+            description: '機能性材料、生体共役体、次世代化学製品の革新を可能にする特殊誘導体。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -590,6 +1105,38 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'ジアミノポリエチレングリコール',
         description:
           'VUPは反応性アミノ末端を持つPEG鎖を特徴とする高純度DAPEGポリマーの独自のグローバル生産者であり、生物医学コーティングと表面改質用途に不可欠です。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '生物医学コーティング',
+            description:
+              'カテーテル、ガイドワイヤー、インプラントなどの医療機器に高い潤滑性と親水性のコーティングを作成するための必須原料。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '表面改質',
+            description:
+              'ナノ粒子やバイオセンサーなどの表面にPEG鎖を共有結合させ、タンパク質耐性と生体適合性を付与します。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'PEG化アプリケーション',
+            description:
+              '反応性アミン基を介してタンパク質、ペプチド、薬物分子にPEG鎖を結合させるバイオコンジュゲーションで使用されます。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '高度なポリマー合成',
+            description:
+              'PEGセグメントを組み込んだヒドロゲル、ブロックコポリマー、デンドリマーなどの特殊ポリマーの二官能性ビルディングブロックとして機能します。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '研究用化学品',
+            description:
+              '生体材料科学、表面化学、およびポリマー化学アプリケーションの基礎研究のための高純度試薬。',
+          },
+        ],
       },
     }),
     payload.update({
@@ -600,6 +1147,38 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'クロマノール類と誘導体',
         description:
           'ビタミンEの核構造を特徴とする強力な抗酸化剤。Troloxと関連するクロマノール誘導体を含み、研究ツール、分析標準、特殊中間体として使用されます。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '抗酸化剤の研究開発',
+            description:
+              '抗酸化メカニズムを研究し、酸化ストレスに対する新しい保護処方を開発するための必須ツール。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '分析標準（TEACアッセイ）',
+            description:
+              'Troloxは、抗酸化活性を測定するためのTEAC（Trolox Equivalent Antioxidant Capacity）アッセイにおけるベンチマーク標準として機能します。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '酸化ストレス研究',
+            description:
+              '酸化損傷メカニズムを調査するために、細胞および生物学的研究で使用される水溶性ビタミンE類似体。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '化粧品および医薬品研究',
+            description:
+              '化粧品処方および医薬品開発プログラムにおける抗酸化特性のスクリーニング化合物。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '特殊化学合成',
+            description:
+              'カスタマイズされた特性を持つ高度な抗酸化化合物を合成するための貴重な中間体およびビルディングブロック。',
+          },
+        ],
       },
     }),
   ])
@@ -3311,6 +3890,8 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       },
     }),
   ])
+
+  //? -------------------- START ADDING TRANSLATIONS FOR PRODUCTS -------------------- ?//
 
   // --------------------
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 1: DMBA, DMPA, HPVA)
@@ -7844,6 +8425,8 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
   ])
 
+  //? -------------------- END ADDING TRANSLATIONS FOR PRODUCTS -------------------- ?//
+
   // --------------------
   // UPDATING PRODUCT CATEGORIES WITH FEATURED PRODUCTS
   // --------------------
@@ -7854,11 +8437,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'hydroxy-acids',
-          },
-        },
+        id: hydroxyAcids.id,
         data: {
           featuredProducts: [dmpa.id, dmba.id, hpva.id],
           image: dmpaStructureDoc.id,
@@ -7871,11 +8450,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'hindered-amines',
-          },
-        },
+        id: hinderedAmines.id,
         data: {
           featuredProducts: [
             temp.id,
@@ -7902,11 +8477,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'chromanols-derivatives',
-          },
-        },
+        id: chromanolsDerivatives.id,
         data: {
           featuredProducts: [trolox.id],
           image: troloxStructureDoc.id,
@@ -7919,11 +8490,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'diaminopolyethylene-glycols',
-          },
-        },
+        id: diaminopolyethyleneGlycols.id,
         data: {
           featuredProducts: [dapeg.id],
           image: dapegStructureDoc.id,
@@ -7936,11 +8503,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'phospholipid-precursors',
-          },
-        },
+        id: phospholipidPrecursors.id,
         data: {
           featuredProducts: [colaminPhosphate.id, colaminPhosphatesodiumSalt.id],
           image: colaminPhosphateStructureDoc.id,
@@ -7953,11 +8516,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        where: {
-          slug: {
-            equals: 'polymerisation-inhibitors',
-          },
-        },
+        id: polymerisationInhibitors.id,
         data: {
           featuredProducts: [vupin.id],
           image: vupinStructureDoc.id,

@@ -1,0 +1,89 @@
+{
+  "productCategory": {
+    "productCategory": "製品カテゴリー",
+    "exploreProperties": "特性を探る",
+    "ourProductPortfolio": "当社の{categoryName}ポートフォリオ",
+    "ourProductPortfolioDescription": "お客様の特定の用途ニーズに対応する高品質な{categoryName}製品の範囲をご覧ください。",
+    "industryApplications": "{categoryName}の産業用途",
+    "industryApplicationsDescription": "当社の{categoryName}は、産業分野全体にわたる多様な用途に対応しています。",
+    "needTechnicalSupport": "技術サポートまたは製品情報が必要ですか？",
+    "needTechnicalSupportDescription": "当社の専門家が、お客様の特定のニーズに対する{categoryName}の選択と用途ガイダンスをサポートいたします。",
+    "contactOurExperts": "専門家にお問い合わせ"
+  },
+  "product": {
+    "hero": {
+      "badge": "製品",
+      "chemicalName": "化学名",
+      "molecularFormula": "分子式",
+      "casNumber": "CAS番号",
+      "requestQuote": "見積もり依頼"
+    },
+    "sections": {
+      "technicalSpecifications": "技術仕様",
+      "keyFeatures": "主な特徴 & メリット",
+      "applications": "用途",
+      "caseStudies": "ケーススタディ",
+      "productDetails": "製品情報 & 技術文書",
+      "faq": "よくある質問",
+      "relatedProducts": "関連製品"
+    },
+    "descriptions": {
+      "technicalSpecifications": "当社の{productName}製品の技術仕様をご覧ください。",
+      "keyFeatures": "お客様の用途におけるVUPの{productName}の独自の利点をご覧ください。",
+      "applications": "当社の{productName}製品の用途をご覧ください。",
+      "caseStudies": "当社の{productName}製品のケーススタディをご覧ください。",
+      "productDetails": "当社の{productName}製品の重要な情報と文書",
+      "faq": "当社の{productName}製品についてのよくある質問をご覧ください。",
+      "relatedProducts": "当社の{productName}製品の関連製品をご覧ください。"
+    },
+    "tables": {
+      "chemicalIdentity": {
+        "title": "化学的同定",
+        "chemicalName": "化学名",
+        "synonyms": "同義語",
+        "casNumber": "CAS番号",
+        "ecNumber": "EC番号",
+        "molecularFormula": "分子式",
+        "molecularWeight": "分子量"
+      },
+      "specifications": {
+        "title": "VUP仕様（標準グレード）",
+        "property": "特性",
+        "specification": "仕様",
+        "appearance": "外観",
+        "purity": "純度",
+        "acidValue": "酸価",
+        "hydroxylValue": "水酸基価",
+        "waterContent": "水分含有量",
+        "ashContent": "灰分含有量",
+        "note": "注：上記の仕様は標準値であり、保証分析値とは見なされません。"
+      }
+    },
+    "productInfo": {
+      "title": "製品識別",
+      "description": "主要な製品詳細と識別子",
+      "documents": {
+        "title": "技術文書",
+        "description": "製品文書のダウンロード",
+        "tds": {
+          "title": "技術データシート（TDS）",
+          "description": "{productName}の完全な技術仕様、物理的特性、および用途情報"
+        },
+        "sds": {
+          "title": "安全データシート（SDS）",
+          "description": "{productName}の安全情報、取り扱い手順、および規制詳細"
+        }
+      },
+      "cta": {
+        "title": "追加の技術情報または規制文書が必要ですか？",
+        "button": "当社の技術チームにお問い合わせ"
+      }
+    },
+    "caseStudies": {
+      "title": "アプリケーションケーススタディ",
+      "viewAll": "すべてのケーススタディを表示",
+      "readStudy": "ケーススタディを読む",
+      "application": "アプリケーション"
+    }
+  }
+}

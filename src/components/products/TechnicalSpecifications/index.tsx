@@ -10,16 +10,45 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
 
-export function TechnicalSpecifications({ product }: { product: Product }) {
+type Props = {
+  product: Product
+  title: string
+  description: string
+  table: {
+    chemicalIdentity: {
+      title: string
+      chemicalName: string
+      synonyms: string
+      casNumber: string
+      ecNumber: string
+      molecularFormula: string
+      molecularWeight: string
+    }
+    specifications: {
+      title: string
+      appearance: string
+      purity: string
+      acidValue: string
+      hydroxylValue: string
+      waterContent: string
+      ashContent: string
+      note: string
+      property: string
+      specification: string
+    }
+  }
+}
+
+export function TechnicalSpecifications({ product, title, description, table }: Props) {
   return (
     <section id="technical-specifications" className="w-full py-16 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="max-w-3xl mx-auto mb-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mb-4 font-primary">
-            Technical Specifications
+            {title}
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-secondary">
-            {product.description}
+            {description}
           </p>
         </div>
 
@@ -30,14 +59,14 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg sm:text-xl font-semibold font-primary mb-4">
-                    Chemical Identity
+                    {table.chemicalIdentity.title}
                   </h3>
                   <div className="overflow-x-auto">
                     <Table>
                       <TableBody>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Chemical Name
+                            {table.chemicalIdentity.chemicalName}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.chemicalName}
@@ -45,7 +74,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Synonyms
+                            {table.chemicalIdentity.synonyms}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.synonyms
@@ -55,7 +84,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            CAS Number
+                            {table.chemicalIdentity.casNumber}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.casNumber}
@@ -63,7 +92,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            EC Number
+                            {table.chemicalIdentity.ecNumber}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.ecNumber}
@@ -71,7 +100,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Molecular Formula
+                            {table.chemicalIdentity.molecularFormula}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.molecularFormula}
@@ -79,7 +108,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Molecular Weight
+                            {table.chemicalIdentity.molecularWeight}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.technicalSpecifications?.molecularWeight}
@@ -111,28 +140,34 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
           <Card className="flex flex-col border-primary">
             <CardContent className="p-4 sm:p-6 flex-1 flex flex-col">
               <h3 className="text-lg sm:text-xl font-semibold mb-4 font-primary">
-                VUP Specifications (Standard Grade)
+                {table.specifications.title}
               </h3>
               <div className="flex-1">
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead className="text-sm sm:text-base">Property</TableHead>
-                        <TableHead className="text-sm sm:text-base">Specification</TableHead>
+                        <TableHead className="text-sm sm:text-base">
+                          {table.specifications.property}
+                        </TableHead>
+                        <TableHead className="text-sm sm:text-base">
+                          {table.specifications.specification}
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       <TableRow>
                         <TableCell className="font-medium text-sm sm:text-base">
-                          Appearance
+                          {table.specifications.appearance}
                         </TableCell>
                         <TableCell className="text-sm sm:text-base">
                           {product.VupSpecifications?.appearance}
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell className="font-medium text-sm sm:text-base">Purity</TableCell>
+                        <TableCell className="font-medium text-sm sm:text-base">
+                          {table.specifications.purity}
+                        </TableCell>
                         <TableCell className="text-sm sm:text-base">
                           {product.VupSpecifications?.purity}
                         </TableCell>
@@ -140,7 +175,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                       {product.VupSpecifications?.acidValue && (
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Acid Value
+                            {table.specifications.acidValue}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.VupSpecifications.acidValue}
@@ -150,7 +185,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                       {product.VupSpecifications?.hydroxylValue && (
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Hydroxyl Value
+                            {table.specifications.hydroxylValue}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.VupSpecifications.hydroxylValue}
@@ -160,7 +195,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                       {product.VupSpecifications?.waterContent && (
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Water Content
+                            {table.specifications.waterContent}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.VupSpecifications.waterContent}
@@ -170,7 +205,7 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                       {product.VupSpecifications?.ashContent && (
                         <TableRow>
                           <TableCell className="font-medium text-sm sm:text-base">
-                            Ash Content
+                            {table.specifications.ashContent}
                           </TableCell>
                           <TableCell className="text-sm sm:text-base">
                             {product.VupSpecifications.ashContent}
@@ -182,10 +217,10 @@ export function TechnicalSpecifications({ product }: { product: Product }) {
                 </div>
               </div>
 
-              <div className="mt-6 p-3 sm:p-4 bg-blue-50 rounded-lg">
-                <p className="text-xs sm:text-sm text-blue-800 font-secondary">
-                  <strong>Note:</strong> Specifications that are provided above are typical values
-                  and should not be considered as guaranteed analysis.
+              {/* Note */}
+              <div className="mt-6 p-3 sm:p-4 bg-muted/50 rounded-lg">
+                <p className="text-xs sm:text-sm text-muted-foreground font-secondary">
+                  {table.specifications.note}
                 </p>
               </div>
             </CardContent>

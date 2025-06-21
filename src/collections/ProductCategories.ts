@@ -38,11 +38,13 @@ export const ProductCategories: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
     },
     {
       name: 'image',
@@ -62,22 +64,22 @@ export const ProductCategories: CollectionConfig = {
       name: 'applications',
       type: 'array',
       required: false,
+      localized: true,
       fields: [
         {
           name: 'imageSrc',
           type: 'upload',
           relationTo: 'media',
-          required: true,
         },
         {
           name: 'title',
           type: 'text',
-          required: true,
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
-          required: true,
+          localized: true,
         },
       ],
     },

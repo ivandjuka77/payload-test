@@ -7,11 +7,14 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
+import { hasLocale } from 'next-intl'
+import { routing } from '@/i18n/routing'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
 import { Raleway, Inter } from 'next/font/google'
+import { notFound } from 'next/navigation'
 
 const raleway = Raleway({
   variable: '--font-primary',
@@ -34,6 +37,10 @@ export default async function RootLayout({
 }) {
   const { isEnabled } = await draftMode()
   const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
 
   return (
     <html className={cn(raleway.variable, inter.variable)} lang={locale} suppressHydrationWarning>

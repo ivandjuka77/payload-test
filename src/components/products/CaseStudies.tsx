@@ -1,17 +1,22 @@
-import Image from 'next/image'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/payload-types'
 
-export function CaseStudies({ product }: { product: Product }) {
+type Props = {
+  product: Product
+  title: string
+  viewAll: string
+  readStudy: string
+  application: string
+}
+
+export function CaseStudies({ product, title, viewAll, readStudy, application }: Props) {
   return (
     <section className="w-full py-20 bg-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4 font-primary">
-            Application Case Studies
+            {title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-[800px] font-secondary">
             {product.description}
@@ -43,7 +48,7 @@ export function CaseStudies({ product }: { product: Product }) {
               <CardContent className="p-5">
                 <h3 className="text-lg font-bold mb-2 font-primary line-clamp-2">{study.title}</h3>
                 <p className="text-xs text-muted-foreground mb-3 font-medium">
-                  <span className="text-primary">Application:</span> {study.application}
+                  <span className="text-primary">{application}:</span> {study.application}
                 </p>
                 <p className="text-sm text-muted-foreground line-clamp-3 font-secondary">
                   {study.problem.substring(0, 120)}...
@@ -53,7 +58,7 @@ export function CaseStudies({ product }: { product: Product }) {
               <CardFooter className="p-5 pt-0">
                 <Button variant="ghost" className="text-primary p-0 h-auto" asChild>
                   <a href="#">
-                    Read Case Study <ArrowRight className="ml-1 h-3 w-3" />
+                    {readStudy} <ArrowRight className="ml-1 h-3 w-3" />
                   </a>
                 </Button>
               </CardFooter>
@@ -69,7 +74,7 @@ export function CaseStudies({ product }: { product: Product }) {
             asChild
           >
             <a href="#">
-              View All Case Studies <ArrowRight className="ml-2 h-4 w-4" />
+              {viewAll} <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>

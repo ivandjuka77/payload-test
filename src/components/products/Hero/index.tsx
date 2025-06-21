@@ -6,7 +6,23 @@ import { ArrowRight } from 'lucide-react'
 import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
 
-export function ProductHero({ product }: { product: Product }) {
+type Props = {
+  product: Product
+  badge: string
+  chemicalName: string
+  molecularFormula: string
+  casNumber: string
+  cta: string
+}
+
+export function ProductHero({
+  product,
+  badge,
+  chemicalName,
+  molecularFormula,
+  casNumber,
+  cta,
+}: Props) {
   return (
     <section className="w-full relative pt-32 pb-10 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50/50 px-4 sm:px-6 lg:px-0">
       <div className="container">
@@ -17,22 +33,22 @@ export function ProductHero({ product }: { product: Product }) {
                 variant="outline"
                 className="mb-3 text-sm px-3 py-1 bg-primary/5 border-primary/10 text-primary"
               >
-                Product
+                {badge}
               </Badge>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter font-primary">
                 {product.name}
               </h1>
               <div className="mt-2 space-y-1 text-sm sm:text-base text-muted-foreground font-secondary">
                 <p>
-                  <span className="font-medium">Chemical Name:</span>{' '}
+                  <span className="font-medium">{chemicalName}:</span>{' '}
                   {product.technicalSpecifications?.chemicalName}
                 </p>
                 <p>
-                  <span className="font-medium">Molecular Formula:</span>{' '}
+                  <span className="font-medium">{molecularFormula}:</span>{' '}
                   {product.technicalSpecifications?.molecularFormula}
                 </p>
                 <p>
-                  <span className="font-medium">CAS Number:</span>{' '}
+                  <span className="font-medium">{casNumber}:</span>{' '}
                   {product.technicalSpecifications?.casNumber}
                 </p>
               </div>
@@ -49,7 +65,7 @@ export function ProductHero({ product }: { product: Product }) {
                   document.getElementById('inquiry-form')?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                {cta} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>

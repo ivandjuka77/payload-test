@@ -15,19 +15,17 @@ import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
+import { getTranslations } from 'next-intl/server'
 
 // Ensure pages are statically generated at build time with no ISR
 // export const dynamic = 'force-static'
 // export const dynamicParams = false
 // export const revalidate = false
 
-// This function runs at build time to generate all possible [slug] paths
 export async function generateStaticParams() {
   try {
-    // Use getPayload directly with config for more reliable build-time behavior
     const payload = await getPayload({ config: configPromise })
 
-    // Fetch ALL products without limit
     const products = await payload.find({
       collection: 'products',
       draft: false,
@@ -36,12 +34,11 @@ export async function generateStaticParams() {
       depth: 0, // Minimize data fetched since we only need slugs
       select: {
         slug: true,
-      }, // Only fetch the slug field
+      },
     })
 
-    const locales = ['', 'sk', 'jp'] // Your supported locales
+    const locales = ['', 'sk', 'jp']
 
-    // Generate params for each product + locale combination
     const params = products.docs.flatMap(({ slug }) =>
       locales.map((locale) => ({
         locale,
@@ -55,7 +52,7 @@ export async function generateStaticParams() {
     return params
   } catch (error) {
     console.error('[generateStaticParams] Error generating static paths:', error)
-    throw error // Let the build fail if we can't generate paths
+    throw error
   }
 }
 
@@ -71,6 +68,8 @@ export default async function Product({ params: paramsPromise }: Args) {
   const url = '/products/' + slug
   const product = await queryProductBySlug({ slug, locale: locale as TypedLocale })
 
+  const t = await getTranslations('product')
+
   if (!product) return <PayloadRedirects url={url} />
 
   return (
@@ -80,34 +79,117 @@ export default async function Product({ params: paramsPromise }: Args) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      <ProductHero product={product} />
-      {product.technicalSpecifications && <TechnicalSpecifications product={product} />}
+      <ProductHero
+        product={product}
+        badge={t('hero.badge')}
+        chemicalName={t('hero.chemicalName')}
+        molecularFormula={t('hero.molecularFormula')}
+        casNumber={t('hero.casNumber')}
+        cta={t('hero.requestQuote')}
+      />
+
+      {product.technicalSpecifications && (
+        <TechnicalSpecifications
+          product={product}
+          title={t('sections.technicalSpecifications')}
+          description={t('descriptions.technicalSpecifications', { productName: product.name })}
+          table={{
+            chemicalIdentity: {
+              title: t('tables.chemicalIdentity.title'),
+              chemicalName: t('tables.chemicalIdentity.chemicalName'),
+              synonyms: t('tables.chemicalIdentity.synonyms'),
+              casNumber: t('tables.chemicalIdentity.casNumber'),
+              ecNumber: t('tables.chemicalIdentity.ecNumber'),
+              molecularFormula: t('tables.chemicalIdentity.molecularFormula'),
+              molecularWeight: t('tables.chemicalIdentity.molecularWeight'),
+            },
+            specifications: {
+              title: t('tables.specifications.title'),
+              property: t('tables.specifications.property'),
+              specification: t('tables.specifications.specification'),
+              appearance: t('tables.specifications.appearance'),
+              purity: t('tables.specifications.purity'),
+              acidValue: t('tables.specifications.acidValue'),
+              hydroxylValue: t('tables.specifications.hydroxylValue'),
+              waterContent: t('tables.specifications.waterContent'),
+              ashContent: t('tables.specifications.ashContent'),
+              note: t('tables.specifications.note'),
+            },
+          }}
+        />
+      )}
+
       {product.keyFeatures && product.keyFeatures.length > 0 && (
         <BlockShowcase
-          title="Key Features & Benefits"
-          description={`Discover the unique advantages of VUP's ${product.name} for your applications.`}
+          title={t('sections.keyFeatures')}
+          description={t('descriptions.keyFeatures', { productName: product.name })}
           features={product.keyFeatures}
         />
       )}
+
       {product.applications && product.applications.length > 0 && (
-        <ApplicationsAndIndustries product={product} />
+        <ApplicationsAndIndustries
+          product={product}
+          title={t('sections.applications')}
+          description={t('descriptions.applications', { productName: product.name })}
+        />
       )}
-      {product.caseStudies && product.caseStudies.length > 0 && <CaseStudies product={product} />}
-      <ProductDetails product={product} />
+
+      {product.caseStudies && product.caseStudies.length > 0 && (
+        <CaseStudies
+          product={product}
+          title={t('caseStudies.title')}
+          viewAll={t('caseStudies.viewAll')}
+          readStudy={t('caseStudies.readStudy')}
+          application={t('caseStudies.application')}
+        />
+      )}
+
+      <ProductDetails
+        product={product}
+        title={t('sections.productDetails')}
+        description={t('descriptions.productDetails', { productName: product.name })}
+        productInfo={{
+          title: t('productInfo.title'),
+          description: t('productInfo.description'),
+          chemicalName: t('tables.chemicalIdentity.chemicalName'),
+          synonyms: t('tables.chemicalIdentity.synonyms'),
+          casNumber: t('tables.chemicalIdentity.casNumber'),
+          ecNumber: t('tables.chemicalIdentity.ecNumber'),
+        }}
+        documents={{
+          title: t('productInfo.documents.title'),
+          description: t('productInfo.documents.description'),
+          tds: {
+            title: t('productInfo.documents.tds.title'),
+            description: t('productInfo.documents.tds.description', { productName: product.name }),
+          },
+          sds: {
+            title: t('productInfo.documents.sds.title'),
+            description: t('productInfo.documents.sds.description', { productName: product.name }),
+          },
+        }}
+        cta={{
+          title: t('productInfo.cta.title'),
+          button: t('productInfo.cta.button'),
+        }}
+      />
+
       {product.faq && product.faq.length > 0 && (
         <FAQ
           product={product}
-          title="Frequently Asked Questions"
-          description={`Discover answers to common questions about ${product.name}`}
+          title={t('sections.faq')}
+          description={t('descriptions.faq', { productName: product.name })}
         />
       )}
+
       {product.relatedProducts && product.relatedProducts.length > 0 && (
         <Showcase
           type="product"
           products={product.relatedProducts as ProductType[]}
           showCta={false}
-          title="Related Products"
-          description="Discover other products that complement your needs"
+          title={t('sections.relatedProducts')}
+          description={t('descriptions.relatedProducts', { productName: product.name })}
         />
       )}
     </main>

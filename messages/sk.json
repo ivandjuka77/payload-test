@@ -1,0 +1,89 @@
+{
+  "productCategory": {
+    "productCategory": "Kategória produktov",
+    "exploreProperties": "Preskúmať vlastnosti",
+    "ourProductPortfolio": "Naše portfólio {categoryName}",
+    "ourProductPortfolioDescription": "Objavte náš sortiment vysokokvalitných produktov {categoryName} pre vaše špecifické aplikačné potreby.",
+    "industryApplications": "Priemyselné aplikácie pre {categoryName}",
+    "industryApplicationsDescription": "Naše {categoryName} slúžia rôznorodým aplikáciám v priemyselných sektoroch.",
+    "needTechnicalSupport": "Potrebujete technickú podporu alebo informácie o produktoch?",
+    "needTechnicalSupportDescription": "Naši odborníci sú pripravení pomôcť vám s výberom {categoryName} a aplikačným poradenstvom pre vaše špecifické potreby.",
+    "contactOurExperts": "Kontaktujte našich odborníkov"
+  },
+  "product": {
+    "hero": {
+      "badge": "Produkt",
+      "chemicalName": "Chemický názov",
+      "molecularFormula": "Molekulárna formula",
+      "casNumber": "CAS číslo",
+      "requestQuote": "Vyžiadať cenové ponuku"
+    },
+    "sections": {
+      "technicalSpecifications": "Technické špecifikácie",
+      "keyFeatures": "Kľúčové vlastnosti & výhody",
+      "applications": "Aplikácie",
+      "caseStudies": "Prípadové štúdie",
+      "productDetails": "Informácie o produkte & technické dokumenty",
+      "faq": "Často kladené otázky",
+      "relatedProducts": "Súvisiace produkty"
+    },
+    "descriptions": {
+      "technicalSpecifications": "Objavte technické špecifikácie našich produktov {productName}.",
+      "keyFeatures": "Objavte jedinečné výhody {productName} od VUP pre vaše aplikácie.",
+      "applications": "Objavte aplikácie našich produktov {productName}.",
+      "caseStudies": "Objavte prípadové štúdie našich produktov {productName}.",
+      "productDetails": "Základné informácie a dokumentácia pre {productName}",
+      "faq": "Objavte často kladené otázky o našich produktoch {productName}.",
+      "relatedProducts": "Objavte súvisiace produkty k našim produktom {productName}."
+    },
+    "tables": {
+      "chemicalIdentity": {
+        "title": "Chemická identita",
+        "chemicalName": "Chemický názov",
+        "synonyms": "Synonymá",
+        "casNumber": "CAS číslo",
+        "ecNumber": "EC číslo",
+        "molecularFormula": "Molekulárna formula",
+        "molecularWeight": "Molekulárna hmotnosť"
+      },
+      "specifications": {
+        "title": "VUP špecifikácie (štandardný stupeň)",
+        "property": "Vlastnosť",
+        "specification": "Špecifikácia",
+        "appearance": "Vzhľad",
+        "purity": "Čistota",
+        "acidValue": "Kyslé číslo",
+        "hydroxylValue": "Hydroxylové číslo",
+        "waterContent": "Obsah vody",
+        "ashContent": "Obsah popola",
+        "note": "Poznámka: Špecifikácie uvedené vyššie sú typické hodnoty a nemali by sa považovať za zaručenú analýzu."
+      }
+    },
+    "productInfo": {
+      "title": "Identifikácia produktu",
+      "description": "Kľúčové podrobnosti a identifikátory produktu",
+      "documents": {
+        "title": "Technické dokumenty",
+        "description": "Stiahnuť dokumentáciu produktu",
+        "tds": {
+          "title": "Technický dátový list (TDS)",
+          "description": "Kompletné technické špecifikácie, fyzikálne vlastnosti a aplikačné informácie pre {productName}"
+        },
+        "sds": {
+          "title": "Bezpečnostný dátový list (SDS)",
+          "description": "Bezpečnostné informácie, postupy manipulácie a regulačné podrobnosti pre {productName}"
+        }
+      },
+      "cta": {
+        "title": "Potrebujete ďalšie technické informácie alebo regulatórne dokumenty?",
+        "button": "Kontaktujte našu technickú tímu"
+      }
+    },
+    "caseStudies": {
+      "title": "Prípadové štúdie aplikácií",
+      "viewAll": "Zobraziť všetky prípadové štúdie",
+      "readStudy": "Čítať prípadovú štúdiu",
+      "application": "Aplikácia"
+    }
+  }
+}

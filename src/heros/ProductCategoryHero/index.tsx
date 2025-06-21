@@ -6,7 +6,13 @@ import { Button } from '@/components/ui/button'
 import { ProductCategory } from '@/payload-types'
 import { ArrowRight } from 'lucide-react'
 
-export function ProductCategoryHero({ category }: { category: ProductCategory }) {
+export function ProductCategoryHero({
+  translations,
+  category,
+}: {
+  translations: { badge: string; title: string; description: string; cta: string }
+  category: ProductCategory
+}) {
   return (
     <section className="w-full relative pt-32 pb-10 md:py-28 overflow-hidden px-4 sm:px-6 lg:px-0">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/20 z-0"></div>
@@ -18,7 +24,7 @@ export function ProductCategoryHero({ category }: { category: ProductCategory })
               variant="outline"
               className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
             >
-              Product Category
+              {translations.badge}
             </Badge>
             <h1 className="font-primary text-primary text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-6">
               {category.name}
@@ -28,7 +34,7 @@ export function ProductCategoryHero({ category }: { category: ProductCategory })
             </p>
             <div className="flex flex-wrap gap-4">
               <Button className="group">
-                Explore Properties{' '}
+                {translations.cta}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
