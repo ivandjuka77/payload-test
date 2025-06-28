@@ -5,10 +5,14 @@ export function ProductShowcase({
   products,
   title,
   description,
+  translations,
 }: {
   products: Product[]
   title: string
   description: string
+  translations: {
+    noProductsFound: string
+  }
 }) {
   return (
     <section className="relative w-full py-20 bg-gradient-to-b from-background to-gray-50/50 px-4 sm:px-6 lg:px-0">
@@ -29,7 +33,7 @@ export function ProductShowcase({
             products.map((product, index) => <ProductCard key={index} product={product} />)
           ) : (
             <div className="flex justify-center items-center text-muted-foreground text-center font-secondary w-full mt-6 text-base sm:text-lg md:text-xl">
-              No products found
+              {translations.noProductsFound}
             </div>
           )}
         </div>

@@ -10,6 +10,28 @@
     "needTechnicalSupportDescription": "当社の専門家が、お客様の特定のニーズに対する{categoryName}の選択と用途ガイダンスをサポートいたします。",
     "contactOurExperts": "専門家にお問い合わせ"
   },
+  "industry": {
+    "hero": {
+      "exploreSolutions": "ソリューションを探る",
+      "keyApplications": "主要アプリケーション",
+      "learnMore": "詳細を見る"
+    },
+    "challenges": {
+      "title": "業界の課題",
+      "description": "{industryName}が直面する独特の課題と、VUPソリューションがそれらを克服する方法をご覧ください。",
+      "challenge": "課題:",
+      "vupSolutions": "VUPソリューション:",
+      "relevantProducts": "関連製品",
+      "relevantServices": "関連サービス",
+      "viewAllProducts": "すべての製品を表示",
+      "viewAllServices": "すべてのサービスを表示"
+    },
+    "showcase": {
+      "title": "VUP注目製品",
+      "description": "この業界向けの化学中間体とソリューションの主要ポートフォリオをご覧ください",
+      "noProductsFound": "製品が見つかりません"
+    }
+  },
   "product": {
     "hero": {
       "badge": "製品",

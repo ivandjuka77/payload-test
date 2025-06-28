@@ -10,6 +10,28 @@
     "needTechnicalSupportDescription": "Our experts are ready to assist you with {categoryName} selection and application guidance for your specific needs.",
     "contactOurExperts": "Contact Our Experts"
   },
+  "industry": {
+    "hero": {
+      "exploreSolutions": "Explore Solutions",
+      "keyApplications": "Key Applications",
+      "learnMore": "Learn more"
+    },
+    "challenges": {
+      "title": "Industry Challenges",
+      "description": "Discover the unique challenges faced by {industryName} and how VUP Solutions can help overcome them.",
+      "challenge": "Challenge:",
+      "vupSolutions": "VUP Solutions:",
+      "relevantProducts": "Relevant Products",
+      "relevantServices": "Relevant Services",
+      "viewAllProducts": "View all products",
+      "viewAllServices": "View all services"
+    },
+    "showcase": {
+      "title": "Featured VUP Products",
+      "description": "Explore our core portfolio of chemical intermediates and solutions for this industry",
+      "noProductsFound": "No products found"
+    }
+  },
   "product": {
     "hero": {
       "badge": "Product",

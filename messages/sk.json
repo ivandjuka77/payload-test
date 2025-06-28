@@ -10,6 +10,28 @@
     "needTechnicalSupportDescription": "Naši odborníci sú pripravení pomôcť vám s výberom {categoryName} a aplikačným poradenstvom pre vaše špecifické potreby.",
     "contactOurExperts": "Kontaktujte našich odborníkov"
   },
+  "industry": {
+    "hero": {
+      "exploreSolutions": "Preskúmať riešenia",
+      "keyApplications": "Kľúčové aplikácie",
+      "learnMore": "Dozvedieť sa viac"
+    },
+    "challenges": {
+      "title": "Priemyselné výzvy",
+      "description": "Objavte jedinečné výzvy, ktorým čelí {industryName} a ako môžu riešenia VUP pomôcť ich prekonať.",
+      "challenge": "Výzva:",
+      "vupSolutions": "Riešenia VUP:",
+      "relevantProducts": "Relevantné produkty",
+      "relevantServices": "Relevantné služby",
+      "viewAllProducts": "Zobraziť všetky produkty",
+      "viewAllServices": "Zobraziť všetky služby"
+    },
+    "showcase": {
+      "title": "Vybrané produkty VUP",
+      "description": "Preskúmajte naše hlavné portfólio chemických intermediátov a riešení pre toto odvetvie",
+      "noProductsFound": "Žiadne produkty nenájdené"
+    }
+  },
   "product": {
     "hero": {
       "badge": "Produkt",

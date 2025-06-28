@@ -8,19 +8,28 @@ import { Media } from '../Media'
 
 interface IndustryChallengesProps {
   industry: Industry
+  translations: {
+    title: string
+    description: string
+    challenge: string
+    vupSolutions: string
+    relevantProducts: string
+    relevantServices: string
+    viewAllProducts: string
+    viewAllServices: string
+  }
 }
 
-export function IndustryChallenges({ industry }: IndustryChallengesProps) {
+export function IndustryChallenges({ industry, translations }: IndustryChallengesProps) {
   return (
     <section className="w-full bg-muted/30 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-primary text-2xl sm:text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Industry Challenges
+            {translations.title}
           </h2>
           <p className="mt-4 font-secondary text-sm sm:text-base text-muted-foreground">
-            Discover the unique challenges faced by {industry.name} and how VUP Solutions can help
-            overcome them.
+            {translations.description}
           </p>
         </div>
 
@@ -39,7 +48,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
 
                   <div className="space-y-2">
                     <h4 className="font-primary text-lg sm:text-xl font-semibold text-foreground">
-                      Challenge:
+                      {translations.challenge}
                     </h4>
                     <p className="font-secondary text-sm sm:text-base text-muted-foreground">
                       {challenge.challenge}
@@ -48,7 +57,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
 
                   <div className="space-y-2">
                     <h4 className="font-primary text-lg sm:text-xl font-semibold text-foreground">
-                      VUP Solutions:
+                      {translations.vupSolutions}
                     </h4>
                     <p className="font-secondary text-sm sm:text-base text-muted-foreground">
                       {challenge.solution}
@@ -70,7 +79,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                 <div className="mt-12 bg-gray-50/50 py-8 sm:py-12 rounded-lg">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                     <h4 className="font-primary text-xl sm:text-2xl font-semibold text-foreground">
-                      Relevant Products
+                      {translations.relevantProducts}
                     </h4>
                     <Button
                       variant="link"
@@ -78,7 +87,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                       asChild
                     >
                       <Link href="/products">
-                        View all products <ChevronRight className="h-4 w-4" />
+                        {translations.viewAllProducts} <ChevronRight className="h-4 w-4" />
                       </Link>
                     </Button>
                   </div>
@@ -105,7 +114,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                 <div className="mt-12 bg-gray-50/50 py-8 sm:py-12 rounded-lg">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                     <h4 className="font-primary text-xl sm:text-2xl font-semibold text-foreground">
-                      Relevant Services
+                      {translations.relevantServices}
                     </h4>
                     <Button
                       variant="link"
@@ -113,7 +122,7 @@ export function IndustryChallenges({ industry }: IndustryChallengesProps) {
                       asChild
                     >
                       <Link href="/services">
-                        View all services <ChevronRight className="h-4 w-4" />
+                        {translations.viewAllServices} <ChevronRight className="h-4 w-4" />
                       </Link>
                     </Button>
                   </div>

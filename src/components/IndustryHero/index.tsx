@@ -11,6 +11,7 @@ export default function IndustryHero({
   title,
   summary,
   challenges,
+  translations,
 }: {
   image: MediaType
   title: string
@@ -21,6 +22,11 @@ export default function IndustryHero({
     challengeLink: string
     image: number | MediaType
   }[]
+  translations: {
+    exploreSolutions: string
+    keyApplications: string
+    learnMore: string
+  }
 }) {
   return (
     <section className="relative w-full min-h-[650px] flex flex-col overflow-hidden pb-10 px-4 sm:px-6 lg:px-0">
@@ -74,7 +80,7 @@ export default function IndustryHero({
                   }}
                   className="flex items-center"
                 >
-                  Explore Solutions <ChevronRight className="ml-2 h-4 w-4" />
+                  {translations.exploreSolutions} <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -87,7 +93,7 @@ export default function IndustryHero({
           <div className="container mx-auto">
             <div className="flex flex-col items-center mb-6">
               <h2 className="text-lg sm:text-xl font-semibold font-primary text-white mb-2">
-                Key Applications
+                {translations.keyApplications}
               </h2>
               <div className="h-1 w-16 bg-primary rounded-full"></div>
             </div>
@@ -135,7 +141,7 @@ export default function IndustryHero({
                             }
                           }}
                         >
-                          Learn more
+                          {translations.learnMore}
                           <ChevronRight className="ml-1 h-3 w-3" />
                         </Link>
                       </Button>
