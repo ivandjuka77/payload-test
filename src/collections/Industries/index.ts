@@ -68,6 +68,7 @@ export const Industries: CollectionConfig = {
     {
       name: 'challenges',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',
