@@ -1,4 +1,86 @@
 {
+  "productFilter": {
+    "search": {
+      "placeholder": "Search products..."
+    },
+    "filters": {
+      "label": "Filters:",
+      "allCategories": "All Categories",
+      "allIndustries": "All Industries",
+      "allApplications": "All Applications",
+      "reset": "Reset Filters",
+      "clearAll": "Clear All Filters",
+      "tryClear": "Try Clearing Filters"
+    },
+    "results": {
+      "showing": "Showing {start}-{end} of {total} products",
+      "noMatches": "No products match your current filters."
+    },
+    "pagination": {
+      "pageOf": "Page {current} of {total}"
+    },
+    "errors": {
+      "filterOptions": "Failed to load filter options.",
+      "loadProducts": "Failed to load products."
+    }
+  },
+  "header": {
+    "industries": {
+      "description": "Explore how VUP chemistry solutions serve various industries",
+      "viewAll": "View all industries"
+    }
+  },
+  "industries": {
+    "showcase": {
+      "title": "Industries We Serve",
+      "subtitle": "Discover how our chemical solutions power innovation across diverse industries"
+    }
+  },
+  "industryCard": {
+    "keyApplications": "Key Applications",
+    "featuredProducts": "Featured Products",
+    "moreItems": "+{count} more",
+    "exploreSolutions": "Explore {industryName} solutions"
+  },
+  "sustainabilityPartner": {
+    "badge": "Partner with Us",
+    "title": "Partner with a Sustainable Leader",
+    "description": "Our EcoVadis Silver rating and long-standing certifications are testaments to our dedication. Let's discuss how our commitment can support your sustainability objectives.",
+    "contactUs": "Contact Us",
+    "viewCertifications": "View Our Certifications"
+  },
+  "news": {
+    "hero": {
+      "title": "Latest News, Insights & Research from VUP",
+      "description": "Stay informed about our latest innovations, research breakthroughs, and industry insights in sustainable chemistry."
+    },
+    "meta": {
+      "title": "News & Insights - VUP"
+    }
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "title": "Stay Informed with VUP Insights",
+    "description": "Subscribe to receive industry overviews, chemical trends, and product updates directly in your inbox.",
+    "form": {
+      "emailPlaceholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "privacyText": "By subscribing, you agree to our",
+      "privacyLink": "Privacy Policy"
+    },
+    "toast": {
+      "success": "Successfully subscribed!",
+      "description": "We welcome you to the VUP community - You will receive our next newsletter in your inbox."
+    },
+    "social": {
+      "title": "Connect With Us",
+      "visitPage": "Visit our {platform} page",
+      "linkedin": {
+        "description": "Follow us for industry insights and company updates",
+        "extendedDescription": "Join our professional network for exclusive content, industry discussions, and networking opportunities."
+      }
+    }
+  },
   "productCategory": {
     "productCategory": "Product Category",
     "exploreProperties": "Explore Properties",
@@ -106,6 +188,36 @@
       "viewAll": "View All Case Studies",
       "readStudy": "Read Case Study",
       "application": "Application"
+    }
+  },
+  "service": {
+    "hero": {
+      "accreditations": "Accreditations:",
+      "exploreServices": "Explore Services",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose VUP?",
+      "description": "Our {serviceName} services are designed to meet your specific needs and help you achieve your goals."
+    },
+    "subServices": {
+      "title": "{serviceName} Services",
+      "description": "From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
+    },
+    "team": {
+      "title": "{serviceName} Team",
+      "description": "Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+    },
+    "industries": {
+      "title": "{serviceName} Industries",
+      "description": "Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+    },
+    "caseStudies": {
+      "title": "{serviceName} Case Studies",
+      "description": "Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.",
+      "readStudy": "Read Case Study",
+      "viewAll": "View All Case Studies",
+      "application": "Application:"
     }
   }
 }

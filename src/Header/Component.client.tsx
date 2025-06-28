@@ -32,6 +32,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
 import { SearchDialog } from '@/components/Search'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const navItems = [
   { name: 'About', href: '/about-us' },
@@ -86,6 +87,8 @@ function IndustriesMegaMenu({
   onClose: () => void
   industries: Industry[]
 }) {
+  const t = useTranslations('header')
+
   return (
     <div className="container mx-auto py-6 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -139,15 +142,13 @@ function IndustriesMegaMenu({
         })}
       </div>
       <div className="mt-4 pt-3 border-t border-gray-100 flex justify-between items-center">
-        <p className="text-sm text-gray-500">
-          Explore how VUP chemistry solutions serve various industries
-        </p>
+        <p className="text-sm text-gray-500">{t('industries.description')}</p>
         <Link
           href="/industries"
           className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
           onClick={onClose}
         >
-          View all industries
+          {t('industries.viewAll')}
           <ArrowRight size={14} className="ml-1" />
         </Link>
       </div>

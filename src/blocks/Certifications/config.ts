@@ -23,6 +23,7 @@ export const Certifications: Block = {
     {
       name: 'featuredCertification',
       type: 'group',
+      localized: true,
       fields: [
         {
           name: 'title',
@@ -58,6 +59,7 @@ export const Certifications: Block = {
     {
       name: 'certifications',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',

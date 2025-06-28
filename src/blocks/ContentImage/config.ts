@@ -15,10 +15,12 @@ export const ContentImage: Block = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
     },
     {
       name: 'content',
       type: 'richText',
+      localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [

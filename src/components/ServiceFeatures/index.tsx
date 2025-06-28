@@ -4,20 +4,25 @@ import { CheckCircle } from 'lucide-react'
 export default function ServiceFeatures({
   serviceName,
   features,
+  translations,
 }: {
   serviceName: string
   features: Service['features']
+  translations?: {
+    title: string
+    description: string
+  }
 }) {
   return (
     <section className="w-full py-20 bg-white px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl mb-4 font-primary">
-            Why Choose VUP?
+            {translations?.title || 'Why Choose VUP?'}
           </h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-[800px] font-secondary">
-            Our {serviceName.toLowerCase()} services are designed to meet your specific needs and
-            help you achieve your goals.
+            {translations?.description ||
+              `Our ${serviceName.toLowerCase()} services are designed to meet your specific needs and help you achieve your goals.`}
           </p>
         </div>
 

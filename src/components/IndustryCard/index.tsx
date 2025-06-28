@@ -1,9 +1,13 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { Industry, Product } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { useTranslations } from 'next-intl'
 
 export function IndustryCard({ industry }: { industry: Industry }) {
+  const t = useTranslations('industryCard')
   const keyProducts = industry.keyProducts as Product[]
 
   return (
@@ -46,7 +50,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
           {industry.challenges && industry.challenges.length > 0 && (
             <div className="mb-5">
               <h4 className="font-primary mb-2 text-sm md:text-base font-medium text-foreground">
-                Key Applications
+                {t('keyApplications')}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {industry.challenges.slice(0, 3).map((challenge, index) => (
@@ -59,7 +63,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
                 ))}
                 {industry.challenges.length > 3 && (
                   <div className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-                    +{industry.challenges.length - 3} more
+                    {t('moreItems', { count: industry.challenges.length - 3 })}
                   </div>
                 )}
               </div>
@@ -70,7 +74,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
           {keyProducts && keyProducts.length > 0 && (
             <div className="mb-5">
               <h4 className="font-primary mb-2 text-sm md:text-base font-medium text-foreground">
-                Featured Products
+                {t('featuredProducts')}
               </h4>
               <ul className="space-y-1.5">
                 {keyProducts.map((product, index) => (
@@ -89,7 +93,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
           )}
 
           <div className="inline-flex items-center gap-2 text-sm md:text-base font-medium text-primary transition-all duration-150 group-hover:gap-3">
-            Explore {industry.name} solutions
+            {t('exploreSolutions', { industryName: industry.name })}
             <ArrowRight className="h-4 w-4" />
           </div>
         </div>

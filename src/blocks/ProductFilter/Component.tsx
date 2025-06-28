@@ -25,6 +25,7 @@ import {
 import Link from 'next/link'
 import { fetchFilteredProductsAction, fetchFilterOptionsAction } from '@/actions/productActions'
 import debounce from 'lodash/debounce'
+import { useTranslations, useLocale } from 'next-intl'
 
 export const ProductFilter: React.FC<ProductFilterBlock> = ({
   title,
@@ -33,17 +34,23 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   showCta,
   cta,
 }) => {
+  const t = useTranslations('productFilter')
+  const localeRaw = useLocale()
+  const locale = (localeRaw as 'en' | 'sk' | 'jp' | 'all') || 'en'
+
   // State for immediate UI updates
   const [searchQuery, setSearchQuery] = useState('')
-  const [categoryFilter, setCategoryFilter] = useState('All Categories')
-  const [industryFilter, setIndustryFilter] = useState('All Industries')
-  const [applicationFilter, setApplicationFilter] = useState('All Applications')
+  const [categoryFilter, setCategoryFilter] = useState(() => t('filters.allCategories'))
+  const [industryFilter, setIndustryFilter] = useState(() => t('filters.allIndustries'))
+  const [applicationFilter, setApplicationFilter] = useState(() => t('filters.allApplications'))
   const [currentPage, setCurrentPage] = useState(1)
 
   // State for filter options
-  const [categoryOptions, setCategoryOptions] = useState<string[]>(['All Categories'])
-  const [industryOptions, setIndustryOptions] = useState<string[]>(['All Industries'])
-  const [applicationOptions, setApplicationOptions] = useState<string[]>(['All Applications'])
+  const [categoryOptions, setCategoryOptions] = useState<string[]>([t('filters.allCategories')])
+  const [industryOptions, setIndustryOptions] = useState<string[]>([t('filters.allIndustries')])
+  const [applicationOptions, setApplicationOptions] = useState<string[]>([
+    t('filters.allApplications'),
+  ])
 
   // State for filtered results
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
@@ -63,18 +70,18 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   useEffect(() => {
     const loadFilterOptions = async () => {
       try {
-        const options = await fetchFilterOptionsAction()
+        const options = await fetchFilterOptionsAction(locale)
         setCategoryOptions(options.categories)
         setIndustryOptions(options.industries)
         setApplicationOptions(options.applications)
       } catch (error) {
         console.error('Error loading filter options:', error)
-        setError('Failed to load filter options.')
+        setError(t('errors.filterOptions'))
       }
     }
 
     loadFilterOptions()
-  }, [])
+  }, [locale, t])
 
   // Debounced function to apply filters
   const applyFilters = useCallback(
@@ -92,6 +99,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
         try {
           const result = await fetchFilteredProductsAction({
             ...criteria,
+            locale,
             limit: PRODUCTS_PER_PAGE,
           })
           setFilteredProducts(result.docs)
@@ -101,7 +109,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           setHasPrevPage(result.hasPrevPage)
         } catch (error) {
           console.error('Error fetching products:', error)
-          setError(error instanceof Error ? error.message : 'Failed to load products.')
+          setError(error instanceof Error ? error.message : t('errors.loadProducts'))
           setFilteredProducts([])
           setTotalProducts(0)
           setTotalPages(0)
@@ -113,7 +121,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
       },
       300,
     ),
-    [],
+    [locale, t],
   )
 
   // Effect to trigger filter application
@@ -159,9 +167,9 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   // Reset filters function
   const resetFilters = () => {
     setSearchQuery('')
-    setCategoryFilter('All Categories')
-    setIndustryFilter('All Industries')
-    setApplicationFilter('All Applications')
+    setCategoryFilter(t('filters.allCategories'))
+    setIndustryFilter(t('filters.allIndustries'))
+    setApplicationFilter(t('filters.allApplications'))
     setCurrentPage(1)
   }
 
@@ -185,9 +193,9 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
   // Check if any filters are active
   const hasActiveFilters =
     searchQuery.trim() !== '' ||
-    categoryFilter !== 'All Categories' ||
-    industryFilter !== 'All Industries' ||
-    applicationFilter !== 'All Applications'
+    categoryFilter !== t('filters.allCategories') ||
+    industryFilter !== t('filters.allIndustries') ||
+    applicationFilter !== t('filters.allApplications')
 
   // Generate page numbers for pagination
   const getPageNumbers = () => {
@@ -223,7 +231,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
 
           <div className="flex items-center">
             <Filter className="mr-2 h-5 w-5 text-gray-500" />
-            <span className="text-gray-700 font-medium mr-4">Filters:</span>
+            <span className="text-gray-700 font-medium mr-4">{t('filters.label')}</span>
           </div>
         </div>
 
@@ -232,7 +240,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           <div className="relative">
             <Input
               type="text"
-              placeholder="Search products..."
+              placeholder={t('search.placeholder')}
               className="pl-10 pr-4 py-2 w-full"
               value={searchQuery}
               onChange={handleSearchChange}
@@ -244,7 +252,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           {enabledFilters?.includes('category') && (
             <Select value={categoryFilter} onValueChange={handleCategoryChange}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="All Categories" />
+                <SelectValue placeholder={t('filters.allCategories')} />
               </SelectTrigger>
               <SelectContent>
                 {categoryOptions.map((category) => (
@@ -260,7 +268,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           {enabledFilters?.includes('industry') && (
             <Select value={industryFilter} onValueChange={handleIndustryChange}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="All Industries" />
+                <SelectValue placeholder={t('filters.allIndustries')} />
               </SelectTrigger>
               <SelectContent>
                 {industryOptions.map((industry) => (
@@ -276,7 +284,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
           {enabledFilters?.includes('application') && (
             <Select value={applicationFilter} onValueChange={handleApplicationChange}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="All Applications" />
+                <SelectValue placeholder={t('filters.allApplications')} />
               </SelectTrigger>
               <SelectContent>
                 {applicationOptions.map((application) => (
@@ -297,7 +305,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
               className="flex items-center gap-2 h-10 px-4 whitespace-nowrap"
             >
               <X className="h-4 w-4" />
-              Reset Filters
+              {t('filters.reset')}
             </Button>
           </div>
         </div>
@@ -305,12 +313,15 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
         {/* Results Section */}
         <div className="mb-4 flex justify-between items-center">
           <p className="text-gray-600">
-            Showing {Math.min((currentPage - 1) * PRODUCTS_PER_PAGE + 1, totalProducts)}-
-            {Math.min(currentPage * PRODUCTS_PER_PAGE, totalProducts)} of {totalProducts} products
+            {t('results.showing', {
+              start: Math.min((currentPage - 1) * PRODUCTS_PER_PAGE + 1, totalProducts),
+              end: Math.min(currentPage * PRODUCTS_PER_PAGE, totalProducts),
+              total: totalProducts,
+            })}
           </p>
           {totalPages > 1 && (
             <p className="text-gray-600">
-              Page {currentPage} of {totalPages}
+              {t('pagination.pageOf', { current: currentPage, total: totalPages })}
             </p>
           )}
         </div>
@@ -325,7 +336,7 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
             <div className="col-span-full py-16 text-center text-red-500">
               <p className="text-xl mb-4">{error}</p>
               <Button variant="outline" onClick={resetFilters}>
-                Try Clearing Filters
+                {t('filters.tryClear')}
               </Button>
             </div>
           ) : filteredProducts.length > 0 ? (
@@ -334,9 +345,9 @@ export const ProductFilter: React.FC<ProductFilterBlock> = ({
             ))
           ) : (
             <div className="col-span-full py-16 text-center">
-              <p className="text-xl text-gray-500 mb-4">No products match your current filters.</p>
+              <p className="text-xl text-gray-500 mb-4">{t('results.noMatches')}</p>
               <Button variant="outline" onClick={resetFilters}>
-                Clear All Filters
+                {t('filters.clearAll')}
               </Button>
             </div>
           )}

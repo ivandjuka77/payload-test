@@ -9,6 +9,7 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 import { hasLocale } from 'next-intl'
 import { routing } from '@/i18n/routing'
+import { getMessages } from 'next-intl/server'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -33,7 +34,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
   const { isEnabled } = await draftMode()
   const { locale } = await params
@@ -41,6 +42,9 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
+
+  // Get messages for the specific locale
+  const messages = await getMessages()
 
   return (
     <html className={cn(raleway.variable, inter.variable)} lang={locale} suppressHydrationWarning>
@@ -50,14 +54,14 @@ export default async function RootLayout({
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
-        <Providers>
+        <Providers locale={locale} messages={messages}>
           <AdminBar
             adminBarProps={{
               preview: isEnabled,
             }}
           />
 
-          <Header />
+          <Header locale={locale} />
           {children}
           <Footer />
         </Providers>

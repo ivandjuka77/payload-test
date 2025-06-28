@@ -19,10 +19,12 @@ export const Sustainability: Block = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
+      localized: true,
     },
     {
       name: 'image',
@@ -33,11 +35,13 @@ export const Sustainability: Block = {
     {
       name: 'card',
       type: 'group',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'description',
@@ -53,40 +57,48 @@ export const Sustainability: Block = {
             },
           }),
           label: false,
+          localized: true,
         },
       ],
     },
     {
       name: 'features',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'content',
           type: 'text',
           required: true,
+          localized: true,
         },
       ],
     },
     {
       name: 'cta',
       type: 'group',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
+          localized: true,
         },
         {
           name: 'description',
           type: 'text',
+          localized: true,
         },
         linkGroup({
           overrides: {
             maxRows: 1,
+            localized: true,
           },
         }),
       ],

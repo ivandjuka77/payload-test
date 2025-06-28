@@ -8,10 +8,12 @@ export const IndustryShowcase: Block = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
+      localized: true,
     },
     {
       name: 'limit',

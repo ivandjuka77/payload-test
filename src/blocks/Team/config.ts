@@ -12,11 +12,13 @@ export const Team: Block = {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'teamMembers',

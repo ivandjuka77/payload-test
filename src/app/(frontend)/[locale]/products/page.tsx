@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
@@ -11,10 +11,13 @@ import PageClient from './page.client'
 export const dynamic = 'force-static'
 // export const revalidate = 604800 // Revalidate every week
 
-export default async function ProductsPage() {
+type Params = Promise<{ locale: TypedLocale }>
+
+export default async function ProductsPage({ params }: { params: Params }) {
+  const { locale } = await params
   const url = '/products'
 
-  const page = await queryProducts({ limit: 1 })
+  const page = await queryProducts({ limit: 1, locale })
 
   if (!page) {
     return <PayloadRedirects url={url} />
@@ -37,7 +40,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({ doc: page })
 }
 
-export async function queryProducts({ limit = 1 }: { limit?: number }) {
+export async function queryProducts({
+  limit = 1,
+  locale = 'en',
+}: {
+  limit?: number
+  locale?: TypedLocale
+}) {
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
@@ -46,6 +55,7 @@ export async function queryProducts({ limit = 1 }: { limit?: number }) {
     limit: limit || 1,
     pagination: false,
     overrideAccess: false, // Use published content only
+    locale,
     where: {
       slug: {
         equals: 'products',
@@ -56,7 +66,13 @@ export async function queryProducts({ limit = 1 }: { limit?: number }) {
   return result.docs?.[0] || null
 }
 
-export async function queryProductCategories({ limit = 100 }: { limit?: number }) {
+export async function queryProductCategories({
+  limit = 100,
+  locale = 'en',
+}: {
+  limit?: number
+  locale?: TypedLocale
+}) {
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
@@ -65,6 +81,7 @@ export async function queryProductCategories({ limit = 100 }: { limit?: number }
     limit: limit || 100,
     pagination: false,
     overrideAccess: false, // Use published content only
+    locale,
   })
 
   return result.docs || []

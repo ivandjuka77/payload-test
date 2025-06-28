@@ -10,12 +10,14 @@ export const ProductFilter: Block = {
       type: 'text',
       defaultValue: 'Product Catalog',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'description',
       type: 'text',
       defaultValue: 'Explore our products by category, industry, and application.',
       label: 'Description',
+      localized: true,
     },
     {
       name: 'enabledFilters',
@@ -23,6 +25,7 @@ export const ProductFilter: Block = {
       label: 'Enabled Filters',
       options: ['category', 'industry', 'application'],
       hasMany: true,
+      localized: true,
     },
     {
       name: 'showCta',
@@ -32,18 +35,22 @@ export const ProductFilter: Block = {
     {
       name: 'cta',
       type: 'group',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
+          localized: true,
         },
         linkGroup({
           overrides: {
             maxRows: 2,
+            localized: true,
           },
         }),
       ],

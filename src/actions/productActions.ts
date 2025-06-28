@@ -11,6 +11,7 @@ interface FilterCriteria {
   applicationFilter?: string
   page?: number
   limit?: number
+  locale?: 'en' | 'sk' | 'jp' | 'all'
 }
 
 interface PaginatedResult {
@@ -60,6 +61,7 @@ export async function fetchFilteredProductsAction(
     applicationFilter,
     page = 1,
     limit = 9,
+    locale = 'en',
   } = criteria
 
   const payload = await getPayload({ config: configPromise })
@@ -73,6 +75,7 @@ export async function fetchFilteredProductsAction(
       depth: 2,
       page,
       limit,
+      locale,
       where: {
         and: [],
       },
@@ -94,6 +97,7 @@ export async function fetchFilteredProductsAction(
         collection: 'productCategories',
         draft: false,
         overrideAccess: false,
+        locale,
         where: {
           name: { equals: categoryFilter },
         },
@@ -120,6 +124,7 @@ export async function fetchFilteredProductsAction(
         draft: false,
         overrideAccess: false,
         depth: 1,
+        locale,
         where: {
           name: { equals: industryFilter },
         },
@@ -143,6 +148,7 @@ export async function fetchFilteredProductsAction(
             collection: 'caseStudies',
             draft: false,
             overrideAccess: false,
+            locale,
             where: {
               industry: { equals: selectedIndustry.id },
             },
@@ -205,7 +211,9 @@ export async function fetchFilteredProductsAction(
   }
 }
 
-export async function fetchFilterOptionsAction(): Promise<FilterOptions> {
+export async function fetchFilterOptionsAction(
+  locale: 'en' | 'sk' | 'jp' | 'all' = 'en',
+): Promise<FilterOptions> {
   const payload = await getPayload({ config: configPromise })
 
   try {
@@ -214,6 +222,7 @@ export async function fetchFilterOptionsAction(): Promise<FilterOptions> {
       collection: 'productCategories',
       draft: false,
       overrideAccess: false,
+      locale,
       limit: 1000, // Ensure we get all categories
     })
 
@@ -222,6 +231,7 @@ export async function fetchFilterOptionsAction(): Promise<FilterOptions> {
       collection: 'industries',
       draft: false,
       overrideAccess: false,
+      locale,
       limit: 1000, // Ensure we get all industries
     })
 
@@ -230,6 +240,7 @@ export async function fetchFilterOptionsAction(): Promise<FilterOptions> {
       collection: 'products',
       draft: false,
       overrideAccess: false,
+      locale,
       limit: 1000, // Get more products to ensure we capture all applications
     })
 

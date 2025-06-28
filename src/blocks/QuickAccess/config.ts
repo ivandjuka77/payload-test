@@ -21,6 +21,7 @@ export const QuickAccess: Block = {
     {
       name: 'cards',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',
@@ -43,6 +44,7 @@ export const QuickAccess: Block = {
         linkGroup({
           overrides: {
             maxRows: 1,
+            localized: true,
           },
         }),
       ],

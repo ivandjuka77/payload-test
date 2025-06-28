@@ -43,11 +43,13 @@ export const Showcase: Block = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
     },
     {
       name: 'products',
@@ -89,6 +91,7 @@ export const Showcase: Block = {
     {
       name: 'features',
       type: 'array',
+      localized: true,
       admin: {
         condition: (_, { type } = {}) => isFeatureShowcase(type),
       },
@@ -97,10 +100,12 @@ export const Showcase: Block = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
+          localized: true,
         },
         {
           name: 'media',
@@ -117,18 +122,22 @@ export const Showcase: Block = {
     {
       name: 'cta',
       type: 'group',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
+          localized: true,
         },
         linkGroup({
           overrides: {
             maxRows: 1,
+            localized: true,
           },
         }),
       ],

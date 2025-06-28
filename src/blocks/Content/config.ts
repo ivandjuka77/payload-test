@@ -14,6 +14,7 @@ const columnFields: Field[] = [
     name: 'size',
     type: 'select',
     defaultValue: 'oneThird',
+    localized: true,
     options: [
       {
         label: 'One Third',
@@ -36,6 +37,7 @@ const columnFields: Field[] = [
   {
     name: 'richText',
     type: 'richText',
+    localized: true,
     editor: lexicalEditor({
       features: ({ rootFeatures }) => {
         return [

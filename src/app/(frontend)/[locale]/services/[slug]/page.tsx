@@ -13,6 +13,8 @@ import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponen
 import { Industry, TeamMember } from '@/payload-types'
 import { CaseStudiesShowcase } from '@/components/CaseStudiesShowcase'
 import ServiceFeatures from '@/components/ServiceFeatures'
+import { getTranslations } from 'next-intl/server'
+import { TypedLocale } from 'payload'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -43,14 +45,16 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
-    locale?: string
+    locale?: TypedLocale
   }>
 }
 
 export default async function Service({ params: paramsPromise }: Args) {
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale } = await paramsPromise
   const url = '/services/' + slug
-  const service = await queryServiceBySlug({ slug })
+  const service = await queryServiceBySlug({ slug, locale: locale as TypedLocale })
+
+  const t = await getTranslations('service')
 
   if (!service) return <PayloadRedirects url={url} />
 
@@ -58,39 +62,58 @@ export default async function Service({ params: paramsPromise }: Args) {
     <main>
       <PayloadRedirects disableNotFound url={url} />
 
-      <ServiceHero service={service} />
+      <ServiceHero
+        service={service}
+        translations={{
+          accreditations: t('hero.accreditations'),
+          exploreServices: t('hero.exploreServices'),
+          learnMore: t('hero.learnMore'),
+        }}
+      />
       {/* <ServicesGrid
         title={service.title + ' Services'}
         description="From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
         services={service.subServices}
       /> */}
 
-      <ServiceFeatures serviceName={service.title} features={service.features} />
+      <ServiceFeatures
+        serviceName={service.title}
+        features={service.features}
+        translations={{
+          title: t('features.title'),
+          description: t('features.description', { serviceName: service.title }),
+        }}
+      />
 
       <SubServiceBreakdown
-        title={service.title + ' Services'}
-        description="From initial concept to scalable processes, our R&D services cover every aspect of chemical development. Each service is backed by our 70+ years of expertise and state-of-the-art facilities."
+        title={t('subServices.title', { serviceName: service.title })}
+        description={t('subServices.description')}
         services={service.subServices}
       />
       {service.team && service.team.length > 0 && (
         <TeamSection
-          title={service.title + ' Team'}
-          description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          title={t('team.title', { serviceName: service.title })}
+          description={t('team.description')}
           team={service.team as TeamMember[]}
         />
       )}
       {service.industries && service.industries.length > 0 && (
         <IndustryShowcaseComponent
-          title={service.title + ' Industries'}
-          subtitle="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          title={t('industries.title', { serviceName: service.title })}
+          subtitle={t('industries.description')}
           industries={service.industries as Industry[]}
         />
       )}
       {service.caseStudies && service.caseStudies.length > 0 && (
         <CaseStudiesShowcase
-          title={service.title + ' Case Studies'}
-          description="Our team is dedicated to providing the highest quality services to our clients. We are a team of experienced professionals who are dedicated to providing the best possible service to our clients."
+          title={t('caseStudies.title', { serviceName: service.title })}
+          description={t('caseStudies.description')}
           caseStudies={service.caseStudies}
+          translations={{
+            readStudy: t('caseStudies.readStudy'),
+            viewAll: t('caseStudies.viewAll'),
+            application: t('caseStudies.application'),
+          }}
         />
       )}
     </main>
@@ -98,32 +121,35 @@ export default async function Service({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
-  const service = await queryServiceBySlug({ slug })
+  const { slug = '', locale } = await paramsPromise
+  const service = await queryServiceBySlug({ slug, locale: locale as TypedLocale })
 
   return generateMeta({ doc: service })
 }
 
-const queryServiceBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
+const queryServiceBySlug = cache(
+  async ({ slug, locale }: { slug: string; locale: TypedLocale }) => {
+    const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'services',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
-    pagination: false,
-    where: {
-      slug: {
-        equals: slug,
+    const result = await payload.find({
+      collection: 'services',
+      draft,
+      limit: 1,
+      overrideAccess: draft,
+      pagination: false,
+      locale,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  })
+    })
 
-  return result.docs?.[0] || null
-})
+    return result.docs?.[0] || null
+  },
+)
 
 export async function queryServices({ limit }: { limit: number }) {
   const payload = await getPayload({ config: configPromise })

@@ -10,9 +10,14 @@ import { Button } from '@/components/ui/button'
 
 type Props = {
   service: Service
+  translations?: {
+    accreditations: string
+    exploreServices: string
+    learnMore: string
+  }
 }
 
-export function ServiceHero({ service }: Props) {
+export function ServiceHero({ service, translations }: Props) {
   const accreditations = service.accreditations as Service['accreditations']
   const subServices = service.subServices || []
 
@@ -48,7 +53,9 @@ export function ServiceHero({ service }: Props) {
 
             {accreditations && accreditations.length > 0 && (
               <div className="space-y-3 hidden md:block">
-                <h3 className="text-lg font-semibold text-foreground">Accreditations:</h3>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {translations?.accreditations || 'Accreditations:'}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {accreditations.map((accreditation, index) => (
                     <Badge key={index} variant="secondary" className="px-4 py-1 text-sm">
@@ -66,7 +73,7 @@ export function ServiceHero({ service }: Props) {
                 onClick={(e) => handleScroll(e, subServices[0].link || '')}
               >
                 <Button className="rounded-md text-base p-6 bg-primary text-white hover:bg-primary/90 flex flex-row items-center gap-x-2">
-                  Explore Services
+                  {translations?.exploreServices || 'Explore Services'}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
@@ -120,7 +127,7 @@ export function ServiceHero({ service }: Props) {
                       onClick={(e) => handleScroll(e, subService.link || '')}
                       className="text-xs font-medium text-blue-300 group-hover:text-blue-200 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
                     >
-                      Learn More
+                      {translations?.learnMore || 'Learn More'}
                       <ArrowRight size={12} />
                     </Link>
                   </div>

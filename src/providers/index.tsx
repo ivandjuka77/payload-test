@@ -4,9 +4,12 @@ import { ThemeProvider } from './Theme'
 
 export const Providers: React.FC<{
   children: React.ReactNode
-}> = ({ children }) => {
+  locale: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  messages: any
+}> = ({ children, locale, messages }) => {
   return (
-    <NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider>
         <HeaderThemeProvider>{children}</HeaderThemeProvider>
       </ThemeProvider>

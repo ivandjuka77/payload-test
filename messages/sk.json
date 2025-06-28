@@ -107,5 +107,117 @@
       "readStudy": "Čítať prípadovú štúdiu",
       "application": "Aplikácia"
     }
+  },
+  "service": {
+    "hero": {
+      "accreditations": "Akreditácie:",
+      "exploreServices": "Preskúmať služby",
+      "learnMore": "Dozvedieť sa viac"
+    },
+    "features": {
+      "title": "Prečo si vybrať VUP?",
+      "description": "Naše služby {serviceName} sú navrhnuté tak, aby spĺňali vaše špecifické potreby a pomohli vám dosiahnuť vaše ciele."
+    },
+    "subServices": {
+      "title": "Služby {serviceName}",
+      "description": "Od počiatočného konceptu až po škálovateľné procesy, naše R&D služby pokrývajú každý aspekt chemického vývoja. Každá služba je podporená našimi 70+ ročnými skúsenosťami a najmodernejšími zariadeniami."
+    },
+    "team": {
+      "title": "Tím {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom."
+    },
+    "industries": {
+      "title": "Odvetvia {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom."
+    },
+    "caseStudies": {
+      "title": "Prípadové štúdie {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom.",
+      "readStudy": "Prečítať prípadovú štúdiu",
+      "viewAll": "Zobraziť všetky prípadové štúdie",
+      "application": "Aplikácia:"
+    }
+  },
+  "productFilter": {
+    "search": {
+      "placeholder": "Hľadať produkty..."
+    },
+    "filters": {
+      "label": "Filtre:",
+      "allCategories": "Všetky kategórie",
+      "allIndustries": "Všetky odvetvia",
+      "allApplications": "Všetky aplikácie",
+      "reset": "Resetovať filtre",
+      "clearAll": "Vymazať všetky filtre",
+      "tryClear": "Skúsiť vymazať filtre"
+    },
+    "results": {
+      "showing": "Zobrazené {start}-{end} z {total} produktov",
+      "noMatches": "Žiadne produkty nezodpovedajú vašim aktuálnym filtrom."
+    },
+    "pagination": {
+      "pageOf": "Strana {current} z {total}"
+    },
+    "errors": {
+      "filterOptions": "Nepodarilo sa načítať možnosti filtra.",
+      "loadProducts": "Nepodarilo sa načítať produkty."
+    }
+  },
+  "header": {
+    "industries": {
+      "description": "Preskúmajte, ako chemické riešenia VUP slúžia rôznym odvetviam",
+      "viewAll": "Zobraziť všetky odvetvia"
+    }
+  },
+  "industries": {
+    "showcase": {
+      "title": "Odvetvia, ktoré obsluhujeme",
+      "subtitle": "Objavte, ako naše chemické riešenia poháňajú inovácie v rôznych odvetviach"
+    }
+  },
+  "industryCard": {
+    "keyApplications": "Kľúčové aplikácie",
+    "featuredProducts": "Odporúčané produkty",
+    "moreItems": "+{count} ďalších",
+    "exploreSolutions": "Preskúmajte riešenia pre {industryName}"
+  },
+  "sustainabilityPartner": {
+    "badge": "Partnerstvo s nami",
+    "title": "Partnerstvo s udržateľným lídrom",
+    "description": "Naše strieborné hodnotenie EcoVadis a dlhodobé certifikácie sú dôkazom našej oddanosti. Prediskutujme, ako môže naša angažovanosť podporiť vaše ciele udržateľnosti.",
+    "contactUs": "Kontaktujte nás",
+    "viewCertifications": "Zobraziť naše certifikácie"
+  },
+  "news": {
+    "hero": {
+      "title": "Najnovšie správy, poznatky a výskum od VUP",
+      "description": "Zostaňte informovaní o našich najnovších inováciách, výskumných prielomoch a odborných poznatkov v oblasti udržateľnej chémie."
+    },
+    "meta": {
+      "title": "Správy a poznatky - VUP"
+    }
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "title": "Zostaňte informovaní s poznatkami VUP",
+    "description": "Odoberajte náš newsletter a dostávajte priehľady o odvetví, chemické trendy a aktualizácie produktov priamo do vašej schránky.",
+    "form": {
+      "emailPlaceholder": "Zadajte váš email",
+      "subscribe": "Odoberať",
+      "privacyText": "Odoberaním súhlasíte s našimi",
+      "privacyLink": "Pravidlami ochrany súkromia"
+    },
+    "toast": {
+      "success": "Úspešne ste sa prihlásili!",
+      "description": "Vítame vás v komunite VUP - náš ďalší newsletter dostanete do vašej schránky."
+    },
+    "social": {
+      "title": "Spojte sa s nami",
+      "visitPage": "Navštívte našu stránku na {platform}",
+      "linkedin": {
+        "description": "Sledujte nás pre poznatky z odvetvia a novinky o spoločnosti",
+        "extendedDescription": "Pripojte sa k našej profesionálnej sieti pre exkluzívny obsah, diskusie o odvetví a networking príležitosti."
+      }
+    }
   }
 }

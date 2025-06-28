@@ -91,6 +91,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
+              localized: true,
               blocks: [
                 CallToAction,
                 Content,
@@ -157,7 +158,11 @@ export const Pages: CollectionConfig<'pages'> = {
         position: 'sidebar',
       },
     },
-    ...slugField(),
+    ...slugField('title', {
+      slugOverrides: {
+        localized: true,
+      },
+    }),
   ],
   hooks: {
     afterChange: [revalidatePage],

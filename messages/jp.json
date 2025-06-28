@@ -107,5 +107,117 @@
       "readStudy": "ケーススタディを読む",
       "application": "アプリケーション"
     }
+  },
+  "service": {
+    "hero": {
+      "accreditations": "認定:",
+      "exploreServices": "サービスを探る",
+      "learnMore": "詳細を見る"
+    },
+    "features": {
+      "title": "なぜVUPを選ぶのか？",
+      "description": "当社の{serviceName}サービスは、お客様の特定のニーズを満たし、目標達成を支援するように設計されています。"
+    },
+    "subServices": {
+      "title": "{serviceName}サービス",
+      "description": "初期コンセプトからスケーラブルなプロセスまで、当社のR&Dサービスは化学開発のあらゆる側面をカバーしています。各サービスは、70年以上の専門知識と最先端の施設によって支えられています。"
+    },
+    "team": {
+      "title": "{serviceName}チーム",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。"
+    },
+    "industries": {
+      "title": "{serviceName}産業",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。"
+    },
+    "caseStudies": {
+      "title": "{serviceName}ケーススタディ",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。",
+      "readStudy": "ケーススタディを読む",
+      "viewAll": "すべてのケーススタディを表示",
+      "application": "アプリケーション:"
+    }
+  },
+  "productFilter": {
+    "search": {
+      "placeholder": "製品を検索..."
+    },
+    "filters": {
+      "label": "フィルター:",
+      "allCategories": "すべてのカテゴリー",
+      "allIndustries": "すべての業界",
+      "allApplications": "すべてのアプリケーション",
+      "reset": "フィルターをリセット",
+      "clearAll": "すべてのフィルターをクリア",
+      "tryClear": "フィルターをクリアしてみる"
+    },
+    "results": {
+      "showing": "{total}件中{start}-{end}件の製品を表示",
+      "noMatches": "現在のフィルターに一致する製品がありません。"
+    },
+    "pagination": {
+      "pageOf": "{total}ページ中{current}ページ"
+    },
+    "errors": {
+      "filterOptions": "フィルターオプションの読み込みに失敗しました。",
+      "loadProducts": "製品の読み込みに失敗しました。"
+    }
+  },
+  "header": {
+    "industries": {
+      "description": "VUPの化学ソリューションがさまざまな業界にどのようにサービスを提供するかをご覧ください",
+      "viewAll": "すべての業界を表示"
+    }
+  },
+  "industries": {
+    "showcase": {
+      "title": "私たちがサービスを提供する業界",
+      "subtitle": "当社の化学ソリューションが多様な業界のイノベーションをどのように推進するかをご覧ください"
+    }
+  },
+  "industryCard": {
+    "keyApplications": "主要なアプリケーション",
+    "featuredProducts": "注目の製品",
+    "moreItems": "他{count}件",
+    "exploreSolutions": "{industryName}のソリューションを探索"
+  },
+  "sustainabilityPartner": {
+    "badge": "パートナーシップ",
+    "title": "持続可能なリーダーとのパートナーシップ",
+    "description": "当社のEcoVadisシルバー評価と長年にわたる認証は、当社の献身的な取り組みの証拠です。当社のコミットメントがお客様の持続可能性目標をどのようにサポートできるかご相談ください。",
+    "contactUs": "お問い合わせ",
+    "viewCertifications": "認証を表示"
+  },
+  "news": {
+    "hero": {
+      "title": "VUPからの最新ニュース、洞察、研究",
+      "description": "持続可能な化学における当社の最新イノベーション、研究の突破口、業界の洞察について最新情報を入手してください。"
+    },
+    "meta": {
+      "title": "ニュース＆洞察 - VUP"
+    }
+  },
+  "newsletter": {
+    "badge": "ニュースレター",
+    "title": "VUPの洞察で最新情報を入手",
+    "description": "業界概要、化学トレンド、製品アップデートを受信箱で直接受け取るためにご登録ください。",
+    "form": {
+      "emailPlaceholder": "メールアドレスを入力",
+      "subscribe": "購読",
+      "privacyText": "購読することで、当社の",
+      "privacyLink": "プライバシーポリシー"
+    },
+    "toast": {
+      "success": "購読が完了しました！",
+      "description": "VUPコミュニティへようこそ。次回のニュースレターを受信箱でお受け取りください。"
+    },
+    "social": {
+      "title": "私たちとつながる",
+      "visitPage": "{platform}ページを訪問",
+      "linkedin": {
+        "description": "業界の洞察と企業アップデートのためにフォローしてください",
+        "extendedDescription": "限定コンテンツ、業界ディスカッション、ネットワーキング機会のために当社のプロフェッショナルネットワークにご参加ください。"
+      }
+    }
   }
 }

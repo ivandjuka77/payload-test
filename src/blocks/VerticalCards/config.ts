@@ -13,14 +13,17 @@ export const VerticalCards: Block = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
+      localized: true,
     },
     {
       name: 'cards',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'image',
@@ -32,10 +35,12 @@ export const VerticalCards: Block = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'subtitle',
           type: 'text',
+          localized: true,
         },
         {
           name: 'paragraph',
@@ -45,6 +50,7 @@ export const VerticalCards: Block = {
               return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
             },
           }),
+          localized: true,
         },
       ],
     },

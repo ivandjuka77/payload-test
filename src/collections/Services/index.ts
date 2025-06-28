@@ -34,6 +34,7 @@ export const Services: CollectionConfig = {
     {
       name: 'accreditations',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'accreditation',
@@ -51,6 +52,7 @@ export const Services: CollectionConfig = {
     {
       name: 'subServices',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',
@@ -72,6 +74,7 @@ export const Services: CollectionConfig = {
         {
           name: 'displayItems',
           type: 'array',
+          localized: true,
           fields: [
             {
               name: 'item',
@@ -83,6 +86,7 @@ export const Services: CollectionConfig = {
         {
           name: 'features',
           type: 'array',
+          localized: true,
           fields: [
             {
               name: 'feature',
@@ -107,14 +111,17 @@ export const Services: CollectionConfig = {
     {
       name: 'features',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'feature',
           type: 'text',
+          localized: true,
         },
         {
           name: 'description',
           type: 'textarea',
+          localized: true,
         },
       ],
     },
