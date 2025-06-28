@@ -164,9 +164,38 @@
     }
   },
   "header": {
+    "nav": {
+      "about": "O nás",
+      "products": "Produkty",
+      "industries": "Odvetvia",
+      "services": "Služby",
+      "sustainability": "Udržateľnosť",
+      "news": "Novinky",
+      "career": "Kariéra",
+      "contact": "Kontakt"
+    },
+    "products": {
+      "description": "Objavte náš kompletný sortiment chemických produktov a riešení",
+      "viewAll": "Zobraziť všetky produkty"
+    },
     "industries": {
       "description": "Preskúmajte, ako chemické riešenia VUP slúžia rôznym odvetviam",
       "viewAll": "Zobraziť všetky odvetvia"
+    },
+    "services": {
+      "description": "Komplexné služby od výskumu a vývoja až po výrobu",
+      "viewAll": "Zobraziť všetky služby"
+    },
+    "mobile": {
+      "brand": "VUP",
+      "tagline": "Chémia"
+    },
+    "language": {
+      "label": "Jazyk",
+      "current": "SK",
+      "en": "Angličtina",
+      "sk": "Slovenčina",
+      "jp": "Japončina"
     }
   },
   "industries": {

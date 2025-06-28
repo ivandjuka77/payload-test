@@ -164,9 +164,38 @@
     }
   },
   "header": {
+    "nav": {
+      "about": "会社について",
+      "products": "製品",
+      "industries": "業界",
+      "services": "サービス",
+      "sustainability": "持続可能性",
+      "news": "ニュース",
+      "career": "キャリア",
+      "contact": "お問い合わせ"
+    },
+    "products": {
+      "description": "化学製品とソリューションの完全な範囲をご覧ください",
+      "viewAll": "すべての製品を表示"
+    },
     "industries": {
       "description": "VUPの化学ソリューションがさまざまな業界にどのようにサービスを提供するかをご覧ください",
       "viewAll": "すべての業界を表示"
+    },
+    "services": {
+      "description": "研究開発から製造まで包括的なサービス",
+      "viewAll": "すべてのサービスを表示"
+    },
+    "mobile": {
+      "brand": "VUP",
+      "tagline": "化学"
+    },
+    "language": {
+      "label": "言語",
+      "current": "JPN",
+      "en": "英語",
+      "sk": "スロバキア語",
+      "jp": "日本語"
     }
   },
   "industries": {

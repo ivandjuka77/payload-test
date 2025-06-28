@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import {
   Search,
-  Globe,
   Menu,
   X,
   ChevronDown,
@@ -20,12 +19,6 @@ import {
   Lightbulb,
   Check,
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -33,29 +26,7 @@ import { Industry, Product, ProductCategory, Service } from '@/payload-types'
 import { SearchDialog } from '@/components/Search'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-
-const navItems = [
-  { name: 'About', href: '/about-us' },
-  {
-    name: 'Products',
-    href: '/products',
-    hasDropdown: true,
-  },
-  {
-    name: 'Industries',
-    href: '/industries',
-    hasDropdown: true,
-  },
-  {
-    name: 'Services',
-    href: '/services',
-    hasDropdown: true,
-  },
-  { name: 'Sustainability', href: '/sustainability' },
-  { name: 'News', href: '/news' },
-  { name: 'Career', href: '/career' },
-  { name: 'Contact', href: '/contact' },
-]
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 const serviceIcons = [
   <Microscope key="microscope" size={24} />,
@@ -63,12 +34,6 @@ const serviceIcons = [
   <ClipboardCheck key="clipboard-check" size={24} />,
   <Sparkles key="sparkles" size={24} />,
   <Lightbulb key="lightbulb" size={24} />,
-]
-
-const languages = [
-  { code: 'EN', name: 'English' },
-  { code: 'SK', name: 'Slovak' },
-  { code: 'JPN', name: 'Japanese' },
 ]
 
 const productCategoryIcons = [
@@ -166,6 +131,31 @@ export default function Navbar({ industries, productCategories, services }: Navb
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const t = useTranslations('header')
+
+  // Replace hardcoded navItems with translation-based items
+  const navItems = [
+    { name: t('nav.about'), href: '/about-us' },
+    {
+      name: t('nav.products'),
+      href: '/products',
+      hasDropdown: true,
+    },
+    {
+      name: t('nav.industries'),
+      href: '/industries',
+      hasDropdown: true,
+    },
+    {
+      name: t('nav.services'),
+      href: '/services',
+      hasDropdown: true,
+    },
+    { name: t('nav.sustainability'), href: '/sustainability' },
+    { name: t('nav.news'), href: '/news' },
+    { name: t('nav.career'), href: '/career' },
+    { name: t('nav.contact'), href: '/contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -245,18 +235,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
 
           {/* Language selector */}
           <div className="hidden lg:block">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Select language">
-                  <Globe className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem key={lang.code}>{lang.code}</DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile menu toggle */}
@@ -275,7 +254,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
       <div
         className={cn(
           'absolute left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-20 hidden lg:block top-full overflow-hidden',
-          activeDropdown === 'Products'
+          activeDropdown === t('nav.products')
             ? 'animate-in fade-in duration-300 ease-out max-h-[800px] transition-[max-height,opacity,transform]'
             : 'animate-out fade-out duration-200 ease-in max-h-0 opacity-0 -translate-y-2 pointer-events-none',
         )}
@@ -339,14 +318,12 @@ export default function Navbar({ industries, productCategories, services }: Navb
             })}
           </div>
           <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
-            <p className="text-sm text-gray-500">
-              Discover our complete range of chemical products and solutions
-            </p>
+            <p className="text-sm text-gray-500">{t('products.description')}</p>
             <Link
               href="/products"
               className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
             >
-              View all products
+              {t('products.viewAll')}
               <ArrowRight size={14} className="ml-1" />
             </Link>
           </div>
@@ -357,7 +334,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
       <div
         className={cn(
           'absolute left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-20 hidden lg:block top-full overflow-hidden',
-          activeDropdown === 'Industries'
+          activeDropdown === t('nav.industries')
             ? 'animate-in fade-in duration-300 ease-out max-h-[800px] transition-[max-height,opacity,transform]'
             : 'animate-out fade-out duration-200 ease-in max-h-0 opacity-0 -translate-y-2 pointer-events-none',
         )}
@@ -370,7 +347,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
       <div
         className={cn(
           'absolute left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-20 hidden lg:block top-full overflow-hidden',
-          activeDropdown === 'Services'
+          activeDropdown === t('nav.services')
             ? 'animate-in fade-in duration-300 ease-out max-h-[800px] transition-[max-height,opacity,transform]'
             : 'animate-out fade-out duration-200 ease-in max-h-0 opacity-0 -translate-y-2 pointer-events-none',
         )}
@@ -410,6 +387,16 @@ export default function Navbar({ industries, productCategories, services }: Navb
               </Link>
             ))}
           </div>
+          <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+            <p className="text-sm text-gray-500">{t('services.description')}</p>
+            <Link
+              href="/services"
+              className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
+            >
+              {t('services.viewAll')}
+              <ArrowRight size={14} className="ml-1" />
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -432,8 +419,10 @@ export default function Navbar({ industries, productCategories, services }: Navb
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <div className="flex items-center">
-                <span className="font-primary font-bold text-2xl">VUP</span>
-                <span className="text-sm font-secondary ml-2 text-gray-600">Chemistry</span>
+                <span className="font-primary font-bold text-2xl">{t('mobile.brand')}</span>
+                <span className="text-sm font-secondary ml-2 text-gray-600">
+                  {t('mobile.tagline')}
+                </span>
               </div>
               <Button
                 variant="ghost"
@@ -474,7 +463,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
                             : 'max-h-0 opacity-0',
                         )}
                       >
-                        {item.name === 'Products' && (
+                        {item.name === t('nav.products') && (
                           <div className="bg-white px-4 py-2">
                             {productCategories.map((category, index) => (
                               <Link
@@ -499,12 +488,12 @@ export default function Navbar({ industries, productCategories, services }: Navb
                               className="block py-2 px-2 mt-2 text-sm font-medium text-blue-600 border-t border-gray-200 pt-3"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              View all products →
+                              {t('products.viewAll')} →
                             </Link>
                           </div>
                         )}
 
-                        {item.name === 'Industries' && (
+                        {item.name === t('nav.industries') && (
                           <div className="bg-white px-4 py-2">
                             {industries.map((industry) => (
                               <Link
@@ -524,12 +513,12 @@ export default function Navbar({ industries, productCategories, services }: Navb
                               className="block py-2 px-2 mt-2 text-sm font-medium text-blue-600 border-t border-gray-200 pt-3"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              View all industries →
+                              {t('industries.viewAll')} →
                             </Link>
                           </div>
                         )}
 
-                        {item.name === 'Services' && (
+                        {item.name === t('nav.services') && (
                           <div className="bg-white px-4 py-2">
                             {services.map((service, index) => (
                               <Link
@@ -554,7 +543,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
                               className="block py-2 px-2 mt-2 text-sm font-medium text-blue-600 border-t border-gray-200 pt-3"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              View all services →
+                              {t('services.viewAll')} →
                             </Link>
                           </div>
                         )}
@@ -576,23 +565,8 @@ export default function Navbar({ industries, productCategories, services }: Navb
             {/* Language Selector */}
             <div className="border-t border-gray-100 p-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700">Language</span>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm" className="h-8">
-                      <Globe className="h-4 w-4 mr-2" />
-                      EN
-                      <ChevronDown className="h-3 w-3 ml-2" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    {languages.map((lang) => (
-                      <DropdownMenuItem key={lang.code}>
-                        {lang.code} - {lang.name}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <span className="text-sm font-medium text-gray-700">{t('language.label')}</span>
+                <LanguageSwitcher />
               </div>
             </div>
           </ScrollArea>

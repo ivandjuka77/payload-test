@@ -98,11 +98,7 @@ export default async function Service({ params: paramsPromise }: Args) {
         />
       )}
       {service.industries && service.industries.length > 0 && (
-        <IndustryShowcaseComponent
-          title={t('industries.title', { serviceName: service.title })}
-          subtitle={t('industries.description')}
-          industries={service.industries as Industry[]}
-        />
+        <IndustryShowcaseComponent industries={service.industries as Industry[]} />
       )}
       {service.caseStudies && service.caseStudies.length > 0 && (
         <CaseStudiesShowcase
@@ -151,7 +147,13 @@ const queryServiceBySlug = cache(
   },
 )
 
-export async function queryServices({ limit }: { limit: number }) {
+export async function queryServices({
+  limit,
+  locale = 'en',
+}: {
+  limit: number
+  locale: TypedLocale
+}) {
   const payload = await getPayload({ config: configPromise })
   const services = await payload.find({
     collection: 'services',
@@ -159,6 +161,7 @@ export async function queryServices({ limit }: { limit: number }) {
     limit,
     overrideAccess: false,
     pagination: false,
+    locale,
   })
 
   return services.docs || []

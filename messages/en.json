@@ -25,9 +25,38 @@
     }
   },
   "header": {
+    "nav": {
+      "about": "About",
+      "products": "Products",
+      "industries": "Industries",
+      "services": "Services",
+      "sustainability": "Sustainability",
+      "news": "News",
+      "career": "Career",
+      "contact": "Contact"
+    },
+    "products": {
+      "description": "Discover our complete range of chemical products and solutions",
+      "viewAll": "View all products"
+    },
     "industries": {
       "description": "Explore how VUP chemistry solutions serve various industries",
       "viewAll": "View all industries"
+    },
+    "services": {
+      "description": "Comprehensive services from R&D to manufacturing",
+      "viewAll": "View all services"
+    },
+    "mobile": {
+      "brand": "VUP",
+      "tagline": "Chemistry"
+    },
+    "language": {
+      "label": "Language",
+      "current": "EN",
+      "en": "English",
+      "sk": "Slovak",
+      "jp": "Japanese"
     }
   },
   "industries": {
