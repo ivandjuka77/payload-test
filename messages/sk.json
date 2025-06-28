@@ -248,5 +248,44 @@
         "extendedDescription": "Pripojte sa k našej profesionálnej sieti pre exkluzívny obsah, diskusie o odvetví a networking príležitosti."
       }
     }
+  },
+  "footer": {
+    "sections": {
+      "company": "Spoločnosť",
+      "products": "Produkty",
+      "support": "Podpora",
+      "legal": "Právne"
+    },
+    "links": {
+      "aboutUs": "O nás",
+      "careers": "Kariéra",
+      "news": "Novinky",
+      "contact": "Kontakt",
+      "chemicals": "Chemikálie",
+      "polymers": "Polyméry",
+      "catalysts": "Katalyzátory",
+      "customSolutions": "Vlastné riešenia",
+      "helpCenter": "Centrum pomoci",
+      "faqs": "Často kladené otázky",
+      "documentation": "Dokumentácia",
+      "safetyData": "Bezpečnostné údaje",
+      "privacyPolicy": "Ochrana súkromia",
+      "cookiePolicy": "Pravidlá cookies",
+      "termsConditions": "Obchodné podmienky",
+      "sitemap": "Mapa stránky"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "researchgate": "ResearchGate"
+    },
+    "copyright": "© {year} VUP Chemicals, a.s. Všetky práva vyhradené.",
+    "newsletter": {
+      "title": "Zostaňte informovaní s VUP Insights",
+      "description": "Prihláste sa na odber nášho newslettra pre prehľady odvetví, chemické trendy a aktualizácie GTC.",
+      "emailPlaceholder": "Vaša e-mailová adresa",
+      "subscribeButton": "Prihlásiť sa",
+      "privacyNotice": "Prihlásením sa súhlasíte s našimi zásadami ochrany osobných údajov."
+    }
   }
 }

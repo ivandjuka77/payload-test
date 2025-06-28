@@ -248,5 +248,44 @@
         "extendedDescription": "限定コンテンツ、業界ディスカッション、ネットワーキング機会のために当社のプロフェッショナルネットワークにご参加ください。"
       }
     }
+  },
+  "footer": {
+    "sections": {
+      "company": "会社",
+      "products": "製品",
+      "support": "サポート",
+      "legal": "法的事項"
+    },
+    "links": {
+      "aboutUs": "会社概要",
+      "careers": "採用情報",
+      "news": "ニュース",
+      "contact": "お問い合わせ",
+      "chemicals": "化学品",
+      "polymers": "ポリマー",
+      "catalysts": "触媒",
+      "customSolutions": "カスタムソリューション",
+      "helpCenter": "ヘルプセンター",
+      "faqs": "よくある質問",
+      "documentation": "ドキュメント",
+      "safetyData": "安全データ",
+      "privacyPolicy": "プライバシーポリシー",
+      "cookiePolicy": "クッキーポリシー",
+      "termsConditions": "利用規約",
+      "sitemap": "サイトマップ"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "researchgate": "ResearchGate"
+    },
+    "copyright": "© {year} VUP Chemicals, a.s. 無断複写・転載を禁じます。",
+    "newsletter": {
+      "title": "VUP Insightsで最新情報をキャッチ",
+      "description": "業界の概要、化学トレンド、GTCの最新情報をお届けするニュースレターに登録してください。",
+      "emailPlaceholder": "メールアドレス",
+      "subscribeButton": "購読する",
+      "privacyNotice": "購読することで、プライバシーポリシーに同意したものとみなされます。"
+    }
   }
 }

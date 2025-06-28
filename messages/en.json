@@ -248,5 +248,44 @@
       "viewAll": "View All Case Studies",
       "application": "Application:"
     }
+  },
+  "footer": {
+    "sections": {
+      "company": "Company",
+      "products": "Products",
+      "support": "Support",
+      "legal": "Legal"
+    },
+    "links": {
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "news": "News",
+      "contact": "Contact",
+      "chemicals": "Chemicals",
+      "polymers": "Polymers",
+      "catalysts": "Catalysts",
+      "customSolutions": "Custom Solutions",
+      "helpCenter": "Help Center",
+      "faqs": "FAQs",
+      "documentation": "Documentation",
+      "safetyData": "Safety Data",
+      "privacyPolicy": "Privacy Policy",
+      "cookiePolicy": "Cookie Policy",
+      "termsConditions": "Terms & Conditions",
+      "sitemap": "Sitemap"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "researchgate": "ResearchGate"
+    },
+    "copyright": "© {year} VUP Chemicals, a.s. All rights reserved.",
+    "newsletter": {
+      "title": "Stay informed with VUP Insights",
+      "description": "Subscribe to our newsletter for industry overviews, chemical trends, and GTC updates.",
+      "emailPlaceholder": "Your email address",
+      "subscribeButton": "Subscribe",
+      "privacyNotice": "By subscribing, you agree to our Privacy Policy."
+    }
   }
 }
