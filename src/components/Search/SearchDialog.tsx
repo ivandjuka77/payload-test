@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { useLocale } from 'next-intl'
 
 interface SearchResult {
   id: string
@@ -81,6 +82,8 @@ export default function SearchDialog({ children }: SearchDialogProps) {
   const [isSearching, setIsSearching] = useState(false)
   const [searchError, setSearchError] = useState<string | null>(null)
 
+  const locale = useLocale()
+
   // Debounced search effect
   useEffect(() => {
     const searchTimeout = setTimeout(async () => {
@@ -107,7 +110,7 @@ export default function SearchDialog({ children }: SearchDialogProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ query, locale }),
       })
 
       if (!response.ok) {

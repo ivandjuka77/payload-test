@@ -25,7 +25,11 @@ import {
   careersSk as careersPageDataSk,
   careersJp as careersPageDataJp,
 } from './careers'
-// import { aboutUs as aboutUsPageData } from './about-us'
+import {
+  aboutUsEn as aboutUsPageDataEn,
+  aboutUsSk as aboutUsPageDataSk,
+  aboutUsJp as aboutUsPageDataJp,
+} from './about-us'
 
 import { seedMedia } from './1-media'
 import { seedUsers } from './2-users'
@@ -166,7 +170,7 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [homePageEn, productsPage, industriesPage, sustainabilityPage, careersPage] =
+  const [homePageEn, productsPage, industriesPage, sustainabilityPage, careersPage, aboutUsPage] =
     await Promise.all([
       payload.create({
         collection: 'pages',
@@ -247,25 +251,25 @@ export const seed = async ({
         data: careersPageDataEn({ featuredImage1: media.demoImageDoc }),
       }),
 
-      // payload.create({
-      //   collection: 'pages',
-      //   locale: 'en',
-      //   depth: 0,
-      //   // @ts-expect-error This is working, but payload is not happy
-      //   data: aboutUsPageData({
-      //     timeline1Image: demoImageDoc,
-      //     timeline2Image: image2Doc,
-      //     timeline3Image: image3Doc,
-      //     timeline4Image: demoImageDoc,
-      //     content1Image: image2Doc,
-      //     content2Image: image3Doc,
-      //     ceo: ceoDoc,
-      //     rd: rdDoc,
-      //     commercial: commercialDoc,
-      //     atbel: atbelDoc,
-      //     cosmetics: cosmeticsDoc,
-      //   }),
-      // }),
+      payload.create({
+        collection: 'pages',
+        locale: 'en',
+        depth: 0,
+        // @ts-expect-error This is working, but payload is not happy
+        data: aboutUsPageDataEn({
+          timeline1Image: media.demoImageDoc,
+          timeline2Image: media.demoImageDoc,
+          timeline3Image: media.demoImageDoc,
+          timeline4Image: media.demoImageDoc,
+          content1Image: media.demoImageDoc,
+          content2Image: media.demoImageDoc,
+          ceo: teamMembers.ceoDoc,
+          rd: teamMembers.rdDoc,
+          commercial: teamMembers.commercialDoc,
+          atbel: teamMembers.atbelDoc,
+          cosmetics: teamMembers.cosmeticsDoc,
+        }),
+      }),
     ])
 
   payload.logger.info(`— Seeding Slovak page translations...`)
@@ -364,6 +368,27 @@ export const seed = async ({
     }),
   ])
 
+  await payload.update({
+    collection: 'pages',
+    id: aboutUsPage.id,
+    locale: 'sk',
+    depth: 0,
+    // @ts-expect-error This is working, but payload is not happy
+    data: aboutUsPageDataSk({
+      timeline1Image: media.demoImageDoc,
+      timeline2Image: media.demoImageDoc,
+      timeline3Image: media.demoImageDoc,
+      timeline4Image: media.demoImageDoc,
+      content1Image: media.demoImageDoc,
+      content2Image: media.demoImageDoc,
+      ceo: teamMembers.ceoDoc,
+      rd: teamMembers.rdDoc,
+      commercial: teamMembers.commercialDoc,
+      atbel: teamMembers.atbelDoc,
+      cosmetics: teamMembers.cosmeticsDoc,
+    }),
+  })
+
   payload.logger.info(`— Seeding Japanese page translations...`)
 
   // Home page
@@ -459,6 +484,28 @@ export const seed = async ({
       data: careersPageDataJp({ featuredImage1: media.demoImageDoc }),
     }),
   ])
+
+  // About us page
+  await payload.update({
+    collection: 'pages',
+    id: aboutUsPage.id,
+    locale: 'jp',
+    depth: 0,
+    // @ts-expect-error This is working, but payload is not happy
+    data: aboutUsPageDataJp({
+      timeline1Image: media.demoImageDoc,
+      timeline2Image: media.demoImageDoc,
+      timeline3Image: media.demoImageDoc,
+      timeline4Image: media.demoImageDoc,
+      content1Image: media.demoImageDoc,
+      content2Image: media.demoImageDoc,
+      ceo: teamMembers.ceoDoc,
+      rd: teamMembers.rdDoc,
+      commercial: teamMembers.commercialDoc,
+      atbel: teamMembers.atbelDoc,
+      cosmetics: teamMembers.cosmeticsDoc,
+    }),
+  })
 
   //* -------------------- SEEDING GLOBALS -------------------- *//
 
