@@ -17,6 +17,8 @@ export function FAQ({
   title: string
   description: string
 }) {
+  if (!product.faq) return null
+
   return (
     <section className="w-full py-16 bg-white px-4 sm:px-6 lg:px-0">
       <div className="container max-w-5xl mx-auto">
@@ -30,7 +32,7 @@ export function FAQ({
         </div>
 
         <Accordion type="single" collapsible className="w-full">
-          {product.faq.map((faq, index) => (
+          {product.faq?.map((faq, index) => (
             <AccordionItem key={index} value={`faq-${index}`} className="border-b border-muted">
               <AccordionTrigger className="text-base sm:text-lg font-medium text-left font-primary py-4">
                 {faq.question}

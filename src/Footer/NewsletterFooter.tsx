@@ -14,12 +14,12 @@ export default function NewsletterFooter() {
     // In a real application, you would handle the form submission here,
     // e.g., send the email to your newsletter service.
     console.log('Subscribed with:', email)
-    setEmail('') // Optionally clear the input after submission
+    setEmail('')
   }
   return (
     <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
       <div className="text-center md:text-left">
-        <h3 className="font-primary text-xl font-bold mb-2">{t('title')}</h3>
+        <h3 className="text-primary font-primary text-2xl font-bold mb-2">{t('title')}</h3>
         <p className="font-secondary text-muted-foreground">{t('description')}</p>
       </div>
 

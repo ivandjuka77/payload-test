@@ -42,10 +42,10 @@ export async function generateStaticParams() {
 }
 
 type Args = {
-  params: {
+  params: Promise<{
     slug?: string
     locale?: TypedLocale
-  }
+  }>
 }
 
 export default async function Industry({ params: paramsPromise }: Args) {

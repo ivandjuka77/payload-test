@@ -26,11 +26,11 @@ export async function Footer() {
           <div className="col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/logo.svg"
+                src="/assets/logo-vup.png"
                 alt="VUP Chemicals Logo"
-                width={100}
-                height={32}
-                className="h-8 w-auto"
+                width={150}
+                height={50}
+                className="h-auto w-28 lg:w-[150px]"
               />
             </Link>
 
@@ -44,15 +44,21 @@ export async function Footer() {
               </p>
 
               <div className="space-y-2">
-                <div className="flex items-center gap-2">
+                <Link
+                  href="tel:+421461234567"
+                  className="flex items-center gap-2 hover:text-primary transition-colors"
+                >
                   <Phone className="h-4 w-4 text-primary" />
                   <span className="font-secondary">+421 46 123 4567</span>
-                </div>
+                </Link>
 
-                <div className="flex items-center gap-2">
+                <Link
+                  href="mailto:info@vupchemicals.com"
+                  className="flex items-center gap-2 hover:text-primary transition-colors"
+                >
                   <Mail className="h-4 w-4 text-primary" />
                   <span className="font-secondary">info@vupchemicals.com</span>
-                </div>
+                </Link>
               </div>
 
               {/* Social media */}
