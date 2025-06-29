@@ -14,8 +14,8 @@ export const ContentImage: React.FC<ContentImageBlock> = ({ title, content, imag
                   {title}
                 </h2>
               )}
-              <div className="font-secondary space-y-4 text-muted-foreground">
-                {content && <RichText data={content} />}
+              <div className="font-secondary space-y-4">
+                {content && <RichText className="!text-foreground" data={content} />}
               </div>
             </div>
 
@@ -35,8 +35,8 @@ export const ContentImage: React.FC<ContentImageBlock> = ({ title, content, imag
                   {title}
                 </h2>
               )}
-              <div className="font-secondary space-y-4 text-muted-foreground">
-                {content && <RichText data={content} />}
+              <div className="font-secondary space-y-4">
+                {content && <RichText className="!text-foreground" data={content} />}
               </div>
             </div>
           </>

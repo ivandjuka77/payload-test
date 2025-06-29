@@ -8,99 +8,6 @@ import { TimelineBlock } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CheckCircle2 } from 'lucide-react'
 
-// const timelineData: TimelineBlock['items'] = [
-//   {
-//     period: '2004-2006',
-//     description:
-//       'A transformative period marked by groundbreaking research in acetylene chemistry. Our team pioneered new synthetic routes while focusing on environmental sustainability, setting new industry standards for waste reduction in chemical manufacturing.',
-//     content: [
-//       'Research of 1,2-methylenedioxybenzene preparation products on the base acetylene preparation',
-//       '2,5-dimetyl-2,5-hexanediol production by ethynylation acetone',
-//       'Progressive chemical materials production on base waste calcium hydroxide and chloride',
-//     ],
-//     imageUrl:
-//       'https://images.pexels.com/photos/3735698/pexels-photo-3735698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     icon: <Beaker className="h-6 w-6 text-primary" />,
-//     highlight: 'Acetylene Research',
-//     achievements: [
-//       'Successfully developed new acetylene-based synthesis routes',
-//       'Reduced waste production by 40%',
-//       'Implemented sustainable production methods',
-//     ],
-//   },
-//   {
-//     period: '2007-2009',
-//     description:
-//       'A period of significant innovation in catalyst development and green chemistry. We focused on replacing harmful materials with environmentally friendly alternatives while maintaining high performance standards in our chemical processes.',
-//     content: [
-//       'Research of catalysts for polyurethanes',
-//       'Adipic acid dihydrazide production',
-//       'Aminonaphthoic acids production',
-//       'Utilization home raw material in stable free radical TEMPO and its derivatives preparations',
-//       'Chemical specialities',
-//       'Production on base of local raw materials of colaminophosphate',
-//       'Production of methyl esters of carboxylic acids',
-//       'Production of 4-bromo-1-butene and upper w-bromo-a-alkenes',
-//       'Replacement of toxic hydrazine by less harmfull materials in energetics',
-//     ],
-//     imageUrl:
-//       'https://images.pexels.com/photos/8539511/pexels-photo-8539511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     icon: <TestTube className="h-6 w-6 text-primary" />,
-//     highlight: 'Catalyst Innovation',
-//     achievements: [
-//       'Pioneered eco-friendly catalyst alternatives',
-//       'Established local raw material supply chain',
-//       'Reduced toxic material usage by 60%',
-//     ],
-//   },
-//   {
-//     period: '2010-2012',
-//     description:
-//       'This era marked our transition into sustainable chemistry solutions. We developed innovative processes for eco-friendly materials, focusing on reducing environmental impact while enhancing product performance.',
-//     content: [
-//       'Research of polyurethane dispersion production for application in ecological finishing',
-//       'Hydroxypivalic acid production',
-//       'Trimethylolethane production',
-//       'Alkyl hydroxylamines production',
-//       'Natural ketones preparation',
-//       'Acrylate esters polyhydric alcohols production',
-//     ],
-//     imageUrl:
-//       'https://images.pexels.com/photos/1048018/pexels-photo-1048018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     icon: <Microscope className="h-6 w-6 text-primary" />,
-//     highlight: 'Eco-friendly Solutions',
-//     achievements: [
-//       'Developed green chemistry processes',
-//       'Achieved ISO environmental certification',
-//       'Launched sustainable product line',
-//     ],
-//   },
-//   {
-//     period: '2013-now',
-//     description:
-//       "Our current phase represents the pinnacle of our research capabilities, combining advanced technology with sustainable practices. We're pushing boundaries in high-purity synthesis and green chemistry, while maintaining our commitment to innovation and environmental responsibility.",
-//     content: [
-//       'Research of acrylate esters polyhydric alcohols production',
-//       'New products based on acetylene',
-//       'Ecological technologies and products based on bioglycerol',
-//       'High purity N-tert-Butylmethylamine production',
-//       "O,O'-Bis(3-aminopropyl)polyethyleneglycol production",
-//       'Green catalyst for benzoin production',
-//       'TEMPO-Mediated Oxidation of pulp',
-//       'Hindered amine light stabilizers production',
-//     ],
-//     imageUrl:
-//       'https://images.pexels.com/photos/8442102/pexels-photo-8442102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-//     icon: <Atom className="h-6 w-6 text-primary" />,
-//     highlight: 'Advanced Research',
-//     achievements: [
-//       'Patented 5 new chemical processes',
-//       'Achieved 99.9% production purity',
-//       'Expanded into biobased materials',
-//     ],
-//   },
-// ]
-
 export const Timeline: React.FC<{
   items: TimelineBlock['items']
   title: string
@@ -165,7 +72,7 @@ export const Timeline: React.FC<{
                     {item.period}
                   </h3>
                   <p className="font-secondary text-gray-600 mb-6 leading-relaxed">
-                    {item.content && <RichText data={item.content} />}
+                    {item.content && <RichText className="!text-foreground" data={item.content} />}
                   </p>
                   {/* <div className="space-y-2 font-secondary text-gray-700 mb-6">
                     {item.content.map((text, i) => (
