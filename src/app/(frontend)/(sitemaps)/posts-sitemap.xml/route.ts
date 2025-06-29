@@ -11,7 +11,19 @@ const getPostsSitemap = unstable_cache(
       process.env.VERCEL_PROJECT_PRODUCTION_URL ||
       'https://example.com'
 
-    const results = await payload.find({
+    const locales = ['en', 'sk', 'jp']
+    const dateFallback = new Date().toISOString()
+
+    // Helper function to generate URLs with locale prefix
+    const generateUrl = (path: string, locale: string): string => {
+      if (locale === 'en') {
+        // Default locale doesn't need prefix
+        return `${SITE_URL}${path}`
+      }
+      return `${SITE_URL}/${locale}${path}`
+    }
+
+    const posts = await payload.find({
       collection: 'posts',
       overrideAccess: false,
       draft: false,
@@ -29,16 +41,20 @@ const getPostsSitemap = unstable_cache(
       },
     })
 
-    const dateFallback = new Date().toISOString()
+    const sitemap: Array<{ loc: string; lastmod: string }> = []
 
-    const sitemap = results.docs
-      ? results.docs
-          .filter((post) => Boolean(post?.slug))
-          .map((post) => ({
-            loc: `${SITE_URL}/news/${post?.slug}`,
-            lastmod: post.updatedAt || dateFallback,
-          }))
-      : []
+    if (posts.docs) {
+      posts.docs
+        .filter((post) => Boolean(post?.slug))
+        .forEach((post) => {
+          locales.forEach((locale) => {
+            sitemap.push({
+              loc: generateUrl(`/news/${post.slug}`, locale),
+              lastmod: post.updatedAt || dateFallback,
+            })
+          })
+        })
+    }
 
     return sitemap
   },

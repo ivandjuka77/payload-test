@@ -33,26 +33,32 @@ function Pillar({ card, orientation }: PillarProps) {
             </div>
 
             {/* Content Section */}
-            <div className="p-6 md:p-8 flex flex-col justify-center relative">
+            <div className="p-6 md:p-8 md:pl-10 flex flex-col justify-center relative">
               <CardTitle className="text-xl md:text-2xl font-primary mb-3">{card.title}</CardTitle>
               <p className="text-base md:text-lg font-medium text-[hsl(149.71,100%,40%)] mb-4 font-secondary">
                 {card.subtitle}
               </p>
               <div className="text-muted-foreground font-secondary">
-                <RichText data={card.paragraph || ''} className="mx-0 px-0 text-sm md:text-base" />
+                <RichText
+                  data={card.paragraph || ''}
+                  className="mx-0 px-0 text-sm md:text-base !text-muted-foreground"
+                />
               </div>
             </div>
           </>
         ) : (
           <>
             {/* Content Section */}
-            <div className="p-6 md:p-8 flex flex-col justify-center relative order-last lg:order-first">
+            <div className="p-6 md:p-8 md:pr-10 flex flex-col justify-center relative order-last lg:order-first">
               <CardTitle className="text-xl md:text-2xl font-primary mb-3">{card.title}</CardTitle>
               <p className="text-base md:text-lg font-medium text-[hsl(149.71,100%,40%)] mb-4 font-secondary">
                 {card.subtitle}
               </p>
               <div className="text-muted-foreground font-secondary">
-                <RichText data={card.paragraph || ''} className="mx-0 px-0 text-sm md:text-base" />
+                <RichText
+                  data={card.paragraph || ''}
+                  className="mx-0 px-0 text-sm md:text-base !text-muted-foreground"
+                />
               </div>
             </div>
 
