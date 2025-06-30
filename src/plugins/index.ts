@@ -177,6 +177,13 @@ export const plugins: Plugin[] = [
           // return `https://${supabaseProjectRef}.supabase.co/storage/v1/object/public/vup-payload/${filePathInBucket}`
         },
       },
+      'product-documents': {
+        prefix: 'files',
+        generateFileURL: ({ filename, prefix }) => {
+          const filePathInBucket = prefix ? `${prefix}/${filename}` : filename
+          return `${process.env.S3_PUBLIC_URL}/object/public/${s3BucketFromEnv}/${filePathInBucket}`
+        },
+      },
     },
     bucket: s3BucketFromEnv,
     config: {

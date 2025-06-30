@@ -219,6 +219,18 @@ export const Products: CollectionConfig = {
         },
       ],
     },
+    {
+      name: 'technicalDataSheets',
+      label: 'Technical Data Sheets (TDS)',
+      type: 'upload',
+      relationTo: 'product-documents',
+    },
+    {
+      name: 'safetyDataSheets',
+      label: 'Safety Data Sheets (SDS)',
+      type: 'upload',
+      relationTo: 'product-documents',
+    },
     ...slugField('name'),
   ],
   versions: {

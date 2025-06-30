@@ -124,6 +124,7 @@ export interface Config {
     services: Service;
     teamMembers: TeamMember;
     careers: Career;
+    'product-documents': ProductDocument;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -146,6 +147,7 @@ export interface Config {
     services: ServicesSelect<false> | ServicesSelect<true>;
     teamMembers: TeamMembersSelect<false> | TeamMembersSelect<true>;
     careers: CareersSelect<false> | CareersSelect<true>;
+    'product-documents': ProductDocumentsSelect<false> | ProductDocumentsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -492,6 +494,8 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  technicalDataSheets?: (number | null) | ProductDocument;
+  safetyDataSheets?: (number | null) | ProductDocument;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -698,6 +702,26 @@ export interface TeamMember {
   department?: (number | Service)[] | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-documents".
+ */
+export interface ProductDocument {
+  id: number;
+  alt?: string | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1879,6 +1903,10 @@ export interface PayloadLockedDocument {
         value: number | Career;
       } | null)
     | ({
+        relationTo: 'product-documents';
+        value: number | ProductDocument;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -2773,6 +2801,8 @@ export interface ProductsSelect<T extends boolean = true> {
         answer?: T;
         id?: T;
       };
+  technicalDataSheets?: T;
+  safetyDataSheets?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -2964,6 +2994,25 @@ export interface CareersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-documents_select".
+ */
+export interface ProductDocumentsSelect<T extends boolean = true> {
+  alt?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
