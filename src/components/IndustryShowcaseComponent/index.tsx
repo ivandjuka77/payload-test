@@ -1,5 +1,3 @@
-'use client'
-
 import { IndustryCard } from '@/components/IndustryCard'
 import { Industry } from '@/payload-types'
 import { useTranslations } from 'next-intl'

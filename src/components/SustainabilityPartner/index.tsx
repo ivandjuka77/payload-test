@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowRight, Handshake } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'

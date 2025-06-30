@@ -1125,7 +1125,7 @@ export function homeSk(args: HomeArgs) {
       title: 'VUP Chemické Riešenia',
       description: 'Popredný poskytovateľ špecializovaných chemických riešení a výskumných služieb',
     },
-    slug: 'domov',
+    slug: 'home',
     _status: 'published' as const,
   }
 }

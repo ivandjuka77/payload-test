@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { Industry, Product } from '@/payload-types'
