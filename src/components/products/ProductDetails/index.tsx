@@ -1,10 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { FileText, FileBox, Download } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
-import { Product } from '@/payload-types'
+import { Product, ProductDocument } from '@/payload-types'
+import { ProductDocumentModal } from '@/components/ProductDocumentModal'
 
 type Props = {
   product: Product
@@ -34,6 +36,7 @@ type Props = {
     title: string
     button: string
   }
+  productDocuments: ProductDocument[]
 }
 
 export function ProductDetails({
@@ -43,17 +46,36 @@ export function ProductDetails({
   productInfo,
   documents,
   cta,
+  productDocuments,
 }: Props) {
+  const [showDocumentModal, setShowDocumentModal] = useState(false)
+  const [selectedDocument, setSelectedDocument] = useState<{
+    type: 'tds' | 'sds'
+    url: string
+  } | null>(null)
+
+  const handleDocumentDownload = (type: 'tds' | 'sds', url: string) => {
+    setSelectedDocument({ type, url })
+    setShowDocumentModal(true)
+  }
+
+  const tdsUrl = productDocuments.find((doc) => doc.type === 'tds')?.url
+  const sdsUrl = productDocuments.find((doc) => doc.type === 'sds')?.url
+
   const technicalDocumentsArray = [
     {
       icon: <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />,
       title: documents.tds.title,
       description: documents.tds.description,
+      type: 'tds' as const,
+      url: tdsUrl,
     },
     {
       icon: <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />,
       title: documents.sds.title,
       description: documents.sds.description,
+      type: 'sds' as const,
+      url: sdsUrl,
     },
   ]
 
@@ -155,7 +177,7 @@ export function ProductDetails({
                   <Separator className="mb-6" />
                   <div className="grid gap-3 sm:gap-4">
                     {technicalDocumentsArray.map((doc, index) => (
-                      <span
+                      <div
                         key={index}
                         className="group flex items-center justify-between p-3 sm:p-4 rounded-xl border border-primary/10 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
                       >
@@ -172,10 +194,21 @@ export function ProductDetails({
                             </p>
                           </div>
                         </div>
-                        <div className="ml-3 sm:ml-4 p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <Download className="h-4 w-4 sm:h-5 sm:w-5 text-primary group-hover:translate-y-0.5 transition-transform duration-200" />
-                        </div>
-                      </span>
+                        {doc.url ? (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="ml-3 sm:ml-4 p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors h-auto w-auto"
+                            onClick={() => handleDocumentDownload(doc.type, doc.url!)}
+                          >
+                            <Download className="h-4 w-4 sm:h-5 sm:w-5 text-primary group-hover:translate-y-0.5 transition-transform duration-200" />
+                          </Button>
+                        ) : (
+                          <div className="ml-3 sm:ml-4 p-2 rounded-full bg-gray-100 transition-colors">
+                            <Download className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </CardContent>
@@ -200,6 +233,20 @@ export function ProductDetails({
           </div>
         </div>
       </div>
+
+      {/* Document Download Modal */}
+      {showDocumentModal && selectedDocument && (
+        <ProductDocumentModal
+          product={product}
+          documentType={selectedDocument.type}
+          documentUrl={selectedDocument.url}
+          isOpen={showDocumentModal}
+          onClose={() => {
+            setShowDocumentModal(false)
+            setSelectedDocument(null)
+          }}
+        />
+      )}
     </section>
   )
 }

@@ -710,6 +710,8 @@ export interface TeamMember {
 export interface ProductDocument {
   id: number;
   alt?: string | null;
+  product?: (number | null) | Product;
+  type?: ('tds' | 'sds') | null;
   prefix?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -3001,6 +3003,8 @@ export interface CareersSelect<T extends boolean = true> {
  */
 export interface ProductDocumentsSelect<T extends boolean = true> {
   alt?: T;
+  product?: T;
+  type?: T;
   prefix?: T;
   updatedAt?: T;
   createdAt?: T;

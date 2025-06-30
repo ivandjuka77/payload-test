@@ -13,7 +13,7 @@ import { ProductDetails } from '@/components/products/ProductDetails'
 import { FAQ } from '@/components/FAQ'
 import { TypedLocale } from 'payload'
 import { Showcase } from '@/blocks/Showcase/Component'
-import { Product as ProductType } from '@/payload-types'
+import { ProductDocument, Product as ProductType } from '@/payload-types'
 import { BlockShowcase } from '@/components/BlockShowcase'
 import { getTranslations } from 'next-intl/server'
 
@@ -71,6 +71,9 @@ export default async function Product({ params: paramsPromise }: Args) {
   const t = await getTranslations('product')
 
   if (!product) return <PayloadRedirects url={url} />
+
+  const documents = await getProductDocuments(product.id)
+  console.log('documents', documents)
 
   return (
     <main>
@@ -173,6 +176,7 @@ export default async function Product({ params: paramsPromise }: Args) {
           title: t('productInfo.cta.title'),
           button: t('productInfo.cta.button'),
         }}
+        productDocuments={documents}
       />
 
       {product.faq && product.faq.length > 0 && (
@@ -225,3 +229,18 @@ const queryProductBySlug = cache(
     return result.docs?.[0] || null
   },
 )
+
+const getProductDocuments = async (productId: number): Promise<ProductDocument[]> => {
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'product-documents',
+    where: {
+      product: {
+        equals: productId,
+      },
+    },
+  })
+
+  return result.docs
+}

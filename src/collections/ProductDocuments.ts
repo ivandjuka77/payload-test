@@ -11,5 +11,15 @@ export const ProductDocuments: CollectionConfig = {
       name: 'alt',
       type: 'text',
     },
+    {
+      name: 'product',
+      type: 'relationship',
+      relationTo: 'products',
+    },
+    {
+      name: 'type',
+      type: 'select',
+      options: ['tds', 'sds'],
+    },
   ],
 }
