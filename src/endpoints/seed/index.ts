@@ -30,6 +30,11 @@ import {
   aboutUsSk as aboutUsPageDataSk,
   aboutUsJp as aboutUsPageDataJp,
 } from './about-us'
+import {
+  contactUsEn as contactUsPageDataEn,
+  contactUsSk as contactUsPageDataSk,
+  contactUsJp as contactUsPageDataJp,
+} from '../contact-us'
 
 import { seedMedia } from './1-media'
 import { seedUsers } from './2-users'
@@ -170,107 +175,124 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [homePageEn, productsPage, industriesPage, sustainabilityPage, careersPage, aboutUsPage] =
-    await Promise.all([
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: homePageDataEn({
-          slide1HeroBgDoc: media.slide1HeroBgDoc,
-          slide1HeroFeaturedItemDoc: media.slide1HeroFeaturedItemDoc,
-          slide1HeroCard1Doc: media.slide1HeroCard1Doc,
-          slide1HeroCard2Doc: media.slide1HeroCard2Doc,
-          slide1HeroCard3Doc: media.slide1HeroCard3Doc,
-          slide2HeroBgDoc: media.slide2HeroBgDoc,
-          slide2HeroFeaturedItemDoc: media.slide2HeroFeaturedItemDoc,
-          slide2HeroCard1Doc: media.slide2HeroCard1Doc,
-          slide2HeroCard2Doc: media.slide2HeroCard2Doc,
-          slide2HeroCard3Doc: media.slide2HeroCard3Doc,
-          slide3HeroBgDoc: media.slide3HeroBgDoc,
-          slide3HeroFeaturedItemDoc: media.slide3HeroFeaturedItemDoc,
-          slide3HeroCard1Doc: media.slide3HeroCard1Doc,
-          slide3HeroCard2Doc: media.slide3HeroCard2Doc,
-          slide3HeroCard3Doc: media.slide3HeroCard3Doc,
-          quickAccessCard1Doc: media.quickAccessCard1Doc,
-          quickAccessCard2Doc: media.quickAccessCard2Doc,
-          quickAccessCard3Doc: media.quickAccessCard3Doc,
-          quickAccessCard4Doc: media.quickAccessCard4Doc,
-          hydroxyAcids: seededCategories.hydroxyAcids,
-          hinderedAmines: seededCategories.hinderedAmines,
-          glycolEthers: seededCategories.glycolEthers,
-          post1: posts.post4Doc,
-          post2: posts.post1Doc,
-          post3: posts.post2Doc,
-          post4: posts.post3Doc,
-          sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
-        }),
+  const [
+    homePageEn,
+    productsPage,
+    industriesPage,
+    sustainabilityPage,
+    careersPage,
+    aboutUsPage,
+    contactUsPage,
+  ] = await Promise.all([
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: homePageDataEn({
+        slide1HeroBgDoc: media.slide1HeroBgDoc,
+        slide1HeroFeaturedItemDoc: media.slide1HeroFeaturedItemDoc,
+        slide1HeroCard1Doc: media.slide1HeroCard1Doc,
+        slide1HeroCard2Doc: media.slide1HeroCard2Doc,
+        slide1HeroCard3Doc: media.slide1HeroCard3Doc,
+        slide2HeroBgDoc: media.slide2HeroBgDoc,
+        slide2HeroFeaturedItemDoc: media.slide2HeroFeaturedItemDoc,
+        slide2HeroCard1Doc: media.slide2HeroCard1Doc,
+        slide2HeroCard2Doc: media.slide2HeroCard2Doc,
+        slide2HeroCard3Doc: media.slide2HeroCard3Doc,
+        slide3HeroBgDoc: media.slide3HeroBgDoc,
+        slide3HeroFeaturedItemDoc: media.slide3HeroFeaturedItemDoc,
+        slide3HeroCard1Doc: media.slide3HeroCard1Doc,
+        slide3HeroCard2Doc: media.slide3HeroCard2Doc,
+        slide3HeroCard3Doc: media.slide3HeroCard3Doc,
+        quickAccessCard1Doc: media.quickAccessCard1Doc,
+        quickAccessCard2Doc: media.quickAccessCard2Doc,
+        quickAccessCard3Doc: media.quickAccessCard3Doc,
+        quickAccessCard4Doc: media.quickAccessCard4Doc,
+        hydroxyAcids: seededCategories.hydroxyAcids,
+        hinderedAmines: seededCategories.hinderedAmines,
+        glycolEthers: seededCategories.glycolEthers,
+        post1: posts.post4Doc,
+        post2: posts.post1Doc,
+        post3: posts.post2Doc,
+        post4: posts.post3Doc,
+        sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
       }),
+    }),
 
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: productsPageDataEn({ featuredImage1: media.demoImageDoc }),
-      }),
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: productsPageDataEn({ featuredImage1: media.demoImageDoc }),
+    }),
 
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: industriesPageDataEn({ featuredImage1: media.demoImageDoc }),
-      }),
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: industriesPageDataEn({ featuredImage1: media.demoImageDoc }),
+    }),
 
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: sustainabilityPageDataEn({
-          heroImage: media.sustainabilityHeroImageDoc,
-          pillar1Image: media.sustainabilityPillar1Doc,
-          pillar2Image: media.sustainabilityPillar2Doc,
-          pillar3Image: media.sustainabilityPillar3Doc,
-          pillar4Image: media.sustainabilityPillar4Doc,
-          certificateImage1: media.ecovadisMedalDoc,
-          focus1Image: media.sustainabilityFocus1Doc,
-          focus2Image: media.sustainabilityFocus2Doc,
-          focus3Image: media.sustainabilityFocus3Doc,
-          focus4Image: media.sustainabilityFocus4Doc,
-        }),
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: sustainabilityPageDataEn({
+        heroImage: media.sustainabilityHeroImageDoc,
+        pillar1Image: media.sustainabilityPillar1Doc,
+        pillar2Image: media.sustainabilityPillar2Doc,
+        pillar3Image: media.sustainabilityPillar3Doc,
+        pillar4Image: media.sustainabilityPillar4Doc,
+        certificateImage1: media.ecovadisMedalDoc,
+        focus1Image: media.sustainabilityFocus1Doc,
+        focus2Image: media.sustainabilityFocus2Doc,
+        focus3Image: media.sustainabilityFocus3Doc,
+        focus4Image: media.sustainabilityFocus4Doc,
       }),
+    }),
 
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: careersPageDataEn({ featuredImage1: media.demoImageDoc }),
-      }),
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: careersPageDataEn({ featuredImage1: media.demoImageDoc }),
+    }),
 
-      payload.create({
-        collection: 'pages',
-        locale: 'en',
-        depth: 0,
-        // @ts-expect-error This is working, but payload is not happy
-        data: aboutUsPageDataEn({
-          timeline1Image: media.demoImageDoc,
-          timeline2Image: media.demoImageDoc,
-          timeline3Image: media.demoImageDoc,
-          timeline4Image: media.demoImageDoc,
-          content1Image: media.demoImageDoc,
-          content2Image: media.demoImageDoc,
-          ceo: teamMembers.ceoDoc,
-          rd: teamMembers.rdDoc,
-          commercial: teamMembers.commercialDoc,
-          atbel: teamMembers.atbelDoc,
-          cosmetics: teamMembers.cosmeticsDoc,
-        }),
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: aboutUsPageDataEn({
+        timeline1Image: media.demoImageDoc,
+        timeline2Image: media.demoImageDoc,
+        timeline3Image: media.demoImageDoc,
+        timeline4Image: media.demoImageDoc,
+        content1Image: media.demoImageDoc,
+        content2Image: media.demoImageDoc,
+        ceo: teamMembers.ceoDoc,
+        rd: teamMembers.rdDoc,
+        commercial: teamMembers.commercialDoc,
+        atbel: teamMembers.atbelDoc,
+        cosmetics: teamMembers.cosmeticsDoc,
       }),
-    ])
+    }),
+
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: contactUsPageDataEn({
+        contactForm: forms.contactForm.id,
+      }),
+    }),
+  ])
 
   payload.logger.info(`— Seeding Slovak page translations...`)
 
@@ -389,6 +411,18 @@ export const seed = async ({
     }),
   })
 
+  // Contact us page
+  await payload.update({
+    collection: 'pages',
+    id: contactUsPage.id,
+    locale: 'sk',
+    depth: 0,
+    // @ts-expect-error This is working, but payload is not happy
+    data: contactUsPageDataSk({
+      contactForm: forms.contactForm.id,
+    }),
+  })
+
   payload.logger.info(`— Seeding Japanese page translations...`)
 
   // Home page
@@ -504,6 +538,18 @@ export const seed = async ({
       commercial: teamMembers.commercialDoc,
       atbel: teamMembers.atbelDoc,
       cosmetics: teamMembers.cosmeticsDoc,
+    }),
+  })
+
+  // Contact us page
+  await payload.update({
+    collection: 'pages',
+    id: contactUsPage.id,
+    locale: 'jp',
+    depth: 0,
+    // @ts-expect-error This is working, but payload is not happy
+    data: contactUsPageDataJp({
+      contactForm: forms.contactForm.id,
     }),
   })
 

@@ -1,5 +1,4 @@
 import type { Payload } from 'payload'
-import { contactForm } from './contact-form'
 
 export const seedForms = async (payload: Payload) => {
   payload.logger.info('— Seeding forms...')
