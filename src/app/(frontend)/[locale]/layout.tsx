@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from '@/utilities/ui'
-import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { draftMode } from 'next/headers'
 import { hasLocale } from 'next-intl'
 import { routing } from '@/i18n/routing'
 import { getMessages } from 'next-intl/server'
@@ -36,7 +34,6 @@ export default async function RootLayout({
   children: React.ReactNode
   params: Promise<{ locale: string }>
 }) {
-  const { isEnabled } = await draftMode()
   const { locale } = await params
 
   if (!hasLocale(routing.locales, locale)) {
@@ -55,12 +52,6 @@ export default async function RootLayout({
       </head>
       <body>
         <Providers locale={locale} messages={messages}>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-
           <Header locale={locale} />
           {children}
           <Footer />
