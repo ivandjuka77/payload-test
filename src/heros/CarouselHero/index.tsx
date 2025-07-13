@@ -232,7 +232,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                     </div>
 
                     {/* Slide Heading */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary leading-tight min-h-[3.7em]">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary leading-tight min-h-[2.7em] md:min-h-[3.7em]">
                       {slide.title}
                     </h2>
 
