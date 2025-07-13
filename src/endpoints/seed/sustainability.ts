@@ -11,6 +11,10 @@ type SustainabilityArgs = {
   focus2Image: Media
   focus3Image: Media
   focus4Image: Media
+  badge1: Media
+  badge2: Media
+  badge3: Media
+  badge4: Media
 }
 
 export function sustainabilityEn(args: SustainabilityArgs) {
@@ -25,6 +29,10 @@ export function sustainabilityEn(args: SustainabilityArgs) {
     focus2Image,
     focus3Image,
     focus4Image,
+    badge1,
+    badge2,
+    badge3,
+    badge4,
   } = args
 
   return {
@@ -201,28 +209,28 @@ export function sustainabilityEn(args: SustainabilityArgs) {
         blockName: null,
         certifications: [
           {
-            media: {},
+            image: badge1.id,
             title: 'ISO 9001',
             subtitle: 'Quality Management System',
             description:
               'VUP maintains ISO 9001 certification, covering our R&D of chemical processes, chemical specialties, small-scale chemical products, production and sales of cleaning and cosmetic products, analyses, and laboratory testing.',
           },
           {
-            media: {},
+            image: badge2.id,
             title: 'Responsible Care®',
             subtitle: 'Global Chemical Industry Initiative',
             description:
               'As a participant in the Responsible Care initiative, VUP is committed to continuously improving our performance in environmental protection, health, safety, and security.',
           },
           {
-            media: {},
+            image: badge3.id,
             title: 'SNAS Accreditation',
             subtitle: 'No. S-118 for ATBEL Labs',
             description:
               'Our ATBEL division is accredited by SNAS, confirming the competence and reliability of our testing services according to international standards.',
           },
           {
-            media: {},
+            image: badge4.id,
             title: 'R&D Competency Certificate',
             subtitle: 'Ministry of Education, Slovak Republic',
             description:
@@ -467,6 +475,10 @@ export function sustainabilitySk(args: SustainabilityArgs) {
     focus2Image,
     focus3Image,
     focus4Image,
+    badge1,
+    badge2,
+    badge3,
+    badge4,
   } = args
 
   return {
@@ -643,28 +655,28 @@ export function sustainabilitySk(args: SustainabilityArgs) {
         blockName: null,
         certifications: [
           {
-            media: {},
+            image: badge1.id,
             title: 'ISO 9001',
             subtitle: 'Systém manažérstva kvality',
             description:
               'VUP si udržiava certifikáciu ISO 9001, ktorá pokrýva náš výskum a vývoj chemických procesov, chemických špecialít, malosériových chemických výrobkov, výrobu a predaj čistiacich a kozmetických výrobkov, analýzy a laboratórne testovanie.',
           },
           {
-            media: {},
+            image: badge2.id,
             title: 'Responsible Care®',
             subtitle: 'Globálna iniciatíva chemického priemyslu',
             description:
               'Ako účastník iniciatívy Responsible Care sa VUP zaväzuje neustále zlepšovať svoj výkon v oblasti ochrany životného prostredia, zdravia, bezpečnosti a zabezpečenia.',
           },
           {
-            media: {},
+            image: badge3.id,
             title: 'Akreditácia SNAS',
             subtitle: 'č. S-118 pre laboratóriá ATBEL',
             description:
               'Naša divízia ATBEL je akreditovaná SNAS, čo potvrdzuje kompetentnosť a spoľahlivosť našich testovacích služieb podľa medzinárodných noriem.',
           },
           {
-            media: {},
+            image: badge4.id,
             title: 'Osvedčenie o spôsobilosti na výskum a vývoj',
             subtitle: 'Ministerstvo školstva, vedy, výskumu a športu SR',
             description:
@@ -909,6 +921,10 @@ export function sustainabilityJp(args: SustainabilityArgs) {
     focus2Image,
     focus3Image,
     focus4Image,
+    badge1,
+    badge2,
+    badge3,
+    badge4,
   } = args
 
   return {
@@ -1085,28 +1101,28 @@ export function sustainabilityJp(args: SustainabilityArgs) {
         blockName: null,
         certifications: [
           {
-            media: {},
+            image: badge1.id,
             title: 'ISO 9001',
             subtitle: '品質マネジメントシステム',
             description:
               'VUPは、化学プロセス、特殊化学品、小規模化学製品の研究開発、洗浄・化粧品製品の製造・販売、分析、実験室試験をカバーするISO 9001認証を維持しています。',
           },
           {
-            media: {},
+            image: badge2.id,
             title: 'Responsible Care®',
             subtitle: 'グローバル化学産業イニシアチブ',
             description:
               'Responsible Careイニシアチブの参加者として、VUPは環境保護、健康、安全、セキュリティにおけるパフォーマンスを継続的に向上させることにコミットしています。',
           },
           {
-            media: {},
+            image: badge3.id,
             title: 'SNAS認定',
             subtitle: 'ATBELラボ向けS-118号',
             description:
               '当社のATBEL部門はSNASによって認定されており、国際基準に従った試験サービスの能力と信頼性を確認しています。',
           },
           {
-            media: {},
+            image: badge4.id,
             title: '研究開発能力証明書',
             subtitle: 'スロバキア共和国教育省',
             description:

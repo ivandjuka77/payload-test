@@ -16,17 +16,17 @@ const filesToSeed = [
   },
   {
     key: 'image2Doc',
-    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post2.webp`,
     alt: 'Post 2 Image',
   },
   {
     key: 'image3Doc',
-    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post3.webp`,
     alt: 'Post 3 Image',
   }, // Re-using image2 data as in original
   {
     key: 'imageHomeDoc',
-    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post1.webp`,
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/image-post4.webp`,
     alt: 'Hero Image',
   },
   // Misc
@@ -95,6 +95,27 @@ const filesToSeed = [
     key: 'vupinStructureDoc',
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/vupin-sf.png`,
     alt: 'VUPIN Structure',
+  },
+  // Badges
+  {
+    key: 'badge1Doc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/iso.png`,
+    alt: 'ISO 9001',
+  },
+  {
+    key: 'badge2Doc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/responsible-care.png`,
+    alt: 'Responsible Care',
+  },
+  {
+    key: 'badge3Doc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/snas.png`,
+    alt: 'SNAS Accreditation',
+  },
+  {
+    key: 'badge4Doc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/sk-emblem.png`,
+    alt: 'R&D Competency Certificate',
   },
   // Homepage
   {

@@ -252,6 +252,10 @@ export const seed = async ({
         focus2Image: media.sustainabilityFocus2Doc,
         focus3Image: media.sustainabilityFocus3Doc,
         focus4Image: media.sustainabilityFocus4Doc,
+        badge1: media.badge1Doc,
+        badge2: media.badge2Doc,
+        badge3: media.badge3Doc,
+        badge4: media.badge4Doc,
       }),
     }),
 
@@ -375,6 +379,10 @@ export const seed = async ({
         focus2Image: media.sustainabilityFocus2Doc,
         focus3Image: media.sustainabilityFocus3Doc,
         focus4Image: media.sustainabilityFocus4Doc,
+        badge1: media.badge1Doc,
+        badge2: media.badge2Doc,
+        badge3: media.badge3Doc,
+        badge4: media.badge4Doc,
       }),
     }),
   ])
@@ -504,6 +512,10 @@ export const seed = async ({
         focus2Image: media.sustainabilityFocus2Doc,
         focus3Image: media.sustainabilityFocus3Doc,
         focus4Image: media.sustainabilityFocus4Doc,
+        badge1: media.badge1Doc,
+        badge2: media.badge2Doc,
+        badge3: media.badge3Doc,
+        badge4: media.badge4Doc,
       }),
     }),
   ])
