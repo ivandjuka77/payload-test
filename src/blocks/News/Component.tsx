@@ -4,12 +4,14 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Media as MediaType, NewsBlock, Post } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { getTranslations } from 'next-intl/server'
 
 interface FeaturedNewsItemProps {
   post: Post
 }
 
-function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
+async function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
+  const t = await getTranslations('news.block')
   return (
     <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gradient-to-r from-primary via-primary to-primary md:via-primary/70 md:to-white shadow-md hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col md:flex-row h-full">
@@ -36,7 +38,7 @@ function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
               href={`/news/${post.slug}`}
               className="inline-flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base"
             >
-              Read {post.type}
+              {t('continueReading')}
               <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/btn:translate-x-1" />
             </Link>
           </Button>
@@ -64,7 +66,7 @@ interface CompactNewsItemProps {
   publishedAt: string | null
 }
 
-function CompactNewsItem({
+async function CompactNewsItem({
   type,
   title,
   description,
@@ -72,6 +74,7 @@ function CompactNewsItem({
   slug,
   publishedAt,
 }: CompactNewsItemProps) {
+  const t = await getTranslations('news.block')
   return (
     <div className="group flex flex-col overflow-hidden rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
       <div className="relative w-full h-40 sm:h-44 md:h-48 min-h-[160px] sm:min-h-[176px] md:min-h-[200px]">
@@ -104,7 +107,7 @@ function CompactNewsItem({
           href={`/news/${slug}`}
           className="mt-auto inline-flex items-center gap-1 sm:gap-1.5 text-primary hover:underline text-xs sm:text-sm font-medium group/link"
         >
-          Continue reading
+          {t('continueReading')}
           <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover/link:translate-x-1" />
         </Link>
       </div>
@@ -112,7 +115,7 @@ function CompactNewsItem({
   )
 }
 
-export const NewsSection: React.FC<NewsBlock> = ({
+export const NewsSection: React.FC<NewsBlock> = async ({
   title,
   description,
   badge,
@@ -152,23 +155,24 @@ export const NewsSection: React.FC<NewsBlock> = ({
         </div>
 
         <div className="space-y-8 sm:space-y-10 md:space-y-12">
-          {items?.[0] && <FeaturedNewsItem post={items[0] as Post} />}
+          {items?.[0] && (await FeaturedNewsItem({ post: items[0] as Post }))}
 
           {/* Secondary articles - grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {items
-              ?.slice(1)
-              .map((item, index) => (
-                <CompactNewsItem
-                  key={index}
-                  type={(item as Post).type}
-                  title={(item as Post).title}
-                  description={(item as Post).meta?.description || ''}
-                  featuredImage={(item as Post).meta?.image as MediaType}
-                  slug={(item as Post).slug || ''}
-                  publishedAt={(item as Post).publishedAt || null}
-                />
-              ))}
+            {await Promise.all(
+              items?.slice(1).map(async (item, index) => (
+                <div key={index}>
+                  {await CompactNewsItem({
+                    type: (item as Post).type,
+                    title: (item as Post).title,
+                    description: (item as Post).meta?.description || '',
+                    featuredImage: (item as Post).meta?.image as MediaType,
+                    slug: (item as Post).slug || '',
+                    publishedAt: (item as Post).publishedAt || null,
+                  })}
+                </div>
+              )) || [],
+            )}
           </div>
         </div>
       </div>

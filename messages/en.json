@@ -85,6 +85,10 @@
     },
     "meta": {
       "title": "News & Insights - VUP"
+    },
+    "block": {
+      "readPost": "Read {type}",
+      "continueReading": "Continue reading"
     }
   },
   "newsletter": {
@@ -248,6 +252,23 @@
       "viewAll": "View All Case Studies",
       "application": "Application:"
     }
+  },
+  "productCard": {
+    "tag": "Product",
+    "casLabel": "CAS:",
+    "keyProperties": "Key Properties",
+    "applications": "Applications",
+    "applicationsUseCases": "Applications & Use Cases",
+    "chemicalStructure": "Chemical Structure",
+    "requestQuote": "Request Quote",
+    "viewDetails": "View Details",
+    "moreApplications": "+{count} more"
+  },
+  "categoryCard": {
+    "tag": "Product Category",
+    "keyProducts": "Key Products",
+    "applicationsUseCases": "Applications & Use Cases",
+    "exploreCategory": "Explore Category"
   },
   "footer": {
     "sections": {

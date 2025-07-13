@@ -6,6 +6,7 @@ import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { ProductInquiryModal } from '../ProductInquiryModal/index'
+import { useTranslations } from 'next-intl'
 
 export default function ProductCard({
   product,
@@ -14,6 +15,7 @@ export default function ProductCard({
   product: Product
   variant?: 'default' | 'compact' | 'horizontal'
 }) {
+  const t = useTranslations('productCard')
   // Horizontal variant for full-width layout
   if (variant === 'horizontal') {
     return (
@@ -28,7 +30,7 @@ export default function ProductCard({
               {product.name}
             </h3>
             <span className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
-              CAS:{' '}
+              {t('casLabel')}
               <span className="font-normal">
                 {product.technicalSpecifications?.casNumber || '123-45-67'}
               </span>
@@ -42,7 +44,7 @@ export default function ProductCard({
             {product.keyFeatures && product.keyFeatures.length > 0 && (
               <div className="mb-6 sm:mb-8">
                 <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
-                  Key Properties
+                  {t('keyProperties')}
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-md">
                   {product.keyFeatures.slice(0, 4).map((value, idx) => (
@@ -62,7 +64,7 @@ export default function ProductCard({
               <div className="mb-6 sm:mb-8">
                 <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4 flex items-center">
                   <Beaker className="h-4 w-4 mr-2 text-primary" />
-                  Applications
+                  {t('applications')}
                 </h4>
                 <div className="flex flex-wrap gap-2 max-w-md">
                   {product.applications.slice(0, 3).map((application, idx) => (
@@ -75,7 +77,7 @@ export default function ProductCard({
                   ))}
                   {product.applications.length > 3 && (
                     <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs sm:text-sm">
-                      +{product.applications.length - 3} more
+                      {t('moreApplications', { count: product.applications.length - 3 })}
                     </span>
                   )}
                 </div>
@@ -86,7 +88,7 @@ export default function ProductCard({
             <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
               <Dialog>
                 <DialogTrigger className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base">
-                  Request Quote
+                  {t('requestQuote')}
                   <ArrowUpRight className="h-4 w-4" />
                 </DialogTrigger>
                 <DialogContent className="w-full !max-w-[90vw] md:!max-w-[70vw] rounded-md">
@@ -99,7 +101,7 @@ export default function ProductCard({
                   variant="outline"
                   className="w-full xs:w-auto px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base"
                 >
-                  View Details
+                  {t('viewDetails')}
                 </Button>
               </Link>
             </div>
@@ -115,11 +117,11 @@ export default function ProductCard({
             ) : (
               <div className="text-gray-400 text-center">
                 <Beaker className="h-8 sm:h-12 w-8 sm:w-12 mx-auto mb-2" />
-                <span className="text-xs sm:text-sm">Chemical Structure</span>
+                <span className="text-xs sm:text-sm">{t('chemicalStructure')}</span>
               </div>
             )}
             <Tag className="absolute top-3 sm:top-4 right-3 sm:right-4" type="product">
-              Product
+              {t('tag')}
             </Tag>
           </div>
         </div>
@@ -144,14 +146,14 @@ export default function ProductCard({
           className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4"
           type="product"
         >
-          Product
+          {t('tag')}
         </Tag>
       </div>
 
       <div className="p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col flex-1">
         <div className="flex flex-col items-start space-y-1 min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] mb-2">
           <span className="text-xs sm:text-sm text-gray-500">
-            CAS: {product.technicalSpecifications?.casNumber || '123-45-67'}
+            {t('casLabel')} {product.technicalSpecifications?.casNumber || '123-45-67'}
           </span>
           <h3 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight font-primary">
             {product.name}
@@ -166,7 +168,7 @@ export default function ProductCard({
 
         <div className="my-4 sm:my-5 md:my-6 flex-1">
           <h4 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-gray-900 uppercase tracking-wider">
-            Key Properties
+            {t('keyProperties')}
           </h4>
           <div className="space-y-2 sm:space-y-3 border-l-2 border-primary/20 pl-2 sm:pl-3 md:pl-4">
             {product.keyFeatures?.slice(0, 3).map((value, idx) => (
@@ -189,7 +191,7 @@ export default function ProductCard({
           <div className="mb-4 sm:mb-5 md:mb-6 bg-gray-50 rounded-lg p-2 sm:p-3 md:p-4 border border-gray-100 hidden md:block">
             <h4 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-gray-900 flex items-center">
               <Beaker className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
-              Applications & Use Cases
+              {t('applicationsUseCases')}
             </h4>
             <div
               className={`grid gap-2 sm:gap-3 ${
@@ -219,9 +221,9 @@ export default function ProductCard({
 
         <div className="flex flex-col sm:flex-row w-full items-center gap-2 mt-auto">
           <Dialog>
-            <DialogTrigger className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-sm sm:text-base sm:w-3/5">
-              Request Quote
-              <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2" />
+            <DialogTrigger className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-xs sm:text-sm px-2 sm:w-3/5 truncate">
+              <span className="truncate">{t('requestQuote')}</span>
+              <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2 flex-shrink-0" />
             </DialogTrigger>
             <DialogContent className=" w-full !max-w-[90vw] md:!max-w-[70vw] rounded-md">
               <ProductInquiryModal product={product} />
@@ -229,8 +231,8 @@ export default function ProductCard({
           </Dialog>
 
           <Link href={`/products/${product.slug}`} className="w-full sm:w-2/5">
-            <Button variant="outline" className="w-full text-sm sm:text-base">
-              View Details
+            <Button variant="outline" className="w-full text-xs sm:text-sm px-2 truncate">
+              <span className="truncate">{t('viewDetails')}</span>
             </Button>
           </Link>
         </div>

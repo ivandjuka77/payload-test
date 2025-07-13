@@ -200,9 +200,12 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
           dragFree: false,
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent className="h-full parent-of-problematic !items-stretch">
           {props.slides.map((slide, index) => (
-            <CarouselItem key={index} className="h-full basis-full min-w-0 relative">
+            <CarouselItem
+              key={index}
+              className="h-full basis-full min-w-0 relative problematic-child"
+            >
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-primary/70 z-10" />
                 <Media
@@ -229,7 +232,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                     </div>
 
                     {/* Slide Heading */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white font-primary leading-tight min-h-[2.5em]">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary leading-tight min-h-[3.7em]">
                       {slide.title}
                     </h2>
 
@@ -331,7 +334,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
 
                         {/* Card Content */}
                         <div className="p-3 sm:p-4">
-                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90">
+                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90 min-h-14">
                             {card.title}
                           </h3>
                           <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">

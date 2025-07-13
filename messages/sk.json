@@ -224,6 +224,10 @@
     },
     "meta": {
       "title": "Správy a poznatky - VUP"
+    },
+    "block": {
+      "readPost": "Čítať {type}",
+      "continueReading": "Pokračovať v čítaní"
     }
   },
   "newsletter": {
@@ -248,6 +252,23 @@
         "extendedDescription": "Pripojte sa k našej profesionálnej sieti pre exkluzívny obsah, diskusie o odvetví a networking príležitosti."
       }
     }
+  },
+  "productCard": {
+    "tag": "Produkt",
+    "casLabel": "CAS:",
+    "keyProperties": "Kľúčové vlastnosti",
+    "applications": "Aplikácie",
+    "applicationsUseCases": "Aplikácie a prípady použitia",
+    "chemicalStructure": "Chemická štruktúra",
+    "requestQuote": "Vyžiadať cenové ponuku",
+    "viewDetails": "Zobraziť podrobnosti",
+    "moreApplications": "+{count} ďalších"
+  },
+  "categoryCard": {
+    "tag": "Kategória produktov",
+    "keyProducts": "Kľúčové produkty",
+    "applicationsUseCases": "Aplikácie a prípady použitia",
+    "exploreCategory": "Preskúmať kategóriu"
   },
   "footer": {
     "sections": {

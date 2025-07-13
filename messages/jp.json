@@ -224,6 +224,10 @@
     },
     "meta": {
       "title": "ニュース＆洞察 - VUP"
+    },
+    "block": {
+      "readPost": "{type}を読む",
+      "continueReading": "続きを読む"
     }
   },
   "newsletter": {
@@ -248,6 +252,23 @@
         "extendedDescription": "限定コンテンツ、業界ディスカッション、ネットワーキング機会のために当社のプロフェッショナルネットワークにご参加ください。"
       }
     }
+  },
+  "productCard": {
+    "tag": "製品",
+    "casLabel": "CAS:",
+    "keyProperties": "主要特性",
+    "applications": "用途",
+    "applicationsUseCases": "用途・使用例",
+    "chemicalStructure": "化学構造",
+    "requestQuote": "見積もり依頼",
+    "viewDetails": "詳細を見る",
+    "moreApplications": "+{count}件の追加"
+  },
+  "categoryCard": {
+    "tag": "製品カテゴリー",
+    "keyProducts": "主要製品",
+    "applicationsUseCases": "用途・使用例",
+    "exploreCategory": "カテゴリーを探索"
   },
   "footer": {
     "sections": {

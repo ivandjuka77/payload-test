@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Product, ProductCategory } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { useTranslations } from 'next-intl'
 
 export default function CategoryCard({
   category,
@@ -12,6 +13,7 @@ export default function CategoryCard({
   category: ProductCategory
   variant?: 'default' | 'compact'
 }) {
+  const t = useTranslations('categoryCard')
   const featuredProducts = category.featuredProducts as Product[]
 
   return (
@@ -30,7 +32,7 @@ export default function CategoryCard({
           className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4"
           type="product"
         >
-          Product Category
+          {t('tag')}
         </Tag>
       </div>
 
@@ -50,7 +52,7 @@ export default function CategoryCard({
         {variant === 'default' && (
           <div className="my-4 sm:my-5 md:my-6 flex-1">
             <h4 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-gray-900 uppercase tracking-wider">
-              Key Products
+              {t('keyProducts')}
             </h4>
             <div className="space-y-2 sm:space-y-3 border-l-2 border-primary/20 pl-2 sm:pl-3 md:pl-4">
               {featuredProducts?.slice(0, 3).map((product) => (
@@ -73,7 +75,7 @@ export default function CategoryCard({
         <div className="mb-4 sm:mb-5 md:mb-6 bg-gray-50 rounded-lg p-2 sm:p-3 md:p-4 border border-gray-100">
           <h4 className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-gray-900 flex items-center">
             <Beaker className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
-            Applications & Use Cases
+            {t('applicationsUseCases')}
           </h4>
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {category.applications?.slice(0, 3).map((application, idx) => (
@@ -95,7 +97,7 @@ export default function CategoryCard({
         <div className="flex w-full items-center gap-2 mt-auto">
           <Link href={`/products/category/${category.slug}`} className="w-full">
             <Button variant="default" className="w-full text-sm sm:text-base">
-              Explore Category
+              {t('exploreCategory')}
               <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2" />
             </Button>
           </Link>

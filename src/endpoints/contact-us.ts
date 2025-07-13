@@ -260,6 +260,7 @@ export function contactUsEn({ contactForm }: ContactUsArgs) {
     },
     slug: 'contact',
     slugLock: true,
+    _status: 'published' as const,
   }
 }
 
@@ -521,6 +522,7 @@ export function contactUsSk({ contactForm }: ContactUsArgs) {
     },
     slug: 'contact',
     slugLock: true,
+    _status: 'published' as const,
   }
 }
 
@@ -782,5 +784,6 @@ export function contactUsJp({ contactForm }: ContactUsArgs) {
     },
     slug: 'contact',
     slugLock: true,
+    _status: 'published' as const,
   }
 }

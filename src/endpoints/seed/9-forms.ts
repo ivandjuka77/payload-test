@@ -200,6 +200,145 @@ export const seedForms = async (payload: Payload) => {
 
   payload.logger.info(`✓ Contact Form created with ID: ${contactFormDoc.id}`)
 
+  // -------------------------------------------------------------------
+  // 3. Add Slovak (sk) localization
+  // -------------------------------------------------------------------
+  await payload.update({
+    collection: 'forms',
+    id: contactFormDoc.id,
+    locale: 'sk',
+    data: {
+      title: 'Kontaktný formulár',
+      submitButtonLabel: 'Odoslať správu',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Ďakujeme, že ste sa na nás obrátili. Člen nášho tímu vás bude kontaktovať do 24 hodín.',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          blockType: 'text',
+          name: 'name',
+          label: 'Meno',
+        },
+        {
+          blockType: 'email',
+          name: 'email',
+          label: 'E-mail',
+        },
+        {
+          blockType: 'select',
+          name: 'subject',
+          label: 'Predmet',
+          options: [
+            {
+              label: 'Dopyt na produkt',
+              value: 'product',
+            },
+            {
+              label: 'Technická podpora',
+              value: 'support',
+            },
+            {
+              label: 'Partnerstvo',
+              value: 'partnership',
+            },
+            {
+              label: 'Iné',
+              value: 'other',
+            },
+          ],
+        },
+        {
+          blockType: 'textarea',
+          name: 'message',
+          label: 'Správa',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Slovak (sk) localization added.')
+
+  await payload.update({
+    collection: 'forms',
+    id: contactFormDoc.id,
+    locale: 'jp',
+    data: {
+      title: 'お問い合わせフォーム',
+      submitButtonLabel: 'メッセージを送信',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'お問い合わせいただきありがとうございます。24時間以内に担当者よりご連絡いたします。',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          blockType: 'text',
+          name: 'name',
+          label: 'お名前',
+        },
+        {
+          blockType: 'email',
+          name: 'email',
+          label: 'メールアドレス',
+        },
+        {
+          blockType: 'select',
+          name: 'subject',
+          label: '件名',
+          options: [
+            {
+              label: '製品に関するお問い合わせ',
+              value: 'product',
+            },
+            {
+              label: '技術サポート',
+              value: 'support',
+            },
+            {
+              label: 'パートナーシップ',
+              value: 'partnership',
+            },
+            {
+              label: 'その他',
+              value: 'other',
+            },
+          ],
+        },
+        {
+          blockType: 'textarea',
+          name: 'message',
+          label: 'メッセージ',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Japanese (jp) localization added.')
+
   // Create Product Inquiry Form
   const productInquiryForm = await payload.create({
     collection: 'forms',
