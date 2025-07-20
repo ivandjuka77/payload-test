@@ -15,10 +15,12 @@ export const ContentImage: Block = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
     },
     {
       name: 'content',
       type: 'richText',
+      localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
@@ -36,6 +38,12 @@ export const ContentImage: Block = {
       type: 'upload',
       relationTo: 'media',
       required: true,
+    },
+    {
+      name: 'layout',
+      type: 'select',
+      options: ['left', 'right'],
+      defaultValue: 'left',
     },
   ],
 }

@@ -7,6 +7,7 @@ import { ArrowRight, Mail, Linkedin, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
 import { cn } from '@/utilities/ui'
+import { useTranslations, useLocale } from 'next-intl'
 
 interface NewsletterProps {
   className?: string
@@ -15,12 +16,17 @@ interface NewsletterProps {
 
 export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
   const [email, setEmail] = useState('')
+  const t = useTranslations('newsletter')
+  const locale = useLocale()
+
+  // Debug logging
+  console.log('Newsletter component - Current locale:', locale)
+  console.log('Newsletter component - Translation test:', t('badge'))
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    toast.success('Successfully subscribed!', {
-      description:
-        'We welcome you to the VUP community - You will receive our next newsletter in your inbox.',
+    toast.success(t('toast.success'), {
+      description: t('toast.description'),
     })
     setEmail('')
   }
@@ -30,7 +36,8 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
       icon: Linkedin,
       href: 'https://linkedin.com/company/vup',
       label: 'LinkedIn',
-      description: 'Follow us for industry insights and company updates',
+      description: t('social.linkedin.description'),
+      extendedDescription: t('social.linkedin.extendedDescription'),
       isPrimary: true,
     },
   ]
@@ -53,10 +60,12 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
             )}
           >
             <Mail className="w-4 h-4 mr-2" />
-            <span>Newsletter</span>
+            <span>
+              {t('badge')} ({locale})
+            </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight font-primary mb-6">
-            Stay Informed with VUP Insights
+            {t('title')}
           </h2>
           <p
             className={cn(
@@ -64,14 +73,13 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
               variant === 'white' ? 'text-muted-foreground' : 'text-white/80',
             )}
           >
-            Subscribe to receive industry overviews, chemical trends, and product updates directly
-            in your inbox.
+            {t('description')}
           </p>
           <form onSubmit={handleSubmit} className="max-w-3xl mx-auto mb-16">
             <div className="flex flex-col sm:flex-row gap-4">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('form.emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -89,7 +97,7 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
                   variant === 'white' ? '' : 'bg-white text-primary hover:bg-white/90',
                 )}
               >
-                <span className="hidden sm:inline">Subscribe</span>
+                <span className="hidden sm:inline">{t('form.subscribe')}</span>
                 <ArrowRight className="h-5 w-5 sm:ml-2" />
               </Button>
             </div>
@@ -99,15 +107,15 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
                 variant === 'white' ? 'text-muted-foreground' : 'text-white/80',
               )}
             >
-              By subscribing, you agree to our{' '}
+              {t('form.privacyText')}{' '}
               <Link
-                href="/privacy-policy"
+                href={`/${locale}/privacy-policy`}
                 className={cn(
                   'underline',
                   variant === 'white' ? 'hover:text-primary' : 'hover:text-white',
                 )}
               >
-                Privacy Policy
+                {t('form.privacyLink')}
               </Link>
               .
             </p>
@@ -119,7 +127,7 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
             )}
           />
           <div>
-            <h3 className="text-2xl font-bold font-primary mb-6">Connect With Us</h3>
+            <h3 className="text-2xl font-bold font-primary mb-6">{t('social.title')}</h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {socialLinks.map((social) => (
                 <div
@@ -184,7 +192,7 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
                             ? 'bg-white text-primary hover:bg-white/90'
                             : 'bg-white/5 text-white hover:bg-white/10',
                       )}
-                      aria-label={`Visit our ${social.label} page`}
+                      aria-label={t('social.visitPage', { platform: social.label })}
                     >
                       <ExternalLink className="w-5 h-5" />
                     </Link>
@@ -196,10 +204,7 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
                         variant === 'white' ? 'text-muted-foreground' : 'text-white/80',
                       )}
                     >
-                      <p>
-                        Join our professional network for exclusive content, industry discussions,
-                        and networking opportunities.
-                      </p>
+                      <p>{social.extendedDescription}</p>
                     </div>
                   )}
                 </div>

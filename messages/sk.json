@@ -1,0 +1,312 @@
+{
+  "productCategory": {
+    "productCategory": "Kategória produktov",
+    "exploreProperties": "Preskúmať vlastnosti",
+    "ourProductPortfolio": "Naše portfólio {categoryName}",
+    "ourProductPortfolioDescription": "Objavte náš sortiment vysokokvalitných produktov {categoryName} pre vaše špecifické aplikačné potreby.",
+    "industryApplications": "Priemyselné aplikácie pre {categoryName}",
+    "industryApplicationsDescription": "Naše {categoryName} slúžia rôznorodým aplikáciám v priemyselných sektoroch.",
+    "needTechnicalSupport": "Potrebujete technickú podporu alebo informácie o produktoch?",
+    "needTechnicalSupportDescription": "Naši odborníci sú pripravení pomôcť vám s výberom {categoryName} a aplikačným poradenstvom pre vaše špecifické potreby.",
+    "contactOurExperts": "Kontaktujte našich odborníkov"
+  },
+  "industry": {
+    "hero": {
+      "exploreSolutions": "Preskúmať riešenia",
+      "keyApplications": "Kľúčové aplikácie",
+      "learnMore": "Dozvedieť sa viac"
+    },
+    "challenges": {
+      "title": "Priemyselné výzvy",
+      "description": "Objavte jedinečné výzvy, ktorým čelí {industryName} a ako môžu riešenia VUP pomôcť ich prekonať.",
+      "challenge": "Výzva:",
+      "vupSolutions": "Riešenia VUP:",
+      "relevantProducts": "Relevantné produkty",
+      "relevantServices": "Relevantné služby",
+      "viewAllProducts": "Zobraziť všetky produkty",
+      "viewAllServices": "Zobraziť všetky služby"
+    },
+    "showcase": {
+      "title": "Vybrané produkty VUP",
+      "description": "Preskúmajte naše hlavné portfólio chemických intermediátov a riešení pre toto odvetvie",
+      "noProductsFound": "Žiadne produkty nenájdené"
+    }
+  },
+  "product": {
+    "hero": {
+      "badge": "Produkt",
+      "chemicalName": "Chemický názov",
+      "molecularFormula": "Molekulárna formula",
+      "casNumber": "CAS číslo",
+      "requestQuote": "Vyžiadať cenové ponuku"
+    },
+    "sections": {
+      "technicalSpecifications": "Technické špecifikácie",
+      "keyFeatures": "Kľúčové vlastnosti & výhody",
+      "applications": "Aplikácie",
+      "caseStudies": "Prípadové štúdie",
+      "productDetails": "Informácie o produkte & technické dokumenty",
+      "faq": "Často kladené otázky",
+      "relatedProducts": "Súvisiace produkty"
+    },
+    "descriptions": {
+      "technicalSpecifications": "Objavte technické špecifikácie našich produktov {productName}.",
+      "keyFeatures": "Objavte jedinečné výhody {productName} od VUP pre vaše aplikácie.",
+      "applications": "Objavte aplikácie našich produktov {productName}.",
+      "caseStudies": "Objavte prípadové štúdie našich produktov {productName}.",
+      "productDetails": "Základné informácie a dokumentácia pre {productName}",
+      "faq": "Objavte často kladené otázky o našich produktoch {productName}.",
+      "relatedProducts": "Objavte súvisiace produkty k našim produktom {productName}."
+    },
+    "tables": {
+      "chemicalIdentity": {
+        "title": "Chemická identita",
+        "chemicalName": "Chemický názov",
+        "synonyms": "Synonymá",
+        "casNumber": "CAS číslo",
+        "ecNumber": "EC číslo",
+        "molecularFormula": "Molekulárna formula",
+        "molecularWeight": "Molekulárna hmotnosť"
+      },
+      "specifications": {
+        "title": "VUP špecifikácie (štandardný stupeň)",
+        "property": "Vlastnosť",
+        "specification": "Špecifikácia",
+        "appearance": "Vzhľad",
+        "purity": "Čistota",
+        "acidValue": "Kyslé číslo",
+        "hydroxylValue": "Hydroxylové číslo",
+        "waterContent": "Obsah vody",
+        "ashContent": "Obsah popola",
+        "note": "Poznámka: Špecifikácie uvedené vyššie sú typické hodnoty a nemali by sa považovať za zaručenú analýzu."
+      }
+    },
+    "productInfo": {
+      "title": "Identifikácia produktu",
+      "description": "Kľúčové podrobnosti a identifikátory produktu",
+      "documents": {
+        "title": "Technické dokumenty",
+        "description": "Stiahnuť dokumentáciu produktu",
+        "tds": {
+          "title": "Technický dátový list (TDS)",
+          "description": "Kompletné technické špecifikácie, fyzikálne vlastnosti a aplikačné informácie pre {productName}"
+        },
+        "sds": {
+          "title": "Bezpečnostný dátový list (SDS)",
+          "description": "Bezpečnostné informácie, postupy manipulácie a regulačné podrobnosti pre {productName}"
+        }
+      },
+      "cta": {
+        "title": "Potrebujete ďalšie technické informácie alebo regulatórne dokumenty?",
+        "button": "Kontaktujte našu technickú tímu"
+      }
+    },
+    "caseStudies": {
+      "title": "Prípadové štúdie aplikácií",
+      "viewAll": "Zobraziť všetky prípadové štúdie",
+      "readStudy": "Čítať prípadovú štúdiu",
+      "application": "Aplikácia"
+    }
+  },
+  "service": {
+    "hero": {
+      "accreditations": "Akreditácie:",
+      "exploreServices": "Preskúmať služby",
+      "learnMore": "Dozvedieť sa viac"
+    },
+    "features": {
+      "title": "Prečo si vybrať VUP?",
+      "description": "Naše služby {serviceName} sú navrhnuté tak, aby spĺňali vaše špecifické potreby a pomohli vám dosiahnuť vaše ciele."
+    },
+    "subServices": {
+      "title": "Služby {serviceName}",
+      "description": "Od počiatočného konceptu až po škálovateľné procesy, naše R&D služby pokrývajú každý aspekt chemického vývoja. Každá služba je podporená našimi 70+ ročnými skúsenosťami a najmodernejšími zariadeniami."
+    },
+    "team": {
+      "title": "Tím {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom."
+    },
+    "industries": {
+      "title": "Odvetvia {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom."
+    },
+    "caseStudies": {
+      "title": "Prípadové štúdie {serviceName}",
+      "description": "Náš tím je odhodlaný poskytovať najkvalitnejšie služby našim klientom. Sme tím skúsených profesionálov, ktorí sa venujú poskytovaniu najlepších možných služieb našim klientom.",
+      "readStudy": "Prečítať prípadovú štúdiu",
+      "viewAll": "Zobraziť všetky prípadové štúdie",
+      "application": "Aplikácia:"
+    }
+  },
+  "productFilter": {
+    "search": {
+      "placeholder": "Hľadať produkty..."
+    },
+    "filters": {
+      "label": "Filtre:",
+      "allCategories": "Všetky kategórie",
+      "allIndustries": "Všetky odvetvia",
+      "allApplications": "Všetky aplikácie",
+      "reset": "Resetovať filtre",
+      "clearAll": "Vymazať všetky filtre",
+      "tryClear": "Skúsiť vymazať filtre"
+    },
+    "results": {
+      "showing": "Zobrazené {start}-{end} z {total} produktov",
+      "noMatches": "Žiadne produkty nezodpovedajú vašim aktuálnym filtrom."
+    },
+    "pagination": {
+      "pageOf": "Strana {current} z {total}"
+    },
+    "errors": {
+      "filterOptions": "Nepodarilo sa načítať možnosti filtra.",
+      "loadProducts": "Nepodarilo sa načítať produkty."
+    }
+  },
+  "header": {
+    "nav": {
+      "about": "O nás",
+      "products": "Produkty",
+      "industries": "Odvetvia",
+      "services": "Služby",
+      "sustainability": "Udržateľnosť",
+      "news": "Novinky",
+      "career": "Kariéra",
+      "contact": "Kontakt"
+    },
+    "products": {
+      "description": "Objavte náš kompletný sortiment chemických produktov a riešení",
+      "viewAll": "Zobraziť všetky produkty"
+    },
+    "industries": {
+      "description": "Preskúmajte, ako chemické riešenia VUP slúžia rôznym odvetviam",
+      "viewAll": "Zobraziť všetky odvetvia"
+    },
+    "services": {
+      "description": "Komplexné služby od výskumu a vývoja až po výrobu",
+      "viewAll": "Zobraziť všetky služby"
+    },
+    "mobile": {
+      "brand": "VUP",
+      "tagline": "Chémia"
+    },
+    "language": {
+      "label": "Jazyk",
+      "current": "SK",
+      "en": "Angličtina",
+      "sk": "Slovenčina",
+      "jp": "Japončina"
+    }
+  },
+  "industries": {
+    "showcase": {
+      "title": "Odvetvia, ktoré obsluhujeme",
+      "subtitle": "Objavte, ako naše chemické riešenia poháňajú inovácie v rôznych odvetviach"
+    }
+  },
+  "industryCard": {
+    "keyApplications": "Kľúčové aplikácie",
+    "featuredProducts": "Odporúčané produkty",
+    "moreItems": "+{count} ďalších",
+    "exploreSolutions": "Preskúmajte riešenia pre {industryName}"
+  },
+  "sustainabilityPartner": {
+    "badge": "Partnerstvo s nami",
+    "title": "Partnerstvo s udržateľným lídrom",
+    "description": "Naše strieborné hodnotenie EcoVadis a dlhodobé certifikácie sú dôkazom našej oddanosti. Prediskutujme, ako môže naša angažovanosť podporiť vaše ciele udržateľnosti.",
+    "contactUs": "Kontaktujte nás",
+    "viewCertifications": "Zobraziť naše certifikácie"
+  },
+  "news": {
+    "hero": {
+      "title": "Najnovšie správy, poznatky a výskum od VUP",
+      "description": "Zostaňte informovaní o našich najnovších inováciách, výskumných prielomoch a odborných poznatkov v oblasti udržateľnej chémie."
+    },
+    "meta": {
+      "title": "Správy a poznatky - VUP"
+    },
+    "block": {
+      "readPost": "Čítať {type}",
+      "continueReading": "Pokračovať v čítaní"
+    }
+  },
+  "newsletter": {
+    "badge": "Newsletter",
+    "title": "Zostaňte informovaní s poznatkami VUP",
+    "description": "Odoberajte náš newsletter a dostávajte priehľady o odvetví, chemické trendy a aktualizácie produktov priamo do vašej schránky.",
+    "form": {
+      "emailPlaceholder": "Zadajte váš email",
+      "subscribe": "Odoberať",
+      "privacyText": "Odoberaním súhlasíte s našimi",
+      "privacyLink": "Pravidlami ochrany súkromia"
+    },
+    "toast": {
+      "success": "Úspešne ste sa prihlásili!",
+      "description": "Vítame vás v komunite VUP - náš ďalší newsletter dostanete do vašej schránky."
+    },
+    "social": {
+      "title": "Spojte sa s nami",
+      "visitPage": "Navštívte našu stránku na {platform}",
+      "linkedin": {
+        "description": "Sledujte nás pre poznatky z odvetvia a novinky o spoločnosti",
+        "extendedDescription": "Pripojte sa k našej profesionálnej sieti pre exkluzívny obsah, diskusie o odvetví a networking príležitosti."
+      }
+    }
+  },
+  "productCard": {
+    "tag": "Produkt",
+    "casLabel": "CAS:",
+    "keyProperties": "Kľúčové vlastnosti",
+    "applications": "Aplikácie",
+    "applicationsUseCases": "Aplikácie a prípady použitia",
+    "chemicalStructure": "Chemická štruktúra",
+    "requestQuote": "Vyžiadať cenové ponuku",
+    "viewDetails": "Zobraziť podrobnosti",
+    "moreApplications": "+{count} ďalších"
+  },
+  "categoryCard": {
+    "tag": "Kategória produktov",
+    "keyProducts": "Kľúčové produkty",
+    "applicationsUseCases": "Aplikácie a prípady použitia",
+    "exploreCategory": "Preskúmať kategóriu"
+  },
+  "footer": {
+    "sections": {
+      "company": "Spoločnosť",
+      "products": "Produkty",
+      "support": "Podpora",
+      "legal": "Právne"
+    },
+    "links": {
+      "aboutUs": "O nás",
+      "careers": "Kariéra",
+      "news": "Novinky",
+      "contact": "Kontakt",
+      "chemicals": "Chemikálie",
+      "polymers": "Polyméry",
+      "catalysts": "Katalyzátory",
+      "customSolutions": "Vlastné riešenia",
+      "helpCenter": "Centrum pomoci",
+      "faqs": "Často kladené otázky",
+      "documentation": "Dokumentácia",
+      "safetyData": "Bezpečnostné údaje",
+      "privacyPolicy": "Ochrana súkromia",
+      "cookiePolicy": "Pravidlá cookies",
+      "termsConditions": "Obchodné podmienky",
+      "sitemap": "Mapa stránky"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "researchgate": "ResearchGate"
+    },
+    "copyright": "© {year} VUP Chemicals, a.s. Všetky práva vyhradené.",
+    "newsletter": {
+      "title": "Zostaňte informovaní s VUP Insights",
+      "description": "Prihláste sa na odber nášho newslettra pre prehľady odvetví, chemické trendy a aktualizácie GTC.",
+      "emailPlaceholder": "Vaša e-mailová adresa",
+      "subscribeButton": "Prihlásiť sa",
+      "privacyNotice": "Prihlásením sa súhlasíte s našimi zásadami ochrany osobných údajov."
+    }
+  }
+}

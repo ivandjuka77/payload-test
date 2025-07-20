@@ -10,25 +10,30 @@ export const QuickAccess: Block = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'cards',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'description',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'backgroundImage',
@@ -39,6 +44,7 @@ export const QuickAccess: Block = {
         linkGroup({
           overrides: {
             maxRows: 1,
+            localized: true,
           },
         }),
       ],

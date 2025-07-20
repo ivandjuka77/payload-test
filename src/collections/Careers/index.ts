@@ -24,18 +24,36 @@ export const Careers: CollectionConfig = {
   versions: {
     drafts: true,
   },
+  labels: {
+    singular: {
+      sk: 'Pracovná ponuka',
+      en: 'Career',
+    },
+    plural: {
+      sk: 'Pracovné ponuky',
+      en: 'Careers',
+    },
+  },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Title',
+      },
     },
     {
       name: 'category',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Kategória',
+        en: 'Category',
+      },
       admin: {
         description: 'e.g. Engineering, Marketing, Sales, etc.',
       },
@@ -44,6 +62,10 @@ export const Careers: CollectionConfig = {
       name: 'location',
       type: 'text',
       required: true,
+      label: {
+        sk: 'Lokalita',
+        en: 'Location',
+      },
       admin: {
         description: 'City, Country or Remote',
       },
@@ -52,21 +74,37 @@ export const Careers: CollectionConfig = {
       name: 'type',
       type: 'select',
       required: true,
+      label: {
+        sk: 'Typ úväzku',
+        en: 'Employment Type',
+      },
       options: [
         {
-          label: 'Full-time',
+          label: {
+            sk: 'Plný úväzok',
+            en: 'Full-time',
+          },
           value: 'fulltime',
         },
         {
-          label: 'Part-time',
+          label: {
+            sk: 'Čiastočný úväzok',
+            en: 'Part-time',
+          },
           value: 'parttime',
         },
         {
-          label: 'Internship',
+          label: {
+            sk: 'Stáž',
+            en: 'Internship',
+          },
           value: 'intern',
         },
         {
-          label: 'Contract',
+          label: {
+            sk: 'Kontrakt',
+            en: 'Contract',
+          },
           value: 'contract',
         },
       ],
@@ -86,16 +124,38 @@ export const Careers: CollectionConfig = {
       }),
       required: true,
       localized: true,
+      label: {
+        sk: 'Popis',
+        en: 'Description',
+      },
     },
     {
       name: 'keyResponsibilities',
       type: 'array',
       required: true,
+      label: {
+        sk: 'Kľúčové zodpovednosti',
+        en: 'Key Responsibilities',
+      },
+      labels: {
+        singular: {
+          sk: 'Kľúčová zodpovednosť',
+          en: 'Key Responsibility',
+        },
+        plural: {
+          sk: 'Kľúčové zodpovednosti',
+          en: 'Key Responsibilities',
+        },
+      },
       fields: [
         {
           name: 'responsibility',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Zodpovednosť',
+            en: 'Responsibility',
+          },
         },
       ],
       admin: {
@@ -106,11 +166,29 @@ export const Careers: CollectionConfig = {
       name: 'requirements',
       type: 'array',
       required: true,
+      label: {
+        sk: 'Požiadavky',
+        en: 'Requirements',
+      },
+      labels: {
+        singular: {
+          sk: 'Požiadavka',
+          en: 'Requirement',
+        },
+        plural: {
+          sk: 'Požiadavky',
+          en: 'Requirements',
+        },
+      },
       fields: [
         {
           name: 'requirement',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Požiadavka',
+            en: 'Requirement',
+          },
         },
       ],
       admin: {
@@ -120,11 +198,29 @@ export const Careers: CollectionConfig = {
     {
       name: 'preferredQualifications',
       type: 'array',
+      label: {
+        sk: 'Preferované kvalifikácie',
+        en: 'Preferred Qualifications',
+      },
+      labels: {
+        singular: {
+          sk: 'Preferovaná kvalifikácia',
+          en: 'Preferred Qualification',
+        },
+        plural: {
+          sk: 'Preferované kvalifikácie',
+          en: 'Preferred Qualifications',
+        },
+      },
       fields: [
         {
           name: 'qualification',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Kvalifikácia',
+            en: 'Qualification',
+          },
         },
       ],
       admin: {
@@ -134,11 +230,29 @@ export const Careers: CollectionConfig = {
     {
       name: 'benefits',
       type: 'array',
+      label: {
+        sk: 'Benefity',
+        en: 'Benefits',
+      },
+      labels: {
+        singular: {
+          sk: 'Benefit',
+          en: 'Benefit',
+        },
+        plural: {
+          sk: 'Benefity',
+          en: 'Benefits',
+        },
+      },
       fields: [
         {
           name: 'benefit',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Benefit',
+            en: 'Benefit',
+          },
         },
       ],
       admin: {

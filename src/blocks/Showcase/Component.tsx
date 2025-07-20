@@ -70,15 +70,15 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   }
 
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-gray-50/50">
-      <div className="container px-4 sm:px-5 md:px-6">
+    <section className="relative w-full py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-gray-50/50 px-4 sm:px-6 lg:px-0">
+      <div className="container">
         {/* Section header */}
         <div className="flex flex-col items-center text-center max-w-[800px] sm:max-w-[900px] mx-auto mb-10 sm:mb-12 md:mb-16 lg:mb-24">
           <h2 className="font-bold tracking-tighter font-primary mb-3 sm:mb-4 relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             {title}
           </h2>
 
-          <p className="text-muted-foreground font-secondary max-w-2xl sm:max-w-3xl mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl px-4 sm:px-0">
+          <p className="text-muted-foreground font-secondary max-w-2xl sm:max-w-3xl mt-4 sm:mt-5 md:mt-6 text-base sm:text-lg md:text-xl">
             {description}
           </p>
         </div>

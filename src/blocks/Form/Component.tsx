@@ -6,6 +6,8 @@ import React, { useCallback, useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import RichText from '@/components/RichText'
 import { Button } from '@/components/ui/button'
+import { CMSLink } from '@/components/Link'
+import { Mail, Phone, Globe, ArrowRight, CheckCircle2 } from 'lucide-react'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 import { fields } from './fields'
@@ -114,49 +116,161 @@ export const FormBlock: React.FC<
   )
 
   return (
-    <div className="container lg:max-w-[48rem]">
+    <div className="container px-4 md:px-6  py-12 md:py-24">
       {enableIntro && introContent && !hasSubmitted && (
-        <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <Mail className="w-4 h-4 mr-2" />
+            <span>Contact Us</span>
+          </div>
+          <RichText className="mb-4" data={introContent} enableGutter={false} />
+        </div>
       )}
-      <div className="p-4 lg:p-6 border border-border rounded-[0.8rem]">
-        <FormProvider {...formMethods}>
-          {!isLoading && hasSubmitted && confirmationType === 'message' && (
-            <RichText data={confirmationMessage} />
-          )}
-          {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
-          {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
-          {!hasSubmitted && (
-            <form id={formID} onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex flex-wrap -mx-2 mb-4">
-                {formFromProps &&
-                  formFromProps.fields &&
-                  formFromProps.fields?.map((field, index) => {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const Field: React.FC<any> = fields?.[field.blockType as keyof typeof fields]
-                    if (Field) {
-                      return (
-                        <React.Fragment key={index}>
-                          <Field
-                            form={formFromProps}
-                            {...field}
-                            {...formMethods}
-                            control={control}
-                            errors={errors}
-                            register={register}
-                          />
-                        </React.Fragment>
-                      )
-                    }
-                    return null
-                  })}
-              </div>
 
-              <Button form={formID} type="submit" variant="default">
-                {submitButtonLabel}
+      <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="grid md:grid-cols-5">
+          {/* Contact info sidebar */}
+          <div className="md:col-span-2 bg-primary/5 p-8 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl font-bold mb-6 font-primary">How to reach us</h3>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 text-primary">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium font-primary">Email</h4>
+                    <p className="text-muted-foreground font-secondary">contact@vupchemicals.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 text-primary">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium font-primary">Phone</h4>
+                    <p className="text-muted-foreground font-secondary">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-full bg-primary/10 text-primary">
+                    <Globe className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium font-primary">Global Presence</h4>
+                    <p className="text-muted-foreground font-secondary">Offices in 12 countries</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 pt-6 border-t border-primary/10">
+              <p className="text-sm text-muted-foreground mb-4 font-secondary">
+                Looking for career opportunities?
+              </p>
+              <Button asChild variant="outline" size="sm">
+                <CMSLink type="custom" url="/career" className="inline-flex items-center gap-2">
+                  Visit our careers page
+                  <ArrowRight className="h-3 w-3" />
+                </CMSLink>
               </Button>
-            </form>
-          )}
-        </FormProvider>
+            </div>
+          </div>
+
+          {/* Form section */}
+          <div className="md:col-span-3 p-8">
+            <FormProvider {...formMethods}>
+              {isLoading && !hasSubmitted && (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+                  <p className="text-muted-foreground">Sending your message...</p>
+                </div>
+              )}
+
+              {!isLoading && hasSubmitted && confirmationType === 'message' && (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <CheckCircle2 className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 font-primary">Message Sent</h3>
+                  <div className="text-muted-foreground mb-6 max-w-md font-secondary">
+                    {confirmationMessage ? (
+                      <RichText data={confirmationMessage} />
+                    ) : (
+                      <p>
+                        Thank you for reaching out. A member of our team will contact you within 24
+                        hours.
+                      </p>
+                    )}
+                  </div>
+                  <Button variant="outline" onClick={() => setHasSubmitted(false)}>
+                    Send Another Message
+                  </Button>
+                </div>
+              )}
+
+              {error && (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <Mail className="h-8 w-8 text-red-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 font-primary text-red-600">Error</h3>
+                  <p className="text-muted-foreground mb-6 max-w-md font-secondary">
+                    {`${error.status || '500'}: ${error.message || 'Something went wrong.'}`}
+                  </p>
+                  <Button variant="outline" onClick={() => setError(undefined)}>
+                    Try Again
+                  </Button>
+                </div>
+              )}
+
+              {!hasSubmitted && !isLoading && !error && (
+                <form id={formID} onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="flex flex-wrap -mx-2">
+                    {formFromProps &&
+                      formFromProps.fields &&
+                      formFromProps.fields?.map((field, index) => {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        const Field: React.FC<any> =
+                          fields?.[field.blockType as keyof typeof fields]
+                        if (Field) {
+                          return (
+                            <React.Fragment key={index}>
+                              <Field
+                                form={formFromProps}
+                                {...field}
+                                {...formMethods}
+                                control={control}
+                                errors={errors}
+                                register={register}
+                              />
+                            </React.Fragment>
+                          )
+                        }
+                        return null
+                      })}
+                  </div>
+
+                  <div className="pt-2">
+                    <Button type="submit" className="w-full h-12 rounded-lg">
+                      {submitButtonLabel || 'Send Message'}
+                    </Button>
+                    <p className="text-xs text-center text-muted-foreground mt-4 font-secondary">
+                      By submitting this form, you agree to our{' '}
+                      <CMSLink type="custom" url="/privacy" className="underline">
+                        Privacy Policy
+                      </CMSLink>
+                      .
+                    </p>
+                  </div>
+                </form>
+              )}
+            </FormProvider>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -18,30 +18,56 @@ export const Industries: CollectionConfig = {
   versions: {
     drafts: true,
   },
+  labels: {
+    singular: {
+      sk: 'Oblasť priemyslu',
+      en: 'Industry',
+    },
+    plural: {
+      sk: 'Oblasti priemyslu',
+      en: 'Industries',
+    },
+  },
   fields: [
     {
       name: 'name',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Name',
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
       localized: true,
+      label: {
+        sk: 'Popis',
+        en: 'Description',
+      },
     },
     {
       name: 'summary',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Zhrnutie',
+        en: 'Summary',
+      },
     },
     {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',
       required: true,
+      label: {
+        sk: 'Hlavný obrázok',
+        en: 'Featured Image',
+      },
     },
 
     {
@@ -50,6 +76,10 @@ export const Industries: CollectionConfig = {
       relationTo: 'products',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Kľúčové produkty',
+        en: 'Key Products',
+      },
     },
     {
       name: 'productCategories',
@@ -57,6 +87,10 @@ export const Industries: CollectionConfig = {
       relationTo: 'productCategories',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Kategórie produktov',
+        en: 'Product Categories',
+      },
     },
     {
       name: 'services',
@@ -64,38 +98,77 @@ export const Industries: CollectionConfig = {
       relationTo: 'services',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Služby',
+        en: 'Services',
+      },
     },
     {
       name: 'challenges',
       type: 'array',
+      localized: true,
+      label: {
+        sk: 'Výzvy',
+        en: 'Challenges',
+      },
+      labels: {
+        singular: {
+          sk: 'Výzva',
+          en: 'Challenge',
+        },
+        plural: {
+          sk: 'Výzvy',
+          en: 'Challenges',
+        },
+      },
       fields: [
         {
           name: 'title',
           type: 'text',
           required: true,
           localized: true,
+          label: {
+            sk: 'Názov',
+            en: 'Title',
+          },
         },
         {
           name: 'challenge',
           type: 'textarea',
           required: true,
           localized: true,
+          label: {
+            sk: 'Popis výzvy',
+            en: 'Challenge Description',
+          },
         },
         {
           name: 'solution',
           type: 'textarea',
           required: true,
           localized: true,
+          label: {
+            sk: 'Popis riešenia',
+            en: 'Solution Description',
+          },
         },
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
           required: true,
+          label: {
+            sk: 'Obrázok',
+            en: 'Image',
+          },
         },
         {
           name: 'challengeLink',
           type: 'text',
+          label: {
+            sk: 'Odkaz na výzvu',
+            en: 'Challenge Link',
+          },
         },
         {
           name: 'relatedProducts',
@@ -103,6 +176,10 @@ export const Industries: CollectionConfig = {
           relationTo: 'products',
           hasMany: true,
           maxDepth: 3,
+          label: {
+            sk: 'Súvisiace produkty',
+            en: 'Related Products',
+          },
         },
         {
           name: 'relatedServices',
@@ -110,6 +187,10 @@ export const Industries: CollectionConfig = {
           relationTo: 'services',
           hasMany: true,
           maxDepth: 3,
+          label: {
+            sk: 'Súvisiace služby',
+            en: 'Related Services',
+          },
         },
         {
           name: 'caseStudies',
@@ -117,6 +198,10 @@ export const Industries: CollectionConfig = {
           relationTo: 'caseStudies',
           hasMany: true,
           maxDepth: 3,
+          label: {
+            sk: 'Prípadové štúdie',
+            en: 'Case Studies',
+          },
         },
       ],
     },

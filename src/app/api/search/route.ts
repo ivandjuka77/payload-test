@@ -4,7 +4,7 @@ import configPromise from '@/payload.config'
 
 export async function POST(request: NextRequest) {
   try {
-    const { query } = await request.json()
+    const { query, locale } = await request.json()
 
     if (!query || typeof query !== 'string' || query.trim() === '') {
       return NextResponse.json({ docs: [], totalDocs: 0 })
@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
       collection: 'search',
       depth: 1,
       limit: 12,
+      locale,
       select: {
         title: true,
         slug: true,

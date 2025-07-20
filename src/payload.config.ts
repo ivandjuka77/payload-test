@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+// import { sqliteAdapter } from '@payloadcms/db-sqlite'
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -7,6 +8,7 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { ProductCategories } from './collections/ProductCategories'
+import { ProductDocuments } from './collections/ProductDocuments'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -22,6 +24,9 @@ import { CaseStudies } from './collections/CaseStudies'
 import { Services } from './collections/Services'
 import { TeamMembers } from './collections/TeamMembers'
 import { Careers } from './collections/Careers'
+
+import { sk } from '@payloadcms/translations/languages/sk'
+import { en } from '@payloadcms/translations/languages/en'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -76,9 +81,10 @@ export default buildConfig({
   // }),
   db: postgresAdapter({
     pool: {
-      max: 3,
+      max: 4,
       connectionString: process.env.DATABASE_URI,
     },
+    // logger: true,
   }),
 
   //* -------- COLLECTIONS -------- *//
@@ -94,6 +100,7 @@ export default buildConfig({
     Services,
     TeamMembers,
     Careers,
+    ProductDocuments,
   ],
   //* -------- /COLLECTIONS -------- *//
 
@@ -140,5 +147,12 @@ export default buildConfig({
     ],
     defaultLocale: 'en',
     fallback: true,
+  },
+  i18n: {
+    supportedLanguages: {
+      sk,
+      en,
+    },
+    fallbackLanguage: 'en',
   },
 })

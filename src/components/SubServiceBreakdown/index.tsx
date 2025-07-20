@@ -12,13 +12,13 @@ type Props = {
 
 export function SubServiceBreakdown({ title, description, services, className }: Props) {
   return (
-    <section className={cn('py-24 bg-white', className)}>
-      <div className="container px-4 md:px-6">
+    <section className={cn('py-24 bg-white px-4 sm:px-6 lg:px-0', className)}>
+      <div className="container">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-primary">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl font-primary">
             {title}
           </h2>
-          <p className="mt-4 text-gray-500 font-secondary max-w-[85%] md:max-w-[65%] lg:max-w-[55%]">
+          <p className="mt-4 text-gray-500 font-secondary max-w-[85%] md:max-w-[65%] lg:max-w-[55%] text-sm md:text-base">
             {description}
           </p>
         </div>
@@ -29,8 +29,12 @@ export function SubServiceBreakdown({ title, description, services, className }:
                 <div className="flex flex-col lg:flex-row gap-12 mb-12">
                   <div className="flex-1 space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-4xl font-semibold font-primary">{service.title}</h3>
-                      <p className="text-lg text-gray-600 font-secondary">{service.description}</p>
+                      <h3 className="text-2xl md:text-3xl font-semibold font-primary">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600 font-secondary">
+                        {service.description}
+                      </p>
                     </div>
                     {service.displayItems && service.displayItems.length > 0 && (
                       <div className="flex flex-wrap gap-3">
@@ -56,10 +60,12 @@ export function SubServiceBreakdown({ title, description, services, className }:
                     {service.features &&
                       service.features.map((item, itemIndex) => (
                         <div key={itemIndex} className="bg-gray-50/50 p-6 rounded-lg">
-                          <h4 className="text-xl font-semibold mb-3 font-primary text-primary">
+                          <h4 className="text-lg md:text-xl font-semibold mb-3 font-primary text-primary">
                             {item.feature}
                           </h4>
-                          <p className="text-gray-600 font-secondary">{item.description}</p>
+                          <p className="text-gray-600 font-secondary text-sm md:text-base">
+                            {item.description}
+                          </p>
                         </div>
                       ))}
                   </div>

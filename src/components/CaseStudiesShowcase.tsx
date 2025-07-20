@@ -4,7 +4,21 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-export function CaseStudiesShowcase({ title, description, caseStudies }: any) {
+export function CaseStudiesShowcase({
+  title,
+  description,
+  caseStudies,
+  translations,
+}: {
+  title: string
+  description: string
+  caseStudies: any[]
+  translations?: {
+    readStudy: string
+    viewAll: string
+    application: string
+  }
+}) {
   return (
     <section className="w-full py-20 bg-white">
       <div className="container px-4 md:px-6">
@@ -40,7 +54,10 @@ export function CaseStudiesShowcase({ title, description, caseStudies }: any) {
               <CardContent className="p-5">
                 <h3 className="text-lg font-bold mb-2 font-primary line-clamp-2">{study.title}</h3>
                 <p className="text-xs text-muted-foreground mb-3 font-medium">
-                  <span className="text-primary">Application:</span> {study.application}
+                  <span className="text-primary">
+                    {translations?.application || 'Application:'}:
+                  </span>{' '}
+                  {study.application}
                 </p>
                 <p className="text-sm text-muted-foreground line-clamp-3 font-secondary">
                   {study.problem.substring(0, 120)}...
@@ -50,7 +67,8 @@ export function CaseStudiesShowcase({ title, description, caseStudies }: any) {
               <CardFooter className="p-5 pt-0">
                 <Button variant="ghost" className="text-primary p-0 h-auto" asChild>
                   <a href="#">
-                    Read Case Study <ArrowRight className="ml-1 h-3 w-3" />
+                    {translations?.readStudy || 'Read Case Study'}{' '}
+                    <ArrowRight className="ml-1 h-3 w-3" />
                   </a>
                 </Button>
               </CardFooter>
@@ -65,7 +83,8 @@ export function CaseStudiesShowcase({ title, description, caseStudies }: any) {
             asChild
           >
             <a href="#">
-              View All Case Studies <ArrowRight className="ml-2 h-4 w-4" />
+              {translations?.viewAll || 'View All Case Studies'}{' '}
+              <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>

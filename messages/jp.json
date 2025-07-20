@@ -1,0 +1,312 @@
+{
+  "productCategory": {
+    "productCategory": "製品カテゴリー",
+    "exploreProperties": "特性を探る",
+    "ourProductPortfolio": "当社の{categoryName}ポートフォリオ",
+    "ourProductPortfolioDescription": "お客様の特定の用途ニーズに対応する高品質な{categoryName}製品の範囲をご覧ください。",
+    "industryApplications": "{categoryName}の産業用途",
+    "industryApplicationsDescription": "当社の{categoryName}は、産業分野全体にわたる多様な用途に対応しています。",
+    "needTechnicalSupport": "技術サポートまたは製品情報が必要ですか？",
+    "needTechnicalSupportDescription": "当社の専門家が、お客様の特定のニーズに対する{categoryName}の選択と用途ガイダンスをサポートいたします。",
+    "contactOurExperts": "専門家にお問い合わせ"
+  },
+  "industry": {
+    "hero": {
+      "exploreSolutions": "ソリューションを探る",
+      "keyApplications": "主要アプリケーション",
+      "learnMore": "詳細を見る"
+    },
+    "challenges": {
+      "title": "業界の課題",
+      "description": "{industryName}が直面する独特の課題と、VUPソリューションがそれらを克服する方法をご覧ください。",
+      "challenge": "課題:",
+      "vupSolutions": "VUPソリューション:",
+      "relevantProducts": "関連製品",
+      "relevantServices": "関連サービス",
+      "viewAllProducts": "すべての製品を表示",
+      "viewAllServices": "すべてのサービスを表示"
+    },
+    "showcase": {
+      "title": "VUP注目製品",
+      "description": "この業界向けの化学中間体とソリューションの主要ポートフォリオをご覧ください",
+      "noProductsFound": "製品が見つかりません"
+    }
+  },
+  "product": {
+    "hero": {
+      "badge": "製品",
+      "chemicalName": "化学名",
+      "molecularFormula": "分子式",
+      "casNumber": "CAS番号",
+      "requestQuote": "見積もり依頼"
+    },
+    "sections": {
+      "technicalSpecifications": "技術仕様",
+      "keyFeatures": "主な特徴 & メリット",
+      "applications": "用途",
+      "caseStudies": "ケーススタディ",
+      "productDetails": "製品情報 & 技術文書",
+      "faq": "よくある質問",
+      "relatedProducts": "関連製品"
+    },
+    "descriptions": {
+      "technicalSpecifications": "当社の{productName}製品の技術仕様をご覧ください。",
+      "keyFeatures": "お客様の用途におけるVUPの{productName}の独自の利点をご覧ください。",
+      "applications": "当社の{productName}製品の用途をご覧ください。",
+      "caseStudies": "当社の{productName}製品のケーススタディをご覧ください。",
+      "productDetails": "当社の{productName}製品の重要な情報と文書",
+      "faq": "当社の{productName}製品についてのよくある質問をご覧ください。",
+      "relatedProducts": "当社の{productName}製品の関連製品をご覧ください。"
+    },
+    "tables": {
+      "chemicalIdentity": {
+        "title": "化学的同定",
+        "chemicalName": "化学名",
+        "synonyms": "同義語",
+        "casNumber": "CAS番号",
+        "ecNumber": "EC番号",
+        "molecularFormula": "分子式",
+        "molecularWeight": "分子量"
+      },
+      "specifications": {
+        "title": "VUP仕様（標準グレード）",
+        "property": "特性",
+        "specification": "仕様",
+        "appearance": "外観",
+        "purity": "純度",
+        "acidValue": "酸価",
+        "hydroxylValue": "水酸基価",
+        "waterContent": "水分含有量",
+        "ashContent": "灰分含有量",
+        "note": "注：上記の仕様は標準値であり、保証分析値とは見なされません。"
+      }
+    },
+    "productInfo": {
+      "title": "製品識別",
+      "description": "主要な製品詳細と識別子",
+      "documents": {
+        "title": "技術文書",
+        "description": "製品文書のダウンロード",
+        "tds": {
+          "title": "技術データシート（TDS）",
+          "description": "{productName}の完全な技術仕様、物理的特性、および用途情報"
+        },
+        "sds": {
+          "title": "安全データシート（SDS）",
+          "description": "{productName}の安全情報、取り扱い手順、および規制詳細"
+        }
+      },
+      "cta": {
+        "title": "追加の技術情報または規制文書が必要ですか？",
+        "button": "当社の技術チームにお問い合わせ"
+      }
+    },
+    "caseStudies": {
+      "title": "アプリケーションケーススタディ",
+      "viewAll": "すべてのケーススタディを表示",
+      "readStudy": "ケーススタディを読む",
+      "application": "アプリケーション"
+    }
+  },
+  "service": {
+    "hero": {
+      "accreditations": "認定:",
+      "exploreServices": "サービスを探る",
+      "learnMore": "詳細を見る"
+    },
+    "features": {
+      "title": "なぜVUPを選ぶのか？",
+      "description": "当社の{serviceName}サービスは、お客様の特定のニーズを満たし、目標達成を支援するように設計されています。"
+    },
+    "subServices": {
+      "title": "{serviceName}サービス",
+      "description": "初期コンセプトからスケーラブルなプロセスまで、当社のR&Dサービスは化学開発のあらゆる側面をカバーしています。各サービスは、70年以上の専門知識と最先端の施設によって支えられています。"
+    },
+    "team": {
+      "title": "{serviceName}チーム",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。"
+    },
+    "industries": {
+      "title": "{serviceName}産業",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。"
+    },
+    "caseStudies": {
+      "title": "{serviceName}ケーススタディ",
+      "description": "当社のチームは、お客様に最高品質のサービスを提供することに専念しています。私たちは、お客様に最高のサービスを提供することに専念している経験豊富な専門家チームです。",
+      "readStudy": "ケーススタディを読む",
+      "viewAll": "すべてのケーススタディを表示",
+      "application": "アプリケーション:"
+    }
+  },
+  "productFilter": {
+    "search": {
+      "placeholder": "製品を検索..."
+    },
+    "filters": {
+      "label": "フィルター:",
+      "allCategories": "すべてのカテゴリー",
+      "allIndustries": "すべての業界",
+      "allApplications": "すべてのアプリケーション",
+      "reset": "フィルターをリセット",
+      "clearAll": "すべてのフィルターをクリア",
+      "tryClear": "フィルターをクリアしてみる"
+    },
+    "results": {
+      "showing": "{total}件中{start}-{end}件の製品を表示",
+      "noMatches": "現在のフィルターに一致する製品がありません。"
+    },
+    "pagination": {
+      "pageOf": "{total}ページ中{current}ページ"
+    },
+    "errors": {
+      "filterOptions": "フィルターオプションの読み込みに失敗しました。",
+      "loadProducts": "製品の読み込みに失敗しました。"
+    }
+  },
+  "header": {
+    "nav": {
+      "about": "会社について",
+      "products": "製品",
+      "industries": "業界",
+      "services": "サービス",
+      "sustainability": "持続可能性",
+      "news": "ニュース",
+      "career": "キャリア",
+      "contact": "お問い合わせ"
+    },
+    "products": {
+      "description": "化学製品とソリューションの完全な範囲をご覧ください",
+      "viewAll": "すべての製品を表示"
+    },
+    "industries": {
+      "description": "VUPの化学ソリューションがさまざまな業界にどのようにサービスを提供するかをご覧ください",
+      "viewAll": "すべての業界を表示"
+    },
+    "services": {
+      "description": "研究開発から製造まで包括的なサービス",
+      "viewAll": "すべてのサービスを表示"
+    },
+    "mobile": {
+      "brand": "VUP",
+      "tagline": "化学"
+    },
+    "language": {
+      "label": "言語",
+      "current": "JPN",
+      "en": "英語",
+      "sk": "スロバキア語",
+      "jp": "日本語"
+    }
+  },
+  "industries": {
+    "showcase": {
+      "title": "私たちがサービスを提供する業界",
+      "subtitle": "当社の化学ソリューションが多様な業界のイノベーションをどのように推進するかをご覧ください"
+    }
+  },
+  "industryCard": {
+    "keyApplications": "主要なアプリケーション",
+    "featuredProducts": "注目の製品",
+    "moreItems": "他{count}件",
+    "exploreSolutions": "{industryName}のソリューションを探索"
+  },
+  "sustainabilityPartner": {
+    "badge": "パートナーシップ",
+    "title": "持続可能なリーダーとのパートナーシップ",
+    "description": "当社のEcoVadisシルバー評価と長年にわたる認証は、当社の献身的な取り組みの証拠です。当社のコミットメントがお客様の持続可能性目標をどのようにサポートできるかご相談ください。",
+    "contactUs": "お問い合わせ",
+    "viewCertifications": "認証を表示"
+  },
+  "news": {
+    "hero": {
+      "title": "VUPからの最新ニュース、洞察、研究",
+      "description": "持続可能な化学における当社の最新イノベーション、研究の突破口、業界の洞察について最新情報を入手してください。"
+    },
+    "meta": {
+      "title": "ニュース＆洞察 - VUP"
+    },
+    "block": {
+      "readPost": "{type}を読む",
+      "continueReading": "続きを読む"
+    }
+  },
+  "newsletter": {
+    "badge": "ニュースレター",
+    "title": "VUPの洞察で最新情報を入手",
+    "description": "業界概要、化学トレンド、製品アップデートを受信箱で直接受け取るためにご登録ください。",
+    "form": {
+      "emailPlaceholder": "メールアドレスを入力",
+      "subscribe": "購読",
+      "privacyText": "購読することで、当社の",
+      "privacyLink": "プライバシーポリシー"
+    },
+    "toast": {
+      "success": "購読が完了しました！",
+      "description": "VUPコミュニティへようこそ。次回のニュースレターを受信箱でお受け取りください。"
+    },
+    "social": {
+      "title": "私たちとつながる",
+      "visitPage": "{platform}ページを訪問",
+      "linkedin": {
+        "description": "業界の洞察と企業アップデートのためにフォローしてください",
+        "extendedDescription": "限定コンテンツ、業界ディスカッション、ネットワーキング機会のために当社のプロフェッショナルネットワークにご参加ください。"
+      }
+    }
+  },
+  "productCard": {
+    "tag": "製品",
+    "casLabel": "CAS:",
+    "keyProperties": "主要特性",
+    "applications": "用途",
+    "applicationsUseCases": "用途・使用例",
+    "chemicalStructure": "化学構造",
+    "requestQuote": "見積もり依頼",
+    "viewDetails": "詳細を見る",
+    "moreApplications": "+{count}件の追加"
+  },
+  "categoryCard": {
+    "tag": "製品カテゴリー",
+    "keyProducts": "主要製品",
+    "applicationsUseCases": "用途・使用例",
+    "exploreCategory": "カテゴリーを探索"
+  },
+  "footer": {
+    "sections": {
+      "company": "会社",
+      "products": "製品",
+      "support": "サポート",
+      "legal": "法的事項"
+    },
+    "links": {
+      "aboutUs": "会社概要",
+      "careers": "採用情報",
+      "news": "ニュース",
+      "contact": "お問い合わせ",
+      "chemicals": "化学品",
+      "polymers": "ポリマー",
+      "catalysts": "触媒",
+      "customSolutions": "カスタムソリューション",
+      "helpCenter": "ヘルプセンター",
+      "faqs": "よくある質問",
+      "documentation": "ドキュメント",
+      "safetyData": "安全データ",
+      "privacyPolicy": "プライバシーポリシー",
+      "cookiePolicy": "クッキーポリシー",
+      "termsConditions": "利用規約",
+      "sitemap": "サイトマップ"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "researchgate": "ResearchGate"
+    },
+    "copyright": "© {year} VUP Chemicals, a.s. 無断複写・転載を禁じます。",
+    "newsletter": {
+      "title": "VUP Insightsで最新情報をキャッチ",
+      "description": "業界の概要、化学トレンド、GTCの最新情報をお届けするニュースレターに登録してください。",
+      "emailPlaceholder": "メールアドレス",
+      "subscribeButton": "購読する",
+      "privacyNotice": "購読することで、プライバシーポリシーに同意したものとみなされます。"
+    }
+  }
+}

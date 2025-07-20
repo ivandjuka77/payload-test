@@ -13,18 +13,22 @@ export const GridImageCards: Block = {
     {
       name: 'badge',
       type: 'text',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
+      localized: true,
     },
     {
       name: 'cards',
       type: 'array',
+      localized: true,
       fields: [
         {
           name: 'image',
@@ -36,6 +40,7 @@ export const GridImageCards: Block = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'paragraph',
@@ -45,14 +50,17 @@ export const GridImageCards: Block = {
               return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
             },
           }),
+          localized: true,
         },
         {
           name: 'highlights',
           type: 'array',
+          localized: true,
           fields: [
             {
               name: 'highlight',
               type: 'text',
+              localized: true,
             },
           ],
         },

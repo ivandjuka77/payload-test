@@ -25,6 +25,7 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
 
+const env = process.env.NODE_ENV || 'development'
 const supabaseProjectRef = process.env.SUPABASE_PROJECT_REF || 'elnpbywhaolyzgvwyuqf'
 const s3BucketFromEnv = process.env.S3_BUCKET || 'vup-payload'
 
@@ -167,7 +168,20 @@ export const plugins: Plugin[] = [
         generateFileURL: ({ filename, prefix }) => {
           const filePathInBucket = prefix ? `${prefix}/${filename}` : filename
 
-          return `https://${supabaseProjectRef}.supabase.co/storage/v1/object/public/vup-payload/${filePathInBucket}`
+          // if (env === 'development') {
+          return `${process.env.S3_PUBLIC_URL}/object/public/${s3BucketFromEnv}/${filePathInBucket}`
+
+          // return `https://ludwreuxuzoyeevqvihu.supabase.co/storage/v1/object/public/${s3BucketFromEnv}/${filePathInBucket}`
+          // }
+
+          // return `https://${supabaseProjectRef}.supabase.co/storage/v1/object/public/vup-payload/${filePathInBucket}`
+        },
+      },
+      'product-documents': {
+        prefix: 'files',
+        generateFileURL: ({ filename, prefix }) => {
+          const filePathInBucket = prefix ? `${prefix}/${filename}` : filename
+          return `${process.env.S3_PUBLIC_URL}/object/public/${s3BucketFromEnv}/${filePathInBucket}`
         },
       },
     },

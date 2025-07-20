@@ -5,11 +5,15 @@ import { getPayload } from 'payload'
 import PageClient from './page.client'
 import { Newsletter } from '@/components/Newsletter'
 import { Pagination } from '@/components/Pagination'
+import { getTranslations } from 'next-intl/server'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
 
-export default async function Page() {
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'news' })
+
   const payload = await getPayload({ config: configPromise })
 
   // Get first page of posts (page 1)
@@ -42,12 +46,11 @@ export default async function Page() {
         <div className="container px-4 md:px-6 py-8">
           <div className="flex flex-col items-center text-center space-y-8">
             <h1 className="text-4xl !text-white md:text-5xl lg:text-6xl font-bold tracking-tighter font-primary max-w-3xl">
-              Latest News, Insights & Research from VUP
+              {t('hero.title')}
             </h1>
 
             <p className="text-xl text-white text-muted-foreground max-w-2xl font-secondary">
-              Stay informed about our latest innovations, research breakthroughs, and industry
-              insights in sustainable chemistry.
+              {t('hero.description')}
             </p>
           </div>
         </div>
@@ -71,8 +74,15 @@ export default async function Page() {
   )
 }
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'news' })
+
   return {
-    title: `Payload Website Template Posts`,
+    title: t('meta.title'),
   }
 }

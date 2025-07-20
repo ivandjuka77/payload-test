@@ -12,6 +12,7 @@ import { IndustryApplications } from '@/components/IndustryApplications'
 import { ContactCTA } from '@/components/CTA'
 import { Showcase } from '@/blocks/Showcase/Component'
 import { Product as ProductType } from '@/payload-types'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -26,9 +27,15 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = categories.docs.map(({ slug }) => {
-    return { slug }
+  const locales = ['', 'sk', 'jp']
+  const params = categories.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug,
+    }))
   })
+
+  console.log('Product Categories', params.length)
 
   return params
 }
@@ -36,16 +43,49 @@ export async function generateStaticParams() {
 type Args = {
   params: Promise<{
     slug?: string
+    locale?: 'en' | 'sk' | 'jp'
   }>
 }
 
 export default async function ProductCategory({ params: paramsPromise }: Args) {
+  const t = await getTranslations('')
+
   const { isEnabled: draft } = await draftMode()
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale = 'en' } = await paramsPromise
   const url = '/products/category/' + slug
-  const category = await queryCategoryBySlug({ slug })
+  const category = await queryCategoryBySlug({ slug, locale })
 
   if (!category) return <PayloadRedirects url={url} />
+
+  const translations = {
+    hero: {
+      badge: t('productCategory.productCategory'),
+      title: category.name,
+      description: t('productCategory.ourProductPortfolioDescription', {
+        categoryName: category.name,
+      }),
+      cta: t('productCategory.exploreProperties'),
+    },
+    showcase: {
+      title: t('productCategory.ourProductPortfolio', { categoryName: category.name }),
+      description: t('productCategory.ourProductPortfolioDescription', {
+        categoryName: category.name,
+      }),
+    },
+    industryApplications: {
+      title: t('productCategory.industryApplications', { categoryName: category.name }),
+      description: t('productCategory.industryApplicationsDescription', {
+        categoryName: category.name,
+      }),
+    },
+    contactCta: {
+      title: t('productCategory.needTechnicalSupport'),
+      description: t('productCategory.needTechnicalSupportDescription', {
+        categoryName: category.name,
+      }),
+      cta: t('productCategory.contactOurExperts'),
+    },
+  }
 
   return (
     <main>
@@ -53,54 +93,58 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <ProductCategoryHero category={category} />
+      <ProductCategoryHero translations={translations.hero} category={category} />
 
       <Showcase
         type="product"
         products={category.featuredProducts as ProductType[]}
         showCta={false}
-        title={`Our ${category.name} Portfolio`}
-        description={`Discover our range of high-quality ${category.name} products for your specific application needs.`}
+        title={translations.showcase.title}
+        description={translations.showcase.description}
       />
 
       <IndustryApplications
-        title={`Industry Applications for ${category.name}`}
-        description={`Our ${category.name} serve diverse applications across industry sectors.`}
+        title={translations.industryApplications.title}
+        description={translations.industryApplications.description}
         applications={category.applications}
       />
 
       <ContactCTA
-        title="Need Technical Support or Product Information?"
-        description="Our experts are ready to assist you with hydroxy acids selection and application guidance for your specific needs."
+        title={translations.contactCta.title}
+        description={translations.contactCta.description}
+        cta={translations.contactCta.cta}
       />
     </main>
   )
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
-  const category = await queryCategoryBySlug({ slug })
+  const { slug = '', locale = 'en' } = await paramsPromise
+  const category = await queryCategoryBySlug({ slug, locale })
 
   return generateMeta({ doc: category })
 }
 
-const queryCategoryBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
+const queryCategoryBySlug = cache(
+  async ({ slug, locale }: { slug: string; locale: 'en' | 'sk' | 'jp' }) => {
+    const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+    const payload = await getPayload({ config: configPromise })
 
-  const result = await payload.find({
-    collection: 'productCategories',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
-    pagination: false,
-    where: {
-      slug: {
-        equals: slug,
+    const result = await payload.find({
+      collection: 'productCategories',
+      draft,
+      limit: 1,
+      overrideAccess: draft,
+      pagination: false,
+      locale,
+      where: {
+        slug: {
+          equals: slug,
+        },
       },
-    },
-  })
+    })
 
-  return result.docs?.[0] || null
-})
+    return result.docs?.[0] || null
+  },
+)

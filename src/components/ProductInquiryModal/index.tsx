@@ -16,6 +16,7 @@ import { DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/di
 import { Product } from '@/payload-types'
 import { Mail, Building, User, Phone, MessageSquare } from 'lucide-react'
 import { toast } from 'sonner'
+import { submitProductInquiry } from '@/actions/productActions'
 
 interface ProductInquiryModalProps {
   product: Product
@@ -39,11 +40,13 @@ export function ProductInquiryModal({ product }: ProductInquiryModalProps) {
     }. Please provide pricing information, availability, and delivery details for this product.`,
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     // Basic validation
@@ -52,13 +55,66 @@ export function ProductInquiryModal({ product }: ProductInquiryModalProps) {
       return
     }
 
-    // Here you would typically send the form data to your backend
-    toast.success('Inquiry submitted successfully!', {
-      description: 'We will get back to you within 24 hours with product information and pricing.',
-    })
+    if (!formData.inquiryType) {
+      toast.error('Please select an inquiry type')
+      return
+    }
 
-    // Reset form or close modal
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+
+    try {
+      const inquiryData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        country: formData.country,
+        inquiryType: formData.inquiryType,
+        quantity: formData.quantity,
+        message: formData.message,
+        productId: product.id,
+        productName: product.name,
+      }
+
+      const result = await submitProductInquiry(inquiryData)
+
+      if (result.success) {
+        toast.success('Inquiry submitted successfully!', {
+          description: result.message,
+        })
+
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          jobTitle: '',
+          country: '',
+          inquiryType: '',
+          quantity: '',
+          message: `I am interested in ordering ${product.name}${
+            product.technicalSpecifications?.casNumber
+              ? ` (CAS: ${product.technicalSpecifications.casNumber})`
+              : ''
+          }. Please provide pricing information, availability, and delivery details for this product.`,
+        })
+      } else {
+        toast.error('Failed to submit inquiry', {
+          description: result.message,
+        })
+      }
+    } catch (error) {
+      console.error('Error submitting inquiry:', error)
+      toast.error('Failed to submit inquiry', {
+        description: 'An unexpected error occurred. Please try again or contact us directly.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -233,9 +289,10 @@ export function ProductInquiryModal({ product }: ProductInquiryModalProps) {
             <div className="pt-2">
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 h-9 sm:h-10 text-sm sm:text-base"
+                disabled={isSubmitting}
+                className="w-full bg-primary hover:bg-primary/90 h-9 sm:h-10 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Inquiry
+                {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
               </Button>
             </div>
           </form>

@@ -19,12 +19,6 @@ const BeforeDashboard: React.FC = () => {
           be reflected on the live website.
         </h4>
       </Banner>
-      <Banner className={`${baseClass}__banner type-info`} type="info">
-        <h4>
-          <strong>INFO:</strong> About Us Page, Contact Us Page, and contact forms are currently
-          disabled and will be enabled in the next update.
-        </h4>
-      </Banner>
       <span>Below are some quick links and utilities:</span>
       <ul className={`${baseClass}__instructions`}>
         <li>

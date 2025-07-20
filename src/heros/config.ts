@@ -33,6 +33,7 @@ const isMinimal = (type: string) => ['minimal'].includes(type)
 export const hero: Field = {
   name: 'hero',
   type: 'group',
+  localized: true,
   fields: [
     {
       name: 'type',
@@ -71,6 +72,7 @@ export const hero: Field = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
       admin: {
         condition: (_, { type } = {}) => !isCarousel(type),
       },
@@ -79,6 +81,7 @@ export const hero: Field = {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
       admin: {
         condition: (_, { type } = {}) => !isCarousel(type),
       },
@@ -87,6 +90,7 @@ export const hero: Field = {
       name: 'cta',
       type: 'group',
       fields: [linkGroup()],
+      localized: true,
       admin: {
         condition: (_, { type } = {}) => !isCarousel(type) && !isMinimal(type),
       },
@@ -103,6 +107,7 @@ export const hero: Field = {
     {
       name: 'slides',
       type: 'array',
+      localized: true,
       dbName: 'sl',
       admin: {
         condition: (_, { type } = {}) => isCarousel(type),
@@ -112,17 +117,20 @@ export const hero: Field = {
           name: 'title',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'subtitle',
           type: 'text',
           required: true,
+          localized: true,
         },
         {
           name: 'backgroundImage',
           type: 'upload',
           relationTo: 'media',
           required: true,
+          localized: true,
         },
         {
           name: 'badge',
@@ -138,6 +146,7 @@ export const hero: Field = {
               name: 'text',
               type: 'text',
               required: true,
+              localized: true,
             },
           ],
         },
@@ -150,11 +159,13 @@ export const hero: Field = {
               name: 'title',
               type: 'text',
               required: true,
+              localized: true,
             },
             {
               name: 'description',
               type: 'textarea',
               required: true,
+              localized: true,
             },
             {
               name: 'image',
@@ -166,6 +177,7 @@ export const hero: Field = {
               appearances: ['default'],
               overrides: {
                 maxRows: 1,
+                localized: true,
               },
             }),
           ],
@@ -179,11 +191,13 @@ export const hero: Field = {
               name: 'title',
               type: 'text',
               required: true,
+              localized: true,
             },
             {
               name: 'description',
               type: 'textarea',
               required: true,
+              localized: true,
             },
             {
               name: 'image',
@@ -195,6 +209,7 @@ export const hero: Field = {
               appearances: ['default'],
               overrides: {
                 maxRows: 1,
+                localized: true,
               },
             }),
           ],
@@ -202,7 +217,8 @@ export const hero: Field = {
         {
           name: 'cta',
           type: 'group',
-          fields: [linkGroup()],
+          fields: [linkGroup({ overrides: { localized: true } })],
+          localized: true,
         },
       ],
     },

@@ -9,11 +9,11 @@ export const Careers: React.FC<CareersBlock> = async ({ title, description }) =>
   const careers = await queryCareers({ limit: 5 })
 
   return (
-    <section className="w-full py-24 bg-white" id="career-listings">
-      <div className="container px-4 md:px-6">
+    <section className="w-full py-24 bg-white px-4 sm:px-6 lg:px-0" id="career-listings">
+      <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-primary">{title}</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-secondary">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto font-secondary">
             {description}
           </p>
         </div>
@@ -41,9 +41,13 @@ export const Careers: React.FC<CareersBlock> = async ({ title, description }) =>
                       <span>{position.type}</span>
                     </Badge>
                   </div>
-                  <p className="text-muted-foreground font-secondary line-clamp-3 mr-14">
+                  <p className="text-muted-foreground font-secondary line-clamp-5 md:line-clamp-3 mr-0 md:mr-14">
                     {position.description && (
-                      <RichText data={position.description} enableGutter={false} />
+                      <RichText
+                        data={position.description}
+                        className="text-sm md:text-base"
+                        enableGutter={false}
+                      />
                     )}
                   </p>
                 </div>

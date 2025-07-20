@@ -10,9 +10,14 @@ import { Button } from '@/components/ui/button'
 
 type Props = {
   service: Service
+  translations?: {
+    accreditations: string
+    exploreServices: string
+    learnMore: string
+  }
 }
 
-export function ServiceHero({ service }: Props) {
+export function ServiceHero({ service, translations }: Props) {
   const accreditations = service.accreditations as Service['accreditations']
   const subServices = service.subServices || []
 
@@ -34,21 +39,23 @@ export function ServiceHero({ service }: Props) {
   return (
     <section className="relative w-full bg-background pt-10">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 md:px-6 py-20">
+      <div className="container mx-auto pt-20 pb-10 md:py-20 px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground font-primary mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-foreground font-primary mb-6">
                 {service.title}
               </h1>
-              <p className="text-xl text-muted-foreground font-secondary mb-8">
+              <p className="text-lg md:text-xl text-muted-foreground font-secondary mb-8">
                 {service.description}
               </p>
             </div>
 
             {accreditations && accreditations.length > 0 && (
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground">Accreditations:</h3>
+              <div className="space-y-3 hidden md:block">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {translations?.accreditations || 'Accreditations:'}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {accreditations.map((accreditation, index) => (
                     <Badge key={index} variant="secondary" className="px-4 py-1 text-sm">
@@ -66,14 +73,14 @@ export function ServiceHero({ service }: Props) {
                 onClick={(e) => handleScroll(e, subServices[0].link || '')}
               >
                 <Button className="rounded-md text-base p-6 bg-primary text-white hover:bg-primary/90 flex flex-row items-center gap-x-2">
-                  Explore Services
+                  {translations?.exploreServices || 'Explore Services'}
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <div className="aspect-[3/2] relative rounded-lg overflow-hidden shadow-2xl">
               <Media resource={service.featuredImage} fill imgClassName="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -84,7 +91,7 @@ export function ServiceHero({ service }: Props) {
 
       {/* Services Grid Section - Right below hero, above the fold */}
       {subServices.length > 0 && (
-        <div className="container mx-auto px-4 md:px-6 pb-20">
+        <div className="container mx-auto pb-20 px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {subServices.map((subService, index) => (
               <div
@@ -120,7 +127,7 @@ export function ServiceHero({ service }: Props) {
                       onClick={(e) => handleScroll(e, subService.link || '')}
                       className="text-xs font-medium text-blue-300 group-hover:text-blue-200 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
                     >
-                      Learn More
+                      {translations?.learnMore || 'Learn More'}
                       <ArrowRight size={12} />
                     </Link>
                   </div>

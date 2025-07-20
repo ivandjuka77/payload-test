@@ -67,39 +67,77 @@ export const Posts: CollectionConfig<'posts'> = {
       }),
     useAsTitle: 'title',
   },
+  labels: {
+    singular: {
+      sk: 'Príspevok',
+      en: 'Post',
+    },
+    plural: {
+      sk: 'Príspevky',
+      en: 'Posts',
+    },
+  },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Title',
+      },
     },
     {
       name: 'type',
       type: 'select',
       required: true,
+      label: {
+        sk: 'Typ',
+        en: 'Type',
+      },
       options: [
-        { label: 'News', value: 'news' },
-        { label: 'Research', value: 'research' },
-        { label: 'Case Study', value: 'case-study' },
+        {
+          label: { sk: 'Novinky', en: 'News' },
+          value: 'news',
+        },
+        {
+          label: { sk: 'Výskum', en: 'Research' },
+          value: 'research',
+        },
+        {
+          label: { sk: 'Prípadová štúdia', en: 'Case Study' },
+          value: 'case-study',
+        },
       ],
     },
     {
       name: 'featured',
       type: 'checkbox',
       defaultValue: false,
+      label: {
+        sk: 'Odporúčané',
+        en: 'Featured',
+      },
     },
     {
       type: 'tabs',
       tabs: [
         {
-          label: 'Content',
+          label: {
+            sk: 'Obsah',
+            en: 'Content',
+          },
           fields: [
             {
               name: 'description',
               type: 'textarea',
               required: true,
               localized: true,
+              label: {
+                sk: 'Popis',
+                en: 'Description',
+              },
             },
             {
               name: 'featuredImage',
@@ -107,11 +145,19 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'media',
               required: true,
               localized: true,
+              label: {
+                sk: 'Hlavný obrázok',
+                en: 'Featured Image',
+              },
             },
             {
               name: 'content',
               type: 'richText',
               localized: true,
+              label: {
+                sk: 'Obsah',
+                en: 'Content',
+              },
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -128,16 +174,30 @@ export const Posts: CollectionConfig<'posts'> = {
           ],
         },
         {
-          label: 'Taxonomy & Relations',
+          label: {
+            sk: 'Taxonómia a vzťahy',
+            en: 'Taxonomy & Relations',
+          },
           fields: [
             {
               name: 'tags',
-              interfaceName: 'TagsField',
               type: 'array',
+              label: {
+                sk: 'Štítky',
+                en: 'Tags',
+              },
+              labels: {
+                singular: { sk: 'Štítok', en: 'Tag' },
+                plural: { sk: 'Štítky', en: 'Tags' },
+              },
               fields: [
                 {
                   name: 'tag',
                   type: 'text',
+                  label: {
+                    sk: 'Štítok',
+                    en: 'Tag',
+                  },
                 },
               ],
             },
@@ -147,6 +207,10 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'products',
               hasMany: true,
               maxDepth: 3,
+              label: {
+                sk: 'Súvisiace produkty',
+                en: 'Related Products',
+              },
             },
             {
               name: 'relatedServices',
@@ -154,6 +218,10 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'services',
               hasMany: true,
               maxDepth: 3,
+              label: {
+                sk: 'Súvisiace služby',
+                en: 'Related Services',
+              },
             },
             {
               name: 'industries',
@@ -161,12 +229,30 @@ export const Posts: CollectionConfig<'posts'> = {
               relationTo: 'industries',
               hasMany: true,
               maxDepth: 3,
+              label: {
+                sk: 'Oblasti priemyslu',
+                en: 'Industries',
+              },
+            },
+            {
+              name: 'relatedPosts',
+              type: 'relationship',
+              relationTo: 'posts',
+              hasMany: true,
+              maxDepth: 3,
+              label: {
+                sk: 'Súvisiace príspevky',
+                en: 'Related Posts',
+              },
             },
           ],
         },
         {
           name: 'meta',
-          label: 'SEO',
+          label: {
+            sk: 'SEO',
+            en: 'SEO',
+          },
           localized: true,
           fields: [
             OverviewField({
@@ -193,6 +279,10 @@ export const Posts: CollectionConfig<'posts'> = {
     {
       name: 'publishedAt',
       type: 'date',
+      label: {
+        sk: 'Dátum publikovania',
+        en: 'Published At',
+      },
       admin: {
         date: {
           pickerAppearance: 'dayAndTime',
@@ -216,6 +306,10 @@ export const Posts: CollectionConfig<'posts'> = {
       relationTo: 'users',
       hasMany: false,
       required: true,
+      label: {
+        sk: 'Autor',
+        en: 'Author',
+      },
     },
     ...slugField(),
   ],

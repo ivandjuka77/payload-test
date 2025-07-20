@@ -13,8 +13,8 @@ export function IndustryApplications({
   applications,
 }: IndustryApplicationsProps) {
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-white to-gray-50/80">
-      <div className="container px-4 md:px-6">
+    <section className="w-full py-20 bg-gradient-to-b from-white to-gray-50/80 px-4 sm:px-6 lg:px-0">
+      <div className="container mx-auto">
         <div className="mb-14 text-center max-w-3xl mx-auto">
           <Badge
             variant="outline"
@@ -22,15 +22,15 @@ export function IndustryApplications({
           >
             Applications
           </Badge>
-          <h2 className="font-primary text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+          <h2 className="font-primary text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
             {title}
           </h2>
-          <p className="font-secondary text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="font-secondary text-base md:text- lg text-muted-foreground max-w-3xl mx-auto">
             {description}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {applications?.map((app, index) => (
             <div
               key={index}
@@ -49,10 +49,10 @@ export function IndustryApplications({
               <div className="absolute inset-x-0 bottom-0 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 {/* Main Content */}
                 <div className="p-4 transition-all duration-250">
-                  <h3 className="text-lg font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-lg md:text-xl font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
                     {app.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-300 line-clamp-2 opacity-85">
+                  <p className="mt-2 text-sm md:text-base text-gray-300 line-clamp-2 opacity-85">
                     {app.description}
                   </p>
                 </div>

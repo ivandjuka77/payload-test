@@ -1,4 +1,11 @@
 import type { Block } from 'payload'
+import {
+  FixedToolbarFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+  OrderedListFeature,
+  UnorderedListFeature,
+} from '@payloadcms/richtext-lexical'
 
 export const Timeline: Block = {
   slug: 'timeline',
@@ -13,24 +20,28 @@ export const Timeline: Block = {
       type: 'text',
       label: 'Badge Text',
       required: true,
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
       required: true,
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
       required: true,
+      localized: true,
     },
     {
       name: 'items',
       type: 'array',
       label: 'Timeline Items',
       required: true,
+      localized: true,
       minRows: 1,
       fields: [
         {
@@ -38,13 +49,39 @@ export const Timeline: Block = {
           type: 'text',
           label: 'Time Period',
           required: true,
+          localized: true,
         },
         {
           name: 'content',
           type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => {
+              return [
+                ...rootFeatures,
+                FixedToolbarFeature(),
+                InlineToolbarFeature(),
+                UnorderedListFeature(),
+                OrderedListFeature(),
+              ]
+            },
+          }),
           label: 'Content',
           required: true,
-          admin: {},
+          localized: true,
+        },
+        {
+          name: 'keyAchievements',
+          type: 'array',
+          label: 'Key Achievements',
+          localized: true,
+          fields: [
+            {
+              name: 'achievement',
+              type: 'text',
+              label: 'Achievement',
+              localized: true,
+            },
+          ],
         },
         {
           name: 'imageUrl',
@@ -58,6 +95,7 @@ export const Timeline: Block = {
           type: 'text',
           label: 'Highlight Text',
           required: true,
+          localized: true,
         },
       ],
     },

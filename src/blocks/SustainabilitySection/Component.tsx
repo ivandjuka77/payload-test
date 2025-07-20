@@ -21,8 +21,8 @@ export const SustainabilitySection: React.FC<SustainabilityBlock> = ({
   ]
 
   return (
-    <section className="w-full py-12 sm:py-14 md:py-16 lg:py-24 relative bg-white">
-      <div className="container px-4 sm:px-5 md:px-6">
+    <section className="w-full py-12 sm:py-14 md:py-16 lg:py-24 relative bg-white px-4 sm:px-6 lg:px-0">
+      <div className="container">
         {/* Header section */}
         <div className="max-w-2xl sm:max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
           <div className="inline-flex items-center px-3 sm:px-4 py-1 rounded-full bg-[#e8f5ed] text-[#00CC65] text-xs sm:text-sm font-medium mb-4 sm:mb-5 md:mb-6">
@@ -34,7 +34,7 @@ export const SustainabilitySection: React.FC<SustainabilityBlock> = ({
             {title}
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-secondary px-4 sm:px-0">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-secondary">
             {subtitle}
           </p>
         </div>

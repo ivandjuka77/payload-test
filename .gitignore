@@ -6,6 +6,9 @@ node_modules
 .next
 .vercel
 
+#gitignore
+.gitignore
+
 # Payload default media upload directory
 public/media/
 
@@ -14,3 +17,12 @@ public/sitemap*.xml
 
 #db
 .db
+
+#env
+.env.local
+.env.production
+ACTUAL.env.production
+
+
+#instructions
+instructions/

@@ -8,16 +8,6 @@
 
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TagsField".
- */
-export type TagsField =
-  | {
-      tag?: string | null;
-      id?: string | null;
-    }[]
-  | null;
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FCards".
  */
 export type FCards =
@@ -124,6 +114,7 @@ export interface Config {
     services: Service;
     teamMembers: TeamMember;
     careers: Career;
+    'product-documents': ProductDocument;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -146,6 +137,7 @@ export interface Config {
     services: ServicesSelect<false> | ServicesSelect<true>;
     teamMembers: TeamMembersSelect<false> | TeamMembersSelect<true>;
     careers: CareersSelect<false> | CareersSelect<true>;
+    'product-documents': ProductDocumentsSelect<false> | ProductDocumentsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -295,6 +287,8 @@ export interface Page {
     | GridImageCardsBlock
     | CareersBlock
     | CertificationsBlock
+    | TimelineBlock
+    | TeamBlock
   )[];
   meta?: {
     title?: string | null;
@@ -337,10 +331,16 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  tags?: TagsField;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   relatedProducts?: (number | Product)[] | null;
   relatedServices?: (number | Service)[] | null;
   industries?: (number | Industry)[] | null;
+  relatedPosts?: (number | Post)[] | null;
   meta?: {
     title?: string | null;
     /**
@@ -452,7 +452,20 @@ export interface Product {
   description: string;
   chemicalFamily?: (number | ProductCategory)[] | null;
   chemicalStructureImage: number | Media;
-  technicalSpecifications: TechSpecs;
+  technicalSpecifications: {
+    chemicalName: string;
+    casNumber: string;
+    ecNumber?: string | null;
+    synonyms?:
+      | {
+          synonym?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    molecularFormula: string;
+    molecularWeight?: string | null;
+    labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
+  };
   VupSpecifications?: {
     appearance?: string | null;
     purity?: string | null;
@@ -465,24 +478,32 @@ export interface Product {
     density?: string | null;
     solubility?: string | null;
   };
-  applications: {
-    application: string;
-    description: string;
-    image: number | Media;
-    id?: string | null;
-  }[];
-  keyFeatures: {
-    feature?: string | null;
-    description?: string | null;
-    id?: string | null;
-  }[];
+  applications?:
+    | {
+        application?: string | null;
+        description?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  keyFeatures?:
+    | {
+        feature?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   caseStudies?: (number | CaseStudy)[] | null;
   relatedProducts?: (number | Product)[] | null;
-  faq: {
-    question?: string | null;
-    answer?: string | null;
-    id?: string | null;
-  }[];
+  faq?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  technicalDataSheets?: (number | null) | ProductDocument;
+  safetyDataSheets?: (number | null) | ProductDocument;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -503,9 +524,9 @@ export interface ProductCategory {
   featuredProducts?: (number | Product)[] | null;
   applications?:
     | {
-        imageSrc: number | Media;
-        title: string;
-        description: string;
+        imageSrc?: (number | null) | Media;
+        title?: string | null;
+        description?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -521,24 +542,6 @@ export interface ProductCategory {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "techSpecs".
- */
-export interface TechSpecs {
-  chemicalName: string;
-  casNumber: string;
-  ecNumber?: string | null;
-  synonyms?:
-    | {
-        synonym?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  molecularFormula: string;
-  molecularWeight?: string | null;
-  labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -679,7 +682,7 @@ export interface TeamMember {
   name: string;
   role: string;
   bio?: string | null;
-  image: number | Media;
+  image?: (number | null) | Media;
   /**
    * LinkedIn profile URL
    */
@@ -689,6 +692,28 @@ export interface TeamMember {
   department?: (number | Service)[] | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-documents".
+ */
+export interface ProductDocument {
+  id: number;
+  alt?: string | null;
+  product?: (number | null) | Product;
+  type?: ('tds' | 'sds') | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1266,6 +1291,7 @@ export interface ContentImageBlock {
     [k: string]: unknown;
   } | null;
   image: number | Media;
+  layout?: ('left' | 'right') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentImage';
@@ -1509,6 +1535,57 @@ export interface CertificationsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'certifications';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock".
+ */
+export interface TimelineBlock {
+  badge: string;
+  title: string;
+  subtitle: string;
+  items: {
+    period: string;
+    content: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    keyAchievements?:
+      | {
+          achievement?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    imageUrl: number | Media;
+    highlight: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'timeline';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock".
+ */
+export interface TeamBlock {
+  title?: string | null;
+  subtitle?: string | null;
+  teamMembers?: (number | TeamMember)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'team';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1818,6 +1895,10 @@ export interface PayloadLockedDocument {
         value: number | Career;
       } | null)
     | ({
+        relationTo: 'product-documents';
+        value: number | ProductDocument;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -1966,6 +2047,8 @@ export interface PagesSelect<T extends boolean = true> {
         gridImageCards?: T | GridImageCardsBlockSelect<T>;
         careers?: T | CareersBlockSelect<T>;
         certifications?: T | CertificationsBlockSelect<T>;
+        timeline?: T | TimelineBlockSelect<T>;
+        team?: T | TeamBlockSelect<T>;
       };
   meta?:
     | T
@@ -2261,6 +2344,7 @@ export interface ContentImageBlockSelect<T extends boolean = true> {
   title?: T;
   content?: T;
   image?: T;
+  layout?: T;
   id?: T;
   blockName?: T;
 }
@@ -2455,6 +2539,43 @@ export interface CertificationsBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock_select".
+ */
+export interface TimelineBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  items?:
+    | T
+    | {
+        period?: T;
+        content?: T;
+        keyAchievements?:
+          | T
+          | {
+              achievement?: T;
+              id?: T;
+            };
+        imageUrl?: T;
+        highlight?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock_select".
+ */
+export interface TeamBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  teamMembers?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -2464,10 +2585,16 @@ export interface PostsSelect<T extends boolean = true> {
   description?: T;
   featuredImage?: T;
   content?: T;
-  tags?: T | TagsFieldSelect<T>;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
   relatedProducts?: T;
   relatedServices?: T;
   industries?: T;
+  relatedPosts?: T;
   meta?:
     | T
     | {
@@ -2482,14 +2609,6 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TagsField_select".
- */
-export interface TagsFieldSelect<T extends boolean = true> {
-  tag?: T;
-  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2632,7 +2751,22 @@ export interface ProductsSelect<T extends boolean = true> {
   description?: T;
   chemicalFamily?: T;
   chemicalStructureImage?: T;
-  technicalSpecifications?: T | TechSpecsSelect<T>;
+  technicalSpecifications?:
+    | T
+    | {
+        chemicalName?: T;
+        casNumber?: T;
+        ecNumber?: T;
+        synonyms?:
+          | T
+          | {
+              synonym?: T;
+              id?: T;
+            };
+        molecularFormula?: T;
+        molecularWeight?: T;
+        labVerified?: T;
+      };
   VupSpecifications?:
     | T
     | {
@@ -2671,29 +2805,13 @@ export interface ProductsSelect<T extends boolean = true> {
         answer?: T;
         id?: T;
       };
+  technicalDataSheets?: T;
+  safetyDataSheets?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "techSpecs_select".
- */
-export interface TechSpecsSelect<T extends boolean = true> {
-  chemicalName?: T;
-  casNumber?: T;
-  ecNumber?: T;
-  synonyms?:
-    | T
-    | {
-        synonym?: T;
-        id?: T;
-      };
-  molecularFormula?: T;
-  molecularWeight?: T;
-  labVerified?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2862,6 +2980,27 @@ export interface CareersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-documents_select".
+ */
+export interface ProductDocumentsSelect<T extends boolean = true> {
+  alt?: T;
+  product?: T;
+  type?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

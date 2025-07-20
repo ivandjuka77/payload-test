@@ -8,6 +8,7 @@ import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 
+//? Responsive
 export const CarouselHero: React.FC<Page['hero']> = (props) => {
   const [current, setCurrent] = useState(0)
   const [api, setApi] = useState<CarouselApi>()
@@ -199,11 +200,11 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
           dragFree: false,
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent className="h-full parent-of-problematic !items-stretch">
           {props.slides.map((slide, index) => (
             <CarouselItem
               key={index}
-              className="h-full py-6 sm:py-8 md:py-10 basis-full min-w-0 relative pt-24"
+              className="h-full basis-full min-w-0 relative problematic-child"
             >
               <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-primary/70 z-10" />
@@ -211,20 +212,19 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                   resource={slide.backgroundImage}
                   alt={slide.title}
                   fill
-                  imgClassName="object-cover"
+                  imgClassName="object-cover w-full h-full"
                   priority
                 />
               </div>
 
               {/* Slide Content */}
-              <div className="container relative z-20 h-full flex flex-col justify-between px-4 sm:px-5 md:px-6 pb-16 sm:pb-14 md:pb-12 pt-12 sm:pt-16 md:pt-20">
+              <div className="container relative z-20 h-full flex flex-col justify-between px-4 sm:px-5 md:px-6 py-24 sm:py-26 md:pt-32 md:pb-20">
                 {/* Top Section - Two Columns on Desktop */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 mb-4 sm:mb-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 mb-4 sm:mb-6 min-h-[250px] sm:min-h-[300px] md:!min-h-[200px] pt-16 sm:pt-0">
                   {/* Left Column - Main Content */}
-                  <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                  <div className="space-y-4 sm:space-y-5 md:space-y-6 flex flex-col">
                     {/* Slide Icon Badge */}
-                    <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium mb-1 sm:mb-2">
-                      {/* <div className='mr-2 text-white'>{slide.badge.icon}</div> */}
+                    <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium mb-1 sm:mb-2 w-fit">
                       <div className="mr-1.5 sm:mr-2 text-white">
                         <Atom className="h-3 w-3 sm:h-4 sm:w-4" />
                       </div>
@@ -232,17 +232,17 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                     </div>
 
                     {/* Slide Heading */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white font-primary leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary leading-tight min-h-[2.7em] md:min-h-[3.7em]">
                       {slide.title}
                     </h2>
 
                     {/* Slide Description */}
-                    <p className="text-base sm:text-lg md:text-xl text-white/90 font-secondary">
+                    <p className="text-base sm:text-lg md:text-xl text-white/90 font-secondary min-h-[3em]">
                       {slide.subtitle}
                     </p>
 
                     {slide.cta && slide.cta.links && slide.cta.links.length > 0 && (
-                      <div className="pt-2 sm:pt-3 md:pt-4">
+                      <div className="pt-2 sm:pt-3 md:pt-4 mt-auto">
                         <ul className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                           {slide.cta.links.map(({ link }, i) => (
                             <li key={i}>
@@ -272,7 +272,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                           alt={slide.featuredItem.title}
                           fill
                           priority
-                          imgClassName="object-cover z-0"
+                          imgClassName="object-cover z-0 w-full h-full"
                         />
 
                         {/* Gradient overlay for text readability */}
@@ -314,7 +314,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
 
                 {/* Featured Cards - Full Width Row */}
                 {slide.featuredCards && slide.featuredCards.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-auto">
+                  <div className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-auto hidden md:grid">
                     {slide.featuredCards.map((card, idx) => (
                       <div
                         key={idx}
@@ -334,7 +334,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
 
                         {/* Card Content */}
                         <div className="p-3 sm:p-4">
-                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90">
+                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90 min-h-14">
                             {card.title}
                           </h3>
                           <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">

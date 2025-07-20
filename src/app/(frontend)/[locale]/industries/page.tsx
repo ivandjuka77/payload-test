@@ -1,21 +1,38 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 import { draftMode } from 'next/headers'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { IndustryShowcaseComponent } from '@/components/IndustryShowcaseComponent'
-import { Industry } from '@/payload-types'
+import { queryIndustries } from '@/utilities/queries'
 
-export default async function IndustriesPage() {
+export async function generateStaticParams() {
+  const locales = ['', 'sk', 'jp'] // Your supported locales
+
+  // For the main industries page, we only need to generate one path per locale
+  const params = locales.map((locale) => ({
+    locale,
+  }))
+
+  console.log(`[generateStaticParams] Generated paths for industries index page`)
+  console.log(`Locales: ${locales.length}`)
+
+  return params
+}
+
+type Params = Promise<{ locale: TypedLocale }>
+
+export default async function IndustriesPage({ params }: { params: Params }) {
+  const { locale } = await params
   const { isEnabled: draft } = await draftMode()
   const url = '/industries'
 
-  const page = await queryIndustriesPage()
-  const industries = await queryIndustries({ limit: 100 })
+  const page = await queryIndustriesPage({ locale })
+  const industries = await queryIndustries({ limit: 100, locale })
 
   if (!page) {
     return <PayloadRedirects url={url} />
@@ -29,26 +46,24 @@ export default async function IndustriesPage() {
       {draft && <LivePreviewListener />}
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
-      <IndustryShowcaseComponent
-        industries={industries}
-        title="Industries We Serve"
-        subtitle="Discover how our chemical solutions power innovation across diverse industries"
-      />
+      <IndustryShowcaseComponent industries={industries} />
     </article>
   )
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await queryIndustriesPage()
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { locale } = await params
+  const page = await queryIndustriesPage({ locale })
   return generateMeta({ doc: page })
 }
 
-async function queryIndustriesPage() {
+async function queryIndustriesPage({ locale }: { locale: TypedLocale }) {
   const { isEnabled: draft } = await draftMode()
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
     collection: 'pages',
+    locale,
     draft,
     limit: 1,
     pagination: false,
@@ -61,19 +76,4 @@ async function queryIndustriesPage() {
   })
 
   return result.docs?.[0] || null
-}
-
-export async function queryIndustries({ limit = 100 }: { limit?: number }) {
-  const { isEnabled: draft } = await draftMode()
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'industries',
-    draft,
-    limit: limit || 100,
-    pagination: false,
-    overrideAccess: draft,
-  })
-
-  return result.docs as Industry[]
 }

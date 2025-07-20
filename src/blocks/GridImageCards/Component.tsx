@@ -13,27 +13,28 @@ interface GridImageCardProps {
 
 function GridImageCard({ title, paragraph, image, highlights }: GridImageCardProps) {
   return (
-    <div className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out h-full hover:bg-green-600 hover:text-white hover:scale-[1.02]">
+    <div className="group relative h-full overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 ease-in-out hover:scale-[1.02] hover:bg-green-600 hover:text-white hover:shadow-xl">
       <div className="relative h-48 overflow-hidden">
         <Media resource={image} alt={title} fill imgClassName="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
       </div>
 
       <div className="p-6">
-        <h3 className="text-2xl font-bold font-primary mb-3 group-hover:text-white transition-all duration-300 ease-in-out group-hover:scale-[1.02]">
+        <h3 className="font-primary mb-3 text-xl font-bold transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:text-white sm:text-2xl">
           {title}
         </h3>
-        <p className="text-muted-foreground font-secondary mb-6 text-sm leading-relaxed group-hover:text-white/80 transition-all duration-300 ease-in-out group-hover:scale-[1.01]">
-          <RichText data={paragraph || ''} className="mx-0 px-0" />
-        </p>
+        <div className="font-secondary mb-6 text-sm leading-relaxed text-muted-foreground transition-all duration-300 ease-in-out group-hover:scale-[1.01] group-hover:text-white/80">
+          {/* The RichText component might render its own <p> tag, so we wrap it in a div */}
+          <RichText data={paragraph || ''} />
+        </div>
 
         <div className="grid grid-cols-1 gap-3">
           {highlights &&
             highlights.map((item, idx) =>
               item.highlight ? (
                 <div key={item.id || idx} className="flex items-center justify-start space-x-2">
-                  <ArrowRight className="w-4 h-4 text-green-300 group-hover:text-white transition-all duration-300 ease-in-out" />
-                  <span className="text-xs text-gray-600 font-secondary leading-relaxed group-hover:text-white/90 transition-all duration-300 ease-in-out group-hover:scale-[1.01]">
+                  <ArrowRight className="h-4 w-4 text-green-300 transition-all duration-300 ease-in-out group-hover:text-white" />
+                  <span className="font-secondary text-xs leading-relaxed text-gray-600 transition-all duration-300 ease-in-out group-hover:scale-[1.01] group-hover:text-white/90">
                     {item.highlight}
                   </span>
                 </div>
@@ -52,23 +53,23 @@ export const GridImageCards: React.FC<GridImageCardsBlock> = ({
   cards,
 }) => {
   return (
-    <section className="w-full py-20 bg-gray-50">
-      <div className="container">
+    <section className="w-full bg-gray-50 py-16 md:py-20 px-4 sm:px-6 lg:px-0">
+      <div className="container mx-auto">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
           <Badge
             variant="outline"
-            className="mb-6 px-4 py-1 border-green-500/20 text-green-500 bg-green-500/5"
+            className="mb-4 border-green-500/20 bg-green-500/5 px-4 py-1 text-green-500 md:mb-6"
           >
-            <Target className="w-4 h-4 mr-2" />
+            <Target className="mr-2 h-4 w-4" />
             {badge}
           </Badge>
 
-          <h2 className="text-4xl font-bold font-primary mb-6">{title}</h2>
-          <p className="text-xl text-muted-foreground font-secondary">{subtitle}</p>
+          <h2 className="font-primary mb-4 text-3xl font-bold sm:text-4xl">{title}</h2>
+          <p className="font-secondary text-base text-muted-foreground sm:text-lg">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {cards && cards.map((card, index) => <GridImageCard key={index} {...card} />)}
         </div>
       </div>
