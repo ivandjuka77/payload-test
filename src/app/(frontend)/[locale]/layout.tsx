@@ -8,7 +8,6 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { hasLocale } from 'next-intl'
 import { routing } from '@/i18n/routing'
 import { getMessages } from 'next-intl/server'
-
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
