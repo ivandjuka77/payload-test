@@ -18,28 +18,58 @@ export const Services: CollectionConfig = {
   versions: {
     drafts: true,
   },
+  labels: {
+    singular: {
+      sk: 'Služba',
+      en: 'Service',
+    },
+    plural: {
+      sk: 'Služby',
+      en: 'Services',
+    },
+  },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Title',
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
       localized: true,
+      label: {
+        sk: 'Popis',
+        en: 'Description',
+      },
     },
     {
       name: 'accreditations',
       type: 'array',
       localized: true,
+      label: {
+        sk: 'Akreditácie',
+        en: 'Accreditations',
+      },
+      labels: {
+        singular: { sk: 'Akreditácia', en: 'Accreditation' },
+        plural: { sk: 'Akreditácie', en: 'Accreditations' },
+      },
       fields: [
         {
           name: 'accreditation',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Akreditácia',
+            en: 'Accreditation',
+          },
         },
       ],
     },
@@ -48,38 +78,74 @@ export const Services: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: true,
+      label: {
+        sk: 'Hlavný obrázok',
+        en: 'Featured Image',
+      },
     },
     {
       name: 'subServices',
       type: 'array',
       localized: true,
+      label: {
+        sk: 'Pod-služby',
+        en: 'Sub-Services',
+      },
+      labels: {
+        singular: { sk: 'Pod-služba', en: 'Sub-Service' },
+        plural: { sk: 'Pod-služby', en: 'Sub-Services' },
+      },
       fields: [
         {
           name: 'title',
           type: 'text',
           required: true,
           localized: true,
+          label: {
+            sk: 'Názov',
+            en: 'Title',
+          },
         },
         {
           name: 'description',
           type: 'textarea',
           required: true,
           localized: true,
+          label: {
+            sk: 'Popis',
+            en: 'Description',
+          },
         },
         {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
+          label: {
+            sk: 'Obrázok',
+            en: 'Image',
+          },
         },
         {
           name: 'displayItems',
           type: 'array',
           localized: true,
+          label: {
+            sk: 'Zobrazované položky',
+            en: 'Display Items',
+          },
+          labels: {
+            singular: { sk: 'Položka', en: 'Item' },
+            plural: { sk: 'Položky', en: 'Items' },
+          },
           fields: [
             {
               name: 'item',
               type: 'text',
               localized: true,
+              label: {
+                sk: 'Položka',
+                en: 'Item',
+              },
             },
           ],
         },
@@ -87,24 +153,44 @@ export const Services: CollectionConfig = {
           name: 'features',
           type: 'array',
           localized: true,
+          label: {
+            sk: 'Vlastnosti',
+            en: 'Features',
+          },
+          labels: {
+            singular: { sk: 'Vlastnosť', en: 'Feature' },
+            plural: { sk: 'Vlastnosti', en: 'Features' },
+          },
           fields: [
             {
               name: 'feature',
               type: 'text',
               localized: true,
               required: true,
+              label: {
+                sk: 'Názov vlastnosti',
+                en: 'Feature Name',
+              },
             },
             {
               name: 'description',
               type: 'textarea',
               localized: true,
               required: true,
+              label: {
+                sk: 'Popis vlastnosti',
+                en: 'Feature Description',
+              },
             },
           ],
         },
         {
           name: 'link',
           type: 'text',
+          label: {
+            sk: 'Odkaz',
+            en: 'Link',
+          },
         },
       ],
     },
@@ -112,16 +198,32 @@ export const Services: CollectionConfig = {
       name: 'features',
       type: 'array',
       localized: true,
+      label: {
+        sk: 'Hlavné vlastnosti služby',
+        en: 'Main Service Features',
+      },
+      labels: {
+        singular: { sk: 'Vlastnosť', en: 'Feature' },
+        plural: { sk: 'Vlastnosti', en: 'Features' },
+      },
       fields: [
         {
           name: 'feature',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Názov vlastnosti',
+            en: 'Feature Name',
+          },
         },
         {
           name: 'description',
           type: 'textarea',
           localized: true,
+          label: {
+            sk: 'Popis vlastnosti',
+            en: 'Feature Description',
+          },
         },
       ],
     },
@@ -130,6 +232,10 @@ export const Services: CollectionConfig = {
       type: 'relationship',
       relationTo: 'teamMembers',
       hasMany: true,
+      label: {
+        sk: 'Tím',
+        en: 'Team',
+      },
     },
 
     {
@@ -138,6 +244,10 @@ export const Services: CollectionConfig = {
       relationTo: 'caseStudies',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Prípadové štúdie',
+        en: 'Case Studies',
+      },
     },
     {
       name: 'industries',
@@ -145,6 +255,10 @@ export const Services: CollectionConfig = {
       relationTo: 'industries',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Oblasti priemyslu',
+        en: 'Industries',
+      },
     },
     ...slugField(),
   ],

@@ -8,16 +8,6 @@
 
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TagsField".
- */
-export type TagsField =
-  | {
-      tag?: string | null;
-      id?: string | null;
-    }[]
-  | null;
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FCards".
  */
 export type FCards =
@@ -341,7 +331,12 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  tags?: TagsField;
+  tags?:
+    | {
+        tag?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   relatedProducts?: (number | Product)[] | null;
   relatedServices?: (number | Service)[] | null;
   industries?: (number | Industry)[] | null;
@@ -457,7 +452,20 @@ export interface Product {
   description: string;
   chemicalFamily?: (number | ProductCategory)[] | null;
   chemicalStructureImage: number | Media;
-  technicalSpecifications: TechSpecs;
+  technicalSpecifications: {
+    chemicalName: string;
+    casNumber: string;
+    ecNumber?: string | null;
+    synonyms?:
+      | {
+          synonym?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    molecularFormula: string;
+    molecularWeight?: string | null;
+    labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
+  };
   VupSpecifications?: {
     appearance?: string | null;
     purity?: string | null;
@@ -534,24 +542,6 @@ export interface ProductCategory {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "techSpecs".
- */
-export interface TechSpecs {
-  chemicalName: string;
-  casNumber: string;
-  ecNumber?: string | null;
-  synonyms?:
-    | {
-        synonym?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  molecularFormula: string;
-  molecularWeight?: string | null;
-  labVerified?: ('Verified' | 'Researched' | 'Not Confirmed') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2595,7 +2585,12 @@ export interface PostsSelect<T extends boolean = true> {
   description?: T;
   featuredImage?: T;
   content?: T;
-  tags?: T | TagsFieldSelect<T>;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
   relatedProducts?: T;
   relatedServices?: T;
   industries?: T;
@@ -2614,14 +2609,6 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TagsField_select".
- */
-export interface TagsFieldSelect<T extends boolean = true> {
-  tag?: T;
-  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2764,7 +2751,22 @@ export interface ProductsSelect<T extends boolean = true> {
   description?: T;
   chemicalFamily?: T;
   chemicalStructureImage?: T;
-  technicalSpecifications?: T | TechSpecsSelect<T>;
+  technicalSpecifications?:
+    | T
+    | {
+        chemicalName?: T;
+        casNumber?: T;
+        ecNumber?: T;
+        synonyms?:
+          | T
+          | {
+              synonym?: T;
+              id?: T;
+            };
+        molecularFormula?: T;
+        molecularWeight?: T;
+        labVerified?: T;
+      };
   VupSpecifications?:
     | T
     | {
@@ -2810,24 +2812,6 @@ export interface ProductsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "techSpecs_select".
- */
-export interface TechSpecsSelect<T extends boolean = true> {
-  chemicalName?: T;
-  casNumber?: T;
-  ecNumber?: T;
-  synonyms?:
-    | T
-    | {
-        synonym?: T;
-        id?: T;
-      };
-  molecularFormula?: T;
-  molecularWeight?: T;
-  labVerified?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

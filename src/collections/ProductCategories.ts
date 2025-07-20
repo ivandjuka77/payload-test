@@ -33,24 +33,46 @@ export const ProductCategories: CollectionConfig = {
       }),
     useAsTitle: 'name',
   },
+  labels: {
+    singular: {
+      sk: 'Kategória produktov',
+      en: 'Product Category',
+    },
+    plural: {
+      sk: 'Kategórie produktov',
+      en: 'Product Categories',
+    },
+  },
   fields: [
     {
       name: 'name',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Name',
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
       localized: true,
+      label: {
+        sk: 'Popis',
+        en: 'Description',
+      },
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
       required: true,
+      label: {
+        sk: 'Obrázok',
+        en: 'Image',
+      },
     },
     ...slugField('name'),
     {
@@ -59,27 +81,51 @@ export const ProductCategories: CollectionConfig = {
       relationTo: 'products',
       hasMany: true,
       required: false,
+      label: {
+        sk: 'Odporúčané produkty',
+        en: 'Featured Products',
+      },
     },
     {
       name: 'applications',
       type: 'array',
       required: false,
       localized: true,
+      label: {
+        sk: 'Aplikácie',
+        en: 'Applications',
+      },
+      labels: {
+        singular: { sk: 'Aplikácia', en: 'Application' },
+        plural: { sk: 'Aplikácie', en: 'Applications' },
+      },
       fields: [
         {
           name: 'imageSrc',
           type: 'upload',
           relationTo: 'media',
+          label: {
+            sk: 'Obrázok',
+            en: 'Image',
+          },
         },
         {
           name: 'title',
           type: 'text',
           localized: true,
+          label: {
+            sk: 'Názov',
+            en: 'Title',
+          },
         },
         {
           name: 'description',
           type: 'textarea',
           localized: true,
+          label: {
+            sk: 'Popis',
+            en: 'Description',
+          },
         },
       ],
     },
@@ -88,6 +134,10 @@ export const ProductCategories: CollectionConfig = {
       type: 'checkbox',
       required: false,
       defaultValue: false,
+      label: {
+        sk: 'Povoliť porovnanie produktov',
+        en: 'Enable Product Comparison',
+      },
     },
   ],
 }

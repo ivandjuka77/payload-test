@@ -20,6 +20,10 @@ export const Users: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
+      label: {
+        sk: 'Meno',
+        en: 'Name',
+      },
     },
   ],
   timestamps: true,

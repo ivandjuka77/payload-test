@@ -8,7 +8,7 @@ export const seedUsers = async (payload: Payload) => {
       collection: 'users',
       where: {
         email: {
-          equals: 'demo-author@example.com',
+          equals: 'roman.karlubik@chemox.sk',
         },
       },
     }),
@@ -16,7 +16,15 @@ export const seedUsers = async (payload: Payload) => {
       collection: 'users',
       where: {
         email: {
-          equals: 'sarah.chen@vup-chemical.com',
+          equals: 'seviour@vupas.sk',
+        },
+      },
+    }),
+    payload.delete({
+      collection: 'users',
+      where: {
+        email: {
+          equals: 'ivandjuka777@gmail.com',
         },
       },
     }),
@@ -26,16 +34,24 @@ export const seedUsers = async (payload: Payload) => {
     payload.create({
       collection: 'users',
       data: {
-        name: 'Dr. Sarah Chen',
-        email: 'sarah.chen@vup-chemical.com',
+        name: 'Roman Karlubik',
+        email: 'roman.karlubik@chemox.sk',
         password: 'password',
       },
     }),
     payload.create({
       collection: 'users',
       data: {
-        name: 'Demo Author',
-        email: 'demo-author@example.com',
+        name: 'Christopher Seviour',
+        email: 'seviour@vupas.sk',
+        password: 'password',
+      },
+    }),
+    payload.create({
+      collection: 'users',
+      data: {
+        name: 'Ivan Djukic',
+        email: 'ivandjuka777@gmail.com',
         password: 'password',
       },
     }),

@@ -13,31 +13,61 @@ export const TeamMembers: CollectionConfig = {
     delete: authenticated,
     update: authenticated,
   },
+  labels: {
+    singular: {
+      sk: 'Člen tímu',
+      en: 'Team Member',
+    },
+    plural: {
+      sk: 'Členovia tímu',
+      en: 'Team Members',
+    },
+  },
   fields: [
     {
       name: 'name',
       type: 'text',
       required: true,
+      label: {
+        sk: 'Meno',
+        en: 'Name',
+      },
     },
     {
       name: 'role',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Pozícia',
+        en: 'Role',
+      },
     },
     {
       name: 'bio',
       type: 'textarea',
       localized: true,
+      label: {
+        sk: 'Životopis',
+        en: 'Bio',
+      },
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
+      label: {
+        sk: 'Obrázok',
+        en: 'Image',
+      },
     },
     {
       name: 'linkedin',
       type: 'text',
+      label: {
+        sk: 'LinkedIn',
+        en: 'LinkedIn',
+      },
       admin: {
         description: 'LinkedIn profile URL',
       },
@@ -45,10 +75,18 @@ export const TeamMembers: CollectionConfig = {
     {
       name: 'email',
       type: 'email',
+      label: {
+        sk: 'Email',
+        en: 'Email',
+      },
     },
     {
       name: 'isHeadOfDepartment',
       type: 'checkbox',
+      label: {
+        sk: 'Je vedúci oddelenia',
+        en: 'Is Head of Department',
+      },
     },
     {
       name: 'department',
@@ -56,6 +94,10 @@ export const TeamMembers: CollectionConfig = {
       relationTo: 'services',
       hasMany: true,
       maxDepth: 3,
+      label: {
+        sk: 'Oddelenie',
+        en: 'Department',
+      },
     },
   ],
   timestamps: true,

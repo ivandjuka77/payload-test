@@ -44,9 +44,6 @@ export const Pages: CollectionConfig<'pages'> = {
     read: authenticatedOrPublished,
     update: authenticated,
   },
-  // This config controls what's populated by default when a page is referenced
-  // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
-  // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'pages'>
   defaultPopulate: {
     title: true,
     slug: true,
@@ -72,19 +69,36 @@ export const Pages: CollectionConfig<'pages'> = {
       }),
     useAsTitle: 'title',
   },
+  labels: {
+    singular: {
+      sk: 'Stránka',
+      en: 'Page',
+    },
+    plural: {
+      sk: 'Stránky',
+      en: 'Pages',
+    },
+  },
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
       localized: true,
+      label: {
+        sk: 'Názov',
+        en: 'Title',
+      },
     },
     {
       type: 'tabs',
       tabs: [
         {
           fields: [hero],
-          label: 'Hero',
+          label: {
+            sk: 'Hlavná sekcia',
+            en: 'Hero',
+          },
         },
         {
           fields: [
@@ -92,6 +106,10 @@ export const Pages: CollectionConfig<'pages'> = {
               name: 'layout',
               type: 'blocks',
               localized: true,
+              label: {
+                sk: 'Rozloženie blokov',
+                en: 'Block Layout',
+              },
               blocks: [
                 CallToAction,
                 Content,
@@ -119,11 +137,17 @@ export const Pages: CollectionConfig<'pages'> = {
               },
             },
           ],
-          label: 'Content',
+          label: {
+            sk: 'Obsah',
+            en: 'Content',
+          },
         },
         {
           name: 'meta',
-          label: 'SEO',
+          label: {
+            sk: 'SEO',
+            en: 'SEO',
+          },
           localized: true,
           fields: [
             OverviewField({
@@ -137,13 +161,9 @@ export const Pages: CollectionConfig<'pages'> = {
             MetaImageField({
               relationTo: 'media',
             }),
-
             MetaDescriptionField({}),
             PreviewField({
-              // if the `generateUrl` function is configured
               hasGenerateFn: true,
-
-              // field paths to match the target field for data
               titlePath: 'meta.title',
               descriptionPath: 'meta.description',
             }),
@@ -154,6 +174,10 @@ export const Pages: CollectionConfig<'pages'> = {
     {
       name: 'publishedAt',
       type: 'date',
+      label: {
+        sk: 'Dátum publikovania',
+        en: 'Published At',
+      },
       admin: {
         position: 'sidebar',
       },
@@ -172,7 +196,7 @@ export const Pages: CollectionConfig<'pages'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 100,
       },
       schedulePublish: true,
     },

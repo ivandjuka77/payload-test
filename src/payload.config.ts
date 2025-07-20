@@ -25,6 +25,9 @@ import { Services } from './collections/Services'
 import { TeamMembers } from './collections/TeamMembers'
 import { Careers } from './collections/Careers'
 
+import { sk } from '@payloadcms/translations/languages/sk'
+import { en } from '@payloadcms/translations/languages/en'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -144,5 +147,12 @@ export default buildConfig({
     ],
     defaultLocale: 'en',
     fallback: true,
+  },
+  i18n: {
+    supportedLanguages: {
+      sk,
+      en,
+    },
+    fallbackLanguage: 'en',
   },
 })
