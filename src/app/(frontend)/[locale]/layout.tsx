@@ -10,7 +10,6 @@ import { routing } from '@/i18n/routing'
 import { getMessages } from 'next-intl/server'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
-
 import { Raleway, Inter } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
