@@ -79,6 +79,7 @@ export default buildConfig({
   //     url: process.env.DATABASE_URI || '',
   //   },
   // }),
+  //* -------- DB -------- *//
   db: postgresAdapter({
     pool: {
       max: 4,
