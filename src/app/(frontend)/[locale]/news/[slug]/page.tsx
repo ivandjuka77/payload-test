@@ -12,25 +12,25 @@ import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const posts = await payload.find({
-    collection: 'posts',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config: configPromise })
+//   const posts = await payload.find({
+//     collection: 'posts',
+//     draft: false,
+//     limit: 1000,
+//     overrideAccess: false,
+//     pagination: false,
+//     select: {
+//       slug: true,
+//     },
+//   })
 
-  const params = posts.docs.map(({ slug }) => {
-    return { slug }
-  })
+//   const params = posts.docs.map(({ slug }) => {
+//     return { slug }
+//   })
 
-  return params
-}
+//   return params
+// }
 
 type Args = {
   params: Promise<{
@@ -90,15 +90,13 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
   const payload = await getPayload({ config: configPromise })
 
   const result = await payload.find({
     collection: 'posts',
-    draft,
+    draft: false,
     limit: 1,
-    overrideAccess: draft,
+    overrideAccess: false,
     pagination: false,
     where: {
       slug: {
