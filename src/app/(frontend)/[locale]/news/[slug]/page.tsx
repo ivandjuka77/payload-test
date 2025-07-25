@@ -3,11 +3,9 @@ import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
 import { getPayload } from 'payload'
 import { draftMode } from 'next/headers'
-import React, { cache } from 'react'
+import { cache } from 'react'
 import RichText from '@/components/RichText'
-
 import type { Post } from '@/payload-types'
-
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
@@ -62,7 +60,7 @@ export default async function Post({ params: paramsPromise }: Args) {
       <div className="flex flex-col items-center gap-4 pt-14">
         <div className="container px-4 sm:px-6 lg:px-0">
           <RichText
-            className="max-w-[90%] sm:max-w-[48rem] mx-auto"
+            className="max-w-[90%] text-foreground sm:max-w-[48rem] mx-auto"
             data={post.content as DefaultTypedEditorState}
             enableGutter={false}
           />
