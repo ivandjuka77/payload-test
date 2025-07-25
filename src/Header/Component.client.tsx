@@ -47,7 +47,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-sm',
-        isScrolled ? 'py-4' : 'py-6',
+        isScrolled ? 'py-4' : 'py-6 xl:py-8',
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -58,7 +58,10 @@ export default function Navbar({ industries, productCategories, services }: Navb
             alt="VUP Logo"
             width={150}
             height={50}
-            className="h-auto w-28 lg:w-[120px] xl:w-[150px]"
+            className={
+              'h-auto w-28 lg:w-[120px] xl:w-[150px] scale-100 transition-all duration-300 ' +
+              (isScrolled ? 'scale-100' : 'xl:scale-[1.3]')
+            }
           />
         </Link>
 
