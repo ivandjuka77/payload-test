@@ -19,6 +19,7 @@ import {
 import { cn } from '@/utilities/ui'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
 import { useTranslations } from 'next-intl'
+import { useWindowSize } from './hooks/useWindowSize'
 
 interface NavItem {
   name: string
@@ -61,7 +62,7 @@ function IndustriesMegaMenu({
 
   return (
     <div className="container mx-auto py-6 px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {industries.map((industry) => {
           return (
             <Link
@@ -127,10 +128,20 @@ function ProductsMegaMenu({
 }) {
   const t = useTranslations('header')
 
+  const { height } = useWindowSize() // Get window height
+
+  // Check for smaller screen height, default to false if height is not yet available
+  const isCompact = height ? height <= 750 : false
+
+  // Adjust item counts based on screen height
+  const categoriesToShow = isCompact ? productCategories.slice(0, 6) : productCategories
+  const featuredProductsCount = isCompact ? 2 : 3
+  const applicationsCount = isCompact ? 1 : 2
+
   return (
     <div className="container mx-auto py-8 px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {productCategories.map((productCategory, index) => {
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {categoriesToShow.map((productCategory, index) => {
           const featuredProducts = productCategory.featuredProducts as Product[]
           return (
             <Link
@@ -143,7 +154,7 @@ function ProductsMegaMenu({
                 <div className="flex items-start gap-4">
                   <div className="text-blue-500 mt-1">{productCategoryIcons[index]}</div>
                   <div>
-                    <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-secondary leading-tight font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                       {productCategory.name}
                     </h3>
                     <p className="mt-1 text-xs font-secondary text-gray-500 leading-relaxed line-clamp-2">
@@ -153,7 +164,7 @@ function ProductsMegaMenu({
                 </div>
                 <div className="mt-3 ml-8">
                   <ul className="space-y-1">
-                    {featuredProducts.slice(0, 3).map((item, idx) => (
+                    {featuredProducts.slice(0, featuredProductsCount).map((item, idx) => (
                       <li key={idx} className="text-xs text-gray-600 flex items-center">
                         <ArrowRight size={10} className="mr-1.5 text-blue-500" />
                         <Link
@@ -168,7 +179,7 @@ function ProductsMegaMenu({
                   </ul>
                 </div>
                 <div className="mt-3 ml-8 flex flex-wrap gap-2">
-                  {productCategory.applications?.slice(0, 2).map((app, idx) => (
+                  {productCategory.applications?.slice(0, applicationsCount).map((app, idx) => (
                     <span
                       key={idx}
                       className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors"
@@ -202,7 +213,7 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
 
   return (
     <div className="container mx-auto py-8 px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {services.map((service, index) => (
           <Link
             key={index}
@@ -257,7 +268,7 @@ export function DesktopNav({ navItems, industries, productCategories, services }
 
   return (
     <>
-      <nav className="hidden lg:flex items-center space-x-10">
+      <nav className="hidden lg:flex items-center space-x-4 lg:space-x-4 xl:space-x-8">
         {navItems.map((item) =>
           item.hasDropdown ? (
             <div key={item.name} className="relative group">

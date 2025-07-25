@@ -149,7 +149,9 @@ export default function SearchDialog({ children }: SearchDialogProps) {
 
   return (
     <Dialog open={isSearchDialogOpen} onOpenChange={handleDialogClose}>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger className="block lg:hidden xl:block" asChild>
+        {children}
+      </DialogTrigger>
       <DialogContent className="max-w-[90%] mx-auto rounded-md sm:max-w-[550px] p-0">
         <div className="flex flex-col h-[450px]">
           <div className="flex items-center border-b px-3">

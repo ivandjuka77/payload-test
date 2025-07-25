@@ -58,7 +58,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
             alt="VUP Logo"
             width={150}
             height={50}
-            className="h-auto w-28 lg:w-[150px]"
+            className="h-auto w-28 lg:w-[120px] xl:w-[150px]"
           />
         </Link>
 
@@ -71,7 +71,7 @@ export default function Navbar({ industries, productCategories, services }: Navb
         />
 
         {/* Right side actions */}
-        <div className="flex items-center space-x-2 lg:space-x-5">
+        <div className="flex items-center space-x-2 md:space-x-3 lg:space-x-5">
           <SearchDialog>
             <Button
               variant="ghost"
