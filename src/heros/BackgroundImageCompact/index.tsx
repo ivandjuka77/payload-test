@@ -8,7 +8,7 @@ export const BackgroundImageCompact: React.FC<Page['hero']> = (props) => {
   const { media, title, description, cta } = props
 
   return (
-    <section className="relative w-full min-h-[450px] flex flex-col">
+    <section className="relative w-full min-h-[550px] pt-20 md:pt-28 flex flex-col">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Media resource={media} fill imgClassName="object-cover" priority />

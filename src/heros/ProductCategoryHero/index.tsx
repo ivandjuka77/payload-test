@@ -14,7 +14,7 @@ export function ProductCategoryHero({
   category: ProductCategory
 }) {
   return (
-    <section className="w-full relative pt-32 pb-10 md:py-28 overflow-hidden px-4 sm:px-6 lg:px-0">
+    <section className="w-full relative pt-32 pb-10 md:py-28 xl:pt-44 overflow-hidden px-4 sm:px-6 lg:px-0">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/20 z-0"></div>
 
       <div className="container lg:px-6 relative z-10">

@@ -37,7 +37,7 @@ export function ServiceHero({ service, translations }: Props) {
   }
 
   return (
-    <section className="relative w-full bg-background pt-10">
+    <section className="relative w-full bg-background pt-10 xl:pt-20">
       {/* Hero Section */}
       <div className="container mx-auto pt-20 pb-10 md:py-20 px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

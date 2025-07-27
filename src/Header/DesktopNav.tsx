@@ -268,7 +268,7 @@ export function DesktopNav({ navItems, industries, productCategories, services }
 
   return (
     <>
-      <nav className="hidden lg:flex items-center space-x-4 lg:space-x-4 xl:space-x-8">
+      <nav className="hidden lg:flex items-center space-x-4 lg:space-x-4 xl:space-x-8 ">
         {navItems.map((item) =>
           item.hasDropdown ? (
             <div key={item.name} className="relative group">

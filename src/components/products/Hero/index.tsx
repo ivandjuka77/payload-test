@@ -24,7 +24,7 @@ export function ProductHero({
   cta,
 }: Props) {
   return (
-    <section className="w-full relative pt-32 pb-10 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50/50 px-4 sm:px-6 lg:px-0">
+    <section className="w-full relative pt-32 pb-10 md:py-24 lg:py-32 xl:pt-44 bg-gradient-to-b from-white to-gray-50/50 px-4 sm:px-6 lg:px-0">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">

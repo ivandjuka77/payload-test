@@ -218,7 +218,7 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
               </div>
 
               {/* Slide Content */}
-              <div className="container relative z-20 h-full flex flex-col justify-between px-4 sm:px-5 md:px-6 py-24 sm:py-26 md:pt-32 md:pb-20">
+              <div className="container relative z-20 h-full flex flex-col justify-between px-4 sm:px-5 md:px-6 py-24 sm:py-26 md:pt-36 md:pb-20">
                 {/* Top Section - Two Columns on Desktop */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 mb-4 sm:mb-6 min-h-[250px] sm:min-h-[300px] md:!min-h-[200px] pt-16 sm:pt-0">
                   {/* Left Column - Main Content */}
