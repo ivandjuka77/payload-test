@@ -1,5 +1,5 @@
 import Tag from '@/components/ui/tag'
-import { Check, ArrowRight, Beaker } from 'lucide-react'
+import { Check, ArrowRight, Beaker, FlaskConical, Atom } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Product, ProductCategory } from '@/payload-types'
@@ -15,6 +15,12 @@ export default function CategoryCard({
 }) {
   const t = useTranslations('categoryCard')
   const featuredProducts = category.featuredProducts as Product[]
+
+  const applicationIcons = {
+    1: <Atom />,
+    2: <Beaker />,
+    3: <FlaskConical />,
+  }
 
   return (
     <div
@@ -84,7 +90,7 @@ export default function CategoryCard({
                 className="flex flex-col items-center justify-center p-2 sm:p-3 bg-white rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-20 sm:h-24 md:h-28 lg:h-32"
               >
                 <div className="mb-1 sm:mb-2 flex h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  {/* <DynamicIcon name={useCase.icon as any} className='h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5' /> */}
+                  {applicationIcons[(idx + 1) as keyof typeof applicationIcons]}
                 </div>
                 <span className="text-xs text-center font-medium font-secondary line-clamp-2">
                   {application.title}
