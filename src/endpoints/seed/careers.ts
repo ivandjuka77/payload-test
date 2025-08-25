@@ -1,10 +1,13 @@
-import type { Media } from '@/payload-types'
+import type { Career, Media } from '@/payload-types'
 
 type CareersArgs = {
   featuredImage1: Media
+
+  chemist: Career
+  analyst: Career
 }
 
-export function careersEn({ featuredImage1 }: CareersArgs) {
+export function careersEn({ featuredImage1, chemist, analyst }: CareersArgs) {
   return {
     title: 'Career',
     hero: {
@@ -79,6 +82,7 @@ export function careersEn({ featuredImage1 }: CareersArgs) {
           'Join our team and be part of creating innovative chemical solutions for a sustainable future.',
         blockName: null,
         blockType: 'careers',
+        careers: [chemist, analyst],
       },
     ],
 
@@ -93,7 +97,7 @@ export function careersEn({ featuredImage1 }: CareersArgs) {
   }
 }
 
-export function careersSk({ featuredImage1 }: CareersArgs) {
+export function careersSk({ featuredImage1, chemist, analyst }: CareersArgs) {
   return {
     title: 'Kariéra',
     hero: {
@@ -163,6 +167,7 @@ export function careersSk({ featuredImage1 }: CareersArgs) {
           'Pridajte sa do nášho tímu a podieľajte sa na vytváraní inovatívnych chemických riešení pre udržateľnú budúcnosť.',
         blockName: null,
         blockType: 'careers',
+        careers: [chemist, analyst],
       },
     ],
     meta: {
@@ -176,7 +181,7 @@ export function careersSk({ featuredImage1 }: CareersArgs) {
   }
 }
 
-export function careersJp({ featuredImage1 }: CareersArgs) {
+export function careersJp({ featuredImage1, chemist, analyst }: CareersArgs) {
   return {
     title: '採用情報',
     hero: {
@@ -246,6 +251,7 @@ export function careersJp({ featuredImage1 }: CareersArgs) {
           '私たちのチームに参加し、持続可能な未来のための革新的な化学ソリューションの創造に貢献してください。',
         blockName: null,
         blockType: 'careers',
+        careers: [chemist, analyst],
       },
     ],
     meta: {

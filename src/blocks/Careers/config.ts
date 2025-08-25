@@ -20,5 +20,12 @@ export const Careers: Block = {
       required: true,
       localized: true,
     },
+    {
+      name: 'careers',
+      type: 'relationship',
+      relationTo: 'careers',
+      hasMany: true,
+      required: true,
+    },
   ],
 }

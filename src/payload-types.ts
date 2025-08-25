@@ -1512,9 +1512,79 @@ export interface GridImageCardsBlock {
 export interface CareersBlock {
   title: string;
   description: string;
+  careers: (number | Career)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'careers';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "careers".
+ */
+export interface Career {
+  id: number;
+  title: string;
+  /**
+   * e.g. Engineering, Marketing, Sales, etc.
+   */
+  category: string;
+  /**
+   * City, Country or Remote
+   */
+  location: string;
+  type: 'fulltime' | 'parttime' | 'intern' | 'contract';
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * List the key responsibilities for this role
+   */
+  keyResponsibilities: {
+    responsibility?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * List the required qualifications and experience
+   */
+  requirements: {
+    requirement?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * List any preferred but not required qualifications
+   */
+  preferredQualifications?:
+    | {
+        qualification?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * List any benefits offered with this position
+   */
+  benefits?:
+    | {
+        benefit?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1593,75 +1663,6 @@ export interface TeamBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'team';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "careers".
- */
-export interface Career {
-  id: number;
-  title: string;
-  /**
-   * e.g. Engineering, Marketing, Sales, etc.
-   */
-  category: string;
-  /**
-   * City, Country or Remote
-   */
-  location: string;
-  type: 'fulltime' | 'parttime' | 'intern' | 'contract';
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  /**
-   * List the key responsibilities for this role
-   */
-  keyResponsibilities: {
-    responsibility?: string | null;
-    id?: string | null;
-  }[];
-  /**
-   * List the required qualifications and experience
-   */
-  requirements: {
-    requirement?: string | null;
-    id?: string | null;
-  }[];
-  /**
-   * List any preferred but not required qualifications
-   */
-  preferredQualifications?:
-    | {
-        qualification?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * List any benefits offered with this position
-   */
-  benefits?:
-    | {
-        benefit?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2513,6 +2514,7 @@ export interface GridImageCardsBlockSelect<T extends boolean = true> {
 export interface CareersBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  careers?: T;
   id?: T;
   blockName?: T;
 }

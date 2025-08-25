@@ -270,6 +270,77 @@
     "applicationsUseCases": "Applications & Use Cases",
     "exploreCategory": "Explore Category"
   },
+  "productInquiry": {
+    "title": "Product Inquiry",
+    "description": "Submit your inquiry for {productName}. Our team will respond with information regarding your request.",
+    "sections": {
+      "personalInfo": "Personal Information",
+      "companyInfo": "Company Information",
+      "productSummary": "Product Summary"
+    },
+    "form": {
+      "firstName": {
+        "label": "First Name *",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last Name *",
+        "placeholder": "Enter your last name"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "your.email@company.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+1 (555) 123-4567"
+      },
+      "company": {
+        "label": "Company Name *",
+        "placeholder": "Your company name"
+      },
+      "jobTitle": {
+        "label": "Job Title",
+        "placeholder": "Your position"
+      },
+      "inquiryType": {
+        "label": "Inquiry Type *",
+        "placeholder": "Select inquiry type",
+        "options": {
+          "pricing": "Pricing Information",
+          "samples": "Sample Request",
+          "bulk": "Bulk Order",
+          "technical": "Technical Support",
+          "custom": "Custom Synthesis",
+          "other": "Other"
+        }
+      },
+      "message": {
+        "label": "Additional Information *",
+        "placeholder": "Additional details about your inquiry...",
+        "defaultText": "I am interested in ordering {productName}{casNumber}. Please provide pricing information, availability, and delivery details for this product."
+      }
+    },
+    "productSummary": {
+      "product": "Product:",
+      "casNumber": "CAS Number:",
+      "description": "Description:",
+      "keyProperties": "Key Properties:"
+    },
+    "buttons": {
+      "submit": "Submit Inquiry",
+      "submitting": "Submitting..."
+    },
+    "validation": {
+      "requiredFields": "Please fill in all required fields",
+      "selectInquiryType": "Please select an inquiry type"
+    },
+    "toast": {
+      "success": "Inquiry submitted successfully!",
+      "error": "Failed to submit inquiry",
+      "unexpectedError": "An unexpected error occurred. Please try again or contact us directly."
+    }
+  },
   "footer": {
     "sections": {
       "company": "Company",

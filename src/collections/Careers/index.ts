@@ -39,7 +39,6 @@ export const Careers: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
-      localized: true,
       label: {
         sk: 'Názov',
         en: 'Title',
@@ -49,7 +48,6 @@ export const Careers: CollectionConfig = {
       name: 'category',
       type: 'text',
       required: true,
-      localized: true,
       label: {
         sk: 'Kategória',
         en: 'Category',
@@ -123,7 +121,6 @@ export const Careers: CollectionConfig = {
         },
       }),
       required: true,
-      localized: true,
       label: {
         sk: 'Popis',
         en: 'Description',
@@ -151,7 +148,6 @@ export const Careers: CollectionConfig = {
         {
           name: 'responsibility',
           type: 'text',
-          localized: true,
           label: {
             sk: 'Zodpovednosť',
             en: 'Responsibility',
@@ -184,7 +180,6 @@ export const Careers: CollectionConfig = {
         {
           name: 'requirement',
           type: 'text',
-          localized: true,
           label: {
             sk: 'Požiadavka',
             en: 'Requirement',
@@ -216,7 +211,6 @@ export const Careers: CollectionConfig = {
         {
           name: 'qualification',
           type: 'text',
-          localized: true,
           label: {
             sk: 'Kvalifikácia',
             en: 'Qualification',
@@ -248,7 +242,6 @@ export const Careers: CollectionConfig = {
         {
           name: 'benefit',
           type: 'text',
-          localized: true,
           label: {
             sk: 'Benefit',
             en: 'Benefit',

@@ -48,13 +48,15 @@ type Args = {
 }
 
 export default async function Career({ params: paramsPromise }: Args) {
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale = 'en' } = await paramsPromise
   const url = '/career/' + slug
   const job = await queryCareerBySlug({ slug })
 
   if (!job) {
     return <PayloadRedirects url={url} />
   }
+
+  console.log('job', job)
 
   // Extract and transform data according to Career interface
   const responsibilities =
@@ -67,7 +69,7 @@ export default async function Career({ params: paramsPromise }: Args) {
   const benefits = (job.benefits?.map((item) => item.benefit).filter(Boolean) as string[]) || null
 
   // Get related jobs data
-  const allJobs = await queryCareers({ limit: 5 })
+  const allJobs = await queryCareers({ limit: 5, locale: locale as 'en' | 'sk' | 'jp' })
   const jobsData = allJobs.reduce(
     (acc, career) => {
       if (career.slug) {
@@ -88,6 +90,10 @@ export default async function Career({ params: paramsPromise }: Args) {
       { title: string; department: string; location: string; type: string; description: string }
     >,
   )
+
+  console.log('allJobs', allJobs)
+
+  console.log('Jobs data', jobsData)
 
   return (
     <main className="flex min-h-screen flex-col">

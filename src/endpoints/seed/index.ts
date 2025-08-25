@@ -264,7 +264,11 @@ export const seed = async ({
       locale: 'en',
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
-      data: careersPageDataEn({ featuredImage1: media.demoImageDoc }),
+      data: careersPageDataEn({
+        featuredImage1: media.demoImageDoc,
+        chemist: careers.chemistDoc,
+        analyst: careers.analystDoc,
+      }),
     }),
 
     payload.create({
@@ -394,7 +398,11 @@ export const seed = async ({
       id: careersPage.id,
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
-      data: careersPageDataSk({ featuredImage1: media.demoImageDoc }),
+      data: careersPageDataSk({
+        featuredImage1: media.demoImageDoc,
+        chemist: careers.chemistDoc,
+        analyst: careers.analystDoc,
+      }),
     }),
   ])
 
@@ -527,7 +535,11 @@ export const seed = async ({
       id: careersPage.id,
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
-      data: careersPageDataJp({ featuredImage1: media.demoImageDoc }),
+      data: careersPageDataJp({
+        featuredImage1: media.demoImageDoc,
+        chemist: careers.chemistDoc,
+        analyst: careers.analystDoc,
+      }),
     }),
   ])
 

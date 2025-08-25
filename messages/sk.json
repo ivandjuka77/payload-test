@@ -270,6 +270,77 @@
     "applicationsUseCases": "Aplikácie a prípady použitia",
     "exploreCategory": "Preskúmať kategóriu"
   },
+  "productInquiry": {
+    "title": "Dopyt na produkt",
+    "description": "Odošlite svoj dopyt na {productName}. Náš tím odpovie s informáciami týkajúcimi sa vašej požiadavky.",
+    "sections": {
+      "personalInfo": "Osobné informácie",
+      "companyInfo": "Informácie o spoločnosti",
+      "productSummary": "Prehľad produktu"
+    },
+    "form": {
+      "firstName": {
+        "label": "Meno *",
+        "placeholder": "Zadajte vaše meno"
+      },
+      "lastName": {
+        "label": "Priezvisko *",
+        "placeholder": "Zadajte vaše priezvisko"
+      },
+      "email": {
+        "label": "E-mailová adresa *",
+        "placeholder": "vas.email@spolocnost.sk"
+      },
+      "phone": {
+        "label": "Telefónne číslo",
+        "placeholder": "+421 900 123 456"
+      },
+      "company": {
+        "label": "Názov spoločnosti *",
+        "placeholder": "Názov vašej spoločnosti"
+      },
+      "jobTitle": {
+        "label": "Pozícia",
+        "placeholder": "Vaša pozícia"
+      },
+      "inquiryType": {
+        "label": "Typ dopytu *",
+        "placeholder": "Vyberte typ dopytu",
+        "options": {
+          "pricing": "Cenové informácie",
+          "samples": "Požiadavka na vzorky",
+          "bulk": "Hromadná objednávka",
+          "technical": "Technická podpora",
+          "custom": "Vlastná syntéza",
+          "other": "Iné"
+        }
+      },
+      "message": {
+        "label": "Dodatočné informácie *",
+        "placeholder": "Ďalšie podrobnosti o vašom dopyte...",
+        "defaultText": "Mám záujem o objednávku {productName}{casNumber}. Prosím, poskytnite cenové informácie, dostupnosť a podrobnosti o dodávke tohto produktu."
+      }
+    },
+    "productSummary": {
+      "product": "Produkt:",
+      "casNumber": "CAS číslo:",
+      "description": "Popis:",
+      "keyProperties": "Kľúčové vlastnosti:"
+    },
+    "buttons": {
+      "submit": "Odoslať dopyt",
+      "submitting": "Odosiela sa..."
+    },
+    "validation": {
+      "requiredFields": "Prosím, vyplňte všetky povinné polia",
+      "selectInquiryType": "Prosím, vyberte typ dopytu"
+    },
+    "toast": {
+      "success": "Dopyt bol úspešne odoslaný!",
+      "error": "Nepodarilo sa odoslať dopyt",
+      "unexpectedError": "Nastala neočakávaná chyba. Prosím, skúste to znovu alebo nás kontaktujte priamo."
+    }
+  },
   "footer": {
     "sections": {
       "company": "Spoločnosť",

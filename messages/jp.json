@@ -270,6 +270,77 @@
     "applicationsUseCases": "用途・使用例",
     "exploreCategory": "カテゴリーを探索"
   },
+  "productInquiry": {
+    "title": "製品お問い合わせ",
+    "description": "{productName}についてのお問い合わせを送信してください。当社チームがご要望に関する情報をお答えいたします。",
+    "sections": {
+      "personalInfo": "個人情報",
+      "companyInfo": "会社情報",
+      "productSummary": "製品概要"
+    },
+    "form": {
+      "firstName": {
+        "label": "姓 *",
+        "placeholder": "姓を入力してください"
+      },
+      "lastName": {
+        "label": "名 *",
+        "placeholder": "名を入力してください"
+      },
+      "email": {
+        "label": "メールアドレス *",
+        "placeholder": "your.email@company.com"
+      },
+      "phone": {
+        "label": "電話番号",
+        "placeholder": "+81 90-1234-5678"
+      },
+      "company": {
+        "label": "会社名 *",
+        "placeholder": "会社名を入力してください"
+      },
+      "jobTitle": {
+        "label": "役職",
+        "placeholder": "役職を入力してください"
+      },
+      "inquiryType": {
+        "label": "お問い合わせ種別 *",
+        "placeholder": "お問い合わせ種別を選択してください",
+        "options": {
+          "pricing": "価格情報",
+          "samples": "サンプル依頼",
+          "bulk": "大量注文",
+          "technical": "技術サポート",
+          "custom": "カスタム合成",
+          "other": "その他"
+        }
+      },
+      "message": {
+        "label": "追加情報 *",
+        "placeholder": "お問い合わせの詳細をご記入ください...",
+        "defaultText": "{productName}{casNumber}の注文に興味があります。この製品の価格情報、在庫状況、および配送詳細をお教えください。"
+      }
+    },
+    "productSummary": {
+      "product": "製品:",
+      "casNumber": "CAS番号:",
+      "description": "説明:",
+      "keyProperties": "主要特性:"
+    },
+    "buttons": {
+      "submit": "お問い合わせを送信",
+      "submitting": "送信中..."
+    },
+    "validation": {
+      "requiredFields": "必須項目をすべて入力してください",
+      "selectInquiryType": "お問い合わせ種別を選択してください"
+    },
+    "toast": {
+      "success": "お問い合わせが正常に送信されました！",
+      "error": "お問い合わせの送信に失敗しました",
+      "unexpectedError": "予期しないエラーが発生しました。もう一度お試しいただくか、直接お問い合わせください。"
+    }
+  },
   "footer": {
     "sections": {
       "company": "会社",
