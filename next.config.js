@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import { withNextVideo } from 'next-video/process'
 
 import redirects from './redirects.js'
 
@@ -50,4 +51,6 @@ const nextConfig = {
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
-export default withPayload(withNextIntl(nextConfig), { devBundleServerPackages: false })
+export default withPayload(withNextIntl(withNextVideo(nextConfig)), {
+  devBundleServerPackages: false,
+})

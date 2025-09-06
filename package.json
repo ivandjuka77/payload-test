@@ -7,7 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev && npx next-video sync -w",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -57,6 +57,7 @@
     "next": "15.3.0",
     "next-intl": "^4.1.0",
     "next-sitemap": "^4.2.3",
+    "next-video": "^2.3.0",
     "payload": "^3.48.0",
     "posthog-js": "^1.257.0",
     "prism-react-renderer": "^2.3.1",

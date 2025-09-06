@@ -29,6 +29,7 @@ export interface CarouselHeroSlide {
 
 const isCarousel = (type: string) => ['carousel'].includes(type)
 const isMinimal = (type: string) => ['minimal'].includes(type)
+const isBackgroundVideo = (type: string) => ['backgroundVideo'].includes(type)
 
 export const hero: Field = {
   name: 'hero',
@@ -65,6 +66,10 @@ export const hero: Field = {
           label: 'Minimal',
           value: 'minimal',
         },
+        {
+          label: 'Background Video',
+          value: 'backgroundVideo',
+        },
       ],
       required: true,
     },
@@ -99,7 +104,8 @@ export const hero: Field = {
       name: 'media',
       type: 'upload',
       admin: {
-        condition: (_, { type } = {}) => !isCarousel(type) && !isMinimal(type),
+        condition: (_, { type } = {}) =>
+          !isCarousel(type) && !isMinimal(type) && !isBackgroundVideo(type),
       },
       relationTo: 'media',
       required: true,

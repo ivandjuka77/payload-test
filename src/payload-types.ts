@@ -199,7 +199,7 @@ export interface Page {
   id: number;
   title: string;
   hero: {
-    type: 'none' | 'carousel' | 'simple' | 'backgroundImage' | 'backgroundImageCompact' | 'minimal';
+    type: 'none' | 'carousel' | 'simple' | 'backgroundImage' | 'backgroundImageCompact' | 'minimal' | 'backgroundVideo';
     title?: string | null;
     description?: string | null;
     cta?: {
