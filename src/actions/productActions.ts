@@ -70,6 +70,7 @@ export async function fetchFilteredProductsAction(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const query: any = {
       collection: 'products',
+      sort: '_order',
       draft: false,
       overrideAccess: false,
       depth: 2,
@@ -95,6 +96,7 @@ export async function fetchFilteredProductsAction(
     if (categoryFilter && categoryFilter !== 'All Categories') {
       const category = await payload.find({
         collection: 'productCategories',
+        sort: '_order',
         draft: false,
         overrideAccess: false,
         locale,
@@ -220,6 +222,7 @@ export async function fetchFilterOptionsAction(
     // Fetch all product categories
     const categories = await payload.find({
       collection: 'productCategories',
+      sort: '_order',
       draft: false,
       overrideAccess: false,
       locale,
@@ -238,6 +241,7 @@ export async function fetchFilterOptionsAction(
     // Fetch unique applications from products
     const products = await payload.find({
       collection: 'products',
+      sort: '_order',
       draft: false,
       overrideAccess: false,
       locale,

@@ -121,6 +121,7 @@ export async function GET(request: NextRequest) {
           },
         ],
       },
+      sort: 'priority',
     })
 
     return NextResponse.json({

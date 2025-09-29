@@ -73,6 +73,7 @@ const getPagesSitemap = unstable_cache(
     // Products collection (/products/[slug])
     const products = await payload.find({
       collection: 'products',
+      sort: '_order',
       overrideAccess: false,
       draft: false,
       depth: 0,
@@ -106,6 +107,7 @@ const getPagesSitemap = unstable_cache(
     // Note: ProductCategories doesn't have drafts/versions, so no _status field
     const productCategories = await payload.find({
       collection: 'productCategories',
+      sort: '_order',
       overrideAccess: false,
       depth: 0,
       limit: 1000,

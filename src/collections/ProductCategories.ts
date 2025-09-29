@@ -7,6 +7,8 @@ import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 
 export const ProductCategories: CollectionConfig = {
   slug: 'productCategories',
+  orderable: true,
+  defaultSort: 'order',
   access: {
     create: authenticated,
     delete: authenticated,

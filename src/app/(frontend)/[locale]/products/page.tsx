@@ -77,6 +77,7 @@ export async function queryProductCategories({
 
   const result = await payload.find({
     collection: 'productCategories',
+    sort: '_order',
     draft: false, // Always false for static generation
     limit: limit || 100,
     pagination: false,

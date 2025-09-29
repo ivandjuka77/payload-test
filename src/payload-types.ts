@@ -448,6 +448,7 @@ export interface Media {
  */
 export interface Product {
   id: number;
+  _order?: string | null;
   name: string;
   description: string;
   chemicalFamily?: (number | ProductCategory)[] | null;
@@ -516,6 +517,7 @@ export interface Product {
  */
 export interface ProductCategory {
   id: number;
+  _order?: string | null;
   name: string;
   description: string;
   image: number | Media;
@@ -2708,6 +2710,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "productCategories_select".
  */
 export interface ProductCategoriesSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   description?: T;
   image?: T;
@@ -2763,6 +2766,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   description?: T;
   chemicalFamily?: T;

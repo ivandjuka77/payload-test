@@ -5,6 +5,8 @@ import { slugField } from '../../fields/slug'
 
 export const Products: CollectionConfig = {
   slug: 'products',
+  orderable: true,
+  defaultSort: 'order',
   access: {
     create: authenticated,
     delete: authenticated,

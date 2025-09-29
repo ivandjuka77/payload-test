@@ -28,6 +28,7 @@ export async function generateStaticParams() {
 
     const products = await payload.find({
       collection: 'products',
+      sort: '_order',
       draft: false,
       overrideAccess: false,
       pagination: false,
