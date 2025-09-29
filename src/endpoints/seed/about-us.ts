@@ -32,9 +32,10 @@ export function aboutUsEn(args: AboutUsArgs) {
   return {
     title: 'About Us',
     hero: {
-      type: 'minimal',
+      type: 'backgroundVideo',
       title: 'About us',
-      description: 'This is the about us description',
+      description:
+        'We are VUP, a Slovak company with decades of expertise in petrochemical and organic chemical research, development, and production. We deliver innovative chemical solutions, industrial ecology services, and analytical support to partners across Slovakia and beyond.',
       cta: {
         links: [],
       },
