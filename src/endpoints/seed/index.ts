@@ -66,19 +66,19 @@ export const seed = async ({
   // Define the order for deletion. Collections with dependencies should be deleted before their dependencies.
   const orderedCollections: CollectionSlug[] = [
     'search',
-    'form-submissions',
-    'forms',
-    'pages',
-    'posts',
-    // 'users',
-    'careers',
-    'caseStudies',
-    'industries',
-    'services',
-    'teamMembers',
-    'products',
-    'productCategories',
-    'media',
+    // 'form-submissions',
+    // 'forms',
+    // 'pages',
+    // 'posts',
+    // // 'users',
+    // 'careers',
+    // 'caseStudies',
+    // 'industries',
+    // 'services',
+    // 'teamMembers',
+    // 'products',
+    // 'productCategories',
+    // 'media',
   ]
 
   const collectionsToDelete = useExistingMedia
@@ -108,20 +108,21 @@ export const seed = async ({
   )
 
   // clear the database (conditionally excluding media)
-  // await Promise.all(
-  //   globals.map((global) =>
-  //     payload.updateGlobal({
-  //       slug: global,
-  //       data: {
-  //         navItems: [],
-  //       },
-  //       depth: 0,
-  //       context: {
-  //         disableRevalidate: true,
-  //       },
-  //     }),
-  //   ),
-  // )
+
+  await payload.updateGlobal({
+    slug: 'footer',
+    data: {
+      linkGroups: [],
+      companyInfo: {
+        address: '',
+        email: '',
+      },
+    },
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+  })
 
   // --------------------
   // 1. Seed Media (or use existing)
@@ -606,36 +607,213 @@ export const seed = async ({
   //       ],
   //     },
   //   }),
-  //   payload.updateGlobal({
-  //     slug: 'footer',
-  //     data: {
-  //       navItems: [
-  //         {
-  //           link: {
-  //             type: 'custom',
-  //             label: 'Admin',
-  //             url: '/admin',
-  //           },
-  //         },
-  //         {
-  //           link: {
-  //             type: 'custom',
-  //             label: 'Source Code',
-  //             newTab: true,
-  //             url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
-  //           },
-  //         },
-  //         {
-  //           link: {
-  //             type: 'custom',
-  //             label: 'Payload',
-  //             newTab: true,
-  //             url: 'https://payloadcms.com/',
-  //           },
-  //         },
-  //       ],
-  //     },
-  //   }),
+  await payload.updateGlobal({
+    slug: 'footer',
+    data: {
+      linkGroups: [
+        {
+          groupTitle: 'Quick Links',
 
+          navItems: [
+            {
+              link: {
+                type: 'reference',
+                newTab: null,
+
+                reference: {
+                  relationTo: 'pages',
+
+                  value: homePageEn.id,
+                },
+                url: null,
+                label: 'Home',
+              },
+            },
+
+            {
+              link: {
+                type: 'reference',
+                newTab: null,
+
+                reference: {
+                  relationTo: 'pages',
+
+                  value: aboutUsPage.id,
+                },
+                url: null,
+                label: 'About Us',
+              },
+            },
+
+            {
+              link: {
+                type: 'reference',
+                newTab: null,
+
+                reference: {
+                  relationTo: 'pages',
+
+                  value: sustainabilityPage.id,
+                },
+                url: null,
+                label: 'Sustainability',
+              },
+            },
+
+            {
+              link: {
+                type: 'reference',
+                newTab: null,
+
+                reference: {
+                  relationTo: 'pages',
+
+                  value: careersPage.id,
+                },
+                url: null,
+                label: 'Career',
+              },
+            },
+
+            {
+              link: {
+                type: 'reference',
+                newTab: null,
+
+                reference: {
+                  relationTo: 'pages',
+
+                  value: productsPage.id,
+                },
+                url: null,
+                label: 'Products',
+              },
+            },
+          ],
+        },
+
+        {
+          groupTitle: 'Products',
+
+          navItems: [
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/hydroxy-acids',
+                label: 'Hydroxy Acids',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/hindered-amines',
+                label: 'Hydroxy Acids',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/glycol-ethers',
+                label: 'Glycol Ethers',
+              },
+            },
+          ],
+        },
+
+        {
+          groupTitle: 'More VUP',
+
+          navItems: [
+            {
+              link: {
+                type: 'custom',
+                newTab: true,
+                url: 'https://linkedin.com/',
+                label: 'LinkedIn',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: true,
+                url: 'https://www.chemox.sk/',
+                label: 'Chemox',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: 'https://www.vupcosmetics.sk/',
+                label: 'VUP Cosmetics',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: 'https://zchfp.sk/',
+                label: 'ZCHFP',
+              },
+            },
+          ],
+        },
+
+        {
+          groupTitle: 'Legal',
+
+          navItems: [
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/privacy-policy',
+                label: 'Privacy Policy',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/cookie-policy',
+                label: 'Cookie Policy',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/terms-conditions',
+                label: 'Terms & Conditions',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/sitemap-index.xml',
+                label: 'Sitemap',
+              },
+            },
+          ],
+        },
+      ],
+      companyInfo: {
+        address: 'VUP Chemicals, a.s.\nNábrežná 4, 971 01\nPrievidza, Slovakia',
+        email: 'info@vupinternational.com',
+      },
+    },
+  })
   payload.logger.info(`— Seeding complete!`)
 }

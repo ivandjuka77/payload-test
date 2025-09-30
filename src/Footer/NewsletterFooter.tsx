@@ -24,16 +24,16 @@ export default function NewsletterFooter() {
       </div>
 
       <form onSubmit={handleSubscribe} className="w-full">
-        <div className="flex flex-col gap-2 sm:flex-row">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <Input
             type="email"
             placeholder={t('emailPlaceholder')}
-            className="h-12 flex-1 border-primary/20 focus-visible:ring-primary/30"
+            className="h-10 flex-1 border-primary/20 focus-visible:ring-primary/30"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <Button type="submit" className="w-full px-6 sm:w-auto">
+          <Button type="submit" className="w-full px-6 sm:w-auto h-10">
             {t('subscribeButton')}
           </Button>
         </div>
