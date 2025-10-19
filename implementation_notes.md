@@ -30,7 +30,7 @@ ABOUT US PAGE:
 
 INDUSTRIES AGGREGATE PAGE:
 
-[] Change ordering of industries
+[x] Change ordering of industries
 
 ---
 
