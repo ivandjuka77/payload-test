@@ -358,6 +358,55 @@
       "unexpectedError": "An unexpected error occurred. Please try again or contact us directly."
     }
   },
+  "contactForm": {
+    "badge": "Get in Touch",
+    "companyInfo": {
+      "title": "Company Information",
+      "address": {
+        "label": "Address",
+        "value": "Nábrežná 4, 971 04 Prievidza, Slovakia"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "businessRegistration": {
+        "title": "Business Registration",
+        "companyId": "Company ID:",
+        "taxId": "Tax ID:",
+        "vatId": "VAT ID:",
+        "registration": "Registered at District Court in Trenčín, section Sa, file no. 313/R"
+      }
+    },
+    "career": {
+      "title": "Join Our Team",
+      "description": "Discover exciting career opportunities and become part of our growing team.",
+      "button": "Explore Careers"
+    },
+    "form": {
+      "title": "Send us a message",
+      "description": "Fill out the form below and we'll get back to you as soon as possible.",
+      "submitButton": "Send Message"
+    },
+    "states": {
+      "loading": {
+        "title": "Sending your message...",
+        "subtitle": "Please wait a moment"
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "message": "Thank you for reaching out. A member of our team will contact you within 24 hours.",
+        "button": "Send Another Message"
+      },
+      "error": {
+        "title": "Something Went Wrong",
+        "button": "Try Again"
+      }
+    },
+    "privacy": {
+      "text": "By submitting this form, you agree to our",
+      "link": "Privacy Policy"
+    }
+  },
   "footer": {
     "sections": {
       "company": "Company",

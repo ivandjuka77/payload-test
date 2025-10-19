@@ -358,6 +358,55 @@
       "unexpectedError": "Nastala neočakávaná chyba. Prosím, skúste to znovu alebo nás kontaktujte priamo."
     }
   },
+  "contactForm": {
+    "badge": "Kontaktujte nás",
+    "companyInfo": {
+      "title": "Informácie o spoločnosti",
+      "address": {
+        "label": "Adresa",
+        "value": "Nábrežná 4, 971 04 Prievidza, Slovensko"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "businessRegistration": {
+        "title": "Obchodný register",
+        "companyId": "IČO:",
+        "taxId": "DIČ:",
+        "vatId": "IČ DPH:",
+        "registration": "Zapísaná v Okresnom súde v Trenčíne, oddiel Sa, vložka číslo 313/R"
+      }
+    },
+    "career": {
+      "title": "Pridajte sa k nášmu tímu",
+      "description": "Objavte vzrušujúce kariérne príležitosti a staňte sa súčasťou nášho rastúceho tímu.",
+      "button": "Preskúmať kariéru"
+    },
+    "form": {
+      "title": "Pošlite nám správu",
+      "description": "Vyplňte formulár nižšie a my sa vám ozveme čo najskôr.",
+      "submitButton": "Odoslať správu"
+    },
+    "states": {
+      "loading": {
+        "title": "Odosiela sa vaša správa...",
+        "subtitle": "Prosím, počkajte chvíľu"
+      },
+      "success": {
+        "title": "Správa úspešne odoslaná!",
+        "message": "Ďakujeme za kontaktovanie. Člen nášho tímu vás bude kontaktovať do 24 hodín.",
+        "button": "Odoslať ďalšiu správu"
+      },
+      "error": {
+        "title": "Niečo sa pokazilo",
+        "button": "Skúsiť znova"
+      }
+    },
+    "privacy": {
+      "text": "Odoslaním tohto formulára súhlasíte s našimi",
+      "link": "Zásadami ochrany osobných údajov"
+    }
+  },
   "footer": {
     "sections": {
       "company": "Spoločnosť",

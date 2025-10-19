@@ -50,7 +50,7 @@ PRODUCTS AGGREGATE PAGE:
 
 CONTACT PAGE:
 
-[] Redo contact page
+[x] Redo contact page
 [x] Add fortischem area
 [x] Add business details
 
@@ -71,7 +71,7 @@ PRODUCTS PAGE:
 
 SERVICES PAGE:
 
-[] Apply feedback
+[x] Apply feedback
 
 ---
 

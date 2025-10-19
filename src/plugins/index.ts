@@ -81,6 +81,11 @@ export const plugins: Plugin[] = [
                 },
               }),
             }
+          } else if ('name' in field && field.name === 'fields') {
+            return {
+              ...field,
+              localized: true,
+            }
           }
           return field
         })

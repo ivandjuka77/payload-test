@@ -358,6 +358,55 @@
       "unexpectedError": "予期しないエラーが発生しました。もう一度お試しいただくか、直接お問い合わせください。"
     }
   },
+  "contactForm": {
+    "badge": "お問い合わせ",
+    "companyInfo": {
+      "title": "会社情報",
+      "address": {
+        "label": "住所",
+        "value": "Nábrežná 4, 971 04 Prievidza, スロバキア"
+      },
+      "email": {
+        "label": "メール"
+      },
+      "businessRegistration": {
+        "title": "登記情報",
+        "companyId": "会社ID:",
+        "taxId": "税務ID:",
+        "vatId": "VAT ID:",
+        "registration": "トレンチーン地方裁判所登録、セクションSa、ファイル番号313/R"
+      }
+    },
+    "career": {
+      "title": "チームに参加",
+      "description": "エキサイティングなキャリアの機会を発見し、成長するチームの一員になりましょう。",
+      "button": "キャリアを探索"
+    },
+    "form": {
+      "title": "メッセージを送信",
+      "description": "以下のフォームに記入してください。できるだけ早くご連絡いたします。",
+      "submitButton": "メッセージを送信"
+    },
+    "states": {
+      "loading": {
+        "title": "メッセージを送信中...",
+        "subtitle": "しばらくお待ちください"
+      },
+      "success": {
+        "title": "送信成功！",
+        "message": "お問い合わせいただきありがとうございます。24時間以内にチームメンバーからご連絡いたします。",
+        "button": "別のメッセージを送信"
+      },
+      "error": {
+        "title": "エラーが発生しました",
+        "button": "再試行"
+      }
+    },
+    "privacy": {
+      "text": "このフォームを送信することで、",
+      "link": "プライバシーポリシー"
+    }
+  },
   "footer": {
     "sections": {
       "company": "会社",

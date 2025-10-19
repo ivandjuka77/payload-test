@@ -684,6 +684,190 @@ export const seedForms = async (payload: Payload) => {
     },
   })
 
+  payload.logger.info(`✓ Product Inquiry Form created with ID: ${productInquiryForm.id}`)
+
+  // -------------------------------------------------------------------
+  // Add Product Inquiry Form Slovak (sk) localization
+  // -------------------------------------------------------------------
+  await payload.update({
+    collection: 'forms',
+    id: productInquiryForm.id,
+    locale: 'sk',
+    data: {
+      title: 'Formulár pre dopyt na produkt',
+      submitButtonLabel: 'Odoslať dopyt',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Ďakujeme za váš dopyt na produkt. Ozveme sa vám do 24 hodín s informáciami o produkte a cenou.',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          name: 'firstName',
+          blockType: 'text',
+          label: 'Meno',
+        },
+        {
+          name: 'lastName',
+          blockType: 'text',
+          label: 'Priezvisko',
+        },
+        {
+          name: 'email',
+          blockType: 'email',
+          label: 'E-mailová adresa',
+        },
+        {
+          name: 'phone',
+          blockType: 'text',
+          label: 'Telefónne číslo',
+        },
+        {
+          name: 'company',
+          blockType: 'text',
+          label: 'Názov spoločnosti',
+        },
+        {
+          name: 'jobTitle',
+          blockType: 'text',
+          label: 'Pracovná pozícia',
+        },
+        {
+          name: 'inquiryType',
+          blockType: 'select',
+          label: 'Typ dopytu',
+          options: [
+            { label: 'Informácie o cene', value: 'pricing' },
+            { label: 'Žiadosť o vzorku', value: 'samples' },
+            { label: 'Hromadná objednávka', value: 'bulk' },
+            { label: 'Technická podpora', value: 'technical' },
+            { label: 'Vlastná syntéza', value: 'custom' },
+            { label: 'Iné', value: 'other' },
+          ],
+        },
+        {
+          name: 'quantity',
+          blockType: 'text',
+          label: 'Množstvo (ak je to relevantné)',
+        },
+        {
+          name: 'productName',
+          blockType: 'text',
+          label: 'Názov produktu',
+        },
+        {
+          name: 'message',
+          blockType: 'textarea',
+          label: 'Dodatočné informácie',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Product Inquiry Form (sk) localization added.')
+
+  // -------------------------------------------------------------------
+  // Add Product Inquiry Form Japanese (jp) localization
+  // -------------------------------------------------------------------
+  await payload.update({
+    collection: 'forms',
+    id: productInquiryForm.id,
+    locale: 'jp',
+    data: {
+      title: '製品お問い合わせフォーム',
+      submitButtonLabel: '問い合わせを送信',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '製品に関するお問い合わせありがとうございます。24時間以内に製品情報と価格についてご連絡いたします。',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          name: 'firstName',
+          blockType: 'text',
+          label: '名',
+        },
+        {
+          name: 'lastName',
+          blockType: 'text',
+          label: '姓',
+        },
+        {
+          name: 'email',
+          blockType: 'email',
+          label: 'メールアドレス',
+        },
+        {
+          name: 'phone',
+          blockType: 'text',
+          label: '電話番号',
+        },
+        {
+          name: 'company',
+          blockType: 'text',
+          label: '会社名',
+        },
+        {
+          name: 'jobTitle',
+          blockType: 'text',
+          label: '役職',
+        },
+        {
+          name: 'inquiryType',
+          blockType: 'select',
+          label: 'お問い合わせの種類',
+          options: [
+            { label: '価格情報', value: 'pricing' },
+            { label: 'サンプル請求', value: 'samples' },
+            { label: '大量注文', value: 'bulk' },
+            { label: '技術サポート', value: 'technical' },
+            { label: 'カスタム合成', value: 'custom' },
+            { label: 'その他', value: 'other' },
+          ],
+        },
+        {
+          name: 'quantity',
+          blockType: 'text',
+          label: '数量（該当する場合）',
+        },
+        {
+          name: 'productName',
+          blockType: 'text',
+          label: '製品名',
+        },
+        {
+          name: 'message',
+          blockType: 'textarea',
+          label: '追加情報',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Product Inquiry Form (jp) localization added.')
+
   payload.logger.info('✓ Forms seeded')
 
   return {

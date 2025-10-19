@@ -1673,6 +1673,8 @@ export interface TeamBlock {
  * via the `definition` "MapBlock".
  */
 export interface MapBlock {
+  title: string;
+  description: string;
   /**
    * Enter the Google Maps embed URL
    */
@@ -2606,6 +2608,8 @@ export interface TeamBlockSelect<T extends boolean = true> {
  * via the `definition` "MapBlock_select".
  */
 export interface MapBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
   iframeUrl?: T;
   id?: T;
   blockName?: T;

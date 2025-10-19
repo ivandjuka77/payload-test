@@ -9,6 +9,18 @@ export const Map: Block = {
   },
   fields: [
     {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: true,
+      localized: true,
+    },
+    {
       name: 'iframeUrl',
       type: 'text',
       required: true,
