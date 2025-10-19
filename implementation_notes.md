@@ -38,7 +38,7 @@ INDUSTRIES AGGREGATE PAGE:
 
 SERVICES AGGREGATE PAGE:
 
-[] Add services to services aggregate page
+[x] Add services to services aggregate page
 
 ---
 
@@ -58,7 +58,7 @@ CAREER PAGE:
 
 PRODUCTS AGGREGATE PAGE:
 
-[] Change hero
+[x] Change hero
 
 ---
 

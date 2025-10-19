@@ -12,7 +12,8 @@ export function productsEn(args: ProductsArgs) {
     hero: {
       type: 'backgroundImage' as const,
       title: 'Products',
-      description: 'Products',
+      description:
+        'Discover our comprehensive range of specialty chemicals designed to meet the evolving needs of modern industries. From innovative hydroxy acids to advanced hindered amines, our products deliver exceptional performance and reliability across diverse applications.',
       cta: {
         links: [],
       },
@@ -52,7 +53,8 @@ export function productsSk(args: ProductsArgs) {
     hero: {
       type: 'backgroundImage' as const,
       title: 'Produkty',
-      description: 'Preskúmajte náš sortiment špeciálnych chemických produktov.',
+      description:
+        'Objavte náš komplexný sortiment špeciálnych chemických produktov navrhnutých tak, aby spĺňali vyvíjajúce sa potreby moderných priemyselných odvetví. Od inovatívnych hydroxykyselín až po pokročilé stericky bránené amíny, naše produkty poskytujú výnimočný výkon a spoľahlivosť v rôznych aplikáciách.',
       cta: {
         links: [],
       },
@@ -92,7 +94,8 @@ export function productsJp(args: ProductsArgs) {
     hero: {
       type: 'backgroundImage' as const,
       title: '製品',
-      description: '当社の特殊化学製品のラインナップをご覧ください。',
+      description:
+        '現代産業の進化するニーズに応えるために設計された、当社の包括的な特殊化学製品ラインナップをご覧ください。革新的なヒドロキシ酸から先進的な立体障害アミンまで、当社の製品は多様な用途において卓越した性能と信頼性を提供します。',
       cta: {
         links: [],
       },
