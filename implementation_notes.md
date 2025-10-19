@@ -42,23 +42,23 @@ SERVICES AGGREGATE PAGE:
 
 ---
 
+PRODUCTS AGGREGATE PAGE:
+
+[x] Change hero
+
+---
+
 CONTACT PAGE:
 
 [] Redo contact page
-[] Add fortischem area
-[] Add business details
+[x] Add fortischem area
+[x] Add business details
 
 ---
 
 CAREER PAGE:
 
-[] Redo career page
-
----
-
-PRODUCTS AGGREGATE PAGE:
-
-[x] Change hero
+[x] Redo career page
 
 ---
 
@@ -66,6 +66,12 @@ PRODUCTS PAGE:
 
 [] Add TDS/SDS documents
 [x] Key applications and benefits will go only to main products. Other products will have the details in the FAQ.
+
+---
+
+SERVICES PAGE:
+
+[] Apply feedback
 
 ---
 

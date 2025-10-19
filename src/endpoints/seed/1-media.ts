@@ -502,7 +502,7 @@ async function createMissingMedia(
 ): Promise<void> {
   const missingFiles = filesToSeed.filter((file) => missingKeys.includes(file.key))
 
-  payload.logger.info(`— Creating ${missingFiles.length} missing media files...`)
+  payload.logger.info(`- Creating ${missingFiles.length} missing media files...`)
 
   for (const file of missingFiles) {
     try {
@@ -523,11 +523,11 @@ async function createMissingMedia(
 
 // Extract original logic into separate function
 async function createAllMedia(payload: Payload): Promise<Record<string, Media>> {
-  payload.logger.info('— Creating fresh media documents...')
+  payload.logger.info('- Creating fresh media documents...')
   payload.logger.info(`NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}`)
 
   // Step 1: Fetch all file buffers in parallel
-  payload.logger.info(`— Fetching ${filesToSeed.length} files...`)
+  payload.logger.info(`- Fetching ${filesToSeed.length} files...`)
   const fileBuffers = await Promise.all(filesToSeed.map((file) => fetchFileByURL(file.url)))
 
   const filesWithBuffers = filesToSeed.map((file, i) => ({
@@ -536,7 +536,7 @@ async function createAllMedia(payload: Payload): Promise<Record<string, Media>> 
   }))
 
   // Step 2: Batch-create all media documents
-  payload.logger.info(`— Creating ${filesWithBuffers.length} media documents in batches...`)
+  payload.logger.info(`- Creating ${filesWithBuffers.length} media documents in batches...`)
   const BATCH_SIZE = 40
   const createdDocs = []
 
@@ -572,7 +572,7 @@ async function createAllMedia(payload: Payload): Promise<Record<string, Media>> 
 }
 
 export const seedMedia = async (payload: Payload, useExisting = true) => {
-  payload.logger.info('— Seeding media...')
+  payload.logger.info('- Seeding media...')
 
   if (useExisting) {
     payload.logger.info('🔍 Using existing media documents...')

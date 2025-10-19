@@ -1,7 +1,7 @@
 import type { Payload } from 'payload'
 
 export const seedUsers = async (payload: Payload) => {
-  payload.logger.info('— Seeding users and authors...')
+  payload.logger.info('- Seeding users and authors...')
 
   await Promise.all([
     payload.delete({

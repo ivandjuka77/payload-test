@@ -50,21 +50,34 @@ export function careersEn({ featuredImage1, chemist, analyst }: CareersArgs) {
 
         features: [
           {
-            title: 'Competitive Salary',
-            content: 'Industry-leading compensation packages',
+            title: 'Stable Future, Real Impact',
+            content:
+              "Build your career in a company that has been part of Slovakia's industrial landscape for decades - strong roots, steady growth, and projects that truly matter to global partners.",
           },
           {
-            title: 'Professional Development',
-            content: 'Continuous learning and career growth opportunities',
+            title: 'Respect for Expertise',
+            content:
+              'Your knowledge counts. From lab to production, every idea and improvement is heard and valued. We grow through professionalism and collaboration.',
           },
           {
-            title: 'Work-Life Balance',
-            content: 'Flexible working arrangements and paid time off',
+            title: 'Fair Conditions & Human Approach',
+            content:
+              'We believe in fairness - transparent pay, safe workplaces, and a human pace of work. Good results come from mutual respect, not pressure.',
           },
-
           {
-            title: 'Innovation Culture',
-            content: 'Freedom to explore new ideas and approaches',
+            title: 'Proudly Slovak, Globally Connected',
+            content:
+              'From Prievidza and Bratislava to partners across Europe - we combine Slovak know-how with international innovation.',
+          },
+          {
+            title: 'Innovation You Can Touch',
+            content:
+              "From new polymers to greener processes, our teams see their ideas come to life. Here, innovation isn't theory - it's something you can hold, test, and improve every day.",
+          },
+          {
+            title: 'Team Spirit with Purpose',
+            content:
+              'We work as one team - across generations, disciplines, and regions - united by the same goal: creating Slovak chemistry that moves the world forward.',
           },
         ],
         blockType: 'career',
@@ -138,20 +151,34 @@ export function careersSk({ featuredImage1, chemist, analyst }: CareersArgs) {
         blockName: null,
         features: [
           {
-            title: 'Konkurencieschopný plat',
-            content: 'Špičkové balíčky odmeňovania v odvetví',
+            title: 'Stabilná budúcnosť, skutočný vplyv',
+            content:
+              'Budujte svoju kariéru v spoločnosti, ktorá je súčasťou slovenského priemyselného prostredia už desaťročia - pevné korene, stabilný rast a projekty, ktoré skutočne záležia globálnym partnerom.',
           },
           {
-            title: 'Profesijný rozvoj',
-            content: 'Príležitosti na neustále vzdelávanie a kariérny rast',
+            title: 'Rešpekt k odbornosti',
+            content:
+              'Vaše znalosti sa počítajú. Od laboratória po výrobu, každý nápad a zlepšenie je vypočuté a ocenené. Rastieme prostredníctvom profesionality a spolupráce.',
           },
           {
-            title: 'Rovnováha medzi prácou a súkromím',
-            content: 'Flexibilné pracovné podmienky a platené voľno',
+            title: 'Férové podmienky a ľudský prístup',
+            content:
+              'Veríme v spravodlivosť - transparentné odmeňovanie, bezpečné pracoviská a ľudské tempo práce. Dobré výsledky prichádzajú zo vzájomného rešpektu, nie z tlaku.',
           },
           {
-            title: 'Inovačná kultúra',
-            content: 'Sloboda objavovať nové nápady a prístupy',
+            title: 'Hrdí Slováci, globálne prepojení',
+            content:
+              'Od Prievidze a Bratislavy po partnerov po celej Európe - kombinujeme slovenské know-how s medzinárodnou inováciou.',
+          },
+          {
+            title: 'Inovácie, ktoré môžete uchopiť',
+            content:
+              'Od nových polymérov po ekologickejšie procesy, naše tímy vidia, ako ich nápady ožívajú. Tu inovácia nie je teória - je to niečo, čo môžete držať, testovať a každý deň zlepšovať.',
+          },
+          {
+            title: 'Tímový duch s účelom',
+            content:
+              'Pracujeme ako jeden tím - naprieč generáciami, disciplínami a regiónmi - spojení rovnakým cieľom: vytvárať slovenskú chémiu, ktorá posúva svet vpred.',
           },
         ],
         blockType: 'career',
@@ -222,20 +249,34 @@ export function careersJp({ featuredImage1, chemist, analyst }: CareersArgs) {
         blockName: null,
         features: [
           {
-            title: '競争力のある給与',
-            content: '業界をリードする報酬パッケージ',
+            title: '安定した未来、真の影響',
+            content:
+              'スロバキアの産業界で数十年にわたって活動してきた企業でキャリアを築く - 強固な基盤、着実な成長、そしてグローバルパートナーにとって真に重要なプロジェクト。',
           },
           {
-            title: '専門能力開発',
-            content: '継続的な学習とキャリア成長の機会',
+            title: '専門知識への敬意',
+            content:
+              'あなたの知識が重要です。研究室から生産現場まで、すべてのアイデアと改善が聞き入れられ、評価されます。私たちは専門性と協力を通じて成長します。',
           },
           {
-            title: 'ワークライフバランス',
-            content: '柔軟な勤務形態と有給休暇',
+            title: '公正な条件と人間的なアプローチ',
+            content:
+              '私たちは公正さを信じています - 透明な給与、安全な職場、そして人間的な仕事のペース。良い結果は圧力ではなく、相互尊重から生まれます。',
           },
           {
-            title: 'イノベーション文化',
-            content: '新しいアイデアやアプローチを探求する自由',
+            title: 'スロバキアの誇り、グローバルな繋がり',
+            content:
+              'プリエヴィッツァとブラチスラヴァからヨーロッパ全土のパートナーまで - スロバキアのノウハウと国際的なイノベーションを組み合わせています。',
+          },
+          {
+            title: '手に取れるイノベーション',
+            content:
+              '新しいポリマーからより環境に優しいプロセスまで、私たちのチームは自分たちのアイデアが実現するのを見ています。ここでは、イノベーションは理論ではありません - 毎日手に取り、テストし、改善できるものです。',
+          },
+          {
+            title: '目的を持ったチームスピリット',
+            content:
+              '私たちは一つのチームとして働きます - 世代、専門分野、地域を超えて - 同じ目標で結ばれています：世界を前進させるスロバキアの化学を創造すること。',
           },
         ],
         blockType: 'career',

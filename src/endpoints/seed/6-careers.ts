@@ -1,7 +1,7 @@
 import type { Payload } from 'payload'
 
 export const seedCareers = async (payload: Payload) => {
-  payload.logger.info('— Seeding careers in Slovak...')
+  payload.logger.info('- Seeding careers in Slovak...')
 
   const [chemistDoc, analystDoc] = await Promise.all([
     payload.create({

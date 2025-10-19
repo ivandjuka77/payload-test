@@ -9,7 +9,7 @@ export const seedIndustries = async (
   services: SeededServices,
   products: SeededProductData['products'],
 ) => {
-  payload.logger.info('— Seeding industries...')
+  payload.logger.info('- Seeding industries...')
 
   // Destructure needed documents for convenience
   const {
@@ -561,7 +561,7 @@ export const seedIndustries = async (
     }),
   ])
 
-  payload.logger.info('— Adding Slovak translations for industries...')
+  payload.logger.info('- Adding Slovak translations for industries...')
 
   await Promise.all([
     // Automotive
@@ -933,7 +933,7 @@ export const seedIndustries = async (
     }),
   ])
 
-  payload.logger.info('— Adding Japanese translations for industries...')
+  payload.logger.info('- Adding Japanese translations for industries...')
 
   await Promise.all([
     // Automotive

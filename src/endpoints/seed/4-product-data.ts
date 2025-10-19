@@ -3,7 +3,7 @@ import type { Payload } from 'payload'
 import type { SeededMedia } from './1-media'
 
 export const seedProductData = async (payload: Payload, media: SeededMedia) => {
-  payload.logger.info('— Seeding product categories and products...')
+  payload.logger.info('- Seeding product categories and products...')
 
   const {
     demoImageDoc,
@@ -438,7 +438,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCT CATEGORIES
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for product categories...')
+  payload.logger.info('- Adding Slovak translations for product categories...')
 
   await Promise.all([
     payload.update({
@@ -819,7 +819,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCT CATEGORIES
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for product categories...')
+  payload.logger.info('- Adding Japanese translations for product categories...')
 
   await Promise.all([
     payload.update({
@@ -3897,7 +3897,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 1: DMBA, DMPA, HPVA)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for first batch of products...')
+  payload.logger.info('- Adding Slovak translations for first batch of products...')
 
   await Promise.all([
     payload.update({
@@ -4192,7 +4192,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 1: DMBA, DMPA, HPVA)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for first batch of products...')
+  payload.logger.info('- Adding Japanese translations for first batch of products...')
 
   await Promise.all([
     payload.update({
@@ -4488,7 +4488,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 2: H-TEMPO, TROLOX, TEMPO)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for second batch of products...')
+  payload.logger.info('- Adding Slovak translations for second batch of products...')
 
   await Promise.all([
     payload.update({
@@ -4809,7 +4809,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 2: H-TEMPO, TROLOX, TEMPO)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for second batch of products...')
+  payload.logger.info('- Adding Japanese translations for second batch of products...')
 
   await Promise.all([
     payload.update({
@@ -5130,7 +5130,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 3: TEMP, DAPEG, BENZOYLOXY-TMP)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for third batch of products...')
+  payload.logger.info('- Adding Slovak translations for third batch of products...')
 
   await Promise.all([
     payload.update({
@@ -5418,7 +5418,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 3: TEMP, DAPEG, BENZOYLOXY-TMP)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for third batch of products...')
+  payload.logger.info('- Adding Japanese translations for third batch of products...')
 
   await Promise.all([
     payload.update({
@@ -5705,7 +5705,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 4: ACETAMIDO-TEMPO, TEMPONE, COLAMIN)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for fourth batch of products...')
+  payload.logger.info('- Adding Slovak translations for fourth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -6010,7 +6010,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 4: ACETAMIDO-TEMPO, TEMPONE, COLAMIN)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for fourth batch of products...')
+  payload.logger.info('- Adding Japanese translations for fourth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -6315,7 +6315,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 5: COLAMIN PHOSPHATE, COLAMIN PHOSPHATE SODIUM SALT, VUPIN)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for fifth batch of products...')
+  payload.logger.info('- Adding Slovak translations for fifth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -6620,7 +6620,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 5: COLAMIN PHOSPHATE, COLAMIN PHOSPHATE SODIUM SALT, VUPIN)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for fifth batch of products...')
+  payload.logger.info('- Adding Japanese translations for fifth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -6924,7 +6924,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 6: PENTAMETHYLPIPERIDINE, PENTAMETHYLPIPERIDINOL, AMINO-TMP)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for sixth batch of products...')
+  payload.logger.info('- Adding Slovak translations for sixth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -7208,7 +7208,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 6: PENTAMETHYLPIPERIDINE, PENTAMETHYLPIPERIDINOL, AMINO-TMP)
   // --------------------
 
-  payload.logger.info('— Adding Japanese translations for sixth batch of products...')
+  payload.logger.info('- Adding Japanese translations for sixth batch of products...')
 
   await Promise.all([
     payload.update({
@@ -7492,7 +7492,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING TRANSLATIONS FOR BATCH 7 PRODUCTS (HALS770, HALS765, AMINO-TEMPO)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for batch 7 products...')
+  payload.logger.info('- Adding Slovak translations for batch 7 products...')
 
   await Promise.all([
     payload.update({
@@ -7772,7 +7772,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
   ])
 
-  payload.logger.info('— Adding Japanese translations for batch 7 products...')
+  payload.logger.info('- Adding Japanese translations for batch 7 products...')
 
   await Promise.all([
     payload.update({
@@ -8055,7 +8055,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // ADDING TRANSLATIONS FOR BATCH 8 PRODUCTS (SPIRO-TEMPO-ACID, GALVINOXYL)
   // --------------------
 
-  payload.logger.info('— Adding Slovak translations for batch 8 products...')
+  payload.logger.info('- Adding Slovak translations for batch 8 products...')
 
   await Promise.all([
     payload.update({
@@ -8240,7 +8240,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
   ])
 
-  payload.logger.info('— Adding Japanese translations for batch 8 products...')
+  payload.logger.info('- Adding Japanese translations for batch 8 products...')
 
   await Promise.all([
     payload.update({
@@ -8431,7 +8431,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // UPDATING PRODUCT CATEGORIES WITH FEATURED PRODUCTS
   // --------------------
 
-  payload.logger.info('— Updating product categories with featured products...')
+  payload.logger.info('- Updating product categories with featured products...')
 
   await Promise.all([
     payload
@@ -8444,7 +8444,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating hydroxy-acids category: ${err}`)
+        payload.logger.error(`- Error updating hydroxy-acids category: ${err}`)
       }),
 
     payload
@@ -8471,7 +8471,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating hindered-amines category: ${err}`)
+        payload.logger.error(`- Error updating hindered-amines category: ${err}`)
       }),
 
     payload
@@ -8484,7 +8484,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating chromanols-derivatives category: ${err}`)
+        payload.logger.error(`- Error updating chromanols-derivatives category: ${err}`)
       }),
 
     payload
@@ -8497,7 +8497,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating diaminopolyethylene-glycols category: ${err}`)
+        payload.logger.error(`- Error updating diaminopolyethylene-glycols category: ${err}`)
       }),
 
     payload
@@ -8510,7 +8510,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating phospholipid-precursors category: ${err}`)
+        payload.logger.error(`- Error updating phospholipid-precursors category: ${err}`)
       }),
 
     payload
@@ -8523,7 +8523,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`— Error updating polymerisation-inhibitors category: ${err}`)
+        payload.logger.error(`- Error updating polymerisation-inhibitors category: ${err}`)
       }),
   ])
 

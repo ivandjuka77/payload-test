@@ -1,7 +1,7 @@
 import type { Payload } from 'payload'
 
 export const seedForms = async (payload: Payload) => {
-  payload.logger.info('— Seeding forms...')
+  payload.logger.info('- Seeding forms...')
 
   // Create Contact Form
   const contactFormDoc = await payload.create({

@@ -19,6 +19,7 @@ import { Careers } from '@/blocks/Careers/Component'
 import { CertificationsSection } from '@/blocks/Certifications/Component'
 import { Timeline } from '@/blocks/Timeline/Component'
 import { Team } from '@/blocks/Team/Component'
+import { MapSection } from '@/blocks/Map/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -40,6 +41,7 @@ const blockComponents = {
   certifications: CertificationsSection,
   timeline: Timeline,
   team: Team,
+  map: MapSection,
 }
 
 export const RenderBlocks: React.FC<{

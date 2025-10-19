@@ -35,6 +35,7 @@ import {
 import { slugField } from '@/fields/slug'
 import { hero } from '@/heros/config'
 import { Certifications } from '@/blocks/Certifications/config'
+import { Map } from '@/blocks/Map/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -130,6 +131,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Certifications,
                 Timeline,
                 Team,
+                Map,
               ],
               required: true,
               admin: {

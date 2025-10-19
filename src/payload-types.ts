@@ -289,6 +289,7 @@ export interface Page {
     | CertificationsBlock
     | TimelineBlock
     | TeamBlock
+    | MapBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1669,6 +1670,19 @@ export interface TeamBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MapBlock".
+ */
+export interface MapBlock {
+  /**
+   * Enter the Google Maps embed URL
+   */
+  iframeUrl: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'map';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -2060,6 +2074,7 @@ export interface PagesSelect<T extends boolean = true> {
         certifications?: T | CertificationsBlockSelect<T>;
         timeline?: T | TimelineBlockSelect<T>;
         team?: T | TeamBlockSelect<T>;
+        map?: T | MapBlockSelect<T>;
       };
   meta?:
     | T
@@ -2583,6 +2598,15 @@ export interface TeamBlockSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
   teamMembers?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MapBlock_select".
+ */
+export interface MapBlockSelect<T extends boolean = true> {
+  iframeUrl?: T;
   id?: T;
   blockName?: T;
 }

@@ -8,7 +8,7 @@ import { post4 } from './posts/post-4'
 import type { SeededMedia } from './1-media'
 
 export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor: User) => {
-  payload.logger.info('— Seeding posts...')
+  payload.logger.info('- Seeding posts...')
 
   // Destructure the needed documents
   const { demoImageDoc, image2Doc, image3Doc } = media

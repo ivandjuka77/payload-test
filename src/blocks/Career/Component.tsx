@@ -1,14 +1,16 @@
-import { Beaker, Briefcase, Heart, Sparkles, Users } from 'lucide-react'
+import { Beaker, Briefcase, Heart, Sparkles, Users, Building2, Globe } from 'lucide-react'
 import { CareerBlock } from '@/payload-types'
 import SimpleCTA from '@/components/SimpleCTA'
 
 export const CareerSection: React.FC<CareerBlock> = ({ title, subtitle, features, cta }) => {
   //TODO: Remove hardcoded icons
   const icons = [
+    <Building2 key="building2" className="w-5 h-5 sm:w-6 sm:h-6" />,
     <Beaker key="beaker" className="w-5 h-5 sm:w-6 sm:h-6" />,
     <Heart key="heart" className="w-5 h-5 sm:w-6 sm:h-6" />,
+    <Globe key="globe" className="w-5 h-5 sm:w-6 sm:h-6" />,
     <Sparkles key="sparkles" className="w-5 h-5 sm:w-6 sm:h-6" />,
-    <Users key="user" className="w-5 h-5 sm:w-6 sm:h-6" />,
+    <Users key="users" className="w-5 h-5 sm:w-6 sm:h-6" />,
   ]
 
   return (

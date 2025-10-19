@@ -2,7 +2,7 @@ import type { Payload } from 'payload'
 import type { SeededMedia } from './1-media'
 
 export const seedTeamMembers = async (payload: Payload, media: SeededMedia) => {
-  payload.logger.info('— Seeding team members...')
+  payload.logger.info('- Seeding team members...')
 
   // Destructure the needed media documents
   const { demoImageDoc, image2Doc, image3Doc } = media

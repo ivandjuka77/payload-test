@@ -2,7 +2,7 @@ import type { Payload } from 'payload'
 import type { SeededMedia } from './1-media'
 
 export const seedServices = async (payload: Payload, media: SeededMedia) => {
-  payload.logger.info('— Seeding services...')
+  payload.logger.info('- Seeding services...')
 
   const { demoImageDoc, image2Doc } = media
 
@@ -865,7 +865,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
   ])
 
   // Add Slovak translations
-  payload.logger.info('— Adding Slovak translations for services...')
+  payload.logger.info('- Adding Slovak translations for services...')
 
   // Slovak translation for Research & Development
   await payload.update({
@@ -1722,7 +1722,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
   })
 
   // Add Japanese translations
-  payload.logger.info('— Adding Japanese translations for services...')
+  payload.logger.info('- Adding Japanese translations for services...')
 
   // Japanese translation for Research & Development
   await payload.update({

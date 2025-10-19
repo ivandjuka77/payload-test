@@ -109,7 +109,7 @@ export const seed = async ({
   // this is because while `yarn seed` drops the database
   // the custom `/api/seed` endpoint does not
   payload.logger.info(
-    `— Clearing collections: ${collectionsToDelete.join(', ')}${useExistingMedia ? ' (preserving existing media)' : ''}...`,
+    `- Clearing collections: ${collectionsToDelete.join(', ')}${useExistingMedia ? ' (preserving existing media)' : ''}...`,
   )
 
   // clear the database (conditionally excluding media)
@@ -179,7 +179,7 @@ export const seed = async ({
 
   //* -------------------- SEEDING PAGES -------------------- *//
 
-  payload.logger.info(`— Seeding pages...`)
+  payload.logger.info(`- Seeding pages...`)
 
   const [
     homePageEn,
@@ -312,11 +312,12 @@ export const seed = async ({
       // @ts-expect-error This is working, but payload is not happy
       data: contactUsPageDataEn({
         contactForm: forms.contactForm.id,
+        featuredImage: media.demoImageDoc,
       }),
     }),
   ])
 
-  payload.logger.info(`— Seeding Slovak page translations...`)
+  payload.logger.info(`- Seeding Slovak page translations...`)
 
   // Home page
   await Promise.all([
@@ -460,10 +461,11 @@ export const seed = async ({
     // @ts-expect-error This is working, but payload is not happy
     data: contactUsPageDataSk({
       contactForm: forms.contactForm.id,
+      featuredImage: media.demoImageDoc,
     }),
   })
 
-  payload.logger.info(`— Seeding Japanese page translations...`)
+  payload.logger.info(`- Seeding Japanese page translations...`)
 
   // Home page
   await Promise.all([
@@ -608,12 +610,13 @@ export const seed = async ({
     // @ts-expect-error This is working, but payload is not happy
     data: contactUsPageDataJp({
       contactForm: forms.contactForm.id,
+      featuredImage: media.demoImageDoc,
     }),
   })
 
   //* -------------------- SEEDING GLOBALS -------------------- *//
 
-  // payload.logger.info(`— Seeding globals...`)
+  // payload.logger.info(`- Seeding globals...`)
 
   // await Promise.all([
   //   payload.updateGlobal({
@@ -848,5 +851,5 @@ export const seed = async ({
       },
     },
   })
-  payload.logger.info(`— Seeding complete!`)
+  payload.logger.info(`- Seeding complete!`)
 }
