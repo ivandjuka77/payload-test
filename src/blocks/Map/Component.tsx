@@ -2,7 +2,7 @@ import type { MapBlock } from '@/payload-types'
 
 export const MapSection: React.FC<MapBlock> = ({ iframeUrl, title, description }) => {
   return (
-    <section className="container py-16 md:py-20 px-4 sm:px-6 lg:px-0">
+    <section className="container py-16 md:py-20 px-4 sm:px-6 lg:px-0 border-t border-primary-200">
       <div className="max-w-4xl mx-auto mb-12 text-center">
         {title && (
           <h2 className="font-primary mb-6 text-3xl font-bold text-foreground md:text-4xl">
