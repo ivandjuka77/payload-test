@@ -31,6 +31,8 @@ ABOUT US PAGE:
 INDUSTRIES AGGREGATE PAGE:
 
 [x] Change ordering of industries
+[x] Validate ordering of industries
+[x] Fix and make blocks evenly tall
 
 ---
 
@@ -68,7 +70,9 @@ PRODUCTS PAGE:
 ---
 
 [x] Fix double items (Seeding cleanup was disabled)
-[] Navbar - Services before industries
-[] Navbar - Add link to VUP Cosmetics, special link
+[x] Navbar - Services before industries
+[x] Navbar - Add link to VUP Cosmetics, special link
+[x] Navbar - Ordering of industries and product categories
 [] Add Forbes article
 [] Try out the atoms/branching out hero image idea
+[] About us fix mobile video

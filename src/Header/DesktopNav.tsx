@@ -246,6 +246,31 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
             </div>
           </Link>
         ))}
+
+        {/* VUP Cosmetics Special Link */}
+        <Link
+          href="http://vupcosmetics.sk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group p-5 rounded-lg bg-green-100 hover:bg-green-200 transition-colors border border-green-300"
+          onClick={onClose}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-green-600 mt-1">
+              <Sparkles size={24} />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-green-700 transition-colors">
+                  {t('vupCosmetics.title')}
+                </h3>
+              </div>
+              <p className="mt-1 text-xs font-secondary text-gray-600 leading-relaxed line-clamp-2">
+                {t('vupCosmetics.description')}
+              </p>
+            </div>
+          </div>
+        </Link>
       </div>
       <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
         <p className="text-sm text-gray-500">{t('services.description')}</p>
@@ -315,19 +340,6 @@ export function DesktopNav({ navItems, industries, productCategories, services }
         />
       </div>
 
-      {/* Industries Mega Menu */}
-      <div
-        className={cn(
-          'absolute left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-20 hidden lg:block top-full overflow-hidden',
-          activeDropdown === t('nav.industries')
-            ? 'animate-in fade-in duration-300 ease-out max-h-[800px] transition-[max-height,opacity,transform]'
-            : 'animate-out fade-out duration-200 ease-in max-h-0 opacity-0 -translate-y-2 pointer-events-none',
-        )}
-        onMouseLeave={() => setActiveDropdown(null)}
-      >
-        <IndustriesMegaMenu onClose={() => setActiveDropdown(null)} industries={industries} />
-      </div>
-
       {/* Services Mega Menu */}
       <div
         className={cn(
@@ -339,6 +351,19 @@ export function DesktopNav({ navItems, industries, productCategories, services }
         onMouseLeave={() => setActiveDropdown(null)}
       >
         <ServicesMegaMenu onClose={() => setActiveDropdown(null)} services={services} />
+      </div>
+
+      {/* Industries Mega Menu */}
+      <div
+        className={cn(
+          'absolute left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-20 hidden lg:block top-full overflow-hidden',
+          activeDropdown === t('nav.industries')
+            ? 'animate-in fade-in duration-300 ease-out max-h-[800px] transition-[max-height,opacity,transform]'
+            : 'animate-out fade-out duration-200 ease-in max-h-0 opacity-0 -translate-y-2 pointer-events-none',
+        )}
+        onMouseLeave={() => setActiveDropdown(null)}
+      >
+        <IndustriesMegaMenu onClose={() => setActiveDropdown(null)} industries={industries} />
       </div>
     </>
   )

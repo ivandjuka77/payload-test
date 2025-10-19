@@ -186,6 +186,11 @@
       "description": "Komplexné služby od výskumu a vývoja až po výrobu",
       "viewAll": "Zobraziť všetky služby"
     },
+    "vupCosmetics": {
+      "title": "VUP Cosmetics",
+      "description": "Objavte našu prémiovú kozmetickú líniu s inovatívnymi formuláciami",
+      "descriptionShort": "Prémiová kozmetická línia"
+    },
     "mobile": {
       "brand": "VUP",
       "tagline": "Chémia"
@@ -209,6 +214,18 @@
     "featuredProducts": "Odporúčané produkty",
     "moreItems": "+{count} ďalších",
     "exploreSolutions": "Preskúmajte riešenia pre {industryName}"
+  },
+  "services": {
+    "showcase": {
+      "title": "Naše služby",
+      "subtitle": "Komplexné chemické riešenia od výskumu a vývoja až po výrobu v plnom rozsahu"
+    }
+  },
+  "serviceCard": {
+    "accreditations": "Akreditácie",
+    "relatedIndustries": "Súvisiace odvetvia",
+    "moreItems": "+{count} ďalších",
+    "exploreService": "Preskúmajte {serviceName}"
   },
   "sustainabilityPartner": {
     "badge": "Partnerstvo s nami",

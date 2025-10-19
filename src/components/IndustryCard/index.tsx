@@ -9,8 +9,8 @@ export function IndustryCard({ industry }: { industry: Industry }) {
   const keyProducts = industry.keyProducts as Product[]
 
   return (
-    <Link href={`/industries/${industry.slug}`}>
-      <div className="group relative overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md">
+    <Link href={`/industries/${industry.slug}`} className="h-full">
+      <div className="group relative h-full flex flex-col overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md">
         <div className="relative h-60 w-full overflow-hidden sm:h-72">
           <Media
             resource={industry.featuredImage}
@@ -24,7 +24,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
           </div>
         )} */}
         </div>
-        <div className="p-4 md:p-6">
+        <div className="p-4 md:p-6 flex-1 flex flex-col">
           <h3 className="font-primary mb-3 text-lg md:text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
             {industry.name}
           </h3>
@@ -90,7 +90,7 @@ export function IndustryCard({ industry }: { industry: Industry }) {
             </div>
           )}
 
-          <div className="inline-flex items-center gap-2 text-sm md:text-base font-medium text-primary transition-all duration-150 group-hover:gap-3">
+          <div className="mt-auto inline-flex items-center gap-2 text-sm md:text-base font-medium text-primary transition-all duration-150 group-hover:gap-3">
             {t('exploreSolutions', { industryName: industry.name })}
             <ArrowRight className="h-4 w-4" />
           </div>

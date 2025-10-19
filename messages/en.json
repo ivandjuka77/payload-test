@@ -47,6 +47,11 @@
       "description": "Comprehensive services from R&D to manufacturing",
       "viewAll": "View all services"
     },
+    "vupCosmetics": {
+      "title": "VUP Cosmetics",
+      "description": "Discover our premium cosmetics line with innovative formulations",
+      "descriptionShort": "Premium cosmetics line"
+    },
     "mobile": {
       "brand": "VUP",
       "tagline": "Chemistry"
@@ -70,6 +75,18 @@
     "featuredProducts": "Featured Products",
     "moreItems": "+{count} more",
     "exploreSolutions": "Explore {industryName} solutions"
+  },
+  "services": {
+    "showcase": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive chemical solutions from research and development to full-scale manufacturing"
+    }
+  },
+  "serviceCard": {
+    "accreditations": "Accreditations",
+    "relatedIndustries": "Related Industries",
+    "moreItems": "+{count} more",
+    "exploreService": "Explore {serviceName}"
   },
   "sustainabilityPartner": {
     "badge": "Partner with Us",

@@ -16,6 +16,11 @@ import {
   industriesJp as industriesPageDataJp,
 } from './industries'
 import {
+  servicesPageEn as servicesPageDataEn,
+  servicesPageSk as servicesPageDataSk,
+  servicesPageJp as servicesPageDataJp,
+} from './services-page'
+import {
   sustainabilityEn as sustainabilityPageDataEn,
   sustainabilitySk as sustainabilityPageDataSk,
   sustainabilityJp as sustainabilityPageDataJp,
@@ -180,6 +185,7 @@ export const seed = async ({
     homePageEn,
     productsPage,
     industriesPage,
+    servicesPage,
     sustainabilityPage,
     careersPage,
     aboutUsPage,
@@ -235,6 +241,14 @@ export const seed = async ({
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
       data: industriesPageDataEn({ featuredImage1: media.demoImageDoc }),
+    }),
+
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: servicesPageDataEn({ featuredImage1: media.demoImageDoc }),
     }),
 
     payload.create({
@@ -362,6 +376,17 @@ export const seed = async ({
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
       data: industriesPageDataSk({ featuredImage1: media.demoImageDoc }),
+    }),
+  ])
+
+  // Services page
+  await Promise.all([
+    payload.update({
+      collection: 'pages',
+      id: servicesPage.id,
+      locale: 'sk',
+      // @ts-expect-error This is working, but payload is not happy
+      data: servicesPageDataSk({ featuredImage1: media.demoImageDoc }),
     }),
   ])
 
@@ -498,6 +523,17 @@ export const seed = async ({
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
       data: industriesPageDataJp({ featuredImage1: media.demoImageDoc }),
+    }),
+  ])
+
+  // Services page
+  await Promise.all([
+    payload.update({
+      collection: 'pages',
+      id: servicesPage.id,
+      locale: 'jp',
+      // @ts-expect-error This is working, but payload is not happy
+      data: servicesPageDataJp({ featuredImage1: media.demoImageDoc }),
     }),
   ])
 

@@ -35,8 +35,8 @@ export default function Navbar({ industries, productCategories, services }: Navb
   const navItems = [
     { name: t('nav.about'), href: '/about-us' },
     { name: t('nav.products'), href: '/products', hasDropdown: true },
-    { name: t('nav.industries'), href: '/industries', hasDropdown: true },
     { name: t('nav.services'), href: '/services', hasDropdown: true },
+    { name: t('nav.industries'), href: '/industries', hasDropdown: true },
     { name: t('nav.sustainability'), href: '/sustainability' },
     { name: t('nav.news'), href: '/news' },
     { name: t('nav.career'), href: '/career' },

@@ -448,7 +448,6 @@ export interface Media {
  */
 export interface Product {
   id: number;
-  _order?: string | null;
   isKeyProduct?: boolean | null;
   name: string;
   description: string;
@@ -2768,7 +2767,6 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
-  _order?: T;
   isKeyProduct?: T;
   name?: T;
   description?: T;

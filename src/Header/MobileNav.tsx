@@ -156,6 +156,60 @@ export function MobileNav({
                         </div>
                       )}
 
+                      {item.name === t('nav.services') && (
+                        <div className="bg-white px-4 py-2">
+                          {services.map((service, index) => (
+                            <Link
+                              key={index}
+                              href={`/services/${service.slug}`}
+                              className="block py-2 px-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                              onClick={onClose}
+                            >
+                              <div className="flex items-center gap-2">
+                                <div className="text-blue-500">{serviceIcons[index]}</div>
+                                <div>
+                                  <div className="font-medium">{service.title}</div>
+                                  <div className="text-xs text-gray-500 line-clamp-1">
+                                    {service.description}
+                                  </div>
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+
+                          {/* VUP Cosmetics Special Link */}
+                          <Link
+                            href="http://vupcosmetics.sk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block py-2 px-2 text-sm bg-green-50 rounded-lg hover:bg-green-100 transition-colors my-2"
+                            onClick={onClose}
+                          >
+                            <div className="flex items-center gap-2">
+                              <div className="text-green-600">
+                                <Sparkles size={24} />
+                              </div>
+                              <div>
+                                <div className="font-medium text-gray-900">
+                                  {t('vupCosmetics.title')}
+                                </div>
+                                <div className="text-xs text-gray-600 line-clamp-1">
+                                  {t('vupCosmetics.descriptionShort')}
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href="/services"
+                            className="block py-2 px-2 mt-2 text-sm font-medium text-blue-600 border-t border-gray-200 pt-3"
+                            onClick={onClose}
+                          >
+                            {t('services.viewAll')} →
+                          </Link>
+                        </div>
+                      )}
+
                       {item.name === t('nav.industries') && (
                         <div className="bg-white px-4 py-2">
                           {industries.map((industry) => (
@@ -177,36 +231,6 @@ export function MobileNav({
                             onClick={onClose}
                           >
                             {t('industries.viewAll')} →
-                          </Link>
-                        </div>
-                      )}
-
-                      {item.name === t('nav.services') && (
-                        <div className="bg-white px-4 py-2">
-                          {services.map((service, index) => (
-                            <Link
-                              key={index}
-                              href={`/services/${service.slug}`}
-                              className="block py-2 px-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                              onClick={onClose}
-                            >
-                              <div className="flex items-center gap-2">
-                                <div className="text-blue-500">{serviceIcons[index]}</div>
-                                <div>
-                                  <div className="font-medium">{service.title}</div>
-                                  <div className="text-xs text-gray-500 line-clamp-1">
-                                    {service.description}
-                                  </div>
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                          <Link
-                            href="/services"
-                            className="block py-2 px-2 mt-2 text-sm font-medium text-blue-600 border-t border-gray-200 pt-3"
-                            onClick={onClose}
-                          >
-                            {t('services.viewAll')} →
                           </Link>
                         </div>
                       )}

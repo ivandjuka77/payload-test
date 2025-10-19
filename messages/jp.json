@@ -186,6 +186,11 @@
       "description": "研究開発から製造まで包括的なサービス",
       "viewAll": "すべてのサービスを表示"
     },
+    "vupCosmetics": {
+      "title": "VUP Cosmetics",
+      "description": "革新的な処方による当社のプレミアム化粧品ラインをご覧ください",
+      "descriptionShort": "プレミアム化粧品ライン"
+    },
     "mobile": {
       "brand": "VUP",
       "tagline": "化学"
@@ -209,6 +214,18 @@
     "featuredProducts": "注目の製品",
     "moreItems": "他{count}件",
     "exploreSolutions": "{industryName}のソリューションを探索"
+  },
+  "services": {
+    "showcase": {
+      "title": "当社のサービス",
+      "subtitle": "研究開発からフルスケール製造まで包括的な化学ソリューション"
+    }
+  },
+  "serviceCard": {
+    "accreditations": "認定",
+    "relatedIndustries": "関連業界",
+    "moreItems": "他{count}件",
+    "exploreService": "{serviceName}を探索"
   },
   "sustainabilityPartner": {
     "badge": "パートナーシップ",
