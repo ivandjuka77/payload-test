@@ -66,19 +66,19 @@ export const seed = async ({
   // Define the order for deletion. Collections with dependencies should be deleted before their dependencies.
   const orderedCollections: CollectionSlug[] = [
     'search',
-    // 'form-submissions',
-    // 'forms',
-    // 'pages',
-    // 'posts',
-    // // 'users',
-    // 'careers',
-    // 'caseStudies',
-    // 'industries',
-    // 'services',
-    // 'teamMembers',
-    // 'products',
-    // 'productCategories',
-    // 'media',
+    'form-submissions',
+    'forms',
+    'pages',
+    'posts',
+    // 'users',
+    'careers',
+    'caseStudies',
+    'industries',
+    'services',
+    'teamMembers',
+    'products',
+    'productCategories',
+    'media',
   ]
 
   const collectionsToDelete = useExistingMedia

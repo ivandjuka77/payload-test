@@ -449,6 +449,7 @@ export interface Media {
 export interface Product {
   id: number;
   _order?: string | null;
+  isKeyProduct?: boolean | null;
   name: string;
   description: string;
   chemicalFamily?: (number | ProductCategory)[] | null;
@@ -596,6 +597,7 @@ export interface CaseStudy {
  */
 export interface Industry {
   id: number;
+  _order?: string | null;
   name: string;
   description: string;
   summary: string;
@@ -2767,6 +2769,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface ProductsSelect<T extends boolean = true> {
   _order?: T;
+  isKeyProduct?: T;
   name?: T;
   description?: T;
   chemicalFamily?: T;
@@ -2838,6 +2841,7 @@ export interface ProductsSelect<T extends boolean = true> {
  * via the `definition` "industries_select".
  */
 export interface IndustriesSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   description?: T;
   summary?: T;

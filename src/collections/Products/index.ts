@@ -6,7 +6,7 @@ import { slugField } from '../../fields/slug'
 export const Products: CollectionConfig = {
   slug: 'products',
   orderable: true,
-  defaultSort: 'order',
+  defaultSort: '_order',
   access: {
     create: authenticated,
     delete: authenticated,
@@ -28,6 +28,19 @@ export const Products: CollectionConfig = {
     },
   },
   fields: [
+    {
+      name: 'isKeyProduct',
+      type: 'checkbox',
+      required: false,
+      defaultValue: false,
+      label: {
+        sk: 'Je kľúčový produkt',
+        en: 'Is Key Product',
+      },
+      admin: {
+        position: 'sidebar',
+      },
+    },
     {
       name: 'name',
       type: 'text',
@@ -270,6 +283,9 @@ export const Products: CollectionConfig = {
         singular: { sk: 'Aplikácia', en: 'Application' },
         plural: { sk: 'Aplikácie', en: 'Applications' },
       },
+      admin: {
+        condition: (data) => data.isKeyProduct === true,
+      },
       fields: [
         {
           name: 'application',
@@ -305,6 +321,9 @@ export const Products: CollectionConfig = {
       type: 'array',
       required: false,
       localized: true,
+      admin: {
+        condition: (data) => data.isKeyProduct === true,
+      },
       label: {
         sk: 'Kľúčové vlastnosti',
         en: 'Key Features',

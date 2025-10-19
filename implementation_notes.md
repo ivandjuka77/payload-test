@@ -28,12 +28,6 @@ ABOUT US PAGE:
 
 ---
 
-PRODUCTS AGGREGATE PAGE:
-
-[] Change hero
-
----
-
 INDUSTRIES AGGREGATE PAGE:
 
 [] Change ordering of industries
@@ -60,14 +54,20 @@ CAREER PAGE:
 
 ---
 
-PRODUCTS PAGE:
+PRODUCTS AGGREGATE PAGE:
 
-[] Add TDS/SDS documents
-[] Key applications and benefits will go only to main products. Other products will have the details in the FAQ.
+[] Change hero
 
 ---
 
-[] Fix double items
+PRODUCTS PAGE:
+
+[] Add TDS/SDS documents
+[x] Key applications and benefits will go only to main products. Other products will have the details in the FAQ.
+
+---
+
+[x] Fix double items (Seeding cleanup was disabled)
 [] Navbar - Services before industries
 [] Navbar - Add link to VUP Cosmetics, special link
 [] Add Forbes article
