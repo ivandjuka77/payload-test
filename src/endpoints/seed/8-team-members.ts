@@ -7,19 +7,19 @@ export const seedTeamMembers = async (payload: Payload, media: SeededMedia) => {
   // Destructure the needed media documents
   const { demoImageDoc, image2Doc, image3Doc } = media
 
-  const [ceoDoc, rdDoc, commercialDoc, atbelDoc, cosmeticsDoc] = await Promise.all([
-    payload.create({
-      collection: 'teamMembers',
-      data: {
-        name: 'Roman Karlubik',
-        role: 'Chief Executive Officer',
-        bio: "Leading VUP's strategic direction and commitment to innovation and sustainable growth.",
-        image: demoImageDoc.id,
-        linkedin: null,
-        email: null,
-        isHeadOfDepartment: false,
-      },
-    }),
+  const [rdDoc, commercialDoc, atbelDoc, cosmeticsDoc] = await Promise.all([
+    // payload.create({
+    //   collection: 'teamMembers',
+    //   data: {
+    //     name: 'Roman Karlubik',
+    //     role: 'Chief Executive Officer',
+    //     bio: "Leading VUP's strategic direction and commitment to innovation and sustainable growth.",
+    //     image: demoImageDoc.id,
+    //     linkedin: null,
+    //     email: null,
+    //     isHeadOfDepartment: false,
+    //   },
+    // }),
     payload.create({
       collection: 'teamMembers',
       data: {
@@ -73,7 +73,6 @@ export const seedTeamMembers = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('✓ Team members seeded')
 
   return {
-    ceoDoc,
     rdDoc,
     commercialDoc,
     atbelDoc,

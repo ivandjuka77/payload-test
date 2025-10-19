@@ -25,8 +25,7 @@ type HomeArgs = {
   // Categories
   hydroxyAcids: ProductCategory
   hinderedAmines: ProductCategory
-  glycolEthers: ProductCategory
-
+  polymerisationInhibitors: ProductCategory
   // Posts
   post1: Post
   post2: Post
@@ -59,7 +58,7 @@ export function homeEn(args: HomeArgs) {
     quickAccessCard4Doc,
     hydroxyAcids,
     hinderedAmines,
-    glycolEthers,
+    polymerisationInhibitors,
     post1,
     post2,
     post3,
@@ -75,53 +74,52 @@ export function homeEn(args: HomeArgs) {
       description: 'This is the description',
       slides: [
         {
-          title: 'Advancing Scientific Research',
-          subtitle: 'Pioneering chemical innovations for researchers and academic institutions',
+          title: 'Chemical Specialties Production',
+          subtitle: 'High-quality chemical products manufactured to the highest standards',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
-              title: 'Research Partnerships',
+              title: 'Hindered Amines',
               description:
-                'Collaborate with our scientists on groundbreaking chemical research initiatives',
+                'Advanced stabilizers for polymers, coatings, and industrial applications',
               image: slide1HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/research-partnerships',
-                    label: 'Learn More',
+                    url: '/products/category/hindered-amines',
+                    label: 'Explore Products',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Laboratory Materials',
-              description:
-                'High-purity compounds and reagents for precise experimental requirements',
+              title: 'Polymerisation Inhibitors',
+              description: 'Essential solutions for refining, filtration, and process optimization',
               image: slide1HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/lab-materials',
-                    label: 'Learn More',
+                    url: '/products/category/polymerisation-inhibitors',
+                    label: 'Explore Products',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Academic Programs',
+              title: 'DAPEG',
               description:
-                'Supporting educational institutions with specialized chemistry programs',
+                'Diaminopolyethylene glycols for biomedical and surface modification applications',
               image: slide1HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/academic-collaborations',
-                    label: 'Learn More',
+                    url: '/products/category/diaminopolyethylene-glycols',
+                    label: 'Explore Products',
                     appearance: 'default',
                   },
                 },
@@ -130,19 +128,19 @@ export function homeEn(args: HomeArgs) {
           ],
           badge: {
             icon: 'atom',
-            text: '25+ years of research expertise',
+            text: 'Premium chemical specialties',
           },
           featuredItem: {
-            title: 'Novel Catalytic Systems',
+            title: 'Hydroxy Acids',
             description:
-              'Our latest breakthrough in transition metal catalysis enables reactions at lower temperatures with higher yields.',
+              'High-purity DMPA, DMBA, and HPVA for automotive, coatings, and advanced material applications.',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/research/catalytic-systems',
-                  label: 'Learn More',
+                  url: '/products/category/hydroxy-acids',
+                  label: 'View Products',
                   appearance: 'default',
                 },
               },
@@ -153,8 +151,8 @@ export function homeEn(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research',
-                  label: 'Explore Research Solutions',
+                  url: '/products',
+                  label: 'View All Products',
                   appearance: 'default',
                 },
               },
@@ -162,20 +160,20 @@ export function homeEn(args: HomeArgs) {
           },
         },
         {
-          title: 'Industrial Chemical Solutions',
-          subtitle: 'High-performance formulations engineered for your production needs',
+          title: 'Research & Development Services',
+          subtitle: 'Comprehensive analytical testing and custom synthesis solutions',
           backgroundImage: slide2HeroBgDoc,
           featuredCards: [
             {
-              title: 'Coating Systems',
+              title: 'Custom Synthesis Manufacturing',
               description:
-                'Advanced polymer coatings with superior durability and corrosion resistance',
+                'Tailored chemical synthesis solutions designed to meet your specific requirements',
               image: slide2HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/coatings',
+                    url: '/services/custom-synthesis-manufacturing',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -183,14 +181,15 @@ export function homeEn(args: HomeArgs) {
               ],
             },
             {
-              title: 'Adhesive Solutions',
-              description: 'High-performance bonding agents for demanding industrial applications',
+              title: 'Research & Development',
+              description:
+                'Innovative R&D services to advance your product development initiatives',
               image: slide2HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/adhesives',
+                    url: '/services/research-development',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -198,14 +197,15 @@ export function homeEn(args: HomeArgs) {
               ],
             },
             {
-              title: 'Custom Formulations',
-              description: 'Tailored chemical compounds developed to your exact specifications',
+              title: 'Regulatory & Technical Support',
+              description:
+                'Expert guidance on compliance, documentation, and technical specifications',
               image: slide2HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/custom-formulations',
+                    url: '/services/regulatory-technical-support',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -215,19 +215,19 @@ export function homeEn(args: HomeArgs) {
           ],
           badge: {
             icon: 'building2',
-            text: '300+ patented formulations',
+            text: 'ISO-certified laboratories',
           },
           featuredItem: {
-            title: 'Ultra-Durable Coating System',
+            title: 'Analytical Testing Services',
             description:
-              'Our advanced polymer coating provides unmatched corrosion resistance for industrial applications.',
+              'State-of-the-art analytical testing and quality control services ensuring the highest standards of precision and reliability.',
             image: slide2HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/products/coating-systems',
-                  label: 'Learn More',
+                  url: '/services/analytical-testing',
+                  label: 'Discover Services',
                   appearance: 'default',
                 },
               },
@@ -238,8 +238,8 @@ export function homeEn(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/industrial',
-                  label: 'View Industrial Solutions',
+                  url: '/services',
+                  label: 'View All Services',
                   appearance: 'default',
                 },
               },
@@ -247,51 +247,52 @@ export function homeEn(args: HomeArgs) {
           },
         },
         {
-          title: 'Chemistry for a Sustainable Future',
-          subtitle: 'Environmentally responsible innovations and green chemistry solutions',
+          title: 'Committed to Sustainability',
+          subtitle: 'Leading the way in environmentally responsible chemistry',
           backgroundImage: slide3HeroBgDoc,
           featuredCards: [
             {
-              title: 'Bio-Based Polymers',
+              title: 'Environmental Certifications',
               description:
-                'Plant-derived alternatives with 70% lower carbon footprint than conventional options',
+                'Recognized excellence in sustainable practices and environmental stewardship',
               image: slide3HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/sustainable-products/biopolymers',
-                    label: 'Learn More',
+                    url: '/sustainability',
+                    label: 'View Certifications',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Green Manufacturing',
+              title: 'Continuous Innovation',
               description:
-                'Eco-friendly processes that minimize waste and reduce environmental impact',
+                'Pioneering sustainable chemical solutions through constant research and development',
               image: slide3HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/green-initiatives/manufacturing',
-                    label: 'Learn More',
+                    url: '/news',
+                    label: 'Read More',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Circular Economy Solutions',
-              description: 'Innovative approaches to product lifecycle and materials recycling',
+              title: 'Our Sustainability Commitment',
+              description:
+                'Dedicated to reducing environmental impact while delivering exceptional quality',
               image: slide3HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/circular-economy',
+                    url: '/sustainability',
                     label: 'Learn More',
                     appearance: 'default',
                   },
@@ -301,19 +302,19 @@ export function homeEn(args: HomeArgs) {
           ],
           badge: {
             icon: 'globe',
-            text: '50+ global partnerships for sustainability',
+            text: 'EcoVadis certified partner',
           },
           featuredItem: {
-            title: 'Bio-Based Polymers',
+            title: 'EcoVadis Recognition',
             description:
-              'Our plant-derived polymers offer the same performance as petroleum-based alternatives with 70% lower carbon footprint.',
+              'Proud recipient of the EcoVadis sustainability medal, demonstrating our commitment to environmental excellence and responsible business practices.',
             image: slide3HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-products/biopolymers',
-                  label: 'Learn More',
+                  url: '/news',
+                  label: 'Read Our Story',
                   appearance: 'default',
                 },
               },
@@ -325,7 +326,7 @@ export function homeEn(args: HomeArgs) {
                 link: {
                   type: 'custom',
                   url: '/sustainability',
-                  label: 'Discover Sustainable Solutions',
+                  label: 'Discover Our Sustainability Journey',
                   appearance: 'default',
                 },
               },
@@ -419,7 +420,7 @@ export function homeEn(args: HomeArgs) {
         contentItems: [],
         features: [],
         blockType: 'showcase',
-        categories: [hydroxyAcids, hinderedAmines, glycolEthers],
+        categories: [hydroxyAcids, hinderedAmines, polymerisationInhibitors],
         cta: {
           title: 'Need a specialized chemical solution?',
           description: 'Our experts can develop custom formulations for your specific requirements',
@@ -444,6 +445,85 @@ export function homeEn(args: HomeArgs) {
         badge: 'Latest Updates',
         linkLabel: 'View all news and publications',
         items: [post1, post2, post3, post4],
+      },
+      {
+        title: 'Our Path to Sustainable Excellence',
+        subtitle:
+          'Four strategic pillars guide our continuous improvement journey, driving innovation that creates lasting value for all stakeholders.',
+        image: sustainabilitydemoImageDoc,
+        blockName: null,
+        features: [
+          {
+            title: 'Future Technologies',
+            content:
+              'Investing in cutting-edge technologies that advance sustainable practices and enhance operational efficiency. Our R&D teams focus on innovative solutions that reduce environmental impact while improving productivity.',
+          },
+          {
+            title: 'Product Stewardship',
+            content:
+              'Ensuring safe and responsible use of our products throughout their entire lifecycle from development to disposal. We take a holistic approach considering environmental and social impacts at every stage.',
+          },
+          {
+            title: 'Safer Applications',
+            content:
+              'Developing innovative solutions that prioritize human health and environmental safety in all applications. Through continuous research and collaboration, we strive to set new standards for chemical safety.',
+          },
+          {
+            title: 'Stakeholder Engagement',
+            content:
+              'Building transparent relationships and collaborative partnerships to drive industry-wide transformation. We actively engage with customers, suppliers, regulators, and communities to work towards sustainable solutions.',
+          },
+        ],
+        blockType: 'sustainability',
+        card: {
+          title: 'Our Commitment to Environmental Responsibility',
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: "Our commitment to environmental stewardship drives every aspect of our operations. Through efficient resource management, waste reduction initiatives, and innovative green chemistry R&D, we're continuously working to reduce our environmental footprint.",
+                      type: 'text',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  type: 'paragraph',
+                  version: 1,
+                  textFormat: 0,
+                  textStyle: '',
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              type: 'root',
+              version: 1,
+            },
+          },
+        },
+        cta: {
+          title: 'Join Us in Building a Responsible Future',
+          description:
+            'Learn more about our sustainability initiatives and how our commitment is validated by independent assessments and internationally recognized certifications.',
+          links: [
+            {
+              link: {
+                type: 'custom',
+                url: '/sustainability',
+                label: 'Discover Our Sustainability Pillars',
+                appearance: 'default',
+              },
+            },
+          ],
+        },
       },
       {
         title: 'Build Your Career With Purpose',
@@ -483,90 +563,8 @@ export function homeEn(args: HomeArgs) {
             {
               link: {
                 type: 'custom',
-                url: '/sustainable-solutions',
-                label: 'Discover Sustainable Solutions',
-                appearance: 'default',
-              },
-            },
-          ],
-        },
-      },
-      {
-        title: 'Sustainable Chemistry for a Better Tomorrow',
-        subtitle:
-          "We're reimagining chemical processes to protect our planet while delivering the innovative solutions our customers need.",
-
-        image: sustainabilitydemoImageDoc,
-        blockName: null,
-        features: [
-          {
-            title: 'Circular Chemistry',
-            content:
-              'Developing processes that minimize waste and maximize resource efficiency through innovative recycling and reuse systems.',
-          },
-          {
-            title: 'Water Conservation',
-            content:
-              'Implementing advanced water treatment and recycling technologies to reduce consumption and protect local watersheds.',
-          },
-          {
-            title: 'Clean Manufacturing',
-            content:
-              'Transforming our production facilities with energy-efficient equipment and zero-emission technologies.',
-          },
-          {
-            title: 'Biodiversity Protection',
-            content:
-              'Supporting conservation efforts and ensuring our operations have minimal impact on local ecosystems.',
-          },
-        ],
-        blockType: 'sustainability',
-        card: {
-          title: 'Our Commitment to Net Zero',
-
-          description: {
-            root: {
-              children: [
-                {
-                  children: [
-                    {
-                      detail: 0,
-                      format: 0,
-                      mode: 'normal',
-                      style: '',
-                      text: "We've set ambitious targets to achieve carbon neutrality by 2030 and net-zero emissions across our entire value chain by 2040. This commitment drives everything from our research priorities to our manufacturing processes.",
-                      type: 'text',
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  format: '',
-                  indent: 0,
-                  type: 'paragraph',
-                  version: 1,
-                  textFormat: 0,
-                  textStyle: '',
-                },
-              ],
-              direction: 'ltr',
-              format: '',
-              indent: 0,
-              type: 'root',
-              version: 1,
-            },
-          },
-        },
-        cta: {
-          title: 'Join us in creating a sustainable future',
-          description:
-            " Learn more about our sustainability initiatives and how we're working to minimize our environmental footprint while maximizing our positive impact.",
-
-          links: [
-            {
-              link: {
-                type: 'custom',
-                url: '/sustainable-solutions',
-                label: 'Discover Sustainable Solutions',
+                url: '/career',
+                label: 'View Open Positions',
                 appearance: 'default',
               },
             },
@@ -606,7 +604,7 @@ export function homeSk(args: HomeArgs) {
     quickAccessCard4Doc,
     hydroxyAcids,
     hinderedAmines,
-    glycolEthers,
+    polymerisationInhibitors,
     post1,
     post2,
     post3,
@@ -622,53 +620,51 @@ export function homeSk(args: HomeArgs) {
       description: 'Popredný dodávateľ špecializovaných chemických riešení.',
       slides: [
         {
-          title: 'Rozvoj vedeckého výskumu',
-          subtitle: 'Priekopnícke chemické inovácie pre výskumníkov a akademické inštitúcie',
+          title: 'Výroba chemických špecialít',
+          subtitle: 'Vysoko kvalitné chemické výrobky vyrábané podľa najvyšších štandardov',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
-              title: 'Výskumné partnerstvá',
-              description:
-                'Spolupracujte s našimi vedcami na prelomových chemických výskumných iniciatívach',
+              title: 'HALS (Hindered Amines)',
+              description: 'Pokročilé stabilizátory pre polyméry, nátery a priemyselné aplikácie',
               image: slide1HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/research-partnerships',
-                    label: 'Zistiť viac',
+                    url: '/products/category/hindered-amines',
+                    label: 'Preskúmať produkty',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Laboratórne materiály',
-              description:
-                'Vysoko čisté zlúčeniny a reagencie pre presné experimentálne požiadavky',
+              title: 'Inhibítory polymerizácie',
+              description: 'Základné riešenia pre rafináciu, filtráciu a optimalizáciu procesov',
               image: slide1HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/lab-materials',
-                    label: 'Zistiť viac',
+                    url: '/products/category/polymerisation-inhibitors',
+                    label: 'Preskúmať produkty',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Akademické programy',
+              title: 'DAPEG',
               description:
-                'Podpora vzdelávacích inštitúcií so špecializovanými chemickými programami',
+                'Diaminopolyetylénglykoly pre biomedicínske aplikácie a povrchové úpravy',
               image: slide1HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/academic-collaborations',
-                    label: 'Zistiť viac',
+                    url: '/products/category/diaminopolyethylene-glycols',
+                    label: 'Preskúmať produkty',
                     appearance: 'default',
                   },
                 },
@@ -677,19 +673,19 @@ export function homeSk(args: HomeArgs) {
           ],
           badge: {
             icon: 'atom',
-            text: 'Viac ako 25 rokov skúseností vo výskume',
+            text: 'Prémiové chemické špeciality',
           },
           featuredItem: {
-            title: 'Nové katalytické systémy',
+            title: 'Hydroxykyseliny',
             description:
-              'Náš najnovší prelom v katalýze prechodných kovov umožňuje reakcie pri nižších teplotách s vyššími výťažkami.',
+              'Vysoko čisté DMPA, DMBA a HPVA pre automobilový priemysel, nátery a pokročilé materiálové aplikácie.',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/research/catalytic-systems',
-                  label: 'Zistiť viac',
+                  url: '/products/category/hydroxy-acids',
+                  label: 'Zobraziť produkty',
                   appearance: 'default',
                 },
               },
@@ -700,8 +696,8 @@ export function homeSk(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research',
-                  label: 'Preskúmať výskumné riešenia',
+                  url: '/products',
+                  label: 'Zobraziť všetky produkty',
                   appearance: 'default',
                 },
               },
@@ -709,20 +705,20 @@ export function homeSk(args: HomeArgs) {
           },
         },
         {
-          title: 'Priemyselné chemické riešenia',
-          subtitle: 'Vysoko výkonné formulácie navrhnuté pre vaše výrobné potreby',
+          title: 'Služby výskumu a vývoja',
+          subtitle: 'Komplexné analytické testovanie a riešenia zákazkovej syntézy',
           backgroundImage: slide2HeroBgDoc,
           featuredCards: [
             {
-              title: 'Náterové systémy',
+              title: 'Zákazková syntéza a výroba',
               description:
-                'Pokročilé polymérové nátery s vynikajúcou trvanlivosťou a odolnosťou proti korózii',
+                'Chemické syntézy na mieru navrhnuté tak, aby spĺňali vaše špecifické požiadavky',
               image: slide2HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/coatings',
+                    url: '/services/custom-synthesis-manufacturing',
                     label: 'Zistiť viac',
                     appearance: 'default',
                   },
@@ -730,14 +726,15 @@ export function homeSk(args: HomeArgs) {
               ],
             },
             {
-              title: 'Lepiace riešenia',
-              description: 'Vysoko výkonné spojivá pre náročné priemyselné aplikácie',
+              title: 'Výskum a vývoj',
+              description:
+                'Inovatívne služby R&D na podporu vašich iniciatív v oblasti vývoja produktov',
               image: slide2HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/adhesives',
+                    url: '/services/research-development',
                     label: 'Zistiť viac',
                     appearance: 'default',
                   },
@@ -745,15 +742,15 @@ export function homeSk(args: HomeArgs) {
               ],
             },
             {
-              title: 'Zákazkové formulácie',
+              title: 'Regulačná a technická podpora',
               description:
-                'Chemické zlúčeniny na mieru vyvinuté podľa vašich presných špecifikácií',
+                'Odborné poradenstvo v oblasti zhody, dokumentácie a technických špecifikácií',
               image: slide2HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/custom-formulations',
+                    url: '/services/regulatory-technical-support',
                     label: 'Zistiť viac',
                     appearance: 'default',
                   },
@@ -763,19 +760,19 @@ export function homeSk(args: HomeArgs) {
           ],
           badge: {
             icon: 'building2',
-            text: 'Viac ako 300 patentovaných formulácií',
+            text: 'Laboratóriá s certifikáciou ISO',
           },
           featuredItem: {
-            title: 'Ultra-odolný náterový systém',
+            title: 'Služby analytického testovania',
             description:
-              'Náš pokročilý polymérový náter poskytuje bezkonkurenčnú odolnosť proti korózii pre priemyselné aplikácie.',
+              'Najmodernejšie analytické testovanie a služby kontroly kvality zaisťujúce najvyššie štandardy presnosti a spoľahlivosti.',
             image: slide2HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/products/coating-systems',
-                  label: 'Zistiť viac',
+                  url: '/services/analytical-testing',
+                  label: 'Objaviť služby',
                   appearance: 'default',
                 },
               },
@@ -786,8 +783,8 @@ export function homeSk(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/industrial',
-                  label: 'Zobraziť priemyselné riešenia',
+                  url: '/services',
+                  label: 'Zobraziť všetky služby',
                   appearance: 'default',
                 },
               },
@@ -795,51 +792,52 @@ export function homeSk(args: HomeArgs) {
           },
         },
         {
-          title: 'Chémia pre udržateľnú budúcnosť',
-          subtitle: 'Environmentálne zodpovedné inovácie a riešenia zelenej chémie',
+          title: 'Záväzok k udržateľnosti',
+          subtitle: 'Ukazujeme cestu v environmentálne zodpovednej chémii',
           backgroundImage: slide3HeroBgDoc,
           featuredCards: [
             {
-              title: 'Polyméry na biologickej báze',
+              title: 'Environmentálne certifikácie',
               description:
-                'Alternatívy rastlinného pôvodu so 70% nižšou uhlíkovou stopou ako konvenčné možnosti',
+                'Uznávaná excelentnosť v udržateľných postupoch a starostlivosti o životné prostredie',
               image: slide3HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/sustainable-products/biopolymers',
-                    label: 'Zistiť viac',
+                    url: '/sustainability',
+                    label: 'Zobraziť certifikácie',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Zelená výroba',
+              title: 'Neustála inovácia',
               description:
-                'Ekologické procesy, ktoré minimalizujú odpad a znižujú dopad na životné prostredie',
+                'Priekopnícke udržateľné chemické riešenia prostredníctvom neustáleho výskumu a vývoja',
               image: slide3HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/green-initiatives/manufacturing',
-                    label: 'Zistiť viac',
+                    url: '/news',
+                    label: 'Čítať viac',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'Riešenia pre obehové hospodárstvo',
-              description: 'Inovatívne prístupy k životnému cyklu výrobkov a recyklácii materiálov',
+              title: 'Náš záväzok k udržateľnosti',
+              description:
+                'Zaviazali sme sa znižovať dopad na životné prostredie pri poskytovaní výnimočnej kvality',
               image: slide3HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/circular-economy',
+                    url: '/sustainability',
                     label: 'Zistiť viac',
                     appearance: 'default',
                   },
@@ -849,19 +847,19 @@ export function homeSk(args: HomeArgs) {
           ],
           badge: {
             icon: 'globe',
-            text: 'Viac ako 50 globálnych partnerstiev pre udržateľnosť',
+            text: 'Partner s certifikáciou EcoVadis',
           },
           featuredItem: {
-            title: 'Polyméry na biologickej báze',
+            title: 'Uznanie EcoVadis',
             description:
-              'Naše polyméry rastlinného pôvodu ponúkajú rovnaký výkon ako alternatívy na báze ropy so 70% nižšou uhlíkovou stopou.',
+              'Hrdý držiteľ medaily EcoVadis za udržateľnosť, ktorá demonštruje náš záväzok k environmentálnej excelentnosti a zodpovedným obchodným praktikám.',
             image: slide3HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-products/biopolymers',
-                  label: 'Zistiť viac',
+                  url: '/news',
+                  label: 'Prečítať náš príbeh',
                   appearance: 'default',
                 },
               },
@@ -873,7 +871,7 @@ export function homeSk(args: HomeArgs) {
                 link: {
                   type: 'custom',
                   url: '/sustainability',
-                  label: 'Objavte udržateľné riešenia',
+                  label: 'Objavte našu cestu k udržateľnosti',
                   appearance: 'default',
                 },
               },
@@ -966,7 +964,7 @@ export function homeSk(args: HomeArgs) {
         contentItems: [],
         features: [],
         blockType: 'showcase',
-        categories: [hydroxyAcids, hinderedAmines, glycolEthers],
+        categories: [hydroxyAcids, hinderedAmines, polymerisationInhibitors],
         cta: {
           title: 'Potrebujete špecializované chemické riešenie?',
           description:
@@ -992,6 +990,85 @@ export function homeSk(args: HomeArgs) {
         badge: 'Najnovšie aktualizácie',
         linkLabel: 'Zobraziť všetky novinky a publikácie',
         items: [post1, post2, post3, post4],
+      },
+      {
+        title: 'Naša cesta k udržateľnej excelentnosti',
+        subtitle:
+          'Štyri strategické piliere vedú našu cestu neustáleho zlepšovania a poháňajú inovácie, ktoré vytvárajú trvalú hodnotu pre všetky zainteresované strany.',
+        image: sustainabilitydemoImageDoc,
+        blockName: null,
+        features: [
+          {
+            title: 'Technológie budúcnosti',
+            content:
+              'Investície do špičkových technológií, ktoré podporujú udržateľné postupy a zvyšujú prevádzkovú efektivitu. Naše R&D tímy sa zameriavajú na inovatívne riešenia, ktoré znižujú dopad na životné prostredie a zároveň zlepšujú produktivitu.',
+          },
+          {
+            title: 'Zodpovedná správa produktov',
+            content:
+              'Zabezpečenie bezpečného a zodpovedného používania našich produktov počas celého ich životného cyklu, od vývoja až po likvidáciu. Uplatňujeme holistický prístup zohľadňujúci environmentálne a sociálne dopady v každej fáze.',
+          },
+          {
+            title: 'Bezpečnejšie aplikácie',
+            content:
+              'Vývoj inovatívnych riešení, ktoré uprednostňujú ľudské zdravie a environmentálnu bezpečnosť vo všetkých aplikáciách. Prostredníctvom neustáleho výskumu a spolupráce sa snažíme stanoviť nové štandardy pre chemickú bezpečnosť.',
+          },
+          {
+            title: 'Angažovanosť zainteresovaných strán',
+            content:
+              'Budovanie transparentných vzťahov a partnerských spoluprác na podporu transformácie v celom odvetví. Aktívne spolupracujeme so zákazníkmi, dodávateľmi, regulačnými orgánmi a komunitami na hľadaní udržateľných riešení.',
+          },
+        ],
+        blockType: 'sustainability',
+        card: {
+          title: 'Náš záväzok k environmentálnej zodpovednosti',
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Náš záväzok k starostlivosti o životné prostredie poháňa každý aspekt našej činnosti. Prostredníctvom efektívneho riadenia zdrojov, iniciatív na znižovanie odpadu a inovatívneho výskumu a vývoja v oblasti zelenej chémie neustále pracujeme na znižovaní našej environmentálnej stopy.',
+                      type: 'text',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  type: 'paragraph',
+                  version: 1,
+                  textFormat: 0,
+                  textStyle: '',
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              type: 'root',
+              version: 1,
+            },
+          },
+        },
+        cta: {
+          title: 'Pridajte sa k nám pri budovaní zodpovednej budúcnosti',
+          description:
+            'Zistite viac o našich iniciatívach v oblasti udržateľnosti a o tom, ako je náš záväzok potvrdený nezávislými hodnoteniami a medzinárodne uznávanými certifikáciami.',
+          links: [
+            {
+              link: {
+                type: 'custom',
+                url: '/sustainability',
+                label: 'Objavte naše piliere udržateľnosti',
+                appearance: 'default',
+              },
+            },
+          ],
+        },
       },
       {
         title: 'Budujte si kariéru so zmyslom',
@@ -1030,90 +1107,8 @@ export function homeSk(args: HomeArgs) {
             {
               link: {
                 type: 'custom',
-                url: '/sustainable-solutions',
-                label: 'Objavte udržateľné riešenia',
-                appearance: 'default',
-              },
-            },
-          ],
-        },
-      },
-      {
-        title: 'Udržateľná chémia pre lepšiu budúcnosť',
-        subtitle:
-          'Pretvárame chemické procesy, aby sme chránili našu planétu a zároveň dodávali inovatívne riešenia, ktoré naši zákazníci potrebujú.',
-
-        image: sustainabilitydemoImageDoc,
-        blockName: null,
-        features: [
-          {
-            title: 'Cirkulárna chémia',
-            content:
-              'Vývoj procesov, ktoré minimalizujú odpad a maximalizujú efektívnosť zdrojov prostredníctvom inovatívnych systémov recyklácie a opätovného použitia.',
-          },
-          {
-            title: 'Ochrana vody',
-            content:
-              'Implementácia pokročilých technológií na úpravu a recykláciu vody s cieľom znížiť spotrebu a chrániť miestne povodia.',
-          },
-          {
-            title: 'Čistá výroba',
-            content:
-              'Transformácia našich výrobných zariadení pomocou energeticky účinných zariadení a technológií s nulovými emisiami.',
-          },
-          {
-            title: 'Ochrana biodiverzity',
-            content:
-              'Podpora ochranárskych snáh a zabezpečenie, aby naše operácie mali minimálny dopad na miestne ekosystémy.',
-          },
-        ],
-        blockType: 'sustainability',
-        card: {
-          title: 'Náš záväzok k čistej nule',
-
-          description: {
-            root: {
-              children: [
-                {
-                  children: [
-                    {
-                      detail: 0,
-                      format: 0,
-                      mode: 'normal',
-                      style: '',
-                      text: 'Stanovili sme si ambiciózne ciele dosiahnuť uhlíkovú neutralitu do roku 2030 a čisté nulové emisie v celom našom hodnotovom reťazci do roku 2040. Tento záväzok poháňa všetko od našich výskumných priorít až po naše výrobné procesy.',
-                      type: 'text',
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  format: '',
-                  indent: 0,
-                  type: 'paragraph',
-                  version: 1,
-                  textFormat: 0,
-                  textStyle: '',
-                },
-              ],
-              direction: 'ltr',
-              format: '',
-              indent: 0,
-              type: 'root',
-              version: 1,
-            },
-          },
-        },
-        cta: {
-          title: 'Pridajte sa k nám pri vytváraní udržateľnej budúcnosti',
-          description:
-            'Zistite viac o našich iniciatívach v oblasti udržateľnosti a o tom, ako pracujeme na minimalizácii našej environmentálnej stopy a maximalizácii nášho pozitívneho vplyvu.',
-
-          links: [
-            {
-              link: {
-                type: 'custom',
-                url: '/sustainable-solutions',
-                label: 'Objavte udržateľné riešenia',
+                url: '/career',
+                label: 'Zobraziť otvorené pozície',
                 appearance: 'default',
               },
             },
@@ -1153,7 +1148,7 @@ export function homeJp(args: HomeArgs) {
     quickAccessCard4Doc,
     hydroxyAcids,
     hinderedAmines,
-    glycolEthers,
+    polymerisationInhibitors,
     post1,
     post2,
     post3,
@@ -1169,50 +1164,50 @@ export function homeJp(args: HomeArgs) {
       description: '特殊化学品ソリューションのリーディングプロバイダー',
       slides: [
         {
-          title: '科学研究の推進',
-          subtitle: '研究者および学術機関向けの先駆的な化学革新',
+          title: '特殊化学品製造',
+          subtitle: '最高水準で製造された高品質な化学製品',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
-              title: '研究パートナーシップ',
-              description: '画期的な化学研究イニシアチブについて、当社の科学者と協力してください',
+              title: 'ヒンダードアミン',
+              description: 'ポリマー、コーティング、産業用途向けの高性能安定剤',
               image: slide1HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/research-partnerships',
-                    label: '詳細を見る',
+                    url: '/products/category/hindered-amines',
+                    label: '製品を見る',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: '実験用材料',
-              description: '精密な実験要件に対応する高純度の化合物および試薬',
+              title: '重合禁止剤',
+              description: '精製、ろ過、プロセス最適化に不可欠なソリューション',
               image: slide1HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/lab-materials',
-                    label: '詳細を見る',
+                    url: '/products/category/polymerisation-inhibitors',
+                    label: '製品を見る',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: '学術プログラム',
-              description: '専門的な化学プログラムで教育機関を支援',
+              title: 'DAPEG',
+              description: '生物医学および表面改質用途向けのジアミノポリエチレングリコール',
               image: slide1HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/academic-collaborations',
-                    label: '詳細を見る',
+                    url: '/products/category/diaminopolyethylene-glycols',
+                    label: '製品を見る',
                     appearance: 'default',
                   },
                 },
@@ -1221,19 +1216,18 @@ export function homeJp(args: HomeArgs) {
           ],
           badge: {
             icon: 'atom',
-            text: '25年以上の研究専門知識',
+            text: 'プレミアム特殊化学品',
           },
           featuredItem: {
-            title: '新規触媒システム',
-            description:
-              '遷移金属触媒における当社の最新のブレークスルーは、より低い温度でより高い収率での反応を可能にします。',
+            title: 'ヒドロキシ酸',
+            description: '自動車、コーティング、先端材料用途向けの高純度DMPA、DMBA、HPVA。',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/research/catalytic-systems',
-                  label: '詳細を見る',
+                  url: '/products/category/hydroxy-acids',
+                  label: '製品を表示',
                   appearance: 'default',
                 },
               },
@@ -1244,8 +1238,8 @@ export function homeJp(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research',
-                  label: '研究ソリューションを探す',
+                  url: '/products',
+                  label: 'すべての製品を表示',
                   appearance: 'default',
                 },
               },
@@ -1253,19 +1247,19 @@ export function homeJp(args: HomeArgs) {
           },
         },
         {
-          title: '産業用化学ソリューション',
-          subtitle: '生産ニーズに合わせて設計された高性能フォーミュレーション',
+          title: '研究開発サービス',
+          subtitle: '包括的な分析試験とカスタム合成ソリューション',
           backgroundImage: slide2HeroBgDoc,
           featuredCards: [
             {
-              title: 'コーティングシステム',
-              description: '優れた耐久性と耐食性を備えた先進的なポリマーコーティング',
+              title: 'カスタム合成製造',
+              description: 'お客様の特定の要件を満たすために設計された特注の化学合成ソリューション',
               image: slide2HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/coatings',
+                    url: '/services/custom-synthesis-manufacturing',
                     label: '詳細を見る',
                     appearance: 'default',
                   },
@@ -1273,14 +1267,14 @@ export function homeJp(args: HomeArgs) {
               ],
             },
             {
-              title: '接着剤ソリューション',
-              description: '要求の厳しい産業用途向け高性能接着剤',
+              title: '研究開発',
+              description: '製品開発イニシアチブを推進する革新的なR&Dサービス',
               image: slide2HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/products/adhesives',
+                    url: '/services/research-development',
                     label: '詳細を見る',
                     appearance: 'default',
                   },
@@ -1288,14 +1282,14 @@ export function homeJp(args: HomeArgs) {
               ],
             },
             {
-              title: 'カスタムフォーミュレーション',
-              description: 'お客様の正確な仕様に合わせて開発された特注の化合物',
+              title: '規制および技術サポート',
+              description: 'コンプライアンス、文書化、技術仕様に関する専門的なガイダンス',
               image: slide2HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/custom-formulations',
+                    url: '/services/regulatory-technical-support',
                     label: '詳細を見る',
                     appearance: 'default',
                   },
@@ -1305,19 +1299,18 @@ export function homeJp(args: HomeArgs) {
           ],
           badge: {
             icon: 'building2',
-            text: '300以上の特許取得済みフォーミュレーション',
+            text: 'ISO認定試験所',
           },
           featuredItem: {
-            title: '超耐久性コーティングシステム',
-            description:
-              '当社の先進的なポリマーコーティングは、産業用途に比類のない耐食性を提供します。',
+            title: '分析試験サービス',
+            description: '最高水準の精度と信頼性を保証する最先端の分析試験および品質管理サービス。',
             image: slide2HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/products/coating-systems',
-                  label: '詳細を見る',
+                  url: '/services/analytical-testing',
+                  label: 'サービスを発見',
                   appearance: 'default',
                 },
               },
@@ -1328,8 +1321,8 @@ export function homeJp(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/industrial',
-                  label: '産業ソリューションを見る',
+                  url: '/services',
+                  label: 'すべてのサービスを表示',
                   appearance: 'default',
                 },
               },
@@ -1337,49 +1330,49 @@ export function homeJp(args: HomeArgs) {
           },
         },
         {
-          title: '持続可能な未来のための化学',
-          subtitle: '環境に配慮したイノベーションとグリーンケミストリーソリューション',
+          title: 'サステナビリティへのコミットメント',
+          subtitle: '環境に配慮した化学の分野をリード',
           backgroundImage: slide3HeroBgDoc,
           featuredCards: [
             {
-              title: 'バイオベースポリマー',
-              description: '従来品に比べ炭素排出量を70%削減した植物由来の代替品',
+              title: '環境認証',
+              description: '持続可能な実践と環境スチュワードシップにおける卓越した評価',
               image: slide3HeroCard1Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/sustainable-products/biopolymers',
-                    label: '詳細を見る',
+                    url: '/sustainability',
+                    label: '認証を表示',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'グリーンマニュファクチャリング',
-              description: '廃棄物を最小限に抑え、環境への影響を低減する環境に優しいプロセス',
+              title: '継続的イノベーション',
+              description: '絶え間ない研究開発を通じて持続可能な化学ソリューションを開拓',
               image: slide3HeroCard2Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/green-initiatives/manufacturing',
-                    label: '詳細を見る',
+                    url: '/news',
+                    label: '続きを読む',
                     appearance: 'default',
                   },
                 },
               ],
             },
             {
-              title: 'サーキュラーエコノミーソリューション',
-              description: '製品ライフサイクルと材料リサイクルへの革新的なアプローチ',
+              title: 'サステナビリティへの取り組み',
+              description: '卓越した品質を提供しながら、環境への影響を低減することに専念',
               image: slide3HeroCard3Doc,
               links: [
                 {
                   link: {
                     type: 'custom',
-                    url: '/circular-economy',
+                    url: '/sustainability',
                     label: '詳細を見る',
                     appearance: 'default',
                   },
@@ -1389,19 +1382,19 @@ export function homeJp(args: HomeArgs) {
           ],
           badge: {
             icon: 'globe',
-            text: '持続可能性のための50以上のグローバルパートナーシップ',
+            text: 'EcoVadis認定パートナー',
           },
           featuredItem: {
-            title: 'バイオベースポリマー',
+            title: 'EcoVadisによる評価',
             description:
-              '当社の植物由来ポリマーは、石油ベースの代替品と同等の性能を提供し、炭素排出量を70%削減します。',
+              'EcoVadisサステナビリティメダルを受賞。環境への卓越性と責任あるビジネス慣行への取り組みを実証しています。',
             image: slide3HeroFeaturedItemDoc,
             links: [
               {
                 link: {
                   type: 'custom',
-                  url: '/sustainable-products/biopolymers',
-                  label: '詳細を見る',
+                  url: '/news',
+                  label: '当社のストーリーを読む',
                   appearance: 'default',
                 },
               },
@@ -1413,7 +1406,7 @@ export function homeJp(args: HomeArgs) {
                 link: {
                   type: 'custom',
                   url: '/sustainability',
-                  label: '持続可能なソリューションを発見',
+                  label: 'サステナビリティへの取り組みを発見',
                   appearance: 'default',
                 },
               },
@@ -1505,7 +1498,7 @@ export function homeJp(args: HomeArgs) {
         contentItems: [],
         features: [],
         blockType: 'showcase',
-        categories: [hydroxyAcids, hinderedAmines, glycolEthers],
+        categories: [hydroxyAcids, hinderedAmines, polymerisationInhibitors],
         cta: {
           title: '特殊な化学ソリューションが必要ですか？',
           description:
@@ -1531,6 +1524,85 @@ export function homeJp(args: HomeArgs) {
         badge: '最新情報',
         linkLabel: 'すべてのニュースと出版物を見る',
         items: [post1, post2, post3, post4],
+      },
+      {
+        title: '持続可能な卓越性への道',
+        subtitle:
+          '4つの戦略的柱が、継続的な改善の道のりを導き、すべてのステークホルダーに持続的な価値を創造するイノベーションを推進します。',
+        image: sustainabilitydemoImageDoc,
+        blockName: null,
+        features: [
+          {
+            title: '未来の技術',
+            content:
+              '持続可能な実践を推進し、運用効率を高める最先端技術への投資。当社のR&Dチームは、生産性を向上させながら環境への影響を低減する革新的なソリューションに焦点を当てています。',
+          },
+          {
+            title: '製品スチュワードシップ',
+            content:
+              '開発から廃棄まで、製品ライフサイクル全体を通じて安全かつ責任ある使用を保証します。あらゆる段階で環境的および社会的影響を考慮した総合的なアプローチを採用しています。',
+          },
+          {
+            title: 'より安全なアプリケーション',
+            content:
+              'すべてのアプリケーションにおいて人の健康と環境安全を優先する革新的なソリューションの開発。継続的な研究と協力を通じて、化学物質の安全性に関する新しい基準の設定に努めています。',
+          },
+          {
+            title: 'ステークホルダーエンゲージメント',
+            content:
+              '透明性のある関係と協力的なパートナーシップを構築し、業界全体の変革を推進します。お客様、サプライヤー、規制当局、地域社会と積極的に関わり、持続可能なソリューションの実現に取り組みます。',
+          },
+        ],
+        blockType: 'sustainability',
+        card: {
+          title: '環境責任へのコミットメント',
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: '環境スチュワードシップへのコミットメントは、当社の事業のあらゆる側面を推進しています。効率的な資源管理、廃棄物削減の取り組み、革新的なグリーンケミストリーの研究開発を通じて、環境フットプリントの削減に継続的に取り組んでいます。',
+                      type: 'text',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  type: 'paragraph',
+                  version: 1,
+                  textFormat: 0,
+                  textStyle: '',
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              type: 'root',
+              version: 1,
+            },
+          },
+        },
+        cta: {
+          title: '責任ある未来の構築に参加しませんか',
+          description:
+            '当社のサステナビリティへの取り組みと、独立した評価や国際的に認められた認証によって当社のコミットメントがどのように検証されているかをご覧ください。',
+          links: [
+            {
+              link: {
+                type: 'custom',
+                url: '/sustainability',
+                label: 'サステナビリティの柱を発見',
+                appearance: 'default',
+              },
+            },
+          ],
+        },
       },
       {
         title: '目的を持ってキャリアを築く',
@@ -1566,89 +1638,8 @@ export function homeJp(args: HomeArgs) {
             {
               link: {
                 type: 'custom',
-                url: '/sustainable-solutions',
-                label: '持続可能なソリューションを発見',
-                appearance: 'default',
-              },
-            },
-          ],
-        },
-      },
-      {
-        title: 'より良い明日のための持続可能な化学',
-        subtitle:
-          '私たちは、お客様が必要とする革新的なソリューションを提供しながら、地球を保護するために化学プロセスを再考しています。',
-
-        image: sustainabilitydemoImageDoc,
-        blockName: null,
-        features: [
-          {
-            title: 'サーキュラーケミストリー',
-            content:
-              '革新的なリサイクル・再利用システムを通じて廃棄物を最小限に抑え、資源効率を最大化するプロセスを開発しています。',
-          },
-          {
-            title: '水資源の保全',
-            content:
-              '高度な水処理およびリサイクル技術を導入し、消費量を削減し、地域の流域を保護しています。',
-          },
-          {
-            title: 'クリーンな製造',
-            content: 'エネルギー効率の高い設備とゼロエミッション技術で生産施設を変革しています。',
-          },
-          {
-            title: '生物多様性の保護',
-            content:
-              '保全活動を支援し、当社の事業が地域の生態系に与える影響を最小限に抑えるようにしています。',
-          },
-        ],
-        blockType: 'sustainability',
-        card: {
-          title: 'ネットゼロへのコミットメント',
-
-          description: {
-            root: {
-              children: [
-                {
-                  children: [
-                    {
-                      detail: 0,
-                      format: 0,
-                      mode: 'normal',
-                      style: '',
-                      text: '私たちは、2030年までにカーボンニュートラルを、2040年までにバリューチェーン全体でネットゼロエミッションを達成するという野心的な目標を設定しました。このコミットメントは、研究の優先事項から製造プロセスまで、あらゆるものを推進します。',
-                      type: 'text',
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  format: '',
-                  indent: 0,
-                  type: 'paragraph',
-                  version: 1,
-                  textFormat: 0,
-                  textStyle: '',
-                },
-              ],
-              direction: 'ltr',
-              format: '',
-              indent: 0,
-              type: 'root',
-              version: 1,
-            },
-          },
-        },
-        cta: {
-          title: '持続可能な未来を創造するためにご参加ください',
-          description:
-            '当社のサステナビリティへの取り組みと、環境フットプリントを最小限に抑えながらプラスの影響を最大化するための取り組みについて詳しくご覧ください。',
-
-          links: [
-            {
-              link: {
-                type: 'custom',
-                url: '/sustainable-solutions',
-                label: '持続可能なソリューションを発見',
+                url: '/career',
+                label: 'オープンポジションを表示',
                 appearance: 'default',
               },
             },

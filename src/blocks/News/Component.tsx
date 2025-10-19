@@ -76,7 +76,7 @@ async function CompactNewsItem({
 }: CompactNewsItemProps) {
   const t = await getTranslations('news.block')
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="group flex flex-col h-full overflow-hidden rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
       <div className="relative w-full h-40 sm:h-44 md:h-48 min-h-[160px] sm:min-h-[176px] md:min-h-[200px]">
         <Media resource={featuredImage} fill imgClassName="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
@@ -87,7 +87,7 @@ async function CompactNewsItem({
         </div>
       </div>
 
-      <div className="p-4 sm:p-5 md:p-6 w-full flex flex-col">
+      <div className="p-4 sm:p-5 md:p-6 w-full flex flex-col flex-1">
         {publishedAt && (
           <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground text-xs sm:text-sm mb-2">
             <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />

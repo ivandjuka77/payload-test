@@ -1,6 +1,6 @@
-import { Users } from 'lucide-react'
-import { TeamMember } from '@/payload-types'
-import { Media } from './Media'
+import { ArrowRight, Briefcase } from 'lucide-react'
+import { TeamMember, Service } from '@/payload-types'
+import Link from 'next/link'
 
 export function TeamSection({
   title,
@@ -26,42 +26,46 @@ export function TeamSection({
             {team.map((member: TeamMember, index: number) => (
               <div
                 key={index}
-                className="bg-background border border-border rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+                className="bg-background border border-border rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all hover:border-primary/50"
               >
-                <div className="relative h-[300px] bg-primary">
-                  {member.image ? (
-                    <Media
-                      resource={member.image}
-                      fill
-                      imgClassName="w-full h-full object-contain"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                      <Users className="h-20 w-20 text-primary/30" />
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-6">
-                  <div className="flex flex-col items-start mb-4">
-                    <h3 className="text-lg md:text-xl font-bold text-foreground font-primary">
+                <div className="p-6 flex flex-col h-full">
+                  {/* Header Section */}
+                  <div className="mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground font-primary mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-primary font-medium text-sm md:text-base">{member.role}</p>
+                    <p className="text-primary font-semibold text-base md:text-lg">{member.role}</p>
                   </div>
 
-                  {/* {member.qualifications && member.qualifications.length > 0 && (
-                    <div className="mb-4">
-                      <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
-                        {member.qualifications.map((qualification) => qualification.name).join(', ')}
-                      </span>
-                    </div>
-                  )} */}
-
+                  {/* Bio Section */}
                   {member.bio && (
-                    <p className="text-foreground/70 font-secondary text-sm md:text-base leading-relaxed line-clamp-4">
+                    <p className="text-foreground/70 font-secondary text-sm md:text-base leading-relaxed mb-4 flex-grow">
                       {member.bio}
                     </p>
+                  )}
+
+                  {/* Department Links */}
+                  {member.department && member.department.length > 0 && (
+                    <div className="mt-auto pt-4 border-t border-border">
+                      <div className="flex flex-wrap gap-2">
+                        {member.department.map((dept, deptIndex) => {
+                          const deptObj = typeof dept === 'object' ? (dept as Service) : null
+                          if (!deptObj) return null
+
+                          return (
+                            <Link
+                              key={deptIndex}
+                              href={`/services/${deptObj.id}`}
+                              className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20"
+                            >
+                              <Briefcase className="h-3.5 w-3.5" />
+                              <span>{deptObj.title}</span>
+                              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>

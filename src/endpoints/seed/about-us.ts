@@ -7,7 +7,6 @@ type AboutUsArgs = {
   timeline4Image: Media
   content1Image: Media
   content2Image: Media
-  ceo: TeamMember
   rd: TeamMember
   commercial: TeamMember
   atbel: TeamMember
@@ -22,7 +21,6 @@ export function aboutUsEn(args: AboutUsArgs) {
     timeline4Image,
     content1Image,
     content2Image,
-    ceo,
     rd,
     commercial,
     atbel,
@@ -44,7 +42,7 @@ export function aboutUsEn(args: AboutUsArgs) {
     },
     layout: [
       {
-        title: 'Our Mission',
+        title: 'Message from our CEO',
         content: {
           root: {
             type: 'root',
@@ -60,16 +58,85 @@ export function aboutUsEn(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Our mission is to ',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                     type: 'text',
                     style: '',
                     detail: 0,
                     format: 0,
                     version: 1,
                   },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
                   {
                     mode: 'normal',
-                    text: 'continuously accelerate our research and production by applying innovative solutions, as well as to maintain excellence in service and delivery that results in opportunities for our partners.',
+                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+            ],
+            direction: 'ltr',
+          },
+        },
+        image: content1Image.id,
+        blockName: 'CEO Message',
+        blockType: 'contentImage',
+        layout: 'left',
+      },
+      {
+        title: 'Our Mission & Values',
+        content: {
+          root: {
+            type: 'root',
+            format: '',
+            indent: 0,
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'Our mission is to continuously accelerate our research and production by applying innovative solutions, while maintaining excellence in service and delivery that creates opportunities for our partners.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
+                  {
+                    mode: 'normal',
+                    text: 'Core Values:',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -82,34 +149,12 @@ export function aboutUsEn(args: AboutUsArgs) {
                 textFormat: 0,
               },
               {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'We strive to:',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
                 tag: 'ul',
                 type: 'list',
                 start: 1,
                 format: '',
                 indent: 0,
                 version: 1,
-
                 children: [
                   {
                     type: 'listitem',
@@ -117,181 +162,6 @@ export function aboutUsEn(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Develop and deliver high-quality, specialized chemical products and services.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 2,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Foster innovation through dedicated R&D and cutting-edge technologies.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 3,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Build lasting partnerships based on trust, expertise, and mutual success.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 4,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Operate responsibly, with a strong commitment to sustainability and regulatory compliance.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Be a recognized leader in chemical specialties, known for our problem-solving capabilities and customer focus.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                ],
-                listType: 'bullet',
-                direction: 'ltr',
-              },
-            ],
-            direction: 'ltr',
-          },
-        },
-        image: content1Image.id,
-        blockName: 'Mission',
-        blockType: 'contentImage',
-        layout: 'left',
-      },
-      {
-        title: 'Our Vision & Values',
-        content: {
-          root: {
-            type: 'root',
-            format: '',
-            indent: 0,
-            version: 1,
-
-            children: [
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'Our vision is to become a well-networked, internationally recognized chemical research and production center that produces unique chemical specialties, licenses its technologies, and offers original solutions worldwide, striving to be the preferred partner for companies seeking expert chemical solutions by driving progress and creating value through scientific excellence and sustainable practices.',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: "The core principles that guide every aspect of VUP's operations and interactions are:",
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                tag: 'ul',
-                type: 'list',
-                start: 1,
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    type: 'listitem',
-                    value: 1,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -302,10 +172,9 @@ export function aboutUsEn(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' We are driven by scientific curiosity and over 70 years of accumulated knowledge, constantly seeking innovative solutions to complex chemical challenges.',
+                        text: ' Driven by scientific curiosity and 70+ years of accumulated knowledge.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -322,7 +191,6 @@ export function aboutUsEn(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -333,10 +201,9 @@ export function aboutUsEn(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' We are committed to the highest standards in our products, services, and processes, validated by our ISO 9001 certification and accredited laboratories.',
+                        text: ' Committed to the highest standards, validated by ISO 9001 and accredited laboratories.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -353,7 +220,6 @@ export function aboutUsEn(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -364,10 +230,9 @@ export function aboutUsEn(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' We believe in building strong, transparent, and mutually beneficial relationships with our clients, suppliers, and employees.',
+                        text: ' Building strong, transparent relationships with clients, suppliers, and employees.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -384,52 +249,19 @@ export function aboutUsEn(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
-                        text: 'Integrity & Ethics:',
+                        text: 'Sustainability:',
                         type: 'text',
                         style: '',
                         detail: 0,
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' We conduct our business with honesty, transparency, and a strong ethical compass, ensuring compliance and building trust.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Future-Readiness:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' We invest in new technologies and sustainable practices to ensure we are prepared for the challenges and opportunities of tomorrow.',
+                        text: ' Operating responsibly with commitment to sustainable practices and regulatory compliance.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -451,7 +283,7 @@ export function aboutUsEn(args: AboutUsArgs) {
           },
         },
         image: content2Image.id,
-        blockName: 'Vision',
+        blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',
       },
@@ -694,7 +526,7 @@ export function aboutUsEn(args: AboutUsArgs) {
           'At VUP, our strength lies in our dedicated and experienced team of scientists, engineers, technicians, and professionals. We foster a culture of collaboration, innovation, and continuous learning.',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [ceo.id, rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
       },
     ],
     meta: {
@@ -716,7 +548,6 @@ export function aboutUsSk(args: AboutUsArgs) {
     timeline4Image,
     content1Image,
     content2Image,
-    ceo,
     rd,
     commercial,
     atbel,
@@ -737,7 +568,7 @@ export function aboutUsSk(args: AboutUsArgs) {
     },
     layout: [
       {
-        title: 'Naša misia',
+        title: 'Správa od nášho generálneho riaditeľa',
         content: {
           root: {
             type: 'root',
@@ -753,20 +584,11 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Našou misiou je ',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                     type: 'text',
                     style: '',
                     detail: 0,
                     format: 0,
-                    version: 1,
-                  },
-                  {
-                    mode: 'normal',
-                    text: 'neustále zrýchľovať náš výskum a výrobu uplatňovaním inovatívnych riešení, ako aj udržiavať excelentnosť v službách a dodávkach, čo prináša príležitosti pre našich partnerov.',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 1,
                     version: 1,
                   },
                 ],
@@ -782,7 +604,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Snažíme sa:',
+                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -793,125 +615,18 @@ export function aboutUsSk(args: AboutUsArgs) {
                 direction: 'ltr',
                 textStyle: '',
                 textFormat: 0,
-              },
-              {
-                tag: 'ul',
-                type: 'list',
-                start: 1,
-                format: '',
-                indent: 0,
-                version: 1,
-                children: [
-                  {
-                    type: 'listitem',
-                    value: 1,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Vyvíjať a dodávať vysokokvalitné, špecializované chemické produkty a služby.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 2,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Podporovať inovácie prostredníctvom cieleného výskumu a vývoja a špičkových technológií.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 3,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Budovať trvalé partnerstvá založené na dôvere, odbornosti a spoločnom úspechu.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 4,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Pôsobiť zodpovedne, so silným záväzkom k udržateľnosti a dodržiavaniu predpisov.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Byť uznávaným lídrom v oblasti chemických špecialít, známym našimi schopnosťami riešiť problémy a zameraním na zákazníka.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                ],
-                listType: 'bullet',
-                direction: 'ltr',
               },
             ],
             direction: 'ltr',
           },
         },
         image: content1Image.id,
-        blockName: 'Mission',
+        blockName: 'CEO Message',
         blockType: 'contentImage',
         layout: 'left',
       },
       {
-        title: 'Naša vízia a hodnoty',
+        title: 'Naša misia a hodnoty',
         content: {
           root: {
             type: 'root',
@@ -927,7 +642,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Našou víziou je stať sa dobre prepojeným, medzinárodne uznávaným centrom pre chemický výskum a výrobu, ktoré produkuje jedinečné chemické špeciality, licencuje svoje technológie a ponúka originálne riešenia po celom svete, pričom sa snažíme byť preferovaným partnerom pre spoločnosti hľadajúce odborné chemické riešenia prostredníctvom podpory pokroku a vytvárania hodnoty vďaka vedeckej excelentnosti a udržateľným postupom.',
+                    text: 'Našou misiou je neustále zrýchľovať náš výskum a výrobu uplatňovaním inovatívnych riešení a udržiavať excelentnosť v službách a dodávkach, ktoré vytvárajú príležitosti pre našich partnerov.',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -947,11 +662,11 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Základné princípy, ktoré usmerňujú každý aspekt činnosti a interakcií spoločnosti VUP, sú:',
+                    text: 'Základné hodnoty:',
                     type: 'text',
                     style: '',
                     detail: 0,
-                    format: 0,
+                    format: 1,
                     version: 1,
                   },
                 ],
@@ -985,7 +700,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                       },
                       {
                         mode: 'normal',
-                        text: ' Sme poháňaní vedeckou zvedavosťou a viac ako 70 rokmi nazbieraných poznatkov, neustále hľadáme inovatívne riešenia zložitých chemických výziev.',
+                        text: ' Poháňaní vedeckou zvedavosťou a viac ako 70 rokmi nazbieraných poznatkov.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1014,7 +729,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                       },
                       {
                         mode: 'normal',
-                        text: ' Zaviazali sme sa k najvyšším štandardom v našich produktoch, službách a procesoch, čo potvrdzuje naša certifikácia ISO 9001 a akreditované laboratóriá.',
+                        text: ' Zaviazaní k najvyšším štandardom, potvrdeným certifikáciou ISO 9001 a akreditovanými laboratóriami.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1043,7 +758,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                       },
                       {
                         mode: 'normal',
-                        text: ' Veríme v budovanie pevných, transparentných a vzájomne prospešných vzťahov s našimi klientmi, dodávateľmi a zamestnancami.',
+                        text: ' Budovanie pevných, transparentných vzťahov s klientmi, dodávateľmi a zamestnancami.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1063,7 +778,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                     children: [
                       {
                         mode: 'normal',
-                        text: 'Integrita a etika:',
+                        text: 'Udržateľnosť:',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1072,36 +787,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                       },
                       {
                         mode: 'normal',
-                        text: ' Naše podnikanie vedieme s čestnosťou, transparentnosťou a silným etickým kompasom, čím zabezpečujeme súlad s predpismi a budujeme dôveru.',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: 'Pripravenosť na budúcnosť:',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-                      {
-                        mode: 'normal',
-                        text: ' Investujeme do nových technológií a udržateľných postupov, aby sme boli pripravení na výzvy a príležitosti zajtrajška.',
+                        text: ' Zodpovedné podnikanie so záväzkom k udržateľným postupom a dodržiavaniu predpisov.',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1123,7 +809,7 @@ export function aboutUsSk(args: AboutUsArgs) {
           },
         },
         image: content2Image.id,
-        blockName: 'Vision',
+        blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',
       },
@@ -1350,7 +1036,7 @@ export function aboutUsSk(args: AboutUsArgs) {
           'V spoločnosti VUP spočíva naša sila v našom oddanom a skúsenom tíme vedcov, inžinierov, technikov a odborníkov. Podporujeme kultúru spolupráce, inovácií a neustáleho vzdelávania.',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [ceo.id, rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
       },
     ],
     meta: {
@@ -1372,7 +1058,7 @@ export function aboutUsJp(args: AboutUsArgs) {
     timeline4Image,
     content1Image,
     content2Image,
-    ceo,
+
     rd,
     commercial,
     atbel,
@@ -1393,7 +1079,7 @@ export function aboutUsJp(args: AboutUsArgs) {
     },
     layout: [
       {
-        title: '私たちの使命',
+        title: 'CEOからのメッセージ',
         content: {
           root: {
             type: 'root',
@@ -1409,16 +1095,85 @@ export function aboutUsJp(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: '私たちの使命は、',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                     type: 'text',
                     style: '',
                     detail: 0,
                     format: 0,
                     version: 1,
                   },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
                   {
                     mode: 'normal',
-                    text: '革新的なソリューションを適用することで研究と生産を継続的に加速させ、パートナーに機会をもたらす優れたサービスとデリバリーを維持することです。',
+                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+            ],
+            direction: 'ltr',
+          },
+        },
+        image: content1Image.id,
+        blockName: 'CEO Message',
+        blockType: 'contentImage',
+        layout: 'left',
+      },
+      {
+        title: '私たちの使命と価値観',
+        content: {
+          root: {
+            type: 'root',
+            format: '',
+            indent: 0,
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
+                  {
+                    mode: 'normal',
+                    text: '私たちの使命は、革新的なソリューションを適用することで研究と生産を継続的に加速させ、パートナーに機会をもたらす優れたサービスとデリバリーを維持することです。',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+                children: [
+                  {
+                    mode: 'normal',
+                    text: '基本的価値観：',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -1431,34 +1186,12 @@ export function aboutUsJp(args: AboutUsArgs) {
                 textFormat: 0,
               },
               {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: '私たちは以下のことに努めています：',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
                 tag: 'ul',
                 type: 'list',
                 start: 1,
                 format: '',
                 indent: 0,
                 version: 1,
-
                 children: [
                   {
                     type: 'listitem',
@@ -1466,181 +1199,6 @@ export function aboutUsJp(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '高品質で特殊な化学製品とサービスを開発し、提供します。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 2,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '専門的な研究開発と最先端技術を通じて革新を促進します。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 3,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '信頼、専門知識、相互の成功に基づいた永続的なパートナーシップを築きます。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 4,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '持続可能性と規制遵守への強いコミットメントを持って、責任ある事業運営を行います。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '問題解決能力と顧客中心主義で知られる、化学特殊品分野の認知されたリーダーとなります。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                  },
-                ],
-                listType: 'bullet',
-                direction: 'ltr',
-              },
-            ],
-            direction: 'ltr',
-          },
-        },
-        image: content1Image.id,
-        blockName: 'Mission',
-        blockType: 'contentImage',
-        layout: 'left',
-      },
-      {
-        title: '私たちのビジョンと価値観',
-        content: {
-          root: {
-            type: 'root',
-            format: '',
-            indent: 0,
-            version: 1,
-
-            children: [
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: '私たちのビジョンは、独自の化学特殊品を生産し、技術をライセンス供与し、世界中に独自のソリューションを提供する、ネットワークの広い国際的に認知された化学研究・生産センターになることです。科学的卓越性と持続可能な実践を通じて進歩を推進し、価値を創造することで、専門的な化学ソリューションを求める企業にとっての優先的なパートナーとなることを目指しています。',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                type: 'paragraph',
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    mode: 'normal',
-                    text: 'VUPの運営と相互作用のあらゆる側面を導く基本原則は次のとおりです：',
-                    type: 'text',
-                    style: '',
-                    detail: 0,
-                    format: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                textStyle: '',
-                textFormat: 0,
-              },
-              {
-                tag: 'ul',
-                type: 'list',
-                start: 1,
-                format: '',
-                indent: 0,
-                version: 1,
-
-                children: [
-                  {
-                    type: 'listitem',
-                    value: 1,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -1651,10 +1209,9 @@ export function aboutUsJp(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' 私たちは科学的好奇心と70年以上にわたる蓄積された知識に駆り立てられ、複雑な化学的課題に対する革新的な解決策を常に探求しています。',
+                        text: ' 科学的好奇心と70年以上の蓄積された知識に駆り立てられています。',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1671,7 +1228,6 @@ export function aboutUsJp(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -1682,10 +1238,9 @@ export function aboutUsJp(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' 私たちは製品、サービス、プロセスにおいて最高の基準を約束し、それはISO 9001認証と認定試験所によって検証されています。',
+                        text: ' ISO 9001認証と認定試験所によって検証された最高基準を約束しています。',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1702,7 +1257,6 @@ export function aboutUsJp(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
@@ -1713,10 +1267,9 @@ export function aboutUsJp(args: AboutUsArgs) {
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' 私たちは、クライアント、サプライヤー、従業員との間に、強力で透明性のある、相互に利益のある関係を築くことを信条としています。',
+                        text: ' クライアント、サプライヤー、従業員との強力で透明性のある関係を築きます。',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1733,52 +1286,19 @@ export function aboutUsJp(args: AboutUsArgs) {
                     format: '',
                     indent: 0,
                     version: 1,
-
                     children: [
                       {
                         mode: 'normal',
-                        text: '誠実さと倫理：',
+                        text: '持続可能性：',
                         type: 'text',
                         style: '',
                         detail: 0,
                         format: 1,
                         version: 1,
                       },
-
                       {
                         mode: 'normal',
-                        text: ' 私たちは誠実さ、透明性、そして強固な倫理観を持って事業を行い、コンプライアンスを確保し、信頼を築きます。',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 0,
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    textFormat: 1,
-                  },
-                  {
-                    type: 'listitem',
-                    value: 5,
-                    format: '',
-                    indent: 0,
-                    version: 1,
-
-                    children: [
-                      {
-                        mode: 'normal',
-                        text: '未来への備え：',
-                        type: 'text',
-                        style: '',
-                        detail: 0,
-                        format: 1,
-                        version: 1,
-                      },
-
-                      {
-                        mode: 'normal',
-                        text: ' 私たちは明日の課題と機会に備えるため、新技術と持続可能な実践に投資します。',
+                        text: ' 持続可能な実践と規制遵守へのコミットメントを持って責任ある事業運営を行います。',
                         type: 'text',
                         style: '',
                         detail: 0,
@@ -1800,7 +1320,7 @@ export function aboutUsJp(args: AboutUsArgs) {
           },
         },
         image: content2Image.id,
-        blockName: 'Vision',
+        blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',
       },
@@ -2038,7 +1558,7 @@ export function aboutUsJp(args: AboutUsArgs) {
           'VUPの強みは、献身的で経験豊富な科学者、エンジニア、技術者、専門家からなるチームにあります。私たちは協業、革新、そして継続的な学習の文化を育んでいます。',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [ceo.id, rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
       },
     ],
     meta: {

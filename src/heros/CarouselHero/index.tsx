@@ -6,6 +6,7 @@ import { Atom, ChevronRight } from 'lucide-react'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
+import Link from 'next/link'
 import { CMSLink } from '@/components/Link'
 
 //? Responsive
@@ -263,103 +264,115 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                   </div>
 
                   {/* Right Column - Featured Research */}
-                  {slide.featuredItem && (
-                    <div className="hidden lg:block">
-                      <div className="relative rounded-xl overflow-hidden h-full">
-                        {/* Featured image as background */}
-                        <Media
-                          resource={slide.featuredItem.image}
-                          alt={slide.featuredItem.title}
-                          fill
-                          priority
-                          imgClassName="object-cover z-0 w-full h-full"
-                        />
+                  {slide.featuredItem &&
+                    slide.featuredItem.links &&
+                    slide.featuredItem.links.length > 0 && (
+                      <div className="hidden lg:block h-full">
+                        <Link
+                          href={slide.featuredItem.links[0].link?.url || ''}
+                          className="block relative rounded-xl overflow-hidden h-full min-h-[300px] group/card cursor-pointer"
+                        >
+                          {/* Featured image as background */}
+                          <Media
+                            resource={slide.featuredItem.image}
+                            alt={slide.featuredItem.title}
+                            fill
+                            priority
+                            imgClassName="object-cover z-0 w-full h-full transition-transform duration-300 group-hover/card:scale-105"
+                          />
 
-                        {/* Gradient overlay for text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/60 to-primary-dark/20 z-10"></div>
+                          {/* Gradient overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/60 to-primary-dark/20 z-10"></div>
 
-                        {/* Additional dark gradient overlay at the bottom */}
-                        <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                          {/* Additional dark gradient overlay at the bottom */}
+                          <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
 
-                        {/* Featured content floating on image */}
-                        <div className="relative p-6 z-20 h-full flex flex-col justify-end">
-                          <h3 className="text-white font-semibold mb-3 font-primary text-xl">
-                            {slide.featuredItem.title}
-                          </h3>
-                          <p className="text-white/90 text-sm mb-4">
-                            {slide.featuredItem.description}
-                          </p>
-                          {slide.featuredItem.links && slide.featuredItem.links.length > 0 && (
-                            <ul className="flex flex-col gap-2">
-                              {slide.featuredItem.links.map(({ link }, i) => (
-                                <li key={i}>
-                                  <Button
-                                    asChild
-                                    size="sm"
-                                    className="bg-transparent text-white hover:bg-transparent hover:text-white/90 border-none rounded-md py-2 px-0 text-sm group w-auto"
-                                  >
-                                    <CMSLink {...link} className="flex items-center justify-start">
-                                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                    </CMSLink>
-                                  </Button>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
+                          {/* Featured content floating on image */}
+                          <div className="relative p-6 z-20 h-full flex flex-col justify-end">
+                            <h3 className="text-white font-semibold mb-3 font-primary text-xl group-hover/card:text-white/90">
+                              {slide.featuredItem.title}
+                            </h3>
+                            <p className="text-white/90 text-sm mb-4">
+                              {slide.featuredItem.description}
+                            </p>
+                            <div className="flex items-center text-white text-sm">
+                              <span>{slide.featuredItem.links[0].link.label}</span>
+                              <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover/card:translate-x-1" />
+                            </div>
+                          </div>
+                        </Link>
                       </div>
-                    </div>
-                  )}
+                    )}
                 </div>
 
                 {/* Featured Cards - Full Width Row */}
                 {slide.featuredCards && slide.featuredCards.length > 0 && (
                   <div className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-auto hidden md:grid">
-                    {slide.featuredCards.map((card, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden hover:bg-white/30 transition-all group"
-                      >
-                        {/* Card Image */}
-                        <div className="relative h-24 sm:h-28 md:h-32 w-full">
-                          <Media
-                            resource={card.image}
-                            alt={card.title}
-                            fill
-                            priority
-                            imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>
-                        </div>
+                    {slide.featuredCards.map((card, idx) => {
+                      const hasLinks = card.links && card.links.length > 0
+                      const firstLink = hasLinks && card.links ? card.links[0].link : null
 
-                        {/* Card Content */}
-                        <div className="p-3 sm:p-4">
-                          <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90 min-h-14">
-                            {card.title}
-                          </h3>
-                          <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">
-                            {card.description}
-                          </p>
-                          {card.links && card.links.length > 0 && (
-                            <ul className="flex flex-col gap-2">
-                              {card.links.map(({ link }, i) => (
-                                <li key={i}>
-                                  <Button
-                                    asChild
-                                    size="sm"
-                                    className="bg-transparent text-white hover:bg-transparent hover:text-white/90 border-none rounded-md py-2 px-0 text-sm group w-auto"
-                                  >
-                                    <CMSLink {...link} className="flex items-center justify-start">
-                                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                    </CMSLink>
-                                  </Button>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                      return hasLinks && firstLink ? (
+                        <Link
+                          key={idx}
+                          href={firstLink.url || ''}
+                          className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden hover:bg-white/30 transition-all group cursor-pointer flex flex-col"
+                        >
+                          {/* Card Image */}
+                          <div className="relative h-24 sm:h-28 md:h-32 w-full">
+                            <Media
+                              resource={card.image}
+                              alt={card.title}
+                              fill
+                              priority
+                              imgClassName="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>
+                          </div>
+
+                          {/* Card Content */}
+                          <div className="p-3 sm:p-4">
+                            <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg group-hover:text-white/90 min-h-10">
+                              {card.title}
+                            </h3>
+                            <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">
+                              {card.description}
+                            </p>
+                            <div className="flex items-center text-white text-xs sm:text-sm">
+                              <span>{firstLink.label}</span>
+                              <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </div>
+                          </div>
+                        </Link>
+                      ) : (
+                        <div
+                          key={idx}
+                          className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden"
+                        >
+                          {/* Card Image */}
+                          <div className="relative h-24 sm:h-28 md:h-32 w-full">
+                            <Media
+                              resource={card.image}
+                              alt={card.title}
+                              fill
+                              priority
+                              imgClassName="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent"></div>
+                          </div>
+
+                          {/* Card Content */}
+                          <div className="p-3 sm:p-4">
+                            <h3 className="text-white font-semibold mb-1 font-primary text-base sm:text-lg min-h-14">
+                              {card.title}
+                            </h3>
+                            <p className="text-white/80 text-xs sm:text-sm line-clamp-2">
+                              {card.description}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 )}
               </div>

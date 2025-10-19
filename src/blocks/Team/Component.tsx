@@ -1,7 +1,6 @@
-import { LinkedinIcon } from 'lucide-react'
+import { LinkedinIcon, ArrowRight, Briefcase } from 'lucide-react'
 import Link from 'next/link'
-import { Media } from '@/components/Media'
-import { TeamBlock, TeamMember } from '@/payload-types'
+import { TeamBlock, TeamMember, Service } from '@/payload-types'
 
 export const Team: React.FC<TeamBlock> = ({ title, subtitle, teamMembers }) => {
   //   const teamMembers: TeamMember[] = [
@@ -65,38 +64,60 @@ export const Team: React.FC<TeamBlock> = ({ title, subtitle, teamMembers }) => {
             teamMembersArray.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-md hover:border-primary/50 transition-all duration-300"
               >
-                {/* Member image */}
-                <div className="relative h-[300px]">
-                  <Media resource={member.image} fill imgClassName="object-cover object-center" />
-                  {member.linkedin && (
-                    <div className="absolute top-4 right-4">
-                      <Link
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="h-8 w-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center text-primary transition-colors shadow-sm"
-                      >
-                        <LinkedinIcon className="h-4 w-4" />
-                      </Link>
+                <div className="p-6 flex flex-col h-full">
+                  {/* Header Section */}
+                  <div className="mb-4">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground font-primary">
+                        {member.name}
+                      </h3>
+                      {member.linkedin && (
+                        <Link
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="h-8 w-8 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors shrink-0"
+                          title="View LinkedIn Profile"
+                        >
+                          <LinkedinIcon className="h-4 w-4" />
+                        </Link>
+                      )}
+                    </div>
+                    <p className="text-primary font-semibold text-base md:text-lg">{member.role}</p>
+                  </div>
+
+                  {/* Bio Section */}
+                  {member.bio && (
+                    <p className="text-muted-foreground font-secondary text-sm md:text-base leading-relaxed mb-4 flex-grow">
+                      {member.bio}
+                    </p>
+                  )}
+
+                  {/* Department Links */}
+                  {member.department && member.department.length > 0 && (
+                    <div className="mt-auto pt-4 border-t border-gray-100">
+                      <div className="flex flex-wrap gap-2">
+                        {member.department.map((dept, deptIndex) => {
+                          const deptObj = typeof dept === 'object' ? (dept as Service) : null
+                          if (!deptObj) return null
+
+                          return (
+                            <Link
+                              key={deptIndex}
+                              href={`/services/${deptObj.id}`}
+                              className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20"
+                            >
+                              <Briefcase className="h-3.5 w-3.5" />
+                              <span>{deptObj.title}</span>
+                              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            </Link>
+                          )
+                        })}
+                      </div>
                     </div>
                   )}
-                </div>
-
-                <div className="p-6">
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold text-foreground font-primary mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary font-medium text-sm">{member.role}</p>
-                    <p className="text-muted-foreground text-xs mt-1">
-                      {member.department?.map((department) => department).join(', ')}
-                    </p>
-                  </div>
-                  <p className="text-muted-foreground font-secondary text-sm leading-relaxed line-clamp-4">
-                    {member.bio}
-                  </p>
                 </div>
               </div>
             ))}
