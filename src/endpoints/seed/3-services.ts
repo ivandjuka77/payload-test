@@ -252,44 +252,50 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'services',
       data: {
-        title: 'Analytical Testing Services',
+        title: 'Accredited Analytical, Technical-Safety & Environmental Services',
         _status: 'published',
         description:
-          'Accredited analytical, technical-safety, and ecological testing services with SNAS S-118 (ISO/IEC 17025) certification. Comprehensive chemical analysis and regulatory compliance testing.',
+          'The ATBEL (Analytical, Technical-Safety, and Environmental Laboratories) division is a specialized testing center within VUP, a.s., providing expert analytical services to both internal R&D projects and external partners. We deliver reliable, accredited results under SNAS Certificate No. S-118 (ISO/IEC 17025) and ISO 9001, ensuring the highest standards of quality and precision. Our services are led by division head Ing. Ľudovít Žiak, PhD.',
         featuredImage: image2Doc.id,
         features: [
           {
-            feature: 'SNAS Accreditation',
+            feature: 'Accredited & Certified Quality',
             description:
-              'SNAS S-118 accreditation according to ISO/IEC 17025 ensuring reliable, internationally recognized analytical results with rigorous quality controls',
+              'Confidence in data quality supported by SNAS S-118 (ISO/IEC 17025) accreditation and ISO 9001 certification for all analytical and laboratory testing.',
           },
           {
-            feature: 'Comprehensive Testing',
+            feature: 'Comprehensive Service Portfolio',
             description:
-              'Wide range of analytical techniques including chromatography, spectroscopy, titrimetric analysis, and physical-chemical testing in one accredited facility',
+              'A wide range of analytical techniques including chromatography, spectroscopy, wet chemistry, and technical-safety testing available in one facility.',
           },
           {
-            feature: 'Expert Leadership',
+            feature: 'Expert Leadership & Team',
             description:
-              'Led by Ing. Ľudovít Žiak, PhD., with over 15 years of analytical laboratory experience and specialized expertise in workplace atmosphere monitoring',
+              'Led by Ing. Ľudovít Žiak, PhD., a graduate of Analytical Chemistry with over 15 years of experience, specializing in chemical analysis and workplace air sampling.',
           },
           {
-            feature: 'Regulatory Compliance',
+            feature: 'Regulatory Compliance & Support',
             description:
-              'Testing according to international standards (OECD, ISO, DIN) and regulations including REACH compliance and automotive standards',
+              'Testing according to international standards (OECD, ISO, DIN) to support your REACH registration, workplace safety monitoring, and quality control needs.',
+          },
+          {
+            feature: 'Problem Solving & Method Development',
+            description:
+              'Expert support for R&D troubleshooting, contamination analysis, and the capability to develop custom analytical methodologies for unique challenges.',
           },
         ],
         subServices: [
           {
             title: 'Chromatographic Analysis',
             description:
-              'Advanced chromatographic techniques including gas chromatography (GC, GC-MS), high-performance liquid chromatography (HPLC), and isotachophoresis (ITP) for composition analysis, VOC determination, impurity identification, and anion determination. Our state-of-the-art equipment enables precise analysis of complex mixtures with method development capabilities.',
+              'Advanced separation techniques for precise composition analysis, impurity identification, and trace analysis. We utilize Gas Chromatography (GC, GC-MS) for VOC determination (e.g., PV3341 for automotive), High-Performance Liquid Chromatography (HPLC), and Isotachophoresis (ITP) for anion determination (chlorides, sulfates). We also offer custom methodology development to meet your specific needs.',
             image: demoImageDoc.id,
             displayItems: [
-              { item: 'Gas Chromatography (GC, GC-MS)' },
+              { item: 'Gas Chromatography (GC & GC-MS)' },
               { item: 'High-Performance Liquid Chromatography (HPLC)' },
-              { item: 'Isotachophoresis (ITP)' },
-              { item: 'VOC Analysis (PV3341)' },
+              { item: 'Isotachophoresis (ITP) for Anions' },
+              { item: 'VOC Analysis (Automotive Standard PV3341)' },
+              { item: 'Impurity Identification' },
             ],
             features: [
               {
@@ -308,13 +314,14 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           {
             title: 'Spectroscopic Analysis',
             description:
-              'Comprehensive spectroscopic analysis using atomic absorption spectrometry (AAS), infrared spectroscopy (FT-IR), nuclear magnetic resonance (NMR), UV/VIS spectrometry, and mass spectrometry for substance identification, metal determination, and structural analysis. Our spectroscopic capabilities support both qualitative and quantitative analysis needs.',
+              'A comprehensive suite of spectroscopic techniques for substance identification, structural elucidation, and quantitative analysis. Our capabilities include Atomic Absorption Spectrometry (AAS) for metals, FT-IR and NMR for structural confirmation, and UV/VIS spectrometry for quantitative analysis and color determination (APHA, Gardner).',
             image: image2Doc.id,
             displayItems: [
               { item: 'Atomic Absorption Spectrometry (AAS)' },
               { item: 'Infrared Spectroscopy (FT-IR)' },
               { item: 'Nuclear Magnetic Resonance (NMR)' },
               { item: 'UV/VIS Spectrometry' },
+              { item: 'Color Determination (APHA, Gardner)' },
             ],
             features: [
               {
@@ -323,9 +330,9 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
                   'Comprehensive spectroscopic suite enabling complete structural characterization and identification of unknown substances with high confidence.',
               },
               {
-                feature: 'Metal Analysis',
+                feature: 'Trace Metal Analysis',
                 description:
-                  'Specialized atomic absorption spectrometry capabilities for accurate determination of metals in various sample matrices.',
+                  'Specialized atomic absorption spectrometry for the accurate determination of metals in a wide variety of sample matrices.',
               },
             ],
             link: 'spectroscopic-analysis',
@@ -333,24 +340,25 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           {
             title: 'Physical & Technical-Safety Testing',
             description:
-              'Physical property determination and technical-safety testing according to OECD and ISO standards including melting point, boiling point, density, vapour pressure, surface tension, water solubility, flash point, and flammability testing. Essential for regulatory compliance, safety assessments, and product characterization across multiple industries.',
+              'Accredited determination of physical and technical-safety parameters essential for regulatory compliance (REACH) and safety data sheets. We test according to international standards, including melting point (OECD 102), boiling point (OECD 103), density (OECD 109), vapor pressure (OECD 104), flash point (A.9), and flammability of solids (A.10).',
             image: demoImageDoc.id,
             displayItems: [
-              { item: 'Physical Properties (OECD Standards)' },
-              { item: 'Flash Point & Flammability' },
+              { item: 'Melting & Boiling Point (OECD 102/103)' },
+              { item: 'Density & Vapour Pressure (OECD 109/104)' },
+              { item: 'Flash Point & Flammability (A.9/A.10)' },
+              { item: 'Water Solubility & Partition Coefficient (OECD 105/107)' },
               { item: 'Workplace Atmosphere Monitoring' },
-              { item: 'REACH Compliance Testing' },
             ],
             features: [
               {
-                feature: 'OECD Compliance',
+                feature: 'OECD Guideline Compliance',
                 description:
-                  'Testing according to internationally recognized OECD guidelines ensuring regulatory compliance for chemical registration and safety assessments.',
+                  'Testing performed according to internationally recognized OECD guidelines, ensuring data acceptance for regulatory submissions like REACH.',
               },
               {
-                feature: 'Safety Monitoring',
+                feature: 'Workplace Safety Monitoring',
                 description:
-                  'Specialized workplace atmosphere monitoring and measurement of chemical factors to ensure occupational health and safety compliance.',
+                  'Expert sampling and measurement of chemical factors and solid aerosols in the working air to ensure occupational health and safety compliance.',
               },
             ],
             link: 'physical-safety-testing',
@@ -358,24 +366,25 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           {
             title: 'Titrimetric & Gravimetric Analysis',
             description:
-              'Classical analytical techniques including Karl Fischer titration for water content determination, acid and hydroxyl value measurements, iodometric titrations, and gravimetric determinations for moisture, ash, and extractable substances. These proven methods provide reliable quantitative analysis for quality control and specification testing.',
+              'Classic and robust wet chemistry techniques for reliable quantitative analysis. Our services include Karl Fischer titration for water content (ISO 760), acidity number (DIN 51558), hydroxyl number (DIN 53240-2), iodometric titration for peroxides, and gravimetric determination of moisture, ash, and non-volatile residues.',
             image: image2Doc.id,
             displayItems: [
-              { item: 'Karl Fischer Titration' },
-              { item: 'Acid & Hydroxyl Value' },
-              { item: 'Gravimetric Determinations' },
-              { item: 'Moisture & Ash Content' },
+              { item: 'Karl Fischer Titration (ISO 760)' },
+              { item: 'Acid & Hydroxyl Value (DIN standards)' },
+              { item: 'Iodometric Titration' },
+              { item: 'Gravimetric (Moisture, Ash, Residue)' },
+              { item: 'Non-polar Extractable Substances' },
             ],
             features: [
               {
-                feature: 'Proven Methods',
+                feature: 'Standardized Methods',
                 description:
-                  'Well-established analytical techniques providing reliable and accurate quantitative results for routine quality control and specification testing.',
+                  'Well-established analytical techniques providing reliable and accurate quantitative results according to ISO, DIN, and other international standards.',
               },
               {
-                feature: 'Quality Control',
+                feature: 'Essential Quality Control',
                 description:
-                  'Essential testing for raw materials, in-process monitoring, and final product quality assurance across various industries.',
+                  'Fundamental testing for raw materials, in-process monitoring, and final product quality assurance across various manufacturing industries.',
               },
             ],
             link: 'titrimetric-gravimetric',
@@ -383,7 +392,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         ],
         accreditations: [
           {
-            accreditation: 'SNAS S-118 Accreditation',
+            accreditation: 'SNAS S-118 (ISO/IEC 17025)',
           },
           {
             accreditation: 'ISO 9001 Certification',
@@ -392,7 +401,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             accreditation: 'R&D Competency Certificate',
           },
         ],
-        slug: 'analytical-testing',
+        slug: 'analytical-testing-atbel',
       },
     }),
     payload.create({

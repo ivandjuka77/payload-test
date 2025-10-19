@@ -312,7 +312,8 @@ export const seed = async ({
       // @ts-expect-error This is working, but payload is not happy
       data: contactUsPageDataEn({
         contactForm: forms.contactForm.id,
-        featuredImage: media.demoImageDoc,
+        heroImage: media.contactUsHeroImageDoc,
+        contentImage: media.contactUsBojniceImageDoc,
       }),
     }),
   ])
@@ -461,7 +462,8 @@ export const seed = async ({
     // @ts-expect-error This is working, but payload is not happy
     data: contactUsPageDataSk({
       contactForm: forms.contactForm.id,
-      featuredImage: media.demoImageDoc,
+      heroImage: media.contactUsHeroImageDoc,
+      contentImage: media.contactUsBojniceImageDoc,
     }),
   })
 
@@ -610,7 +612,8 @@ export const seed = async ({
     // @ts-expect-error This is working, but payload is not happy
     data: contactUsPageDataJp({
       contactForm: forms.contactForm.id,
-      featuredImage: media.demoImageDoc,
+      heroImage: media.contactUsHeroImageDoc,
+      contentImage: media.contactUsBojniceImageDoc,
     }),
   })
 

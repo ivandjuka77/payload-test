@@ -492,6 +492,17 @@ const filesToSeed = [
     url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=400&auto=format&fit=crop&ixlib=rb-4.0.3',
     alt: 'Sustainability Focus 4 Image',
   },
+  // Contact Us Page
+  {
+    key: 'contactUsHeroImageDoc',
+    url: 'https://images.pexels.com/photos/91222/pexels-photo-91222.jpeg',
+    alt: 'Contact Us Hero Image',
+  },
+  {
+    key: 'contactUsBojniceImageDoc',
+    url: 'https://images.pexels.com/photos/7649492/pexels-photo-7649492.jpeg',
+    alt: 'Contact Us Bojnice Image',
+  },
 ]
 
 // Helper function to create only missing media

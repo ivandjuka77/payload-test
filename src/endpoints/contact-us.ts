@@ -2,20 +2,22 @@ import type { Media } from '@/payload-types'
 
 interface ContactUsArgs {
   contactForm: number
-  featuredImage: Media
+  heroImage: Media
+  contentImage: Media
 }
 
-export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
+export function contactUsEn({ contactForm, heroImage, contentImage }: ContactUsArgs) {
   return {
     title: 'Contact',
     hero: {
-      type: 'minimal',
+      type: 'backgroundImage',
       title: 'Contact Us',
-      description: 'Get in touch with our team',
+      description:
+        "Get in touch with our team of experts for analytical testing services, custom synthesis, and purification solutions. We're here to support your research and development needs.",
       cta: {
         links: [],
       },
-      media: null,
+      media: heroImage,
       slides: [],
     },
 
@@ -27,46 +29,6 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
           root: {
             children: [
               {
-                children: [
-                  {
-                    detail: 0,
-                    format: 1,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Company Name:',
-                    type: 'text',
-                    version: 1,
-                  },
-                  {
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: ' VUP, a.s.',
-                    type: 'text',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                type: 'paragraph',
-                version: 1,
-                textFormat: 0,
-                textStyle: '',
-              },
-              {
-                children: [
-                  {
-                    detail: 0,
-                    format: 1,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Address:',
-                    type: 'text',
-                    version: 1,
-                  },
-                ],
                 direction: 'ltr',
                 format: '',
                 indent: 0,
@@ -82,7 +44,7 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: 'Nábrežná 4',
+                    text: 'Address: Nábrežná 4, 971 04 Prievidza, Slovakia',
                     type: 'text',
                     version: 1,
                   },
@@ -95,6 +57,7 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
                 textFormat: 0,
                 textStyle: '',
               },
+
               {
                 children: [
                   {
@@ -102,67 +65,7 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: '971 04 Prievidza, Slovakia',
-                    type: 'text',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                type: 'paragraph',
-                version: 1,
-                textFormat: 0,
-                textStyle: '',
-              },
-              {
-                children: [
-                  {
-                    detail: 0,
-                    format: 1,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Contact:',
-                    type: 'text',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                type: 'paragraph',
-                version: 1,
-                textFormat: 0,
-                textStyle: '',
-              },
-              {
-                children: [
-                  {
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Phone: +421 046 5430035',
-                    type: 'text',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                type: 'paragraph',
-                version: 1,
-                textFormat: 0,
-                textStyle: '',
-              },
-              {
-                children: [
-                  {
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Email: vup@vupas.sk',
+                    text: 'Email: info@vupinternational.com',
                     type: 'text',
                     version: 1,
                   },
@@ -259,7 +162,7 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
                 children: [
                   {
                     detail: 0,
-                    format: 0,
+                    format: 2,
                     mode: 'normal',
                     style: '',
                     text: 'Registered at District Court in Trenčín, section Sa, file no. 313/R',
@@ -283,7 +186,7 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
             version: 1,
           },
         },
-        image: featuredImage,
+        image: contentImage,
         blockType: 'contentImage',
       },
       {
@@ -539,17 +442,18 @@ export function contactUsEn({ contactForm, featuredImage }: ContactUsArgs) {
   }
 }
 
-export function contactUsSk({ contactForm, featuredImage }: ContactUsArgs) {
+export function contactUsSk({ contactForm, heroImage, contentImage }: ContactUsArgs) {
   return {
     title: 'Kontakt',
     hero: {
-      type: 'minimal',
+      type: 'backgroundImage',
       title: 'Kontaktujte nás',
-      description: 'Spojte sa s naším tímom',
+      description:
+        'Spojte sa s naším tímom pre analytické testovacie služby, vlastné syntézy a riešenia pre čistenie. Naša tíma je tu, aby ste podporili vaše potreby výskumu a vývoja.',
       cta: {
         links: [],
       },
-      media: null,
+      media: heroImage,
       slides: [],
     },
 
@@ -817,7 +721,7 @@ export function contactUsSk({ contactForm, featuredImage }: ContactUsArgs) {
             version: 1,
           },
         },
-        image: featuredImage,
+        image: contentImage,
         blockType: 'contentImage',
       },
       {
@@ -1073,17 +977,18 @@ export function contactUsSk({ contactForm, featuredImage }: ContactUsArgs) {
   }
 }
 
-export function contactUsJp({ contactForm, featuredImage }: ContactUsArgs) {
+export function contactUsJp({ contactForm, heroImage, contentImage }: ContactUsArgs) {
   return {
     title: 'お問い合わせ',
     hero: {
-      type: 'minimal',
+      type: 'backgroundImage',
       title: 'お問い合わせ',
-      description: '私たちのチームにご連絡ください',
+      description:
+        '私たちのチームにご連絡ください。分析テストサービス、カスタム合成、純化ソリューションに関する専門家とご連絡ください。あなたの研究開発のニーズをサポートするために、私たちはここにいます。',
       cta: {
         links: [],
       },
-      media: null,
+      media: heroImage,
       slides: [],
     },
 
@@ -1351,8 +1256,8 @@ export function contactUsJp({ contactForm, featuredImage }: ContactUsArgs) {
             version: 1,
           },
         },
-        image: featuredImage,
-        blockType: 'contentImage',
+        image: contentImage,
+        blockType: contentImage,
       },
       {
         form: {
