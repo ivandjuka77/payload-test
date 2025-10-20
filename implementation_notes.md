@@ -85,4 +85,6 @@ SERVICES PAGE:
 [] Add Forbes article
 [] Try out the atoms/branching out hero image idea
 [] About us fix mobile video
-[] Finish up assets and
+[] Finish up assets
+[x] Disable building construction industry
+[x] Research and development products

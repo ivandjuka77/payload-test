@@ -21,6 +21,11 @@ import {
   servicesPageJp as servicesPageDataJp,
 } from './services-page'
 import {
+  researchProductsEn as researchProductsPageDataEn,
+  researchProductsSk as researchProductsPageDataSk,
+  researchProductsJp as researchProductsPageDataJp,
+} from './research-products'
+import {
   sustainabilityEn as sustainabilityPageDataEn,
   sustainabilitySk as sustainabilityPageDataSk,
   sustainabilityJp as sustainabilityPageDataJp,
@@ -186,6 +191,7 @@ export const seed = async ({
     productsPage,
     industriesPage,
     servicesPage,
+    researchProductsPage,
     sustainabilityPage,
     careersPage,
     aboutUsPage,
@@ -249,6 +255,17 @@ export const seed = async ({
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
       data: servicesPageDataEn({ featuredImage1: media.demoImageDoc }),
+    }),
+
+    payload.create({
+      collection: 'pages',
+      locale: 'en',
+      depth: 0,
+      // @ts-expect-error This is working, but payload is not happy
+      data: researchProductsPageDataEn({
+        heroImage: media.demoImageDoc,
+        products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
+      }),
     }),
 
     payload.create({
@@ -388,6 +405,20 @@ export const seed = async ({
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
       data: servicesPageDataSk({ featuredImage1: media.demoImageDoc }),
+    }),
+  ])
+
+  // Research Products page
+  await Promise.all([
+    payload.update({
+      collection: 'pages',
+      id: researchProductsPage.id,
+      locale: 'sk',
+      // @ts-expect-error This is working, but payload is not happy
+      data: researchProductsPageDataSk({
+        heroImage: media.demoImageDoc,
+        products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
+      }),
     }),
   ])
 
@@ -536,6 +567,20 @@ export const seed = async ({
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
       data: servicesPageDataJp({ featuredImage1: media.demoImageDoc }),
+    }),
+  ])
+
+  // Research Products page
+  await Promise.all([
+    payload.update({
+      collection: 'pages',
+      id: researchProductsPage.id,
+      locale: 'jp',
+      // @ts-expect-error This is working, but payload is not happy
+      data: researchProductsPageDataJp({
+        heroImage: media.demoImageDoc,
+        products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
+      }),
     }),
   ])
 

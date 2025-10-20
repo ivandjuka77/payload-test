@@ -138,6 +138,20 @@
       "application": "アプリケーション:"
     }
   },
+  "productTable": {
+    "columns": {
+      "productName": "製品名",
+      "casNumber": "CAS番号",
+      "ecNumber": "EC番号",
+      "tds": "TDS",
+      "sds": "SDS"
+    },
+    "noProducts": "表示する製品がありません",
+    "cta": {
+      "text": "当社の完全な製品カタログをお探しですか？",
+      "button": "すべての製品を表示"
+    }
+  },
   "productFilter": {
     "search": {
       "placeholder": "製品を検索..."

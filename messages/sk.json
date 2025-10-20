@@ -138,6 +138,20 @@
       "application": "Aplikácia:"
     }
   },
+  "productTable": {
+    "columns": {
+      "productName": "Názov produktu",
+      "casNumber": "CAS číslo",
+      "ecNumber": "EC číslo",
+      "tds": "TDS",
+      "sds": "SDS"
+    },
+    "noProducts": "Žiadne produkty na zobrazenie",
+    "cta": {
+      "text": "Hľadáte náš úplný produktový katalóg?",
+      "button": "Zobraziť všetky produkty"
+    }
+  },
   "productFilter": {
     "search": {
       "placeholder": "Hľadať produkty..."

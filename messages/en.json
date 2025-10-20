@@ -1,4 +1,18 @@
 {
+  "productTable": {
+    "columns": {
+      "productName": "Product Name",
+      "casNumber": "CAS Number",
+      "ecNumber": "EC Number",
+      "tds": "TDS",
+      "sds": "SDS"
+    },
+    "noProducts": "No products to display",
+    "cta": {
+      "text": "Looking for our full product catalog?",
+      "button": "View All Products"
+    }
+  },
   "productFilter": {
     "search": {
       "placeholder": "Search products..."

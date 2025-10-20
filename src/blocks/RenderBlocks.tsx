@@ -20,6 +20,7 @@ import { CertificationsSection } from '@/blocks/Certifications/Component'
 import { Timeline } from '@/blocks/Timeline/Component'
 import { Team } from '@/blocks/Team/Component'
 import { MapSection } from '@/blocks/Map/Component'
+import { ProductTableBlock } from '@/blocks/ProductTable'
 
 const blockComponents = {
   content: ContentBlock,
@@ -42,6 +43,7 @@ const blockComponents = {
   timeline: Timeline,
   team: Team,
   map: MapSection,
+  productTable: ProductTableBlock,
 }
 
 export const RenderBlocks: React.FC<{

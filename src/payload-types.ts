@@ -290,6 +290,7 @@ export interface Page {
     | TimelineBlock
     | TeamBlock
     | MapBlock
+    | ProductTableBlock
   )[];
   meta?: {
     title?: string | null;
@@ -1685,6 +1686,21 @@ export interface MapBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductTableBlock".
+ */
+export interface ProductTableBlock {
+  title: string;
+  description?: string | null;
+  products: {
+    product: number | Product;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'productTable';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -2077,6 +2093,7 @@ export interface PagesSelect<T extends boolean = true> {
         timeline?: T | TimelineBlockSelect<T>;
         team?: T | TeamBlockSelect<T>;
         map?: T | MapBlockSelect<T>;
+        productTable?: T | ProductTableBlockSelect<T>;
       };
   meta?:
     | T
@@ -2611,6 +2628,22 @@ export interface MapBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   iframeUrl?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductTableBlock_select".
+ */
+export interface ProductTableBlockSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  products?:
+    | T
+    | {
+        product?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
