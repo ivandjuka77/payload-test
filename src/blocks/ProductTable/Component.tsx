@@ -160,8 +160,8 @@ export const ProductTable: React.FC<ProductTableProps> = ({
       </div>
 
       {/* CTA Section */}
-      <div className="mt-12 text-center">
-        <div className="inline-flex flex-col items-center gap-4 rounded-lg border border-border bg-muted/30 p-8">
+      <div className="mt-12 text-center w-full">
+        <div className="flex  items-center justify-center gap-x-10">
           <p className="font-secondary text-base text-muted-foreground md:text-lg">
             {t('cta.text')}
           </p>
