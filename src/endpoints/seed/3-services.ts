@@ -12,6 +12,32 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     researchDevelopmentImageDoc,
     regulatoryTechnicalSupportImageDoc,
     customCosmeticsManufacturingImageDoc,
+
+    // Service Page Images
+    RDServicePageService1Doc,
+    RDServicePageService2Doc,
+    RDServicePageService3Doc,
+    RDServicePageService4Doc,
+    RDServicePageService5Doc,
+    RDServicePageService6Doc,
+
+    ATBELServicePageService1Doc,
+    ATBELServicePageService2Doc,
+    ATBELServicePageService3Doc,
+    ATBELServicePageService4Doc,
+
+    CCMServicePageService1Doc,
+    CCMServicePageService2Doc,
+    CCMServicePageService3Doc,
+
+    RTServicePageService1Doc,
+    RTServicePageService2Doc,
+    RTServicePageService3Doc,
+    RTServicePageService4Doc,
+
+    CSMServicePageService1Doc,
+    CSMServicePageService2Doc,
+    CSMServicePageService3Doc,
   } = media
 
   const [
@@ -66,7 +92,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Route Scouting & Feasibility',
             description:
               'Expert evaluation and design of synthetic routes through comprehensive literature research, patent analysis, and practical chemistry expertise to identify optimal pathways for your target compounds. Our experienced team conducts thorough feasibility studies, evaluating technical risks and commercial viability to ensure the most efficient and cost-effective synthetic approach for your specific requirements.',
-            image: demoImageDoc.id,
+            image: RDServicePageService1Doc.id,
             displayItems: [
               { item: 'Literature & Patent Analysis' },
               { item: 'Synthetic Route Design' },
@@ -96,7 +122,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Custom Synthesis',
             description:
               'Laboratory-scale synthesis of novel and known compounds, intermediates, and chemical specialties from grams to kilograms, with expertise in complex multi-step synthesis and challenging chemistry. Our flexible laboratory setups and experienced chemists handle demanding synthetic challenges including acetylene chemistry, TEMPO derivatives, methylolalkanoic acids, and other specialized chemical transformations.',
-            image: image2Doc.id,
+            image: RDServicePageService2Doc.id,
             displayItems: [
               { item: 'Gram to Kilogram Scale' },
               { item: 'Complex Multi-Step Synthesis' },
@@ -126,7 +152,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Process Development & Optimization',
             description:
               'Developing safe, efficient, and scalable synthetic processes with focus on optimizing reaction conditions, improving yields and purity, reducing costs, and implementing greener chemistry principles. Our team specializes in reaction calorimetry, distillation optimization, crystallization studies, and solvent elimination strategies to create robust, environmentally conscious manufacturing processes.',
-            image: demoImageDoc.id,
+            image: RDServicePageService3Doc.id,
             displayItems: [
               { item: 'Reaction Optimization' },
               { item: 'Yield Improvement' },
@@ -156,7 +182,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Process Scale-Up & Verification',
             description:
               'Validating processes at laboratory and pilot plant scale utilizing pilot capacities up to 250 t/yr for specific products, gathering essential data for technological foundations and commercial viability. Our dedicated pilot plant facilities provide comprehensive process verification, enabling seamless technology transfer and de-risking commercial production scale-up.',
-            image: image2Doc.id,
+            image: RDServicePageService4Doc.id,
             displayItems: [
               { item: 'Pilot Plant Validation' },
               { item: 'Scale-Up Data Generation' },
@@ -186,7 +212,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Analytical Method Development',
             description:
               'Creating and validating analytical methods for raw materials, intermediates, and final products in collaboration with our SNAS-accredited ATBEL division, ensuring reliable quality control throughout development. Our comprehensive analytical capabilities include GC, LC, GC-MS, FT-IR, NMR, and specialized testing methods tailored to support your R&D and production requirements.',
-            image: demoImageDoc.id,
+            image: RDServicePageService5Doc.id,
             displayItems: [
               { item: 'Method Creation & Validation' },
               { item: 'Raw Material Analysis' },
@@ -216,7 +242,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Purification & Isolation',
             description:
               'Developing comprehensive strategies for achieving desired product purity through advanced separation techniques including distillation, crystallization, filtration, and extraction methods. Our expertise in purification processes ensures optimal product quality while maintaining cost-effectiveness and scalability for commercial applications.',
-            image: image2Doc.id,
+            image: RDServicePageService6Doc.id,
             displayItems: [
               { item: 'Distillation Optimization' },
               { item: 'Crystallization Studies' },
@@ -297,7 +323,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Chromatographic Analysis',
             description:
               'Advanced separation techniques for precise composition analysis, impurity identification, and trace analysis. We utilize Gas Chromatography (GC, GC-MS) for VOC determination (e.g., PV3341 for automotive), High-Performance Liquid Chromatography (HPLC), and Isotachophoresis (ITP) for anion determination (chlorides, sulfates). We also offer custom methodology development to meet your specific needs.',
-            image: demoImageDoc.id,
+            image: ATBELServicePageService1Doc.id,
             displayItems: [
               { item: 'Gas Chromatography (GC & GC-MS)' },
               { item: 'High-Performance Liquid Chromatography (HPLC)' },
@@ -323,7 +349,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Spectroscopic Analysis',
             description:
               'A comprehensive suite of spectroscopic techniques for substance identification, structural elucidation, and quantitative analysis. Our capabilities include Atomic Absorption Spectrometry (AAS) for metals, FT-IR and NMR for structural confirmation, and UV/VIS spectrometry for quantitative analysis and color determination (APHA, Gardner).',
-            image: image2Doc.id,
+            image: ATBELServicePageService2Doc.id,
             displayItems: [
               { item: 'Atomic Absorption Spectrometry (AAS)' },
               { item: 'Infrared Spectroscopy (FT-IR)' },
@@ -349,7 +375,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Physical & Technical-Safety Testing',
             description:
               'Accredited determination of physical and technical-safety parameters essential for regulatory compliance (REACH) and safety data sheets. We test according to international standards, including melting point (OECD 102), boiling point (OECD 103), density (OECD 109), vapor pressure (OECD 104), flash point (A.9), and flammability of solids (A.10).',
-            image: demoImageDoc.id,
+            image: ATBELServicePageService3Doc.id,
             displayItems: [
               { item: 'Melting & Boiling Point (OECD 102/103)' },
               { item: 'Density & Vapour Pressure (OECD 109/104)' },
@@ -375,7 +401,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Titrimetric & Gravimetric Analysis',
             description:
               'Classic and robust wet chemistry techniques for reliable quantitative analysis. Our services include Karl Fischer titration for water content (ISO 760), acidity number (DIN 51558), hydroxyl number (DIN 53240-2), iodometric titration for peroxides, and gravimetric determination of moisture, ash, and non-volatile residues.',
-            image: image2Doc.id,
+            image: ATBELServicePageService4Doc.id,
             displayItems: [
               { item: 'Karl Fischer Titration (ISO 760)' },
               { item: 'Acid & Hydroxyl Value (DIN standards)' },
@@ -457,7 +483,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'White Label Services',
             description:
               "Brand and sell VUP's existing, market-tested cosmetic formulations including award-winning products. Our white label portfolio features proven formulations like Fortea hand creams and body lotions with various natural extracts and propolis, Fortea massage oils with essential oils, Slovak Gold award-winning Peggy massage gels with plant extracts (marigold, chestnut, capsaicin, menthol, comfrey, arnica), and medical diagnostic gels including alcohol-free Gelson sonography gel and EV ECG/EEG conductive gel.",
-            image: demoImageDoc.id,
+            image: CCMServicePageService1Doc.id,
             displayItems: [
               { item: 'Fortea Hand Creams & Body Lotions' },
               { item: 'Award-Winning Peggy Massage Gels' },
@@ -487,7 +513,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Private Label Services',
             description:
               'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements. Our experienced team utilizes dedicated development laboratories to create tailored formulations incorporating desired ingredients, functions, and market trends such as natural extracts, paraben-free formulations, and hypoallergenic solutions. We provide comprehensive support from initial concept through finished product, including custom packaging solutions and regulatory compliance assistance.',
-            image: image2Doc.id,
+            image: CCMServicePageService2Doc.id,
             displayItems: [
               { item: 'Custom Formulation Development' },
               { item: 'Product Range Expertise' },
@@ -517,7 +543,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Quality Assurance & Compliance',
             description:
               'Rigorous quality management ensuring adherence to European cosmetic legislation and medical device requirements. Our comprehensive quality system includes in-house microbiological testing according to international standards (STN ISO 21527-2, STN EN ISO 21149), raw material and product quality control via SNAS S-118 accredited ATBEL laboratories using advanced analytical techniques (GC-MS, HPLC, FT-IR), and complete documentation supporting regulatory compliance including Certificates of Analysis and Product Information File elements.',
-            image: demoImageDoc.id,
+            image: CCMServicePageService3Doc.id,
             displayItems: [
               { item: 'European Regulatory Compliance' },
               { item: 'Microbiological Testing' },
@@ -606,7 +632,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'REACH Compliance Support',
             description:
               "Comprehensive REACH guidance based on VUP's direct experience with successful full and intermediate registrations. We provide practical support for data gathering, dossier preparation, and compliance strategy development, leveraging our proven track record with substances like DMPA, DMBA, and TEMPO derivatives. Our accredited laboratories ensure reliable technical data for regulatory submissions.",
-            image: demoImageDoc.id,
+            image: RTServicePageService1Doc.id,
             displayItems: [
               { item: 'Registration Strategy Development' },
               { item: 'Technical Data Generation' },
@@ -636,7 +662,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Quality Management Systems',
             description:
               'Expert consultation for implementing and maintaining ISO 9001 quality management systems in chemical R&D and production environments. Drawing from our own ISO 9001:2015 certification experience, we provide practical guidance for establishing robust quality processes, documentation systems, and continuous improvement frameworks tailored to chemical industry requirements.',
-            image: image2Doc.id,
+            image: RTServicePageService2Doc.id,
             displayItems: [
               { item: 'ISO 9001 Implementation' },
               { item: 'Quality Process Development' },
@@ -661,7 +687,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Safety & Environmental Compliance',
             description:
               'Comprehensive support for chemical safety and environmental compliance including workplace safety assessments, environmental impact evaluations, and regulatory guidance. Our Responsible Care certification and extensive safety testing capabilities ensure reliable guidance for safe handling, storage, disposal, and environmental protection measures across chemical operations.',
-            image: demoImageDoc.id,
+            image: RTServicePageService3Doc.id,
             displayItems: [
               { item: 'Safety Assessment Support' },
               { item: 'Environmental Impact Evaluation' },
@@ -686,7 +712,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Technical Consultation',
             description:
               'In-depth technical consultation leveraging 70+ years of chemical R&D expertise and analytical capabilities to solve complex product and process challenges. Our experienced team provides expert advice on chemical processes, product optimization, troubleshooting, and application development, supported by comprehensive analytical testing and technical data provision from our accredited laboratories.',
-            image: image2Doc.id,
+            image: RTServicePageService4Doc.id,
             displayItems: [
               { item: 'Process Optimization' },
               { item: 'Product Development Support' },
@@ -775,7 +801,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Custom Synthesis',
             description:
               'Specialized synthesis of non-catalogue fine chemicals, complex intermediates, reference standards, and chemical specialties. We tackle challenging multi-step synthetic routes leveraging our deep expertise in acetylene chemistry, TEMPO derivatives, hydroxy acids, and other specialized chemistries. From route scouting and feasibility studies to laboratory-scale synthesis, we deliver high-purity compounds tailored to your specific requirements.',
-            image: demoImageDoc.id,
+            image: CSMServicePageService1Doc.id,
             displayItems: [
               { item: 'Route Scouting & Feasibility Studies' },
               { item: 'Laboratory Scale Synthesis (g-kg)' },
@@ -805,7 +831,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Process Development & Scale-Up',
             description:
               'Optimization of synthetic routes for improved efficiency, safety, yield, and cost-effectiveness. We provide comprehensive process development services from laboratory optimization through pilot plant validation, generating robust technological foundations for commercial production. Our experienced team combines practical chemistry knowledge with engineering expertise to ensure successful scale-up transitions.',
-            image: image2Doc.id,
+            image: CSMServicePageService2Doc.id,
             displayItems: [
               { item: 'Process Optimization' },
               { item: 'Safety Assessment & Validation' },
@@ -835,7 +861,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             title: 'Small-Scale & Toll Manufacturing',
             description:
               'Reliable contract manufacturing of fine chemicals and specialties utilizing our versatile pilot plant infrastructure. We offer flexible toll manufacturing services for kilogram to multi-tonne campaigns based on established processes, whether VUP-developed or client-provided. Our ISO 9001:2015 certified manufacturing processes ensure consistent quality and reliable delivery for your production needs.',
-            image: demoImageDoc.id,
+            image: CSMServicePageService3Doc.id,
             displayItems: [
               { item: 'Contract Manufacturing (kg-tonne)' },
               { item: 'Toll Processing Services' },
@@ -930,7 +956,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Prieskum ciest a uskutočniteľnosť',
           description:
             'Odborné hodnotenie a návrh syntetických ciest prostredníctvom komplexného literárneho výskumu, analýzy patentov a praktických chemických odborných znalostí na identifikáciu optimálnych ciest pre vaše cieľové zlúčeniny. Náš skúsený tím vykonáva dôkladné štúdie uskutočniteľnosti, hodnotí technické riziká a komerčnú životaschopnosť na zabezpečenie najefektívnejšieho a nákladovo najefektívnejšieho syntetického prístupu pre vaše špecifické požiadavky.',
-          image: demoImageDoc.id,
+          image: RDServicePageService1Doc.id,
           displayItems: [
             { item: 'Literárna a patentová analýza' },
             { item: 'Návrh syntetickej cesty' },
@@ -960,7 +986,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Zákazková syntéza',
           description:
             'Laboratórna syntéza nových a známych zlúčenín, medziprodukty a chemické špeciality od gramov po kilogramy, s odbornosťou v komplexnej viacstupňovej syntéze a náročnej chémii. Naše flexibilné laboratórne nastavenia a skúsení chemici zvládajú náročné syntetické výzvy vrátane acetylénovej chémie, TEMPO derivátov, metylolalkánových kyselín a ďalších špecializovaných chemických transformácií.',
-          image: image2Doc.id,
+          image: RDServicePageService2Doc.id,
           displayItems: [
             { item: 'Rozsah od gramov po kilogramy' },
             { item: 'Komplexná viacstupňová syntéza' },
@@ -990,7 +1016,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Vývoj a optimalizácia procesov',
           description:
             'Vývoj bezpečných, efektívnych a škálovateľných syntetických procesov so zameraním na optimalizáciu reakčných podmienok, zlepšenie výťažkov a čistoty, zníženie nákladov a implementáciu princípov zelenej chémie. Náš tím sa špecializuje na reakčnú kalorimetriu, optimalizáciu destilácie, štúdie kryštalizácie a stratégie eliminácie rozpúšťadiel na vytvorenie robustných, environmentálne uvedomelých výrobných procesov.',
-          image: demoImageDoc.id,
+          image: RDServicePageService3Doc.id,
           displayItems: [
             { item: 'Optimalizácia reakcií' },
             { item: 'Zlepšenie výťažkov' },
@@ -1020,7 +1046,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Škálovanie a verifikácia procesov',
           description:
             'Validácia procesov v laboratórnom a pilotnom meradle využívajúc pilotné kapacity až do 250 t/rok pre špecifické produkty, zber základných dát pre technologické základy a komerčnú životaschopnosť. Naše vyhradené pilotné zariadenia poskytujú komplexnú verifikáciu procesov, umožňujúc bezproblémový transfer technológií a zníženie rizík komerčného škálovania výroby.',
-          image: image2Doc.id,
+          image: RDServicePageService4Doc.id,
           displayItems: [
             { item: 'Validácia pilotného závodu' },
             { item: 'Generovanie údajov pre škálovanie' },
@@ -1050,7 +1076,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Vývoj analytických metód',
           description:
             'Vytváranie a validácia analytických metód pre suroviny, medziprodukty a finálne produkty v spolupráci s našou SNAS-akreditovanou divíziou ATBEL, zabezpečujúc spoľahlivú kontrolu kvality počas celého vývoja. Naše komplexné analytické schopnosti zahŕňajú GC, LC, GC-MS, FT-IR, NMR a špecializované testovacie metódy prispôsobené na podporu vašich požiadaviek výskumu a vývoja a výroby.',
-          image: demoImageDoc.id,
+          image: RDServicePageService5Doc.id,
           displayItems: [
             { item: 'Vytvorenie a validácia metód' },
             { item: 'Analýza surovín' },
@@ -1080,7 +1106,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Purifikácia a izolácia',
           description:
             'Vývoj komplexných stratégií na dosiahnutie požadovanej čistoty produktu prostredníctvom pokročilých separačných techník vrátane destilácie, kryštalizácie, filtrácie a extrakčných metód. Naša odbornosť v purifikačných procesoch zabezpečuje optimálnu kvalitu produktu pri zachovaní nákladovej efektívnosti a škálovateľnosti pre komerčné aplikácie.',
-          image: image2Doc.id,
+          image: RDServicePageService6Doc.id,
           displayItems: [
             { item: 'Optimalizácia destilácie' },
             { item: 'Štúdie kryštalizácie' },
@@ -1157,7 +1183,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Chromatografická analýza',
           description:
             'Pokročilé chromatografické techniky vrátane plynové chromatografie (GC, GC-MS), vysokoúčinnej kvapalinové chromatografie (HPLC) a izotachoforézy (ITP) pre analýzu zloženia, stanovenie VOC, identifikáciu nečistôt a stanovenie aniónov. Naše najmodernejšie vybavenie umožňuje presnú analýzu komplexných zmesí s možnosťami vývoja metód.',
-          image: demoImageDoc.id,
+          image: ATBELServicePageService1Doc.id,
           displayItems: [
             { item: 'Plynová chromatografia (GC, GC-MS)' },
             { item: 'Vysokoúčinná kvapalinová chromatografia (HPLC)' },
@@ -1182,7 +1208,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Spektroskopická analýza',
           description:
             'Komplexná spektroskopická analýza pomocou atómovej absorpčnej spektrometrie (AAS), infračervenej spektroskopie (FT-IR), nukleárnej magnetickej rezonancie (NMR), UV/VIS spektrometrie a hmotnostnej spektrometrie pre identifikáciu látok, stanovenie kovov a štrukturálnu analýzu. Naše spektroskopické schopnosti podporujú potreby kvalitatívnej aj kvantitatívnej analýzy.',
-          image: image2Doc.id,
+          image: ATBELServicePageService2Doc.id,
           displayItems: [
             { item: 'Atómová absorpčná spektrometria (AAS)' },
             { item: 'Infračervená spektroskopia (FT-IR)' },
@@ -1207,7 +1233,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Fyzikálne a technickobezpečnostné testovanie',
           description:
             'Stanovenie fyzikálnych vlastností a technickobezpečnostné testovanie podľa OECD a ISO štandardov vrátane bodu topenia, bodu varu, hustoty, tlaku pár, povrchového napätia, rozpustnosti vo vode, bodu vzplanutia a testovania horľavosti. Nevyhnutné pre regulačnú súladu, bezpečnostné hodnotenia a charakterizáciu produktov naprieč viacerými priemyslami.',
-          image: demoImageDoc.id,
+          image: ATBELServicePageService3Doc.id,
           displayItems: [
             { item: 'Fyzikálne vlastnosti (OECD štandardy)' },
             { item: 'Bod vzplanutia a horľavosť' },
@@ -1232,7 +1258,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Titrimetrická a gravimetrická analýza',
           description:
             'Klasické analytické techniky vrátane Karl Fischer titrácie pre stanovenie obsahu vody, merania kyslosti a hydroxylového čísla, jodometrických titrácií a gravimetrických stanovení pre vlhkosť, popol a extrahovateľné látky. Tieto overené metódy poskytujú spoľahlivú kvantitatívnu analýzu pre kontrolu kvality a testovanie špecifikácií.',
-          image: image2Doc.id,
+          image: ATBELServicePageService4Doc.id,
           displayItems: [
             { item: 'Karl Fischer titrácia' },
             { item: 'Kyslé a hydroxylové číslo' },
@@ -1314,7 +1340,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Služby bielej značky',
           description:
             'Značkovanie a predaj existujúcich, trhovotestovaných kozmetických formulácií VUP vrátane ocenených produktov. Naše portfólio bielych značiek obsahuje overené formulácie ako Fortea krémy na ruky a telové mliečka s rôznymi prírodnými extraktmi a propolisom, Fortea masážne oleje s esenciálnymi olejmi, slovenskou zlatou medailou ocenené Peggy masážne gély s rastlinnými extraktmi (nechtík, gaštan, kapsaicín, mentol, kostihoj, arnika) a medicínske diagnostické gély vrátane bezalkoholového Gelson sonografického gélu a EV EKG/EEG vodivého gélu.',
-          image: demoImageDoc.id,
+          image: CCMServicePageService1Doc.id,
           displayItems: [
             { item: 'Fortea krémy na ruky a telové mliečka' },
             { item: 'Ocenené Peggy masážne gély' },
@@ -1344,7 +1370,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Služby súkromnej značky',
           description:
             'Zákazková formulácia a výroba jedinečných kozmetických produktov na základe vašich špecifikácií a požiadaviek. Náš skúsený tím využíva vyhradené vývojové laboratóriá na vytvorenie prispôsobených formulácií zahŕňajúcich požadované ingrediencie, funkcie a trhové trendy ako prírodné extrakty, formulácie bez parabénov a hypoalergénne riešenia. Poskytujeme komplexnú podporu od počiatočnej koncepcie cez hotový produkt, vrátane zákazkových baliacich riešení a asistencie s regulačnou súladou.',
-          image: image2Doc.id,
+          image: CCMServicePageService2Doc.id,
           displayItems: [
             { item: 'Vývoj zákazkovej formulácie' },
             { item: 'Odbornosť produktového sortimentu' },
@@ -1374,7 +1400,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Zabezpečenie kvality a súlada',
           description:
             'Prísne riadenie kvality zabezpečujúce dodržiavanie európskej kozmetickej legislatívy a požiadaviek na zdravotnícke pomôcky. Náš komplexný systém kvality zahŕňa vlastné mikrobiologické testovanie podľa medzinárodných štandardov (STN ISO 21527-2, STN EN ISO 21149), kontrolu kvality surovín a produktov prostredníctvom SNAS S-118 akreditovaných laboratórií ATBEL používajúcich pokročilé analytické techniky (GC-MS, HPLC, FT-IR) a kompletnú dokumentáciu podporujúcu regulačnú súladu vrátane certifikátov analýzy a prvkov súboru informácií o produkte.',
-          image: demoImageDoc.id,
+          image: CCMServicePageService3Doc.id,
           displayItems: [
             { item: 'Európska regulačná súlada' },
             { item: 'Mikrobiologické testovanie' },
@@ -1464,7 +1490,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Podpora súlady s REACH',
           description:
             'Komplexné usmernenia REACH založené na priamych skúsenostiach VUP s úspešnými úplnými a medziľahlými registráciami. Poskytujeme praktickú podporu pre zbieranie údajov, prípravu súborov a vývoj stratégie súlady, využívajúc naš overený track record s látkami ako DMPA, DMBA a TEMPO deriváty. Naše akreditované laboratóriá zabezpečujú spoľahlivé technické údaje pre regulačné podania.',
-          image: demoImageDoc.id,
+          image: RTServicePageService1Doc.id,
           displayItems: [
             { item: 'Vývoj registračnej stratégie' },
             { item: 'Generovanie technických údajov' },
@@ -1494,7 +1520,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Systémy riadenia kvality',
           description:
             'Odborné konzultácie pre implementáciu a udržiavanie systémov riadenia kvality ISO 9001 v chemických prostrediach výskumu a vývoja a výroby. Čerpajúc z našich vlastných skúseností s certifikáciou ISO 9001:2015, poskytujeme praktické usmernenia pre vytvorenie robustných procesov kvality, dokumentačných systémov a rámcov neustáleho zlepšovania prispôsobených požiadavkám chemického priemyslu.',
-          image: image2Doc.id,
+          image: RTServicePageService2Doc.id,
           displayItems: [
             { item: 'Implementácia ISO 9001' },
             { item: 'Vývoj procesov kvality' },
@@ -1519,7 +1545,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Bezpečnostná a environmentálna súlada',
           description:
             'Komplexná podpora pre bezpečnosť chemikálií a environmentálnu súladu vrátane hodnotení bezpečnosti na pracovisku, hodnotení environmentálnych dopadov a regulačných usmernení. Naša certifikácia Responsible Care a rozsiahle schopnosti bezpečnostného testovania zabezpečujú spoľahlivé usmernenia pre bezpečné manipuláciu, skladovanie, likvidáciu a opatrenia ochrany životného prostredia naprieč chemickými operáciami.',
-          image: demoImageDoc.id,
+          image: RTServicePageService3Doc.id,
           displayItems: [
             { item: 'Podpora hodnotenia bezpečnosti' },
             { item: 'Hodnotenie environmentálnych dopadov' },
@@ -1544,7 +1570,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Technické konzultácie',
           description:
             'Hĺbkové technické konzultácie využívajúce viac ako 70-ročné skúsenosti s chemickým výskumom a vývojom a analytické schopnosti na riešenie komplexných produktových a procesných výziev. Náš skúsený tím poskytuje odborné rady o chemických procesoch, optimalizácii produktov, riešení problémov a vývoji aplikácií, podporené komplexným analytickým testovaním a poskytovaním technických údajov z našich akreditovaných laboratórií.',
-          image: image2Doc.id,
+          image: RTServicePageService4Doc.id,
           displayItems: [
             { item: 'Optimalizácia procesov' },
             { item: 'Podpora vývoja produktov' },
@@ -1634,7 +1660,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Zákazková syntéza',
           description:
             'Špecializovaná syntéza nekatalógových jemných chemikálií, komplexných medziprodukty, referenčných štandardov a chemických špecialít. Riešíme náročné viacstupňové syntetické cesty využívajúc našu hlbokú odbornosť v acetylénovej chémii, TEMPO derivátoch, hydroxykyselinách a ďalších špecializovaných chémiách. Od prieskumu ciest a štúdií uskutočniteľnosti po laboratórnu syntézu dodávame vysokočisté zlúčeniny prispôsobené vašim špecifickým požiadavkám.',
-          image: demoImageDoc.id,
+          image: CSMServicePageService1Doc.id,
           displayItems: [
             { item: 'Prieskum ciest a štúdie uskutočniteľnosti' },
             { item: 'Laboratórna syntéza (g-kg)' },
@@ -1664,7 +1690,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Vývoj procesov a škálovanie',
           description:
             'Optimalizácia syntetických ciest pre zlepšenú efektívnosť, bezpečnosť, výťažok a nákladovú efektívnosť. Poskytujeme komplexné služby vývoja procesov od laboratórnej optimalizácie cez validáciu pilotného závodu, generujúc robustné technologické základy pre komerčnú výrobu. Náš skúsený tím kombinuje praktické chemické znalosti s inžinierskou odbornosťou na zabezpečenie úspešných prechodov na škálovanie.',
-          image: image2Doc.id,
+          image: CSMServicePageService2Doc.id,
           displayItems: [
             { item: 'Optimalizácia procesov' },
             { item: 'Hodnotenie a validácia bezpečnosti' },
@@ -1694,7 +1720,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'Malomierknú a mýtnu výroba',
           description:
             'Spoľahlivá zmluvná výroba jemných chemikálií a špecialít využívajúc našu všestrannú infraštruktúru pilotného závodu. Ponúkame flexibilné služby mýtnej výroby pre kampane od kilogramov po viactonových na základe etablovaných procesov, či už vyvinutých VUP alebo poskytnutých klientom. Naše ISO 9001:2015 certifikované výrobné procesy zabezpečujú konzistentnú kvalitu a spoľahlivé dodávky pre vaše výrobné potreby.',
-          image: demoImageDoc.id,
+          image: CSMServicePageService3Doc.id,
           displayItems: [
             { item: 'Zmluvná výroba (kg-tona)' },
             { item: 'Služby mýtneho spracovania' },
@@ -1786,7 +1812,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'ルート探索と実現可能性',
           description:
             '包括的な文献調査、特許分析、実用的な化学専門知識を通じて、目標化合物の最適な経路を特定する合成ルートの専門的評価と設計。経験豊富なチームが徹底的な実現可能性研究を実施し、技術的リスクと商業的実行可能性を評価して、お客様の特定の要件に最も効率的で費用対効果の高い合成アプローチを確保します。',
-          image: demoImageDoc.id,
+          image: RDServicePageService1Doc.id,
           displayItems: [
             { item: '文献・特許分析' },
             { item: '合成ルート設計' },
@@ -1816,7 +1842,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'カスタム合成',
           description:
             'グラムからキログラムまでの新規および既知化合物、中間体、化学特殊品の実験室規模合成、複雑な多段階合成と困難な化学における専門知識。当社の柔軟な実験室設定と経験豊富な化学者は、アセチレン化学、TEMPO誘導体、メチロールアルカン酸、その他の専門化学変換を含む要求の厳しい合成課題を処理します。',
-          image: image2Doc.id,
+          image: RDServicePageService2Doc.id,
           displayItems: [
             { item: 'グラムからキログラムスケール' },
             { item: '複雑な多段階合成' },
@@ -1846,7 +1872,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'プロセス開発と最適化',
           description:
             '反応条件の最適化、収率と純度の向上、コスト削減、グリーンケミストリー原則の実施に焦点を当てた安全で効率的でスケーラブルな合成プロセスの開発。当社のチームは反応熱量測定、蒸留最適化、結晶化研究、溶媒除去戦略を専門とし、堅牢で環境に配慮した製造プロセスを作成します。',
-          image: demoImageDoc.id,
+          image: RDServicePageService3Doc.id,
           displayItems: [
             { item: '反応最適化' },
             { item: '収率改善' },
@@ -1876,7 +1902,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'プロセススケールアップと検証',
           description:
             '特定製品の最大250 t/年のパイロット容量を利用した実験室とパイロットプラントスケールでのプロセス検証、技術基盤と商業的実行可能性のための重要データの収集。当社の専用パイロットプラント施設は包括的なプロセス検証を提供し、シームレスな技術移転と商業生産スケールアップのリスク軽減を可能にします。',
-          image: image2Doc.id,
+          image: RDServicePageService4Doc.id,
           displayItems: [
             { item: 'パイロットプラント検証' },
             { item: 'スケールアップデータ生成' },
@@ -1906,7 +1932,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '分析方法開発',
           description:
             'SNAS認定ATBEL部門との協力により、原材料、中間体、最終製品の分析方法を作成・検証し、開発全体を通じて信頼性の高い品質管理を保証。当社の包括的な分析能力には、お客様の研究開発と生産要件をサポートするためにカスタマイズされたGC、LC、GC-MS、FT-IR、NMR、専門テスト方法が含まれます。',
-          image: demoImageDoc.id,
+          image: RDServicePageService5Doc.id,
           displayItems: [
             { item: '方法作成・検証' },
             { item: '原材料分析' },
@@ -1936,7 +1962,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '精製と分離',
           description:
             '蒸留、結晶化、濾過、抽出方法を含む高度な分離技術により、望ましい製品純度を達成するための包括的戦略の開発。精製プロセスにおける当社の専門知識は、商業応用のコスト効率性とスケーラビリティを維持しながら最適な製品品質を保証します。',
-          image: image2Doc.id,
+          image: RDServicePageService6Doc.id,
           displayItems: [
             { item: '蒸留最適化' },
             { item: '結晶化研究' },
@@ -2013,7 +2039,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'クロマトグラフィー分析',
           description:
             'ガスクロマトグラフィー（GC、GC-MS）、高性能液体クロマトグラフィー（HPLC）、等速電気泳動（ITP）を含む高度なクロマトグラフィー技術による組成分析、VOC測定、不純物同定、陰イオン測定。最先端設備により、方法開発機能を持つ複雑な混合物の精密分析が可能です。',
-          image: demoImageDoc.id,
+          image: ATBELServicePageService1Doc.id,
           displayItems: [
             { item: 'ガスクロマトグラフィー（GC、GC-MS）' },
             { item: '高性能液体クロマトグラフィー（HPLC）' },
@@ -2038,7 +2064,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '分光分析',
           description:
             '原子吸光分光法（AAS）、赤外分光法（FT-IR）、核磁気共鳴（NMR）、UV/VIS分光法、質量分析法を用いた物質同定、金属測定、構造分析のための包括的分光分析。当社の分光能力は定性・定量分析の両方のニーズをサポートします。',
-          image: image2Doc.id,
+          image: ATBELServicePageService2Doc.id,
           displayItems: [
             { item: '原子吸光分光法（AAS）' },
             { item: '赤外分光法（FT-IR）' },
@@ -2063,7 +2089,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '物理・技術安全テスト',
           description:
             '融点、沸点、密度、蒸気圧、表面張力、水溶解度、引火点、可燃性テストを含むOECDとISO基準による物理特性測定と技術安全テスト。複数の産業にわたる規制コンプライアンス、安全評価、製品特性化に必須。',
-          image: demoImageDoc.id,
+          image: ATBELServicePageService3Doc.id,
           displayItems: [
             { item: '物理特性（OECD基準）' },
             { item: '引火点・可燃性' },
@@ -2088,7 +2114,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '滴定・重量分析',
           description:
             '水分測定のためのカールフィッシャー滴定、酸価・水酸基価測定、ヨード滴定、水分・灰分・抽出可能物質の重量測定を含む古典的分析技術。これらの実証済み方法は品質管理と仕様テストのための信頼性の高い定量分析を提供します。',
-          image: image2Doc.id,
+          image: ATBELServicePageService4Doc.id,
           displayItems: [
             { item: 'カールフィッシャー滴定' },
             { item: '酸価・水酸基価' },
@@ -2170,7 +2196,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'ホワイトラベルサービス',
           description:
             '受賞製品を含むVUPの既存の市場テスト済み化粧品処方のブランド化と販売。当社のホワイトラベルポートフォリオには、様々な天然エキスとプロポリスを含むForteaハンドクリームとボディローション、エッセンシャルオイルを含むForteaマッサージオイル、植物エキス（マリーゴールド、栗、カプサイシン、メントール、コンフリー、アルニカ）を含むスロバキア金賞受賞Peggyマッサージジェル、アルコールフリーGelson超音波検査ジェルとEV ECG/EEG導電ジェルを含む医療診断ジェルなど、実証済み処方が含まれています。',
-          image: demoImageDoc.id,
+          image: CCMServicePageService1Doc.id,
           displayItems: [
             { item: 'Forteaハンドクリーム・ボディローション' },
             { item: '受賞歴のあるPeggyマッサージジェル' },
@@ -2200,7 +2226,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'プライベートラベルサービス',
           description:
             'お客様の仕様と要件に基づくユニークな化粧品製品のカスタム処方と製造。経験豊富なチームが専用開発ラボを利用して、天然エキス、パラベンフリー処方、低アレルギー性ソリューションなどの望ましい成分、機能、市場トレンドを組み込んだカスタマイズ処方を作成します。初期コンセプトから完成品まで、カスタム包装ソリューションと規制コンプライアンス支援を含む包括的サポートを提供します。',
-          image: image2Doc.id,
+          image: CCMServicePageService2Doc.id,
           displayItems: [
             { item: 'カスタム処方開発' },
             { item: '製品ライン専門知識' },
@@ -2230,7 +2256,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '品質保証とコンプライアンス',
           description:
             'ヨーロッパ化粧品法規制と医療機器要件の遵守を保証する厳格な品質管理。当社の包括的品質システムには、国際基準（STN ISO 21527-2、STN EN ISO 21149）による社内微生物テスト、高度な分析技術（GC-MS、HPLC、FT-IR）を使用するSNAS S-118認定ATBELラボによる原材料・製品品質管理、分析証明書と製品情報ファイル要素を含む規制コンプライアンスをサポートする完全な文書化が含まれます。',
-          image: demoImageDoc.id,
+          image: CCMServicePageService3Doc.id,
           displayItems: [
             { item: 'ヨーロッパ規制コンプライアンス' },
             { item: '微生物テスト' },
@@ -2320,7 +2346,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'REACHコンプライアンスサポート',
           description:
             '成功した完全・中間登録におけるVUPの直接経験に基づく包括的REACHガイダンス。DMPA、DMBA、TEMPO誘導体などの物質での実証済み実績を活用して、データ収集、書類準備、コンプライアンス戦略開発のための実用的サポートを提供します。当社の認定ラボが規制申請のための信頼性の高い技術データを保証します。',
-          image: demoImageDoc.id,
+          image: RTServicePageService1Doc.id,
           displayItems: [
             { item: '登録戦略開発' },
             { item: '技術データ生成' },
@@ -2350,7 +2376,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '品質管理システム',
           description:
             '化学研究開発・生産環境におけるISO 9001品質管理システムの実装と維持のための専門コンサルテーション。当社自身のISO 9001:2015認証経験から得た知見により、化学業界要件に合わせた堅牢な品質プロセス、文書システム、継続的改善フレームワークの確立のための実用的ガイダンスを提供します。',
-          image: image2Doc.id,
+          image: RTServicePageService2Doc.id,
           displayItems: [
             { item: 'ISO 9001実装' },
             { item: '品質プロセス開発' },
@@ -2375,7 +2401,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '安全・環境コンプライアンス',
           description:
             '職場安全評価、環境影響評価、規制ガイダンスを含む化学安全・環境コンプライアンスのための包括的サポート。当社のResponsible Care認証と広範囲な安全テスト能力により、化学運営にわたる安全な取扱い、保管、廃棄、環境保護対策のための信頼性の高いガイダンスを保証します。',
-          image: demoImageDoc.id,
+          image: RTServicePageService3Doc.id,
           displayItems: [
             { item: '安全評価サポート' },
             { item: '環境影響評価' },
@@ -2400,7 +2426,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '技術コンサルテーション',
           description:
             '70年以上の化学研究開発専門知識と分析能力を活用した複雑な製品・プロセス課題解決のための詳細技術コンサルテーション。経験豊富なチームが、認定ラボからの包括的分析テストと技術データ提供に支えられて、化学プロセス、製品最適化、トラブルシューティング、アプリケーション開発に関する専門アドバイスを提供します。',
-          image: image2Doc.id,
+          image: RTServicePageService4Doc.id,
           displayItems: [
             { item: 'プロセス最適化' },
             { item: '製品開発サポート' },
@@ -2490,7 +2516,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: 'スケールアップ・パイロットプラント',
           description:
             '包括的なプロセステストと商業準備性のための最大250 t/年容量の専用パイロットプラント施設。技術移転リスクを最小化し、製品品質を保証するため、ラボスケールから商業生産への確実な移行を可能にします。パイロットプラント容量により、大規模な資本コミットメント前の製品検証とプロセス最適化が可能になります。',
-          image: demoImageDoc.id,
+          image: CSMServicePageService1Doc.id,
           displayItems: [
             { item: '250 t/年パイロット容量' },
             { item: 'プロセス検証' },
@@ -2520,7 +2546,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '専門化学合成',
           description:
             'アセチレン化学、TEMPO誘導体、メチロールアルカン酸、ポリウレタン触媒を含む複雑で困難な化学における専門的専門知識。当社の経験豊富な化学者は、標準技術が不十分な場合の特殊試薬、多段階合成、精密化学変換を扱います。カスタム合成ソリューションにより、革新的な化学技術への市場アクセスを可能にします。',
-          image: image2Doc.id,
+          image: CSMServicePageService2Doc.id,
           displayItems: [
             { item: 'アセチレン化学' },
             { item: 'TEMPO誘導体' },
@@ -2550,7 +2576,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '小規模製造',
           description:
             '専門化学品の信頼性の高い小規模製造、ニッチ市場アプリケーションと革新的化学技術に最適。当社の製造アプローチは高品質基準、柔軟な生産量、厳格な分析テストを重視し、特殊化学品市場での一貫した供給と製品品質を保証します。専用設備により効率的な製造と迅速な市場対応が可能です。',
-          image: demoImageDoc.id,
+          image: CSMServicePageService3Doc.id,
           displayItems: [
             { item: '柔軟な生産量' },
             { item: '専門設備' },
@@ -2580,7 +2606,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           title: '分析・品質サービス',
           description:
             'カスタム合成と製造における包括的分析サポート、SNAS S-118認定ATBELラボによる原材料から最終製品まで。高度な分析技術（GC-MS、HPLC、NMR、FT-IR）による品質保証により、すべての合成・製造活動にわたって製品純度、同定、仕様適合性を保証します。規制申請とコンプライアンス文書のための信頼性の高いデータを提供します。',
-          image: image2Doc.id,
+          image: RTServicePageService4Doc.id,
           displayItems: [
             { item: '原材料テスト' },
             { item: '工程内分析' },

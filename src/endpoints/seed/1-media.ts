@@ -579,6 +579,116 @@ const filesToSeed = [
     url: 'https://www.vupcosmetics.sk/pictures/vup_logo.png',
     alt: 'VUP Cosmetics',
   },
+
+  // Research & Development Service Page
+  {
+    key: 'RDServicePageService1Doc',
+    url: 'https://images.pexels.com/photos/8539896/pexels-photo-8539896.jpeg',
+    alt: 'Research Development Service Page Service 1 Image',
+  },
+  {
+    key: 'RDServicePageService2Doc',
+    url: 'https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'Research Development Service Page Service 2 Image',
+  },
+  {
+    key: 'RDServicePageService3Doc',
+    url: 'https://images.pexels.com/photos/5532675/pexels-photo-5532675.jpeg',
+    alt: 'Research Development Service Page Service 3 Image',
+  },
+  {
+    key: 'RDServicePageService4Doc',
+    url: 'https://images.pexels.com/photos/8443076/pexels-photo-8443076.jpeg',
+    alt: 'Research Development Service Page Service 4 Image',
+  },
+  {
+    key: 'RDServicePageService5Doc',
+    url: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'Research Development Service Page Service 5 Image',
+  },
+  {
+    key: 'RDServicePageService6Doc',
+    url: 'https://images.pexels.com/photos/10187647/pexels-photo-10187647.jpeg',
+    alt: 'Research Development Service Page Service 6 Image',
+  },
+
+  // ATBEL Service Page
+  {
+    key: 'ATBELServicePageService1Doc',
+    url: 'https://images.unsplash.com/photo-1576669801838-1b1c52121e6a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2253',
+    alt: 'ATBEL Service Page Hero Image',
+  },
+  {
+    key: 'ATBELServicePageService2Doc',
+    url: 'https://m.media-amazon.com/images/I/41kXNsA-ZsL._AC_UF1000,1000_QL80_.jpg',
+    alt: 'ATBEL Service Page Featured Image',
+  },
+  {
+    key: 'ATBELServicePageService3Doc',
+    url: 'https://images.pexels.com/photos/8533036/pexels-photo-8533036.jpeg',
+    alt: 'ATBEL Service Page Service 3 Image',
+  },
+  {
+    key: 'ATBELServicePageService4Doc',
+    url: 'https://images.pexels.com/photos/8450142/pexels-photo-8450142.jpeg',
+    alt: 'ATBEL Service Page Service 4 Image',
+  },
+
+  // Custom Cosmetics Manufacturing Service Page
+  {
+    key: 'CCMServicePageService1Doc',
+    url: 'https://images.unsplash.com/photo-1632452479455-e3d5e3159b63?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2745',
+    alt: 'CCM Service Page Service 1 Image',
+  },
+  {
+    key: 'CCMServicePageService2Doc',
+    url: 'https://images.unsplash.com/photo-1672062519525-5c04bfaefea3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2671',
+    alt: 'CCM Service Page Service 2 Image',
+  },
+  {
+    key: 'CCMServicePageService3Doc',
+    url: 'https://images.unsplash.com/photo-1580795478724-5b048f1c5b03?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2672',
+    alt: 'CCM Service Page Service 3 Image',
+  },
+
+  // Regulatory & Technical Support Service Page
+  {
+    key: 'RTServicePageService1Doc',
+    url: 'https://images.pexels.com/photos/1764956/pexels-photo-1764956.jpeg',
+    alt: 'RTService Page Service 1 Image',
+  },
+  {
+    key: 'RTServicePageService2Doc',
+    url: 'https://images.unsplash.com/photo-1720036236694-d0a231c52563?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'RTService Page Service 2 Image',
+  },
+  {
+    key: 'RTServicePageService3Doc',
+    url: 'https://images.pexels.com/photos/7230220/pexels-photo-7230220.jpeg',
+    alt: 'RTService Page Service 3 Image',
+  },
+  {
+    key: 'RTServicePageService4Doc',
+    url: 'https://images.pexels.com/photos/3735757/pexels-photo-3735757.jpeg',
+    alt: 'RTService Page Service 4 Image',
+  },
+
+  // Custom Synthesis & Manufacturing Service Page
+  {
+    key: 'CSMServicePageService1Doc',
+    url: 'https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'CSM Service Page Service 1 Image',
+  },
+  {
+    key: 'CSMServicePageService2Doc',
+    url: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'CSM Service Page Service 2 Image',
+  },
+  {
+    key: 'CSMServicePageService3Doc',
+    url: 'https://images.pexels.com/photos/3855962/pexels-photo-3855962.jpeg',
+    alt: 'CSM Service Page Service 3 Image',
+  },
 ]
 
 // Helper function to create only missing media
