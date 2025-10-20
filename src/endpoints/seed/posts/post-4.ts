@@ -3,13 +3,12 @@ import { RequiredDataFromCollectionSlug } from 'payload'
 
 export type PostArgs = {
   featuredImage: Media
-  contentImage: Media
   author: User
 }
 
 export const post4: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   featuredImage,
-  contentImage,
+
   author,
 }) => {
   return {
@@ -206,16 +205,6 @@ export const post4: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
             indent: 0,
             textFormat: 0,
             version: 1,
-          },
-          {
-            type: 'block',
-            fields: {
-              blockName: '',
-              blockType: 'mediaBlock',
-              media: contentImage.id,
-            },
-            format: '',
-            version: 2,
           },
           {
             type: 'heading',

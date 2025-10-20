@@ -3,21 +3,19 @@ import { RequiredDataFromCollectionSlug } from 'payload'
 
 export type PostArgs = {
   featuredImage: Media
-  contentImage: Media
   author: User
 }
 
 export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   featuredImage,
-  contentImage,
   author,
 }) => {
   return {
-    title: 'Novel Drug Delivery System Using Smart Polymers',
-    type: 'research',
-    featured: true,
+    title: 'VUP Cosmetics launches upgraded online store on Shoptet',
+    type: 'news',
+    featured: false,
     description:
-      'Revolutionary polymer-based drug delivery system offers precise control and enhanced therapeutic efficacy',
+      'The cosmetics branch of VUP, a.s. has completed a digital upgrade with the launch of its new online store on the Shoptet platform.',
     featuredImage: featuredImage.id,
     author: author,
     content: {
@@ -25,7 +23,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
         type: 'root',
         children: [
           {
-            type: 'heading',
+            type: 'paragraph',
             children: [
               {
                 type: 'text',
@@ -33,14 +31,14 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Transforming Medicine Through Smart Material Chemistry',
+                text: 'The cosmetics branch of VUP, a.s. has completed a digital upgrade with the launch of its new online store on the Shoptet platform. The move brings a modern, user-friendly interface and streamlined shopping experience to the company’s loyal customer base.',
                 version: 1,
               },
             ],
             direction: 'ltr',
             format: '',
             indent: 0,
-            tag: 'h2',
+            textFormat: 0,
             version: 1,
           },
           {
@@ -52,7 +50,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Our laboratory has developed an innovative smart polymer system that revolutionizes drug delivery methods. This breakthrough enables targeted release of therapeutic compounds with unprecedented precision and control.',
+                text: 'The updated e-shop offers detailed product information, clear categorization, and responsive design across all devices. Customers can now access VUP’s portfolio of creams, gels, and personal-care formulations more conveniently, supported by faster navigation and improved order processing.',
                 version: 1,
               },
             ],
@@ -63,132 +61,77 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
             version: 1,
           },
           {
-            type: 'block',
-            fields: {
-              blockName: 'Key Findings',
-              blockType: 'banner',
-              content: {
-                root: {
-                  type: 'root',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          detail: 0,
-                          format: 1,
-                          mode: 'normal',
-                          style: '',
-                          text: 'Clinical Results:',
-                          version: 1,
-                        },
-                        {
-                          type: 'text',
-                          detail: 0,
-                          format: 0,
-                          mode: 'normal',
-                          style: '',
-                          text: ' 300% increase in drug bioavailability, 80% reduction in side effects, and sustained release for up to 72 hours.',
-                          version: 1,
-                        },
-                      ],
-                      direction: 'ltr',
-                      format: '',
-                      indent: 0,
-                      textFormat: 0,
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  format: '',
-                  indent: 0,
-                  version: 1,
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '“The Shoptet system allows us to serve our customers with the same precision and reliability that define our laboratory and production work,” said the director of VUP’s cosmetics division. “It’s a step toward better accessibility and transparency for consumers who value science-based care made in Slovakia.”',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'The upgrade also supports future integrations with VUP’s internal systems and marketing channels, ensuring a seamless connection between production, research, and customer service.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Visit the new cosmetics platform: ',
+                version: 1,
+              },
+              {
+                type: 'link',
+                children: [
+                  {
+                    type: 'text',
+                    detail: 0,
+                    format: 0,
+                    mode: 'normal',
+                    style: '',
+                    text: 'https://www.vupcosmetics.sk/',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 3,
+                fields: {
+                  linkType: 'custom',
+                  url: 'https://www.vupcosmetics.sk/',
+                  newTab: true,
                 },
-              },
-              style: 'info',
-            },
-            format: '',
-            version: 2,
-          },
-          {
-            type: 'heading',
-            children: [
-              {
-                type: 'text',
-                detail: 0,
-                format: 0,
-                mode: 'normal',
-                style: '',
-                text: 'Smart Material Design',
-                version: 1,
-              },
-            ],
-            direction: 'ltr',
-            format: '',
-            indent: 0,
-            tag: 'h2',
-            version: 1,
-          },
-          {
-            type: 'paragraph',
-            children: [
-              {
-                type: 'text',
-                detail: 0,
-                format: 0,
-                mode: 'normal',
-                style: '',
-                text: 'The polymer system features responsive elements that can detect specific physiological conditions and trigger controlled drug release. This smart behavior ensures that therapeutic compounds are delivered exactly where and when they are needed in the body.',
-                version: 1,
-              },
-            ],
-            direction: 'ltr',
-            format: '',
-            indent: 0,
-            textFormat: 0,
-            version: 1,
-          },
-          {
-            type: 'block',
-            fields: {
-              blockName: '',
-              blockType: 'mediaBlock',
-              media: contentImage.id,
-            },
-            format: '',
-            version: 2,
-          },
-          {
-            type: 'heading',
-            children: [
-              {
-                type: 'text',
-                detail: 0,
-                format: 0,
-                mode: 'normal',
-                style: '',
-                text: 'Medical Applications',
-                version: 1,
-              },
-            ],
-            direction: 'ltr',
-            format: '',
-            indent: 0,
-            tag: 'h2',
-            version: 1,
-          },
-          {
-            type: 'paragraph',
-            children: [
-              {
-                type: 'text',
-                detail: 0,
-                format: 0,
-                mode: 'normal',
-                style: '',
-                text: 'Initial clinical trials have shown remarkable success in treating chronic conditions where consistent drug levels are crucial. The system shows particular promise in cancer therapy, diabetes management, and treatment of neurological disorders.',
-                version: 1,
               },
             ],
             direction: 'ltr',
@@ -204,15 +147,20 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
         version: 1,
       },
     },
-    tags: [{ tag: 'Drug Delivery' }, { tag: 'Smart Materials' }, { tag: 'Polymer Chemistry' }],
+    tags: [
+      { tag: 'VUP Cosmetics' },
+      { tag: 'E-commerce' },
+      { tag: 'Shoptet' },
+      { tag: 'Slovakia' },
+    ],
     meta: {
-      title: 'Smart Polymer Drug Delivery System Breakthrough',
+      title: 'VUP Cosmetics Launches New E-commerce Store on Shoptet',
       description:
-        'Revolutionary polymer-based drug delivery system offers precise control and enhanced therapeutic efficacy',
+        "VUP's cosmetics division launches its new online store on the Shoptet platform, offering a modern, user-friendly shopping experience.",
       image: featuredImage.id,
     },
-    publishedAt: '2024-01-15T12:00:00.000Z',
-    slug: 'smart-polymer-drug-delivery',
+    publishedAt: '2025-10-20T11:00:00.000Z',
+    slug: 'vup-cosmetics-launches-shoptet-store',
     _status: 'published',
   }
 }

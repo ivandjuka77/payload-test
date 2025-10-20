@@ -503,6 +503,17 @@ const filesToSeed = [
     url: 'https://images.pexels.com/photos/7649492/pexels-photo-7649492.jpeg',
     alt: 'Contact Us Bojnice Image',
   },
+  // Forbes Blog
+  {
+    key: 'forbesBlogImageDoc',
+    url: 'https://images.pexels.com/photos/10514729/pexels-photo-10514729.jpeg',
+    alt: 'Chemistry Production Site',
+  },
+  {
+    key: 'ecovadisImageDoc',
+    url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
+    alt: 'Ecovadis Medal',
+  },
 ]
 
 // Helper function to create only missing media
