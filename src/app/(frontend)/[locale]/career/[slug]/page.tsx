@@ -14,31 +14,31 @@ import BenefitsSection from '@/components/career/Benefits'
 import RelatedPositions from '@/components/career/RelatedPositions'
 import type { Career } from '@/payload-types'
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const careers = await payload.find({
-    collection: 'careers',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config: configPromise })
+//   const careers = await payload.find({
+//     collection: 'careers',
+//     draft: false,
+//     limit: 1000,
+//     overrideAccess: false,
+//     pagination: false,
+//     select: {
+//       slug: true,
+//     },
+//   })
 
-  const locales = ['', 'sk', 'jp'] // '' represents default (English)
-  const params = careers.docs.flatMap(({ slug }) => {
-    return locales.map((locale) => ({
-      locale,
-      slug,
-    }))
-  })
+//   const locales = ['', 'sk', 'jp'] // '' represents default (English)
+//   const params = careers.docs.flatMap(({ slug }) => {
+//     return locales.map((locale) => ({
+//       locale,
+//       slug,
+//     }))
+//   })
 
-  console.log('Careers', params.length)
+//   console.log('Careers', params.length)
 
-  return params
-}
+//   return params
+// }
 
 type Args = {
   params: Promise<{
