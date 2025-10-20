@@ -64,7 +64,7 @@ export const seedIndustries = async (
     pharmaceuticals,
     petrochemicalsRefineries,
     batteryEnergyStorage,
-    buildingConstruction,
+    // buildingConstruction,
   ] = await Promise.all([
     payload.create({
       collection: 'industries',
@@ -496,69 +496,69 @@ export const seedIndustries = async (
         slug: 'battery-energy-storage',
       },
     }),
-    payload.create({
-      collection: 'industries',
-      data: {
-        name: 'Building & Construction',
-        _status: 'published',
-        _order: '9',
-        description:
-          'The Building & Construction industry continuously seeks materials and chemical solutions that improve durability, process efficiency, safety, and sustainability. VUP, a.s. contributes to this sector by providing specialized chemical preparations designed to enhance concrete and plaster properties (VUPPOR, VUPRANYL), improve formwork efficiency (VUPOFORM), and supply key intermediates (DMBA, DMPA) used in high-performance coatings and adhesives essential for modern construction. Our focus is on delivering reliable chemical solutions that add value to building materials and processes.',
-        summary:
-          'VUP enhances construction materials with chemical solutions for durability, efficiency, and sustainability.',
-        featuredImage: buildingConstructionDoc.id,
-        keyProducts: [dmba.id, dmpa.id, hpva.id],
-        services: [researchDevelopment.id, analyticalTesting.id],
-        challenges: [
-          {
-            title: 'Concrete & Cement Product Enhancement',
-            challenge:
-              'Improving the workability of concrete mixes and enhancing the properties of finished concrete products like paving stones, panels, and structures is key for efficiency and performance.',
-            solution:
-              'VUPPOR is specifically designed as an additive for concrete products. It improves processability and enhances thermal insulation properties. Recommended for a wide range of concrete items including pavings, edge-stones, gardening parts, construction panels, and monolithic constructions, VUPPOR contributes to better quality finished products. It is physiologically harmless and requires no special handling measures beyond standard practices.',
-            image: constructionChallenge1Doc.id,
-            challengeLink: 'concrete-cement-enhancement',
-            relatedServices: [researchDevelopment.id],
-            caseStudies: [],
-          },
-          {
-            title: 'Improving Plasters & Coatings',
-            challenge:
-              'Enhancing the durability, application properties, and crack resistance of synthetic plasters and water-soluble coatings used in construction. Meeting low-VOC requirements for architectural coatings.',
-            solution:
-              'VUPRANYL, a stable water dispersion, serves as an additive for synthetic plasters and water-soluble coatings, leading to longer durability and a significant decrease in crack formation. Additionally, key intermediates like DMBA (CAS 10097-02-6) and DMPA (CAS 4767-03-7) are crucial for producing the waterborne polyurethane and polyester resins used in durable, low-VOC architectural and protective coatings, offering excellent adhesion and flexibility.',
-            image: constructionChallenge2Doc.id,
-            challengeLink: 'plasters-coatings',
-            relatedProducts: [dmba.id, dmpa.id],
-            relatedServices: [analyticalTesting.id],
-            caseStudies: [],
-          },
-          {
-            title: 'Efficient Formwork Release (Demoulding)',
-            challenge:
-              'Ensuring clean and easy release of concrete from formwork without damaging the forms or the concrete surface, while maintaining worker safety and environmental considerations.',
-            solution:
-              'VUPOFORM acts as a highly effective deforming (release) agent for all types of building forms. Its insolubility in water provides an excellent separation effect, allowing for multiple reuses of the form without reapplication. It does not attack sealing materials or corrode metal equipment. VUPOFORM offers significant safety and environmental benefits: negligible volatility (no air pollution), elimination of oil contamination in wastewater, and no special safety measures required for handling.',
-            image: constructionChallenge3Doc.id,
-            challengeLink: 'formwork-release',
-            caseStudies: [],
-          },
-          {
-            title: 'High-Performance Construction Adhesives & Sealants',
-            challenge:
-              'Modern construction relies on high-performance adhesives and sealants for bonding diverse materials, ensuring structural integrity, and providing effective sealing against environmental elements.',
-            solution:
-              'We supply key chemical intermediates like DMBA (CAS 10097-02-6), used in waterborne polyurethane, epoxy, and polyester adhesives where it enhances bonding strength and water resistance. Hydroxypivalic Acid (HPVA, CAS 4835-90-9), via its derivative HPN, contributes to the performance of adhesives and sealants by balancing hardness, flexibility, and adhesion, potentially enabling low-VOC formulations.',
-            image: constructionChallenge4Doc.id,
-            challengeLink: 'construction-adhesives-sealants',
-            relatedProducts: [dmba.id, hpva.id],
-            relatedServices: [researchDevelopment.id],
-            caseStudies: [],
-          },
-        ],
-        slug: 'building-construction',
-      },
-    }),
+    // payload.create({
+    //   collection: 'industries',
+    //   data: {
+    //     name: 'Building & Construction',
+    //     _status: 'published',
+    //     _order: '9',
+    //     description:
+    //       'The Building & Construction industry continuously seeks materials and chemical solutions that improve durability, process efficiency, safety, and sustainability. VUP, a.s. contributes to this sector by providing specialized chemical preparations designed to enhance concrete and plaster properties (VUPPOR, VUPRANYL), improve formwork efficiency (VUPOFORM), and supply key intermediates (DMBA, DMPA) used in high-performance coatings and adhesives essential for modern construction. Our focus is on delivering reliable chemical solutions that add value to building materials and processes.',
+    //     summary:
+    //       'VUP enhances construction materials with chemical solutions for durability, efficiency, and sustainability.',
+    //     featuredImage: buildingConstructionDoc.id,
+    //     keyProducts: [dmba.id, dmpa.id, hpva.id],
+    //     services: [researchDevelopment.id, analyticalTesting.id],
+    //     challenges: [
+    //       {
+    //         title: 'Concrete & Cement Product Enhancement',
+    //         challenge:
+    //           'Improving the workability of concrete mixes and enhancing the properties of finished concrete products like paving stones, panels, and structures is key for efficiency and performance.',
+    //         solution:
+    //           'VUPPOR is specifically designed as an additive for concrete products. It improves processability and enhances thermal insulation properties. Recommended for a wide range of concrete items including pavings, edge-stones, gardening parts, construction panels, and monolithic constructions, VUPPOR contributes to better quality finished products. It is physiologically harmless and requires no special handling measures beyond standard practices.',
+    //         image: constructionChallenge1Doc.id,
+    //         challengeLink: 'concrete-cement-enhancement',
+    //         relatedServices: [researchDevelopment.id],
+    //         caseStudies: [],
+    //       },
+    //       {
+    //         title: 'Improving Plasters & Coatings',
+    //         challenge:
+    //           'Enhancing the durability, application properties, and crack resistance of synthetic plasters and water-soluble coatings used in construction. Meeting low-VOC requirements for architectural coatings.',
+    //         solution:
+    //           'VUPRANYL, a stable water dispersion, serves as an additive for synthetic plasters and water-soluble coatings, leading to longer durability and a significant decrease in crack formation. Additionally, key intermediates like DMBA (CAS 10097-02-6) and DMPA (CAS 4767-03-7) are crucial for producing the waterborne polyurethane and polyester resins used in durable, low-VOC architectural and protective coatings, offering excellent adhesion and flexibility.',
+    //         image: constructionChallenge2Doc.id,
+    //         challengeLink: 'plasters-coatings',
+    //         relatedProducts: [dmba.id, dmpa.id],
+    //         relatedServices: [analyticalTesting.id],
+    //         caseStudies: [],
+    //       },
+    //       {
+    //         title: 'Efficient Formwork Release (Demoulding)',
+    //         challenge:
+    //           'Ensuring clean and easy release of concrete from formwork without damaging the forms or the concrete surface, while maintaining worker safety and environmental considerations.',
+    //         solution:
+    //           'VUPOFORM acts as a highly effective deforming (release) agent for all types of building forms. Its insolubility in water provides an excellent separation effect, allowing for multiple reuses of the form without reapplication. It does not attack sealing materials or corrode metal equipment. VUPOFORM offers significant safety and environmental benefits: negligible volatility (no air pollution), elimination of oil contamination in wastewater, and no special safety measures required for handling.',
+    //         image: constructionChallenge3Doc.id,
+    //         challengeLink: 'formwork-release',
+    //         caseStudies: [],
+    //       },
+    //       {
+    //         title: 'High-Performance Construction Adhesives & Sealants',
+    //         challenge:
+    //           'Modern construction relies on high-performance adhesives and sealants for bonding diverse materials, ensuring structural integrity, and providing effective sealing against environmental elements.',
+    //         solution:
+    //           'We supply key chemical intermediates like DMBA (CAS 10097-02-6), used in waterborne polyurethane, epoxy, and polyester adhesives where it enhances bonding strength and water resistance. Hydroxypivalic Acid (HPVA, CAS 4835-90-9), via its derivative HPN, contributes to the performance of adhesives and sealants by balancing hardness, flexibility, and adhesion, potentially enabling low-VOC formulations.',
+    //         image: constructionChallenge4Doc.id,
+    //         challengeLink: 'construction-adhesives-sealants',
+    //         relatedProducts: [dmba.id, hpva.id],
+    //         relatedServices: [researchDevelopment.id],
+    //         caseStudies: [],
+    //       },
+    //     ],
+    //     slug: 'building-construction',
+    //   },
+    // }),
   ])
 
   payload.logger.info('- Adding Slovak translations for industries...')
@@ -885,52 +885,52 @@ export const seedIndustries = async (
     }),
 
     // Building & Construction
-    payload.update({
-      collection: 'industries',
-      id: buildingConstruction.id,
-      locale: 'sk',
-      data: {
-        name: 'Stavebníctvo',
-        description:
-          'Stavebný priemysel neustále hľadá materiály a chemické riešenia, ktoré zlepšujú trvanlivosť, efektivitu procesov, bezpečnosť a udržateľnosť. VUP, a.s. prispieva do tohto sektora poskytovaním špecializovaných chemických prípravkov určených na zlepšenie vlastností betónu a omietok (VUPPOR, VUPRANYL), zlepšenie efektivity debnenia (VUPOFORM) a dodávaním kľúčových medziproduktov (DMBA, DMPA) používaných vo vysokovýkonných náteroch a lepidlách nevyhnutných pre moderné stavebníctvo. Naším zameraním je dodávať spoľahlivé chemické riešenia, ktoré pridávajú hodnotu stavebným materiálom a procesom.',
-        summary:
-          'VUP vylepšuje stavebné materiály chemickými riešeniami pre trvanlivosť, efektivitu a udržateľnosť.',
-        challenges: [
-          {
-            title: 'Zlepšenie betónových a cementových výrobkov',
-            challenge:
-              'Zlepšenie spracovateľnosti betónových zmesí a vylepšenie vlastností hotových betónových výrobkov, ako sú dlažobné kocky, panely a konštrukcie, je kľúčové pre efektivitu a výkon.',
-            solution:
-              'VUPPOR je špeciálne navrhnutý ako prísada do betónových výrobkov. Zlepšuje spracovateľnosť a zvyšuje tepelnoizolačné vlastnosti. Odporúča sa pre širokú škálu betónových výrobkov vrátane dlažieb, obrubníkov, záhradných dielcov, stavebných panelov a monolitických konštrukcií. VUPPOR prispieva k lepšej kvalite hotových výrobkov. Je fyziologicky neškodný a nevyžaduje žiadne špeciálne manipulačné opatrenia nad rámec bežnej praxe.',
-            image: constructionChallenge1Doc.id,
-          },
-          {
-            title: 'Zlepšovanie omietok a náterov',
-            challenge:
-              'Zvýšenie trvanlivosti, aplikačných vlastností a odolnosti proti praskaniu syntetických omietok a vodou riediteľných náterov používaných v stavebníctve. Splnenie požiadaviek na nízky obsah VOC pre architektonické nátery.',
-            solution:
-              'VUPRANYL, stabilná vodná disperzia, slúži ako prísada do syntetických omietok a vodou riediteľných náterov, čo vedie k dlhšej životnosti a výraznému zníženiu tvorby trhlín. Okrem toho sú kľúčové medziprodukty ako DMBA (CAS 10097-02-6) a DMPA (CAS 4767-03-7) rozhodujúce pre výrobu vodou riediteľných polyuretánových a polyesterových živíc používaných v trvanlivých, nízko-VOC architektonických a ochranných náteroch, ktoré ponúkajú vynikajúcu priľnavosť a flexibilitu.',
-            image: constructionChallenge2Doc.id,
-          },
-          {
-            title: 'Efektívne uvoľňovanie z debnenia (odformovanie)',
-            challenge:
-              'Zabezpečenie čistého a ľahkého uvoľnenia betónu z debnenia bez poškodenia foriem alebo povrchu betónu, pri zachovaní bezpečnosti pracovníkov a environmentálnych ohľadov.',
-            solution:
-              'VUPOFORM pôsobí ako vysoko účinný odformovací prostriedok pre všetky typy stavebných foriem. Jeho nerozpustnosť vo vode poskytuje vynikajúci separačný efekt, čo umožňuje viacnásobné opätovné použitie formy bez opätovnej aplikácie. Nenapáda tesniace materiály ani nekoroduje kovové zariadenia. VUPOFORM ponúka významné bezpečnostné a environmentálne výhody: zanedbateľnú prchavosť (žiadne znečistenie ovzdušia), elimináciu kontaminácie odpadových vôd olejom a žiadne špeciálne bezpečnostné opatrenia potrebné pri manipulácii.',
-            image: constructionChallenge3Doc.id,
-          },
-          {
-            title: 'Vysokovýkonné stavebné lepidlá a tmely',
-            challenge:
-              'Moderné stavebníctvo sa spolieha na vysokovýkonné lepidlá a tmely na spájanie rôznych materiálov, zabezpečenie štrukturálnej integrity a poskytovanie účinného tesnenia proti environmentálnym vplyvom.',
-            solution:
-              'Dodávame kľúčové chemické medziprodukty ako DMBA (CAS 10097-02-6), používané vo vodou riediteľných polyuretánových, epoxidových a polyesterových lepidlách, kde zvyšuje pevnosť spoja a odolnosť voči vode. Kyselina hydroxypivalová (HPVA, CAS 4835-90-9), prostredníctvom svojho derivátu HPN, prispieva k výkonu lepidiel a tmelov vyvažovaním tvrdosti, flexibility a priľnavosti, čo potenciálne umožňuje formulácie s nízkym obsahom VOC.',
-            image: constructionChallenge4Doc.id,
-          },
-        ],
-      },
-    }),
+    // payload.update({
+    //   collection: 'industries',
+    //   id: buildingConstruction.id,
+    //   locale: 'sk',
+    //   data: {
+    //     name: 'Stavebníctvo',
+    //     description:
+    //       'Stavebný priemysel neustále hľadá materiály a chemické riešenia, ktoré zlepšujú trvanlivosť, efektivitu procesov, bezpečnosť a udržateľnosť. VUP, a.s. prispieva do tohto sektora poskytovaním špecializovaných chemických prípravkov určených na zlepšenie vlastností betónu a omietok (VUPPOR, VUPRANYL), zlepšenie efektivity debnenia (VUPOFORM) a dodávaním kľúčových medziproduktov (DMBA, DMPA) používaných vo vysokovýkonných náteroch a lepidlách nevyhnutných pre moderné stavebníctvo. Naším zameraním je dodávať spoľahlivé chemické riešenia, ktoré pridávajú hodnotu stavebným materiálom a procesom.',
+    //     summary:
+    //       'VUP vylepšuje stavebné materiály chemickými riešeniami pre trvanlivosť, efektivitu a udržateľnosť.',
+    //     challenges: [
+    //       {
+    //         title: 'Zlepšenie betónových a cementových výrobkov',
+    //         challenge:
+    //           'Zlepšenie spracovateľnosti betónových zmesí a vylepšenie vlastností hotových betónových výrobkov, ako sú dlažobné kocky, panely a konštrukcie, je kľúčové pre efektivitu a výkon.',
+    //         solution:
+    //           'VUPPOR je špeciálne navrhnutý ako prísada do betónových výrobkov. Zlepšuje spracovateľnosť a zvyšuje tepelnoizolačné vlastnosti. Odporúča sa pre širokú škálu betónových výrobkov vrátane dlažieb, obrubníkov, záhradných dielcov, stavebných panelov a monolitických konštrukcií. VUPPOR prispieva k lepšej kvalite hotových výrobkov. Je fyziologicky neškodný a nevyžaduje žiadne špeciálne manipulačné opatrenia nad rámec bežnej praxe.',
+    //         image: constructionChallenge1Doc.id,
+    //       },
+    //       {
+    //         title: 'Zlepšovanie omietok a náterov',
+    //         challenge:
+    //           'Zvýšenie trvanlivosti, aplikačných vlastností a odolnosti proti praskaniu syntetických omietok a vodou riediteľných náterov používaných v stavebníctve. Splnenie požiadaviek na nízky obsah VOC pre architektonické nátery.',
+    //         solution:
+    //           'VUPRANYL, stabilná vodná disperzia, slúži ako prísada do syntetických omietok a vodou riediteľných náterov, čo vedie k dlhšej životnosti a výraznému zníženiu tvorby trhlín. Okrem toho sú kľúčové medziprodukty ako DMBA (CAS 10097-02-6) a DMPA (CAS 4767-03-7) rozhodujúce pre výrobu vodou riediteľných polyuretánových a polyesterových živíc používaných v trvanlivých, nízko-VOC architektonických a ochranných náteroch, ktoré ponúkajú vynikajúcu priľnavosť a flexibilitu.',
+    //         image: constructionChallenge2Doc.id,
+    //       },
+    //       {
+    //         title: 'Efektívne uvoľňovanie z debnenia (odformovanie)',
+    //         challenge:
+    //           'Zabezpečenie čistého a ľahkého uvoľnenia betónu z debnenia bez poškodenia foriem alebo povrchu betónu, pri zachovaní bezpečnosti pracovníkov a environmentálnych ohľadov.',
+    //         solution:
+    //           'VUPOFORM pôsobí ako vysoko účinný odformovací prostriedok pre všetky typy stavebných foriem. Jeho nerozpustnosť vo vode poskytuje vynikajúci separačný efekt, čo umožňuje viacnásobné opätovné použitie formy bez opätovnej aplikácie. Nenapáda tesniace materiály ani nekoroduje kovové zariadenia. VUPOFORM ponúka významné bezpečnostné a environmentálne výhody: zanedbateľnú prchavosť (žiadne znečistenie ovzdušia), elimináciu kontaminácie odpadových vôd olejom a žiadne špeciálne bezpečnostné opatrenia potrebné pri manipulácii.',
+    //         image: constructionChallenge3Doc.id,
+    //       },
+    //       {
+    //         title: 'Vysokovýkonné stavebné lepidlá a tmely',
+    //         challenge:
+    //           'Moderné stavebníctvo sa spolieha na vysokovýkonné lepidlá a tmely na spájanie rôznych materiálov, zabezpečenie štrukturálnej integrity a poskytovanie účinného tesnenia proti environmentálnym vplyvom.',
+    //         solution:
+    //           'Dodávame kľúčové chemické medziprodukty ako DMBA (CAS 10097-02-6), používané vo vodou riediteľných polyuretánových, epoxidových a polyesterových lepidlách, kde zvyšuje pevnosť spoja a odolnosť voči vode. Kyselina hydroxypivalová (HPVA, CAS 4835-90-9), prostredníctvom svojho derivátu HPN, prispieva k výkonu lepidiel a tmelov vyvažovaním tvrdosti, flexibility a priľnavosti, čo potenciálne umožňuje formulácie s nízkym obsahom VOC.',
+    //         image: constructionChallenge4Doc.id,
+    //       },
+    //     ],
+    //   },
+    // }),
   ])
 
   payload.logger.info('- Adding Japanese translations for industries...')
@@ -1256,52 +1256,52 @@ export const seedIndustries = async (
     }),
 
     // Building Construction
-    payload.update({
-      collection: 'industries',
-      id: buildingConstruction.id,
-      locale: 'jp',
-      data: {
-        name: '建築・建設',
-        description:
-          '建築・建設業界は、耐久性、プロセス効率、安全性、および持続可能性を向上させる材料と化学ソリューションを絶えず求めています。VUP, a.s.は、コンクリートおよび石膏の特性を向上させるための特殊化学調製品（VUPPOR、VUPRANYL）、型枠の効率を改善するための製品（VUPOFORM）、および現代建築に不可欠な高性能コーティングや接着剤に使用される主要中間体（DMBA、DMPA）を提供することで、この分野に貢献しています。私たちは、建築材料とプロセスに付加価値をもたらす信頼性の高い化学ソリューションを提供することに重点を置いています。',
-        summary:
-          'VUPは、耐久性、効率性、持続可能性のための化学ソリューションで建築材料を強化します。',
-        challenges: [
-          {
-            title: 'コンクリート・セメント製品の強化',
-            challenge:
-              'コンクリート混合物の作業性を改善し、敷石、パネル、構造物などの完成したコンクリート製品の特性を向上させることは、効率と性能の鍵です。',
-            solution:
-              'VUPPORは、コンクリート製品向けの添加剤として特別に設計されています。加工性を向上させ、断熱特性を高めます。舗装材、縁石、ガーデニング部品、建設パネル、一体構造物など、幅広いコンクリート製品に推奨され、VUPPORはより高品質な完成品に貢献します。生理学的に無害であり、標準的な慣行を超える特別な取り扱い措置は必要ありません。',
-            image: constructionChallenge1Doc.id,
-          },
-          {
-            title: '石膏とコーティングの改善',
-            challenge:
-              '建設で使用される合成石膏および水溶性コーティングの耐久性、塗布特性、およびひび割れ耐性を向上させること。建築用コーティングの低VOC要件を満たすこと。',
-            solution:
-              '安定した水分散液であるVUPRANYLは、合成石膏および水溶性コーティングの添加剤として機能し、耐久性を延ばし、ひび割れの発生を大幅に減少させます。さらに、DMBA（CAS 10097-02-6）やDMPA（CAS 4767-03-7）などの主要な中間体は、優れた密着性と柔軟性を提供する、耐久性のある低VOC建築用および保護用コーティングに使用される水性ポリウレタンおよびポリエステル樹脂の製造に不可欠です。',
-            image: constructionChallenge2Doc.id,
-          },
-          {
-            title: '効率的な型枠剥離（離型）',
-            challenge:
-              '作業員の安全と環境への配慮を維持しつつ、型枠やコンクリート表面を損傷することなく、コンクリートを型枠からきれいに簡単に剥離させること。',
-            solution:
-              'VUPOFORMは、あらゆる種類の建築用型枠に対して非常に効果的な離型剤として機能します。水に不溶性であるため、優れた分離効果を発揮し、再塗布なしで型枠を複数回再利用できます。シーリング材を侵したり、金属機器を腐食させたりしません。VUPOFORMは、無視できる揮発性（大気汚染なし）、廃水中の油汚染の排除、取り扱いに特別な安全対策が不要といった、重要な安全性と環境上の利点を提供します。',
-            image: constructionChallenge3Doc.id,
-          },
-          {
-            title: '高性能建築用接着剤・シーラント',
-            challenge:
-              '現代の建設は、多様な材料を接着し、構造的完全性を確保し、環境要素に対する効果的なシーリングを提供するために、高性能の接着剤とシーラントに依存しています。',
-            solution:
-              '当社は、DMBA（CAS 10097-02-6）などの主要な化学中間体を供給しています。これは水性のポリウレタン、エポキシ、ポリエステル接着剤で使用され、接着強度と耐水性を向上させます。ヒドロキシピバリン酸（HPVA、CAS 4835-90-9）は、その誘導体であるHPNを介して、硬度、柔軟性、接着性のバランスを取ることで接着剤とシーラントの性能に貢献し、低VOC配合を可能にする可能性があります。',
-            image: constructionChallenge4Doc.id,
-          },
-        ],
-      },
-    }),
+    // payload.update({
+    //   collection: 'industries',
+    //   id: buildingConstruction.id,
+    //   locale: 'jp',
+    //   data: {
+    //     name: '建築・建設',
+    //     description:
+    //       '建築・建設業界は、耐久性、プロセス効率、安全性、および持続可能性を向上させる材料と化学ソリューションを絶えず求めています。VUP, a.s.は、コンクリートおよび石膏の特性を向上させるための特殊化学調製品（VUPPOR、VUPRANYL）、型枠の効率を改善するための製品（VUPOFORM）、および現代建築に不可欠な高性能コーティングや接着剤に使用される主要中間体（DMBA、DMPA）を提供することで、この分野に貢献しています。私たちは、建築材料とプロセスに付加価値をもたらす信頼性の高い化学ソリューションを提供することに重点を置いています。',
+    //     summary:
+    //       'VUPは、耐久性、効率性、持続可能性のための化学ソリューションで建築材料を強化します。',
+    //     challenges: [
+    //       {
+    //         title: 'コンクリート・セメント製品の強化',
+    //         challenge:
+    //           'コンクリート混合物の作業性を改善し、敷石、パネル、構造物などの完成したコンクリート製品の特性を向上させることは、効率と性能の鍵です。',
+    //         solution:
+    //           'VUPPORは、コンクリート製品向けの添加剤として特別に設計されています。加工性を向上させ、断熱特性を高めます。舗装材、縁石、ガーデニング部品、建設パネル、一体構造物など、幅広いコンクリート製品に推奨され、VUPPORはより高品質な完成品に貢献します。生理学的に無害であり、標準的な慣行を超える特別な取り扱い措置は必要ありません。',
+    //         image: constructionChallenge1Doc.id,
+    //       },
+    //       {
+    //         title: '石膏とコーティングの改善',
+    //         challenge:
+    //           '建設で使用される合成石膏および水溶性コーティングの耐久性、塗布特性、およびひび割れ耐性を向上させること。建築用コーティングの低VOC要件を満たすこと。',
+    //         solution:
+    //           '安定した水分散液であるVUPRANYLは、合成石膏および水溶性コーティングの添加剤として機能し、耐久性を延ばし、ひび割れの発生を大幅に減少させます。さらに、DMBA（CAS 10097-02-6）やDMPA（CAS 4767-03-7）などの主要な中間体は、優れた密着性と柔軟性を提供する、耐久性のある低VOC建築用および保護用コーティングに使用される水性ポリウレタンおよびポリエステル樹脂の製造に不可欠です。',
+    //         image: constructionChallenge2Doc.id,
+    //       },
+    //       {
+    //         title: '効率的な型枠剥離（離型）',
+    //         challenge:
+    //           '作業員の安全と環境への配慮を維持しつつ、型枠やコンクリート表面を損傷することなく、コンクリートを型枠からきれいに簡単に剥離させること。',
+    //         solution:
+    //           'VUPOFORMは、あらゆる種類の建築用型枠に対して非常に効果的な離型剤として機能します。水に不溶性であるため、優れた分離効果を発揮し、再塗布なしで型枠を複数回再利用できます。シーリング材を侵したり、金属機器を腐食させたりしません。VUPOFORMは、無視できる揮発性（大気汚染なし）、廃水中の油汚染の排除、取り扱いに特別な安全対策が不要といった、重要な安全性と環境上の利点を提供します。',
+    //         image: constructionChallenge3Doc.id,
+    //       },
+    //       {
+    //         title: '高性能建築用接着剤・シーラント',
+    //         challenge:
+    //           '現代の建設は、多様な材料を接着し、構造的完全性を確保し、環境要素に対する効果的なシーリングを提供するために、高性能の接着剤とシーラントに依存しています。',
+    //         solution:
+    //           '当社は、DMBA（CAS 10097-02-6）などの主要な化学中間体を供給しています。これは水性のポリウレタン、エポキシ、ポリエステル接着剤で使用され、接着強度と耐水性を向上させます。ヒドロキシピバリン酸（HPVA、CAS 4835-90-9）は、その誘導体であるHPNを介して、硬度、柔軟性、接着性のバランスを取ることで接着剤とシーラントの性能に貢献し、低VOC配合を可能にする可能性があります。',
+    //         image: constructionChallenge4Doc.id,
+    //       },
+    //     ],
+    //   },
+    // }),
   ])
 
   payload.logger.info('✓ Industries seeded')
@@ -1314,7 +1314,7 @@ export const seedIndustries = async (
     pharmaceuticals,
     petrochemicalsRefineries,
     batteryEnergyStorage,
-    buildingConstruction,
+    // buildingConstruction,
   }
 }
 

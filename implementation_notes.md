@@ -79,6 +79,10 @@ SERVICES PAGE:
 [x] Navbar - Services before industries
 [x] Navbar - Add link to VUP Cosmetics, special link
 [x] Navbar - Ordering of industries and product categories
+
+---
+
 [] Add Forbes article
 [] Try out the atoms/branching out hero image idea
 [] About us fix mobile video
+[] Finish up assets and
