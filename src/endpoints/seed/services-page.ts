@@ -1,11 +1,12 @@
 import type { Media } from '@/payload-types'
 
 type ServicesPageArgs = {
-  featuredImage1: Media
+  heroImage: Media
+  featuredImage: Media
 }
 
 export function servicesPageEn(args: ServicesPageArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: 'Services',
@@ -17,7 +18,7 @@ export function servicesPageEn(args: ServicesPageArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -162,7 +163,7 @@ export function servicesPageEn(args: ServicesPageArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],
@@ -177,7 +178,7 @@ export function servicesPageEn(args: ServicesPageArgs) {
 }
 
 export function servicesPageSk(args: ServicesPageArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: 'Služby',
@@ -189,7 +190,7 @@ export function servicesPageSk(args: ServicesPageArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -334,7 +335,7 @@ export function servicesPageSk(args: ServicesPageArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],
@@ -349,7 +350,7 @@ export function servicesPageSk(args: ServicesPageArgs) {
 }
 
 export function servicesPageJp(args: ServicesPageArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: 'サービス',
@@ -361,7 +362,7 @@ export function servicesPageJp(args: ServicesPageArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -506,7 +507,7 @@ export function servicesPageJp(args: ServicesPageArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],

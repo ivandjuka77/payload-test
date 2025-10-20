@@ -4,7 +4,15 @@ import type { SeededMedia } from './1-media'
 export const seedServices = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('- Seeding services...')
 
-  const { demoImageDoc, image2Doc } = media
+  const {
+    demoImageDoc,
+    image2Doc,
+    atbelImageDoc,
+    customSynthesisImageDoc,
+    researchDevelopmentImageDoc,
+    regulatoryTechnicalSupportImageDoc,
+    customCosmeticsManufacturingImageDoc,
+  } = media
 
   const [
     researchDevelopment,
@@ -20,7 +28,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           "VUP's R&D division solves complex chemistry challenges across diverse industries.With 70+ years of chemical expertise, we transform ideas into viable technological solutions tailored to your needs.",
-        featuredImage: demoImageDoc.id,
+        featuredImage: researchDevelopmentImageDoc.id,
         features: [
           {
             feature: 'Experience',
@@ -256,7 +264,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'The ATBEL (Analytical, Technical-Safety, and Environmental Laboratories) division is a specialized testing center within VUP, a.s., providing expert analytical services to both internal R&D projects and external partners. We deliver reliable, accredited results under SNAS Certificate No. S-118 (ISO/IEC 17025) and ISO 9001, ensuring the highest standards of quality and precision. Our services are led by division head Ing. Ľudovít Žiak, PhD.',
-        featuredImage: image2Doc.id,
+        featuredImage: atbelImageDoc.id,
         features: [
           {
             feature: 'Accredited & Certified Quality',
@@ -411,7 +419,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs.",
-        featuredImage: demoImageDoc.id,
+        featuredImage: customCosmeticsManufacturingImageDoc.id,
         features: [
           {
             feature: 'Proven Experience',
@@ -560,7 +568,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Navigate complex chemical regulations and overcome technical hurdles with expert support combining deep regulatory knowledge and 70+ years of R&D expertise.',
-        featuredImage: demoImageDoc.id,
+        featuredImage: regulatoryTechnicalSupportImageDoc.id,
         features: [
           {
             feature: 'REACH Expertise',
@@ -729,7 +737,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. Complex chemistry, reliably delivered.',
-        featuredImage: demoImageDoc.id,
+        featuredImage: customSynthesisImageDoc.id,
         features: [
           {
             feature: 'Expert Problem Solving',

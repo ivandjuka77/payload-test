@@ -246,7 +246,10 @@ export const seed = async ({
       locale: 'en',
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
-      data: industriesPageDataEn({ featuredImage1: media.demoImageDoc }),
+      data: industriesPageDataEn({
+        heroImage: media.industriesAggregatePageImageDoc,
+        featuredImage: media.industriesAggregatePageImage2Doc,
+      }),
     }),
 
     payload.create({
@@ -254,7 +257,10 @@ export const seed = async ({
       locale: 'en',
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
-      data: servicesPageDataEn({ featuredImage1: media.demoImageDoc }),
+      data: servicesPageDataEn({
+        heroImage: media.servicesAggregatePageImageDoc,
+        featuredImage: media.servicesAggregatePageImage2Doc,
+      }),
     }),
 
     payload.create({
@@ -297,7 +303,7 @@ export const seed = async ({
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataEn({
-        featuredImage1: media.demoImageDoc,
+        featuredImage1: media.careerPageImageDoc,
         chemist: careers.chemistDoc,
         analyst: careers.analystDoc,
       }),
@@ -313,12 +319,12 @@ export const seed = async ({
         timeline2Image: media.demoImageDoc,
         timeline3Image: media.demoImageDoc,
         timeline4Image: media.demoImageDoc,
-        content1Image: media.demoImageDoc,
         content2Image: media.demoImageDoc,
         rd: teamMembers.rdDoc,
         commercial: teamMembers.commercialDoc,
         atbel: teamMembers.atbelDoc,
         cosmetics: teamMembers.cosmeticsDoc,
+        ceoMessageImage: media.ceoMessageImageDoc,
       }),
     }),
 
@@ -393,7 +399,10 @@ export const seed = async ({
       id: industriesPage.id,
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
-      data: industriesPageDataSk({ featuredImage1: media.demoImageDoc }),
+      data: industriesPageDataSk({
+        heroImage: media.industriesAggregatePageImageDoc,
+        featuredImage: media.industriesAggregatePageImage2Doc,
+      }),
     }),
   ])
 
@@ -404,7 +413,10 @@ export const seed = async ({
       id: servicesPage.id,
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
-      data: servicesPageDataSk({ featuredImage1: media.demoImageDoc }),
+      data: servicesPageDataSk({
+        heroImage: media.servicesAggregatePageImageDoc,
+        featuredImage: media.servicesAggregatePageImage2Doc,
+      }),
     }),
   ])
 
@@ -456,7 +468,7 @@ export const seed = async ({
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataSk({
-        featuredImage1: media.demoImageDoc,
+        featuredImage1: media.careerPageImageDoc,
         chemist: careers.chemistDoc,
         analyst: careers.analystDoc,
       }),
@@ -474,7 +486,7 @@ export const seed = async ({
       timeline2Image: media.demoImageDoc,
       timeline3Image: media.demoImageDoc,
       timeline4Image: media.demoImageDoc,
-      content1Image: media.demoImageDoc,
+      ceoMessageImage: media.ceoMessageImageDoc,
       content2Image: media.demoImageDoc,
       rd: teamMembers.rdDoc,
       commercial: teamMembers.commercialDoc,
@@ -555,7 +567,10 @@ export const seed = async ({
       id: industriesPage.id,
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
-      data: industriesPageDataJp({ featuredImage1: media.demoImageDoc }),
+      data: industriesPageDataJp({
+        heroImage: media.industriesAggregatePageImageDoc,
+        featuredImage: media.industriesAggregatePageImage2Doc,
+      }),
     }),
   ])
 
@@ -566,7 +581,10 @@ export const seed = async ({
       id: servicesPage.id,
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
-      data: servicesPageDataJp({ featuredImage1: media.demoImageDoc }),
+      data: servicesPageDataJp({
+        heroImage: media.servicesAggregatePageImageDoc,
+        featuredImage: media.servicesAggregatePageImage2Doc,
+      }),
     }),
   ])
 
@@ -618,7 +636,7 @@ export const seed = async ({
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataJp({
-        featuredImage1: media.demoImageDoc,
+        featuredImage1: media.careerPageImageDoc,
         chemist: careers.chemistDoc,
         analyst: careers.analystDoc,
       }),
@@ -637,7 +655,7 @@ export const seed = async ({
       timeline2Image: media.demoImageDoc,
       timeline3Image: media.demoImageDoc,
       timeline4Image: media.demoImageDoc,
-      content1Image: media.demoImageDoc,
+      ceoMessageImage: media.ceoMessageImageDoc,
       content2Image: media.demoImageDoc,
       rd: teamMembers.rdDoc,
       commercial: teamMembers.commercialDoc,

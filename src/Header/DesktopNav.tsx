@@ -15,6 +15,7 @@ import {
   Sparkles,
   Lightbulb,
   Check,
+  ExternalLink,
 } from 'lucide-react'
 import { cn } from '@/utilities/ui'
 import { Industry, Product, ProductCategory, Service } from '@/payload-types'
@@ -261,8 +262,8 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-green-700 transition-colors">
-                  {t('vupCosmetics.title')}
+                <h3 className="text-lg font-secondary font-medium flex items-center gap-x-2 text-gray-900 group-hover:text-green-700 transition-colors">
+                  {t('vupCosmetics.title')} <ExternalLink size={16} />
                 </h3>
               </div>
               <p className="mt-1 text-xs font-secondary text-gray-600 leading-relaxed line-clamp-2">

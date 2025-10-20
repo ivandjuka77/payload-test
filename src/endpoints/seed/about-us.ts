@@ -5,12 +5,12 @@ type AboutUsArgs = {
   timeline2Image: Media
   timeline3Image: Media
   timeline4Image: Media
-  content1Image: Media
   content2Image: Media
   rd: TeamMember
   commercial: TeamMember
   atbel: TeamMember
   cosmetics: TeamMember
+  ceoMessageImage: Media
 }
 
 export function aboutUsEn(args: AboutUsArgs) {
@@ -19,12 +19,12 @@ export function aboutUsEn(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content1Image,
     content2Image,
     rd,
     commercial,
     atbel,
     cosmetics,
+    ceoMessageImage,
   } = args
 
   return {
@@ -94,7 +94,7 @@ export function aboutUsEn(args: AboutUsArgs) {
             direction: 'ltr',
           },
         },
-        image: content1Image.id,
+        image: ceoMessageImage.id,
         blockName: 'CEO Message',
         blockType: 'contentImage',
         layout: 'left',
@@ -546,12 +546,12 @@ export function aboutUsSk(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content1Image,
     content2Image,
     rd,
     commercial,
     atbel,
     cosmetics,
+    ceoMessageImage,
   } = args
 
   return {
@@ -620,7 +620,7 @@ export function aboutUsSk(args: AboutUsArgs) {
             direction: 'ltr',
           },
         },
-        image: content1Image.id,
+        image: ceoMessageImage.id,
         blockName: 'CEO Message',
         blockType: 'contentImage',
         layout: 'left',
@@ -1056,13 +1056,13 @@ export function aboutUsJp(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content1Image,
     content2Image,
 
     rd,
     commercial,
     atbel,
     cosmetics,
+    ceoMessageImage,
   } = args
 
   return {
@@ -1131,7 +1131,7 @@ export function aboutUsJp(args: AboutUsArgs) {
             direction: 'ltr',
           },
         },
-        image: content1Image.id,
+        image: ceoMessageImage.id,
         blockName: 'CEO Message',
         blockType: 'contentImage',
         layout: 'left',

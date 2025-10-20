@@ -1,11 +1,12 @@
 import type { Media } from '@/payload-types'
 
 type IndustriesArgs = {
-  featuredImage1: Media
+  heroImage: Media
+  featuredImage: Media
 }
 
 export function industriesEn(args: IndustriesArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: 'Industries',
@@ -17,7 +18,7 @@ export function industriesEn(args: IndustriesArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -162,7 +163,7 @@ export function industriesEn(args: IndustriesArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],
@@ -177,7 +178,7 @@ export function industriesEn(args: IndustriesArgs) {
 }
 
 export function industriesSk(args: IndustriesArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: 'Odvetvia',
@@ -189,7 +190,7 @@ export function industriesSk(args: IndustriesArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -334,7 +335,7 @@ export function industriesSk(args: IndustriesArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],
@@ -349,7 +350,7 @@ export function industriesSk(args: IndustriesArgs) {
 }
 
 export function industriesJp(args: IndustriesArgs) {
-  const { featuredImage1 } = args
+  const { heroImage, featuredImage } = args
 
   return {
     title: '産業',
@@ -361,7 +362,7 @@ export function industriesJp(args: IndustriesArgs) {
       cta: {
         links: [],
       },
-      media: featuredImage1,
+      media: heroImage,
       slides: [],
     },
     layout: [
@@ -506,7 +507,7 @@ export function industriesJp(args: IndustriesArgs) {
             version: 1,
           },
         },
-        image: featuredImage1,
+        image: featuredImage,
         blockType: 'contentImage',
       },
     ],

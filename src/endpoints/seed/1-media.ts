@@ -117,55 +117,89 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/sk-emblem.png`,
     alt: 'R&D Competency Certificate',
   },
+  // About Us Page
+  {
+    key: 'ceoMessageImageDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/roman.jpg`,
+    alt: 'CEO Message Image',
+  },
+  // Career Page
+  {
+    key: 'careerPageImageDoc',
+    url: 'https://images.pexels.com/photos/5726790/pexels-photo-5726790.jpeg',
+    alt: 'Career Page Image',
+  },
+  // Industries aggregate page
+  {
+    key: 'industriesAggregatePageImageDoc',
+    url: 'https://images.pexels.com/photos/358276/pexels-photo-358276.jpeg',
+    alt: 'Industries Aggregate Page Image',
+  },
+  {
+    key: 'industriesAggregatePageImage2Doc',
+    url: 'https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg',
+    alt: 'Industries Aggregate Page Image 2',
+  },
+  // Services aggregate page
+  {
+    key: 'servicesAggregatePageImageDoc',
+    url: 'https://images.pexels.com/photos/1366942/pexels-photo-1366942.jpeg',
+    alt: 'Services Aggregate Page Image',
+  },
+  {
+    key: 'servicesAggregatePageImage2Doc',
+    url: 'https://images.pexels.com/photos/3735757/pexels-photo-3735757.jpeg',
+    alt: 'Services Aggregate Page Image 2',
+  },
   // Homepage
   {
     key: 'slide1HeroBgDoc',
-    url: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg',
+    url: 'https://images.pexels.com/photos/1871133/pexels-photo-1871133.jpeg',
     alt: 'Slide 1 Hero Background',
   },
   {
     key: 'slide1HeroFeaturedItemDoc',
-    url: 'https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
     alt: 'Slide 1 Hero Featured Item',
   },
   {
     key: 'slide1HeroCard1Doc',
-    url: 'https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://images.pexels.com/photos/15019154/pexels-photo-15019154.jpeg',
     alt: 'Slide 1 Hero Card 1',
   },
   {
     key: 'slide1HeroCard2Doc',
-    url: 'https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg',
+    url: 'https://images.unsplash.com/photo-1704130092069-30ae33e2def0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
     alt: 'Slide 1 Hero Card 2',
   },
   {
     key: 'slide1HeroCard3Doc',
-    url: 'https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://images.pexels.com/photos/8442105/pexels-photo-8442105.jpeg',
     alt: 'Slide 1 Hero Card 3',
   },
   {
     key: 'slide2HeroBgDoc',
-    url: 'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
+    url: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg',
     alt: 'Slide 2 Hero Background',
   },
   {
     key: 'slide2HeroFeaturedItemDoc',
-    url: 'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/60022/microscope-slide-research-close-up-60022.jpeg',
     alt: 'Slide 2 Hero Featured Item',
   },
   {
     key: 'slide2HeroCard1Doc',
-    url: 'https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg',
+    url: 'https://images.unsplash.com/photo-1602052577122-f73b9710adba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
     alt: 'Slide 2 Hero Card 1',
   },
   {
     key: 'slide2HeroCard2Doc',
-    url: 'https://images.pexels.com/photos/5622896/pexels-photo-5622896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/954584/pexels-photo-954584.jpeg',
     alt: 'Slide 2 Hero Card 2',
   },
   {
     key: 'slide2HeroCard3Doc',
-    url: 'https://images.pexels.com/photos/5691520/pexels-photo-5691520.jpeg',
+    url: 'https://images.unsplash.com/photo-1663354876870-6282cb0a8843?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
     alt: 'Slide 2 Hero Card 3',
   },
   {
@@ -175,22 +209,22 @@ const filesToSeed = [
   },
   {
     key: 'slide3HeroFeaturedItemDoc',
-    url: 'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
     alt: 'Slide 3 Hero Featured Item',
   },
   {
     key: 'slide3HeroCard1Doc',
-    url: 'https://images.pexels.com/photos/1206593/pexels-photo-1206593.jpeg',
+    url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
     alt: 'Slide 3 Hero Card 1',
   },
   {
     key: 'slide3HeroCard2Doc',
-    url: 'https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://images.pexels.com/photos/15268778/pexels-photo-15268778.jpeg',
     alt: 'Slide 3 Hero Card 2',
   },
   {
     key: 'slide3HeroCard3Doc',
-    url: 'https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg',
+    url: 'https://images.pexels.com/photos/257738/pexels-photo-257738.jpeg',
     alt: 'Slide 3 Hero Card 3',
   },
   {
@@ -492,6 +526,32 @@ const filesToSeed = [
     url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&h=400&auto=format&fit=crop&ixlib=rb-4.0.3',
     alt: 'Sustainability Focus 4 Image',
   },
+  // Services
+  {
+    key: 'atbelImageDoc',
+    url: 'https://images.pexels.com/photos/60022/microscope-slide-research-close-up-60022.jpeg',
+    alt: 'ATBEL Image',
+  },
+  {
+    key: 'customSynthesisImageDoc',
+    url: 'https://images.unsplash.com/photo-1602052577122-f73b9710adba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'Custom Synthesis Image',
+  },
+  {
+    key: 'researchDevelopmentImageDoc',
+    url: 'https://images.pexels.com/photos/954584/pexels-photo-954584.jpeg',
+    alt: 'Research Development Image',
+  },
+  {
+    key: 'regulatoryTechnicalSupportImageDoc',
+    url: 'https://images.unsplash.com/photo-1663354876870-6282cb0a8843?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'Regulatory Technical Support Image',
+  },
+  {
+    key: 'customCosmeticsManufacturingImageDoc',
+    url: 'https://images.pexels.com/photos/8850984/pexels-photo-8850984.jpeg',
+    alt: 'Custom Cosmetics Manufacturing Image',
+  },
   // Contact Us Page
   {
     key: 'contactUsHeroImageDoc',
@@ -513,6 +573,11 @@ const filesToSeed = [
     key: 'ecovadisImageDoc',
     url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
     alt: 'Ecovadis Medal',
+  },
+  {
+    key: 'vupCosmeticsImageDoc',
+    url: 'https://www.vupcosmetics.sk/pictures/vup_logo.png',
+    alt: 'VUP Cosmetics',
   },
 ]
 

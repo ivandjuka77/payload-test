@@ -19,14 +19,14 @@ export const ContentImage: React.FC<ContentImageBlock> = ({ title, content, imag
               </div>
             </div>
 
-            <div className="relative h-[200px] md:h-[400px] overflow-hidden rounded-lg shadow-md">
-              <Media resource={image} fill imgClassName="h-full w-full object-cover" />
+            <div className="relative h-[200px] md:h-[400px] overflow-hidden rounded-lg">
+              <Media resource={image} fill imgClassName="h-full w-full object-cover rounded-lg" />
             </div>
           </>
         ) : (
           <>
-            <div className="relative h-[200px] md:h-[400px] overflow-hidden rounded-lg shadow-md md:order-first">
-              <Media resource={image} fill imgClassName="h-full w-full object-cover" />
+            <div className="relative h-[200px] md:h-[400px] overflow-hidden rounded-lg md:order-first">
+              <Media resource={image} fill imgClassName="h-full w-full object-cover rounded-lg" />
             </div>
 
             <div className="md:order-last">
