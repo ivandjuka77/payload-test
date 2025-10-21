@@ -138,6 +138,33 @@
       "application": "Aplikácia:"
     }
   },
+  "careers": {
+    "badge": "Príležitosti",
+    "openPositions": {
+      "title": "Voľné pozície",
+      "description": "Pripojte sa k nášmu tímu a staňte sa súčasťou vytvárania inovatívnych chemických riešení pre udržateľnú budúcnosť.",
+      "applyNow": "Prihlásiť sa"
+    },
+    "noPositions": {
+      "title": "Momentálne nemáme žiadne voľné pozície",
+      "description": "Hoci momentálne nemáme žiadne konkrétne voľné miesta, vždy máme záujem o kontakt s talentovanými jednotlivcami. Ak máte vášeň pre chémiu a inovácie, radi by sme sa s vami spojili. Pošlite svoju prihlášku nižšie a my si ju uložíme pre budúce príležitosti."
+    },
+    "applyForm": {
+      "title": "Rýchla prihláška",
+      "fields": {
+        "fullName": "Celé meno *",
+        "email": "Email *",
+        "phone": "Telefón *",
+        "coverLetter": "Motivačný list",
+        "coverLetterPlaceholder": "Stručná správa o vašom záujme o túto pozíciu...",
+        "uploadCV": "Nahrať životopis *",
+        "chooseFile": "Vybrať súbor",
+        "fileInfo": "PDF alebo Word (max 5MB)",
+        "gdprConsent": "Súhlasím so spracovaním mojich osobných údajov pre túto pracovnú prihlášku v súlade s nariadením GDPR."
+      },
+      "submit": "Odoslať prihlášku"
+    }
+  },
   "productTable": {
     "columns": {
       "productName": "Názov produktu",

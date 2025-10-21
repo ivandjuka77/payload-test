@@ -3,9 +3,10 @@ import type { Media } from '@/payload-types'
 interface ContactUsArgs {
   contactForm: number
   heroImage: Media
+  contactUsCastleImage: Media
 }
 
-export function contactUsEn({ contactForm, heroImage }: ContactUsArgs) {
+export function contactUsEn({ contactForm, heroImage, contactUsCastleImage }: ContactUsArgs) {
   return {
     title: 'Contact',
     hero: {
@@ -259,7 +260,8 @@ export function contactUsEn({ contactForm, heroImage }: ContactUsArgs) {
         blockName: null,
         blockType: 'map',
         title: 'Our Location',
-        description: 'Visit us at our office in Prievidza, Slovakia.',
+        description: 'Visit us at our office at Nábrežná 4, 971 04 Prievidza, Slovakia',
+        image: contactUsCastleImage.id,
         iframeUrl:
           'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },
@@ -276,7 +278,7 @@ export function contactUsEn({ contactForm, heroImage }: ContactUsArgs) {
   }
 }
 
-export function contactUsSk({ contactForm, heroImage }: ContactUsArgs) {
+export function contactUsSk({ contactForm, heroImage, contactUsCastleImage }: ContactUsArgs) {
   return {
     title: 'Kontakt',
     hero: {
@@ -530,7 +532,8 @@ export function contactUsSk({ contactForm, heroImage }: ContactUsArgs) {
         blockName: null,
         blockType: 'map',
         title: 'Naša lokalita',
-        description: 'Navštívte nás v našom kancelárii v Prievidzi, Slovensku.',
+        description: 'Navštívte nás v našom kancelárii na Nábrežnej 4, 971 04 Prievidza, Slovensko',
+        image: contactUsCastleImage.id,
         iframeUrl:
           'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },
@@ -547,7 +550,7 @@ export function contactUsSk({ contactForm, heroImage }: ContactUsArgs) {
   }
 }
 
-export function contactUsJp({ contactForm, heroImage }: ContactUsArgs) {
+export function contactUsJp({ contactForm, heroImage, contactUsCastleImage }: ContactUsArgs) {
   return {
     title: 'お問い合わせ',
     hero: {
@@ -801,7 +804,8 @@ export function contactUsJp({ contactForm, heroImage }: ContactUsArgs) {
         blockName: null,
         blockType: 'map',
         title: '私たちの所在地',
-        description: '私たちのオフィスは、日本の東京都にあります。',
+        description: '私たちのオフィスは、Nábrežná 4, 971 04 Prievidza, Slovenskoにあります。',
+        image: contactUsCastleImage.id,
         iframeUrl:
           'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },

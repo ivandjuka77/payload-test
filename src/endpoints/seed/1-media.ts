@@ -120,7 +120,7 @@ const filesToSeed = [
   // About Us Page
   {
     key: 'ceoMessageImageDoc',
-    url: `${NEXT_PUBLIC_SERVER_URL}/assets/roman.jpg`,
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/roman-2.png`,
     alt: 'CEO Message Image',
   },
   {

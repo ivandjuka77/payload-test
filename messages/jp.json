@@ -138,6 +138,33 @@
       "application": "アプリケーション:"
     }
   },
+  "careers": {
+    "badge": "採用情報",
+    "openPositions": {
+      "title": "募集中のポジション",
+      "description": "当社のチームに参加し、持続可能な未来のための革新的な化学ソリューションの創造に携わってください。",
+      "applyNow": "今すぐ応募"
+    },
+    "noPositions": {
+      "title": "現在募集中のポジションはありません",
+      "description": "現在、具体的な求人はございませんが、才能ある方々とのつながりを常に大切にしています。化学とイノベーションに情熱をお持ちでしたら、ぜひご連絡ください。以下から応募書類をお送りいただければ、今後の機会のために保管させていただきます。"
+    },
+    "applyForm": {
+      "title": "簡単応募",
+      "fields": {
+        "fullName": "氏名 *",
+        "email": "メールアドレス *",
+        "phone": "電話番号 *",
+        "coverLetter": "カバーレター",
+        "coverLetterPlaceholder": "このポジションへの関心について簡単なメッセージを入力してください...",
+        "uploadCV": "履歴書をアップロード *",
+        "chooseFile": "ファイルを選択",
+        "fileInfo": "PDFまたはWord（最大5MB）",
+        "gdprConsent": "GDPR規則に従って、この求人応募のために個人データの処理に同意します。"
+      },
+      "submit": "応募を送信"
+    }
+  },
   "productTable": {
     "columns": {
       "productName": "製品名",

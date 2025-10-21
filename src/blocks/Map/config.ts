@@ -31,5 +31,15 @@ export const Map: Block = {
         description: 'Enter the Google Maps embed URL',
       },
     },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      label: 'Map Image',
+      admin: {
+        description: 'Upload an image to display alongside the map',
+      },
+    },
   ],
 }

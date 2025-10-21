@@ -1681,6 +1681,10 @@ export interface MapBlock {
    * Enter the Google Maps embed URL
    */
   iframeUrl: string;
+  /**
+   * Upload an image to display alongside the map
+   */
+  image?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
   blockType: 'map';
@@ -2629,6 +2633,7 @@ export interface MapBlockSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   iframeUrl?: T;
+  image?: T;
   id?: T;
   blockName?: T;
 }

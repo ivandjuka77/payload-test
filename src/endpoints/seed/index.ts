@@ -315,10 +315,10 @@ export const seed = async ({
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
       data: aboutUsPageDataEn({
-        timeline1Image: media.demoImageDoc,
-        timeline2Image: media.demoImageDoc,
-        timeline3Image: media.demoImageDoc,
-        timeline4Image: media.demoImageDoc,
+        timeline1Image: media.aboutUsTimeline1ImageDoc,
+        timeline2Image: media.aboutUsTimeline2ImageDoc,
+        timeline3Image: media.aboutUsTimeline3ImageDoc,
+        timeline4Image: media.aboutUsTimeline4ImageDoc,
         content2Image: media.demoImageDoc,
         rd: teamMembers.rdDoc,
         commercial: teamMembers.commercialDoc,
@@ -337,6 +337,7 @@ export const seed = async ({
       data: contactUsPageDataEn({
         contactForm: forms.contactForm.id,
         heroImage: media.contactUsHeroImageDoc,
+        contactUsCastleImage: media.contactUsCastleImageDoc,
       }),
     }),
   ])
@@ -483,10 +484,10 @@ export const seed = async ({
     depth: 0,
     // @ts-expect-error This is working, but payload is not happy
     data: aboutUsPageDataSk({
-      timeline1Image: media.demoImageDoc,
-      timeline2Image: media.demoImageDoc,
-      timeline3Image: media.demoImageDoc,
-      timeline4Image: media.demoImageDoc,
+      timeline1Image: media.aboutUsTimeline1ImageDoc,
+      timeline2Image: media.aboutUsTimeline2ImageDoc,
+      timeline3Image: media.aboutUsTimeline3ImageDoc,
+      timeline4Image: media.aboutUsTimeline4ImageDoc,
       ceoMessageImage: media.ceoMessageImageDoc,
       content2Image: media.demoImageDoc,
       rd: teamMembers.rdDoc,
@@ -507,6 +508,7 @@ export const seed = async ({
     data: contactUsPageDataSk({
       contactForm: forms.contactForm.id,
       heroImage: media.contactUsHeroImageDoc,
+      contactUsCastleImage: media.contactUsCastleImageDoc,
     }),
   })
 
@@ -653,10 +655,10 @@ export const seed = async ({
     depth: 0,
     // @ts-expect-error This is working, but payload is not happy
     data: aboutUsPageDataJp({
-      timeline1Image: media.demoImageDoc,
-      timeline2Image: media.demoImageDoc,
-      timeline3Image: media.demoImageDoc,
-      timeline4Image: media.demoImageDoc,
+      timeline1Image: media.aboutUsTimeline1ImageDoc,
+      timeline2Image: media.aboutUsTimeline2ImageDoc,
+      timeline3Image: media.aboutUsTimeline3ImageDoc,
+      timeline4Image: media.aboutUsTimeline4ImageDoc,
       ceoMessageImage: media.ceoMessageImageDoc,
       content2Image: media.demoImageDoc,
       rd: teamMembers.rdDoc,
@@ -677,6 +679,7 @@ export const seed = async ({
     data: contactUsPageDataJp({
       contactForm: forms.contactForm.id,
       heroImage: media.contactUsHeroImageDoc,
+      contactUsCastleImage: media.contactUsCastleImageDoc,
     }),
   })
 

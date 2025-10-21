@@ -93,18 +93,18 @@ SERVICES PAGE:
 [x] Add research products to navbar
 
 [x] About fill in ceo message
-[] About us page photos, handshake, novaky, google maps image, something, ecovadis
+[x] About us page photos, handshake, novaky, google maps image, something, ecovadis
 
 [x] Contact Us Page - Change address on map
-[] Contact Us Page - Add address
-[] Contact Us Page - Add 50% castle 50% map
+[x] Contact Us Page - Add address
+[x] Contact Us Page - Add 50% castle 50% map
 
-[] Rainbow color hero try
-
-[] Career - non solicited applications we are taking
+[x] Career - non solicited applications we are taking
 
 [] Add little labels
 
 [] Add TDS/SDS documents
+
+[] Rainbow color hero try
 
 [] About us fix mobile video

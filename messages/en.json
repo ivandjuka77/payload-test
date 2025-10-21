@@ -1,4 +1,31 @@
 {
+  "careers": {
+    "badge": "Opportunities",
+    "openPositions": {
+      "title": "Open Positions",
+      "description": "Join our team and be part of creating innovative chemical solutions for a sustainable future.",
+      "applyNow": "Apply Now"
+    },
+    "noPositions": {
+      "title": "No Open Positions at the Moment",
+      "description": "While we don't have any specific openings right now, we're always interested in connecting with talented individuals. If you're passionate about chemistry and innovation, we'd love to hear from you. Submit your application below and we'll keep it on file for future opportunities."
+    },
+    "applyForm": {
+      "title": "Quick Apply",
+      "fields": {
+        "fullName": "Full Name *",
+        "email": "Email *",
+        "phone": "Phone *",
+        "coverLetter": "Cover Letter",
+        "coverLetterPlaceholder": "Brief message about your interest in this position...",
+        "uploadCV": "Upload CV *",
+        "chooseFile": "Choose File",
+        "fileInfo": "PDF or Word (max 5MB)",
+        "gdprConsent": "I consent to the processing of my personal data for this job application in accordance with GDPR regulations."
+      },
+      "submit": "Submit Application"
+    }
+  },
   "productTable": {
     "columns": {
       "productName": "Product Name",

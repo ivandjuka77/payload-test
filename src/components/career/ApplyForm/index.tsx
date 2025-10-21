@@ -8,36 +8,39 @@ import { Textarea } from '@/components/ui/textarea'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { Upload } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export default function ApplyForm() {
+  const t = useTranslations('careers.applyForm')
+
   return (
     <div className="sticky top-24">
       <Card>
         <CardContent className="p-6">
-          <h3 className="text-xl font-bold font-primary mb-6">Quick Apply</h3>
+          <h3 className="text-xl font-bold font-primary mb-6">{t('title')}</h3>
           <form className="space-y-4">
             <div>
-              <Label htmlFor="quickName">Full Name *</Label>
+              <Label htmlFor="quickName">{t('fields.fullName')}</Label>
               <Input id="quickName" required />
             </div>
             <div>
-              <Label htmlFor="quickEmail">Email *</Label>
+              <Label htmlFor="quickEmail">{t('fields.email')}</Label>
               <Input id="quickEmail" type="email" required />
             </div>
             <div>
-              <Label htmlFor="quickPhone">Phone *</Label>
+              <Label htmlFor="quickPhone">{t('fields.phone')}</Label>
               <Input id="quickPhone" type="tel" required />
             </div>
             <div>
-              <Label htmlFor="quickCoverLetter">Cover Letter</Label>
+              <Label htmlFor="quickCoverLetter">{t('fields.coverLetter')}</Label>
               <Textarea
                 id="quickCoverLetter"
                 rows={3}
-                placeholder="Brief message about your interest in this position..."
+                placeholder={t('fields.coverLetterPlaceholder')}
               />
             </div>
             <div>
-              <Label htmlFor="quickCV">Upload CV *</Label>
+              <Label htmlFor="quickCV">{t('fields.uploadCV')}</Label>
               <div className="mt-2">
                 <Button
                   type="button"
@@ -46,22 +49,21 @@ export default function ApplyForm() {
                   className="w-full flex items-center gap-2"
                 >
                   <Upload className="h-4 w-4" />
-                  Choose File
+                  {t('fields.chooseFile')}
                 </Button>
                 <span className="text-xs text-muted-foreground mt-1 block">
-                  PDF or Word (max 5MB)
+                  {t('fields.fileInfo')}
                 </span>
               </div>
             </div>
             <div className="flex items-start space-x-3">
               <Checkbox id="quickGDPR" />
               <Label htmlFor="quickGDPR" className="text-xs leading-relaxed">
-                I consent to the processing of my personal data for this job application in
-                accordance with GDPR regulations.
+                {t('fields.gdprConsent')}
               </Label>
             </div>
             <Button type="submit" className="w-full">
-              Submit Application
+              {t('submit')}
             </Button>
           </form>
         </CardContent>
