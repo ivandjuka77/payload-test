@@ -47,6 +47,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '1',
         name: 'Hydroxy Acids',
         description:
           'High-purity hydroxy acids including DMPA, DMBA, and HPVA. Essential building blocks for environmentally friendly waterborne systems (PUDs, alkyds, polyesters) and high-performance polymers used in coatings, inks, adhesives, and lubricants.',
@@ -97,6 +98,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '2',
         name: 'Hindered Amines',
         description:
           'High-purity hindered amines with sterically hindered piperidine structure and stable radicals. Essential building blocks for HALS light stabilizers, TEMPO derivatives for selective oxidation, and versatile intermediates for demanding applications.',
@@ -147,6 +149,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '4',
         name: 'Glycol Ethers',
         description:
           'Versatile oxygenated solvents containing both ether and alcohol functional groups. Derived from ethylene or propylene glycol, these compounds excel as coupling agents and solvents across industrial applications.',
@@ -197,6 +200,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '5',
         name: 'Phospholipid Precursors',
         description:
           'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
@@ -247,6 +251,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '6',
         name: 'Polymerisation Inhibitors',
         description:
           'Advanced liquid polymerisation inhibitor formulations, including our VUPIN range based on proven H-TEMPO chemistry, designed to enhance process safety, protect equipment, and ensure product quality in demanding petrochemical applications.',
@@ -297,6 +302,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '7',
         name: 'Specialty Hindered Amines & Derivatives',
         description:
           'VUP leverages extensive R&D expertise to offer specialized derivatives including HALS intermediates, ready-to-use HALS products, and unique functionalized TEMPO derivatives for research and advanced materials.',
@@ -347,6 +353,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '3',
         name: 'Diaminopolyethylene Glycols',
         description:
           'VUP is the unique global producer of high-purity DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
@@ -391,6 +398,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
+        _order: '8',
         name: 'Chromanols & Derivatives',
         description:
           'Potent antioxidants featuring the core structure of Vitamin E, including Trolox and related chromanol derivatives used as research tools, analytical standards, and specialty intermediates.',

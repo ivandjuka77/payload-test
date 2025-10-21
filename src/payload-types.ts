@@ -631,6 +631,7 @@ export interface Industry {
  */
 export interface Service {
   id: number;
+  _order?: string | null;
   title: string;
   description: string;
   accreditations?:
@@ -2961,6 +2962,7 @@ export interface CaseStudiesSelect<T extends boolean = true> {
  * via the `definition` "services_select".
  */
 export interface ServicesSelect<T extends boolean = true> {
+  _order?: T;
   title?: T;
   description?: T;
   accreditations?:

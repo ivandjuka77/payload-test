@@ -71,7 +71,7 @@ export const seedIndustries = async (
       data: {
         name: 'Automotive Industry',
         _status: 'published',
-        _order: '2',
+        _order: '1',
         description:
           'The automotive industry demands materials that deliver superior performance, durability, aesthetics, and meet increasingly strict environmental and safety standards. VUP, a.s. supports automotive manufacturers and suppliers by providing essential chemical intermediates for advanced, low-VOC coatings and high-performance adhesives, specialized cleaning agents for production processes, and tailored analytical testing services that ensure compliance with automotive standards. We partner with the industry to enable innovation in vehicle materials and manufacturing.',
         summary:
@@ -134,7 +134,7 @@ export const seedIndustries = async (
       data: {
         name: 'Coatings, Paints & Inks',
         _status: 'published',
-        _order: '3',
+        _order: '2',
         description:
           'The coatings, paints, and inks industry continuously seeks innovations that enhance performance, durability, and environmental compatibility. Formulators face challenges in meeting stringent regulations (like low VOC targets) while delivering exceptional protection, aesthetics, and functionality. VUP, a.s., leverages over 70 years of chemical expertise to provide essential building blocks like Dimethylolpropionic Acid (DMPA) and the unique Dimethylolbutanoic Acid (DMBA), alongside other key intermediates, enabling the production of advanced waterborne systems and high-performance coatings. As a key European producer, we are your reliable partner for these critical raw materials, supported by robust R&D and regulatory know-how.',
         summary:
@@ -188,7 +188,7 @@ export const seedIndustries = async (
       data: {
         name: 'Polymers & Plastics',
         _status: 'published',
-        _order: '4',
+        _order: '3',
         description:
           'The Polymers & Plastics industry relies on innovative chemistry to create materials with specific functionalities, enhanced durability, and improved processing characteristics. From controlling polymerization reactions to protecting final products from degradation, specialized chemical additives and intermediates play a critical role. VUP, a.s. provides key building blocks, stabilizers (like Hindered Amines/HALS), crosslinkers, and polymerization mediators (like TEMPO), supported by extensive R&D and analytical services, enabling our partners to develop advanced polymer solutions.',
         summary:
@@ -252,7 +252,7 @@ export const seedIndustries = async (
       data: {
         name: 'Adhesives & Sealants',
         _status: 'published',
-        _order: '5',
+        _order: '6',
         description:
           'The Adhesives & Sealants industry demands materials that provide strong, durable bonds, excellent flexibility, and resistance to environmental factors, while increasingly favouring sustainable, low-VOC formulations. VUP, a.s. contributes key chemical intermediates that enable the development of advanced adhesive and sealant systems. We provide specialized building blocks like Dimethylolbutanoic Acid (DMBA) for high-performance waterborne adhesives, Hydroxypivalic Acid (HPVA) derivatives for reactive hot melts, and essential crosslinkers, supporting formulators in meeting performance and regulatory challenges.',
         summary:
@@ -317,7 +317,7 @@ export const seedIndustries = async (
       data: {
         name: 'Pharmaceuticals & Biotechnology',
         _status: 'published',
-        _order: '6',
+        _order: '5',
         description:
           'The Pharmaceutical and Biotechnology sectors demand exceptional purity, innovative chemistry, and strict adherence to regulatory standards. VUP, a.s. partners with companies in these critical industries by providing key chemical intermediates, specialized diagnostic aids, advanced biomedical materials, and expert R&D and custom synthesis services. Leveraging our 70+ years of chemical expertise, ISO 9001:2015 certification, and accredited analytical capabilities, we support the development and production of vital healthcare solutions.',
         summary:
@@ -381,7 +381,7 @@ export const seedIndustries = async (
       data: {
         name: 'Petrochemicals & Refineries',
         _status: 'published',
-        _order: '7',
+        _order: '4',
         description:
           'Born from the Petrochemical Research Institute founded in 1950, VUP, a.s. possesses deep historical roots and extensive expertise in petrochemical science and technology. While not a large-scale refiner, we partner with the Petrochemicals & Refineries sector by providing specialized chemical products (like fuel stabilizers and inhibitors), advanced analytical services, custom synthesis of intermediates, and expert R&D support for process optimization and development. Our commitment to quality (ISO 9001) and safety (Responsible Care) makes us a reliable partner for this demanding industry.',
         summary:
@@ -444,7 +444,7 @@ export const seedIndustries = async (
       data: {
         name: 'Battery & Energy Storage',
         _status: 'published',
-        _order: '8',
+        _order: '7',
         description:
           'The global search for efficient, sustainable, and safe energy storage solutions is driving innovation beyond traditional lithium-ion batteries. Organic Radical Batteries (ORBs) represent a promising frontier, utilizing redox-active organic molecules like TEMPO (2,2,6,6-Tetramethylpiperidinooxy) and its derivatives. VUP, a.s., with its long-standing expertise in the R&D and production of high-purity TEMPO compounds, is positioned to support the development of this next generation of energy storage technology. Our scalable production capabilities and ongoing research efforts aim to provide key materials for ORBs and advanced redox flow batteries.',
         summary:
@@ -501,7 +501,7 @@ export const seedIndustries = async (
     //   data: {
     //     name: 'Building & Construction',
     //     _status: 'published',
-    //     _order: '9',
+    //     _order: '8',
     //     description:
     //       'The Building & Construction industry continuously seeks materials and chemical solutions that improve durability, process efficiency, safety, and sustainability. VUP, a.s. contributes to this sector by providing specialized chemical preparations designed to enhance concrete and plaster properties (VUPPOR, VUPRANYL), improve formwork efficiency (VUPOFORM), and supply key intermediates (DMBA, DMPA) used in high-performance coatings and adhesives essential for modern construction. Our focus is on delivering reliable chemical solutions that add value to building materials and processes.',
     //     summary:

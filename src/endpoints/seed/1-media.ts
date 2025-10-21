@@ -581,7 +581,7 @@ const filesToSeed = [
   },
   {
     key: 'vupCosmeticsImageDoc',
-    url: 'https://www.vupcosmetics.sk/pictures/vup_logo.png',
+    url: 'https://cdn.myshoptet.com/usr/www.vupcosmetics.sk/user/logos/vup-cosmetics-logo.png',
     alt: 'VUP Cosmetics',
   },
 

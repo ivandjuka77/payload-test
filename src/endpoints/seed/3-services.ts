@@ -50,6 +50,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'services',
       data: {
+        _order: '2',
         title: 'Research & Development',
         _status: 'published',
         description:
@@ -288,6 +289,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
       data: {
         title: 'Accredited Analytical, Technical-Safety & Environmental Services',
         _status: 'published',
+        _order: '3',
         description:
           'The ATBEL (Analytical, Technical-Safety, and Environmental Laboratories) division is a specialized testing center within VUP, a.s., providing expert analytical services to both internal R&D projects and external partners. We deliver reliable, accredited results under SNAS Certificate No. S-118 (ISO/IEC 17025) and ISO 9001, ensuring the highest standards of quality and precision. Our services are led by division head Ing. Ľudovít Žiak, PhD.',
         featuredImage: atbelImageDoc.id,
@@ -443,6 +445,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
       data: {
         title: 'Custom Cosmetics Manufacturing',
         _status: 'published',
+        _order: '5',
         description:
           "Leverage VUP's 70+ years of chemical production experience and dedicated cosmetics expertise (since 1990) for your custom cosmetic manufacturing needs.",
         featuredImage: customCosmeticsManufacturingImageDoc.id,
@@ -591,6 +594,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
       collection: 'services',
       data: {
         title: 'Regulatory & Technical Support',
+        _order: '4',
         _status: 'published',
         description:
           'Navigate complex chemical regulations and overcome technical hurdles with expert support combining deep regulatory knowledge and 70+ years of R&D expertise.',
@@ -760,6 +764,7 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
       collection: 'services',
       data: {
         title: 'Custom Synthesis & Manufacturing',
+        _order: '1',
         _status: 'published',
         description:
           'Partner with VUP for expert custom chemical synthesis and reliable small-scale manufacturing in Europe. Complex chemistry, reliably delivered.',

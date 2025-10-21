@@ -89,7 +89,7 @@ SERVICES PAGE:
 
 ---
 
-[] Navbar final ordering
+[x] Navbar final ordering
 [] Add research products to navbar
 
 [] About fill in ceo message
