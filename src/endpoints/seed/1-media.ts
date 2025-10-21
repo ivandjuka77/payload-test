@@ -125,8 +125,28 @@ const filesToSeed = [
   },
   {
     key: 'aboutUsPageImageDoc',
-    url: `${NEXT_PUBLIC_SERVER_URL}/assets/building.jpg`,
+    url: 'https://images.pexels.com/photos/4963437/pexels-photo-4963437.jpeg',
     alt: 'About Us Page Image',
+  },
+  {
+    key: 'aboutUsTimeline1ImageDoc',
+    url: 'https://www.fortischem.sk/wp-content/uploads/2023/06/uvodni-placeholder2.jpg',
+    alt: 'About Us Timeline 1 Image',
+  },
+  {
+    key: 'aboutUsTimeline2ImageDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/building.jpg`,
+    alt: 'About Us Timeline 2 Image',
+  },
+  {
+    key: 'aboutUsTimeline3ImageDoc',
+    url: 'https://images.pexels.com/photos/4963437/pexels-photo-4963437.jpeg',
+    alt: 'About Us Timeline 3 Image',
+  },
+  {
+    key: 'aboutUsTimeline4ImageDoc',
+    url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
+    alt: 'About Us Timeline 4 Image',
   },
   // Career Page
   {

@@ -60,7 +60,7 @@ export function aboutUsEn(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    text: 'At VUP, we stand on decades of know-how and strong international relationships built through real collaboration — with research partners, industrial customers, and technology developers around the world. Our goal is to keep that momentum alive: to channel our scientific experience into innovation, to create distinctive chemical specialties, and to bring original technologies from our laboratories into global practice.',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -80,7 +80,7 @@ export function aboutUsEn(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    text: "Our mission is simple but demanding: to keep pushing our research and production forward through smart, innovative approaches, while holding ourselves to the highest standards in service and delivery. When we do that well, we open new opportunities — for our partners, our people, and the industry we're part of.",
                     type: 'text',
                     style: '',
                     detail: 0,

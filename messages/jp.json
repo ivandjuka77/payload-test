@@ -190,7 +190,8 @@
     },
     "products": {
       "description": "化学製品とソリューションの完全な範囲をご覧ください",
-      "viewAll": "すべての製品を表示"
+      "viewAll": "すべての製品を表示",
+      "researchProducts": "研究用製品を表示"
     },
     "industries": {
       "description": "VUPの化学ソリューションがさまざまな業界にどのようにサービスを提供するかをご覧ください",

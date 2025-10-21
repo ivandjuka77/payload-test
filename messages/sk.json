@@ -190,7 +190,8 @@
     },
     "products": {
       "description": "Objavte náš kompletný sortiment chemických produktov a riešení",
-      "viewAll": "Zobraziť všetky produkty"
+      "viewAll": "Zobraziť všetky produkty",
+      "researchProducts": "Zobraziť výskumné produkty"
     },
     "industries": {
       "description": "Preskúmajte, ako chemické riešenia VUP slúžia rôznym odvetviam",

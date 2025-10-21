@@ -51,7 +51,8 @@
     },
     "products": {
       "description": "Discover our complete range of chemical products and solutions",
-      "viewAll": "View all products"
+      "viewAll": "View all products",
+      "researchProducts": "View research products"
     },
     "industries": {
       "description": "Explore how VUP chemistry solutions serve various industries",

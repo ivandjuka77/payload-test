@@ -90,9 +90,9 @@ SERVICES PAGE:
 ---
 
 [x] Navbar final ordering
-[] Add research products to navbar
+[x] Add research products to navbar
 
-[] About fill in ceo message
+[x] About fill in ceo message
 [] About us page photos, handshake, novaky, google maps image, something, ecovadis
 
 [x] Contact Us Page - Change address on map

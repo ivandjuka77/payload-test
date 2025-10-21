@@ -196,14 +196,25 @@ function ProductsMegaMenu({
       </div>
       <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
         <p className="text-sm text-gray-500">{t('products.description')}</p>
-        <Link
-          href="/products"
-          className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
-          onClick={onClose}
-        >
-          {t('products.viewAll')}
-          <ArrowRight size={14} className="ml-1" />
-        </Link>
+        <div className="flex items-center gap-x-4">
+          <Link
+            href="/research-products"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
+            onClick={onClose}
+          >
+            {t('products.researchProducts')}
+            {/* <ArrowRight size={14} className="ml-1" /> */}
+          </Link>
+          <span className="text-sm text-primary">|</span>
+          <Link
+            href="/products"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
+            onClick={onClose}
+          >
+            {t('products.viewAll')}
+            {/* <ArrowRight size={14} className="ml-1" /> */}
+          </Link>
+        </div>
       </div>
     </div>
   )
