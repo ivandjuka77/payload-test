@@ -337,7 +337,7 @@ export const seed = async ({
       data: contactUsPageDataEn({
         contactForm: forms.contactForm.id,
         heroImage: media.contactUsHeroImageDoc,
-        contactUsCastleImage: media.contactUsCastleImageDoc,
+        contactUsCastleImage: media.contactUsBojniceImageDoc,
       }),
     }),
   ])
@@ -508,7 +508,7 @@ export const seed = async ({
     data: contactUsPageDataSk({
       contactForm: forms.contactForm.id,
       heroImage: media.contactUsHeroImageDoc,
-      contactUsCastleImage: media.contactUsCastleImageDoc,
+      contactUsCastleImage: media.contactUsBojniceImageDoc,
     }),
   })
 
@@ -679,7 +679,7 @@ export const seed = async ({
     data: contactUsPageDataJp({
       contactForm: forms.contactForm.id,
       heroImage: media.contactUsHeroImageDoc,
-      contactUsCastleImage: media.contactUsCastleImageDoc,
+      contactUsCastleImage: media.contactUsBojniceImageDoc,
     }),
   })
 

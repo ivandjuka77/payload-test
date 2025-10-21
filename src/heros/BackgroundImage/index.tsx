@@ -8,7 +8,7 @@ export const BackgroundImage: React.FC<Page['hero']> = (props) => {
   const { media, title, description, cta } = props
 
   return (
-    <section className="relative w-full min-h-[300px] pt-20 md:pt-28 md:min-h-[650px] flex flex-col px-4 sm:px-6 lg:px-0">
+    <section className="relative w-full min-h-[300px] pt-32 md:pt-28 md:min-h-[650px] flex flex-col px-4 sm:px-6 lg:px-0">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Media resource={media} fill imgClassName="object-cover" priority />
@@ -33,10 +33,10 @@ export const BackgroundImage: React.FC<Page['hero']> = (props) => {
       <div className="relative z-10 flex-grow flex items-center px-4 md:px-6">
         <div className="container mx-auto">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-4">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-4">
               {title}
             </h1>
-            <p className="text-lg text-white/90 font-secondary mb-6 max-w-2xl">{description}</p>
+            <p className="text-base text-white/90 font-secondary mb-6 max-w-2xl">{description}</p>
 
             <div className="flex flex-wrap gap-4 mb-6">
               {(cta?.links || []).map(({ link }, i) => {

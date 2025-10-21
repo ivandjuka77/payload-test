@@ -101,9 +101,9 @@ SERVICES PAGE:
 
 [x] Career - non solicited applications we are taking
 
-[] Add little labels
-
 [] Add TDS/SDS documents
+
+[] Add little labels
 
 [] Rainbow color hero try
 
