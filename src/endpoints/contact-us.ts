@@ -261,7 +261,7 @@ export function contactUsEn({ contactForm, heroImage }: ContactUsArgs) {
         title: 'Our Location',
         description: 'Visit us at our office in Prievidza, Slovakia.',
         iframeUrl:
-          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.815044412763!2d18.53389717697093!3d48.709016011206266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dad18f380651%3A0x2a66825a77cb1c39!2sFortischem!5e0!3m2!1sen!2sba!4v1760883460327!5m2!1sen!2sba',
+          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },
     ],
 
@@ -532,7 +532,7 @@ export function contactUsSk({ contactForm, heroImage }: ContactUsArgs) {
         title: 'Naša lokalita',
         description: 'Navštívte nás v našom kancelárii v Prievidzi, Slovensku.',
         iframeUrl:
-          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.815044412763!2d18.53389717697093!3d48.709016011206266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dad18f380651%3A0x2a66825a77cb1c39!2sFortischem!5e0!3m2!1sen!2sba!4v1760883460327!5m2!1sen!2sba',
+          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },
     ],
 
@@ -803,7 +803,7 @@ export function contactUsJp({ contactForm, heroImage }: ContactUsArgs) {
         title: '私たちの所在地',
         description: '私たちのオフィスは、日本の東京都にあります。',
         iframeUrl:
-          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.815044412763!2d18.53389717697093!3d48.709016011206266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dad18f380651%3A0x2a66825a77cb1c39!2sFortischem!5e0!3m2!1sen!2sba!4v1760883460327!5m2!1sen!2sba',
+          'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d265.09821140998235!2d18.61045394607769!3d48.778931950409884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714dce7b63ca459%3A0x60677b6efa52871a!2zOTcxIDA0LCBOw6FicmXFvm7DoSA3NjcvNCwgOTcxIDAxIFByaWV2aWR6YSwgU2xvdmFraWE!5e0!3m2!1sen!2sba!4v1761065252777!5m2!1sen!2sba',
       },
     ],
 

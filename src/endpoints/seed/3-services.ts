@@ -509,36 +509,36 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             ],
             link: 'white-label',
           },
-          {
-            title: 'Private Label Services',
-            description:
-              'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements. Our experienced team utilizes dedicated development laboratories to create tailored formulations incorporating desired ingredients, functions, and market trends such as natural extracts, paraben-free formulations, and hypoallergenic solutions. We provide comprehensive support from initial concept through finished product, including custom packaging solutions and regulatory compliance assistance.',
-            image: CCMServicePageService2Doc.id,
-            displayItems: [
-              { item: 'Custom Formulation Development' },
-              { item: 'Product Range Expertise' },
-              { item: 'Regulatory Compliance Support' },
-              { item: 'Packaging Customization' },
-            ],
-            features: [
-              {
-                feature: 'Expert Formulation Team',
-                description:
-                  'Skilled cosmetic chemists and formulation experts led by experienced professionals creating innovative solutions tailored to your brand vision and target market requirements.',
-              },
-              {
-                feature: 'Comprehensive Product Range',
-                description:
-                  'Proven capability across skin care products, massage oils and gels, medical diagnostic gels, and openness to developing new formulation types based on client needs.',
-              },
-              {
-                feature: 'End-to-End Support',
-                description:
-                  'Complete turnkey solutions from initial formulation through production, packaging, quality control, and regulatory documentation including CPNP notification support.',
-              },
-            ],
-            link: 'private-label',
-          },
+          // {
+          //   title: 'Private Label Services',
+          //   description:
+          //     'Custom formulation and manufacturing of unique cosmetic products based on your specifications and requirements. Our experienced team utilizes dedicated development laboratories to create tailored formulations incorporating desired ingredients, functions, and market trends such as natural extracts, paraben-free formulations, and hypoallergenic solutions. We provide comprehensive support from initial concept through finished product, including custom packaging solutions and regulatory compliance assistance.',
+          //   image: CCMServicePageService2Doc.id,
+          //   displayItems: [
+          //     { item: 'Custom Formulation Development' },
+          //     { item: 'Product Range Expertise' },
+          //     { item: 'Regulatory Compliance Support' },
+          //     { item: 'Packaging Customization' },
+          //   ],
+          //   features: [
+          //     {
+          //       feature: 'Expert Formulation Team',
+          //       description:
+          //         'Skilled cosmetic chemists and formulation experts led by experienced professionals creating innovative solutions tailored to your brand vision and target market requirements.',
+          //     },
+          //     {
+          //       feature: 'Comprehensive Product Range',
+          //       description:
+          //         'Proven capability across skin care products, massage oils and gels, medical diagnostic gels, and openness to developing new formulation types based on client needs.',
+          //     },
+          //     {
+          //       feature: 'End-to-End Support',
+          //       description:
+          //         'Complete turnkey solutions from initial formulation through production, packaging, quality control, and regulatory documentation including CPNP notification support.',
+          //     },
+          //   ],
+          //   link: 'private-label',
+          // },
           {
             title: 'Quality Assurance & Compliance',
             description:
@@ -1366,36 +1366,36 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           ],
           link: 'white-label',
         },
-        {
-          title: 'Služby súkromnej značky',
-          description:
-            'Zákazková formulácia a výroba jedinečných kozmetických produktov na základe vašich špecifikácií a požiadaviek. Náš skúsený tím využíva vyhradené vývojové laboratóriá na vytvorenie prispôsobených formulácií zahŕňajúcich požadované ingrediencie, funkcie a trhové trendy ako prírodné extrakty, formulácie bez parabénov a hypoalergénne riešenia. Poskytujeme komplexnú podporu od počiatočnej koncepcie cez hotový produkt, vrátane zákazkových baliacich riešení a asistencie s regulačnou súladou.',
-          image: CCMServicePageService2Doc.id,
-          displayItems: [
-            { item: 'Vývoj zákazkovej formulácie' },
-            { item: 'Odbornosť produktového sortimentu' },
-            { item: 'Podpora regulačnej súlady' },
-            { item: 'Prispôsobenie balenia' },
-          ],
-          features: [
-            {
-              feature: 'Expertný formulačný tím',
-              description:
-                'Zručný kozmetickí chemici a formulační experti vedení skúsenými profesionálmi vytvárajúci inovačné riešenia prispôsobené vašej vízii značky a požiadavkám cieľového trhu.',
-            },
-            {
-              feature: 'Komplexný produktový sortiment',
-              description:
-                'Overená schopnosť naprieč produktmi starostlivosti o pokožku, masážnymi olejmi a gélmi, medicínskymi diagnostickými gélmi a otvorenosť rozvíjať nové typy formulácií na základe potrieb klientov.',
-            },
-            {
-              feature: 'Podpora od začiatku do konca',
-              description:
-                'Kompletné riešenia na kľúč od počiatočnej formulácie cez výrobu, balenie, kontrolu kvality a regulačnú dokumentáciu vrátane podpory notifikácie CPNP.',
-            },
-          ],
-          link: 'private-label',
-        },
+        // {
+        //   title: 'Služby súkromnej značky',
+        //   description:
+        //     'Zákazková formulácia a výroba jedinečných kozmetických produktov na základe vašich špecifikácií a požiadaviek. Náš skúsený tím využíva vyhradené vývojové laboratóriá na vytvorenie prispôsobených formulácií zahŕňajúcich požadované ingrediencie, funkcie a trhové trendy ako prírodné extrakty, formulácie bez parabénov a hypoalergénne riešenia. Poskytujeme komplexnú podporu od počiatočnej koncepcie cez hotový produkt, vrátane zákazkových baliacich riešení a asistencie s regulačnou súladou.',
+        //   image: CCMServicePageService2Doc.id,
+        //   displayItems: [
+        //     { item: 'Vývoj zákazkovej formulácie' },
+        //     { item: 'Odbornosť produktového sortimentu' },
+        //     { item: 'Podpora regulačnej súlady' },
+        //     { item: 'Prispôsobenie balenia' },
+        //   ],
+        //   features: [
+        //     {
+        //       feature: 'Expertný formulačný tím',
+        //       description:
+        //         'Zručný kozmetickí chemici a formulační experti vedení skúsenými profesionálmi vytvárajúci inovačné riešenia prispôsobené vašej vízii značky a požiadavkám cieľového trhu.',
+        //     },
+        //     {
+        //       feature: 'Komplexný produktový sortiment',
+        //       description:
+        //         'Overená schopnosť naprieč produktmi starostlivosti o pokožku, masážnymi olejmi a gélmi, medicínskymi diagnostickými gélmi a otvorenosť rozvíjať nové typy formulácií na základe potrieb klientov.',
+        //     },
+        //     {
+        //       feature: 'Podpora od začiatku do konca',
+        //       description:
+        //         'Kompletné riešenia na kľúč od počiatočnej formulácie cez výrobu, balenie, kontrolu kvality a regulačnú dokumentáciu vrátane podpory notifikácie CPNP.',
+        //     },
+        //   ],
+        //   link: 'private-label',
+        // },
         {
           title: 'Zabezpečenie kvality a súlada',
           description:
@@ -2222,36 +2222,36 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           ],
           link: 'white-label',
         },
-        {
-          title: 'プライベートラベルサービス',
-          description:
-            'お客様の仕様と要件に基づくユニークな化粧品製品のカスタム処方と製造。経験豊富なチームが専用開発ラボを利用して、天然エキス、パラベンフリー処方、低アレルギー性ソリューションなどの望ましい成分、機能、市場トレンドを組み込んだカスタマイズ処方を作成します。初期コンセプトから完成品まで、カスタム包装ソリューションと規制コンプライアンス支援を含む包括的サポートを提供します。',
-          image: CCMServicePageService2Doc.id,
-          displayItems: [
-            { item: 'カスタム処方開発' },
-            { item: '製品ライン専門知識' },
-            { item: '規制コンプライアンスサポート' },
-            { item: '包装カスタマイゼーション' },
-          ],
-          features: [
-            {
-              feature: '専門処方チーム',
-              description:
-                'ブランドビジョンとターゲット市場要件に合わせた革新的ソリューションを作成する経験豊富な専門家による熟練化粧品化学者と処方専門家。',
-            },
-            {
-              feature: '包括的製品ライン',
-              description:
-                'スキンケア製品、マッサージオイル・ジェル、医療診断ジェルにわたる実証済み能力とクライアントニーズに基づく新しい処方タイプの開発への開放性。',
-            },
-            {
-              feature: 'エンドツーエンドサポート',
-              description:
-                '初期処方から生産、包装、品質管理、CPNP通知サポートを含む規制文書まで、完全なターンキーソリューション。',
-            },
-          ],
-          link: 'private-label',
-        },
+        // {
+        //   title: 'プライベートラベルサービス',
+        //   description:
+        //     'お客様の仕様と要件に基づくユニークな化粧品製品のカスタム処方と製造。経験豊富なチームが専用開発ラボを利用して、天然エキス、パラベンフリー処方、低アレルギー性ソリューションなどの望ましい成分、機能、市場トレンドを組み込んだカスタマイズ処方を作成します。初期コンセプトから完成品まで、カスタム包装ソリューションと規制コンプライアンス支援を含む包括的サポートを提供します。',
+        //   image: CCMServicePageService2Doc.id,
+        //   displayItems: [
+        //     { item: 'カスタム処方開発' },
+        //     { item: '製品ライン専門知識' },
+        //     { item: '規制コンプライアンスサポート' },
+        //     { item: '包装カスタマイゼーション' },
+        //   ],
+        //   features: [
+        //     {
+        //       feature: '専門処方チーム',
+        //       description:
+        //         'ブランドビジョンとターゲット市場要件に合わせた革新的ソリューションを作成する経験豊富な専門家による熟練化粧品化学者と処方専門家。',
+        //     },
+        //     {
+        //       feature: '包括的製品ライン',
+        //       description:
+        //         'スキンケア製品、マッサージオイル・ジェル、医療診断ジェルにわたる実証済み能力とクライアントニーズに基づく新しい処方タイプの開発への開放性。',
+        //     },
+        //     {
+        //       feature: 'エンドツーエンドサポート',
+        //       description:
+        //         '初期処方から生産、包装、品質管理、CPNP通知サポートを含む規制文書まで、完全なターンキーソリューション。',
+        //     },
+        //   ],
+        //   link: 'private-label',
+        // },
         {
           title: '品質保証とコンプライアンス',
           description:

@@ -123,6 +123,11 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/roman.jpg`,
     alt: 'CEO Message Image',
   },
+  {
+    key: 'aboutUsPageImageDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/building.jpg`,
+    alt: 'About Us Page Image',
+  },
   // Career Page
   {
     key: 'careerPageImageDoc',
@@ -654,7 +659,7 @@ const filesToSeed = [
   // Regulatory & Technical Support Service Page
   {
     key: 'RTServicePageService1Doc',
-    url: 'https://images.pexels.com/photos/1764956/pexels-photo-1764956.jpeg',
+    url: 'https://images.pexels.com/photos/8101513/pexels-photo-8101513.jpeg',
     alt: 'RTService Page Service 1 Image',
   },
   {

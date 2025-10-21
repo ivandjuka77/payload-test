@@ -52,6 +52,51 @@ export function sustainabilityEn(args: SustainabilityArgs) {
     },
     layout: [
       {
+        blockName: null,
+        certifications: [
+          {
+            image: badge1.id,
+            title: 'ISO 9001',
+            subtitle: 'Quality Management System',
+            description:
+              'VUP maintains ISO 9001 certification, covering our R&D of chemical processes, chemical specialties, small-scale chemical products, production and sales of cleaning and cosmetic products, analyses, and laboratory testing.',
+          },
+          {
+            image: badge2.id,
+            title: 'Responsible Care®',
+            subtitle: 'Global Chemical Industry Initiative',
+            description:
+              'As a participant in the Responsible Care initiative, VUP is committed to continuously improving our performance in environmental protection, health, safety, and security.',
+          },
+          {
+            image: badge3.id,
+            title: 'SNAS Accreditation',
+            subtitle: 'No. S-118 for ATBEL Labs',
+            description:
+              'Our ATBEL division is accredited by SNAS, confirming the competence and reliability of our testing services according to international standards.',
+          },
+          {
+            image: badge4.id,
+            title: 'R&D Competency Certificate',
+            subtitle: 'Ministry of Education, Slovak Republic',
+            description:
+              "Awarded by the Ministry of Education, Slovak Republic, recognizing VUP's capabilities and expertise in conducting research and development.",
+          },
+        ],
+        featuredCertification: {
+          title: 'EcoVadis Silver Medal',
+          subtitle: 'Top 9% Globally',
+          description:
+            'Awarded the Silver Medal by EcoVadis, placing VUP in the top 9% of companies worldwide within our specialty chemical research and production sector. This rating reflects our advanced practices in Environmental Responsibility, Labor & Human Rights, Ethics, and Sustainable Procurement.',
+          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
+          image: certificateImage1.id,
+        },
+        blockType: 'certifications',
+        title: 'Certified Sustainability Dedication',
+        subtitle:
+          'Our dedication to sustainability and quality is validated by independent assessments and internationally recognized certifications that demonstrate our commitment to responsible manufacturing and business excellence.',
+      },
+      {
         title: 'Our Sustainability Pillars',
         subtitle:
           'Our comprehensive approach to sustainability is built on four fundamental pillars that guide our operations, innovation, and partnerships.',
@@ -204,51 +249,6 @@ export function sustainabilityEn(args: SustainabilityArgs) {
           },
         ],
         blockType: 'verticalCards',
-      },
-      {
-        blockName: null,
-        certifications: [
-          {
-            image: badge1.id,
-            title: 'ISO 9001',
-            subtitle: 'Quality Management System',
-            description:
-              'VUP maintains ISO 9001 certification, covering our R&D of chemical processes, chemical specialties, small-scale chemical products, production and sales of cleaning and cosmetic products, analyses, and laboratory testing.',
-          },
-          {
-            image: badge2.id,
-            title: 'Responsible Care®',
-            subtitle: 'Global Chemical Industry Initiative',
-            description:
-              'As a participant in the Responsible Care initiative, VUP is committed to continuously improving our performance in environmental protection, health, safety, and security.',
-          },
-          {
-            image: badge3.id,
-            title: 'SNAS Accreditation',
-            subtitle: 'No. S-118 for ATBEL Labs',
-            description:
-              'Our ATBEL division is accredited by SNAS, confirming the competence and reliability of our testing services according to international standards.',
-          },
-          {
-            image: badge4.id,
-            title: 'R&D Competency Certificate',
-            subtitle: 'Ministry of Education, Slovak Republic',
-            description:
-              "Awarded by the Ministry of Education, Slovak Republic, recognizing VUP's capabilities and expertise in conducting research and development.",
-          },
-        ],
-        featuredCertification: {
-          title: 'EcoVadis Silver Medal',
-          subtitle: 'Top 9% Globally',
-          description:
-            'Awarded the Silver Medal by EcoVadis, placing VUP in the top 9% of companies worldwide within our specialty chemical research and production sector. This rating reflects our advanced practices in Environmental Responsibility, Labor & Human Rights, Ethics, and Sustainable Procurement.',
-          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
-          image: certificateImage1.id,
-        },
-        blockType: 'certifications',
-        title: 'Certified Sustainability Dedication',
-        subtitle:
-          'Our dedication to sustainability and quality is validated by independent assessments and internationally recognized certifications that demonstrate our commitment to responsible manufacturing and business excellence.',
       },
       {
         badge: 'Strategic Focus Areas',
@@ -498,6 +498,51 @@ export function sustainabilitySk(args: SustainabilityArgs) {
     },
     layout: [
       {
+        blockName: null,
+        certifications: [
+          {
+            image: badge1.id,
+            title: 'ISO 9001',
+            subtitle: 'Systém manažérstva kvality',
+            description:
+              'VUP si udržiava certifikáciu ISO 9001, ktorá pokrýva náš výskum a vývoj chemických procesov, chemických špecialít, malosériových chemických výrobkov, výrobu a predaj čistiacich a kozmetických výrobkov, analýzy a laboratórne testovanie.',
+          },
+          {
+            image: badge2.id,
+            title: 'Responsible Care®',
+            subtitle: 'Globálna iniciatíva chemického priemyslu',
+            description:
+              'Ako účastník iniciatívy Responsible Care sa VUP zaväzuje neustále zlepšovať svoj výkon v oblasti ochrany životného prostredia, zdravia, bezpečnosti a zabezpečenia.',
+          },
+          {
+            image: badge3.id,
+            title: 'Akreditácia SNAS',
+            subtitle: 'č. S-118 pre laboratóriá ATBEL',
+            description:
+              'Naša divízia ATBEL je akreditovaná SNAS, čo potvrdzuje kompetentnosť a spoľahlivosť našich testovacích služieb podľa medzinárodných noriem.',
+          },
+          {
+            image: badge4.id,
+            title: 'Osvedčenie o spôsobilosti na výskum a vývoj',
+            subtitle: 'Ministerstvo školstva, vedy, výskumu a športu SR',
+            description:
+              'Udelené Ministerstvom školstva Slovenskej republiky, uznávajúc schopnosti a odbornosť VUP pri uskutočňovaní výskumu a vývoja.',
+          },
+        ],
+        featuredCertification: {
+          title: 'Strieborná medaila EcoVadis',
+          subtitle: 'Top 9% celosvetovo',
+          description:
+            'Udelená Strieborná medaila od EcoVadis, čím sa VUP zaraďuje medzi 9% najlepších spoločností na svete v našom sektore výskumu a výroby špeciálnych chemikálií. Toto hodnotenie odráža naše pokročilé postupy v oblastiach environmentálnej zodpovednosti, práce a ľudských práv, etiky a udržateľného obstarávania.',
+          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
+          image: certificateImage1.id,
+        },
+        blockType: 'certifications',
+        title: 'Certifikované odhodlanie k udržateľnosti',
+        subtitle:
+          'Naše odhodlanie k udržateľnosti a kvalite je potvrdené nezávislými hodnoteniami a medzinárodne uznávanými certifikátmi, ktoré dokazujú náš záväzok k zodpovednej výrobe a obchodnej excelentnosti.',
+      },
+      {
         title: 'Naše piliere udržateľnosti',
         subtitle:
           'Náš komplexný prístup k udržateľnosti je postavený na štyroch základných pilieroch, ktoré usmerňujú naše operácie, inovácie a partnerstvá.',
@@ -650,51 +695,6 @@ export function sustainabilitySk(args: SustainabilityArgs) {
           },
         ],
         blockType: 'verticalCards',
-      },
-      {
-        blockName: null,
-        certifications: [
-          {
-            image: badge1.id,
-            title: 'ISO 9001',
-            subtitle: 'Systém manažérstva kvality',
-            description:
-              'VUP si udržiava certifikáciu ISO 9001, ktorá pokrýva náš výskum a vývoj chemických procesov, chemických špecialít, malosériových chemických výrobkov, výrobu a predaj čistiacich a kozmetických výrobkov, analýzy a laboratórne testovanie.',
-          },
-          {
-            image: badge2.id,
-            title: 'Responsible Care®',
-            subtitle: 'Globálna iniciatíva chemického priemyslu',
-            description:
-              'Ako účastník iniciatívy Responsible Care sa VUP zaväzuje neustále zlepšovať svoj výkon v oblasti ochrany životného prostredia, zdravia, bezpečnosti a zabezpečenia.',
-          },
-          {
-            image: badge3.id,
-            title: 'Akreditácia SNAS',
-            subtitle: 'č. S-118 pre laboratóriá ATBEL',
-            description:
-              'Naša divízia ATBEL je akreditovaná SNAS, čo potvrdzuje kompetentnosť a spoľahlivosť našich testovacích služieb podľa medzinárodných noriem.',
-          },
-          {
-            image: badge4.id,
-            title: 'Osvedčenie o spôsobilosti na výskum a vývoj',
-            subtitle: 'Ministerstvo školstva, vedy, výskumu a športu SR',
-            description:
-              'Udelené Ministerstvom školstva Slovenskej republiky, uznávajúc schopnosti a odbornosť VUP pri uskutočňovaní výskumu a vývoja.',
-          },
-        ],
-        featuredCertification: {
-          title: 'Strieborná medaila EcoVadis',
-          subtitle: 'Top 9% celosvetovo',
-          description:
-            'Udelená Strieborná medaila od EcoVadis, čím sa VUP zaraďuje medzi 9% najlepších spoločností na svete v našom sektore výskumu a výroby špeciálnych chemikálií. Toto hodnotenie odráža naše pokročilé postupy v oblastiach environmentálnej zodpovednosti, práce a ľudských práv, etiky a udržateľného obstarávania.',
-          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
-          image: certificateImage1.id,
-        },
-        blockType: 'certifications',
-        title: 'Certifikované odhodlanie k udržateľnosti',
-        subtitle:
-          'Naše odhodlanie k udržateľnosti a kvalite je potvrdené nezávislými hodnoteniami a medzinárodne uznávanými certifikátmi, ktoré dokazujú náš záväzok k zodpovednej výrobe a obchodnej excelentnosti.',
       },
       {
         badge: 'Strategické oblasti zamerania',
@@ -944,6 +944,51 @@ export function sustainabilityJp(args: SustainabilityArgs) {
     },
     layout: [
       {
+        blockName: null,
+        certifications: [
+          {
+            image: badge1.id,
+            title: 'ISO 9001',
+            subtitle: '品質マネジメントシステム',
+            description:
+              'VUPは、化学プロセス、特殊化学品、小規模化学製品の研究開発、洗浄・化粧品製品の製造・販売、分析、実験室試験をカバーするISO 9001認証を維持しています。',
+          },
+          {
+            image: badge2.id,
+            title: 'Responsible Care®',
+            subtitle: 'グローバル化学産業イニシアチブ',
+            description:
+              'Responsible Careイニシアチブの参加者として、VUPは環境保護、健康、安全、セキュリティにおけるパフォーマンスを継続的に向上させることにコミットしています。',
+          },
+          {
+            image: badge3.id,
+            title: 'SNAS認定',
+            subtitle: 'ATBELラボ向けS-118号',
+            description:
+              '当社のATBEL部門はSNASによって認定されており、国際基準に従った試験サービスの能力と信頼性を確認しています。',
+          },
+          {
+            image: badge4.id,
+            title: '研究開発能力証明書',
+            subtitle: 'スロバキア共和国教育省',
+            description:
+              'スロバキア共和国教育省から授与され、研究開発を行うVUPの能力と専門知識を認めています。',
+          },
+        ],
+        featuredCertification: {
+          title: 'エコバディスシルバーメダル',
+          subtitle: '世界の上位9%',
+          description:
+            'エコバディスからシルバーメダルを授与され、VUPは特殊化学品の研究・生産分野において世界の上位9%に位置づけられました。この評価は、環境責任、労働と人権、倫理、持続可能な調達における当社の先進的な実践を反映しています。',
+          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
+          image: certificateImage1.id,
+        },
+        blockType: 'certifications',
+        title: '認証されたサステナビリティへの貢献',
+        subtitle:
+          'サステナビリティと品質への当社の献身は、責任ある製造とビジネスエクセレンスへのコミットメントを証明する、独立した評価と国際的に認められた認証によって検証されています。',
+      },
+      {
         title: 'サステナビリティの柱',
         subtitle:
           '当社のサステナビリティへの包括的なアプローチは、当社の事業、イノベーション、パートナーシップを導く4つの基本の柱に基づいています。',
@@ -1096,51 +1141,6 @@ export function sustainabilityJp(args: SustainabilityArgs) {
           },
         ],
         blockType: 'verticalCards',
-      },
-      {
-        blockName: null,
-        certifications: [
-          {
-            image: badge1.id,
-            title: 'ISO 9001',
-            subtitle: '品質マネジメントシステム',
-            description:
-              'VUPは、化学プロセス、特殊化学品、小規模化学製品の研究開発、洗浄・化粧品製品の製造・販売、分析、実験室試験をカバーするISO 9001認証を維持しています。',
-          },
-          {
-            image: badge2.id,
-            title: 'Responsible Care®',
-            subtitle: 'グローバル化学産業イニシアチブ',
-            description:
-              'Responsible Careイニシアチブの参加者として、VUPは環境保護、健康、安全、セキュリティにおけるパフォーマンスを継続的に向上させることにコミットしています。',
-          },
-          {
-            image: badge3.id,
-            title: 'SNAS認定',
-            subtitle: 'ATBELラボ向けS-118号',
-            description:
-              '当社のATBEL部門はSNASによって認定されており、国際基準に従った試験サービスの能力と信頼性を確認しています。',
-          },
-          {
-            image: badge4.id,
-            title: '研究開発能力証明書',
-            subtitle: 'スロバキア共和国教育省',
-            description:
-              'スロバキア共和国教育省から授与され、研究開発を行うVUPの能力と専門知識を認めています。',
-          },
-        ],
-        featuredCertification: {
-          title: 'エコバディスシルバーメダル',
-          subtitle: '世界の上位9%',
-          description:
-            'エコバディスからシルバーメダルを授与され、VUPは特殊化学品の研究・生産分野において世界の上位9%に位置づけられました。この評価は、環境責任、労働と人権、倫理、持続可能な調達における当社の先進的な実践を反映しています。',
-          articleLink: 'news/vup-ecovadis-silver-sustainability-award',
-          image: certificateImage1.id,
-        },
-        blockType: 'certifications',
-        title: '認証されたサステナビリティへの貢献',
-        subtitle:
-          'サステナビリティと品質への当社の献身は、責任ある製造とビジネスエクセレンスへのコミットメントを証明する、独立した評価と国際的に認められた認証によって検証されています。',
       },
       {
         badge: '戦略的重点分野',

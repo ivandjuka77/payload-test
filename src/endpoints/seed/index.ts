@@ -325,6 +325,7 @@ export const seed = async ({
         atbel: teamMembers.atbelDoc,
         cosmetics: teamMembers.cosmeticsDoc,
         ceoMessageImage: media.ceoMessageImageDoc,
+        aboutUsPageImage: media.aboutUsPageImageDoc,
       }),
     }),
 
@@ -492,6 +493,7 @@ export const seed = async ({
       commercial: teamMembers.commercialDoc,
       atbel: teamMembers.atbelDoc,
       cosmetics: teamMembers.cosmeticsDoc,
+      aboutUsPageImage: media.aboutUsPageImageDoc,
     }),
   })
 
@@ -661,6 +663,7 @@ export const seed = async ({
       commercial: teamMembers.commercialDoc,
       atbel: teamMembers.atbelDoc,
       cosmetics: teamMembers.cosmeticsDoc,
+      aboutUsPageImage: media.aboutUsPageImageDoc,
     }),
   })
 
@@ -837,14 +840,14 @@ export const seed = async ({
               },
             },
 
-            {
-              link: {
-                type: 'custom',
-                newTab: true,
-                url: 'https://www.chemox.sk/',
-                label: 'Chemox',
-              },
-            },
+            // {
+            //   link: {
+            //     type: 'custom',
+            //     newTab: true,
+            //     url: 'https://www.chemox.sk/',
+            //     label: 'Chemox',
+            //   },
+            // },
 
             {
               link: {

@@ -64,7 +64,6 @@ CAREER PAGE:
 
 PRODUCTS PAGE:
 
-[] Add TDS/SDS documents
 [x] Key applications and benefits will go only to main products. Other products will have the details in the FAQ.
 
 ---
@@ -84,9 +83,28 @@ SERVICES PAGE:
 
 [x] Add Forbes article
 [] Try out the atoms/branching out hero image idea
-[] About us fix mobile video
 [x] Finish up assets
 [x] Disable building construction industry
 [x] Research and development products
 
 ---
+
+[] Navbar final ordering
+[] Add research products to navbar
+
+[] About fill in ceo message
+[] About us page photos, handshake, novaky, google maps image, something, ecovadis
+
+[x] Contact Us Page - Change address on map
+[] Contact Us Page - Add address
+[] Contact Us Page - Add 50% castle 50% map
+
+[] Rainbow color hero try
+
+[] Career - non solicited applications we are taking
+
+[] Add little labels
+
+[] Add TDS/SDS documents
+
+[] About us fix mobile video

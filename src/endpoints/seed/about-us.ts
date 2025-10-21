@@ -11,6 +11,7 @@ type AboutUsArgs = {
   atbel: TeamMember
   cosmetics: TeamMember
   ceoMessageImage: Media
+  aboutUsPageImage: Media
 }
 
 export function aboutUsEn(args: AboutUsArgs) {
@@ -25,6 +26,7 @@ export function aboutUsEn(args: AboutUsArgs) {
     atbel,
     cosmetics,
     ceoMessageImage,
+    aboutUsPageImage,
   } = args
 
   return {
@@ -282,7 +284,7 @@ export function aboutUsEn(args: AboutUsArgs) {
             textFormat: 1,
           },
         },
-        image: content2Image.id,
+        image: aboutUsPageImage.id,
         blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',
