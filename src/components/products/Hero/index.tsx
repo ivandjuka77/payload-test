@@ -5,6 +5,8 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowRight } from 'lucide-react'
 import { Product } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { ProductInquiryModal } from '@/components/ProductInquiryModal'
 
 type Props = {
   product: Product
@@ -59,14 +61,16 @@ export function ProductHero({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-white flex-1"
-                onClick={() =>
-                  document.getElementById('inquiry-form')?.scrollIntoView({ behavior: 'smooth' })
-                }
-              >
-                {cta} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="bg-primary hover:bg-primary/90 text-white flex-1">
+                    {cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="w-full !max-w-[90vw] md:!max-w-[70vw] rounded-md">
+                  <ProductInquiryModal product={product} />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 

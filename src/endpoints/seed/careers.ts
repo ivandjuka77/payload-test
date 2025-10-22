@@ -2,9 +2,10 @@ import type { Media } from '@/payload-types'
 
 type CareersArgs = {
   featuredImage1: Media
+  careerApplicationForm: string
 }
 
-export function careersEn({ featuredImage1 }: CareersArgs) {
+export function careersEn({ featuredImage1, careerApplicationForm }: CareersArgs) {
   return {
     title: 'Career',
     hero: {

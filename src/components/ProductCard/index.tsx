@@ -1,3 +1,5 @@
+'use client'
+
 import Tag from '@/components/ui/tag'
 import { Check, Beaker, ArrowUpRight, CheckCircle, Atom, FlaskConical } from 'lucide-react'
 import Link from 'next/link'

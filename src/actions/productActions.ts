@@ -51,6 +51,14 @@ interface ContactFormData {
   message: string
 }
 
+interface CareerApplicationData {
+  fullName: string
+  email: string
+  phone: string
+  coverLetter?: string
+  gdprConsent: boolean
+}
+
 export async function fetchFilteredProductsAction(
   criteria: FilterCriteria,
 ): Promise<PaginatedResult> {
@@ -371,7 +379,7 @@ export async function submitContactForm(
     ]
 
     // Create the form submission
-    const submission = await payload.create({
+    await payload.create({
       collection: 'form-submissions',
       data: {
         form: formId,
@@ -389,6 +397,64 @@ export async function submitContactForm(
       success: false,
       message:
         'There was an error submitting your message. Please try again or contact us directly.',
+    }
+  }
+}
+
+export async function submitCareerApplication(
+  applicationData: CareerApplicationData,
+): Promise<{ success: boolean; message: string }> {
+  const payload = await getPayload({ config: configPromise })
+
+  try {
+    // Find the career application form (should exist from seeding)
+    const careerForm = await payload.find({
+      collection: 'forms',
+      where: {
+        title: { equals: 'Career Application Form' },
+      },
+    })
+
+    if (careerForm.docs.length === 0) {
+      throw new Error(
+        'Career Application Form not found. Please ensure the database has been seeded.',
+      )
+    }
+
+    const formId = careerForm.docs[0].id
+
+    // Create the form submission data
+    const submissionData = [
+      { field: 'fullName', value: applicationData.fullName },
+      { field: 'email', value: applicationData.email },
+      { field: 'phone', value: applicationData.phone },
+      { field: 'gdprConsent', value: applicationData.gdprConsent.toString() },
+    ]
+
+    // Add optional cover letter if provided
+    if (applicationData.coverLetter) {
+      submissionData.push({ field: 'coverLetter', value: applicationData.coverLetter })
+    }
+
+    // Create the form submission
+    await payload.create({
+      collection: 'form-submissions',
+      data: {
+        form: formId,
+        submissionData,
+      },
+    })
+
+    return {
+      success: true,
+      message: 'Application submitted successfully! We will review it and get back to you soon.',
+    }
+  } catch (error) {
+    console.error('Error submitting career application:', error)
+    return {
+      success: false,
+      message:
+        'There was an error submitting your application. Please try again or contact us directly.',
     }
   }
 }

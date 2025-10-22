@@ -115,8 +115,8 @@ SERVICES PAGE:
 [x] Is Key Product
 [x] key product assets
 
-[] SEO
-[] Check forms
+[x] SEO
+[x] Check forms
 [] About us fix mobile video
 
 [] Add little labels

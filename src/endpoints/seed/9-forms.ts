@@ -208,7 +208,6 @@ export const seedForms = async (payload: Payload) => {
     id: contactFormDoc.id,
     locale: 'sk',
     data: {
-      title: 'Kontaktný formulár',
       submitButtonLabel: 'Odoslať správu',
       confirmationMessage: {
         root: {
@@ -276,7 +275,6 @@ export const seedForms = async (payload: Payload) => {
     id: contactFormDoc.id,
     locale: 'jp',
     data: {
-      title: 'お問い合わせフォーム',
       submitButtonLabel: 'メッセージを送信',
       confirmationMessage: {
         root: {
@@ -694,7 +692,6 @@ export const seedForms = async (payload: Payload) => {
     id: productInquiryForm.id,
     locale: 'sk',
     data: {
-      title: 'Formulár pre dopyt na produkt',
       submitButtonLabel: 'Odoslať dopyt',
       confirmationMessage: {
         root: {
@@ -785,7 +782,6 @@ export const seedForms = async (payload: Payload) => {
     id: productInquiryForm.id,
     locale: 'jp',
     data: {
-      title: '製品お問い合わせフォーム',
       submitButtonLabel: '問い合わせを送信',
       confirmationMessage: {
         root: {
@@ -868,10 +864,370 @@ export const seedForms = async (payload: Payload) => {
 
   payload.logger.info('✓ Product Inquiry Form (jp) localization added.')
 
+  // Create Career Application Form
+  const careerApplicationForm = await payload.create({
+    collection: 'forms',
+    data: {
+      title: 'Career Application Form',
+      submitButtonLabel: 'Submit Application',
+      confirmationType: 'message',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  detail: 0,
+                  format: 0,
+                  mode: 'normal',
+                  style: '',
+                  text: 'Thank you for your application. We will review it and get back to you soon.',
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      fields: [
+        {
+          name: 'fullName',
+          blockName: 'fullName',
+          blockType: 'text',
+          label: 'Full Name',
+          required: true,
+          width: 100,
+        },
+        {
+          name: 'email',
+          blockName: 'email',
+          blockType: 'email',
+          label: 'Email',
+          required: true,
+          width: 50,
+        },
+        {
+          name: 'phone',
+          blockName: 'phone',
+          blockType: 'text',
+          label: 'Phone',
+          required: true,
+          width: 50,
+        },
+        {
+          name: 'coverLetter',
+          blockName: 'coverLetter',
+          blockType: 'textarea',
+          label: 'Cover Letter',
+          required: false,
+          width: 100,
+        },
+        {
+          name: 'gdprConsent',
+          blockName: 'gdprConsent',
+          blockType: 'checkbox',
+          label: 'I agree to the processing of my personal data',
+          required: true,
+          width: 100,
+        },
+      ],
+      emails: [
+        {
+          emailTo: 'hr@vupas.sk',
+          emailFrom: '"VUP Careers" <noreply@vupas.sk>',
+          subject: 'New Career Application - {{fullName}}',
+          message: {
+            root: {
+              type: 'root',
+              children: [
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 1,
+                      mode: 'normal',
+                      style: '',
+                      text: 'New Career Application Received',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'A new career application has been submitted through the website.',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 1,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Applicant Information:',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Name: {{fullName}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Email: {{email}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Phone: {{phone}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 1,
+                      mode: 'normal',
+                      style: '',
+                      text: 'Cover Letter:',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+                {
+                  type: 'paragraph',
+                  children: [
+                    {
+                      type: 'text',
+                      detail: 0,
+                      format: 0,
+                      mode: 'normal',
+                      style: '',
+                      text: '{{coverLetter}}',
+                      version: 1,
+                    },
+                  ],
+                  direction: 'ltr',
+                  format: '',
+                  indent: 0,
+                  version: 1,
+                },
+              ],
+              direction: 'ltr',
+              format: '',
+              indent: 0,
+              version: 1,
+            },
+          },
+        },
+      ],
+    },
+  })
+
+  payload.logger.info(`✓ Career Application Form created with ID: ${careerApplicationForm.id}`)
+
+  // -------------------------------------------------------------------
+  // Add Career Application Form Slovak (sk) localization
+  // -------------------------------------------------------------------
+  await payload.update({
+    collection: 'forms',
+    id: careerApplicationForm.id,
+    locale: 'sk',
+    data: {
+      submitButtonLabel: 'Odoslať prihlášku',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'Ďakujeme za vašu prihlášku. Preskúmame ju a čoskoro sa vám ozveme.',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          name: 'fullName',
+          blockType: 'text',
+          label: 'Celé meno',
+        },
+        {
+          name: 'email',
+          blockType: 'email',
+          label: 'E-mail',
+        },
+        {
+          name: 'phone',
+          blockType: 'text',
+          label: 'Telefón',
+        },
+        {
+          name: 'coverLetter',
+          blockType: 'textarea',
+          label: 'Motivačný list',
+        },
+        {
+          name: 'gdprConsent',
+          blockType: 'checkbox',
+          label: 'Súhlasím so spracovaním mojich osobných údajov',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Career Application Form (sk) localization added.')
+
+  // -------------------------------------------------------------------
+  // Add Career Application Form Japanese (jp) localization
+  // -------------------------------------------------------------------
+  await payload.update({
+    collection: 'forms',
+    id: careerApplicationForm.id,
+    locale: 'jp',
+    data: {
+      submitButtonLabel: '応募を送信',
+      confirmationMessage: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: 'ご応募ありがとうございます。審査の上、追ってご連絡いたします。',
+                },
+              ],
+            },
+          ],
+        },
+      },
+      fields: [
+        {
+          name: 'fullName',
+          blockType: 'text',
+          label: '氏名',
+        },
+        {
+          name: 'email',
+          blockType: 'email',
+          label: 'メールアドレス',
+        },
+        {
+          name: 'phone',
+          blockType: 'text',
+          label: '電話番号',
+        },
+        {
+          name: 'coverLetter',
+          blockType: 'textarea',
+          label: 'カバーレター',
+        },
+        {
+          name: 'gdprConsent',
+          blockType: 'checkbox',
+          label: '個人情報の処理に同意します',
+        },
+      ],
+    },
+  })
+
+  payload.logger.info('✓ Career Application Form (jp) localization added.')
+
   payload.logger.info('✓ Forms seeded')
 
   return {
     productInquiryForm,
     contactForm: contactFormDoc,
+    careerApplicationForm,
   }
 }
