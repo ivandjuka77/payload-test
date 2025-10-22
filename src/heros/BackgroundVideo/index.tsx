@@ -8,10 +8,14 @@ import heroVideo from '/videos/vup-about.mp4'
 export const BackgroundVideo: React.FC<Page['hero']> = (props) => {
   const { title, description, cta } = props
   const videoSrc = heroVideo
+  const mobileImageSrc =
+    'https://www.fortischem.sk/wp-content/uploads/2023/06/uvodni-placeholder2.jpg'
 
   return (
     <section className="relative w-full overflow-hidden min-h-[70vh] pt-20 md:pt-28 flex flex-col">
       <div className="absolute inset-0 z-0">
+        {/* --- Desktop Video --- */}
+        {/* Hidden by default (mobile), shown on 'md' screens and up */}
         <Video
           src={videoSrc}
           autoPlay
@@ -19,8 +23,17 @@ export const BackgroundVideo: React.FC<Page['hero']> = (props) => {
           loop
           playsInline
           controls={false}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover !hidden lg:!grid "
         />
+
+        {/* --- Mobile Image --- */}
+        {/* Shown by default (mobile), hidden on 'md' screens and up */}
+        <div
+          className="w-full h-full bg-cover bg-center lg:hidden"
+          style={{ backgroundImage: `url(${mobileImageSrc})` }}
+        ></div>
+
+        {/* --- Overlays (apply to both) --- */}
         <div className="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent"></div>
 
@@ -37,7 +50,8 @@ export const BackgroundVideo: React.FC<Page['hero']> = (props) => {
           ></div>
         </div>
       </div>
-      {/* Main Hero Content */}
+
+      {/* --- Main Hero Content --- */}
       <div className="relative z-10 flex-grow flex items-center px-4 md:px-6">
         <div className="container mx-auto">
           <div className="max-w-3xl">
