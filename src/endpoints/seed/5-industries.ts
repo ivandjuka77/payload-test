@@ -84,7 +84,7 @@ export const seedIndustries = async (
             challenge:
               'Developing durable, high-performance, and environmentally compliant coatings (primers, basecoats, clearcoats) for vehicle bodies and components.',
             solution:
-              'We supply key raw materials essential for modern automotive coatings. DMPA (CAS 4767-03-7) and DMBA (CAS 10097-02-6) are critical for producing waterborne Polyurethane Dispersions (PUDs) and polyester/alkyd resins used in eco-friendly, low-VOC automotive paints, contributing to excellent finish quality. HPVA (CAS 4835-90-9), particularly via its derivative HPN, is used in primers and solvent-borne paints to enhance properties like chip resistance. These methylolalkanoic acids are vital components for prime autocoatings.',
+              'We produce and supply key intermediates for coatings manufaturers and similar companies. DMPA (CAS 4767-03-7) and DMBA (CAS 10097-02-6) are critical for producing waterborne Polyurethane Dispersions (PUDs) and polyester/alkyd resins used in eco-friendly, low-VOC automotive paints, contributing to excellent finish quality. HPVA (CAS 4835-90-9), particularly via its derivative HPN, is used in primers and solvent-borne paints to enhance properties like chip resistance. These methylolalkanoic acids are vital components for prime autocoatings.',
             image: automotiveChallenge1Doc.id,
             challengeLink: 'advanced-automotive-coatings',
             relatedProducts: [dmpa.id, dmba.id, hpva.id],
@@ -225,7 +225,7 @@ export const seedIndustries = async (
             challenge:
               'Formulating high-performance polyurethanes (dispersions, elastomers, adhesives) requires specific intermediates to impart desired properties like water dispersibility, flexibility, and adhesion.',
             solution:
-              "We provide key methylolalkanoic acids DMPA (CAS 4767-03-7) and DMBA (CAS 10097-02-6), essential for creating stable waterborne PUDs with enhanced performance. HPVA serves as an intermediate for durable polyester and polyurethane resins. Trimethylolethane (TME, CAS 77-85-0) offers an alternative polyol building block. Additionally, O,O'-Bis(3-aminopropyl)polyethyleneglycol can be used as a reactive component to impart flexibility and hydrophilicity.",
+              "We provide key methylolalkanoic acids DMPA (CAS 4767-03-7) and DMBA (CAS 10097-02-6), essential for creating stable waterborne PUDs with enhanced performance. HPVA serves as an intermediate for durable polyester and polyurethane resins. O,O'-Bis(3-aminopropyl)polyethyleneglycol can be used as a reactive component to impart flexibility and hydrophilicity.",
             image: polymersChallenge3Doc.id,
             challengeLink: 'polyurethane-building-blocks',
             relatedProducts: [dmpa.id, dmba.id, hpva.id],
@@ -237,7 +237,7 @@ export const seedIndustries = async (
             challenge:
               'Improving the mechanical strength, thermal stability, elasticity, and chemical resistance of polymers often involves creating crosslinked networks within the material.',
             solution:
-              'We offer crosslinking agents such as Tetravup (VUP Brand) and Adipic acid dihydrazide. These multifunctional molecules react with polymer chains to enhance structural integrity and performance characteristics critical for demanding applications in adhesives, coatings, elastomers, and plastics.',
+              'We offer crosslinking agents such as Adipic acid dihydrazide. These multifunctional molecules react with polymer chains to enhance structural integrity and performance characteristics critical for demanding applications in adhesives, coatings, elastomers, and plastics.',
             image: polymersChallenge4Doc.id,
             challengeLink: 'crosslinking',
             relatedServices: [researchDevelopment.id, analyticalTesting.id],
@@ -331,7 +331,7 @@ export const seedIndustries = async (
             challenge:
               'Sourcing high-purity, reliably supplied raw materials and intermediates is crucial for Active Pharmaceutical Ingredient (API) manufacturing.',
             solution:
-              "We specialize in the production of TEMPO (CAS 2564-83-2) and related nitroxide radicals, which serve as versatile catalysts, antioxidants, and raw materials, including use in APIs targeting Parkinson's disease. VUP's Custom Synthesis service provides tailored production of other complex organic intermediates needed for drug development pipelines, backed by robust quality control.",
+              "We specialize in the production of TEMPO (CAS 2564-83-2) and related nitroxide radicals, which serve as versatile catalysts, antioxidants, and raw materials. VUP's Custom Synthesis service provides tailored production of other complex organic intermediates needed for drug development pipelines, backed by robust quality control.",
             image: pharmaChallenge1Doc.id,
             challengeLink: 'api-synthesis',
             relatedProducts: [tempo.id, hTempo.id],
@@ -581,7 +581,7 @@ export const seedIndustries = async (
             challenge:
               'Vývoj odolných, vysokovýkonných a ekologicky vyhovujúcich náterov (základné nátery, vrchné nátery, laky) pre karosérie a komponenty vozidiel.',
             solution:
-              'Dodávame kľúčové suroviny nevyhnutné pre moderné automobilové nátery. DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6) sú kritické pre výrobu vodou riediteľných polyuretánových disperzií (PUD) a polyesterových/alkydových živíc používaných v ekologických automobilových farbách s nízkym obsahom VOC, ktoré prispievajú k vynikajúcej kvalite povrchovej úpravy. HPVA (CAS 4835-90-9), najmä prostredníctvom svojho derivátu HPN, sa používa v základných náteroch a rozpúšťadlových farbách na zlepšenie vlastností, ako je odolnosť proti odštiepeniu. Tieto metylolalkánové kyseliny sú životne dôležitými zložkami pre prvotriedne automobilové nátery.',
+              'Výroba a dodávame kľúčové medziprodukty pre výrobcov náterov a podobných spoločností. DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6) sú kritické pre výrobu vodou riediteľných polyuretánových disperzií (PUD) a polyesterových/alkydových živíc používaných v ekologických automobilových farbách s nízkym obsahom VOC, ktoré prispievajú k vynikajúcej kvalite povrchovej úpravy. HPVA (CAS 4835-90-9), najmä prostredníctvom svojho derivátu HPN, sa používa v základných náteroch a rozpúšťadlových farbách na zlepšenie vlastností, ako je odolnosť proti odštiepeniu. Tieto metylolalkánové kyseliny sú životne dôležitými zložkami pre prvotriedne automobilové nátery.',
             image: automotiveChallenge1Doc.id,
           },
           {
@@ -685,7 +685,7 @@ export const seedIndustries = async (
             challenge:
               'Formulácia vysokovýkonných polyuretánov (disperzií, elastomérov, lepidiel) si vyžaduje špecifické medziprodukty na dodanie požadovaných vlastností, ako je dispergovateľnosť vo vode, flexibilita a priľnavosť.',
             solution:
-              "Poskytujeme kľúčové metylolalkánové kyseliny DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6), ktoré sú nevyhnutné pre vytváranie stabilných vodou riediteľných PUD s vylepšeným výkonom. HPVA slúži ako medziprodukt pre odolné polyesterové a polyuretánové živice. Trimetylolétán (TME, CAS 77-85-0) ponúka alternatívny polyolový stavebný blok. Okrem toho, O,O'-Bis(3-aminopropyl)polyetylénglykol sa môže použiť ako reaktívna zložka na dodanie flexibility a hydrofilnosti.",
+              "Poskytujeme kľúčové metylolalkánové kyseliny DMPA (CAS 4767-03-7) a DMBA (CAS 10097-02-6), ktoré sú nevyhnutné pre vytváranie stabilných vodou riediteľných PUD s vylepšeným výkonom. HPVA slúži ako medziprodukt pre odolné polyesterové a polyuretánové živice. O,O'-Bis(3-aminopropyl)polyetylénglykol sa môže použiť ako reaktívna zložka na dodanie flexibility a hydrofilnosti.",
             image: polymersChallenge3Doc.id,
           },
           {
@@ -693,7 +693,7 @@ export const seedIndustries = async (
             challenge:
               'Zlepšenie mechanickej pevnosti, tepelnej stability, elasticity a chemickej odolnosti polymérov často zahŕňa vytváranie zosieťovaných sietí v materiáli.',
             solution:
-              'Ponúkame zosieťovacie činidlá ako Tetravup (značka VUP) a dihydrazid kyseliny adipovej. Tieto multifunkčné molekuly reagujú s polymérnymi reťazcami na zlepšenie štrukturálnej integrity a výkonnostných charakteristík kritických pre náročné aplikácie v lepidlách, náteroch, elastoméroch a plastoch.',
+              'Ponúkame zosieťovacie činidlá ako dihydrazid kyseliny adipovej. Tieto multifunkčné molekuly reagujú s polymérnymi reťazcami na zlepšenie štrukturálnej integrity a výkonnostných charakteristík kritických pre náročné aplikácie v lepidlách, náteroch, elastoméroch a plastoch.',
             image: polymersChallenge4Doc.id,
           },
         ],
@@ -765,7 +765,7 @@ export const seedIndustries = async (
             challenge:
               'Získavanie vysoko čistých, spoľahlivo dodávaných surovín a medziproduktov je kľúčové pre výrobu aktívnych farmaceutických zložiek (API).',
             solution:
-              'Špecializujeme sa na výrobu TEMPO (CAS 2564-83-2) a príbuzných nitroxidových radikálov, ktoré slúžia ako všestranné katalyzátory, antioxidanty a suroviny, vrátane použitia v API zameraných na Parkinsonovu chorobu. Služba Zákazkovej syntézy od VUP poskytuje na mieru šitú výrobu ďalších komplexných organických medziproduktov potrebných pre vývojové pipeline liekov, podloženú robustnou kontrolou kvality.',
+              'Špecializujeme sa na výrobu TEMPO (CAS 2564-83-2) a príbuzných nitroxidových radikálov, ktoré slúžia ako všestranné katalyzátory, antioxidanty a suroviny. Služba Zákazkovej syntézy od VUP poskytuje na mieru šitú výrobu ďalších komplexných organických medziproduktov potrebných pre vývojové pipeline liekov, podloženú robustnou kontrolou kvality.',
             image: pharmaChallenge1Doc.id,
           },
           {
@@ -953,7 +953,7 @@ export const seedIndustries = async (
             challenge:
               '車体および部品向けに、耐久性、高性能、環境対応性に優れたコーティング（プライマー、ベースコート、クリアコート）を開発すること。',
             solution:
-              '現代の自動車用コーティングに不可欠な主要原料を供給しています。DMPA（CAS 4767-03-7）およびDMBA（CAS 10097-02-6）は、環境に優しい低VOC自動車用塗料に使用される水性ポリウレタンディスパージョン（PUD）およびポリエステル/アルキド樹脂の製造に不可欠であり、優れた仕上げ品質に貢献します。HPVA（CAS 4835-90-9）は、特にその誘導体であるHPNを介して、プライマーや溶剤系塗料に使用され、耐チップ性などの特性を向上させます。これらのメチロールアルカン酸は、最高級の自動車用コーティングに不可欠な成分です。',
+              '現代の自動車用コーティングに不可欠な主要原料を供給しています。 DMPA（CAS 4767-03-7）およびDMBA（CAS 10097-02-6）は、環境に優しい低VOC自動車用塗料に使用される水性ポリウレタンディスパージョン（PUD）およびポリエステル/アルキド樹脂の製造に不可欠であり、優れた仕上げ品質に貢献します。HPVA（CAS 4835-90-9）は、特にその誘導体であるHPNを介して、プライマーや溶剤系塗料に使用され、耐チップ性などの特性を向上させます。これらのメチロールアルカン酸は、最高級の自動車用コーティングに不可欠な成分です。',
             image: automotiveChallenge1Doc.id,
           },
           {
@@ -1057,7 +1057,7 @@ export const seedIndustries = async (
             challenge:
               '高性能ポリウレタン（ディスパージョン、エラストマー、接着剤）を配合するには、水分散性、柔軟性、接着性などの所望の特性を付与するための特定の中間体が必要です。',
             solution:
-              "安定した高性能な水性PUDを創出するために不可欠な、主要なメチロールアルカン酸であるDMPA（CAS 4767-03-7）とDMBA（CAS 10097-02-6）を提供します。HPVAは耐久性のあるポリエステルおよびポリウレタン樹脂の中間体として機能します。トリメチロールエタン（TME, CAS 77-85-0）は代替のポリオール構成単位を提供します。さらに、O,O'-ビス(3-アミノプロピル)ポリエチレングリコールは、柔軟性と親水性を付与する反応性成分として使用できます。",
+              "安定した高性能な水性PUDを創出するために不可欠な、主要なメチロールアルカン酸であるDMPA（CAS 4767-03-7）とDMBA（CAS 10097-02-6）を提供します。HPVAは耐久性のあるポリエステルおよびポリウレタン樹脂の中間体として機能します。トリメチロールエタン さらに、O,O'-ビス(3-アミノプロピル)ポリエチレングリコールは、柔軟性と親水性を付与する反応性成分として使用できます。",
             image: polymersChallenge3Doc.id,
           },
           {
@@ -1065,7 +1065,7 @@ export const seedIndustries = async (
             challenge:
               'ポリマーの機械的強度、熱安定性、弾性、および耐薬品性を向上させるには、材料内に架橋ネットワークを形成することがしばしば含まれます。',
             solution:
-              'Tetravup（VUPブランド）やアジピン酸ジヒドラジドなどの架橋剤を提供しています。これらの多機能分子はポリマー鎖と反応し、接着剤、コーティング、エラストマー、プラスチックなどの要求の厳しい用途に不可欠な構造的完全性と性能特性を向上させます。',
+              'やアジピン酸ジヒドラジドなどの架橋剤を提供しています。これらの多機能分子はポリマー鎖と反応し、接着剤、コーティング、エラストマー、プラスチックなどの要求の厳しい用途に不可欠な構造的完全性と性能特性を向上させます。',
             image: polymersChallenge4Doc.id,
           },
         ],
@@ -1137,7 +1137,7 @@ export const seedIndustries = async (
             challenge:
               '原薬（API）製造には、高純度で信頼性の高い供給が可能な原材料と中間体の調達が不可欠です。',
             solution:
-              '当社は、TEMPO（CAS 2564-83-2）および関連するニトロキシドラジカルの製造を専門としています。これらは多目的な触媒、抗酸化剤、原料として機能し、パーキンソン病を対象とするAPIにも使用されます。VUPのカスタム合成サービスは、堅牢な品質管理に裏打ちされた、医薬品開発パイプラインに必要な他の複雑な有機中間体の特注生産を提供します。',
+              '当社は、TEMPO（CAS 2564-83-2）および関連するニトロキシドラジカルの製造を専門としています。これらは多目的な触媒、抗酸化剤、原料として機能します。VUPのカスタム合成サービスは、堅牢な品質管理に裏打ちされた、医薬品開発パイプラインに必要な他の複雑な有機中間体の特注生産を提供します。',
             image: pharmaChallenge1Doc.id,
           },
           {

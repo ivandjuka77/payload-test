@@ -1608,7 +1608,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           appearance: 'Orange or reddish-orange crystalline solid/powder',
           purity: '≥98.0 % wt',
         },
-        chemicalFamily: [hinderedAmines],
+        chemicalFamily: [hinderedAmines, polymerisationInhibitors],
         applications: [
           {
             application: 'Polymerization Inhibitor Synthesis',
@@ -2050,7 +2050,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           {
             question: 'Does VUP produce TEMP at commercial scale?',
             answer:
-              'VUP has documented pilot plant capacity (25 t/yr) for TEMP production. Contact VUP to discuss availability for your required volumes.',
+              'VUP has documented pilot plant capacity for TEMP production. Contact VUP to discuss availability for your required volumes.',
           },
           {
             question: 'What makes VUP TEMP suitable for HALS synthesis?',
@@ -3696,7 +3696,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           purity: 'min. 95.0 % wt',
           solubility: 'Soluble in organic solvents, limited water solubility',
         },
-        chemicalFamily: [hinderedAmines],
+        chemicalFamily: [specialtyHinderedAmines],
         applications: [
           {
             application: 'Protein Spin Labeling',
@@ -3811,7 +3811,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           purity: 'Research grade',
           solubility: 'Soluble in organic solvents, insoluble in water',
         },
-        chemicalFamily: [hinderedAmines],
+        chemicalFamily: [specialtyHinderedAmines],
         applications: [
           {
             application: 'Radical Scavenging Standards',
@@ -5220,7 +5220,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           {
             question: 'Vyrába VUP TEMP v komerčnom meradle?',
             answer:
-              'VUP má dokumentovanú kapacitu pilotného zariadenia (25 t/rok) na výrobu TEMP. Kontaktujte VUP na diskusiu o dostupnosti pre vaše požadované objemy.',
+              'VUP má dokumentovanú kapacitu pilotného zariadenia na výrobu TEMP. Kontaktujte VUP na diskusiu o dostupnosti pre vaše požadované objemy.',
           },
           {
             question: 'Čo robí VUP TEMP vhodným pre syntézu HALS?',

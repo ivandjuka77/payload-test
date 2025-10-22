@@ -26,9 +26,10 @@ export default function ProductCard({
 
   if (variant === 'horizontal') {
     return (
-      <div
+      <Link
+        href={`/products/${product.slug}`}
         key={product.id}
-        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300"
+        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block"
       >
         <div className="flex flex-col-reverse lg:flex-row h-full">
           {/* Content section */}
@@ -94,7 +95,10 @@ export default function ProductCard({
             {/* Action Buttons */}
             <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
               <Dialog>
-                <DialogTrigger className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base">
+                <DialogTrigger
+                  onClick={(e) => e.preventDefault()}
+                  className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base"
+                >
                   {t('requestQuote')}
                   <ArrowUpRight className="h-4 w-4" />
                 </DialogTrigger>
@@ -103,14 +107,12 @@ export default function ProductCard({
                 </DialogContent>
               </Dialog>
 
-              <Link href={`/products/${product.slug}`} className="w-full xs:w-fit">
-                <Button
-                  variant="outline"
-                  className="w-full xs:w-auto px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base"
-                >
-                  {t('viewDetails')}
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="w-full xs:w-auto px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base"
+              >
+                {t('viewDetails')}
+              </Button>
             </div>
           </div>
 
@@ -132,15 +134,16 @@ export default function ProductCard({
             </Tag>
           </div>
         </div>
-      </div>
+      </Link>
     )
   }
 
   // Original vertical layout for 'default' and 'compact' variants
   return (
-    <div
+    <Link
+      href={`/products/${product.slug}`}
       key={product.id}
-      className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
+      className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full cursor-pointer"
     >
       <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-b from-gray-300 to-white overflow-hidden flex items-center justify-center">
         {product.chemicalStructureImage && (
@@ -228,7 +231,10 @@ export default function ProductCard({
 
         <div className="flex flex-col sm:flex-row w-full items-center gap-2 mt-auto">
           <Dialog>
-            <DialogTrigger className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-xs sm:text-sm px-2 sm:w-3/5 truncate">
+            <DialogTrigger
+              onClick={(e) => e.preventDefault()}
+              className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-xs sm:text-sm px-2 sm:w-3/5 truncate"
+            >
               <span className="truncate">{t('requestQuote')}</span>
               <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2 flex-shrink-0" />
             </DialogTrigger>
@@ -237,13 +243,11 @@ export default function ProductCard({
             </DialogContent>
           </Dialog>
 
-          <Link href={`/products/${product.slug}`} className="w-full sm:w-2/5">
-            <Button variant="outline" className="w-full text-xs sm:text-sm px-2 truncate">
-              <span className="truncate">{t('viewDetails')}</span>
-            </Button>
-          </Link>
+          <Button variant="outline" className="w-full sm:w-2/5 text-xs sm:text-sm px-2 truncate">
+            <span className="truncate">{t('viewDetails')}</span>
+          </Button>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

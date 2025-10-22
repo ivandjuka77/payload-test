@@ -30,7 +30,6 @@ type HomeArgs = {
   post1: Post
   post2: Post
   post3: Post
-  post4: Post
   // Sustainability
   sustainabilitydemoImageDoc: Media
 }
@@ -62,7 +61,6 @@ export function homeEn(args: HomeArgs) {
     post1,
     post2,
     post3,
-    post4,
     sustainabilitydemoImageDoc,
   } = args
 
@@ -75,13 +73,13 @@ export function homeEn(args: HomeArgs) {
       slides: [
         {
           title: 'Chemical Specialties Production',
-          subtitle: 'High-quality chemical products manufactured to the highest standards',
+          subtitle:
+            'VUP produces high‑purity chemical intermediates used by coatings, adhesives and polymer manufacturers.',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
               title: 'Hindered Amines',
-              description:
-                'Advanced stabilizers for polymers, coatings, and industrial applications',
+              description: 'precursors for HALS stabilizers and oxidation catalysts',
               image: slide1HeroCard1Doc,
               links: [
                 {
@@ -96,7 +94,8 @@ export function homeEn(args: HomeArgs) {
             },
             {
               title: 'Polymerisation Inhibitors',
-              description: 'Essential solutions for refining, filtration, and process optimization',
+              description:
+                'VUP supplies 4‑Hydroxy‑TEMPO, a stable nitroxyl radical used by polymer manufacturers and refiners as a polymerisation inhibitor for monomer storage and transport.',
               image: slide1HeroCard2Doc,
               links: [
                 {
@@ -110,7 +109,7 @@ export function homeEn(args: HomeArgs) {
               ],
             },
             {
-              title: 'DAPEG',
+              title: 'Diaminopolyethylene glycols',
               description:
                 'Diaminopolyethylene glycols for biomedical and surface modification applications',
               image: slide1HeroCard3Doc,
@@ -133,7 +132,7 @@ export function homeEn(args: HomeArgs) {
           featuredItem: {
             title: 'Hydroxy Acids',
             description:
-              'High-purity DMPA, DMBA, and HPVA for automotive, coatings, and advanced material applications.',
+              'DMPA, DMBA and HPVA are high‑purity hydroxy acids used to synthesize waterborne polyurethane dispersions and durable polyester resins for coatings, inks and adhesives',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
@@ -444,7 +443,7 @@ export function homeEn(args: HomeArgs) {
           "Stay updated with VUP's latest achievements, innovations, and industry insights.",
         badge: 'Latest Updates',
         linkLabel: 'View all news and publications',
-        items: [post1, post2, post3, post4],
+        items: [post1, post2, post3],
       },
       {
         title: 'Our Path to Sustainable Excellence',
@@ -618,7 +617,6 @@ export function homeSk(args: HomeArgs) {
     post1,
     post2,
     post3,
-    post4,
     sustainabilitydemoImageDoc,
   } = args
 
@@ -631,12 +629,13 @@ export function homeSk(args: HomeArgs) {
       slides: [
         {
           title: 'Výroba chemických špecialít',
-          subtitle: 'Vysoko kvalitné chemické výrobky vyrábané podľa najvyšších štandardov',
+          subtitle:
+            'VUP vyrába vysoko čisté chemické intermediáty používané nátery, lepidlá a polymerovými výrobcami.',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
               title: 'HALS (Hindered Amines)',
-              description: 'Pokročilé stabilizátory pre polyméry, nátery a priemyselné aplikácie',
+              description: 'precursors for HALS stabilizers and oxidation catalysts',
               image: slide1HeroCard1Doc,
               links: [
                 {
@@ -651,7 +650,8 @@ export function homeSk(args: HomeArgs) {
             },
             {
               title: 'Inhibítory polymerizácie',
-              description: 'Základné riešenia pre rafináciu, filtráciu a optimalizáciu procesov',
+              description:
+                'VUP dodáva 4‑Hydroxy‑TEMPO, stabilný nitroxylový radikál používaný výrobcami polymérov a rafinérmi ako inhibítor polymerizácie pre skladovanie a transport monomerov.',
               image: slide1HeroCard2Doc,
               links: [
                 {
@@ -665,7 +665,7 @@ export function homeSk(args: HomeArgs) {
               ],
             },
             {
-              title: 'DAPEG',
+              title: 'Diaminopolyethylene glycols',
               description:
                 'Diaminopolyetylénglykoly pre biomedicínske aplikácie a povrchové úpravy',
               image: slide1HeroCard3Doc,
@@ -688,7 +688,7 @@ export function homeSk(args: HomeArgs) {
           featuredItem: {
             title: 'Hydroxykyseliny',
             description:
-              'Vysoko čisté DMPA, DMBA a HPVA pre automobilový priemysel, nátery a pokročilé materiálové aplikácie.',
+              'DMPA, DMBA a HPVA sú vysoko čisté hydroxykyseliny používané na syntézu vodou riediteľných polyuretánových disperzií a odolných polyesterových živíc pre nátery, tlačiarenské farby a lepidlá',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
@@ -999,7 +999,7 @@ export function homeSk(args: HomeArgs) {
           'Zostaňte informovaní o najnovších úspechoch, inováciách a postrehoch z odvetvia spoločnosti VUP.',
         badge: 'Najnovšie aktualizácie',
         linkLabel: 'Zobraziť všetky novinky a publikácie',
-        items: [post1, post2, post3, post4],
+        items: [post1, post2, post3],
       },
       {
         title: 'Naša cesta k udržateľnej excelentnosti',
@@ -1173,7 +1173,6 @@ export function homeJp(args: HomeArgs) {
     post1,
     post2,
     post3,
-    post4,
     sustainabilitydemoImageDoc,
   } = args
 
@@ -1186,12 +1185,13 @@ export function homeJp(args: HomeArgs) {
       slides: [
         {
           title: '特殊化学品製造',
-          subtitle: '最高水準で製造された高品質な化学製品',
+          subtitle:
+            'VUPは、塗料、接着剤、ポリマー製造業者が使用する高純度化学中間体を製造しています。',
           backgroundImage: slide1HeroBgDoc,
           featuredCards: [
             {
               title: 'ヒンダードアミン',
-              description: 'ポリマー、コーティング、産業用途向けの高性能安定剤',
+              description: 'HALS安定剤と酸化触媒の前駆体',
               image: slide1HeroCard1Doc,
               links: [
                 {
@@ -1206,7 +1206,8 @@ export function homeJp(args: HomeArgs) {
             },
             {
               title: '重合禁止剤',
-              description: '精製、ろ過、プロセス最適化に不可欠なソリューション',
+              description:
+                'VUPは、4‑Hydroxy‑TEMPOを提供します。これは、ポリマー製造業者と精製業者がモノマーの保管と輸送のための抑制剤として使用する安定したニトロキルラジカルです。',
               image: slide1HeroCard2Doc,
               links: [
                 {
@@ -1220,7 +1221,7 @@ export function homeJp(args: HomeArgs) {
               ],
             },
             {
-              title: 'DAPEG',
+              title: 'ジアミノポリエチレングリコール',
               description: '生物医学および表面改質用途向けのジアミノポリエチレングリコール',
               image: slide1HeroCard3Doc,
               links: [
@@ -1241,7 +1242,8 @@ export function homeJp(args: HomeArgs) {
           },
           featuredItem: {
             title: 'ヒドロキシ酸',
-            description: '自動車、コーティング、先端材料用途向けの高純度DMPA、DMBA、HPVA。',
+            description:
+              'DMPA、DMBA、HPVAは、コーティング、インク、接着剤用の水性ポリウレタン分散液と耐久性ポリエステル樹脂の合成に使用される高純度ヒドロキシ酸です',
             image: slide1HeroFeaturedItemDoc,
             links: [
               {
@@ -1544,7 +1546,7 @@ export function homeJp(args: HomeArgs) {
           'VUPの最新の成果、イノベーション、業界の洞察について最新情報を入手してください。',
         badge: '最新情報',
         linkLabel: 'すべてのニュースと出版物を見る',
-        items: [post1, post2, post3, post4],
+        items: [post1, post2, post3],
       },
       {
         title: '持続可能な卓越性への道',

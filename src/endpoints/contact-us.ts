@@ -130,11 +130,11 @@ export function contactUsEn({ contactForm, heroImage, contactUsCastleImage }: Co
 
           emails: [
             {
-              emailTo: 'contact@vupchemicals.com',
+              emailTo: 'vup@vupas.sk',
               cc: null,
               bcc: null,
               replyTo: null,
-              emailFrom: 'noreply@vupchemicals.com',
+              emailFrom: 'vup@vupas.sk',
               subject: 'New Contact Form Submission - {{subject}}',
 
               message: {
@@ -402,11 +402,11 @@ export function contactUsSk({ contactForm, heroImage, contactUsCastleImage }: Co
 
           emails: [
             {
-              emailTo: 'contact@vupchemicals.com',
+              emailTo: 'vup@vupas.sk',
               cc: null,
               bcc: null,
               replyTo: null,
-              emailFrom: 'noreply@vupchemicals.com',
+              emailFrom: 'vup@vupas.sk',
               subject: 'New Contact Form Submission - {{subject}}',
 
               message: {
@@ -674,11 +674,11 @@ export function contactUsJp({ contactForm, heroImage, contactUsCastleImage }: Co
 
           emails: [
             {
-              emailTo: 'contact@vupchemicals.com',
+              emailTo: 'vup@vupas.sk',
               cc: null,
               bcc: null,
               replyTo: null,
-              emailFrom: 'noreply@vupchemicals.com',
+              emailFrom: 'vup@vupas.sk',
               subject: 'New Contact Form Submission - {{subject}}',
 
               message: {

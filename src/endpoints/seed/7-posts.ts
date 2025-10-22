@@ -41,14 +41,14 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
     data: post2({ featuredImage: vupCosmeticsImageDoc, author: demoAuthor }),
   })
 
-  const post3Doc = await payload.create({
-    collection: 'posts',
-    depth: 10,
-    context: {
-      disableRevalidate: true,
-    },
-    data: post3({ featuredImage: image3Doc, contentImage: demoImageDoc, author: demoAuthor }),
-  })
+  // const post3Doc = await payload.create({
+  //   collection: 'posts',
+  //   depth: 10,
+  //   context: {
+  //     disableRevalidate: true,
+  //   },
+  //   data: post3({ featuredImage: image3Doc, contentImage: demoImageDoc, author: demoAuthor }),
+  // })
 
   const post4Doc = await payload.create({
     collection: 'posts',
@@ -97,7 +97,7 @@ export const seedPosts = async (payload: Payload, media: SeededMedia, demoAuthor
   return {
     post1Doc,
     post2Doc,
-    post3Doc,
+    // post3Doc,
     post4Doc,
   }
 }

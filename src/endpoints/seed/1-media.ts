@@ -35,6 +35,12 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/ecovadis.png`,
     alt: 'Ecovadis Medal',
   },
+  // Products Page
+  {
+    key: 'productsPageImageDoc',
+    url: 'https://plus.unsplash.com/premium_photo-1663039952394-00e73f235728?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UGhhcm1hY2V1dGljYWwlMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww',
+    alt: 'Products Page Image',
+  },
   // Product Structures
   {
     key: 'dmpaStructureDoc',
@@ -140,7 +146,7 @@ const filesToSeed = [
   },
   {
     key: 'aboutUsTimeline3ImageDoc',
-    url: 'https://images.pexels.com/photos/4963437/pexels-photo-4963437.jpeg',
+    url: 'https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
     alt: 'About Us Timeline 3 Image',
   },
   {

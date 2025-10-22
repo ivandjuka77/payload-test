@@ -23,7 +23,6 @@ export async function generateStaticParams() {
     draft: false,
     limit: 1000,
     overrideAccess: false,
-    pagination: false,
     select: {
       slug: true,
     },
@@ -36,8 +35,6 @@ export async function generateStaticParams() {
       slug,
     }))
   })
-
-  console.log('Services', params.length)
 
   return params
 }

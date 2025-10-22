@@ -60,7 +60,7 @@ export function aboutUsEn(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'At VUP, we stand on decades of know-how and strong international relationships built through real collaboration — with research partners, industrial customers, and technology developers around the world. Our goal is to keep that momentum alive: to channel our scientific experience into innovation, to create distinctive chemical specialties, and to bring original technologies from our laboratories into global practice.',
+                    text: '"At VUP, we stand on decades of know-how and strong international relationships built through real collaboration — with research partners, industrial customers, and technology developers around the world. Our goal is to keep that momentum alive: to channel our scientific experience into innovation, to create distinctive chemical specialties, and to bring original technologies from our laboratories into global practice.',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -80,7 +80,7 @@ export function aboutUsEn(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: "Our mission is simple but demanding: to keep pushing our research and production forward through smart, innovative approaches, while holding ourselves to the highest standards in service and delivery. When we do that well, we open new opportunities — for our partners, our people, and the industry we're part of.",
+                    text: 'Our mission is simple but demanding: to keep pushing our research and production forward through smart, innovative approaches, while holding ourselves to the highest standards in service and delivery. When we do that well, we open new opportunities — for our partners, our people, and the industry we are part of."',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -91,6 +91,54 @@ export function aboutUsEn(args: AboutUsArgs) {
                 direction: 'ltr',
                 textStyle: '',
                 textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: '- Roman Karlubík, CEO of VUP, a.s. , ',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 2,
+                    version: 1,
+                  },
+
+                  {
+                    type: 'link',
+
+                    fields: {
+                      url: 'https://www.linkedin.com/in/roman-karlubik-754a69170/',
+                      newTab: true,
+                      linkType: 'custom',
+                    },
+                    format: '',
+                    indent: 0,
+                    version: 3,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'LinkedIn',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 2,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 2,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 2,
               },
             ],
             direction: 'ltr',
@@ -586,7 +634,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    text: '"Vo VUP stojíme na desaťročiach know-how a silných medzinárodných vzťahoch vybudovaných prostredníctvom skutočnej spolupráce — s výskumnými partnermi, priemyselnými zákazníkmi a vývojármi technológií po celom svete. Naším cieľom je udržať túto dynamiku: smerovať naše vedecké skúsenosti do inovácií, vytvárať výnimočné chemické špeciality a prinášať originálne technológie z našich laboratórií do globálnej praxe.',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -606,7 +654,7 @@ export function aboutUsSk(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    text: 'Naša misia je jednoduchá, ale náročná: neustále posúvať náš výskum a výrobu vpred prostredníctvom inteligentných, inovatívnych prístupov, pričom si udržiavame najvyššie štandardy v službách a dodávkach. Keď to robíme dobre, otvárame nové príležitosti — pre našich partnerov, našich ľudí a odvetvie, ktorého sme súčasťou."',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -617,6 +665,54 @@ export function aboutUsSk(args: AboutUsArgs) {
                 direction: 'ltr',
                 textStyle: '',
                 textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: '- Roman Karlubík, generálny riaditeľ VUP, a.s. , ',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 2,
+                    version: 1,
+                  },
+
+                  {
+                    type: 'link',
+
+                    fields: {
+                      url: 'https://www.linkedin.com/in/roman-karlubik-754a69170/',
+                      newTab: true,
+                      linkType: 'custom',
+                    },
+                    format: '',
+                    indent: 0,
+                    version: 3,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'LinkedIn',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 2,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 2,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 2,
               },
             ],
             direction: 'ltr',
@@ -1097,7 +1193,7 @@ export function aboutUsJp(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                    text: '「VUPでは、世界中の研究パートナー、産業顧客、技術開発者との真の協力によって築かれた数十年のノウハウと強固な国際関係を基盤としています。私たちの目標は、その勢いを維持し続けることです。科学的経験をイノベーションに活かし、独特な化学特殊品を創造し、研究所からのオリジナル技術を世界的な実践に導入することです。',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -1117,7 +1213,7 @@ export function aboutUsJp(args: AboutUsArgs) {
                 children: [
                   {
                     mode: 'normal',
-                    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    text: '私たちの使命はシンプルですが要求の高いものです。スマートで革新的なアプローチを通じて研究と生産を前進させ続けながら、サービスとデリバリーにおいて最高水準を維持することです。それを上手く実行できれば、新たな機会を開くことができます。パートナー、従業員、そして私たちが属する業界のために。」',
                     type: 'text',
                     style: '',
                     detail: 0,
@@ -1128,6 +1224,54 @@ export function aboutUsJp(args: AboutUsArgs) {
                 direction: 'ltr',
                 textStyle: '',
                 textFormat: 0,
+              },
+              {
+                type: 'paragraph',
+                format: '',
+                indent: 0,
+                version: 1,
+
+                children: [
+                  {
+                    mode: 'normal',
+                    text: '- ローマン・カルルビーク、VUP, a.s. CEO、',
+                    type: 'text',
+                    style: '',
+                    detail: 0,
+                    format: 2,
+                    version: 1,
+                  },
+
+                  {
+                    type: 'link',
+
+                    fields: {
+                      url: 'https://www.linkedin.com/in/roman-karlubik-754a69170/',
+                      newTab: true,
+                      linkType: 'custom',
+                    },
+                    format: '',
+                    indent: 0,
+                    version: 3,
+
+                    children: [
+                      {
+                        mode: 'normal',
+                        text: 'LinkedIn',
+                        type: 'text',
+                        style: '',
+                        detail: 0,
+                        format: 2,
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    textFormat: 2,
+                  },
+                ],
+                direction: 'ltr',
+                textStyle: '',
+                textFormat: 2,
               },
             ],
             direction: 'ltr',

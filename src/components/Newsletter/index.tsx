@@ -34,7 +34,7 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
   const socialLinks = [
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/company/vup',
+      href: 'https://www.linkedin.com/company/vupas/',
       label: 'LinkedIn',
       description: t('social.linkedin.description'),
       extendedDescription: t('social.linkedin.extendedDescription'),

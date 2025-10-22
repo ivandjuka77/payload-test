@@ -41,7 +41,7 @@ export const seedForms = async (payload: Payload) => {
       },
       emails: [
         {
-          emailTo: 'contact@vupchemicals.com',
+          emailTo: 'vup@vupas.sk',
           emailFrom: 'noreply@vupchemicals.com',
           subject: 'New Contact Form Submission - {{subject}}',
           message: {

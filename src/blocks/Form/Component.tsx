@@ -168,10 +168,10 @@ export const FormBlock: React.FC<
                           {t('companyInfo.email.label')}
                         </h4>
                         <a
-                          href="mailto:info@vupinternational.com"
+                          href="mailto:vup@vupas.sk"
                           className="text-sm text-slate-600 hover:text-primary transition-colors break-all font-secondary"
                         >
-                          info@vupinternational.com
+                          vup@vupas.sk
                         </a>
                       </div>
                     </div>

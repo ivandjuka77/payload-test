@@ -228,7 +228,7 @@ export const seed = async ({
         post1: posts.post4Doc,
         post2: posts.post1Doc,
         post3: posts.post2Doc,
-        post4: posts.post3Doc,
+        // post4: posts.post3Doc,
         sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
       }),
     }),
@@ -238,7 +238,7 @@ export const seed = async ({
       locale: 'en',
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
-      data: productsPageDataEn({ featuredImage1: media.demoImageDoc }),
+      data: productsPageDataEn({ featuredImage1: media.productsPageImageDoc }),
     }),
 
     payload.create({
@@ -269,7 +269,7 @@ export const seed = async ({
       depth: 0,
       // @ts-expect-error This is working, but payload is not happy
       data: researchProductsPageDataEn({
-        heroImage: media.demoImageDoc,
+        heroImage: media.productsPageImageDoc,
         products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
       }),
     }),
@@ -377,7 +377,7 @@ export const seed = async ({
         post1: posts.post4Doc,
         post2: posts.post1Doc,
         post3: posts.post2Doc,
-        post4: posts.post3Doc,
+        // post4: posts.post3Doc,
         sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
       }),
     }),
@@ -390,7 +390,7 @@ export const seed = async ({
       id: productsPage.id,
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
-      data: productsPageDataSk({ featuredImage1: media.demoImageDoc }),
+      data: productsPageDataSk({ featuredImage1: media.productsPageImageDoc }),
     }),
   ])
 
@@ -430,7 +430,7 @@ export const seed = async ({
       locale: 'sk',
       // @ts-expect-error This is working, but payload is not happy
       data: researchProductsPageDataSk({
-        heroImage: media.demoImageDoc,
+        heroImage: media.productsPageImageDoc,
         products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
       }),
     }),
@@ -547,7 +547,7 @@ export const seed = async ({
         post1: posts.post4Doc,
         post2: posts.post1Doc,
         post3: posts.post2Doc,
-        post4: posts.post3Doc,
+        // post4: posts.post3Doc,
         sustainabilitydemoImageDoc: media.sustainabilitydemoImageDoc,
       }),
     }),
@@ -560,7 +560,7 @@ export const seed = async ({
       id: productsPage.id,
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
-      data: productsPageDataJp({ featuredImage1: media.demoImageDoc }),
+      data: productsPageDataJp({ featuredImage1: media.productsPageImageDoc }),
     }),
   ])
 
@@ -600,7 +600,7 @@ export const seed = async ({
       locale: 'jp',
       // @ts-expect-error This is working, but payload is not happy
       data: researchProductsPageDataJp({
-        heroImage: media.demoImageDoc,
+        heroImage: media.productsPageImageDoc,
         products: [seededProducts.dmpa, seededProducts.dmba, seededProducts.hpva],
       }),
     }),
@@ -838,7 +838,7 @@ export const seed = async ({
               link: {
                 type: 'custom',
                 newTab: true,
-                url: 'https://linkedin.com/',
+                url: 'https://www.linkedin.com/company/vupas/',
                 label: 'LinkedIn',
               },
             },
@@ -866,7 +866,7 @@ export const seed = async ({
                 type: 'custom',
                 newTab: null,
                 url: 'https://zchfp.sk/',
-                label: 'ZCHFP',
+                label: 'Member of ZCHFP',
               },
             },
           ],
@@ -916,7 +916,7 @@ export const seed = async ({
       ],
       companyInfo: {
         address: 'VUP Chemicals, a.s.\nNábrežná 4, 971 01\nPrievidza, Slovakia',
-        email: 'info@vupinternational.com',
+        email: 'vup@vupas.sk',
       },
     },
   })
