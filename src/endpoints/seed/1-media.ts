@@ -721,6 +721,194 @@ const filesToSeed = [
     url: 'https://images.pexels.com/photos/3855962/pexels-photo-3855962.jpeg',
     alt: 'CSM Service Page Service 3 Image',
   },
+
+  // KEY PRODUCT APPLICATIONS IMAGES
+
+  // DMBA
+  {
+    key: 'DMBAApplication1Doc',
+    url: 'https://images.pexels.com/photos/29707595/pexels-photo-29707595/free-photo-of-classic-red-car-with-white-glove-detailing.jpeg',
+    alt: 'DMBA Application 1 Image',
+  },
+  {
+    key: 'DMBAApplication2Doc',
+    url: 'https://images.unsplash.com/photo-1760842543713-108c3cadbba1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'DMBA Application 2 Image',
+  },
+  {
+    key: 'DMBAApplication3Doc',
+    url: 'https://images.unsplash.com/photo-1643142314404-32a911f3ede2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'DMBA Application 3 Image',
+  },
+  {
+    key: 'DMBAApplication4Doc',
+    url: 'https://images.unsplash.com/photo-1474065581914-e24d783b0c55?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'DMBA Application 4 Image',
+  },
+
+  // DMPA
+  {
+    key: 'DMPAApplication1Doc',
+    url: 'https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg',
+    alt: 'DMPA Application 1 Image',
+  },
+  {
+    key: 'DMPAApplication2Doc',
+    url: 'https://media.istockphoto.com/id/1141438910/photo/hardwood-floor-restoring.jpg?s=612x612&w=0&k=20&c=LXMTr1T-i6i8O6Bmoaa_n0InYPlvW-UjkyxuIwrED_Q=',
+    alt: 'DMPA Application 2 Image',
+  },
+  {
+    key: 'DMPAApplication3Doc',
+    url: 'https://powderwerx.com/wp-content/uploads/2021/07/What-is-Powder-Coating.jpeg',
+    alt: 'DMPA Application 3 Image',
+  },
+  {
+    key: 'DMPAApplication4Doc',
+    url: 'https://static.wixstatic.com/media/1e9e7a_df5fd4344bd846b385d2e529186693cc~mv2.jpg/v1/fill/w_640,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e9e7a_df5fd4344bd846b385d2e529186693cc~mv2.jpg',
+    alt: 'DMPA Application 4 Image',
+  },
+
+  // HPVA
+  {
+    key: 'HPVAApplication1Doc',
+    url: 'https://powderwerx.com/wp-content/uploads/2021/07/What-is-Powder-Coating.jpeg',
+    alt: 'HPVA Application 1 Image',
+  },
+  {
+    key: 'HPVAApplication2Doc',
+    url: 'https://images.pexels.com/photos/1366942/pexels-photo-1366942.jpeg',
+    alt: 'HPVA Application 2 Image',
+  },
+  {
+    key: 'HPVAApplication3Doc',
+    url: 'https://santiemidwest.com/product_images/uploaded_images/santie-wholesale-image.jpg',
+    alt: 'HPVA Application 3 Image',
+  },
+  {
+    key: 'HPVAApplication4Doc',
+    url: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'HPVA Application 4 Image',
+  },
+  {
+    key: 'HPVAApplication5Doc',
+    url: 'https://mattressstoreslosangeles.com/cdn/shop/articles/106a2b59e2cba3bc0c045dbfde89f301.jpg?v=1732262718',
+    alt: 'HPVA Application 5 Image',
+  },
+
+  // HTempo
+  {
+    key: 'HTempoApplication1Doc',
+    url: 'https://images.unsplash.com/photo-1566221857770-508d35ee6220?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'HTempo Application 1 Image',
+  },
+  {
+    key: 'HTempoApplication2Doc',
+    url: 'https://images.pexels.com/photos/3735757/pexels-photo-3735757.jpeg',
+    alt: 'HTempo Application 2 Image',
+  },
+  {
+    key: 'HTempoApplication3Doc',
+    url: 'https://images.pexels.com/photos/8442105/pexels-photo-8442105.jpeg',
+    alt: 'HTempo Application 3 Image',
+  },
+  {
+    key: 'HTempoApplication4Doc',
+    url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWU78HN9PIEuargwzduhmS21cJTm9H0BDDrg&s',
+    alt: 'HTempo Application 4 Image',
+  },
+
+  // TEMPO
+  {
+    key: 'TEMPOApplication1Doc',
+    url: 'https://images.pexels.com/photos/8850984/pexels-photo-8850984.jpeg',
+    alt: 'TEMPO Application 1 Image',
+  },
+  {
+    key: 'TEMPOApplication2Doc',
+    url: 'https://images.unsplash.com/photo-1586013286823-5ba3576ea8d2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'TEMPO Application 2 Image',
+  },
+  {
+    key: 'TEMPOApplication3Doc',
+    url: 'https://images.pexels.com/photos/8442105/pexels-photo-8442105.jpeg',
+    alt: 'TEMPO Application 3 Image',
+  },
+  {
+    key: 'TEMPOApplication4Doc',
+    url: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2669',
+    alt: 'TEMPO Application 4 Image',
+  },
+  {
+    key: 'TEMPOApplication5Doc',
+    url: 'https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'TEMPO Application 5 Image',
+  },
+
+  // TEMP
+  {
+    key: 'TEMPApplication1Doc',
+    url: 'https://images.unsplash.com/photo-1586013286823-5ba3576ea8d2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'TEMP Application 1 Image',
+  },
+  {
+    key: 'TEMPApplication2Doc',
+    url: 'https://images.unsplash.com/photo-1581093577421-f561a654a353?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'TEMP Application 2 Image',
+  },
+  {
+    key: 'TEMPApplication3Doc',
+    url: 'https://images.pexels.com/photos/3825573/pexels-photo-3825573.jpeg',
+    alt: 'TEMP Application 3 Image',
+  },
+
+  // DAPEG
+  {
+    key: 'DAPEGApplication1Doc',
+    url: 'https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg',
+    alt: 'DAPEG Application 1 Image',
+  },
+  {
+    key: 'DAPEGApplication2Doc',
+    url: 'https://www.hiperbaric.com/wp-content/uploads/2021/03/Portada-scaled.jpeg',
+    alt: 'DAPEG Application 2 Image',
+  },
+  {
+    key: 'DAPEGApplication3Doc',
+    url: 'https://images.unsplash.com/photo-1638258581353-0ab658542e73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3415',
+    alt: 'DAPEG Application 3 Image',
+  },
+  {
+    key: 'DAPEGApplication4Doc',
+    url: 'https://cdn.sci.news/images/enlarge11/image_12010e-Hygroscopic-Hydrogel.jpg',
+    alt: 'DAPEG Application 4 Image',
+  },
+  {
+    key: 'DAPEGApplication5Doc',
+    url: 'https://images.pexels.com/photos/3735757/pexels-photo-3735757.jpeg',
+    alt: 'DAPEG Application 5 Image',
+  },
+
+  // VUPIN
+  {
+    key: 'VUPINApplication1Doc',
+    url: 'https://images.unsplash.com/photo-1588011930968-eadac80e6a5a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2669',
+    alt: 'VUPIN Application 1 Image',
+  },
+  {
+    key: 'VUPINApplication2Doc',
+    url: 'https://images.unsplash.com/photo-1736870031337-cc273067ad33?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670',
+    alt: 'VUPIN Application 2 Image',
+  },
+  {
+    key: 'VUPINApplication3Doc',
+    url: 'https://images.pexels.com/photos/29411310/pexels-photo-29411310.jpeg',
+    alt: 'VUPIN Application 3 Image',
+  },
+  {
+    key: 'VUPINApplication4Doc',
+    url: 'https://images.pexels.com/photos/26841506/pexels-photo-26841506.jpeg',
+    alt: 'VUPIN Application 4 Image',
+  },
 ]
 
 // Helper function to create only missing media

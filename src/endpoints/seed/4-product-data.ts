@@ -1231,6 +1231,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: true,
         name: 'Dimethylolbutyric Acid (DMBA)',
         _status: 'published',
         description:
@@ -1263,25 +1264,25 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Solvent-Free PUDs',
             description:
               'Enables synthesis of high-performance waterborne polyurethane dispersions without organic solvents for eco-friendly coatings.',
-            image: demoImageDoc.id,
+            image: media.DMBAApplication1Doc.id,
           },
           {
             application: 'Electronic Coatings',
             description:
               'Used in waterborne conformal coatings for PCB protection offering enhanced water resistance and purity for demanding applications.',
-            image: image2Doc.id,
+            image: media.DMBAApplication2Doc.id,
           },
           {
             application: 'Leather Finishing',
             description:
               'Applied in water-based polyurethane emulsions for durable leather topcoats in automotive, footwear, and upholstery applications.',
-            image: image3Doc.id,
+            image: media.DMBAApplication3Doc.id,
           },
           {
             application: 'High-Performance Coatings',
             description:
               'Formulates waterborne systems requiring enhanced water resistance, hydrolytic stability, and low-VOC compliance.',
-            image: demoImageDoc.id,
+            image: media.DMBAApplication4Doc.id,
           },
         ],
         keyFeatures: [
@@ -1346,6 +1347,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: true,
         name: 'Dimethylolpropionic Acid (DMPA)',
         _status: 'published',
         description:
@@ -1374,25 +1376,25 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Waterborne PUDs',
             description:
               'Key internal emulsifier for stable polyurethane dispersions enabling low-VOC automotive and industrial coatings.',
-            image: demoImageDoc.id,
+            image: media.DMPAApplication1Doc.id,
           },
           {
             application: 'Water-Soluble Alkyds',
             description:
               'Improves hydrolytic stability in alkyd resins for high-performance wood and furniture coatings.',
-            image: image2Doc.id,
+            image: media.DMPAApplication2Doc.id,
           },
           {
             application: 'Powder Coatings',
             description:
               'Enhances flow, gloss, and impact resistance in epoxy-polyester and polyester-based powder systems.',
-            image: image3Doc.id,
+            image: media.DMPAApplication3Doc.id,
           },
           {
             application: 'Electro-deposition Coatings',
             description:
               'Provides acid functionality crucial for automotive primers and demanding industrial E-coat applications.',
-            image: demoImageDoc.id,
+            image: media.DMPAApplication4Doc.id,
           },
         ],
         keyFeatures: [
@@ -1462,6 +1464,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: true,
         name: '3-Hydroxypivalic Acid (HPVA)',
         _status: 'published',
         description:
@@ -1491,31 +1494,31 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polyester Resins for Coatings',
             description:
               'Key building block for high-performance polyester resins used in durable powder coatings and coil coatings with excellent weatherability and chemical resistance.',
-            image: demoImageDoc.id,
+            image: media.HPVAApplication1Doc.id,
           },
           {
             application: 'Ester Synthesis (HPN)',
             description:
               'Used to produce neopentyl glycol hydroxypivalate (HPN), an important diol modifier for coating resins and adhesives.',
-            image: image2Doc.id,
+            image: media.HPVAApplication2Doc.id,
           },
           {
             application: 'Synthetic Lubricants',
             description:
               'Raw material for specialty esters in high-temperature synthetic lubricant formulations, providing thermal and hydrolytic stability.',
-            image: image3Doc.id,
+            image: media.HPVAApplication3Doc.id,
           },
           {
             application: 'Chemical Intermediate',
             description:
               'Used in synthesis pathways for pharmaceuticals, agrochemicals, or specialty chemicals requiring its unique neopentyl structure.',
-            image: demoImageDoc.id,
+            image: media.HPVAApplication4Doc.id,
           },
           {
             application: 'Polyurethane Modification',
             description:
               'Incorporated as a co-monomer or modifier to enhance the stability of polyurethane systems in demanding applications.',
-            image: image2Doc.id,
+            image: media.HPVAApplication5Doc.id,
           },
         ],
         keyFeatures: [
@@ -1585,6 +1588,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: true,
         name: '4-Hydroxy-TEMPO (TEMPOL / H-TEMPO)',
         _status: 'published',
         description:
@@ -1614,25 +1618,25 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             application: 'Polymerization Inhibitor Synthesis',
             description:
               'Key raw material for producing formulated liquid polymerization inhibitors like the VUPIN range used in petrochemicals and monomer stabilization applications.',
-            image: demoImageDoc.id,
+            image: media.HTempoApplication1Doc.id,
           },
           {
             application: 'Catalysis & Oxidation',
             description:
               'Used as catalyst or co-catalyst in selective oxidation reactions, offering different solubility and reactivity profiles compared to standard TEMPO.',
-            image: image2Doc.id,
+            image: media.HTempoApplication2Doc.id,
           },
           {
             application: 'EPR Spectroscopy',
             description:
               'Utilized as a spin label probe to study molecular structure, dynamics, and environments in biophysical and chemical research applications.',
-            image: image3Doc.id,
+            image: media.HTempoApplication3Doc.id,
           },
           {
             application: 'Antioxidant Research',
             description:
               'Employed as a water-soluble antioxidant standard or protective agent in biochemical and cell-based studies investigating oxidative stress mechanisms.',
-            image: demoImageDoc.id,
+            image: media.HTempoApplication4Doc.id,
           },
         ],
         keyFeatures: [
@@ -1707,6 +1711,483 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: true,
+        name: 'TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl)',
+        _status: 'published',
+        description:
+          'A highly versatile and stable nitroxyl radical, renowned for its utility as a catalyst in selective organic oxidations and as a mediator in controlled radical polymerization (NMP). VUP produces high-purity TEMPO at pilot scale.',
+        chemicalStructureImage: tempoStructureDoc.id,
+        technicalSpecifications: {
+          chemicalName: '2,2,6,6-Tetramethyl-1-piperidinyloxyl',
+          casNumber: '2564-83-2',
+          ecNumber: '219-888-8',
+          synonyms: [{ synonym: 'TEMPO' }],
+          molecularFormula: 'C₉H₁₈NO',
+          molecularWeight: '156.25 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'Orange-red crystalline solid',
+          purity: 'min. 98.0 % wt',
+          meltingPoint: '36-40 °C',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'Selective Oxidation Catalyst',
+            description:
+              'Widely used as catalyst for efficient and selective oxidation of primary alcohols to aldehydes and secondary alcohols to ketones under mild conditions in fine chemical and pharmaceutical synthesis.',
+            image: media.TEMPOApplication1Doc.id,
+          },
+          {
+            application: 'Controlled Radical Polymerization',
+            description:
+              'Mediator for Nitroxide Mediated Polymerization (NMP) enabling synthesis of polymers with controlled molecular weight, narrow polydispersity, and complex architectures.',
+            image: media.TEMPOApplication2Doc.id,
+          },
+          {
+            application: 'EPR Spectroscopy',
+            description:
+              'Stable radical source used as spin label probe in Electron Paramagnetic Resonance spectroscopy for studying molecular environments, dynamics, and radical reaction mechanisms.',
+            image: media.TEMPOApplication3Doc.id,
+          },
+          {
+            application: 'Pharmaceutical Intermediates',
+            description:
+              "Key precursor for synthesizing valuable derivatives including potential Active Pharmaceutical Ingredients (APIs) such as compounds for Parkinson's treatment.",
+            image: media.TEMPOApplication4Doc.id,
+          },
+          {
+            application: 'Cellulose Oxidation',
+            description:
+              'Used in TEMPO-mediated oxidation of cellulose and pulp for producing modified cellulose materials with enhanced properties in specialty paper and biomaterial applications.',
+            image: media.TEMPOApplication5Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Highly Selective Oxidation',
+            description:
+              'Provides exceptional selectivity in alcohol oxidation reactions under mild conditions, avoiding over-oxidation and maintaining product quality in sensitive synthetic processes.',
+          },
+          {
+            feature: 'Stable Radical Source',
+            description:
+              'Persistent nitroxyl radical offers reliable performance as spin label probe and catalyst, unlike transient radicals that quickly decompose.',
+          },
+          {
+            feature: 'Controlled Polymerization',
+            description:
+              'Enables precise control over polymer architecture through NMP, allowing synthesis of well-defined block copolymers and materials with specific performance characteristics.',
+          },
+          {
+            feature: 'High Purity Grade',
+            description:
+              'Supplied at minimum 98% purity ensuring consistent reactivity and reliable performance in demanding catalytic and synthetic applications.',
+          },
+          {
+            feature: 'Pilot Scale Production',
+            description:
+              'Manufactured at VUP pilot plant facility with documented capacity, ensuring availability beyond laboratory scale for commercial applications.',
+          },
+          {
+            feature: 'Versatile Intermediate',
+            description:
+              'Serves as key building block for synthesizing functionalized TEMPO derivatives and valuable pharmaceutical intermediates with enhanced properties.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is TEMPO and what makes it special?',
+            answer:
+              'TEMPO is a stable nitroxyl radical based on the tetramethylpiperidine structure. Its exceptional stability makes it valuable as a reagent and catalyst, unlike most transient radicals that quickly decompose.',
+          },
+          {
+            question: 'Why is TEMPO preferred for oxidation reactions?',
+            answer:
+              "TEMPO acts as a catalyst with co-oxidants to selectively oxidize alcohols under mild conditions. It's particularly known for converting primary alcohols to aldehydes with high selectivity and minimal over-oxidation.",
+          },
+          {
+            question: 'How is TEMPO used in polymer chemistry?',
+            answer:
+              'TEMPO is essential for Nitroxide Mediated Polymerization (NMP), a controlled radical polymerization technique that allows synthesis of polymers with precise molecular weights and complex architectures.',
+          },
+          {
+            question: 'What purity level does VUP offer for TEMPO?',
+            answer:
+              'VUP produces high-purity TEMPO with minimum 98% purity, ensuring consistent reactivity and reliable performance in sensitive catalytic and synthetic applications.',
+          },
+          {
+            question: 'Is TEMPO considered hazardous to handle?',
+            answer:
+              'Yes, TEMPO is classified as an oxidizer and irritant requiring careful handling with appropriate PPE. It may intensify fire and can cause skin, eye, and respiratory irritation. Always consult the SDS.',
+          },
+          {
+            question: 'Can VUP supply TEMPO at commercial scale?',
+            answer:
+              'VUP operates pilot plant production with documented capacity for TEMPO. Contact VUP directly to discuss availability and volumes for your specific commercial requirements.',
+          },
+        ],
+        slug: 'tempo',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: true,
+        name: '2,2,6,6-Tetramethylpiperidine (TEMP)',
+        _status: 'published',
+        description:
+          'The foundational intermediate for producing a wide range of Hindered Amine Light Stabilizers (HALS) and the versatile stable radical TEMPO. VUP produces high-purity TEMP (min. 99%) at its pilot plant facility.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '2,2,6,6-Tetramethylpiperidine',
+          casNumber: '768-66-1',
+          ecNumber: '212-199-3',
+          synonyms: [{ synonym: 'TEMP' }, { synonym: 'Norpempidine' }, { synonym: 'TMPH' }],
+          molecularFormula: 'C₉H₁₉N',
+          molecularWeight: '141.25 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'Colorless to light yellow low-melting solid or liquid',
+          purity: 'min. 99.0 % wt',
+        },
+        chemicalFamily: [hinderedAmines],
+        applications: [
+          {
+            application: 'HALS Manufacturing',
+            description:
+              'Essential intermediate for producing various Hindered Amine Light Stabilizers used extensively in the plastics and coatings industries for UV protection.',
+            image: media.TEMPApplication1Doc.id,
+          },
+          {
+            application: 'TEMPO Synthesis',
+            description:
+              'Direct precursor for manufacturing TEMPO and its derivatives, which are used as catalysts, oxidants, polymerization inhibitors, and research tools.',
+            image: media.TEMPApplication2Doc.id,
+          },
+          {
+            application: 'Organic Synthesis',
+            description:
+              'Employed as a hindered secondary amine base or building block in specific chemical reactions requiring this unique structural framework.',
+            image: media.TEMPApplication3Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Essential HALS Intermediate',
+            description:
+              'The core starting material for synthesizing numerous high-performance HALS used to protect polymers from UV degradation.',
+          },
+          {
+            feature: 'High Purity Product',
+            description:
+              'VUP supplies TEMP with a minimum purity of 99%, ensuring high quality for demanding downstream synthesis applications.',
+          },
+          {
+            feature: 'Pilot Scale Production',
+            description:
+              'Manufactured at VUP pilot plant facility with 25 t/yr capacity, indicating capability for larger volume supply beyond lab scale.',
+          },
+          {
+            feature: 'Direct TEMPO Precursor',
+            description:
+              'Key raw material used in the synthesis of TEMPO and its derivatives for various catalytic and research applications.',
+          },
+          {
+            feature: 'Versatile Building Block',
+            description:
+              'Used as an intermediate in various organic synthesis applications beyond HALS and TEMPO production.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is TEMP primarily used for?',
+            answer:
+              'TEMP is the essential chemical building block used to synthesize Hindered Amine Light Stabilizers (HALS) and the stable radical TEMPO.',
+          },
+          {
+            question: 'Is TEMP itself a light stabilizer?',
+            answer:
+              'No, TEMP is the intermediate or precursor. It needs to be further reacted to create the actual HALS molecules that provide light stabilization to polymers.',
+          },
+          {
+            question: 'What purity does VUP offer for TEMP?',
+            answer:
+              'VUP produces TEMP with a minimum purity of 99%. Please request the Technical Data Sheet for full specifications.',
+          },
+          {
+            question: 'Is TEMP hazardous to handle?',
+            answer:
+              'Yes, TEMP is classified as corrosive, flammable, and toxic. Strict safety precautions and appropriate PPE are essential. Always consult the SDS before use.',
+          },
+          {
+            question: 'Does VUP produce TEMP at commercial scale?',
+            answer:
+              'VUP has documented pilot plant capacity for TEMP production. Contact VUP to discuss availability for your required volumes.',
+          },
+          {
+            question: 'What makes VUP TEMP suitable for HALS synthesis?',
+            answer:
+              'VUP high-purity TEMP (99% min.) provides the quality and consistency required for producing high-performance HALS with reliable UV protection properties.',
+          },
+        ],
+        slug: 'temp',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: true,
+        name: 'Poly(ethylene glycol)bis(3-aminopropyl) terminated (DAPEG Series)',
+        _status: 'published',
+        description:
+          'VUP is the unique global producer of high-purity DAPEG featuring PEG chains with reactive primary amine groups at both ends. Essential for advanced biomedical coatings, surface modification, PEGylation, and specialty polymer synthesis.',
+        chemicalStructureImage: dapegStructureDoc.id,
+        technicalSpecifications: {
+          chemicalName: 'α-(3-Aminopropyl)-ω-(3-aminopropoxy)poly(oxy-1,2-ethanediyl)',
+          casNumber: '34901-14-9',
+          synonyms: [
+            { synonym: 'DAPEG' },
+            { synonym: 'Diaminopolyethylene Glycol' },
+            { synonym: 'Amino-PEG-Amino' },
+            { synonym: 'α,ω-Diamino-PEG' },
+          ],
+          molecularFormula: 'H₂N(CH₂)₃[O(CH₂)₂]nO(CH₂)₃NH₂',
+          molecularWeight: '700-3400 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'Colorless to pale yellow liquid or white waxy solid',
+          purity: 'min. 97.0 % wt',
+        },
+        chemicalFamily: [diaminopolyethyleneGlycols],
+        applications: [
+          {
+            application: 'Biomedical Device Coatings',
+            description:
+              'Creating lubricious, hydrophilic, and biocompatible coatings for catheters, guidewires, stents, and other medical devices to improve patient comfort and device performance.',
+            image: media.DAPEGApplication1Doc.id,
+          },
+          {
+            application: 'Surface Modification',
+            description:
+              'Functionalizing surfaces of implants, nanoparticles, biosensors, and microfluidic devices to enhance biocompatibility and reduce non-specific binding.',
+            image: media.DAPEGApplication2Doc.id,
+          },
+          {
+            application: 'PEGylation & Bioconjugation',
+            description:
+              'Linking PEG chains to proteins, peptides, antibodies, or drug molecules to improve solubility, stability, circulation time, and reduce immunogenicity.',
+            image: media.DAPEGApplication3Doc.id,
+          },
+          {
+            application: 'Advanced Polymer Synthesis',
+            description:
+              'Building block for synthesizing hydrogels for tissue engineering and drug delivery, block copolymers, and other functional polymer architectures.',
+            image: media.DAPEGApplication4Doc.id,
+          },
+          {
+            application: 'PEGDAA Synthesis',
+            description:
+              'Direct precursor for producing Poly(ethylene glycol) diacrylamide (PEGDAA), used in hydrogel formation and specialized coating applications.',
+            image: media.DAPEGApplication5Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Unique Global Supply',
+            description:
+              'Sourced directly from VUP, the sole global producer utilizing proprietary technology, ensuring a distinct and secure supply chain.',
+          },
+          {
+            feature: 'High Purity Standards',
+            description:
+              'Manufactured to high purity standards (97% min), critical for demanding biomedical and pharmaceutical applications requiring consistent performance.',
+          },
+          {
+            feature: 'Reactive Amine Termini',
+            description:
+              'Provides primary amine groups at both ends, enabling efficient covalent attachment to surfaces or reaction with other functional groups for polymer synthesis.',
+          },
+          {
+            feature: 'PEG Chain Properties',
+            description:
+              'Imparts hydrophilicity, water solubility, biocompatibility, and resistance to non-specific protein adsorption inherent to polyethylene glycol chains.',
+          },
+          {
+            feature: 'Versatile Molecular Weights',
+            description:
+              'Available in a range of average molecular weights, allowing tailoring of properties like chain length, flexibility, and hydrodynamic volume.',
+          },
+          {
+            feature: 'Biomedical Application Focus',
+            description:
+              'Proven utility as a key raw material for creating lubricious, hydrophilic coatings essential for medical devices like catheters and guidewires.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is DAPEG and how does it differ from regular PEG?',
+            answer:
+              'DAPEG is a polyethylene glycol with reactive primary amine groups at both ends instead of hydroxyl groups, making it ideal for covalent attachment and bioconjugation applications.',
+          },
+          {
+            question: 'Why is VUP the unique source for DAPEG?',
+            answer:
+              'VUP possesses proprietary production technology positioning them as the key global producer of this specialized high-purity material, particularly valued in biomedical applications.',
+          },
+          {
+            question: 'What are the main advantages of terminal amine groups?',
+            answer:
+              'Primary amines are versatile reactive handles for covalent attachment to surfaces with carboxyl or NHS-ester groups and for conjugation in bioconjugation or polymer synthesis.',
+          },
+          {
+            question: 'What molecular weight grades does VUP offer for DAPEG?',
+            answer:
+              'VUP offers DAPEG in various average molecular weight grades ranging from approximately 700 to 3400 g/mol. Contact VUP to discuss specific grades and availability.',
+          },
+          {
+            question: 'Is DAPEG suitable for medical device applications?',
+            answer:
+              'Yes, DAPEG is widely used as a raw material for biomedical coatings. Discuss your specific application requirements with VUP to ensure appropriate grade selection.',
+          },
+          {
+            question: 'How is DAPEG used in surface modification applications?',
+            answer:
+              'DAPEG functionalizes surfaces through its reactive amine groups, creating biocompatible layers that reduce protein adsorption and enable further chemical modifications.',
+          },
+        ],
+        slug: 'dapeg',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: true,
+        name: 'VUPIN H37-B Polymerization Inhibitor',
+        _status: 'published',
+        description:
+          'A liquid polymerization inhibitor formulation combining 4-Hydroxy-TEMPO with 2-Butoxyethanol solvent. Prevents unwanted polymerization in petrochemical streams, monomer handling, and FCC gasoline applications.',
+        chemicalStructureImage: vupinStructureDoc.id,
+        technicalSpecifications: {
+          chemicalName:
+            'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl in 2-Butoxyethanol',
+          casNumber: '2226-96-2 (Active), 111-76-2 (Solvent)',
+          ecNumber: '218-760-9 (Active), 203-905-0 (Solvent)',
+          synonyms: [{ synonym: 'H-TEMPO in 2-Butoxyethanol' }, { synonym: 'VUPIN H37-B' }],
+          molecularFormula: 'Formulation',
+          molecularWeight: 'Formulation',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'Clear amber to reddish liquid',
+          purity: 'Proprietary Formulation',
+          solubility: 'Miscible with most organic solvents',
+        },
+        chemicalFamily: [hinderedAmines, polymerisationInhibitors],
+        applications: [
+          {
+            application: 'FCC Gasoline Stabilization',
+            description:
+              'Used as additive component in FCC gasoline packages for refineries, preventing degradation and ensuring stable fuel quality during storage and distribution.',
+            image: media.VUPINApplication1Doc.id,
+          },
+          {
+            application: 'Monomer Stabilization',
+            description:
+              'Prevents unwanted polymerization during storage and transport of reactive monomers like MMA, VAM, styrene, and acrylates in production facilities.',
+            image: media.VUPINApplication2Doc.id,
+          },
+          {
+            application: 'Petrochemical Process Safety',
+            description:
+              'Protects against polymer fouling in distillation columns, ethylene units, and pygas processing by scavenging radicals that initiate polymerization.',
+            image: media.VUPINApplication3Doc.id,
+          },
+          {
+            application: 'Refinery Operations',
+            description:
+              'Component in specialized additive packages for various refinery streams requiring polymerization inhibition and process equipment protection.',
+            image: media.VUPINApplication4Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Effective TEMPO-Based Inhibition',
+            description:
+              'Contains proven 4-Hydroxy-TEMPO radical scavenger that effectively prevents premature polymerization reactions in demanding industrial environments.',
+          },
+          {
+            feature: 'Ready-to-Use Liquid Formulation',
+            description:
+              'Supplied as convenient liquid solution simplifying handling, dosing, and incorporation into process streams compared to solid inhibitors.',
+          },
+          {
+            feature: 'Superior Solvency Properties',
+            description:
+              'Utilizes 2-Butoxyethanol glycol ether solvent providing excellent compatibility with various substances and effective distribution in process streams.',
+          },
+          {
+            feature: 'Industrial-Grade Reliability',
+            description:
+              'Manufactured by VUP leveraging expertise in hindered amine chemistry and specialty chemical production for consistent quality and performance.',
+          },
+          {
+            feature: 'Versatile Application Range',
+            description:
+              'Proven effectiveness across multiple petrochemical applications from FCC gasoline stabilization to monomer production and refinery operations.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What exactly is VUPIN H37-B and its main components?',
+            answer:
+              'VUPIN H37-B is a liquid formulation containing 4-Hydroxy-TEMPO (CAS 2226-96-2) as the active polymerization inhibitor dissolved in 2-Butoxyethanol solvent for industrial petrochemical applications.',
+          },
+          {
+            question: 'What is the primary application for VUPIN H37-B?',
+            answer:
+              'It is used as a component in additive packages for FCC gasoline in refineries and has proven effectiveness in stabilizing reactive monomers during storage, transport, and processing.',
+          },
+          {
+            question: 'What makes VUPIN H37-B effective as a polymerization inhibitor?',
+            answer:
+              'It combines the potent radical scavenging ability of H-TEMPO with excellent solvency and compatibility properties of 2-Butoxyethanol carrier, ensuring effective distribution and performance.',
+          },
+          {
+            question: 'How does VUPIN H37-B prevent polymer fouling in process equipment?',
+            answer:
+              'The H-TEMPO active ingredient scavenges free radicals that initiate unwanted polymerization, while the solvent ensures good distribution throughout the process stream, preventing fouling.',
+          },
+          {
+            question: 'Is VUPIN H37-B available in different concentrations or formulations?',
+            answer:
+              'Please contact VUP directly to discuss specific requirements regarding inhibitor concentration, formulation needs, and custom solutions for your particular application.',
+          },
+          {
+            question: 'What safety precautions are required when handling VUPIN H37-B?',
+            answer:
+              'Handle as specialty chemical formulation with appropriate PPE. Components have known hazards including eye/skin irritation. Always consult the official VUPIN H37-B SDS for complete safety information.',
+          },
+        ],
+        slug: 'vupin-h37b',
+      },
+    }),
+    // KEY PRODUCTS END
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
         name: 'Trolox',
         _status: 'published',
         description:
@@ -1834,363 +2315,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
-        name: 'TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl)',
-        _status: 'published',
-        description:
-          'A highly versatile and stable nitroxyl radical, renowned for its utility as a catalyst in selective organic oxidations and as a mediator in controlled radical polymerization (NMP). VUP produces high-purity TEMPO at pilot scale.',
-        chemicalStructureImage: tempoStructureDoc.id,
-        technicalSpecifications: {
-          chemicalName: '2,2,6,6-Tetramethyl-1-piperidinyloxyl',
-          casNumber: '2564-83-2',
-          ecNumber: '219-888-8',
-          synonyms: [{ synonym: 'TEMPO' }],
-          molecularFormula: 'C₉H₁₈NO',
-          molecularWeight: '156.25 g/mol',
-          labVerified: 'Verified',
-        },
-        VupSpecifications: {
-          appearance: 'Orange-red crystalline solid',
-          purity: 'min. 98.0 % wt',
-          meltingPoint: '36-40 °C',
-        },
-        chemicalFamily: [hinderedAmines],
-        applications: [
-          {
-            application: 'Selective Oxidation Catalyst',
-            description:
-              'Widely used as catalyst for efficient and selective oxidation of primary alcohols to aldehydes and secondary alcohols to ketones under mild conditions in fine chemical and pharmaceutical synthesis.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Controlled Radical Polymerization',
-            description:
-              'Mediator for Nitroxide Mediated Polymerization (NMP) enabling synthesis of polymers with controlled molecular weight, narrow polydispersity, and complex architectures.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'EPR Spectroscopy',
-            description:
-              'Stable radical source used as spin label probe in Electron Paramagnetic Resonance spectroscopy for studying molecular environments, dynamics, and radical reaction mechanisms.',
-            image: image3Doc.id,
-          },
-          {
-            application: 'Pharmaceutical Intermediates',
-            description:
-              "Key precursor for synthesizing valuable derivatives including potential Active Pharmaceutical Ingredients (APIs) such as compounds for Parkinson's treatment.",
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Cellulose Oxidation',
-            description:
-              'Used in TEMPO-mediated oxidation of cellulose and pulp for producing modified cellulose materials with enhanced properties in specialty paper and biomaterial applications.',
-            image: image2Doc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Highly Selective Oxidation',
-            description:
-              'Provides exceptional selectivity in alcohol oxidation reactions under mild conditions, avoiding over-oxidation and maintaining product quality in sensitive synthetic processes.',
-          },
-          {
-            feature: 'Stable Radical Source',
-            description:
-              'Persistent nitroxyl radical offers reliable performance as spin label probe and catalyst, unlike transient radicals that quickly decompose.',
-          },
-          {
-            feature: 'Controlled Polymerization',
-            description:
-              'Enables precise control over polymer architecture through NMP, allowing synthesis of well-defined block copolymers and materials with specific performance characteristics.',
-          },
-          {
-            feature: 'High Purity Grade',
-            description:
-              'Supplied at minimum 98% purity ensuring consistent reactivity and reliable performance in demanding catalytic and synthetic applications.',
-          },
-          {
-            feature: 'Pilot Scale Production',
-            description:
-              'Manufactured at VUP pilot plant facility with documented capacity, ensuring availability beyond laboratory scale for commercial applications.',
-          },
-          {
-            feature: 'Versatile Intermediate',
-            description:
-              'Serves as key building block for synthesizing functionalized TEMPO derivatives and valuable pharmaceutical intermediates with enhanced properties.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question: 'What is TEMPO and what makes it special?',
-            answer:
-              'TEMPO is a stable nitroxyl radical based on the tetramethylpiperidine structure. Its exceptional stability makes it valuable as a reagent and catalyst, unlike most transient radicals that quickly decompose.',
-          },
-          {
-            question: 'Why is TEMPO preferred for oxidation reactions?',
-            answer:
-              "TEMPO acts as a catalyst with co-oxidants to selectively oxidize alcohols under mild conditions. It's particularly known for converting primary alcohols to aldehydes with high selectivity and minimal over-oxidation.",
-          },
-          {
-            question: 'How is TEMPO used in polymer chemistry?',
-            answer:
-              'TEMPO is essential for Nitroxide Mediated Polymerization (NMP), a controlled radical polymerization technique that allows synthesis of polymers with precise molecular weights and complex architectures.',
-          },
-          {
-            question: 'What purity level does VUP offer for TEMPO?',
-            answer:
-              'VUP produces high-purity TEMPO with minimum 98% purity, ensuring consistent reactivity and reliable performance in sensitive catalytic and synthetic applications.',
-          },
-          {
-            question: 'Is TEMPO considered hazardous to handle?',
-            answer:
-              'Yes, TEMPO is classified as an oxidizer and irritant requiring careful handling with appropriate PPE. It may intensify fire and can cause skin, eye, and respiratory irritation. Always consult the SDS.',
-          },
-          {
-            question: 'Can VUP supply TEMPO at commercial scale?',
-            answer:
-              'VUP operates pilot plant production with documented capacity for TEMPO. Contact VUP directly to discuss availability and volumes for your specific commercial requirements.',
-          },
-        ],
-        slug: 'tempo',
-      },
-    }),
-    payload.create({
-      collection: 'products',
-      data: {
-        name: '2,2,6,6-Tetramethylpiperidine (TEMP)',
-        _status: 'published',
-        description:
-          'The foundational intermediate for producing a wide range of Hindered Amine Light Stabilizers (HALS) and the versatile stable radical TEMPO. VUP produces high-purity TEMP (min. 99%) at its pilot plant facility.',
-        chemicalStructureImage: demoImageDoc.id,
-        technicalSpecifications: {
-          chemicalName: '2,2,6,6-Tetramethylpiperidine',
-          casNumber: '768-66-1',
-          ecNumber: '212-199-3',
-          synonyms: [{ synonym: 'TEMP' }, { synonym: 'Norpempidine' }, { synonym: 'TMPH' }],
-          molecularFormula: 'C₉H₁₉N',
-          molecularWeight: '141.25 g/mol',
-          labVerified: 'Verified',
-        },
-        VupSpecifications: {
-          appearance: 'Colorless to light yellow low-melting solid or liquid',
-          purity: 'min. 99.0 % wt',
-        },
-        chemicalFamily: [hinderedAmines],
-        applications: [
-          {
-            application: 'HALS Manufacturing',
-            description:
-              'Essential intermediate for producing various Hindered Amine Light Stabilizers used extensively in the plastics and coatings industries for UV protection.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'TEMPO Synthesis',
-            description:
-              'Direct precursor for manufacturing TEMPO and its derivatives, which are used as catalysts, oxidants, polymerization inhibitors, and research tools.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'Organic Synthesis',
-            description:
-              'Employed as a hindered secondary amine base or building block in specific chemical reactions requiring this unique structural framework.',
-            image: image3Doc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Essential HALS Intermediate',
-            description:
-              'The core starting material for synthesizing numerous high-performance HALS used to protect polymers from UV degradation.',
-          },
-          {
-            feature: 'High Purity Product',
-            description:
-              'VUP supplies TEMP with a minimum purity of 99%, ensuring high quality for demanding downstream synthesis applications.',
-          },
-          {
-            feature: 'Pilot Scale Production',
-            description:
-              'Manufactured at VUP pilot plant facility with 25 t/yr capacity, indicating capability for larger volume supply beyond lab scale.',
-          },
-          {
-            feature: 'Direct TEMPO Precursor',
-            description:
-              'Key raw material used in the synthesis of TEMPO and its derivatives for various catalytic and research applications.',
-          },
-          {
-            feature: 'Versatile Building Block',
-            description:
-              'Used as an intermediate in various organic synthesis applications beyond HALS and TEMPO production.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question: 'What is TEMP primarily used for?',
-            answer:
-              'TEMP is the essential chemical building block used to synthesize Hindered Amine Light Stabilizers (HALS) and the stable radical TEMPO.',
-          },
-          {
-            question: 'Is TEMP itself a light stabilizer?',
-            answer:
-              'No, TEMP is the intermediate or precursor. It needs to be further reacted to create the actual HALS molecules that provide light stabilization to polymers.',
-          },
-          {
-            question: 'What purity does VUP offer for TEMP?',
-            answer:
-              'VUP produces TEMP with a minimum purity of 99%. Please request the Technical Data Sheet for full specifications.',
-          },
-          {
-            question: 'Is TEMP hazardous to handle?',
-            answer:
-              'Yes, TEMP is classified as corrosive, flammable, and toxic. Strict safety precautions and appropriate PPE are essential. Always consult the SDS before use.',
-          },
-          {
-            question: 'Does VUP produce TEMP at commercial scale?',
-            answer:
-              'VUP has documented pilot plant capacity for TEMP production. Contact VUP to discuss availability for your required volumes.',
-          },
-          {
-            question: 'What makes VUP TEMP suitable for HALS synthesis?',
-            answer:
-              'VUP high-purity TEMP (99% min.) provides the quality and consistency required for producing high-performance HALS with reliable UV protection properties.',
-          },
-        ],
-        slug: 'temp',
-      },
-    }),
-    payload.create({
-      collection: 'products',
-      data: {
-        name: 'Poly(ethylene glycol)bis(3-aminopropyl) terminated (DAPEG Series)',
-        _status: 'published',
-        description:
-          'VUP is the unique global producer of high-purity DAPEG featuring PEG chains with reactive primary amine groups at both ends. Essential for advanced biomedical coatings, surface modification, PEGylation, and specialty polymer synthesis.',
-        chemicalStructureImage: dapegStructureDoc.id,
-        technicalSpecifications: {
-          chemicalName: 'α-(3-Aminopropyl)-ω-(3-aminopropoxy)poly(oxy-1,2-ethanediyl)',
-          casNumber: '34901-14-9',
-          synonyms: [
-            { synonym: 'DAPEG' },
-            { synonym: 'Diaminopolyethylene Glycol' },
-            { synonym: 'Amino-PEG-Amino' },
-            { synonym: 'α,ω-Diamino-PEG' },
-          ],
-          molecularFormula: 'H₂N(CH₂)₃[O(CH₂)₂]nO(CH₂)₃NH₂',
-          molecularWeight: '700-3400 g/mol',
-          labVerified: 'Verified',
-        },
-        VupSpecifications: {
-          appearance: 'Colorless to pale yellow liquid or white waxy solid',
-          purity: 'min. 97.0 % wt',
-        },
-        chemicalFamily: [diaminopolyethyleneGlycols],
-        applications: [
-          {
-            application: 'Biomedical Device Coatings',
-            description:
-              'Creating lubricious, hydrophilic, and biocompatible coatings for catheters, guidewires, stents, and other medical devices to improve patient comfort and device performance.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Surface Modification',
-            description:
-              'Functionalizing surfaces of implants, nanoparticles, biosensors, and microfluidic devices to enhance biocompatibility and reduce non-specific binding.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'PEGylation & Bioconjugation',
-            description:
-              'Linking PEG chains to proteins, peptides, antibodies, or drug molecules to improve solubility, stability, circulation time, and reduce immunogenicity.',
-            image: image3Doc.id,
-          },
-          {
-            application: 'Advanced Polymer Synthesis',
-            description:
-              'Building block for synthesizing hydrogels for tissue engineering and drug delivery, block copolymers, and other functional polymer architectures.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'PEGDAA Synthesis',
-            description:
-              'Direct precursor for producing Poly(ethylene glycol) diacrylamide (PEGDAA), used in hydrogel formation and specialized coating applications.',
-            image: image2Doc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Unique Global Supply',
-            description:
-              'Sourced directly from VUP, the sole global producer utilizing proprietary technology, ensuring a distinct and secure supply chain.',
-          },
-          {
-            feature: 'High Purity Standards',
-            description:
-              'Manufactured to high purity standards (97% min), critical for demanding biomedical and pharmaceutical applications requiring consistent performance.',
-          },
-          {
-            feature: 'Reactive Amine Termini',
-            description:
-              'Provides primary amine groups at both ends, enabling efficient covalent attachment to surfaces or reaction with other functional groups for polymer synthesis.',
-          },
-          {
-            feature: 'PEG Chain Properties',
-            description:
-              'Imparts hydrophilicity, water solubility, biocompatibility, and resistance to non-specific protein adsorption inherent to polyethylene glycol chains.',
-          },
-          {
-            feature: 'Versatile Molecular Weights',
-            description:
-              'Available in a range of average molecular weights, allowing tailoring of properties like chain length, flexibility, and hydrodynamic volume.',
-          },
-          {
-            feature: 'Biomedical Application Focus',
-            description:
-              'Proven utility as a key raw material for creating lubricious, hydrophilic coatings essential for medical devices like catheters and guidewires.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question: 'What is DAPEG and how does it differ from regular PEG?',
-            answer:
-              'DAPEG is a polyethylene glycol with reactive primary amine groups at both ends instead of hydroxyl groups, making it ideal for covalent attachment and bioconjugation applications.',
-          },
-          {
-            question: 'Why is VUP the unique source for DAPEG?',
-            answer:
-              'VUP possesses proprietary production technology positioning them as the key global producer of this specialized high-purity material, particularly valued in biomedical applications.',
-          },
-          {
-            question: 'What are the main advantages of terminal amine groups?',
-            answer:
-              'Primary amines are versatile reactive handles for covalent attachment to surfaces with carboxyl or NHS-ester groups and for conjugation in bioconjugation or polymer synthesis.',
-          },
-          {
-            question: 'What molecular weight grades does VUP offer for DAPEG?',
-            answer:
-              'VUP offers DAPEG in various average molecular weight grades ranging from approximately 700 to 3400 g/mol. Contact VUP to discuss specific grades and availability.',
-          },
-          {
-            question: 'Is DAPEG suitable for medical device applications?',
-            answer:
-              'Yes, DAPEG is widely used as a raw material for biomedical coatings. Discuss your specific application requirements with VUP to ensure appropriate grade selection.',
-          },
-          {
-            question: 'How is DAPEG used in surface modification applications?',
-            answer:
-              'DAPEG functionalizes surfaces through its reactive amine groups, creating biocompatible layers that reduce protein adsorption and enable further chemical modifications.',
-          },
-        ],
-        slug: 'dapeg',
-      },
-    }),
-    payload.create({
-      collection: 'products',
-      data: {
+        isKeyProduct: false,
         name: '4-Benzoyloxy-2,2,6,6-tetramethylpiperidine',
         _status: 'published',
         description:
@@ -2295,6 +2420,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '4-Acetamido-TEMPO',
         _status: 'published',
         description:
@@ -2411,6 +2537,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '4-Oxo-TEMPO (TEMPone)',
         _status: 'published',
         description:
@@ -2523,6 +2650,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'Colamin Phosphate Calcium Salt',
         _status: 'published',
         description:
@@ -2637,6 +2765,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'Colamin Phosphate (Phosphorylethanolamine)',
         _status: 'published',
         description:
@@ -2766,6 +2895,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'Colamin Phosphate Sodium Salt',
         _status: 'published',
         description:
@@ -2883,120 +3013,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
-        name: 'VUPIN H37-B Polymerization Inhibitor',
-        _status: 'published',
-        description:
-          'A liquid polymerization inhibitor formulation combining 4-Hydroxy-TEMPO with 2-Butoxyethanol solvent. Prevents unwanted polymerization in petrochemical streams, monomer handling, and FCC gasoline applications.',
-        chemicalStructureImage: vupinStructureDoc.id,
-        technicalSpecifications: {
-          chemicalName:
-            'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl in 2-Butoxyethanol',
-          casNumber: '2226-96-2 (Active), 111-76-2 (Solvent)',
-          ecNumber: '218-760-9 (Active), 203-905-0 (Solvent)',
-          synonyms: [{ synonym: 'H-TEMPO in 2-Butoxyethanol' }, { synonym: 'VUPIN H37-B' }],
-          molecularFormula: 'Formulation',
-          molecularWeight: 'Formulation',
-          labVerified: 'Verified',
-        },
-        VupSpecifications: {
-          appearance: 'Clear amber to reddish liquid',
-          purity: 'Proprietary Formulation',
-          solubility: 'Miscible with most organic solvents',
-        },
-        chemicalFamily: [hinderedAmines, polymerisationInhibitors],
-        applications: [
-          {
-            application: 'FCC Gasoline Stabilization',
-            description:
-              'Used as additive component in FCC gasoline packages for refineries, preventing degradation and ensuring stable fuel quality during storage and distribution.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Monomer Stabilization',
-            description:
-              'Prevents unwanted polymerization during storage and transport of reactive monomers like MMA, VAM, styrene, and acrylates in production facilities.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'Petrochemical Process Safety',
-            description:
-              'Protects against polymer fouling in distillation columns, ethylene units, and pygas processing by scavenging radicals that initiate polymerization.',
-            image: image3Doc.id,
-          },
-          {
-            application: 'Refinery Operations',
-            description:
-              'Component in specialized additive packages for various refinery streams requiring polymerization inhibition and process equipment protection.',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Effective TEMPO-Based Inhibition',
-            description:
-              'Contains proven 4-Hydroxy-TEMPO radical scavenger that effectively prevents premature polymerization reactions in demanding industrial environments.',
-          },
-          {
-            feature: 'Ready-to-Use Liquid Formulation',
-            description:
-              'Supplied as convenient liquid solution simplifying handling, dosing, and incorporation into process streams compared to solid inhibitors.',
-          },
-          {
-            feature: 'Superior Solvency Properties',
-            description:
-              'Utilizes 2-Butoxyethanol glycol ether solvent providing excellent compatibility with various substances and effective distribution in process streams.',
-          },
-          {
-            feature: 'Industrial-Grade Reliability',
-            description:
-              'Manufactured by VUP leveraging expertise in hindered amine chemistry and specialty chemical production for consistent quality and performance.',
-          },
-          {
-            feature: 'Versatile Application Range',
-            description:
-              'Proven effectiveness across multiple petrochemical applications from FCC gasoline stabilization to monomer production and refinery operations.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question: 'What exactly is VUPIN H37-B and its main components?',
-            answer:
-              'VUPIN H37-B is a liquid formulation containing 4-Hydroxy-TEMPO (CAS 2226-96-2) as the active polymerization inhibitor dissolved in 2-Butoxyethanol solvent for industrial petrochemical applications.',
-          },
-          {
-            question: 'What is the primary application for VUPIN H37-B?',
-            answer:
-              'It is used as a component in additive packages for FCC gasoline in refineries and has proven effectiveness in stabilizing reactive monomers during storage, transport, and processing.',
-          },
-          {
-            question: 'What makes VUPIN H37-B effective as a polymerization inhibitor?',
-            answer:
-              'It combines the potent radical scavenging ability of H-TEMPO with excellent solvency and compatibility properties of 2-Butoxyethanol carrier, ensuring effective distribution and performance.',
-          },
-          {
-            question: 'How does VUPIN H37-B prevent polymer fouling in process equipment?',
-            answer:
-              'The H-TEMPO active ingredient scavenges free radicals that initiate unwanted polymerization, while the solvent ensures good distribution throughout the process stream, preventing fouling.',
-          },
-          {
-            question: 'Is VUPIN H37-B available in different concentrations or formulations?',
-            answer:
-              'Please contact VUP directly to discuss specific requirements regarding inhibitor concentration, formulation needs, and custom solutions for your particular application.',
-          },
-          {
-            question: 'What safety precautions are required when handling VUPIN H37-B?',
-            answer:
-              'Handle as specialty chemical formulation with appropriate PPE. Components have known hazards including eye/skin irritation. Always consult the official VUPIN H37-B SDS for complete safety information.',
-          },
-        ],
-        slug: 'vupin-h37b',
-      },
-    }),
-    payload.create({
-      collection: 'products',
-      data: {
+        isKeyProduct: false,
         name: '1,2,2,6,6-Pentamethylpiperidine',
         _status: 'published',
         description:
@@ -3107,6 +3124,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '1,2,2,6,6-Pentamethyl-4-piperidinol',
         _status: 'published',
         description:
@@ -3218,6 +3236,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '4-Amino-2,2,6,6-tetramethylpiperidine',
         _status: 'published',
         description:
@@ -3332,6 +3351,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'bis(2,2,6,6-tetramethyl-4-piperidyl) sebacate',
         _status: 'published',
         description:
@@ -3450,6 +3470,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'bis(1,2,2,6,6-pentamethyl-4-piperidyl) sebacate',
         _status: 'published',
         description:
@@ -3570,6 +3591,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '4-Amino-TEMPO',
         _status: 'published',
         description:
@@ -3677,6 +3699,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
         _status: 'published',
         description:
@@ -3786,6 +3809,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'products',
       data: {
+        isKeyProduct: false,
         name: 'Galvinoxyl Free Radical',
         _status: 'published',
         description:

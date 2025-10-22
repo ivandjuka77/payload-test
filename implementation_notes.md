@@ -112,11 +112,22 @@ SERVICES PAGE:
 [x] About us page sort responsive
 [x] Research products hardcode
 [x] Collective badges image
+[x] Is Key Product
+[x] key product assets
 
-[] Is Key Product
-[] key product assets
-
+[] SEO
 [] Check forms
 [] About us fix mobile video
 
 [] Add little labels
+
+---
+
+1. DMPA X
+2. DMBA X
+3. HPVA X
+4. TEMPO X
+5. DAPEG X
+6. HTEMPO X
+7. VUPIN X
+8. TEMP X

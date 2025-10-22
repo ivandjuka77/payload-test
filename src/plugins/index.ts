@@ -16,7 +16,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { s3Storage } from '@payloadcms/storage-s3'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | VUP International` : 'VUP International'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
