@@ -109,12 +109,13 @@ SERVICES PAGE:
 [x] If you find /index.php redirect to home page
 [x] Add GA
 [x] Remove careers from seeding
+[x] About us page sort responsive
+[x] Research products hardcode
+[x] Collective badges image
 
 [] Is Key Product
-[] About us page sort responsive
-[] Research products hardcode
 [] key product assets
-[] Collective badges image
+
 [] Check forms
 [] About us fix mobile video
 

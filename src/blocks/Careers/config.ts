@@ -25,7 +25,7 @@ export const Careers: Block = {
       type: 'relationship',
       relationTo: 'careers',
       hasMany: true,
-      required: true,
+      required: false,
     },
   ],
 }

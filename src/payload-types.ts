@@ -1518,7 +1518,7 @@ export interface GridImageCardsBlock {
 export interface CareersBlock {
   title: string;
   description: string;
-  careers: (number | Career)[];
+  careers?: (number | Career)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'careers';

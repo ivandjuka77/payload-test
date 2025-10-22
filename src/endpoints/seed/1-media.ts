@@ -245,7 +245,8 @@ const filesToSeed = [
   },
   {
     key: 'slide3HeroCard1Doc',
-    url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/badges/badges-combined.png`,
+    // url: 'https://www.dominion-global.com/files/images/media/Ecovadis_DOMINION_2.jpg',
     alt: 'Slide 3 Hero Card 1',
   },
   {
