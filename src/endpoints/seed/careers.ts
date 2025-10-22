@@ -97,9 +97,10 @@ export function careersEn({ featuredImage1 }: CareersArgs) {
     ],
 
     meta: {
-      title: null,
+      title: 'Career Opportunities | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        "Join VUP's community of innovators, researchers, and problem-solvers dedicated to creating sustainable solutions through chemistry. Shape the future of chemistry with us.",
     },
     slug: 'career',
     slugLock: true,
@@ -195,9 +196,10 @@ export function careersSk({ featuredImage1 }: CareersArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Kariérne príležitosti | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Pridajte sa do komunity inovátorov, výskumníkov a riešiteľov problémov VUP, ktorí sa venujú vytváraniu udržateľných riešení prostredníctvom chémie. Formujte s nami budúcnosť chémie.',
     },
     slug: 'career',
     slugLock: true,
@@ -293,9 +295,10 @@ export function careersJp({ featuredImage1 }: CareersArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'キャリア機会 | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        '化学を通じて持続可能なソリューションを創造することに専念する、VUPのイノベーター、研究者、問題解決者のコミュニティに参加してください。',
     },
     slug: 'career',
     slugLock: true,

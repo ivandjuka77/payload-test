@@ -36,9 +36,10 @@ export function productsEn(args: ProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Specialty Chemical Products | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        'Discover our comprehensive range of specialty chemicals designed to meet the evolving needs of modern industries. From innovative hydroxy acids to advanced hindered amines.',
     },
     slug: 'products',
     _status: 'published' as const,
@@ -77,9 +78,10 @@ export function productsSk(args: ProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Špeciálne chemické produkty | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Objavte náš komplexný sortiment špeciálnych chemických produktov navrhnutých tak, aby spĺňali vyvíjajúce sa potreby moderných priemyselných odvetví.',
     },
     slug: 'products',
     _status: 'published' as const,
@@ -118,9 +120,10 @@ export function productsJp(args: ProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: '特殊化学製品 | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        '現代産業の進化するニーズに応えるために設計された、当社の包括的な特殊化学製品ラインナップをご覧ください。',
     },
     slug: 'products',
     _status: 'published' as const,

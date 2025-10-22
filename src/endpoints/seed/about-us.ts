@@ -580,9 +580,10 @@ export function aboutUsEn(args: AboutUsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'About VUP | Slovak Chemical Research & Production Excellence',
       image: null,
-      description: null,
+      description:
+        'VUP is a Slovak company with decades of expertise in petrochemical and organic chemical research, development, and production. Delivering innovative chemical solutions since the 1950s.',
     },
     slug: 'about-us',
     slugLock: true,
@@ -1138,9 +1139,10 @@ export function aboutUsSk(args: AboutUsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'O spoločnosti VUP | Slovenská excelentnosť v chemickom výskume a výrobe',
       image: null,
-      description: null,
+      description:
+        'VUP je slovenská spoločnosť s desaťročiami skúseností v petrochemickom a organickom chemickom výskume, vývoji a výrobe. Dodávame inovatívne chemické riešenia od 50. rokov.',
     },
     slug: 'about-us',
     slugLock: true,
@@ -1708,9 +1710,10 @@ export function aboutUsJp(args: AboutUsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'VUPについて | スロバキアの化学研究・生産における卓越性',
       image: null,
-      description: null,
+      description:
+        'VUPは石油化学および有機化学の研究、開発、生産において数十年の専門知識を持つスロバキアの企業です。1950年代から革新的な化学ソリューションを提供しています。',
     },
     slug: 'about-us',
     slugLock: true,

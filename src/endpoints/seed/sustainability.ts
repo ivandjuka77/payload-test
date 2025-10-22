@@ -452,9 +452,10 @@ export function sustainabilityEn(args: SustainabilityArgs) {
     ],
 
     meta: {
-      title: null,
+      title: 'Sustainability & Environmental Responsibility | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        "VUP's 70+ year legacy in chemical research is deeply intertwined with responsible practices and sustainable development. EcoVadis Silver Medal certified.",
     },
     publishedAt: '2025-05-24T10:24:53.543Z',
     slug: 'sustainability',
@@ -898,9 +899,10 @@ export function sustainabilitySk(args: SustainabilityArgs) {
     ],
 
     meta: {
-      title: null,
+      title: 'Udržateľnosť a environmentálna zodpovednosť | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Viac ako 70-ročné dedičstvo VUP v chemickom výskume je hlboko prepojené so zodpovednými postupmi a udržateľným rozvojom. Certifikované striebornou medailou EcoVadis.',
     },
     publishedAt: '2025-05-24T10:24:53.543Z',
     slug: 'sustainability',
@@ -1344,9 +1346,10 @@ export function sustainabilityJp(args: SustainabilityArgs) {
     ],
 
     meta: {
-      title: null,
+      title: 'サステナビリティと環境責任 | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        'VUPの70年以上にわたる化学研究の歴史は、責任ある実践と持続可能な開発と深く結びついています。EcoVadisシルバーメダル認定。',
     },
     publishedAt: '2025-05-24T10:24:53.543Z',
     slug: 'sustainability',

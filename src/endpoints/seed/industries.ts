@@ -168,9 +168,10 @@ export function industriesEn(args: IndustriesArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Industries We Serve | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        'VUP develops, manufactures, and supplies specialized chemical solutions that power innovation across diverse industries worldwide. Trusted partner for 70+ years.',
     },
     slug: 'industries',
     _status: 'published' as const,
@@ -340,9 +341,10 @@ export function industriesSk(args: IndustriesArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Odvetvia, ktoré obsluhujeme | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'VUP vyvíja, vyrába a dodáva špecializované chemické riešenia, ktoré poháňajú inovácie v rôznych odvetviach po celom svete. Dôveryhodný partner viac ako 70 rokov.',
     },
     slug: 'industries',
     _status: 'published' as const,
@@ -512,9 +514,10 @@ export function industriesJp(args: IndustriesArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: '当社がサービスを提供する産業 | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        'VUPは、世界中の多様な産業でイノベーションを推進する特殊化学ソリューションを開発、製造、供給しています。70年以上にわたる信頼できるパートナー。',
     },
     slug: 'industries',
     _status: 'published' as const,

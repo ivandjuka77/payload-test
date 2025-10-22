@@ -268,9 +268,10 @@ export function contactUsEn({ contactForm, heroImage, contactUsCastleImage }: Co
     ],
 
     meta: {
-      title: null,
+      title: 'Contact Us | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        "Get in touch with our team of experts for analytical testing services, custom synthesis, and purification solutions. We're here to support your research and development needs.",
     },
     slug: 'contact',
     slugLock: true,
@@ -540,9 +541,10 @@ export function contactUsSk({ contactForm, heroImage, contactUsCastleImage }: Co
     ],
 
     meta: {
-      title: null,
+      title: 'Kontaktujte nás | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Spojte sa s naším tímom odborníkov pre analytické testovacie služby, zákazkovú syntézu a riešenia čistenia. Sme tu, aby sme podporili vaše potreby výskumu a vývoja.',
     },
     slug: 'contact',
     slugLock: true,
@@ -812,9 +814,10 @@ export function contactUsJp({ contactForm, heroImage, contactUsCastleImage }: Co
     ],
 
     meta: {
-      title: null,
+      title: 'お問い合わせ | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        '分析試験サービス、カスタム合成、精製ソリューションについて、当社の専門家チームにお問い合わせください。お客様の研究開発ニーズをサポートいたします。',
     },
     slug: 'contact',
     slugLock: true,

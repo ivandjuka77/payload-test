@@ -36,9 +36,10 @@ export function researchProductsEn(args: ResearchProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Research Products | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        'Explore our specialized range of high-purity chemical products designed for research and development. Advanced intermediates, specialty chemicals, and custom synthesis solutions.',
     },
     slug: 'research-products',
     _status: 'published' as const,
@@ -74,9 +75,10 @@ export function researchProductsSk(args: ResearchProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Výskumné produkty | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Preskúmajte náš špecializovaný sortiment vysoko čistých chemických produktov určených pre výskum a vývoj. Pokročilé medziprodukty, špeciálne chemikálie a riešenia na zákazkovú syntézu.',
     },
     slug: 'research-products',
     _status: 'published' as const,
@@ -112,9 +114,10 @@ export function researchProductsJp(args: ResearchProductsArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: '研究用製品 | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        '研究開発用に設計された高純度化学製品の特殊範囲をご覧ください。高度な中間体、特殊化学品、カスタム合成ソリューション。',
     },
     slug: 'research-products',
     _status: 'published' as const,
