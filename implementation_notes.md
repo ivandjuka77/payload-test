@@ -100,30 +100,22 @@ SERVICES PAGE:
 
 [x] Career - non solicited applications we are taking
 
-[] Add little labels
-
 [0] Rainbow color hero try
 [0] Try out the atoms/branching out hero image idea
 [0] Add TDS/SDS documents
-[] About us fix mobile video
+
+[x] Sustainability CTA fix
+[x] Fix sitemap URL old url
+[x] If you find /index.php redirect to home page
+[x] Add GA
+[x] Remove careers from seeding
 
 [] Is Key Product
 [] About us page sort responsive
 [] Research products hardcode
-[] keY product assets
+[] key product assets
 [] Collective badges image
-[] Sustainability CTA fix
-[] Remove careers from seeding
 [] Check forms
-[] Fix sitemap URL old url
-[] If you find index.php redirect to home page
+[] About us fix mobile video
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S03T3K9L0Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S03T3K9L0Q');
-</script>
+[] Add little labels

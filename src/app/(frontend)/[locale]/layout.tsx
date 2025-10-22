@@ -12,6 +12,7 @@ import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 import { Raleway, Inter } from 'next/font/google'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 
 const raleway = Raleway({
   variable: '--font-primary',
@@ -49,6 +50,18 @@ export default async function RootLayout({
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S03T3K9L0Q"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-S03T3K9L0Q');
+          `}
+        </Script>
         <Providers locale={locale} messages={messages}>
           <Header locale={locale} />
           {children}

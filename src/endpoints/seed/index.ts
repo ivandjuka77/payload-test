@@ -165,7 +165,7 @@ export const seed = async ({
   // --------------------
   // 6. Seed Careers
   // --------------------
-  const careers = await seedCareers(payload)
+  // const careers = await seedCareers(payload)
 
   // --------------------
   // 7. Seed Posts
@@ -304,8 +304,8 @@ export const seed = async ({
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataEn({
         featuredImage1: media.careerPageImageDoc,
-        chemist: careers.chemistDoc,
-        analyst: careers.analystDoc,
+        // chemist: careers.chemistDoc,
+        // analyst: careers.analystDoc,
       }),
     }),
 
@@ -471,8 +471,8 @@ export const seed = async ({
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataSk({
         featuredImage1: media.careerPageImageDoc,
-        chemist: careers.chemistDoc,
-        analyst: careers.analystDoc,
+        // chemist: careers.chemistDoc,
+        // analyst: careers.analystDoc,
       }),
     }),
   ])
@@ -641,8 +641,8 @@ export const seed = async ({
       // @ts-expect-error This is working, but payload is not happy
       data: careersPageDataJp({
         featuredImage1: media.careerPageImageDoc,
-        chemist: careers.chemistDoc,
-        analyst: careers.analystDoc,
+        // chemist: careers.chemistDoc,
+        // analyst: careers.analystDoc,
       }),
     }),
   ])

@@ -1,4 +1,4 @@
-import { ArrowRight, Handshake } from 'lucide-react'
+import { Handshake } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
@@ -31,18 +31,6 @@ export default function SustainabilityPartner() {
               >
                 <Link href="/contact" className="inline-flex items-center gap-2">
                   {t('contactUs')}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white bg-transparent text-white hover:bg-white/10"
-              >
-                <Link href="/certifications" className="inline-flex items-center gap-2">
-                  {t('viewCertifications')}
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
