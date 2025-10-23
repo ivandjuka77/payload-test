@@ -117,7 +117,7 @@ SERVICES PAGE:
 
 [x] SEO
 [x] Check forms
-[] About us fix mobile video
+[x] About us fix mobile video
 
 [] Add little labels
 
