@@ -131,10 +131,10 @@ export default async function Career({ params: paramsPromise }: Args) {
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = '' } = await paramsPromise
+  const { slug = '', locale = 'en' } = await paramsPromise
   const career = await queryCareerBySlug({ slug })
 
-  return generateMeta({ doc: career })
+  return generateMeta({ doc: career, locale, pathPrefix: `/career/${slug}` })
 }
 
 const queryCareerBySlug = cache(async ({ slug }: { slug: string }) => {

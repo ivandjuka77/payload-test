@@ -124,7 +124,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const { slug = '', locale = 'en' } = await paramsPromise
   const category = await queryCategoryBySlug({ slug, locale })
 
-  return generateMeta({ doc: category })
+  return generateMeta({ doc: category, locale, pathPrefix: `/products/category/${slug}` })
 }
 
 const queryCategoryBySlug = cache(

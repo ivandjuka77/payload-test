@@ -82,7 +82,23 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'news' })
 
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : ''
+  const canonical = `${serverUrl}${localePrefix}/news`
+
+  // Generate language alternates
+  const languages: Record<string, string> = {
+    en: `${serverUrl}/news`,
+    sk: `${serverUrl}/sk/news`,
+    ja: `${serverUrl}/jp/news`,
+    'x-default': `${serverUrl}/news`,
+  }
+
   return {
     title: t('meta.title'),
+    alternates: {
+      canonical,
+      languages,
+    },
   }
 }

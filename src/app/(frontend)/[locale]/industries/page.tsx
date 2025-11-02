@@ -54,7 +54,7 @@ export default async function IndustriesPage({ params }: { params: Params }) {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale } = await params
   const page = await queryIndustriesPage({ locale })
-  return generateMeta({ doc: page })
+  return generateMeta({ doc: page, locale })
 }
 
 async function queryIndustriesPage({ locale }: { locale: TypedLocale }) {

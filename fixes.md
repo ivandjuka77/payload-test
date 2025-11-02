@@ -10,14 +10,19 @@
 - Fixed featured products on Hindered Amines product category
 - Added CAS & EC numbers to search context
 - Adjusted VUP Cosmetics link
+- Fixed Services page metadata
+- Fixed contact form email from "Payload" to "VUP International" <vup@vupas.sk>
+- Fixed VUP Chemicals to VUP A.S.
+- Added canonical URLs and hreflang tags to all pages
+- Updated generateMeta utility to support locale-aware canonicals and language alternates
+- Implemented x-default tag pointing to English version, language tags for rest
 
 ---
 
 To Check:
 
-- Fix meta title/description of Payload mentions
-- Add canonicals
 - Check screaming frog
+- Why personel disappearing
 
 - Some photos are missing, some are paid (OK) (/sustainability page, battery energy storage), some are weirdly missing for Chris
 - See if i can find any chemical structure images for the products that are missing

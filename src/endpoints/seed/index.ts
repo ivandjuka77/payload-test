@@ -915,7 +915,7 @@ export const seed = async ({
         },
       ],
       companyInfo: {
-        address: 'VUP Chemicals, a.s.\nNábrežná 4, 971 01\nPrievidza, Slovakia',
+        address: 'VUP A.S., a.s.\nNábrežná 4, 971 01\nPrievidza, Slovakia',
         email: 'vup@vupas.sk',
       },
     },

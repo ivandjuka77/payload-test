@@ -106,7 +106,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const { slug = '', locale = 'en' } = await paramsPromise
   const industry = await queryIndustryBySlug({ slug, locale })
 
-  return generateMeta({ doc: industry })
+  return generateMeta({ doc: industry, locale, pathPrefix: `/industries/${slug}` })
 }
 
 const queryIndustryBySlug = cache(

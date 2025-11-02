@@ -21,15 +21,46 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
 
 export const generateMeta = async (args: {
   doc: Partial<Page> | Partial<Post> | null
+  locale?: string
+  pathPrefix?: string
 }): Promise<Metadata> => {
-  const { doc } = args
+  const { doc, locale, pathPrefix } = args
 
   const ogImage = getImageURL(doc?.meta?.image)
 
   const title = doc?.meta?.title ? doc?.meta?.title + ' | VUP ' : 'VUP '
 
+  // Generate canonical URL
+  const serverUrl = getServerSideURL()
+  let canonicalPath = ''
+
+  if (pathPrefix) {
+    // For dynamic routes like products, categories, etc.
+    canonicalPath = pathPrefix
+  } else if (doc?.slug) {
+    // For regular pages
+    const slug = Array.isArray(doc.slug) ? doc.slug.join('/') : doc.slug
+    canonicalPath = slug === 'home' ? '' : `/${slug}`
+  }
+
+  // Add locale prefix for non-English languages
+  const localePrefix = locale && locale !== 'en' ? `/${locale}` : ''
+  const canonical = `${serverUrl}${localePrefix}${canonicalPath}`
+
+  // Generate language alternates
+  const languages: Record<string, string> = {
+    en: `${serverUrl}${canonicalPath}`,
+    sk: `${serverUrl}/sk${canonicalPath}`,
+    ja: `${serverUrl}/jp${canonicalPath}`, // Using 'ja' for Japanese (ISO 639-1 standard)
+    'x-default': `${serverUrl}${canonicalPath}`, // Default to English
+  }
+
   return {
     description: doc?.meta?.description,
+    alternates: {
+      canonical,
+      languages,
+    },
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || '',
       images: ogImage
@@ -40,7 +71,8 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: canonical,
+      locale: locale === 'sk' ? 'sk_SK' : locale === 'jp' ? 'ja_JP' : 'en_US',
     }),
     title,
   }

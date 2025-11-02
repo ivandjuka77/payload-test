@@ -35,9 +35,10 @@ export default async function ProductsPage({ params }: { params: Params }) {
   )
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await queryProducts({ limit: 1 })
-  return generateMeta({ doc: page })
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { locale } = await params
+  const page = await queryProducts({ limit: 1, locale })
+  return generateMeta({ doc: page, locale })
 }
 
 export async function queryProducts({

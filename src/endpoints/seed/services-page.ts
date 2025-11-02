@@ -168,9 +168,10 @@ export function servicesPageEn(args: ServicesPageArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Chemical Solutions & Services | VUP Chemical Solutions',
       image: null,
-      description: null,
+      description:
+        'From research and development to contract manufacturing, VUP offers end-to-end chemical solutions backed by 70+ years of expertise. Comprehensive services for quality and innovation.',
     },
     slug: 'services',
     _status: 'published' as const,
@@ -340,9 +341,10 @@ export function servicesPageSk(args: ServicesPageArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: 'Chemické riešenia a služby | VUP Chemické Riešenia',
       image: null,
-      description: null,
+      description:
+        'Od výskumu a vývoja až po zmluvnú výrobu, VUP ponúka komplexné chemické riešenia podporované viac ako 70-ročnými skúsenosťami. Komplexné služby pre kvalitu a inovácie.',
     },
     slug: 'services',
     _status: 'published' as const,
@@ -512,9 +514,10 @@ export function servicesPageJp(args: ServicesPageArgs) {
       },
     ],
     meta: {
-      title: null,
+      title: '化学ソリューションとサービス | VUPケミカルソリューションズ',
       image: null,
-      description: null,
+      description:
+        '研究開発から受託製造まで、VUPは70年以上の専門知識に裏打ちされたエンドツーエンドの化学ソリューションを提供しています。品質と革新のための包括的なサービス。',
     },
     slug: 'services',
     _status: 'published' as const,
