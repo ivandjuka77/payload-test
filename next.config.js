@@ -44,6 +44,8 @@ const nextConfig = {
         port: '54321',
       },
     ],
+    // TEMPORARY DISABLED OPTIMIZATION TO PREVENT CACHE ISSUES
+    unoptimized: true,
   },
   reactStrictMode: true,
   redirects,
