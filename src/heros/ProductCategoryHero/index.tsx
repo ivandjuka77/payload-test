@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ProductCategory } from '@/payload-types'
 import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 export function ProductCategoryHero({
   translations,
@@ -33,9 +34,11 @@ export function ProductCategoryHero({
               {category.description}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="group">
-                {translations.cta}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button asChild className="group">
+                <Link href="#product-category-showcase">
+                  {translations.cta}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
           </div>

@@ -37,7 +37,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   const [
     hydroxyAcids,
     hinderedAmines,
-    glycolEthers,
     phospholipidPrecursors,
     polymerisationInhibitors,
     specialtyHinderedAmines,
@@ -149,63 +148,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
-        _order: '4',
-        name: 'Glycol Ethers',
-        description:
-          'Versatile oxygenated solvents containing both ether and alcohol functional groups. Derived from ethylene or propylene glycol, these compounds excel as coupling agents and solvents across industrial applications.',
-        image: image3Doc.id,
-        slug: 'glycol-ethers',
-
-        productComparison: true,
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Paints & Coatings',
-            description:
-              'Essential solvents in paints, lacquers, and varnishes providing excellent dissolution properties and film formation.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Cleaning Formulations',
-            description:
-              'Effective solvents for industrial and household cleaning products with superior degreasing capabilities.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Printing Inks',
-            description:
-              'High-performance solvents enabling optimal ink flow and print quality in commercial printing applications.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Coupling Agents',
-            description:
-              'Enhance miscibility between water and organic phases or different organic liquids in formulations.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Chemical Intermediates',
-            description:
-              'Building blocks for synthesis of acetates and other derivatives in specialty chemical manufacturing.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Specialty Products',
-            description:
-              'Functional components in VUP formulations like VUPIN polymerization inhibitors as carriers and solvents.',
-          },
-        ],
-      },
-    }),
-    payload.create({
-      collection: 'productCategories',
-      data: {
         _order: '5',
-        name: 'Phospholipid Precursors',
+        name: 'phosphocolamines',
         description:
           'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
         image: image3Doc.id,
-        slug: 'phospholipid-precursors',
+        slug: 'phosphocolamines',
 
         productComparison: true,
         applications: [
@@ -547,58 +495,10 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: glycolEthers.id,
-      locale: 'sk',
-      data: {
-        name: 'Glykolové étery',
-        description:
-          'Všestranné kyslíkaté rozpúšťadlá obsahujúce éterové aj alkoholové funkčné skupiny. Odvodené od etylénglykolový alebo propylénglykolový, tieto zlúčeniny vynikajú ako spojivá a rozpúšťadlá v priemyselných aplikáciách.',
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Farby a nátery',
-            description:
-              'Základné rozpúšťadlá vo farbách, lakoch a fermežiach poskytujúce vynikajúce rozpúšťacie vlastnosti a tvorbu filmu.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Čistiace prostriedky',
-            description:
-              'Účinné rozpúšťadlá pre priemyselné a domáce čistiace prostriedky s vynikajúcimi odmasťovacími schopnosťami.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Tlačiarenské farby',
-            description:
-              'Vysokovýkonné rozpúšťadlá umožňujúce optimálny tok farby a kvalitu tlače v komerčných tlačiarenských aplikáciách.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Spojovacie činidlá',
-            description:
-              'Zlepšujú miešateľnosť medzi vodnou a organickou fázou alebo rôznymi organickými kvapalinami vo formuláciách.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Chemické medziprodukty',
-            description:
-              'Stavebné bloky pre syntézu acetátov a iných derivátov vo výrobe špeciálnych chemikálií.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Špeciálne produkty',
-            description:
-              'Funkčné zložky vo formuláciách VUP, ako sú inhibítory polymerizácie VUPIN, ako nosiče a rozpúšťadlá.',
-          },
-        ],
-      },
-    }),
-    payload.update({
-      collection: 'productCategories',
       id: phospholipidPrecursors.id,
       locale: 'sk',
       data: {
-        name: 'Prekurzory fosfolipidov',
+        name: 'phosphocolamines',
         description:
           'Základné biochemické stavebné bloky pre syntézu fosfolipidov - základ zdravých bunkových membrán. VUP dodáva vysokočistý Colamin Phosphate a jeho soli, kľúčové pre doplnky stravy, veterinárne a farmaceutické aplikácie.',
         applications: [
@@ -926,55 +826,10 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: glycolEthers.id,
-      locale: 'jp',
-      data: {
-        name: 'グリコールエーテル',
-        description:
-          'エーテルとアルコール官能基の両方を含む多用途の酸素系溶媒。エチレングリコールまたはプロピレングリコールから誘導され、これらの化合物は工業用途でカップリング剤と溶媒として優れています。',
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: '塗料とコーティング',
-            description:
-              '塗料、ラッカー、ワニスに不可欠な溶剤で、優れた溶解特性と塗膜形成を提供します。',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: '洗浄剤配合',
-            description: '優れた脱脂能力を持つ産業用および家庭用洗浄製品の効果的な溶剤。',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: '印刷インキ',
-            description: '商業印刷用途で最適なインクフローと印刷品質を可能にする高性能溶剤。',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'カップリング剤',
-            description: '配合物中の水と有機相、または異なる有機液体間の混和性を向上させます。',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: '化学中間体',
-            description:
-              '特殊化学品製造における酢酸エステルおよびその他の誘導体の合成のためのビルディングブロック。',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: '特殊製品',
-            description:
-              'VUPIN重合禁止剤のようなVUP配合物において、担体および溶剤としての機能性成分。',
-          },
-        ],
-      },
-    }),
-    payload.update({
-      collection: 'productCategories',
       id: phospholipidPrecursors.id,
       locale: 'jp',
       data: {
-        name: 'リン脂質前駆体',
+        name: 'phosphocolamines',
         description:
           '健康な細胞膜の基盤であるリン脂質合成の必須生化学構成要素。VUPは高純度のColamin Phosphateとその塩類を供給し、サプリメント、獣医学、製薬用途に重要です。',
         applications: [
@@ -1200,30 +1055,37 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     dmpa,
     dmba,
     hpva,
+
     // Batch 2
     hTempo,
-    trolox,
     tempo,
-    // Batch 3
     temp,
+
+    // Batch 3
     dapeg,
-    benzoyloxyTmp,
+    vupin,
+    trolox,
+
     // Batch 4
+    benzoyloxyTmp,
     acetamidoTempo,
     tempone,
-    colamin,
+
     // Batch 5
+    colamin,
     colaminPhosphate,
     colaminPhosphatesodiumSalt,
-    vupin,
+
     // Batch 6
     pentamethylpiperidine,
     pentamethylpiperidinol,
     aminoTmp,
+
     // Batch 7
     hals770,
     hals765,
     aminoTempo,
+
     // Batch 8
     spiroTempoAcid,
     galvinoxyl,
@@ -2006,7 +1868,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Sourced directly from VUP, the sole global producer utilizing proprietary technology, ensuring a distinct and secure supply chain.',
           },
           {
-            feature: 'High Purity Standards',
+            feature: 'High Quality Standards',
             description:
               'Manufactured to high purity standards (97% min), critical for demanding biomedical and pharmaceutical applications requiring consistent performance.',
           },
@@ -2183,7 +2045,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         slug: 'vupin-h37b',
       },
     }),
-    // KEY PRODUCTS END
     payload.create({
       collection: 'products',
       data: {
@@ -5301,7 +5162,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Získavaný priamo od VUP, jediného globálného výrobcu využívajúceho proprietárnu technológiu, zabezpečujúc odlišný a bezpečný dodávateľský reťazec.',
           },
           {
-            feature: 'Vysoké štandardy čistoty',
+            feature: 'Vysoké štandardy kvality',
             description:
               'Vyrábaný podľa vysokých štandardov čistoty (97% min), kritických pre náročné biomedicínske a farmaceutické aplikácie vyžadujúce konzistentný výkon.',
           },
@@ -5588,7 +5449,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               '独自技術を利用する唯一のグローバル生産者であるVUPから直接調達され、特異で安全なサプライチェーンを確保。',
           },
           {
-            feature: '高純度基準',
+            feature: '高品質基準',
             description:
               '高純度基準（97%最低）で製造され、一貫した性能を要求する厳しい生物医学および製薬用途に重要。',
           },
@@ -8490,14 +8351,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             hTempo.id,
             aminoTempo.id,
             tempone.id,
-            vupin.id,
             pentamethylpiperidine.id,
             pentamethylpiperidinol.id,
             aminoTmp.id,
             hals770.id,
             hals765.id,
             spiroTempoAcid.id,
-            galvinoxyl.id,
           ],
           image: hTempoStructureDoc.id,
         },
@@ -8542,7 +8401,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         },
       })
       .catch((err) => {
-        payload.logger.error(`- Error updating phospholipid-precursors category: ${err}`)
+        payload.logger.error(`- Error updating phosphocolamines category: ${err}`)
       }),
 
     payload
@@ -8563,7 +8422,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     categories: {
       hydroxyAcids,
       hinderedAmines,
-      glycolEthers,
       phospholipidPrecursors,
       polymerisationInhibitors,
       specialtyHinderedAmines,

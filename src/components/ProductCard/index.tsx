@@ -18,7 +18,6 @@ export default function ProductCard({
   variant?: 'default' | 'compact' | 'horizontal'
 }) {
   const t = useTranslations('productCard')
-  // Horizontal variant for full-width layout
 
   const applicationIcons = {
     1: <Atom />,
@@ -28,11 +27,16 @@ export default function ProductCard({
 
   if (variant === 'horizontal') {
     return (
-      <Link
-        href={`/products/${product.slug}`}
+      <div
         key={product.id}
-        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group block"
+        className="relative overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 group block"
       >
+        <Link
+          href={`/products/${product.slug}`}
+          className="absolute inset-0 z-10"
+          aria-label={`View details for ${product.name}`}
+        />
+
         <div className="flex flex-col-reverse lg:flex-row h-full">
           {/* Content section */}
           <div className="p-6 sm:p-8 lg:px-12 lg:py-12 lg:w-3/5 flex flex-col justify-center">
@@ -95,12 +99,9 @@ export default function ProductCard({
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 relative z-20">
               <Dialog>
-                <DialogTrigger
-                  onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base"
-                >
+                <DialogTrigger className="inline-flex items-center justify-center gap-2 w-full xs:w-fit bg-primary text-white hover:bg-primary/90 px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium transition-colors text-sm sm:text-base">
                   {t('requestQuote')}
                   <ArrowUpRight className="h-4 w-4" />
                 </DialogTrigger>
@@ -110,15 +111,15 @@ export default function ProductCard({
               </Dialog>
 
               <Button
+                asChild
                 variant="outline"
                 className="w-full xs:w-auto px-4 sm:px-8 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base"
               >
-                {t('viewDetails')}
+                <Link href={`/products/${product.slug}`}>{t('viewDetails')}</Link>
               </Button>
             </div>
           </div>
 
-          {/* Right image */}
           <div className="relative lg:w-2/5 h-48 sm:h-56 lg:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
             {product.chemicalStructureImage ? (
               <Media
@@ -136,17 +137,21 @@ export default function ProductCard({
             </Tag>
           </div>
         </div>
-      </Link>
+      </div>
     )
   }
 
-  // Original vertical layout for 'default' and 'compact' variants
   return (
-    <Link
-      href={`/products/${product.slug}`}
+    <div
       key={product.id}
-      className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full cursor-pointer"
+      className="group relative overflow-hidden rounded-lg sm:rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
     >
+      <Link
+        href={`/products/${product.slug}`}
+        className="absolute inset-0 z-10"
+        aria-label={`View details for ${product.name}`}
+      />
+
       <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 bg-gradient-to-b from-gray-300 to-white overflow-hidden flex items-center justify-center">
         {product.chemicalStructureImage && (
           <Media
@@ -231,12 +236,9 @@ export default function ProductCard({
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row w-full items-center gap-2 mt-auto">
+        <div className="flex flex-col sm:flex-row w-full items-center gap-2 mt-auto relative z-20">
           <Dialog>
-            <DialogTrigger
-              onClick={(e) => e.preventDefault()}
-              className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-xs sm:text-sm px-2 sm:w-3/5 truncate"
-            >
+            <DialogTrigger className="w-full rounded-sm flex items-center justify-center bg-primary text-white hover:bg-primary/90 h-9 sm:h-10 text-xs sm:text-sm px-2 sm:w-3/5 truncate">
               <span className="truncate">{t('requestQuote')}</span>
               <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 ml-1 sm:ml-2 flex-shrink-0" />
             </DialogTrigger>
@@ -245,11 +247,17 @@ export default function ProductCard({
             </DialogContent>
           </Dialog>
 
-          <Button variant="outline" className="w-full sm:w-2/5 text-xs sm:text-sm px-2 truncate">
-            <span className="truncate">{t('viewDetails')}</span>
+          <Button
+            asChild
+            variant="outline"
+            className="w-full sm:w-2/5 text-xs sm:text-sm px-2 truncate"
+          >
+            <Link href={`/products/${product.slug}`}>
+              <span className="truncate">{t('viewDetails')}</span>
+            </Link>
           </Button>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

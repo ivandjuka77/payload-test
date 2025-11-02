@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Mail } from 'lucide-react'
+import Link from 'next/link'
 
 interface ContactCTAProps {
   title: string
@@ -21,9 +22,11 @@ export function ContactCTA({ title, description, cta }: ContactCTAProps) {
             {description}
           </p>
           <div className="flex flex-col lg:flex-row gap-4 justify-center">
-            <Button className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
-              {cta}
+            <Button asChild className="flex items-center gap-2">
+              <Link href="/contact">
+                <Mail className="h-4 w-4" />
+                {cta}
+              </Link>
             </Button>
           </div>
         </div>

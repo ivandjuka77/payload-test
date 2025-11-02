@@ -329,19 +329,6 @@ export const ProductTable: React.FC<ProductTableProps> = ({
 
   return (
     <section className="container py-16 md:py-20 px-4 sm:px-6 lg:px-0">
-      {/* <div className="mb-8 flex flex-col items-left justify-center">
-        {title && (
-          <h2 className="font-primary mb-4 text-3xl font-bold text-foreground md:text-4xl">
-            {title}
-          </h2>
-        )}
-        {description && (
-          <p className="font-secondary max-w-3xl text-base text-muted-foreground md:text-lg">
-            {description}
-          </p>
-        )}
-      </div> */}
-
       <div className="rounded-lg border border-border bg-card shadow-sm overflow-x-auto">
         <Table>
           <TableHeader>

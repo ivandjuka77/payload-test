@@ -112,6 +112,8 @@ export const plugins: Plugin[] = [
           title: originalDoc.name,
           slug: originalDoc.slug,
           description: originalDoc.description,
+          casNumber: originalDoc.technicalSpecifications?.casNumber,
+          ecNumber: originalDoc.technicalSpecifications?.ecNumber,
         }
       }
 

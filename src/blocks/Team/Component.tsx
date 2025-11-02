@@ -3,49 +3,6 @@ import Link from 'next/link'
 import { TeamBlock, TeamMember, Service } from '@/payload-types'
 
 export const Team: React.FC<TeamBlock> = ({ title, subtitle, teamMembers }) => {
-  //   const teamMembers: TeamMember[] = [
-  //     {
-  //       name: 'Roman Karlubik',
-  //       title: 'Chief Executive Officer',
-  //       department: 'Executive Leadership',
-  //       imageSrc: 'placeholder.svg',
-  //       bio: 'Leading VUP&apos;s strategic direction and commitment to innovation and sustainable growth.',
-  //       linkedin: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: 'Ing. Peter Grolmus',
-  //       title: 'Director of Research & Development',
-  //       department: 'Research & Development',
-  //       imageSrc: 'placeholder.svg',
-  //       bio: 'Overseeing VUP&apos;s extensive R&D programs, driving innovation in chemical synthesis, process development, and new product creation.',
-  //       linkedin: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: 'Ing. Ján Chalupka',
-  //       title: 'Head of Commercial Department',
-  //       department: 'Commercial',
-  //       imageSrc: 'placeholder.svg',
-  //       bio: 'Managing VUP&apos;s commercial strategy, client partnerships, and market development for our diverse product and service portfolio.',
-  //       linkedin: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: 'Ing. Ľudovít Žiak, PhD',
-  //       title: 'Head of ATBEL Division',
-  //       department: 'Analytical, Technical-Safety, and Ecological Laboratories',
-  //       imageSrc: 'placeholder.svg',
-  //       bio: 'Leading our SNAS S-118 accredited laboratories, ensuring high-quality analytical services, technical safety testing, and environmental monitoring.',
-  //       linkedin: 'https://linkedin.com',
-  //     },
-  //     {
-  //       name: 'Ing. Denisa Juríčeková',
-  //       title: 'Head of Production Department for Cosmetics',
-  //       department: 'Cosmetics Production',
-  //       imageSrc: 'placeholder.svg',
-  //       bio: 'Overseeing the development, manufacturing, and quality assurance of VUP&apos;s cosmetic products, including custom and private label solutions.',
-  //       linkedin: 'https://linkedin.com',
-  //     },
-  //   ]
-
   const teamMembersArray = teamMembers as TeamMember[]
 
   return (

@@ -98,6 +98,7 @@ export default async function ProductCategory({ params: paramsPromise }: Args) {
 
       <Showcase
         type="product"
+        id="product-category-showcase"
         products={category.featuredProducts as ProductType[]}
         showCta={false}
         title={translations.showcase.title}

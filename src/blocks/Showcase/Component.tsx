@@ -5,6 +5,7 @@ import SimpleCTA from '@/components/SimpleCTA'
 
 interface ShowcaseProps {
   type: 'product' | 'category' | 'industry' | 'blogs'
+  id?: string
   title: string
   description: string
   products?: Product[]
@@ -21,6 +22,7 @@ interface ShowcaseProps {
 
 export const Showcase: React.FC<ShowcaseProps> = ({
   type,
+  id,
   title,
   description,
   products,
@@ -70,7 +72,10 @@ export const Showcase: React.FC<ShowcaseProps> = ({
   }
 
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-gray-50/50 px-4 sm:px-6 lg:px-0">
+    <section
+      id={id}
+      className="relative w-full py-12 sm:py-16 md:py-20 bg-gradient-to-b from-background to-gray-50/50 px-4 sm:px-6 lg:px-0"
+    >
       <div className="container">
         {/* Section header */}
         <div className="flex flex-col items-center text-center max-w-[800px] sm:max-w-[900px] mx-auto mb-10 sm:mb-12 md:mb-16 lg:mb-24">

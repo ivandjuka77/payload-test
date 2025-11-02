@@ -383,7 +383,7 @@ export function homeEn(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research-development',
+                  url: '/services',
                   label: 'Explore Services',
                   appearance: 'default',
                 },
@@ -938,7 +938,7 @@ export function homeSk(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research-development',
+                  url: '/services',
                   label: 'Preskúmať služby',
                   appearance: 'default',
                 },
@@ -1486,7 +1486,7 @@ export function homeJp(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/research-development',
+                  url: '/services',
                   label: 'サービスを探す',
                   appearance: 'default',
                 },
