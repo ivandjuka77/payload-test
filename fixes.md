@@ -16,6 +16,7 @@
 - Added canonical URLs and hreflang tags to all pages
 - Updated generateMeta utility to support locale-aware canonicals and language alternates
 - Implemented x-default tag pointing to English version, language tags for rest
+- Fixed disappearing images
 
 ---
 
@@ -24,7 +25,6 @@ To Check:
 - Check screaming frog
 - Why personel disappearing
 
-- Some photos are missing, some are paid (OK) (/sustainability page, battery energy storage), some are weirdly missing for Chris
 - See if i can find any chemical structure images for the products that are missing
 
 ---

@@ -42,6 +42,9 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     specialtyHinderedAmines,
     diaminopolyethyleneGlycols,
     chromanolsDerivatives,
+    freeRadicals,
+    epoxides,
+    acetylenicAlcohols,
   ] = await Promise.all([
     payload.create({
       collection: 'productCategories',
@@ -149,7 +152,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       collection: 'productCategories',
       data: {
         _order: '5',
-        name: 'phosphocolamines',
+        name: 'Phosphocolamines',
         description:
           'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
         image: image3Doc.id,
@@ -388,6 +391,150 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '4',
+        name: 'Free Radicals',
+        description:
+          'Specialty stable radicals — primarily TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl) and its key derivatives — designed for controlled oxidation, polymerisation moderation, and mechanistic research. With over five decades of chemical R&D expertise, VUP offers pilot-plant and laboratory-scale radicals for precise control in organic synthesis, living polymerisation (NMP), and redox catalysis.',
+        image: demoImageDoc.id,
+        slug: 'free-radicals',
+
+        productComparison: true,
+        featuredProducts: [],
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Catalytic Oxidation',
+            description:
+              'Selective alcohol-to-aldehyde and amine-to-imine transformations under mild conditions for fine chemical and pharmaceutical synthesis.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Controlled Radical Polymerisation (NMP)',
+            description:
+              'Nitroxide-mediated polymerisation for precise molecular weight control and synthesis of well-defined polymer architectures.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Redox Catalysis',
+            description:
+              'Employed in electrochemical and chemical redox cycles for organic synthesis and catalytic transformations.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Spin Labeling & EPR Research',
+            description:
+              'Stable radicals for mechanistic and structural analysis in ESR/EPR spectroscopy and biophysical studies.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Antioxidant & Stability Studies',
+            description:
+              'Used in oxidative stability modelling of polymers and organic materials for research and development applications.',
+          },
+        ],
+      },
+    }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '9',
+        name: 'Epoxides',
+        description:
+          'Specialty aliphatic and multifunctional epoxides offered in both pilot-plant and laboratory scales. Key reactive intermediates in polymer synthesis, coatings, adhesives, and fine-chemical development. With over 50 years of expertise, VUP supports industrial innovation in crosslinking, viscosity control, hydrophobic modification, and waterborne formulation design.',
+        image: demoImageDoc.id,
+        slug: 'epoxides',
+
+        productComparison: true,
+        featuredProducts: [],
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Coatings & Sealants',
+            description:
+              'Improve flexibility, adhesion, and gloss in epoxy, urethane, and hybrid coatings for enhanced performance and durability.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Adhesives',
+            description:
+              'Enhance substrate bonding and strength while lowering formulation viscosity for improved application properties.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Polymer Modification',
+            description:
+              'Introduce epoxy or allyl functionality into polymer backbones for tailored material properties and performance.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Reactive Diluents',
+            description:
+              'Enable VOC reduction and low-viscosity formulations for high-solids systems and environmentally friendly applications.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Surface Functionalisation',
+            description:
+              'Modify hydrophobic or low-energy surfaces for enhanced compatibility and improved adhesion properties.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Fine Chemical Synthesis',
+            description:
+              'Versatile intermediates for creating specialty monomers and modifiers in advanced chemical synthesis.',
+          },
+        ],
+      },
+    }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '10',
+        name: 'Acetylenic Alcohols',
+        description:
+          'High-purity acetylenic alcohols — a family of triple-bond diols and tertiary propargylic alcohols widely used as wetting agents, flow modifiers, and reactive intermediates in coatings, polymer, and ink systems. These molecules combine hydroxyl functionality with acetylenic unsaturation, providing a balance of reactivity and surface activity essential for modern formulations.',
+        image: demoImageDoc.id,
+        slug: 'acetylenic-alcohols',
+
+        productComparison: true,
+        featuredProducts: [],
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Coatings & Paints',
+            description:
+              'Used as wetting and flow-control agents for even film formation and improved gloss in coating systems.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Printing Inks',
+            description:
+              'Reduce surface tension and enhance pigment dispersion in solvent and aqueous ink systems for superior print quality.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Adhesives & Sealants',
+            description:
+              'Aid in surface wetting and bonding of low-energy substrates for improved adhesion performance.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Polymer Additives',
+            description:
+              'Serve as reactive modifiers improving flexibility and stability in polymer backbones for enhanced material properties.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Fine Chemical Intermediates',
+            description:
+              'Building blocks for synthesis of specialty surfactants, stabilisers, and catalysts in advanced chemical applications.',
+          },
+        ],
+      },
+    }),
   ])
 
   // --------------------
@@ -498,7 +645,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       id: phospholipidPrecursors.id,
       locale: 'sk',
       data: {
-        name: 'phosphocolamines',
+        name: 'Phosphocolamines',
         description:
           'Základné biochemické stavebné bloky pre syntézu fosfolipidov - základ zdravých bunkových membrán. VUP dodáva vysokočistý Colamin Phosphate a jeho soli, kľúčové pre doplnky stravy, veterinárne a farmaceutické aplikácie.',
         applications: [
@@ -721,6 +868,138 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
+    payload.update({
+      collection: 'productCategories',
+      id: freeRadicals.id,
+      locale: 'sk',
+      data: {
+        name: 'Voľné radikály',
+        description:
+          'Špeciálne stabilné radikály — primárne TEMPO (2,2,6,6-Tetrametylpiperidin-1-oxyl) a jeho kľúčové deriváty — navrhnuté pre kontrolovanú oxidáciu, moderáciu polymerizácie a mechanistický výskum. S viac ako päťdesiatimi rokmi skúseností v oblasti chemického R&D, VUP ponúka pilotné a laboratórne radikály pre presnú kontrolu v organickej syntéze, živej polymerizácii (NMP) a redoxnej katalýze.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Katalytická oxidácia',
+            description:
+              'Selektívne transformácie alkoholov na aldehydy a amínov na imíny za miernych podmienok pre jemnú chemickú a farmaceutickú syntézu.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Kontrolovaná radikálová polymerizácia (NMP)',
+            description:
+              'Nitroxidom mediovaná polymerizácia pre presnú kontrolu molekulovej hmotnosti a syntézu dobre definovaných polymerných architektúr.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Redoxná katalýza',
+            description:
+              'Používaná v elektrochemických a chemických redoxných cykloch pre organickú syntézu a katalytické transformácie.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Spinové značenie a EPR výskum',
+            description:
+              'Stabilné radikály pre mechanistickú a štrukturálnu analýzu v ESR/EPR spektroskopii a biofyzikálnych štúdiách.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Antioxidačné a stabilizačné štúdie',
+            description:
+              'Používané pri modelovaní oxidačnej stability polymérov a organických materiálov pre výskum a vývoj.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'productCategories',
+      id: epoxides.id,
+      locale: 'sk',
+      data: {
+        name: 'Epoxidy',
+        description:
+          'Špeciálne alifatické a multifunkčné epoxidy ponúkané v pilotnom aj laboratórnom meradle. Kľúčové reaktívne medziprodukty v syntéze polymérov, náteroch, lepidlách a vývoji jemných chemikálií. S viac ako 50-ročnými skúsenosťami VUP podporuje priemyselnú inováciu v oblasti zosieťovania, kontroly viskozity, hydrofóbnej modifikácie a dizajnu vodouriediteľných formulácií.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Nátery a tesniace materiály',
+            description:
+              'Zlepšenie flexibility, adhézie a lesku v epoxidových, uretánových a hybridných náteroch pre zvýšený výkon a trvanlivosť.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Lepidlá',
+            description:
+              'Zlepšenie väzby na substrát a pevnosti pri znížení viskozity formulácie pre lepšie aplikačné vlastnosti.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Modifikácia polymérov',
+            description:
+              'Zavedenie epoxidovej alebo alylovej funkčnosti do polymerových reťazcov pre prispôsobené materiálové vlastnosti a výkon.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Reaktívne riedidlá',
+            description:
+              'Umožnenie redukcie VOC a nízkoviskóznych formulácií pre systémy s vysokým obsahom pevných látok a environmentálne priateľské aplikácie.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Povrchová funkcionalizácia',
+            description:
+              'Modifikácia hydrofóbnych alebo nízkoenergetických povrchov pre zlepšenú kompatibilitu a lepšie adhézne vlastnosti.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Jemná chemická syntéza',
+            description:
+              'Všestranné medziprodukty na vytváranie špeciálnych monomerov a modifikátorov v pokročilej chemickej syntéze.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'productCategories',
+      id: acetylenicAlcohols.id,
+      locale: 'sk',
+      data: {
+        name: 'Acetylénové alkoholy',
+        description:
+          'Vysokočisté acetylénové alkoholy — rodina trojväzbových diolov a terciárnych propargylových alkoholov široko používaných ako zmáčacie činidlá, modifikátory toku a reaktívne medziprodukty v náteroch, polymeroch a atramentových systémoch. Tieto molekuly kombinujú hydroxylovú funkčnosť s acetylénovým nenasýtením, poskytujúc rovnováhu reaktivity a povrchovej aktivity nevyhnutnú pre moderné formulácie.',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Nátery a farby',
+            description:
+              'Používané ako zmáčacie činidlá a látky na kontrolu toku pre rovnomernú tvorbu filmu a zlepšený lesk v náterových systémoch.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Tlačiarenské atramenty',
+            description:
+              'Znižujú povrchové napätie a zlepšujú disperziu pigmentov v rozpúšťadlových a vodných atramentových systémoch pre vynikajúcu kvalitu tlače.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Lepidlá a tesniace materiály',
+            description:
+              'Pomáhajú pri zmáčaní povrchu a lepení nízkoenergetických substrátov pre zlepšený adhézny výkon.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Polymerné prísady',
+            description:
+              'Slúžia ako reaktívne modifikátory zlepšujúce flexibilitu a stabilitu v polymerových reťazcoch pre vylepšené materiálové vlastnosti.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Jemné chemické medziprodukty',
+            description:
+              'Stavebné bloky na syntézu špeciálnych povrchovo aktívnych látok, stabilizátorov a katalyzátorov v pokročilých chemických aplikáciách.',
+          },
+        ],
+      },
+    }),
   ])
 
   // --------------------
@@ -829,7 +1108,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       id: phospholipidPrecursors.id,
       locale: 'jp',
       data: {
-        name: 'phosphocolamines',
+        name: 'Phosphocolamines',
         description:
           '健康な細胞膜の基盤であるリン脂質合成の必須生化学構成要素。VUPは高純度のColamin Phosphateとその塩類を供給し、サプリメント、獣医学、製薬用途に重要です。',
         applications: [
@@ -1044,6 +1323,136 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
+    payload.update({
+      collection: 'productCategories',
+      id: freeRadicals.id,
+      locale: 'jp',
+      data: {
+        name: 'フリーラジカル',
+        description:
+          '特殊な安定ラジカル — 主にTEMPO（2,2,6,6-テトラメチルピペリジン-1-オキシル）とその主要誘導体 — 制御酸化、重合調整、メカニズム研究のために設計されています。50年以上の化学R&D専門知識により、VUPは有機合成、リビング重合（NMP）、レドックス触媒における精密制御のためのパイロットプラントおよび実験室スケールのラジカルを提供します。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: '触媒酸化',
+            description:
+              'ファインケミカルおよび医薬品合成のための穏やかな条件下でのアルコールからアルデヒドへ、アミンからイミンへの選択的変換。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '制御ラジカル重合（NMP）',
+            description:
+              '精密な分子量制御と明確に定義されたポリマーアーキテクチャの合成のためのニトロキシド媒介重合。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'レドックス触媒',
+            description:
+              '有機合成および触媒変換のための電気化学的および化学的レドックスサイクルで使用されます。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'スピンラベリングおよびEPR研究',
+            description:
+              'ESR/EPR分光法およびバイオフィジカル研究におけるメカニズムおよび構造解析のための安定ラジカル。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '抗酸化および安定性研究',
+            description:
+              '研究開発用途のためのポリマーおよび有機材料の酸化安定性モデリングで使用されます。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'productCategories',
+      id: epoxides.id,
+      locale: 'jp',
+      data: {
+        name: 'エポキシド',
+        description:
+          'パイロットプラントおよび実験室スケールで提供される特殊な脂肪族および多官能性エポキシド。ポリマー合成、コーティング、接着剤、ファインケミカル開発における主要な反応性中間体。50年以上の専門知識により、VUPは架橋、粘度制御、疎水性改質、水性配合設計における産業イノベーションを支援します。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'コーティングとシーラント',
+            description:
+              'エポキシ、ウレタン、ハイブリッドコーティングにおける柔軟性、接着性、光沢を改善し、性能と耐久性を向上させます。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '接着剤',
+            description:
+              '配合粘度を低減しながら、基材との接着性と強度を向上させ、優れた応用特性を実現します。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'ポリマー改質',
+            description:
+              'ポリマー主鎖にエポキシまたはアリル官能性を導入し、材料特性と性能をカスタマイズします。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: '反応性希釈剤',
+            description:
+              'VOC削減と高固形分システムのための低粘度配合を可能にし、環境に優しい用途を実現します。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: '表面機能化',
+            description: '疎水性または低エネルギー表面を改質し、相溶性と接着特性を向上させます。',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'ファインケミカル合成',
+            description:
+              '高度な化学合成における特殊モノマーおよび改質剤を作成するための多用途中間体。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'productCategories',
+      id: acetylenicAlcohols.id,
+      locale: 'jp',
+      data: {
+        name: 'アセチレンアルコール',
+        description:
+          '高純度アセチレンアルコール — コーティング、ポリマー、インクシステムにおける濡れ剤、流動改質剤、反応性中間体として広く使用される三重結合ジオールおよび第三級プロパルギルアルコールのファミリー。これらの分子はヒドロキシル官能性とアセチレン不飽和を組み合わせ、現代の配合に不可欠な反応性と表面活性のバランスを提供します。',
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'コーティングと塗料',
+            description:
+              'コーティングシステムにおける均一な膜形成と改善された光沢のための濡れおよび流動制御剤として使用されます。',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: '印刷インク',
+            description:
+              '溶剤および水性インクシステムにおける表面張力を低減し、顔料分散を向上させ、優れた印刷品質を実現します。',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: '接着剤とシーラント',
+            description: '低エネルギー基材の表面濡れと接着を助け、改善された接着性能を提供します。',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'ポリマー添加剤',
+            description:
+              'ポリマー主鎖の柔軟性と安定性を向上させる反応性改質剤として機能し、材料特性を向上させます。',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'ファインケミカル中間体',
+            description:
+              '高度な化学用途における特殊界面活性剤、安定剤、触媒の合成のためのビルディングブロック。',
+          },
+        ],
+      },
+    }),
   ])
 
   // --------------------
@@ -1089,6 +1498,27 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     // Batch 8
     spiroTempoAcid,
     galvinoxyl,
+    diepoxyoctane,
+
+    // Batch 9
+    epoxyHexene,
+    epoxyhexane,
+    epoxyoctane,
+
+    // Batch 10
+    epoxy7octene,
+    epoxydecane,
+    diepoxyhexane,
+
+    // Batch 11
+    dimethylepoxybutane,
+    tmdd,
+    longChainTmdd,
+
+    // Batch 12
+    dmhd,
+    dimethylhexynol,
+    dimethylheptynol,
   ] = await Promise.all([
     payload.create({
       collection: 'products',
@@ -3780,6 +4210,1616 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           },
         ],
         slug: 'galvinoxyl',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2,7,8-Diepoxyoctane',
+        _status: 'published',
+        description:
+          'A bifunctional aliphatic diepoxide used as a reactive, low-viscosity diluent and crosslinking agent in epoxy coatings, adhesives, and composites. Produced at pilot-plant scale by VUP with short EU lead times and REACH coverage.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2,7,8-Diepoxyoctane',
+          casNumber: '2426-07-5',
+          ecNumber: '219-375-9',
+          synonyms: [
+            { synonym: 'Aliphatic diepoxide' },
+            { synonym: 'Diepoxy-octane' },
+            { synonym: 'Octane, 1,2,7,8-diepoxy-' },
+          ],
+          molecularFormula: 'C₈H₁₄O₂',
+          molecularWeight: '142.19 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless to pale yellow liquid',
+          purity: 'min. 98.0 % wt',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Epoxy Coatings',
+            description:
+              'Reactive diluent and flexibiliser to adjust viscosity and flow in industrial, metal, and floor coatings while balancing hardness and flexibility.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Low-viscosity component that improves wetting and penetration into porous substrates, becoming part of the cured network for low VOC performance.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer & Resin Modification',
+            description:
+              'Building block for functional polymers and surface-modified oligomers, introducing additional epoxy functionality into prepolymers.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Composites / Electronics',
+            description:
+              'Used in potting and encapsulation systems where low colour, low viscosity and good cure response with amines/anhydrides are required.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Bifunctional Reactivity',
+            description:
+              'Two terminal epoxy groups enable efficient crosslinking and grafting into epoxy, urethane and acrylic systems for enhanced performance.',
+          },
+          {
+            feature: 'Low-Viscosity Reactive Diluent',
+            description:
+              'Reduces viscosity of standard epoxy resins while remaining chemically bound after cure, unlike inert solvents, for lower VOC formulations.',
+          },
+          {
+            feature: 'Improved Flexibility & Toughness',
+            description:
+              'Aliphatic backbone increases elongation and impact resistance of otherwise brittle epoxy networks for more durable coatings.',
+          },
+          {
+            feature: 'Good Substrate Wetting',
+            description:
+              'Lower viscosity and polarity profile support better substrate wetting in coatings and adhesives for improved adhesion.',
+          },
+          {
+            feature: 'Pilot-Plant Availability from EU',
+            description:
+              'Produced by VUP in Slovakia with short lead times, EU-origin supply, and REACH coverage for reliable sourcing.',
+          },
+          {
+            feature: 'Quality & Traceability',
+            description:
+              'Manufactured under ISO 9001:2015 with batch-level documentation ensuring consistent quality and regulatory compliance.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is VUP 1,2,7,8-Diepoxyoctane mainly used for?',
+            answer:
+              'As a reactive, low-viscosity aliphatic diepoxide for modifying epoxy, coating and adhesive systems to improve flow, reduce viscosity, and enhance flexibility.',
+          },
+          {
+            question: 'Can it be used as a reactive diluent in epoxy resins?',
+            answer:
+              'Yes. Unlike inert solvents, it participates in the cure reaction, helping to reduce VOC while remaining part of the final cured network.',
+          },
+          {
+            question: 'What purity does VUP supply?',
+            answer:
+              'Typical pilot batches target ≥98% purity with exact batch specifications listed in the TDS/SDS provided with deliveries.',
+          },
+          {
+            question: 'Is this product REACH covered?',
+            answer:
+              'The substance is listed under EC 219-375-9. For the exact registration scenario applicable to your supply, please contact VUP.',
+          },
+          {
+            question: 'How does it improve epoxy system performance?',
+            answer:
+              'It reduces viscosity for better processing, adds flexibility to reduce brittleness, improves substrate wetting, and participates in crosslinking for a robust cured network.',
+          },
+        ],
+        slug: 'diepoxyoctane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2-Epoxy-5-hexene',
+        _status: 'published',
+        description:
+          'A versatile reactive monoepoxide containing both an epoxy group and a terminal double bond. Used as a reactive diluent, chain extender, and building block in epoxy coatings, adhesives, and specialty polymer systems.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2-Epoxy-5-hexene',
+          casNumber: '10353-53-4',
+          ecNumber: '233-771-9',
+          synonyms: [
+            { synonym: '1,2-Epoxy-5-hexene' },
+            { synonym: '5,6-Epoxy-1-hexene' },
+            { synonym: 'Allyl glycidyl ether (Note: distinct from CAS 106-92-3)' },
+          ],
+          molecularFormula: 'C₆H₁₀O',
+          molecularWeight: '98.14 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % wt',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Epoxy & Acrylic Coatings',
+            description:
+              'Reactive diluent or chain extender enhancing flexibility and surface adhesion in coating systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Viscosity adjustment and improved bonding strength in structural adhesive formulations.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer Modification',
+            description:
+              'Introduces pendant allyl and epoxy groups for advanced crosslinked polymers and copolymers.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Surface Treatment',
+            description:
+              'Used in silane or polymer functionalisation for adhesion improvement in surface treatments.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Specialty Intermediates',
+            description:
+              'Building block for synthesis of specialty resins and chemical intermediates.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Dual Functionality',
+            description:
+              'Contains both an epoxy group and a terminal double bond, offering diverse chemical reactivity for copolymerisation, crosslinking, or surface grafting.',
+          },
+          {
+            feature: 'Reactive Diluent',
+            description:
+              'Can be used as a viscosity-reducing component in epoxy or acrylic formulations while remaining reactive in the cured network.',
+          },
+          {
+            feature: 'Enhanced Flexibility',
+            description:
+              'The aliphatic chain imparts improved toughness and elasticity to cured coatings and adhesives.',
+          },
+          {
+            feature: 'Excellent Compatibility',
+            description:
+              'Mixes easily with standard epoxy, urethane, and acrylate systems for versatile formulation options.',
+          },
+          {
+            feature: 'Pilot-Plant Availability',
+            description:
+              'Supplied in pilot volumes for R&D, evaluation, and specialty production applications.',
+          },
+          {
+            feature: 'EU-Origin Quality',
+            description:
+              'Produced by VUP, a.s. (Slovakia) under ISO 9001:2015, ensuring traceability and regulatory compliance.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: "What is VUP's 1,2-Epoxy-5-hexene used for?",
+            answer:
+              'As a reactive monoepoxide and alkene intermediate in coatings, adhesives, and specialty polymer systems requiring dual functionality.',
+          },
+          {
+            question: 'What distinguishes this product from standard epoxides?',
+            answer:
+              'Its dual functionality (epoxy + terminal double bond) enables unique crosslinking and copolymerization pathways not achievable with standard epoxides.',
+          },
+          {
+            question: 'Is it available for scale-up supply?',
+            answer:
+              'Yes, VUP offers pilot-plant quantities suitable for industrial evaluation or collaborative R&D projects.',
+          },
+          {
+            question: 'How should it be handled?',
+            answer:
+              'Handle under well-ventilated conditions with standard PPE. It is a flammable liquid. Consult the SDS for full storage and handling details.',
+          },
+          {
+            question:
+              'What is the difference between this and Allyl Glycidyl Ether (CAS 106-92-3)?',
+            answer:
+              'While sometimes referred to by similar names, CAS 10353-53-4 (1,2-Epoxy-5-hexene) is distinct from CAS 106-92-3 (Allyl Glycidyl Ether). Ensure correct CAS number for your application.',
+          },
+          {
+            question: 'What regulatory status does this product have?',
+            answer:
+              'Listed under EC Number 233-771-9. The substance is in the ECHA database. For specific REACH registration and tonnage coverage, contact VUP, a.s.',
+          },
+        ],
+        slug: '12-epoxy-5-hexene',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2-Epoxyhexane',
+        _status: 'published',
+        description:
+          'A versatile reactive monoepoxide providing terminal epoxy functionality for organic synthesis and polymer modifications. Used as a low-viscosity reactive diluent in high-solids epoxy coatings, adhesives, and specialty chemical applications.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2-Epoxyhexane',
+          casNumber: '1436-34-6',
+          ecNumber: '215-864-6',
+          synonyms: [
+            { synonym: 'Hexene oxide' },
+            { synonym: 'Butylethylene oxide' },
+            { synonym: '1,2-Hexene oxide' },
+          ],
+          molecularFormula: 'C₆H₁₂O',
+          molecularWeight: '100.16 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % wt (typical)',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Epoxy & Industrial Coatings',
+            description:
+              'Reactive diluent to adjust viscosity and flexibility in high-solids epoxy coating systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Enhances wetting and improves film formation in reactive adhesive and sealant systems.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer Synthesis',
+            description:
+              'Functions as a reactive monomer for polymer and copolymer formation in specialty applications.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Surface Treatment',
+            description:
+              'Used in modification of silanes and polymers to improve adhesion properties.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Specialty Chemicals',
+            description:
+              'Intermediate for the production of fine chemicals and tailored resin systems.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reactive Intermediate',
+            description:
+              'Provides terminal epoxy functionality for a wide range of organic syntheses and polymer modifications.',
+          },
+          {
+            feature: 'Low Viscosity',
+            description:
+              'Effective as a reactive diluent for high-solids epoxy coatings and adhesives, reducing viscosity while participating in cure.',
+          },
+          {
+            feature: 'Enhanced Flexibility',
+            description:
+              'Aliphatic backbone increases ductility and impact resistance in cured resin systems.',
+          },
+          {
+            feature: 'Good Compatibility',
+            description:
+              'Readily blends with epoxy resins, acrylates, and urethane systems for versatile formulations.',
+          },
+          {
+            feature: 'High Purity',
+            description:
+              'Manufactured in pilot-plant quantities under ISO 9001:2015 quality control ensuring consistent performance.',
+          },
+          {
+            feature: 'REACH-Listed EU Origin',
+            description:
+              'Ensures consistent quality and full regulatory transparency from VUP, a.s. (Slovakia).',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: "What is VUP's 1,2-Epoxyhexane used for?",
+            answer:
+              'As a reactive monoepoxide in coatings, adhesives, and polymer synthesis applications requiring low viscosity and flexibility.',
+          },
+          {
+            question: 'Is it suitable for reactive diluent applications?',
+            answer:
+              'Yes, it can reduce viscosity in epoxy systems while participating in the cure reaction, making it ideal for high-solids formulations.',
+          },
+          {
+            question: 'What purity level does VUP supply?',
+            answer:
+              'Pilot batches typically meet ≥ 98% purity. Confirm exact specifications via TDS/SDS for your specific batch.',
+          },
+          {
+            question: 'How is it classified for transport?',
+            answer:
+              'Generally classified as a flammable liquid. Consult the SDS for full transport classification, UN number, and storage requirements.',
+          },
+          {
+            question: 'What distinguishes 1,2-Epoxyhexane from other aliphatic epoxides?',
+            answer:
+              'Its six-carbon aliphatic structure provides an optimal balance of low viscosity and flexibility enhancement while maintaining good reactivity.',
+          },
+          {
+            question: 'What regulatory status does this product have?',
+            answer:
+              'Listed under EC Number 215-864-6 on ECHA inventory. Contact VUP for specific REACH registration details applicable to your supply.',
+          },
+        ],
+        slug: '12-epoxyhexane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2-Epoxyoctane',
+        _status: 'published',
+        description:
+          'A reactive aliphatic monoepoxide combining low volatility and high reactivity, serving as a flexible building block for advanced resin and adhesive formulations. Supports formulation development in coatings, polymer modification, and crosslinking applications.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2-Epoxyoctane',
+          casNumber: '2984-50-1',
+          ecNumber: '221-047-5',
+          synonyms: [
+            { synonym: 'Octene oxide' },
+            { synonym: '1,2-Octene oxide' },
+            { synonym: 'n-Octylene oxide' },
+          ],
+          molecularFormula: 'C₈H₁₆O',
+          molecularWeight: '128.21 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % wt',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Epoxy & Industrial Coatings',
+            description:
+              'Reactive diluent enhancing flexibility, film toughness, and substrate wetting in high-performance coating systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Improves adhesion and elongation in structural and flexible adhesive systems.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer Modification',
+            description:
+              'Functions as a monomer for creating hydrophobic polyethers and specialty copolymers.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Surface Functionalisation',
+            description:
+              'Used to graft epoxy functionality onto polymer surfaces or silane-modified substrates.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Chemical Synthesis',
+            description:
+              'Starting material for synthesis of fine chemicals and stabilised resin intermediates.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reactive Monoepoxide',
+            description:
+              'Provides controlled reactivity for polymer crosslinking and chain-extension reactions in demanding applications.',
+          },
+          {
+            feature: 'Low Volatility & Odour',
+            description:
+              'Suitable for high-performance coatings and adhesives where stability and workplace safety are priorities.',
+          },
+          {
+            feature: 'Flexible Aliphatic Chain',
+            description:
+              'Imparts improved elasticity and hydrophobic character to cured resin systems.',
+          },
+          {
+            feature: 'Excellent Compatibility',
+            description:
+              'Blends well with standard epoxy, acrylate, and urethane chemistries for versatile formulations.',
+          },
+          {
+            feature: 'EU-Origin Pilot Production',
+            description:
+              'Produced under ISO 9001:2015 at VUP, a.s. (Slovakia), with traceable quality assurance.',
+          },
+          {
+            feature: 'Sustainability Focus',
+            description:
+              'Enables low-VOC, high-solids formulations through reactive-diluent behaviour.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: "What is VUP's 1,2-Epoxyoctane primarily used for?",
+            answer:
+              'As a reactive aliphatic monoepoxide for coatings, adhesives, and polymer modification where low volatility and controlled reactivity are required.',
+          },
+          {
+            question: 'Can it be used as a reactive diluent?',
+            answer:
+              'Yes, it effectively reduces viscosity while chemically bonding into the cured matrix, making it ideal for high-solids formulations.',
+          },
+          {
+            question: 'What are its key handling precautions?',
+            answer:
+              'Avoid heat, acids, and moisture. Store in a cool, dry, ventilated area. Consult the SDS for full safety guidelines and handling procedures.',
+          },
+          {
+            question: 'Is this product REACH registered?',
+            answer:
+              'Yes, the substance is listed under EC 221-047-5. Confirm specific registration details with VUP regulatory team for your supply.',
+          },
+          {
+            question: 'How does the longer C8 chain affect performance?',
+            answer:
+              'The eight-carbon aliphatic chain provides lower volatility, enhanced hydrophobicity, and improved flexibility compared to shorter-chain epoxides.',
+          },
+          {
+            question: 'What distinguishes 1,2-Epoxyoctane from other aliphatic epoxides?',
+            answer:
+              'Its combination of low volatility, controlled reactivity, and flexibility enhancement makes it particularly suitable for high-performance, low-odour applications.',
+          },
+        ],
+        slug: '12-epoxyoctane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2-Epoxy-7-octene',
+        _status: 'published',
+        description:
+          'A dual-functional aliphatic epoxide featuring both an oxirane ring and a terminal double bond, providing versatile reactivity for polymer modification and crosslinking. Suitable for coatings, adhesives, and specialty intermediates benefiting from controlled flexibility.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2-Epoxy-7-octene',
+          casNumber: '19600-63-6',
+          ecNumber: '243-178-7',
+          synonyms: [{ synonym: '1,2-Epoxy-7-oct-1-ene' }, { synonym: 'Allylbutyl oxide' }],
+          molecularFormula: 'C₈H₁₄O',
+          molecularWeight: '126.20 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % wt (typical)',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Coatings & Sealants',
+            description:
+              'Improves flexibility, adhesion, and film integrity in epoxy and hybrid coating systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives',
+            description:
+              'Enhances bonding strength and wetting while lowering viscosity in adhesive formulations.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer & Resin Modification',
+            description:
+              'Reacts via epoxy or allyl groups for tailored polymer architectures in advanced applications.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Surface Functionalisation',
+            description:
+              'Introduces reactive sites for crosslinking or grafting in advanced composite materials.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemicals',
+            description:
+              'Intermediate in synthesis of custom epoxy monomers and reactive modifiers.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Dual Functionality',
+            description:
+              'Combines an epoxy group and an allylic double bond, enabling selective reactions for advanced polymer modification.',
+          },
+          {
+            feature: 'Reactive Diluent Potential',
+            description:
+              'Lowers viscosity while remaining fully reactive during curing, ideal for high-solids formulations.',
+          },
+          {
+            feature: 'Enhanced Flexibility',
+            description:
+              'The aliphatic chain structure provides excellent film elasticity and impact resistance.',
+          },
+          {
+            feature: 'Excellent Compatibility',
+            description:
+              'Suitable for epoxy, acrylate, and polyurethane systems for versatile formulation options.',
+          },
+          {
+            feature: 'High Purity',
+            description:
+              'Manufactured under ISO 9001:2015 in EU pilot-plant conditions ensuring consistent quality.',
+          },
+          {
+            feature: 'Low Colour and Low Odour',
+            description:
+              'Ideal for high-specification coating and adhesive systems where aesthetics matter.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is 1,2-Epoxy-7-octene used for?',
+            answer:
+              'As a dual-functional reactive monomer for coatings, adhesives, and polymer modification applications requiring both epoxy and allylic reactivity.',
+          },
+          {
+            question: 'Why is it unique among epoxides?',
+            answer:
+              'It contains both epoxy and allylic reactive sites, offering enhanced formulation versatility and enabling selective reactions not possible with single-functional epoxides.',
+          },
+          {
+            question: 'Is it suitable for pilot-scale testing?',
+            answer:
+              'Yes, VUP offers pilot-plant quantities ideal for evaluation and development purposes in R&D and industrial testing.',
+          },
+          {
+            question: 'How should it be stored?',
+            answer:
+              'Store in sealed containers in a cool, ventilated area. Consult the SDS for detailed handling and PPE recommendations.',
+          },
+          {
+            question: 'How does it compare to 1,2-Epoxy-5-hexene?',
+            answer:
+              'Both offer dual functionality, but 1,2-Epoxy-7-octene has a longer C8 chain providing lower volatility and enhanced flexibility compared to the C6 chain of 1,2-Epoxy-5-hexene.',
+          },
+          {
+            question: 'What regulatory status does this product have?',
+            answer:
+              'Listed under EC Number 243-178-7 in the ECHA database. Contact VUP for registration and supply details specific to your requirements.',
+          },
+        ],
+        slug: '12-epoxy-7-octene',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2-Epoxydecane',
+        _status: 'published',
+        description:
+          'A long-chain aliphatic monoepoxide that combines high hydrophobicity with reactive epoxy functionality. Suitable for coatings, adhesives, and surface modification applications where flexibility, low polarity, and water resistance are required.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2-Epoxydecane',
+          casNumber: '2404-44-6',
+          ecNumber: '219-295-4',
+          synonyms: [
+            { synonym: 'Decene oxide' },
+            { synonym: '1,2-Decene oxide' },
+            { synonym: 'n-Decylene oxide' },
+          ],
+          molecularFormula: 'C₁₀H₂₀O',
+          molecularWeight: '156.27 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % wt',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Coatings & Sealants',
+            description:
+              'Improves flexibility, gloss, and hydrophobicity in epoxy or urethane-based coating systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives',
+            description:
+              'Enhances adhesion and elasticity while reducing water uptake in adhesive formulations.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer Modification',
+            description:
+              'Used to introduce epoxy functionality in hydrophobic copolymers or surfactant-modified resins.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Surface Treatment',
+            description:
+              'Grafts epoxy groups onto low-energy surfaces to increase paintability and adhesion.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemical Intermediates',
+            description: 'Building block for higher-molecular-weight epoxides and surfactants.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Long-Chain Aliphatic Epoxide',
+            description:
+              'Provides hydrophobic and flexible properties when incorporated into polymers or coatings.',
+          },
+          {
+            feature: 'Reactive Intermediate',
+            description:
+              'Enables controlled epoxy crosslinking and modification of polyurethanes, acrylics, and resins.',
+          },
+          {
+            feature: 'Improved Water Resistance',
+            description:
+              'Ideal for low-polarity coatings and adhesives requiring moisture repellency.',
+          },
+          {
+            feature: 'Low Volatility',
+            description:
+              'Enhances workplace safety and stability in high-temperature applications.',
+          },
+          {
+            feature: 'EU Pilot Production',
+            description: 'Supplied by VUP, a.s. (Slovakia) under ISO 9001:2015 quality system.',
+          },
+          {
+            feature: 'Versatile Applications',
+            description:
+              'Serves as an epoxy-functional hydrophobe for R&D and specialty formulations.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: "What is VUP's 1,2-Epoxydecane primarily used for?",
+            answer:
+              'As a reactive aliphatic monoepoxide for hydrophobic coatings, adhesives, and polymer modification where water resistance is critical.',
+          },
+          {
+            question: 'What distinguishes it from shorter-chain epoxides?',
+            answer:
+              'Its longer ten-carbon chain provides enhanced flexibility and water resistance, ideal for low-polarity systems requiring hydrophobic characteristics.',
+          },
+          {
+            question: 'Is it suitable as a reactive diluent?',
+            answer:
+              'Yes, it acts as a low-volatility reactive modifier, improving flexibility and lowering viscosity in resin formulations.',
+          },
+          {
+            question: 'How is it stored and handled?',
+            answer:
+              'Store in sealed containers, away from heat and oxidisers. Follow SDS guidelines for PPE and ventilation requirements.',
+          },
+          {
+            question: 'What applications benefit most from this long-chain epoxide?',
+            answer:
+              'Applications requiring hydrophobic modification, water resistance, and flexibility such as marine coatings, outdoor adhesives, and low-polarity surface treatments.',
+          },
+          {
+            question: 'What regulatory status does this product have?',
+            answer:
+              'Listed under EC Number 219-295-4 in ECHA inventory. Contact VUP for registration and supply chain details.',
+          },
+        ],
+        slug: '12-epoxydecane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,2,5,6-Diepoxyhexane',
+        _status: 'published',
+        description:
+          'A bifunctional aliphatic epoxide containing two terminal oxirane groups. Serves as a specialty crosslinker and chain extender in coatings, adhesives, and polymer synthesis applications that require increased flexibility, low viscosity, and enhanced reactivity.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,2,5,6-Diepoxyhexane',
+          casNumber: '1888-89-7',
+          ecNumber: '217-564-0',
+          synonyms: [
+            { synonym: 'Hexane diepoxide' },
+            { synonym: '1,2:5,6-Diepoxyhexane' },
+            { synonym: 'Hexamethylene diepoxide' },
+          ],
+          molecularFormula: 'C₆H₁₀O₂',
+          molecularWeight: '114.14 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless to light yellow liquid',
+          purity: '≥ 98.0 % wt (typical)',
+          waterContent: 'max. 0.5 % wt',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Coatings & Sealants',
+            description:
+              'Enhances crosslink density and hardness in epoxy and urethane coatings while maintaining flexibility.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives',
+            description:
+              'Functions as a bifunctional modifier improving adhesion and curing speed.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer Modification',
+            description:
+              'Introduces additional epoxy functionality into polyesters, polyethers, and copolymers.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Composite & Resin Systems',
+            description: 'Provides low-viscosity crosslinker for thermoset resin systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemicals & Specialty Synthesis',
+            description:
+              'Used in laboratory and pilot-scale synthesis of reactive intermediates and oligomers.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Bifunctional Reactivity',
+            description:
+              'Two epoxy groups provide strong crosslinking potential for thermoset and polymer systems.',
+          },
+          {
+            feature: 'Low Viscosity',
+            description: 'Effective as a reactive diluent in epoxy and polyurethane formulations.',
+          },
+          {
+            feature: 'High Reactivity',
+            description:
+              'Supports fast cure rates and improved conversion in cationic and anionic polymerisation.',
+          },
+          {
+            feature: 'Improved Mechanical Performance',
+            description: 'Adds flexibility, toughness, and hydrolytic stability to cured systems.',
+          },
+          {
+            feature: 'Pilot-Plant Availability',
+            description:
+              'Produced by VUP, a.s. under controlled conditions for evaluation and specialty applications.',
+          },
+          {
+            feature: 'EU-Origin & REACH Compliance',
+            description:
+              'Manufactured under ISO 9001:2015 ensuring traceability and consistent quality.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is 1,2,5,6-Diepoxyhexane primarily used for?',
+            answer:
+              'As a bifunctional reactive epoxide for coatings, adhesives, and polymer modification requiring enhanced crosslinking.',
+          },
+          {
+            question: 'How does it differ from monoepoxides?',
+            answer:
+              'It provides two epoxy groups, enhancing crosslinking and reactivity in thermoset and elastomer systems compared to single-functional epoxides.',
+          },
+          {
+            question: 'What are its handling precautions?',
+            answer:
+              'Avoid moisture, heat, and acids. Store in sealed containers; refer to the SDS for full handling instructions.',
+          },
+          {
+            question: 'Is it REACH listed?',
+            answer:
+              'Yes, the substance is listed under CAS 1888-89-7, EC 217-564-0. Contact VUP regulatory for specific registration details.',
+          },
+          {
+            question: 'How does it compare to 1,2,7,8-Diepoxyoctane?',
+            answer:
+              'Both are bifunctional diepoxides, but 1,2,5,6-Diepoxyhexane has a shorter C6 chain providing higher epoxide density per unit weight and different physical properties.',
+          },
+          {
+            question: 'What applications benefit from its bifunctional structure?',
+            answer:
+              'Applications requiring high crosslink density such as high-performance coatings, structural adhesives, and thermoset composites benefit most from its dual epoxy functionality.',
+          },
+        ],
+        slug: '1256-diepoxyhexane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '3,3-Dimethyl-1,2-epoxybutane',
+        _status: 'published',
+        description:
+          'A compact tertiary monoepoxide valued for its sterically hindered reactivity and volatility, making it suitable for laboratory-scale synthesis and mechanistic studies. Serves as a reactive intermediate for fine chemical development, coatings research, and polymer model systems.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '3,3-Dimethyl-1,2-epoxybutane',
+          casNumber: '2245-30-9',
+          ecNumber: 'Not listed',
+          synonyms: [
+            { synonym: 'tert-Butyl ethylene oxide' },
+            { synonym: '3,3-Dimethylbutylene oxide' },
+          ],
+          molecularFormula: 'C₆H₁₂O',
+          molecularWeight: '100.16 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Clear, colourless liquid',
+          purity: '≥ 98.0 % (analytical/lab-grade)',
+        },
+        chemicalFamily: [epoxides],
+        applications: [
+          {
+            application: 'Research & Development',
+            description:
+              'For studying epoxide ring-opening reactions, nucleophilic substitutions, and polymerisation mechanisms.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemical Synthesis',
+            description: 'Used in developing high-purity intermediates and specialty reagents.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Coatings Research',
+            description:
+              'Serves as a reactive monomer analogue in lab-scale resin modification and performance modelling.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Chemistry',
+            description:
+              'Benchmark compound for reactivity studies and simulation of steric hindrance effects.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Sterically Hindered Epoxide',
+            description:
+              'Ideal for controlled reactivity and model reaction studies due to its tertiary structure.',
+          },
+          {
+            feature: 'High Volatility',
+            description:
+              'Suitable for gas-phase or kinetic investigation setups requiring volatile reagents.',
+          },
+          {
+            feature: 'Compact Tertiary Structure',
+            description:
+              'Enables investigation of substitution and ring-opening mechanisms under various conditions.',
+          },
+          {
+            feature: 'Fine-Chemistry Utility',
+            description:
+              'Precursor for high-value intermediates in coatings and polymer chemistry research.',
+          },
+          {
+            feature: 'Lab-Scale Availability',
+            description:
+              'Supplied in limited research quantities for analytical, kinetic, or synthetic use.',
+          },
+          {
+            feature: 'Produced under ISO 9001:2015',
+            description:
+              'Ensuring analytical traceability and purity control for laboratory applications.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What makes 3,3-Dimethyl-1,2-epoxybutane distinct from other epoxides?',
+            answer:
+              'Its tertiary structure provides steric hindrance, making it ideal for reactivity and mechanism studies where controlled reactivity is required.',
+          },
+          {
+            question: 'Is it available for industrial use?',
+            answer:
+              'Currently produced in laboratory-scale quantities only, suitable for R&D and testing rather than industrial-scale applications.',
+          },
+          {
+            question: 'What are the main safety considerations?',
+            answer:
+              'Highly flammable—handle in a fume hood away from ignition sources. Store below 25°C in a cool, ventilated area. Consult SDS for full handling precautions.',
+          },
+          {
+            question: 'What applications benefit from its steric hindrance?',
+            answer:
+              'Mechanistic studies, kinetic investigations, polymer model systems, and research requiring controlled epoxide reactivity benefit most from its tertiary structure.',
+          },
+          {
+            question: 'Is this product REACH registered?',
+            answer:
+              'CAS 2245-30-9 is listed in international inventories. Contact VUP regulatory for specific REACH coverage details.',
+          },
+        ],
+        slug: '33-dimethyl-12-epoxybutane',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '2,4,7,9-Tetramethyl-5-decyne-4,7-diol',
+        _status: 'published',
+        description:
+          'A high-performance acetylenic diol surfactant offering superior control of surface tension and flow in coating and ink formulations. TMDD serves as a multifunctional additive providing improved wetting, leveling, and compatibility across a wide range of solvent-borne and aqueous systems.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '2,4,7,9-Tetramethyl-5-decyne-4,7-diol',
+          casNumber: '126-86-3',
+          ecNumber: '204-809-1',
+          synonyms: [
+            { synonym: 'TMDD' },
+            { synonym: 'Surfynol® 104 analogue' },
+            { synonym: 'Acetylenic diol surfactant' },
+          ],
+          molecularFormula: 'C₁₄H₂₆O₂',
+          molecularWeight: '226.36 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'White to pale solid / waxy flakes',
+          purity: '≥ 98.0 % (typical)',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Coatings & Paints',
+            description:
+              'Controls surface tension, enhances film uniformity, and improves gloss in coating formulations.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Printing Inks',
+            description:
+              'Promotes pigment dispersion and print quality through improved substrate wetting.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Enhances spreading and adhesion on low-energy surfaces for improved bonding.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Emulsions',
+            description:
+              'Acts as a dynamic surfactant improving emulsion stability and performance.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Textile Finishes & Cleaners',
+            description:
+              'Used in specialty formulations where wetting and flow control are critical.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Surface Tension Control',
+            description:
+              'Reduces both static and dynamic surface tension for improved substrate wetting.',
+          },
+          {
+            feature: 'Improved Flow & Leveling',
+            description:
+              'Prevents defects such as craters, pinholes, and orange peel in coatings and inks.',
+          },
+          {
+            feature: 'Broad Compatibility',
+            description: 'Performs well in waterborne, solventborne, and UV-curable systems.',
+          },
+          {
+            feature: 'Low Foam Formation',
+            description: 'Enables stable film formation without excessive foaming.',
+          },
+          {
+            feature: 'Versatile Functionality',
+            description:
+              'Acts as wetting agent, flow modifier, or coalescing additive in various formulations.',
+          },
+          {
+            feature: 'EU-Origin Quality',
+            description:
+              'Manufactured under ISO 9001:2015, ensuring high purity and batch consistency.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is TMDD used for?',
+            answer:
+              'TMDD is used as a surface-active agent and wetting additive in coatings, inks, adhesives, and polymer emulsions to improve flow, leveling, and substrate wetting.',
+          },
+          {
+            question: 'Is TMDD compatible with both waterborne and solvent systems?',
+            answer:
+              'Yes, TMDD performs effectively in both waterborne and solventborne formulations, as well as UV-curable systems.',
+          },
+          {
+            question: 'Does TMDD cause foaming?',
+            answer:
+              'No, TMDD is designed for low foam generation while maintaining effective surface activity, making it ideal for coating and ink applications.',
+          },
+          {
+            question: "How pure is VUP's TMDD?",
+            answer:
+              'Pilot-plant batches are typically ≥ 98% purity, verified through GC and titration methods, ensuring consistent performance.',
+          },
+          {
+            question: 'What makes TMDD different from conventional surfactants?',
+            answer:
+              'TMDD is an acetylenic diol with unique triple-bond structure providing superior dynamic surface tension reduction and excellent compatibility across diverse coating systems.',
+          },
+          {
+            question: 'Is TMDD REACH registered?',
+            answer:
+              'Yes, TMDD (CAS 126-86-3, EC 204-809-1) is a registered substance under EU REACH. Contact VUP for specific registration details.',
+          },
+        ],
+        slug: 'tmdd-tetramethyl-decyne-diol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '2,5,8,11-Tetramethyl-6-dodecyne-5,8-diol',
+        _status: 'published',
+        description:
+          'A long-chain acetylenic diol surfactant combining excellent dynamic surface tension control with enhanced hydrophobicity. Provides superior performance in solventborne and high-solids systems, supporting improved wetting, leveling, and film uniformity.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '2,5,8,11-Tetramethyl-6-dodecyne-5,8-diol',
+          casNumber: '68227-33-8',
+          ecNumber: '269-348-0',
+          synonyms: [
+            { synonym: 'Long-chain TMDD analogue' },
+            { synonym: 'Acetylenic diol surfactant' },
+            { synonym: 'Surfactant 12D' },
+          ],
+          molecularFormula: 'C₁₆H₃₂O₂',
+          molecularWeight: '256.43 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'White to off-white waxy solid',
+          purity: '≥ 98.0 % (typical)',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Coatings & Paints',
+            description:
+              'Improves surface wetting, flow, and gloss control in solventborne coating formulations.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Printing Inks',
+            description:
+              'Facilitates pigment dispersion and consistent substrate coverage for high-quality prints.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description: 'Provides improved spreading and adhesion to hydrophobic surfaces.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Additives',
+            description:
+              'Used as a surface-active additive in high-solids and solvent-based polymer systems.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Textile & Leather Treatments',
+            description: 'Promotes uniform wetting and absorption on difficult substrates.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Enhanced Hydrophobicity',
+            description: 'Longer carbon chain delivers superior wetting on low-energy substrates.',
+          },
+          {
+            feature: 'Dynamic Surface Tension Reduction',
+            description:
+              'Maintains consistent leveling and spread even under high-speed application.',
+          },
+          {
+            feature: 'Excellent Compatibility',
+            description: 'Performs in both solventborne and high-solids formulations.',
+          },
+          {
+            feature: 'Improved Gloss & Flow',
+            description: 'Enhances film smoothness and appearance without cratering.',
+          },
+          {
+            feature: 'Low Foam Profile',
+            description: 'Ensures stable application performance with minimal foaming.',
+          },
+          {
+            feature: 'ISO-Certified Quality',
+            description: 'Produced under ISO 9001:2015 with consistent batch traceability.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'How does this product differ from TMDD?',
+            answer:
+              'The longer carbon chain provides increased hydrophobicity and compatibility with high-solids and solventborne systems compared to standard TMDD.',
+          },
+          {
+            question: 'Is it suitable for aqueous coatings?',
+            answer:
+              'It can be used in dispersed form with surfactants but is primarily designed for solventborne and high-solids formulations.',
+          },
+          {
+            question: 'What is the purity level?',
+            answer:
+              '≥ 98%, with analytical verification via GC and NMR for consistent performance.',
+          },
+          {
+            question: 'Does it influence gloss?',
+            answer:
+              'Yes, it enhances gloss and film uniformity by improving surface flow and leveling.',
+          },
+          {
+            question: 'What applications benefit most from the longer chain?',
+            answer:
+              'High-solids coatings, solventborne systems, and applications requiring enhanced wetting on low-energy or hydrophobic substrates benefit most.',
+          },
+          {
+            question: 'Is this product REACH registered?',
+            answer:
+              'Yes, it is listed under EC 269-348-0 and registered under the acetylenic diols category. Contact VUP for specific registration details.',
+          },
+        ],
+        slug: 'long-chain-tmdd-dodecyne-diol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '2,5-Dimethyl-3-hexyne-2,5-diol',
+        _status: 'published',
+        description:
+          'A symmetrical acetylenic diol used as a reactive intermediate for surfactant and additive development. Serves as a model compound for structure–activity studies and as a versatile wetting and surface-control additive precursor.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '2,5-Dimethyl-3-hexyne-2,5-diol',
+          casNumber: '142-30-3',
+          ecNumber: '205-533-4',
+          synonyms: [
+            { synonym: 'DMHD' },
+            { synonym: 'Acetylenic diol' },
+            { synonym: 'Dimethylhexynediol' },
+          ],
+          molecularFormula: 'C₈H₁₄O₂',
+          molecularWeight: '142.20 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'White crystalline solid',
+          purity: '≥ 98.0 %',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Surfactant Development',
+            description:
+              'Intermediate for nonionic surfactants and dynamic surface tension agents.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Coatings Research',
+            description:
+              'Evaluated as a model diol for flow and leveling studies in coating formulations.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Printing Inks',
+            description:
+              'Precursor to surface modifiers for improved wetting and pigment dispersion.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Additives',
+            description: 'Used in synthesis of acetylenic-modified resin intermediates.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Academic & Industrial Research',
+            description:
+              'Reference compound for reaction mechanism exploration and surface chemistry studies.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Symmetrical Diol Structure',
+            description:
+              'Simplifies modelling of surfactant and additive behaviour in research applications.',
+          },
+          {
+            feature: 'High Purity',
+            description: 'Suitable for analytical research and reaction mechanism studies.',
+          },
+          {
+            feature: 'Reactive Intermediate',
+            description: 'Enables synthesis of specialty surfactants and performance additives.',
+          },
+          {
+            feature: 'Surface Activity',
+            description: 'Forms the structural core of many wetting and leveling agents.',
+          },
+          {
+            feature: 'Stable Under Normal Conditions',
+            description: 'Safe to handle in standard laboratory environments.',
+          },
+          {
+            feature: 'Produced under ISO 9001:2015',
+            description:
+              'Ensures traceable quality and analytical verification for laboratory use.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is the main function of this compound?',
+            answer:
+              'It serves as a symmetrical diol for surfactant synthesis and as a reference compound in surface chemistry research.',
+          },
+          {
+            question: 'Can it be used directly in coatings?',
+            answer:
+              'Primarily for laboratory evaluation or formulation development; not intended for direct industrial use.',
+          },
+          {
+            question: 'What purity does VUP supply?',
+            answer:
+              'Laboratory-grade purity is typically ≥ 98%, verified by GC and titration methods.',
+          },
+          {
+            question: 'Is it REACH registered?',
+            answer:
+              'It is listed in the ECHA database (EC 205-533-4) and available for laboratory research applications under laboratory exemption.',
+          },
+          {
+            question: 'What makes this compound useful for research?',
+            answer:
+              'Its symmetrical structure simplifies molecular modeling and makes it an ideal reference compound for studying acetylenic diol behavior in surface-active applications.',
+          },
+          {
+            question: 'How does it differ from TMDD?',
+            answer:
+              'DMHD is a smaller, symmetrical molecule used primarily for research and development, while TMDD is a commercial surfactant used in industrial coatings and inks.',
+          },
+        ],
+        slug: 'dmhd-dimethyl-hexyne-diol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '3,5-Dimethyl-1-hexyne-3-ol',
+        _status: 'published',
+        description:
+          'A short-chain acetylenic alcohol used as a key intermediate in surfactant and coating additive synthesis. Produced in pilot-plant quantities by VUP, a.s. (Prievidza, Slovakia), this compound combines reactivity and solubility ideal for applications in polymer modification, adhesives, and fine-chemical development.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '3,5-Dimethyl-1-hexyne-3-ol',
+          casNumber: '107-54-0',
+          ecNumber: '203-500-9',
+          synonyms: [{ synonym: '3,5-Dimethylhexyn-3-ol' }, { synonym: 'Dimethylbutynol' }],
+          molecularFormula: 'C₈H₁₄O',
+          molecularWeight: '126.19 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Colourless to pale yellow liquid',
+          purity: '≥ 98.0 % (typical)',
+          solubility: 'Soluble in alcohols, ethers, and hydrocarbons; slightly soluble in water',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Coatings & Paints',
+            description:
+              'Precursor to flow and leveling modifiers for solventborne systems, improving surface finish and performance.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description:
+              'Improves substrate wetting and adhesion properties for enhanced bonding performance.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Surfactants',
+            description:
+              'Used in synthesis of dynamic surface tension control agents for coating and ink applications.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Additives',
+            description:
+              'Intermediate for flexible, acetylenic-functionalised polymers with tailored properties.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemicals',
+            description:
+              'Precursor for specialty alkyne- and diol-based intermediates in custom synthesis.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reactive Intermediate',
+            description:
+              'Key building block for synthesis of acetylenic diols and surface-active agents.',
+          },
+          {
+            feature: 'Excellent Solvent Compatibility',
+            description: 'Miscible with common organic solvents for versatile formulation use.',
+          },
+          {
+            feature: 'Enhanced Wetting & Flow',
+            description:
+              'Serves as a performance component in coating and adhesive additive systems.',
+          },
+          {
+            feature: 'Stable Handling',
+            description:
+              'Low volatility compared to lower-molecular-weight alkynols for safer processing.',
+          },
+          {
+            feature: 'Pilot-Scale Availability',
+            description:
+              'Produced under controlled conditions for industrial evaluation and custom synthesis.',
+          },
+          {
+            feature: 'Quality Assurance',
+            description:
+              'Manufactured under ISO 9001:2015 certification for consistent purity and performance.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is 3,5-Dimethyl-1-hexyne-3-ol mainly used for?',
+            answer:
+              "It's a precursor to acetylenic diol surfactants and flow-control additives in coatings and inks.",
+          },
+          {
+            question: 'Is it compatible with both polar and nonpolar solvents?',
+            answer:
+              'Yes, it shows broad solvent compatibility including alcohols, ketones, and hydrocarbons.',
+          },
+          {
+            question: 'How pure is the pilot-grade material?',
+            answer: 'VUP typically supplies ≥ 98% purity, verified by GC analysis.',
+          },
+          {
+            question: 'Does it have any hazard classification?',
+            answer:
+              'Not classified as hazardous under normal transport conditions; handle per SDS guidance.',
+          },
+          {
+            question: 'What makes this compound suitable for coating applications?',
+            answer:
+              'Its acetylenic structure combined with hydroxyl functionality provides the ideal balance of reactivity and surface activity needed for flow and wetting modifiers.',
+          },
+          {
+            question: 'Is it REACH compliant?',
+            answer:
+              'Registered under ECHA as an acetylenic alcohol; REACH compliant. Contact VUP for specific registration details.',
+          },
+        ],
+        slug: '35-dimethyl-1-hexyne-3-ol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '3,6-Dimethyl-1-heptyne-3-ol',
+        _status: 'published',
+        description:
+          'A tertiary acetylenic alcohol used as an intermediate for surfactant and coating additive synthesis. Produced in pilot-plant quantities by VUP, a.s. (Prievidza, Slovakia), this compound combines reactivity with hydrophobic character, making it valuable in formulating wetting and flow-control agents for coatings, inks, and adhesives.',
+        chemicalStructureImage: demoImageDoc.id,
+        technicalSpecifications: {
+          chemicalName: '3,6-Dimethyl-1-heptyne-3-ol',
+          casNumber: '19549-98-5',
+          ecNumber: 'Not listed',
+          synonyms: [
+            { synonym: 'Heptynol derivative' },
+            { synonym: 'Tertiary acetylenic alcohol' },
+          ],
+          molecularFormula: 'C₉H₁₆O',
+          molecularWeight: '140.23 g/mol',
+          labVerified: 'Not Confirmed',
+        },
+        VupSpecifications: {
+          appearance: 'Colourless to light yellow liquid',
+          purity: '≥ 98.0 % (typical)',
+          solubility: 'Miscible with common organic solvents; low solubility in water',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Coatings & Paints',
+            description:
+              'Enhances flow, gloss, and defect control through dynamic surface tension reduction.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Printing Inks',
+            description: 'Promotes wetting and pigment dispersion on hydrophobic substrates.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Adhesives & Sealants',
+            description: 'Improves spreading and interfacial adhesion for enhanced bonding.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymer Synthesis',
+            description:
+              'Intermediate for functional monomers and reactive additives in polymer applications.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Fine Chemical R&D',
+            description: 'Used as a reference compound in acetylenic alcohol reactivity studies.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reactive Intermediate',
+            description: 'Used for synthesis of acetylenic surfactants and surface-active agents.',
+          },
+          {
+            feature: 'Hydrophobic Chain Balance',
+            description: 'Provides strong wetting and flow performance in solventborne systems.',
+          },
+          {
+            feature: 'Tertiary Alcohol Stability',
+            description: 'Resistant to oxidation under normal processing conditions.',
+          },
+          {
+            feature: 'Formulation Versatility',
+            description: 'Effective in coatings, inks, and polymer formulations.',
+          },
+          {
+            feature: 'Pilot-Plant Availability',
+            description: 'Suitable for scale-up, development trials, and formulation evaluation.',
+          },
+          {
+            feature: 'Consistent Quality',
+            description: 'Manufactured under ISO 9001:2015 for traceable analytical performance.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is the primary use of 3,6-Dimethyl-1-heptyne-3-ol?',
+            answer:
+              'It serves as a tertiary acetylenic alcohol intermediate for coatings, surfactants, and adhesives.',
+          },
+          {
+            question: "Is this product part of VUP's acetylenic diol family?",
+            answer:
+              'Yes, it is structurally related to TMDD and other dynamic surface tension control agents.',
+          },
+          {
+            question: 'What purity is supplied by VUP?',
+            answer: 'Pilot-grade material typically has ≥ 98% purity, confirmed via GC.',
+          },
+          {
+            question: 'Is the product REACH registered?',
+            answer:
+              'It is covered under acetylenic alcohol group registration; contact VUP regulatory for details.',
+          },
+          {
+            question: 'What makes this compound different from other acetylenic alcohols?',
+            answer:
+              'Its tertiary alcohol structure provides enhanced oxidation resistance while maintaining reactivity and hydrophobic character ideal for solventborne formulations.',
+          },
+          {
+            question: 'Can it be used in aqueous systems?',
+            answer:
+              'While primarily suited for solventborne systems due to low water solubility, it can be formulated into emulsions or dispersions with appropriate co-surfactants.',
+          },
+        ],
+        slug: '36-dimethyl-1-heptyne-3-ol',
       },
     }),
   ])
@@ -7945,7 +9985,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   ])
 
   // --------------------
-  // ADDING TRANSLATIONS FOR BATCH 8 PRODUCTS (SPIRO-TEMPO-ACID, GALVINOXYL)
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 8: SPIRO-TEMPO-ACID, GALVINOXYL, DIEPOXYOCTANE)
   // --------------------
 
   payload.logger.info('- Adding Slovak translations for batch 8 products...')
@@ -8131,7 +10171,1374 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
+    payload.update({
+      collection: 'products',
+      id: diepoxyoctane.id,
+      locale: 'sk',
+      data: {
+        name: '1,2,7,8-Diepoxioktán',
+        description:
+          'Bifunkčný alifatický diepoxid používaný ako reaktívne, nízkoviskózne riedidlo a zosieťovacie činidlo v epoxidových náteroch, lepidlách a kompozitoch. Vyrábaný v pilotnom meradle VUP s krátkymi dodacími lehotami z EÚ a pokrytím REACH.',
+        applications: [
+          {
+            application: 'Epoxidové nátery',
+            description:
+              'Reaktívne riedidlo a flexibilizátor na úpravu viskozity a toku v priemyselných, kovových a podlahových náteroch pri vyvažovaní tvrdosti a flexibility.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Nízkoviskózna zložka zlepšujúca zmáčanie a prenikanie do poréznych substrátov, stávajúca sa súčasťou vytvrdnutej siete pre nízku emisiu VOC.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov a živíc',
+            description:
+              'Stavebný blok pre funkčné polyméry a povrchovo modifikované oligoméry, zavádzajúci dodatočnú epoxidovú funkčnosť do prepolymérov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Kompozity / Elektronika',
+            description:
+              'Používaný v zalievacích a zapúzdrovacích systémoch, kde sa vyžaduje nízka farba, nízka viskozita a dobrá vytvrdzovaciu odozva s amínmi/anhydridmi.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Bifunkčná reaktivita',
+            description:
+              'Dve koncové epoxidové skupiny umožňujú efektívne zosieťovanie a napojenie do epoxidových, uretánových a akrylových systémov pre zvýšený výkon.',
+          },
+          {
+            feature: 'Nízkoviskózne reaktívne riedidlo',
+            description:
+              'Znižuje viskozitu štandardných epoxidových živíc pri zachovaní chemickej väzby po vytvrdení, na rozdiel od inertných rozpúšťadiel, pre nižšie VOC formulácie.',
+          },
+          {
+            feature: 'Zlepšená flexibilita a húževnatosť',
+            description:
+              'Alifatický reťazec zvyšuje elongáciu a nárazovú odolnosť inak krehkých epoxidových sietí pre trvanlivejšie nátery.',
+          },
+          {
+            feature: 'Dobré zmáčanie substrátu',
+            description:
+              'Nižšia viskozita a polaritný profil podporujú lepšie zmáčanie substrátu v náteroch a lepidlách pre zlepšenú adhéziu.',
+          },
+          {
+            feature: 'Dostupnosť z pilotného závodu v EÚ',
+            description:
+              'Vyrábaný VUP na Slovensku s krátkymi dodacími lehotami, dodávkou z EÚ a pokrytím REACH pre spoľahlivé zásobovanie.',
+          },
+          {
+            feature: 'Kvalita a sledovateľnosť',
+            description:
+              'Vyrábaný podľa ISO 9001:2015 s dokumentáciou na úrovni šarže zabezpečujúcou konzistentnú kvalitu a dodržiavanie predpisov.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa hlavne používa VUP 1,2,7,8-Diepoxioktán?',
+            answer:
+              'Ako reaktívny, nízkoviskózny alifatický diepoxid na modifikáciu epoxidových, náterových a lepiacich systémov na zlepšenie toku, zníženie viskozity a zvýšenie flexibility.',
+          },
+          {
+            question: 'Môže sa použiť ako reaktívne riedidlo v epoxidových živiciach?',
+            answer:
+              'Áno. Na rozdiel od inertných rozpúšťadiel sa zúčastňuje vytvrdzovacej reakcie, pomáha znižovať VOC pri zachovaní časti finálnej vytvrdnutej siete.',
+          },
+          {
+            question: 'Akú čistotu dodáva VUP?',
+            answer:
+              'Typické pilotné šarže cieľujú na ≥98% čistotu s presnou špecifikáciou šarže uvedenou v TDS/SDS dodávanom s dodávkami.',
+          },
+          {
+            question: 'Je tento produkt pokrytý REACH?',
+            answer:
+              'Látka je uvedená pod EC 219-375-9. Pre presný registračný scenár aplikovateľný na vašu dodávku kontaktujte VUP.',
+          },
+          {
+            question: 'Ako zlepšuje výkon epoxidového systému?',
+            answer:
+              'Znižuje viskozitu pre lepšie spracovanie, pridáva flexibilitu na zníženie krehkosti, zlepšuje zmáčanie substrátu a zúčastňuje sa zosieťovania pre robustnú vytvrdnutú sieť.',
+          },
+        ],
+      },
+    }),
   ])
+
+  // --------------------
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 9: EPOXY-5-HEXENE, EPOXYHEXANE, EPOXYOCTANE)
+  // --------------------
+
+  payload.logger.info('- Adding Slovak translations for batch 9 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: epoxyHexene.id,
+      locale: 'sk',
+      data: {
+        name: '1,2-Epoxi-5-hexén',
+        description:
+          'Všestranný reaktívny monoepoxid obsahujúci epoxidovú skupinu aj terminálnu dvojnú väzbu. Používa sa ako reaktívne riedidlo, predlžovač reťazca a stavebný blok v epoxidových náteroch, lepidlách a špeciálnych polymerových systémoch.',
+        applications: [
+          {
+            application: 'Epoxidové a akrylové nátery',
+            description:
+              'Reaktívne riedidlo alebo predlžovač reťazca zvyšujúci flexibilitu a povrchové priľnutie v náterových systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Úprava viskozity a zlepšená pevnosť väzby v štrukturálnych lepiacich formuláciách.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov',
+            description:
+              'Zavedenie bočných alylových a epoxidových skupín pre pokročilé zosieťované polyméry a kopolyméry.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Povrchová úprava',
+            description:
+              'Používa sa pri funkcionalizácii silánom alebo polymérom pre zlepšenie adhézie pri povrchových úpravách.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Špeciálne medziprodukty',
+            description: 'Stavebný blok na syntézu špeciálnych živíc a chemických medziprodukkov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Dvojitá funkčnosť',
+            description:
+              'Obsahuje epoxidovú skupinu aj terminálnu dvojnú väzbu, ponúkajúc rôznorodú chemickú reaktivitu pre kopolymerizáciu, zosieťovanie alebo povrchové naštepovanie.',
+          },
+          {
+            feature: 'Reaktívne riedidlo',
+            description:
+              'Možno použiť ako zložku znižujúcu viskozitu v epoxidových alebo akrylových formuláciách pri zachovaní reaktivity vo vytvrdnutej sieti.',
+          },
+          {
+            feature: 'Zlepšená flexibilita',
+            description:
+              'Alifatický reťazec dodáva zlepšenú húževnatosť a elasticitu vytvrdnutým náterom a lepidlám.',
+          },
+          {
+            feature: 'Výborná kompatibilita',
+            description:
+              'Ľahko sa mieša so štandardnými epoxidovými, uretánovými a akrylátovými systémami pre všestranné formulačné možnosti.',
+          },
+          {
+            feature: 'Dostupnosť z pilotného závodu',
+            description:
+              'Dodávaný v pilotných objemoch pre R&D, hodnotenie a aplikácie špeciálnej výroby.',
+          },
+          {
+            feature: 'Kvalita z EÚ',
+            description:
+              'Vyrábaný VUP, a.s. (Slovensko) podľa ISO 9001:2015, zabezpečujúci sledovateľnosť a súlad s predpismi.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa používa VUP 1,2-Epoxi-5-hexén?',
+            answer:
+              'Ako reaktívny monoepoxid a alkénový medziproduk v náteroch, lepidlách a špeciálnych polymerových systémoch vyžadujúcich dvojitú funkčnosť.',
+          },
+          {
+            question: 'Čím sa tento produkt odlišuje od štandardných epoxidov?',
+            answer:
+              'Jeho dvojitá funkčnosť (epoxid + terminálna dvojná väzba) umožňuje jedinečné zosieťovacie a kopolymerizačné dráhy nedosiahnuteľné so štandardnými epoxidmi.',
+          },
+          {
+            question: 'Je dostupný pre zvyšovanie objemu dodávky?',
+            answer:
+              'Áno, VUP ponúka množstvá z pilotného závodu vhodné pre priemyselné hodnotenie alebo spoločné R&D projekty.',
+          },
+          {
+            question: 'Ako by sa mal manipulovať?',
+            answer:
+              'Manipulovať za dobre vetraných podmienok so štandardným OOP. Je to horľavá kvapalina. Pre úplné podrobnosti o skladovaní a manipulácii konzultujte SDS.',
+          },
+          {
+            question: 'Aký je rozdiel medzi týmto a Allyl glycidyl éterom (CAS 106-92-3)?',
+            answer:
+              'Hoci sa niekedy označujú podobnými názvami, CAS 10353-53-4 (1,2-Epoxi-5-hexén) sa líši od CAS 106-92-3 (Allyl glycidyl éter). Uistite sa o správnom CAS čísle pre vašu aplikáciu.',
+          },
+          {
+            question: 'Aký je regulačný stav tohto produktu?',
+            answer:
+              'Uvedený pod EC číslom 233-771-9. Látka je v databáze ECHA. Pre špecifickú registráciu REACH a pokrytie tonáže kontaktujte VUP, a.s.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxyhexane.id,
+      locale: 'sk',
+      data: {
+        name: '1,2-Epoxihexán',
+        description:
+          'Všestranný reaktívny monoepoxid poskytujúci terminálnu epoxidovú funkčnosť pre organickú syntézu a modifikácie polymérov. Používa sa ako nízkoviskózne reaktívne riedidlo v vysokosušinových epoxidových náteroch, lepidlách a špeciálnych chemických aplikáciách.',
+        applications: [
+          {
+            application: 'Epoxidové a priemyselné nátery',
+            description:
+              'Reaktívne riedidlo na úpravu viskozity a flexibility v vysokosušinových epoxidových náterových systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Zlepšuje zmáčanie a zlepšuje tvorbu filmu v reaktívnych lepiacich a tesniacich systémoch.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Syntéza polymérov',
+            description:
+              'Funguje ako reaktívny monomér pre tvorbu polymérov a kopolymérov v špeciálnych aplikáciách.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Povrchová úprava',
+            description:
+              'Používa sa pri modifikácii silánov a polymérov na zlepšenie adhéznych vlastností.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Špeciálne chemikálie',
+            description:
+              'Medziproduk na výrobu jemných chemikálií a prispôsobených živičných systémov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reaktívny medziproduk',
+            description:
+              'Poskytuje terminálnu epoxidovú funkčnosť pre širokú škálu organických syntéz a modifikácií polymérov.',
+          },
+          {
+            feature: 'Nízka viskozita',
+            description:
+              'Efektívne ako reaktívne riedidlo pre vysokosušinové epoxidové nátery a lepidlá, znižuje viskozitu pri zúčastnení sa vytvrdzovania.',
+          },
+          {
+            feature: 'Zlepšená flexibilita',
+            description:
+              'Alifatický reťazec zvyšuje ťažnosť a nárazovú odolnosť vo vytvrdnutých živičných systémoch.',
+          },
+          {
+            feature: 'Dobrá kompatibilita',
+            description:
+              'Ľahko sa mieša s epoxidovými živicami, akrylátmi a uretánovými systémami pre všestranné formulácie.',
+          },
+          {
+            feature: 'Vysoká čistota',
+            description:
+              'Vyrábaný v pilotných množstvách podľa kontroly kvality ISO 9001:2015 zabezpečujúcej konzistentný výkon.',
+          },
+          {
+            feature: 'REACH uvedený, pôvod z EÚ',
+            description:
+              'Zabezpečuje konzistentnú kvalitu a plnú regulačnú transparentnosť od VUP, a.s. (Slovensko).',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa používa VUP 1,2-Epoxihexán?',
+            answer:
+              'Ako reaktívny monoepoxid v náteroch, lepidlách a aplikáciách syntézy polymérov vyžadujúcich nízku viskozitu a flexibilitu.',
+          },
+          {
+            question: 'Je vhodný pre aplikácie reaktívneho riedidla?',
+            answer:
+              'Áno, môže znížiť viskozitu v epoxidových systémoch pri zúčastnení sa vytvrdzovacej reakcie, čo ho robí ideálnym pre vysokosušinové formulácie.',
+          },
+          {
+            question: 'Akú úroveň čistoty dodáva VUP?',
+            answer:
+              'Pilotné šarže typicky spĺňajú ≥ 98% čistotu. Potvrďte presné špecifikácie prostredníctvom TDS/SDS pre vašu konkrétnu šaržu.',
+          },
+          {
+            question: 'Ako je klasifikovaný na prepravu?',
+            answer:
+              'Všeobecne klasifikovaný ako horľavá kvapalina. Konzultujte SDS pre úplnú klasifikáciu prepravy, UN číslo a požiadavky na skladovanie.',
+          },
+          {
+            question: 'Čím sa 1,2-Epoxihexán odlišuje od iných alifatických epoxidov?',
+            answer:
+              'Jeho šesťuhlíková alifatická štruktúra poskytuje optimálnu rovnováhu nízkej viskozity a zvýšenia flexibility pri zachovaní dobrej reaktivity.',
+          },
+          {
+            question: 'Aký je regulačný stav tohto produktu?',
+            answer:
+              'Uvedený pod EC číslom 215-864-6 v inventári ECHA. Kontaktujte VUP pre špecifické podrobnosti registrácie REACH aplikovateľné na vašu dodávku.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxyoctane.id,
+      locale: 'sk',
+      data: {
+        name: '1,2-Epoxioktán',
+        description:
+          'Reaktívny alifatický monoepoxid kombinujúci nízku prchavosť a vysokú reaktivitu, slúžiaci ako flexibilný stavebný blok pre pokročilé živičné a lepiace formulácie. Podporuje vývoj formulácií v náteroch, modifikácii polymérov a zosieťovacích aplikáciách.',
+        applications: [
+          {
+            application: 'Epoxidové a priemyselné nátery',
+            description:
+              'Reaktívne riedidlo zvyšujúce flexibilitu, húževnatosť filmu a zmáčanie substrátu vo vysokovýkonných náterových systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Zlepšuje adhéziu a elongáciu v štrukturálnych a flexibilných lepiacich systémoch.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov',
+            description:
+              'Funguje ako monomér na vytváranie hydrofóbnych polyéterov a špeciálnych kopolymérov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Povrchová funkcionalizácia',
+            description:
+              'Používa sa na naštepovanie epoxidovej funkčnosti na polymerové povrchy alebo silánmi modifikované substráty.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Chemická syntéza',
+            description:
+              'Východiskový materiál pre syntézu jemných chemikálií a stabilizovaných živičných medziproduktov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reaktívny monoepoxid',
+            description:
+              'Poskytuje kontrolovanú reaktivitu pre zosieťovanie polymérov a reakcie predlžovania reťazcov v náročných aplikáciách.',
+          },
+          {
+            feature: 'Nízka prchavosť a zápach',
+            description:
+              'Vhodný pre vysokovýkonné nátery a lepidlá, kde sú prioritou stabilita a bezpečnosť pracoviska.',
+          },
+          {
+            feature: 'Flexibilný alifatický reťazec',
+            description:
+              'Dodáva zlepšenú elasticitu a hydrofóbny charakter vytvrdnutým živičným systémom.',
+          },
+          {
+            feature: 'Výborná kompatibilita',
+            description:
+              'Dobre sa mieša so štandardnými epoxidovými, akrylátovými a uretánovými chémiami pre všestranné formulácie.',
+          },
+          {
+            feature: 'Pilotná výroba z EÚ',
+            description:
+              'Vyrábaný podľa ISO 9001:2015 vo VUP, a.s. (Slovensko), s sledovateľným zabezpečením kvality.',
+          },
+          {
+            feature: 'Zameranie na udržateľnosť',
+            description:
+              'Umožňuje formulácie s nízkym obsahom VOC a vysokým obsahom pevných látok prostredníctvom správania reaktívneho riedidla.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa primárne používa VUP 1,2-Epoxioktán?',
+            answer:
+              'Ako reaktívny alifatický monoepoxid pre nátery, lepidlá a modifikáciu polymérov, kde sa vyžaduje nízka prchavosť a kontrolovaná reaktivita.',
+          },
+          {
+            question: 'Môže sa použiť ako reaktívne riedidlo?',
+            answer:
+              'Áno, efektívne znižuje viskozitu pri chemickom viazaní do vytvrdnutej matrice, čo ho robí ideálnym pre vysokosušinové formulácie.',
+          },
+          {
+            question: 'Aké sú jeho kľúčové opatrenia pri manipulácii?',
+            answer:
+              'Vyhnite sa teplu, kyselinám a vlhkosti. Skladujte v chladnom, suchom, vetranom priestore. Konzultujte SDS pre úplné bezpečnostné pokyny a postupy manipulácie.',
+          },
+          {
+            question: 'Je tento produkt registrovaný v REACH?',
+            answer:
+              'Áno, látka je uvedená pod EC 221-047-5. Potvrďte konkrétne podrobnosti registrácie s regulačným tímom VUP pre vašu dodávku.',
+          },
+          {
+            question: 'Ako dlhší C8 reťazec ovplyvňuje výkon?',
+            answer:
+              'Osem-uhlíkový alifatický reťazec poskytuje nižšiu prchavosť, zvýšenú hydrofóbnosť a zlepšenú flexibilitu v porovnaní s kratšími epoxidmi.',
+          },
+          {
+            question: 'Čím sa 1,2-Epoxioktán odlišuje od iných alifatických epoxidov?',
+            answer:
+              'Jeho kombinácia nízkej prchavosti, kontrolovanej reaktivity a zvýšenia flexibility ho robí obzvlášť vhodným pre vysokovýkonné aplikácie s nízkym zápachom.',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 10: EPOXY-7-OCTENE, EPOXYDECANE, DIEPOXYHEXANE)
+  // --------------------
+
+  payload.logger.info('- Adding Slovak translations for batch 10 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: epoxy7octene.id,
+      locale: 'sk',
+      data: {
+        name: '1,2-Epoxi-7-oktén',
+        description:
+          'Dvojfunkčný alifatický epoxid obsahujúci oxiránový kruh aj terminálnu dvojnú väzbu, poskytujúci všestrannú reaktivitu pre modifikáciu polymérov a zosieťovanie. Vhodný pre nátery, lepidlá a špeciálne medziprodukty využívajúce kontrolovanú flexibilitu.',
+        applications: [
+          {
+            application: 'Nátery a tesniace materiály',
+            description:
+              'Zlepšuje flexibilitu, adhéziu a integritu filmu v epoxidových a hybridných náterových systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá',
+            description:
+              'Zvyšuje pevnosť väzby a zmáčanie pri znižovaní viskozity v lepiacich formuláciách.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov a živíc',
+            description:
+              'Reaguje prostredníctvom epoxidových alebo alylových skupín pre prispôsobené polymerové architektúry v pokročilých aplikáciách.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Povrchová funkcionalizácia',
+            description:
+              'Zavádzanie reaktívnych miest pre zosieťovanie alebo naštepovanie v pokročilých kompozitných materiáloch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Jemné chemikálie',
+            description:
+              'Medziproduk pri syntéze vlastných epoxidových monomerov a reaktívnych modifikátorov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Dvojitá funkčnosť',
+            description:
+              'Kombinuje epoxidovú skupinu a alylovú dvojnú väzbu, umožňujúc selektívne reakcie pre pokročilú modifikáciu polymérov.',
+          },
+          {
+            feature: 'Potenciál reaktívneho riedidla',
+            description:
+              'Znižuje viskozitu pri zachovaní plnej reaktivity počas vytvrdzovania, ideálne pre vysokosušinové formulácie.',
+          },
+          {
+            feature: 'Zlepšená flexibilita',
+            description:
+              'Alifatická reťazová štruktúra poskytuje vynikajúcu elasticitu filmu a nárazovú odolnosť.',
+          },
+          {
+            feature: 'Výborná kompatibilita',
+            description:
+              'Vhodný pre epoxidové, akrylátové a polyuretánové systémy pre všestranné formulačné možnosti.',
+          },
+          {
+            feature: 'Vysoká čistota',
+            description:
+              'Vyrábaný podľa ISO 9001:2015 v pilotných podmienkach EÚ zabezpečujúc konzistentnú kvalitu.',
+          },
+          {
+            feature: 'Nízka farba a nízky zápach',
+            description:
+              'Ideálny pre vysoko špecifikované náterové a lepiace systémy, kde záleží na estetike.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa používa 1,2-Epoxi-7-oktén?',
+            answer:
+              'Ako dvojfunkčný reaktívny monomér pre nátery, lepidlá a aplikácie modifikácie polymérov vyžadujúce epoxidovú aj alylovú reaktivitu.',
+          },
+          {
+            question: 'Prečo je medzi epoxidmi jedinečný?',
+            answer:
+              'Obsahuje epoxidové aj alylové reaktívne miesta, ponúkajúc zvýšenú všestrannosť formulácie a umožňujúc selektívne reakcie nemožné s monofunkčnými epoxidmi.',
+          },
+          {
+            question: 'Je vhodný pre testovanie v pilotnom meradle?',
+            answer:
+              'Áno, VUP ponúka množstvá z pilotného závodu ideálne pre hodnotenie a vývojové účely v R&D a priemyselnom testovaní.',
+          },
+          {
+            question: 'Ako by sa mal skladovať?',
+            answer:
+              'Skladujte v utesnených nádobách v chladnom, vetranom priestore. Konzultujte SDS pre podrobné pokyny k manipulácii a OOP.',
+          },
+          {
+            question: 'Ako sa porovnáva s 1,2-Epoxi-5-hexénom?',
+            answer:
+              'Obidva ponúkajú dvojitú funkčnosť, ale 1,2-Epoxi-7-oktén má dlhší C8 reťazec poskytujúci nižšiu prchavosť a zvýšenú flexibilitu v porovnaní s C6 reťazcom 1,2-Epoxi-5-hexénu.',
+          },
+          {
+            question: 'Aký je regulačný stav tohto produktu?',
+            answer:
+              'Uvedený pod EC číslom 243-178-7 v databáze ECHA. Kontaktujte VUP pre podrobnosti registrácie a dodávky špecifické pre vaše požiadavky.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxydecane.id,
+      locale: 'sk',
+      data: {
+        name: '1,2-Epoxidekán',
+        description:
+          'Dlhý reťazcový alifatický monoepoxid kombinujúci vysokú hydrofóbnosť s reaktívnou epoxidovou funkčnosťou. Vhodný pre nátery, lepidlá a aplikácie povrchových úprav, kde sa vyžaduje flexibilita, nízka polarita a odolnosť voči vode.',
+        applications: [
+          {
+            application: 'Nátery a tesniace materiály',
+            description:
+              'Zlepšuje flexibilitu, lesk a hydrofóbnosť v epoxidových alebo uretánových náterových systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá',
+            description:
+              'Zvyšuje adhéziu a elasticitu pri znižovaní absorpcie vody v lepiacich formuláciách.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov',
+            description:
+              'Používa sa na zavedenie epoxidovej funkčnosti v hydrofóbnych kopolyméroch alebo povrchovo aktívnymi látkami modifikovaných živiciach.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Povrchová úprava',
+            description:
+              'Naštepuje epoxidové skupiny na nízkoenergetické povrchy na zvýšenie natierateľnosti a adhézie.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Jemné chemické medziprodukty',
+            description:
+              'Stavebný blok pre epoxidy s vyššou molekulovou hmotnosťou a povrchovo aktívne látky.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Dlhý reťazcový alifatický epoxid',
+            description:
+              'Poskytuje hydrofóbne a flexibilné vlastnosti pri začlenení do polymérov alebo náterov.',
+          },
+          {
+            feature: 'Reaktívny medziproduk',
+            description:
+              'Umožňuje kontrolované epoxidové zosieťovanie a modifikáciu polyuretánov, akrylov a živíc.',
+          },
+          {
+            feature: 'Zlepšená odolnosť voči vode',
+            description:
+              'Ideálny pre nízko polárne nátery a lepidlá vyžadujúce odpudenie vlhkosti.',
+          },
+          {
+            feature: 'Nízka prchavosť',
+            description:
+              'Zvyšuje bezpečnosť pracoviska a stabilitu pri vysokoteplotných aplikáciách.',
+          },
+          {
+            feature: 'Pilotná výroba z EÚ',
+            description: 'Dodávaný VUP, a.s. (Slovensko) podľa systému kvality ISO 9001:2015.',
+          },
+          {
+            feature: 'Všestranné aplikácie',
+            description: 'Slúži ako epoxidovo-funkčný hydrofób pre R&D a špeciálne formulácie.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa primárne používa VUP 1,2-Epoxidekán?',
+            answer:
+              'Ako reaktívny alifatický monoepoxid pre hydrofóbne nátery, lepidlá a modifikáciu polymérov, kde je odolnosť voči vode kritická.',
+          },
+          {
+            question: 'Čím sa odlišuje od epoxidov s kratším reťazcom?',
+            answer:
+              'Jeho dlhší desaťuhlíkový reťazec poskytuje zvýšenú flexibilitu a odolnosť voči vode, ideálny pre nízko polárne systémy vyžadujúce hydrofóbne charakteristiky.',
+          },
+          {
+            question: 'Je vhodný ako reaktívne riedidlo?',
+            answer:
+              'Áno, pôsobí ako nízkoprchavý reaktívny modifikátor, zlepšujúci flexibilitu a znižujúci viskozitu v živičných formuláciách.',
+          },
+          {
+            question: 'Ako sa skladuje a manipuluje?',
+            answer:
+              'Skladujte v uzavretých nádobách, ďaleko od tepla a oxidačných činidiel. Dodržujte pokyny SDS pre OOP a vetracie požiadavky.',
+          },
+          {
+            question: 'Ktoré aplikácie majú najväčší úžitok z tohto dlhého reťazcového epoxidu?',
+            answer:
+              'Aplikácie vyžadujúce hydrofóbnu modifikáciu, odolnosť voči vode a flexibilitu, ako sú námorné nátery, vonkajšie lepidlá a nízko polárne povrchové úpravy.',
+          },
+          {
+            question: 'Aký je regulačný stav tohto produktu?',
+            answer:
+              'Uvedený pod EC číslom 219-295-4 v inventári ECHA. Kontaktujte VUP pre podrobnosti registrácie a dodávateľského reťazca.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: diepoxyhexane.id,
+      locale: 'sk',
+      data: {
+        name: '1,2,5,6-Diepoxihexán',
+        description:
+          'Bifunkčný alifatický epoxid obsahujúci dve terminálne oxiránové skupiny. Slúži ako špecializovaný zosieťovač a predlžovač reťazca v náteroch, lepidlách a aplikáciách syntézy polymérov, ktoré vyžadujú zvýšenú flexibilitu, nízku viskozitu a vylepšenú reaktivitu.',
+        applications: [
+          {
+            application: 'Nátery a tesniace materiály',
+            description:
+              'Zvyšuje hustotu zosieťovania a tvrdosť epoxidových a uretánových náteroch pri zachovaní flexibility.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá',
+            description:
+              'Funguje ako bifunkčný modifikátor zlepšujúci adhéziu a rýchlosť vytvrdzovania.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Modifikácia polymérov',
+            description:
+              'Zavádza dodatočnú epoxidovú funkcionalitu do polyesterov, polyéterov a kopolymérov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Kompozitné a živičné systémy',
+            description: 'Poskytuje nízkoviskózny zosieťovač pre termosetové živičné systémy.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Jemné chemikálie a špecializovaná syntéza',
+            description:
+              'Používa sa v laboratórnej a pilotnej syntéze reaktívnych medziproduktov a oligomérov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Bifunkčná reaktivita',
+            description:
+              'Dve epoxidové skupiny poskytujú silný potenciál zosieťovania pre termosetové a polymérové systémy.',
+          },
+          {
+            feature: 'Nízka viskozita',
+            description:
+              'Účinný ako reaktívne riedidlo v epoxidových a polyuretánových formuláciách.',
+          },
+          {
+            feature: 'Vysoká reaktivita',
+            description:
+              'Podporuje rýchle rýchlosti vytvrdzovania a zlepšenú konverziu pri katiónovej a aniónnej polymerizácii.',
+          },
+          {
+            feature: 'Zlepšený mechanický výkon',
+            description:
+              'Pridáva flexibilitu, odolnosť a hydrolytickú stabilitu do vytvrdených systémov.',
+          },
+          {
+            feature: 'Dostupnosť z pilotného závodu',
+            description:
+              'Vyrábané spoločnosťou VUP, a.s. za kontrolovaných podmienok pre hodnotenie a špeciálne aplikácie.',
+          },
+          {
+            feature: 'Pôvod z EÚ a zhoda s REACH',
+            description:
+              'Vyrobené podľa ISO 9001:2015 zabezpečujúce sledovateľnosť a konzistentnú kvalitu.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa primárne používa 1,2,5,6-Diepoxihexán?',
+            answer:
+              'Ako bifunkčný reaktívny epoxid pre nátery, lepidlá a modifikáciu polymérov vyžadujúcu zlepšené zosieťovanie.',
+          },
+          {
+            question: 'Ako sa líši od monoepoxidov?',
+            answer:
+              'Poskytuje dve epoxidové skupiny, čím zvyšuje zosieťovanie a reaktivitu v termosetových a elastomérových systémoch v porovnaní s jednofunkčnými epoxidmi.',
+          },
+          {
+            question: 'Aké sú jeho bezpečnostné opatrenia pri manipulácii?',
+            answer:
+              'Vyhýbajte sa vlhkosti, teplu a kyselinám. Skladujte v uzavretých nádobách; pre úplné pokyny k manipulácii si pozrite SDS.',
+          },
+          {
+            question: 'Je uvedený v REACH?',
+            answer:
+              'Áno, látka je uvedená pod CAS 1888-89-7, EC 217-564-0. Pre konkrétne podrobnosti registrácie kontaktujte regulačné oddelenie VUP.',
+          },
+          {
+            question: 'Ako sa porovnáva s 1,2,7,8-Diepoxioktánom?',
+            answer:
+              'Obe sú bifunkčné diepoxidy, ale 1,2,5,6-Diepoxihexán má kratší C6 reťazec poskytujúci vyššiu hustotu epoxidových skupín na jednotku hmotnosti a odlišné fyzikálne vlastnosti.',
+          },
+          {
+            question: 'Ktoré aplikácie majú úžitok z jeho bifunkčnej štruktúry?',
+            answer:
+              'Aplikácie vyžadujúce vysokú hustotu zosieťovania, ako sú vysoko výkonné nátery, štrukturálne lepidlá a termosetové kompozity, majú najväčší úžitok z jeho duálnej epoxidovej funkčnosti.',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 11: DIMETHYL-EPOXYBUTANE, TMDD, LONG-CHAIN-TMDD)
+  // --------------------
+
+  payload.logger.info('- Adding Slovak translations for batch 11 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: dimethylepoxybutane.id,
+      locale: 'sk',
+      data: {
+        name: '3,3-Dimetyl-1,2-epoxybután',
+        description:
+          'Kompaktný terciárny monoepoxid cenený pre svoju stericky bránenú reaktivitu a prchavosť, vhodný pre laboratórnu syntézu a mechanistické štúdie. Slúži ako reaktívny medziproduk pre vývoj jemných chemikálií, výskum náterov a modelové systémy polymérov.',
+        applications: [
+          {
+            application: 'Výskum a vývoj',
+            description:
+              'Pre štúdium reakcií otvárania epoxidového kruhu, nukleofilných substitúcií a mechanizmov polymerizácie.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Syntéza jemných chemikálií',
+            description:
+              'Používa sa pri vývoji medziproduktov vysokej čistoty a špecializovaných činidiel.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Výskum náterov',
+            description:
+              'Slúži ako analóg reaktívneho monoméru v laboratórnej modifikácii živíc a modelovaní výkonu.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Chémia polymérov',
+            description:
+              'Referenčná zlúčenina pre štúdie reaktivity a simuláciu účinkov sterického brzdenia.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Stericky bránený epoxid',
+            description:
+              'Ideálny pre kontrolovanú reaktivitu a modelové reakčné štúdie vďaka svojej terciárnej štruktúre.',
+          },
+          {
+            feature: 'Vysoká prchavosť',
+            description:
+              'Vhodný pre nastavenia plynnej fázy alebo kinetického výskumu vyžadujúce prchavé činidlá.',
+          },
+          {
+            feature: 'Kompaktná terciárna štruktúra',
+            description:
+              'Umožňuje skúmanie substitučných a kruho-otváracích mechanizmov za rôznych podmienok.',
+          },
+          {
+            feature: 'Využitie v jemnej chémii',
+            description:
+              'Prekurzor pre vysoko hodnotné medziprodukty vo výskume náterov a chémie polymérov.',
+          },
+          {
+            feature: 'Dostupnosť v laboratórnom meradle',
+            description:
+              'Dodávané v obmedzených výskumných množstvách pre analytické, kinetické alebo syntetické použitie.',
+          },
+          {
+            feature: 'Vyrobené podľa ISO 9001:2015',
+            description:
+              'Zabezpečuje analytickú sledovateľnosť a kontrolu čistoty pre laboratórne aplikácie.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Čím sa 3,3-Dimetyl-1,2-epoxybután líši od iných epoxidov?',
+            answer:
+              'Jeho terciárna štruktúra poskytuje sterické brzdenie, čo ho robí ideálnym pre štúdie reaktivity a mechanizmov, kde je požadovaná kontrolovaná reaktivita.',
+          },
+          {
+            question: 'Je dostupný pre priemyselné použitie?',
+            answer:
+              'V súčasnosti sa vyrába len v laboratórnych množstvách, vhodný pre výskum a testovanie, nie pre priemyselnú výrobu.',
+          },
+          {
+            question: 'Aké sú hlavné bezpečnostné opatrenia?',
+            answer:
+              'Vysoko horľavý—manipulujte v digestori ďaleko od zdrojov vznietenia. Skladujte pod 25°C v chladnom, vetranom priestore. Pre úplné bezpečnostné pokyny konzultujte SDS.',
+          },
+          {
+            question: 'Ktoré aplikácie majú úžitok z jeho sterického brzdenia?',
+            answer:
+              'Mechanistické štúdie, kinetické výskumy, modelové systémy polymérov a výskum vyžadujúci kontrolovanú reaktivitu epoxidu majú najväčší úžitok z jeho terciárnej štruktúry.',
+          },
+          {
+            question: 'Je tento produkt registrovaný v REACH?',
+            answer:
+              'CAS 2245-30-9 je uvedený v medzinárodných inventároch. Pre konkrétne podrobnosti o pokrytí REACH kontaktujte regulačné oddelenie VUP.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: tmdd.id,
+      locale: 'sk',
+      data: {
+        name: '2,4,7,9-Tetrametyl-5-decín-4,7-diol',
+        description:
+          'Vysoko výkonný acetylenický diolový surfaktant ponúkajúci vynikajúcu kontrolu povrchového napätia a toku vo formuláciách náterov a tlačiarenských farieb. TMDD slúži ako multifunkčné aditívum poskytujúce zlepšené zmáčanie, vyrovnávanie a kompatibilitu v širokej škále systémov na báze rozpúšťadiel a vodných systémov.',
+        applications: [
+          {
+            application: 'Nátery a farby',
+            description:
+              'Kontroluje povrchové napätie, zlepšuje rovnomernosť filmu a zvyšuje lesk v náterových formuláciách.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Tlačiarenské farby',
+            description:
+              'Podporuje disperziu pigmentov a kvalitu tlače zlepšeným zmáčaním substrátu.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Zlepšuje rozloženie a adhéziu na nízkoenergetických povrchoch pre zlepšené spojenie.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymérne emulzie',
+            description: 'Pôsobí ako dynamický surfaktant zlepšujúci stabilitu a výkon emulzie.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Textilné úpravy a čistiace prostriedky',
+            description:
+              'Používa sa v špeciálnych formuláciách, kde je zmáčanie a kontrola toku kritická.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Kontrola povrchového napätia',
+            description:
+              'Znižuje statické aj dynamické povrchové napätie pre zlepšené zmáčanie substrátu.',
+          },
+          {
+            feature: 'Zlepšený tok a vyrovnávanie',
+            description:
+              'Predchádza defektom, ako sú krátery, dutinky a pomarančová koža v náteroch a tlačiarenských farbách.',
+          },
+          {
+            feature: 'Široká kompatibilita',
+            description: 'Dobre funguje vo vodných, rozpúšťadlových a UV-vytvrditeľných systémoch.',
+          },
+          {
+            feature: 'Nízka tvorba peny',
+            description: 'Umožňuje stabilnú tvorbu filmu bez nadmerného penenia.',
+          },
+          {
+            feature: 'Všestranná funkcionalita',
+            description:
+              'Pôsobí ako zmáčadlo, modifikátor toku alebo koalescenčné aditívum v rôznych formuláciách.',
+          },
+          {
+            feature: 'Kvalita z EÚ',
+            description:
+              'Vyrobené podľa ISO 9001:2015, zabezpečujúce vysokú čistotu a konzistenciu šarže.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa TMDD používa?',
+            answer:
+              'TMDD sa používa ako povrchovo aktívne činidlo a zmáčacie aditívum v náteroch, tlačiarenských farbách, lepidlách a polymérnych emulziách na zlepšenie toku, vyrovnávania a zmáčania substrátu.',
+          },
+          {
+            question: 'Je TMDD kompatibilný s vodnými aj rozpúšťadlovými systémami?',
+            answer:
+              'Áno, TMDD účinne funguje vo vodných aj rozpúšťadlových formuláciách, ako aj v UV-vytvrditeľných systémoch.',
+          },
+          {
+            question: 'Spôsobuje TMDD penenie?',
+            answer:
+              'Nie, TMDD je navrhnutý pre nízku tvorbu peny pri zachovaní účinnej povrchovej aktivity, čo ho robí ideálnym pre aplikácie náterov a tlačiarenských farieb.',
+          },
+          {
+            question: 'Aká čistá je TMDD od VUP?',
+            answer:
+              'Šarže z pilotného závodu majú zvyčajne čistotu ≥ 98%, overe­nú metódami GC a titrácie, zabezpečujúc konzistentný výkon.',
+          },
+          {
+            question: 'Čím sa TMDD líši od konvenčných surfaktantov?',
+            answer:
+              'TMDD je acetylenický diol s jedinečnou trojväzbovou štruktúrou poskytujúcou vynikajúce zníženie dynamického povrchového napätia a vynikajúcu kompatibilitu v rôznych náterových systémoch.',
+          },
+          {
+            question: 'Je TMDD registrovaný v REACH?',
+            answer:
+              'Áno, TMDD (CAS 126-86-3, EC 204-809-1) je registrovaná látka podľa EU REACH. Pre konkrétne podrobnosti registrácie kontaktujte VUP.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: longChainTmdd.id,
+      locale: 'sk',
+      data: {
+        name: '2,5,8,11-Tetrametyl-6-dodecín-5,8-diol',
+        description:
+          'Dlhý reťazcový acetylenický diolový surfaktant kombinujúci vynikajúcu kontrolu dynamického povrchového napätia so zvýšenou hydrofóbnosťou. Poskytuje vynikajúci výkon v systémoch na báze rozpúšťadiel a vysoko plnených systémoch, podporujúc zlepšené zmáčanie, vyrovnávanie a uniformitu filmu.',
+        applications: [
+          {
+            application: 'Nátery a farby',
+            description:
+              'Zlepšuje zmáčanie povrchu, tok a kontrolu lesku v náterových formuláciách na báze rozpúšťadiel.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Tlačiarenské farby',
+            description:
+              'Uľahčuje disperziu pigmentov a konzistentnú pokrytie substrátu pre vysoko kvalitné tlače.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description: 'Poskytuje zlepšené rozloženie a adhéziu na hydrofóbnych povrchoch.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymérne prísady',
+            description:
+              'Používa sa ako povrchovo aktívna prísada vo vysoko plnených a rozpúšťadlových polymérnych systémoch.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Úprava textilu a kože',
+            description: 'Podporuje rovnomerné zmáčanie a absorpciu na náročných substrátoch.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Zvýšená hydrofóbnosť',
+            description:
+              'Dlhší uhlíkový reťazec poskytuje vynikajúce zmáčanie na nízkoenergetických substrátoch.',
+          },
+          {
+            feature: 'Zníženie dynamického povrchového napätia',
+            description:
+              'Udržuje konzistentné vyrovnávanie a rozloženie aj pri vysokorýchlostnej aplikácii.',
+          },
+          {
+            feature: 'Vynikajúca kompatibilita',
+            description: 'Funguje v rozpúšťadlových aj vysoko plnených formuláciách.',
+          },
+          {
+            feature: 'Zlepšený lesk a tok',
+            description: 'Zvyšuje hladkosť filmu a vzhľad bez tvorby kráterov.',
+          },
+          {
+            feature: 'Nízky penový profil',
+            description: 'Zabezpečuje stabilný aplikačný výkon s minimálnym penením.',
+          },
+          {
+            feature: 'ISO certifikovaná kvalita',
+            description: 'Vyrobené podľa ISO 9001:2015 s konzistentnou sledovateľnosťou šarže.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Ako sa tento produkt líši od TMDD?',
+            answer:
+              'Dlhší uhlíkový reťazec poskytuje zvýšenú hydrofóbnosť a kompatibilitu s vysoko plnenými a rozpúšťadlovými systémami v porovnaní so štandardným TMDD.',
+          },
+          {
+            question: 'Je vhodný pre vodné nátery?',
+            answer:
+              'Môže sa používať v dispergovanej forme s surfaktantmi, ale je primárne navrhnutý pre rozpúšťadlové a vysoko plnené formulácie.',
+          },
+          {
+            question: 'Aká je úroveň čistoty?',
+            answer: '≥ 98%, s analytickým overením pomocou GC a NMR pre konzistentný výkon.',
+          },
+          {
+            question: 'Ovplyvňuje lesk?',
+            answer: 'Áno, zvyšuje lesk a uniformitu filmu zlepšením toku a vyrovnávania povrchu.',
+          },
+          {
+            question: 'Ktoré aplikácie majú najväčší úžitok z dlhšieho reťazca?',
+            answer:
+              'Vysoko plnené nátery, rozpúšťadlové systémy a aplikácie vyžadujúce zlepšené zmáčanie na nízkoenergetických alebo hydrofóbnych substrátoch majú najväčší úžitok.',
+          },
+          {
+            question: 'Je tento produkt registrovaný v REACH?',
+            answer:
+              'Áno, je uvedený pod EC 269-348-0 a registrovaný v kategórii acetylenických diolov. Pre konkrétne podrobnosti registrácie kontaktujte VUP.',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 12: DMHD, DIMETHYL-HEXYNOL, DIMETHYL-HEPTYNOL)
+  // --------------------
+
+  payload.logger.info('- Adding Slovak translations for batch 12 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: dmhd.id,
+      locale: 'sk',
+      data: {
+        name: '2,5-Dimetyl-3-hexín-2,5-diol',
+        description:
+          'Symetrický acetylenický diol používaný ako reaktívny medziproduk pre vývoj surfaktantov a aditív. Slúži ako modelová zlúčenina pre štúdie štruktúra–aktivita a ako všestranný prekurzor pre zmáčacie a povrchovo kontrolné aditíva.',
+        applications: [
+          {
+            application: 'Vývoj surfaktantov',
+            description:
+              'Medziproduk pre neionogénne surfaktanty a činidlá pre dynamické povrchové napätie.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Výskum náterov',
+            description:
+              'Hodnotený ako modelový diol pre štúdie toku a vyrovnávania v náterových formuláciách.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Tlačiarenské farby',
+            description:
+              'Prekurzor pre povrchové modifikátory na zlepšené zmáčanie a disperziu pigmentov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymérne prísady',
+            description:
+              'Používa sa pri syntéze acetylenický-modifikovaných živičných medziproduktov.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Akademický a priemyselný výskum',
+            description:
+              'Referenčná zlúčenina pre skúmanie reakčných mechanizmov a štúdie povrchovej chémie.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Symetrická diolová štruktúra',
+            description:
+              'Zjednodušuje modelovanie správania surfaktantov a aditív vo výskumných aplikáciách.',
+          },
+          {
+            feature: 'Vysoká čistota',
+            description: 'Vhodné pre analytický výskum a štúdie reakčných mechanizmov.',
+          },
+          {
+            feature: 'Reaktívny medziproduk',
+            description: 'Umožňuje syntézu špeciálnych surfaktantov a výkonnostných aditív.',
+          },
+          {
+            feature: 'Povrchová aktivita',
+            description: 'Tvorí štrukturálne jadro mnohých zmáčacích a vyrovnávacích činidiel.',
+          },
+          {
+            feature: 'Stabilný za normálnych podmienok',
+            description: 'Bezpečné na manipuláciu v štandardných laboratórnych prostrediach.',
+          },
+          {
+            feature: 'Vyrobené podľa ISO 9001:2015',
+            description:
+              'Zabezpečuje sledovateľnú kvalitu a analytické overenie pre laboratórne použitie.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Aká je hlavná funkcia tejto zlúčeniny?',
+            answer:
+              'Slúži ako symetrický diol pre syntézu surfaktantov a ako referenčná zlúčenina vo výskume povrchovej chémie.',
+          },
+          {
+            question: 'Môže sa použiť priamo v náteroch?',
+            answer:
+              'Primárne pre laboratórne hodnotenie alebo vývoj formulácií; nie je určené pre priame priemyselné použitie.',
+          },
+          {
+            question: 'Akú čistotu dodáva VUP?',
+            answer:
+              'Čistota laboratórnej kvality je zvyčajne ≥ 98%, overená metódami GC a titrácie.',
+          },
+          {
+            question: 'Je to registrované v REACH?',
+            answer:
+              'Je uvedené v databáze ECHA (EC 205-533-4) a dostupné pre laboratórne výskumné aplikácie pod laboratórnou výnimkou.',
+          },
+          {
+            question: 'Čo robí túto zlúčeninu užitočnou pre výskum?',
+            answer:
+              'Jeho symetrická štruktúra zjednodušuje molekulárne modelovanie a robí z neho ideálnu referenčnú zlúčeninu pre štúdium správania acetylenických diolov v povrchovo aktívnych aplikáciách.',
+          },
+          {
+            question: 'Ako sa líši od TMDD?',
+            answer:
+              'DMHD je menšia, symetrická molekula používaná primárne pre výskum a vývoj, zatiaľ čo TMDD je komerčný surfaktant používaný v priemyselných náteroch a tlačiarenských farbách.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: dimethylhexynol.id,
+      locale: 'sk',
+      data: {
+        name: '3,5-Dimetyl-1-hexín-3-ol',
+        description:
+          'Krátko-reťazcový acetylenický alkohol používaný ako kľúčový medziproduk pri syntéze surfaktantov a aditív pre nátery. Vyrábaný v pilotných množstvách spoločnosťou VUP, a.s. (Prievidza, Slovensko), táto zlúčenina kombinuje reaktivitu a rozpustnosť ideálnu pre aplikácie v modifikácii polymérov, lepidlách a vývoji jemných chemikálií.',
+        applications: [
+          {
+            application: 'Nátery a farby',
+            description:
+              'Prekurzor pre modifikátory toku a vyrovnávania pre systémy na báze rozpúšťadiel, zlepšujúci povrchový povrch a výkon.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description:
+              'Zlepšuje zmáčanie substrátu a adhézne vlastnosti pre lepší výkon pri spájaní.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Surfaktanty',
+            description:
+              'Používa sa pri syntéze činidiel na dynamickú kontrolu povrchového napätia pre nátery a aplikácie atramentov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymérne prísady',
+            description:
+              'Medziproduk pre flexibilné, acetylenicky funkcionalizované polyméry s prispôsobenými vlastnosťami.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Jemné chemikálie',
+            description:
+              'Prekurzor pre špeciálne medziprodukty na báze alkínov a diolov pri zákazkovej syntéze.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reaktívny medziproduk',
+            description:
+              'Kľúčový stavebný blok pre syntézu acetylenických diolov a povrchovo aktívnych činidiel.',
+          },
+          {
+            feature: 'Vynikajúca kompatibilita s rozpúšťadlami',
+            description:
+              'Miešateľný s bežnými organickými rozpúšťadlami pre všestranné použitie vo formuláciách.',
+          },
+          {
+            feature: 'Zlepšené zmáčanie a tok',
+            description: 'Slúži ako výkonnostná zložka v systémoch prísad pre nátery a lepidlá.',
+          },
+          {
+            feature: 'Stabilná manipulácia',
+            description:
+              'Nízka prchavosť v porovnaní s alkínolmi s nižšou molekulovou hmotnosťou pre bezpečnejšie spracovanie.',
+          },
+          {
+            feature: 'Dostupnosť v pilotnom meradle',
+            description:
+              'Vyrábaný za kontrolovaných podmienok pre priemyselné hodnotenie a zákazkovú syntézu.',
+          },
+          {
+            feature: 'Zabezpečenie kvality',
+            description:
+              'Vyrábaný podľa certifikácie ISO 9001:2015 pre konzistentnú čistotu a výkon.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa 3,5-dimetyl-1-hexín-3-ol hlavne používa?',
+            answer:
+              'Je to prekurzor pre acetylenické diolové surfaktanty a prísady na kontrolu toku v náteroch a atramentoch.',
+          },
+          {
+            question: 'Je kompatibilný s polárne aj nepolárne rozpúšťadlami?',
+            answer:
+              'Áno, vykazuje širokú kompatibilitu s rozpúšťadlami vrátane alkoholov, ketónov a uhľovodíkov.',
+          },
+          {
+            question: 'Akú čistotu má pilotný materiál?',
+            answer: 'VUP zvyčajne dodáva čistotu ≥ 98%, overenú analýzou GC.',
+          },
+          {
+            question: 'Má nejakú klasifikáciu nebezpečenstva?',
+            answer:
+              'Nie je klasifikovaný ako nebezpečný za normálnych transportných podmienok; manipulujte podľa pokynov SDS.',
+          },
+          {
+            question: 'Čo robí túto zlúčeninu vhodnou pre náterové aplikácie?',
+            answer:
+              'Jeho acetylenická štruktúra v kombinácii s hydroxylovom funkčnosťou poskytuje ideálnu rovnováhu reaktivity a povrchovej aktivity potrebnej pre modifikátory toku a zmáčania.',
+          },
+          {
+            question: 'Je kompatibilný s REACH?',
+            answer:
+              'Registrovaný v ECHA ako acetylenický alkohol; kompatibilný s REACH. Pre špecifické registračné podrobnosti kontaktujte VUP.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: dimethylheptynol.id,
+      locale: 'sk',
+      data: {
+        name: '3,6-Dimetyl-1-heptín-3-ol',
+        description:
+          'Terciárny acetylenický alkohol používaný ako medziproduk pre syntézu surfaktantov a aditív pre nátery. Vyrábaný v pilotných množstvách spoločnosťou VUP, a.s. (Prievidza, Slovensko), táto zlúčenina kombinuje reaktivitu s hydrofóbnym charakterom, čo ju robí cennou pri formulovaní zmáčacích a tokom kontrolných činidiel pre nátery, atramenty a lepidlá.',
+        applications: [
+          {
+            application: 'Nátery a farby',
+            description:
+              'Zlepšuje tok, lesk a kontrolu defektov prostredníctvom zníženia dynamického povrchového napätia.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Tlačiarenské farby',
+            description: 'Podporuje zmáčanie a disperziu pigmentov na hydrofóbnych substrátoch.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Lepidlá a tesniace materiály',
+            description: 'Zlepšuje rozprestieranie a medzifázovú adhéziu pre lepšie spojenie.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Polymérna syntéza',
+            description:
+              'Medziproduk pre funkčné monoméry a reaktívne prísady v polymérnych aplikáciách.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Výskum jemných chemikálií',
+            description:
+              'Používa sa ako referenčná zlúčenina v štúdiách reaktivity acetylenických alkoholov.',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reaktívny medziproduk',
+            description:
+              'Používa sa pri syntéze acetylenických surfaktantov a povrchovo aktívnych činidiel.',
+          },
+          {
+            feature: 'Hydrofóbna reťazová rovnováha',
+            description: 'Poskytuje silný výkon zmáčania a toku v systémoch na báze rozpúšťadiel.',
+          },
+          {
+            feature: 'Stabilita terciárneho alkoholu',
+            description: 'Odolný voči oxidácii za normálnych podmienok spracovania.',
+          },
+          {
+            feature: 'Všestrannosť formulácií',
+            description: 'Účinný v náteroch, atramentoch a polymérnych formuláciách.',
+          },
+          {
+            feature: 'Dostupnosť v pilotnom meradle',
+            description: 'Vhodný pre zväčšenie výroby, vývojové skúšky a hodnotenie formulácií.',
+          },
+          {
+            feature: 'Konzistentná kvalita',
+            description: 'Vyrábaný podľa ISO 9001:2015 pre sledovateľný analytický výkon.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Aké je primárne použitie 3,6-dimetyl-1-heptín-3-olu?',
+            answer:
+              'Slúži ako terciárny acetylenický alkoholový medziproduk pre nátery, surfaktanty a lepidlá.',
+          },
+          {
+            question: 'Je tento produkt súčasťou rodiny acetylenických diolov VUP?',
+            answer:
+              'Áno, je štrukturálne príbuzný s TMDD a inými činidlami na dynamickú kontrolu povrchového napätia.',
+          },
+          {
+            question: 'Akú čistotu dodáva VUP?',
+            answer: 'Pilotný materiál má zvyčajne čistotu ≥ 98%, potvrdenú pomocou GC.',
+          },
+          {
+            question: 'Je produkt registrovaný v REACH?',
+            answer:
+              'Je zahrnutý v rámci skupinovej registrácie acetylenických alkoholov; pre podrobnosti kontaktujte regulatórne oddelenie VUP.',
+          },
+          {
+            question: 'Čo robí túto zlúčeninu odlišnou od iných acetylenických alkoholov?',
+            answer:
+              'Jeho terciárna alkoholová štruktúra poskytuje zvýšenú odolnosť voči oxidácii pri zachovaní reaktivity a hydrofóbneho charakteru ideálneho pre formulácie na báze rozpúšťadiel.',
+          },
+          {
+            question: 'Môže sa použiť vo vodných systémoch?',
+            answer:
+              'Hoci je primárne vhodný pre systémy na báze rozpúšťadiel kvôli nízkej rozpustnosti vo vode, môže byť formulovaný do emulzií alebo disperzií s vhodnými ko-surfaktantmi.',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 8: SPIRO-TEMPO-ACID, GALVINOXYL, DIEPOXYOCTANE)
+  // --------------------
 
   payload.logger.info('- Adding Japanese translations for batch 8 products...')
 
@@ -8316,6 +11723,1314 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
+    payload.update({
+      collection: 'products',
+      id: diepoxyoctane.id,
+      locale: 'jp',
+      data: {
+        name: '1,2,7,8-ジエポキシオクタン',
+        description:
+          'エポキシコーティング、接着剤、複合材料における反応性低粘度希釈剤および架橋剤として使用される二官能性脂肪族ジエポキシド。VUPがパイロットプラントスケールで生産し、EUからの短納期とREACHカバレッジを提供します。',
+        applications: [
+          {
+            application: 'エポキシコーティング',
+            description:
+              '工業用、金属用、床用コーティングにおける粘度と流動性を調整する反応性希釈剤およびフレキシビライザーで、硬度と柔軟性のバランスを取ります。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description:
+              '多孔質基材への濡れと浸透を改善する低粘度成分で、硬化後にネットワークの一部となり低VOC性能を実現します。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマーおよび樹脂改質',
+            description:
+              '機能性ポリマーおよび表面改質オリゴマーのビルディングブロックで、プレポリマーに追加のエポキシ官能性を導入します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '複合材料/電子機器',
+            description:
+              '低色、低粘度、アミン/無水物との良好な硬化応答が求められるポッティングおよびカプセル化システムで使用されます。',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '二官能性反応性',
+            description:
+              '2つの末端エポキシ基により、エポキシ、ウレタン、アクリルシステムへの効率的な架橋とグラフトが可能で、性能が向上します。',
+          },
+          {
+            feature: '低粘度反応性希釈剤',
+            description:
+              '不活性溶剤とは異なり、硬化後も化学的に結合したまま標準エポキシ樹脂の粘度を低減し、低VOC配合を実現します。',
+          },
+          {
+            feature: '柔軟性と靭性の向上',
+            description:
+              '脂肪族主鎖が、もろいエポキシネットワークの伸びと耐衝撃性を向上させ、より耐久性のあるコーティングを実現します。',
+          },
+          {
+            feature: '良好な基材濡れ',
+            description:
+              '低粘度と極性プロファイルがコーティングおよび接着剤における基材濡れを改善し、接着性を向上させます。',
+          },
+          {
+            feature: 'EUのパイロットプラントからの供給可能性',
+            description:
+              'スロバキアのVUPで生産され、短納期、EU原産供給、REACHカバレッジにより信頼性の高い調達を実現します。',
+          },
+          {
+            feature: '品質と追跡可能性',
+            description:
+              'ISO 9001:2015に基づいて製造され、バッチレベルの文書化により一貫した品質と規制遵守を保証します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'VUP 1,2,7,8-ジエポキシオクタンは主に何に使用されますか？',
+            answer:
+              'エポキシ、コーティング、接着剤システムを改質して流動性を向上させ、粘度を低減し、柔軟性を高めるための反応性低粘度脂肪族ジエポキシドとして使用されます。',
+          },
+          {
+            question: 'エポキシ樹脂の反応性希釈剤として使用できますか？',
+            answer:
+              'はい。不活性溶剤とは異なり、硬化反応に参加し、最終硬化ネットワークの一部として残りながらVOCの削減に役立ちます。',
+          },
+          {
+            question: 'VUPはどのような純度を供給していますか？',
+            answer:
+              '典型的なパイロットバッチは≥98%の純度を目標とし、正確なバッチ仕様は配送時に提供されるTDS/SDSに記載されています。',
+          },
+          {
+            question: 'この製品はREACHでカバーされていますか？',
+            answer:
+              'この物質はEC 219-375-9に登録されています。お客様の供給に適用される正確な登録シナリオについては、VUPにお問い合わせください。',
+          },
+          {
+            question: 'エポキシシステムの性能をどのように向上させますか？',
+            answer:
+              '処理を改善するために粘度を低減し、脆性を減らすために柔軟性を追加し、基材濡れを改善し、架橋に参加して強固な硬化ネットワークを形成します。',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 9: EPOXY-5-HEXENE, EPOXYHEXANE, EPOXYOCTANE)
+  // --------------------
+
+  payload.logger.info('- Adding Japanese translations for batch 9 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: epoxyHexene.id,
+      locale: 'jp',
+      data: {
+        name: '1,2-エポキシ-5-ヘキセン',
+        description:
+          'エポキシ基と末端二重結合の両方を含む多用途な反応性モノエポキシド。エポキシコーティング、接着剤、特殊ポリマーシステムにおける反応性希釈剤、鎖延長剤、ビルディングブロックとして使用されます。',
+        applications: [
+          {
+            application: 'エポキシおよびアクリルコーティング',
+            description:
+              'コーティングシステムにおいて柔軟性と表面接着性を向上させる反応性希釈剤または鎖延長剤。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '構造用接着剤配合における粘度調整と結合強度の向上。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー改質',
+            description:
+              '高度な架橋ポリマーおよびコポリマーのためのペンダントアリル基とエポキシ基を導入します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '表面処理',
+            description:
+              '表面処理における接着性向上のためのシランまたはポリマー官能化に使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '特殊中間体',
+            description: '特殊樹脂および化学中間体の合成のためのビルディングブロック。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '二重機能性',
+            description:
+              'エポキシ基と末端二重結合の両方を含み、共重合、架橋、表面グラフトのための多様な化学反応性を提供します。',
+          },
+          {
+            feature: '反応性希釈剤',
+            description:
+              'エポキシまたはアクリル配合における粘度低減成分として使用でき、硬化ネットワークで反応性を維持します。',
+          },
+          {
+            feature: '柔軟性の向上',
+            description:
+              '脂肪族鎖が硬化したコーティングおよび接着剤に改善された靭性と弾性を付与します。',
+          },
+          {
+            feature: '優れた相溶性',
+            description:
+              '標準的なエポキシ、ウレタン、アクリレートシステムと容易に混合でき、多用途な配合オプションを提供します。',
+          },
+          {
+            feature: 'パイロットプラントでの供給可能性',
+            description: 'R&D、評価、特殊生産用途のためのパイロット量で供給されます。',
+          },
+          {
+            feature: 'EU原産の品質',
+            description:
+              'VUP, a.s.（スロバキア）がISO 9001:2015のもとで生産し、トレーサビリティと規制遵守を確保します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'VUPの1,2-エポキシ-5-ヘキセンは何に使用されますか？',
+            answer:
+              '二重機能性を必要とするコーティング、接着剤、特殊ポリマーシステムにおける反応性モノエポキシドおよびアルケン中間体として。',
+          },
+          {
+            question: 'この製品は標準的なエポキシドとどう異なりますか？',
+            answer:
+              'その二重機能性（エポキシ+末端二重結合）により、標準的なエポキシドでは達成できない独特な架橋および共重合経路が可能になります。',
+          },
+          {
+            question: 'スケールアップ供給は可能ですか？',
+            answer:
+              'はい、VUPは産業評価または共同R&Dプロジェクトに適したパイロットプラント量を提供しています。',
+          },
+          {
+            question: 'どのように取り扱うべきですか？',
+            answer:
+              '標準的なPPEを使用して換気の良い条件下で取り扱ってください。可燃性液体です。保管と取扱いの完全な詳細についてはSDSをご覧ください。',
+          },
+          {
+            question: 'この製品とアリルグリシジルエーテル（CAS 106-92-3）の違いは何ですか？',
+            answer:
+              '類似の名称で呼ばれることもありますが、CAS 10353-53-4（1,2-エポキシ-5-ヘキセン）はCAS 106-92-3（アリルグリシジルエーテル）とは異なります。用途に応じて正しいCAS番号を確認してください。',
+          },
+          {
+            question: 'この製品の規制状況は？',
+            answer:
+              'EC番号233-771-9のもとにリストされています。物質はECHAデータベースに登録されています。特定のREACH登録とトン数カバレッジについては、VUP, a.s.にお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxyhexane.id,
+      locale: 'jp',
+      data: {
+        name: '1,2-エポキシヘキサン',
+        description:
+          '有機合成およびポリマー改質のための末端エポキシ官能性を提供する多用途な反応性モノエポキシド。高固形分エポキシコーティング、接着剤、特殊化学用途における低粘度反応性希釈剤として使用されます。',
+        applications: [
+          {
+            application: 'エポキシおよび工業用コーティング',
+            description:
+              '高固形分エポキシコーティングシステムにおける粘度と柔軟性を調整する反応性希釈剤。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description:
+              '反応性接着剤およびシーラントシステムにおいて濡れ性を向上させ、皮膜形成を改善します。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー合成',
+            description:
+              '特殊用途におけるポリマーおよびコポリマー形成のための反応性モノマーとして機能します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '表面処理',
+            description: '接着性を向上させるためのシランおよびポリマーの改質に使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '特殊化学品',
+            description:
+              'ファインケミカルおよびカスタマイズされた樹脂システムの製造のための中間体。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '反応性中間体',
+            description: '幅広い有機合成およびポリマー改質のための末端エポキシ官能性を提供します。',
+          },
+          {
+            feature: '低粘度',
+            description:
+              '高固形分エポキシコーティングおよび接着剤の反応性希釈剤として効果的で、硬化に参加しながら粘度を低減します。',
+          },
+          {
+            feature: '柔軟性の向上',
+            description: '脂肪族主鎖が硬化した樹脂システムにおいて延性と耐衝撃性を向上させます。',
+          },
+          {
+            feature: '優れた相溶性',
+            description:
+              'エポキシ樹脂、アクリレート、ウレタンシステムと容易に混合でき、多用途な配合が可能です。',
+          },
+          {
+            feature: '高純度',
+            description:
+              'ISO 9001:2015品質管理のもとでパイロットプラント量で製造され、一貫した性能を保証します。',
+          },
+          {
+            feature: 'REACH登録済みEU原産',
+            description:
+              'VUP, a.s.（スロバキア）からの一貫した品質と完全な規制透明性を確保します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'VUPの1,2-エポキシヘキサンは何に使用されますか？',
+            answer:
+              '低粘度と柔軟性を必要とするコーティング、接着剤、ポリマー合成用途における反応性モノエポキシドとして。',
+          },
+          {
+            question: '反応性希釈剤用途に適していますか？',
+            answer:
+              'はい、硬化反応に参加しながらエポキシシステムの粘度を低減でき、高固形分配合に理想的です。',
+          },
+          {
+            question: 'VUPはどのような純度レベルを供給していますか？',
+            answer:
+              'パイロットバッチは通常≥ 98%の純度を満たします。特定のバッチについてはTDS/SDSで正確な仕様を確認してください。',
+          },
+          {
+            question: '輸送にはどのように分類されますか？',
+            answer:
+              '一般的に可燃性液体として分類されます。完全な輸送分類、UN番号、保管要件についてはSDSをご参照ください。',
+          },
+          {
+            question: '1,2-エポキシヘキサンは他の脂肪族エポキシドとどう異なりますか？',
+            answer:
+              'その六炭素脂肪族構造は、良好な反応性を維持しながら低粘度と柔軟性向上の最適なバランスを提供します。',
+          },
+          {
+            question: 'この製品の規制状況は？',
+            answer:
+              'ECHAインベントリにEC番号215-864-6のもとにリストされています。お客様の供給に適用される特定のREACH登録詳細についてはVUPにお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxyoctane.id,
+      locale: 'jp',
+      data: {
+        name: '1,2-エポキシオクタン',
+        description:
+          '低揮発性と高反応性を兼ね備えた反応性脂肪族モノエポキシド。高度な樹脂および接着剤配合のための柔軟なビルディングブロックとして機能します。コーティング、ポリマー改質、架橋用途における配合開発をサポートします。',
+        applications: [
+          {
+            application: 'エポキシおよび工業用コーティング',
+            description:
+              '高性能コーティングシステムにおいて柔軟性、皮膜靭性、基材濡れ性を向上させる反応性希釈剤。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '構造用および柔軟性接着剤システムにおいて接着性と伸びを向上させます。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー改質',
+            description:
+              '疎水性ポリエーテルおよび特殊コポリマーを作成するためのモノマーとして機能します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '表面官能化',
+            description:
+              'ポリマー表面またはシラン改質基材にエポキシ官能性をグラフトするために使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '化学合成',
+            description: 'ファインケミカルおよび安定化樹脂中間体の合成のための出発原料。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '反応性モノエポキシド',
+            description:
+              '要求の厳しい用途におけるポリマー架橋および鎖延長反応のための制御された反応性を提供します。',
+          },
+          {
+            feature: '低揮発性・低臭気',
+            description:
+              '安定性と職場の安全性が優先される高性能コーティングおよび接着剤に適しています。',
+          },
+          {
+            feature: '柔軟な脂肪族鎖',
+            description: '硬化した樹脂システムに改善された弾性と疎水性を付与します。',
+          },
+          {
+            feature: '優れた相溶性',
+            description:
+              '標準的なエポキシ、アクリレート、ウレタン化学と良好に混合でき、多用途な配合が可能です。',
+          },
+          {
+            feature: 'EU原産のパイロット生産',
+            description:
+              'VUP, a.s.（スロバキア）においてISO 9001:2015のもとで生産され、追跡可能な品質保証を提供します。',
+          },
+          {
+            feature: '持続可能性への注力',
+            description: '反応性希釈剤挙動を通じて低VOC、高固形分配合を可能にします。',
+          },
+        ],
+        faq: [
+          {
+            question: 'VUPの1,2-エポキシオクタンは主に何に使用されますか？',
+            answer:
+              '低揮発性と制御された反応性が必要なコーティング、接着剤、ポリマー改質のための反応性脂肪族モノエポキシドとして。',
+          },
+          {
+            question: '反応性希釈剤として使用できますか？',
+            answer:
+              'はい、硬化マトリックスに化学的に結合しながら粘度を効果的に低減し、高固形分配合に理想的です。',
+          },
+          {
+            question: '主な取扱い上の注意事項は何ですか？',
+            answer:
+              '熱、酸、湿気を避けてください。涼しく乾燥した換気の良い場所に保管してください。完全な安全ガイドラインと取扱い手順についてはSDSをご参照ください。',
+          },
+          {
+            question: 'この製品はREACH登録されていますか？',
+            answer:
+              'はい、物質はEC 221-047-5のもとにリストされています。お客様の供給に関する特定の登録詳細についてはVUPの規制チームにご確認ください。',
+          },
+          {
+            question: '長いC8鎖は性能にどのように影響しますか？',
+            answer:
+              '8炭素脂肪族鎖は、短鎖エポキシドと比較して、より低い揮発性、強化された疎水性、改善された柔軟性を提供します。',
+          },
+          {
+            question: '1,2-エポキシオクタンは他の脂肪族エポキシドとどう異なりますか？',
+            answer:
+              '低揮発性、制御された反応性、柔軟性向上の組み合わせにより、高性能・低臭気用途に特に適しています。',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 10: EPOXY-7-OCTENE, EPOXYDECANE, DIEPOXYHEXANE)
+  // --------------------
+
+  payload.logger.info('- Adding Japanese translations for batch 10 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: epoxy7octene.id,
+      locale: 'jp',
+      data: {
+        name: '1,2-エポキシ-7-オクテン',
+        description:
+          'オキシラン環と末端二重結合の両方を特徴とする二重官能性脂肪族エポキシド。ポリマー改質および架橋のための多用途な反応性を提供します。制御された柔軟性を利用するコーティング、接着剤、特殊中間体に適しています。',
+        applications: [
+          {
+            application: 'コーティングとシーラント',
+            description:
+              'エポキシおよびハイブリッドコーティングシステムにおいて柔軟性、接着性、皮膜完全性を向上させます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤',
+            description: '接着剤配合において結合強度と濡れ性を向上させながら粘度を低下させます。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマーおよび樹脂改質',
+            description:
+              '高度な用途におけるカスタマイズされたポリマーアーキテクチャのために、エポキシまたはアリル基を介して反応します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '表面官能化',
+            description:
+              '高度な複合材料における架橋またはグラフトのための反応性サイトを導入します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカル',
+            description: 'カスタムエポキシモノマーおよび反応性改質剤の合成における中間体。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '二重官能性',
+            description:
+              'エポキシ基とアリル二重結合を組み合わせ、高度なポリマー改質のための選択的反応を可能にします。',
+          },
+          {
+            feature: '反応性希釈剤ポテンシャル',
+            description:
+              '硬化中に完全に反応性を維持しながら粘度を低下させ、高固形分配合に理想的です。',
+          },
+          {
+            feature: '柔軟性の向上',
+            description: '脂肪族鎖構造が優れた皮膜弾性と耐衝撃性を提供します。',
+          },
+          {
+            feature: '優れた相溶性',
+            description:
+              'エポキシ、アクリレート、ポリウレタンシステムに適しており、多用途な配合オプションを提供します。',
+          },
+          {
+            feature: '高純度',
+            description:
+              'EUパイロットプラント条件においてISO 9001:2015のもとで製造され、一貫した品質を保証します。',
+          },
+          {
+            feature: '低色・低臭気',
+            description: '美観が重要な高仕様コーティングおよび接着剤システムに理想的です。',
+          },
+        ],
+        faq: [
+          {
+            question: '1,2-エポキシ-7-オクテンは何に使用されますか？',
+            answer:
+              'エポキシとアリル反応性の両方を必要とするコーティング、接着剤、ポリマー改質用途のための二重官能性反応性モノマーとして。',
+          },
+          {
+            question: 'エポキシドの中でなぜ独特なのですか？',
+            answer:
+              'エポキシとアリルの反応性サイトの両方を含み、配合の多様性を高め、単一官能性エポキシドでは不可能な選択的反応を可能にします。',
+          },
+          {
+            question: 'パイロットスケールテストに適していますか？',
+            answer:
+              'はい、VUPはR&Dおよび工業試験における評価および開発目的に理想的なパイロットプラント量を提供しています。',
+          },
+          {
+            question: 'どのように保管すべきですか？',
+            answer:
+              '密閉容器に入れて涼しく換気の良い場所に保管してください。詳細な取扱いおよびPPE推奨事項についてはSDSをご参照ください。',
+          },
+          {
+            question: '1,2-エポキシ-5-ヘキセンと比較してどうですか？',
+            answer:
+              '両方とも二重官能性を提供しますが、1,2-エポキシ-7-オクテンはより長いC8鎖を持ち、1,2-エポキシ-5-ヘキセンのC6鎖と比較してより低い揮発性と向上した柔軟性を提供します。',
+          },
+          {
+            question: 'この製品の規制状況は？',
+            answer:
+              'ECHAデータベースにEC番号243-178-7のもとにリストされています。お客様の要件に特有の登録および供給詳細についてはVUPにお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: epoxydecane.id,
+      locale: 'jp',
+      data: {
+        name: '1,2-エポキシデカン',
+        description:
+          '高い疎水性と反応性エポキシ官能性を組み合わせた長鎖脂肪族モノエポキシド。柔軟性、低極性、耐水性が求められるコーティング、接着剤、表面改質用途に適しています。',
+        applications: [
+          {
+            application: 'コーティングとシーラント',
+            description:
+              'エポキシまたはウレタンベースのコーティングシステムにおいて柔軟性、光沢、疎水性を向上させます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤',
+            description: '接着剤配合において接着性と弾性を向上させながら吸水性を低減します。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー改質',
+            description:
+              '疎水性コポリマーまたは界面活性剤改質樹脂にエポキシ官能性を導入するために使用されます。',
+            image: image3Doc.id,
+          },
+          {
+            application: '表面処理',
+            description: '低エネルギー表面にエポキシ基をグラフトして塗装性と接着性を向上させます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカル中間体',
+            description: '高分子量エポキシドおよび界面活性剤のビルディングブロック。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '長鎖脂肪族エポキシド',
+            description:
+              'ポリマーまたはコーティングに組み込まれる際に疎水性および柔軟性特性を提供します。',
+          },
+          {
+            feature: '反応性中間体',
+            description:
+              'ポリウレタン、アクリル、樹脂の制御されたエポキシ架橋および改質を可能にします。',
+          },
+          {
+            feature: '耐水性の向上',
+            description: '防湿性を必要とする低極性コーティングおよび接着剤に理想的です。',
+          },
+          {
+            feature: '低揮発性',
+            description: '高温用途における職場の安全性と安定性を向上させます。',
+          },
+          {
+            feature: 'EUパイロット生産',
+            description:
+              'ISO 9001:2015品質システムのもとでVUP, a.s.（スロバキア）により供給されます。',
+          },
+          {
+            feature: '多用途な用途',
+            description: 'R&Dおよび特殊配合のためのエポキシ官能性疎水剤として機能します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'VUPの1,2-エポキシデカンは主に何に使用されますか？',
+            answer:
+              '耐水性が重要な疎水性コーティング、接着剤、ポリマー改質のための反応性脂肪族モノエポキシドとして。',
+          },
+          {
+            question: '短鎖エポキシドとどう異なりますか？',
+            answer:
+              'より長い十炭素鎖が向上した柔軟性と耐水性を提供し、疎水性特性を必要とする低極性システムに理想的です。',
+          },
+          {
+            question: '反応性希釈剤として適していますか？',
+            answer:
+              'はい、低揮発性反応性改質剤として作用し、樹脂配合において柔軟性を向上させ粘度を低下させます。',
+          },
+          {
+            question: 'どのように保管および取り扱いますか？',
+            answer:
+              '密閉容器に入れ、熱および酸化剤から離れて保管してください。PPEおよび換気要件についてはSDSガイドラインに従ってください。',
+          },
+          {
+            question: 'この長鎖エポキシドから最も恩恵を受ける用途は何ですか？',
+            answer:
+              '疎水性改質、耐水性、柔軟性を必要とする用途、例えば船舶用コーティング、屋外用接着剤、低極性表面処理など。',
+          },
+          {
+            question: 'この製品の規制状況は？',
+            answer:
+              'ECHAインベントリにEC番号219-295-4のもとにリストされています。登録およびサプライチェーンの詳細についてはVUPにお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: diepoxyhexane.id,
+      locale: 'jp',
+      data: {
+        name: '1,2,5,6-ジエポキシヘキサン',
+        description:
+          '2つの末端オキシラン基を含む二官能性脂肪族エポキシド。コーティング、接着剤、ポリマー合成用途における特殊架橋剤および鎖延長剤として機能し、柔軟性の向上、低粘度、および反応性の向上を提供します。',
+        applications: [
+          {
+            application: 'コーティングとシーラント',
+            description:
+              'エポキシおよびウレタンコーティングにおいて架橋密度と硬度を向上させながら柔軟性を維持します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤',
+            description: '二官能性改質剤として機能し、接着性と硬化速度を向上させます。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー改質',
+            description:
+              'ポリエステル、ポリエーテル、コポリマーに追加のエポキシ官能性を導入します。',
+            image: image3Doc.id,
+          },
+          {
+            application: '複合材料および樹脂システム',
+            description: '熱硬化性樹脂システムのための低粘度架橋剤を提供します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカルおよび特殊合成',
+            description:
+              '反応性中間体およびオリゴマーの実験室およびパイロットスケール合成に使用されます。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '二官能性反応性',
+            description:
+              '2つのエポキシ基が熱硬化性およびポリマーシステムに強力な架橋ポテンシャルを提供します。',
+          },
+          {
+            feature: '低粘度',
+            description:
+              'エポキシおよびポリウレタン配合において効果的な反応性希釈剤として機能します。',
+          },
+          {
+            feature: '高反応性',
+            description:
+              'カチオンおよびアニオン重合において速い硬化速度と改善された転化率をサポートします。',
+          },
+          {
+            feature: '機械的性能の向上',
+            description: '硬化システムに柔軟性、靭性、加水分解安定性を追加します。',
+          },
+          {
+            feature: 'パイロットプラント利用可能性',
+            description:
+              '評価および特殊用途のためにVUP, a.s.によって管理された条件下で製造されています。',
+          },
+          {
+            feature: 'EU原産およびREACH準拠',
+            description:
+              'ISO 9001:2015のもとで製造され、トレーサビリティと一貫した品質を保証します。',
+          },
+        ],
+        faq: [
+          {
+            question: '1,2,5,6-ジエポキシヘキサンは主に何に使用されますか？',
+            answer:
+              'コーティング、接着剤、および架橋性の向上を必要とするポリマー改質のための二官能性反応性エポキシドとして。',
+          },
+          {
+            question: 'モノエポキシドとどう異なりますか？',
+            answer:
+              '2つのエポキシ基を提供し、単一官能性エポキシドと比較して熱硬化性およびエラストマーシステムにおける架橋性と反応性を向上させます。',
+          },
+          {
+            question: '取扱い上の注意事項は何ですか？',
+            answer:
+              '湿気、熱、酸を避けてください。密閉容器に保管してください。完全な取扱い指示についてはSDSをご参照ください。',
+          },
+          {
+            question: 'REACHにリストされていますか？',
+            answer:
+              'はい、この物質はCAS 1888-89-7、EC 217-564-0のもとにリストされています。具体的な登録詳細についてはVUP規制部門にお問い合わせください。',
+          },
+          {
+            question: '1,2,7,8-ジエポキシオクタンと比較してどうですか？',
+            answer:
+              '両方とも二官能性ジエポキシドですが、1,2,5,6-ジエポキシヘキサンはより短いC6鎖を持ち、単位重量あたりより高いエポキシド密度と異なる物理的特性を提供します。',
+          },
+          {
+            question: 'その二官能性構造から恩恵を受ける用途は何ですか？',
+            answer:
+              '高性能コーティング、構造用接着剤、熱硬化性複合材料など、高架橋密度を必要とする用途がその二重エポキシ官能性から最も恩恵を受けます。',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 11: DIMETHYL-EPOXYBUTANE, TMDD, LONG-CHAIN-TMDD)
+  // --------------------
+
+  payload.logger.info('- Adding Japanese translations for batch 11 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: dimethylepoxybutane.id,
+      locale: 'jp',
+      data: {
+        name: '3,3-ジメチル-1,2-エポキシブタン',
+        description:
+          '立体障害による反応性と揮発性を特徴とするコンパクトな三級モノエポキシド。実験室スケールの合成およびメカニズム研究に適しています。ファインケミカル開発、コーティング研究、ポリマーモデルシステムのための反応性中間体として機能します。',
+        applications: [
+          {
+            application: '研究開発',
+            description:
+              'エポキシド開環反応、求核置換反応、重合メカニズムの研究のために使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカル合成',
+            description: '高純度中間体および特殊試薬の開発に使用されます。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'コーティング研究',
+            description:
+              '実験室スケールの樹脂改質および性能モデリングにおける反応性モノマー類似体として機能します。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマー化学',
+            description:
+              '反応性研究および立体障害効果のシミュレーションのためのベンチマーク化合物。',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '立体障害エポキシド',
+            description: '三級構造により、制御された反応性とモデル反応研究に理想的です。',
+          },
+          {
+            feature: '高揮発性',
+            description: '揮発性試薬を必要とする気相または動力学的調査セットアップに適しています。',
+          },
+          {
+            feature: 'コンパクトな三級構造',
+            description: '様々な条件下での置換および開環メカニズムの調査を可能にします。',
+          },
+          {
+            feature: 'ファインケミストリーでの有用性',
+            description: 'コーティングおよびポリマー化学研究における高価値中間体の前駆体。',
+          },
+          {
+            feature: '実験室スケールでの利用可能性',
+            description: '分析、動力学、または合成用途のための限定的な研究量で供給されます。',
+          },
+          {
+            feature: 'ISO 9001:2015のもとで製造',
+            description: '実験室用途のための分析的トレーサビリティと純度管理を保証します。',
+          },
+        ],
+        faq: [
+          {
+            question: '3,3-ジメチル-1,2-エポキシブタンが他のエポキシドと異なる点は何ですか？',
+            answer:
+              'その三級構造が立体障害を提供し、制御された反応性が求められる反応性およびメカニズム研究に理想的です。',
+          },
+          {
+            question: '工業用途に利用できますか？',
+            answer:
+              '現在、実験室スケール量のみで製造されており、工業規模の用途ではなくR&Dおよびテストに適しています。',
+          },
+          {
+            question: '主な安全上の注意事項は何ですか？',
+            answer:
+              '高可燃性—点火源から離れたドラフトチャンバー内で取り扱ってください。25°C以下の涼しく換気の良い場所に保管してください。完全な取扱い注意事項についてはSDSをご参照ください。',
+          },
+          {
+            question: 'その立体障害から恩恵を受ける用途は何ですか？',
+            answer:
+              'メカニズム研究、動力学的調査、ポリマーモデルシステム、および制御されたエポキシド反応性を必要とする研究がその三級構造から最も恩恵を受けます。',
+          },
+          {
+            question: 'この製品はREACH登録されていますか？',
+            answer:
+              'CAS 2245-30-9は国際インベントリにリストされています。具体的なREACHカバレッジの詳細についてはVUP規制部門にお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: tmdd.id,
+      locale: 'jp',
+      data: {
+        name: '2,4,7,9-テトラメチル-5-デシン-4,7-ジオール',
+        description:
+          'コーティングおよびインク配合において表面張力とフローの優れた制御を提供する高性能アセチレン系ジオール界面活性剤。TMDDは、溶剤系および水系システムの幅広い範囲で改善された濡れ性、平滑性、適合性を提供する多機能添加剤として機能します。',
+        applications: [
+          {
+            application: 'コーティングと塗料',
+            description:
+              'コーティング配合において表面張力を制御し、膜の均一性を向上させ、光沢を改善します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '印刷インク',
+            description: '基材の濡れ性を改善することで顔料分散と印刷品質を促進します。',
+            image: image2Doc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '低エネルギー表面での広がりと接着性を向上させ、接合を改善します。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマーエマルション',
+            description: 'エマルションの安定性と性能を向上させる動的界面活性剤として作用します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '繊維仕上げ剤およびクリーナー',
+            description: '濡れ性とフロー制御が重要な特殊配合に使用されます。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '表面張力制御',
+            description: '静的および動的表面張力の両方を低減し、基材の濡れ性を向上させます。',
+          },
+          {
+            feature: 'フローと平滑性の改善',
+            description:
+              'コーティングおよびインクにおけるクレーター、ピンホール、オレンジピールなどの欠陥を防ぎます。',
+          },
+          {
+            feature: '広範な適合性',
+            description: '水系、溶剤系、およびUV硬化系システムで良好に機能します。',
+          },
+          {
+            feature: '低発泡性',
+            description: '過度の発泡なしで安定した膜形成を可能にします。',
+          },
+          {
+            feature: '多用途な機能性',
+            description:
+              '様々な配合において濡れ剤、フロー改質剤、または凝集添加剤として作用します。',
+          },
+          {
+            feature: 'EU原産品質',
+            description: 'ISO 9001:2015のもとで製造され、高純度とバッチ一貫性を保証します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'TMDDは何に使用されますか？',
+            answer:
+              'TMDDは、コーティング、インク、接着剤、ポリマーエマルションにおいて、フロー、平滑性、基材の濡れ性を改善するための表面活性剤および濡れ添加剤として使用されます。',
+          },
+          {
+            question: 'TMDDは水系および溶剤系システムの両方と適合しますか？',
+            answer:
+              'はい、TMDDは水系および溶剤系配合の両方、ならびにUV硬化系システムで効果的に機能します。',
+          },
+          {
+            question: 'TMDDは発泡を引き起こしますか？',
+            answer:
+              'いいえ、TMDDは効果的な表面活性を維持しながら低発泡生成のために設計されており、コーティングおよびインク用途に理想的です。',
+          },
+          {
+            question: 'VUPのTMDDはどの程度純粋ですか？',
+            answer:
+              'パイロットプラントバッチは通常≥ 98%の純度であり、GCおよび滴定法により検証され、一貫した性能を保証します。',
+          },
+          {
+            question: 'TMDDが従来の界面活性剤と異なる点は何ですか？',
+            answer:
+              'TMDDは、優れた動的表面張力低減と多様なコーティングシステムにわたる優れた適合性を提供する独自の三重結合構造を持つアセチレン系ジオールです。',
+          },
+          {
+            question: 'TMDDはREACH登録されていますか？',
+            answer:
+              'はい、TMDD（CAS 126-86-3、EC 204-809-1）はEU REACHのもとで登録された物質です。具体的な登録詳細についてはVUPにお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: longChainTmdd.id,
+      locale: 'jp',
+      data: {
+        name: '2,5,8,11-テトラメチル-6-ドデシン-5,8-ジオール',
+        description:
+          '優れた動的表面張力制御と向上した疎水性を組み合わせた長鎖アセチレン系ジオール界面活性剤。溶剤系および高固形分システムで優れた性能を提供し、改善された濡れ性、平滑性、膜均一性をサポートします。',
+        applications: [
+          {
+            application: 'コーティングと塗料',
+            description: '溶剤系コーティング配合において表面濡れ性、フロー、光沢制御を改善します。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '印刷インク',
+            description: '顔料分散を促進し、高品質印刷のための一貫した基材カバレッジを提供します。',
+            image: image2Doc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '疎水性表面への広がりと接着性を改善します。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマー添加剤',
+            description:
+              '高固形分および溶剤ベースのポリマーシステムにおける表面活性添加剤として使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '繊維および皮革処理',
+            description: '困難な基材への均一な濡れ性と吸収を促進します。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '向上した疎水性',
+            description: 'より長い炭素鎖が低エネルギー基材への優れた濡れ性を提供します。',
+          },
+          {
+            feature: '動的表面張力の低減',
+            description: '高速適用下でも一貫した平滑化と広がりを維持します。',
+          },
+          {
+            feature: '優れた適合性',
+            description: '溶剤系および高固形分配合の両方で機能します。',
+          },
+          {
+            feature: '光沢とフローの改善',
+            description: 'クレータリングなしで膜の滑らかさと外観を向上させます。',
+          },
+          {
+            feature: '低発泡プロファイル',
+            description: '最小限の発泡で安定した適用性能を保証します。',
+          },
+          {
+            feature: 'ISO認証品質',
+            description:
+              'ISO 9001:2015のもとで製造され、一貫したバッチトレーサビリティを備えています。',
+          },
+        ],
+        faq: [
+          {
+            question: 'この製品はTMDDとどう異なりますか？',
+            answer:
+              'より長い炭素鎖が、標準TMDDと比較して高固形分および溶剤系システムとの疎水性と適合性を向上させます。',
+          },
+          {
+            question: '水系コーティングに適していますか？',
+            answer:
+              '界面活性剤との分散形態で使用できますが、主に溶剤系および高固形分配合用に設計されています。',
+          },
+          {
+            question: '純度レベルは？',
+            answer: '≥ 98%、一貫した性能のためGCおよびNMRによる分析検証付きです。',
+          },
+          {
+            question: '光沢に影響しますか？',
+            answer: 'はい、表面フローと平滑化を改善することで光沢と膜均一性を向上させます。',
+          },
+          {
+            question: 'より長い鎖から最も恩恵を受ける用途は？',
+            answer:
+              '高固形分コーティング、溶剤系システム、低エネルギーまたは疎水性基材への改善された濡れ性を必要とする用途が最も恩恵を受けます。',
+          },
+          {
+            question: 'この製品はREACH登録されていますか？',
+            answer:
+              'はい、EC 269-348-0のもとにリストされ、アセチレン系ジオールカテゴリーで登録されています。具体的な登録詳細についてはVUPにお問い合わせください。',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 12: DMHD, DIMETHYL-HEXYNOL, DIMETHYL-HEPTYNOL)
+  // --------------------
+
+  payload.logger.info('- Adding Japanese translations for batch 12 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: dmhd.id,
+      locale: 'jp',
+      data: {
+        name: '2,5-ジメチル-3-ヘキシン-2,5-ジオール',
+        description:
+          '界面活性剤および添加剤開発のための反応性中間体として使用される対称アセチレン系ジオール。構造-活性研究のためのモデル化合物として、また多用途な濡れ性および表面制御添加剤前駆体として機能します。',
+        applications: [
+          {
+            application: '界面活性剤開発',
+            description: '非イオン性界面活性剤および動的表面張力剤の中間体。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'コーティング研究',
+            description:
+              'コーティング配合におけるフローおよび平滑化研究のためのモデルジオールとして評価されます。',
+            image: image2Doc.id,
+          },
+          {
+            application: '印刷インク',
+            description: '改善された濡れ性と顔料分散のための表面改質剤の前駆体。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマー添加剤',
+            description: 'アセチレン改質樹脂中間体の合成に使用されます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '学術および産業研究',
+            description: '反応メカニズムの探求および表面化学研究のための参照化合物。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '対称ジオール構造',
+            description: '研究用途における界面活性剤および添加剤の挙動のモデリングを簡素化します。',
+          },
+          {
+            feature: '高純度',
+            description: '分析研究および反応メカニズム研究に適しています。',
+          },
+          {
+            feature: '反応性中間体',
+            description: '特殊界面活性剤および性能添加剤の合成を可能にします。',
+          },
+          {
+            feature: '表面活性',
+            description: '多くの濡れ剤および平滑剤の構造コアを形成します。',
+          },
+          {
+            feature: '通常条件下で安定',
+            description: '標準的な実験室環境での取扱いが安全です。',
+          },
+          {
+            feature: 'ISO 9001:2015のもとで製造',
+            description: '実験室使用のためのトレース可能な品質と分析検証を保証します。',
+          },
+        ],
+        faq: [
+          {
+            question: 'この化合物の主な機能は何ですか？',
+            answer:
+              '界面活性剤合成のための対称ジオールとして、また表面化学研究における参照化合物として機能します。',
+          },
+          {
+            question: 'コーティングに直接使用できますか？',
+            answer: '主に実験室評価または配合開発用であり、直接的な工業用途を意図していません。',
+          },
+          {
+            question: 'VUPはどの純度を供給していますか？',
+            answer: '実験室グレードの純度は通常≥ 98%であり、GCおよび滴定法により検証されています。',
+          },
+          {
+            question: 'REACH登録されていますか？',
+            answer:
+              'ECHAデータベース（EC 205-533-4）にリストされており、実験室免除のもとで実験室研究用途に利用可能です。',
+          },
+          {
+            question: 'この化合物が研究に有用な理由は何ですか？',
+            answer:
+              'その対称構造が分子モデリングを簡素化し、表面活性用途におけるアセチレン系ジオールの挙動を研究するための理想的な参照化合物となります。',
+          },
+          {
+            question: 'TMDDとどう異なりますか？',
+            answer:
+              'DMHDは主に研究開発に使用される小型の対称分子であり、TMDDは工業用コーティングおよびインクで使用される商業用界面活性剤です。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: dimethylhexynol.id,
+      locale: 'jp',
+      data: {
+        name: '3,5-ジメチル-1-ヘキシン-3-オール',
+        description:
+          '界面活性剤およびコーティング添加剤合成における主要中間体として使用される短鎖アセチレンアルコール。VUP, a.s.（プリエヴィッザ、スロバキア）によってパイロットプラント規模で生産されており、この化合物はポリマー改質、接着剤、ファインケミカル開発における用途に理想的な反応性と溶解性を組み合わせています。',
+        applications: [
+          {
+            application: 'コーティングと塗料',
+            description:
+              '溶剤系システム用のフローおよび平滑化改質剤の前駆体で、表面仕上げと性能を向上させます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '基材の濡れ性と接着特性を改善し、接着性能を向上させます。',
+            image: image2Doc.id,
+          },
+          {
+            application: '界面活性剤',
+            description:
+              'コーティングおよびインク用途向けの動的表面張力制御剤の合成に使用されます。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマー添加剤',
+            description: 'カスタマイズされた特性を持つ柔軟なアセチレン官能化ポリマーの中間体。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカル',
+            description: 'カスタム合成における特殊アルキンおよびジオール系中間体の前駆体。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '反応性中間体',
+            description:
+              'アセチレン系ジオールおよび表面活性剤の合成における重要なビルディングブロック。',
+          },
+          {
+            feature: '優れた溶媒適合性',
+            description: '一般的な有機溶媒と混和性があり、多用途な配合使用が可能です。',
+          },
+          {
+            feature: '強化された濡れ性とフロー',
+            description: 'コーティングおよび接着剤添加剤システムにおける性能成分として機能します。',
+          },
+          {
+            feature: '安定な取扱い',
+            description: '低分子量アルキノールと比較して揮発性が低く、より安全な処理が可能です。',
+          },
+          {
+            feature: 'パイロットスケールの入手可能性',
+            description: '産業評価およびカスタム合成のために管理された条件下で生産されています。',
+          },
+          {
+            feature: '品質保証',
+            description: '一貫した純度と性能のためにISO 9001:2015認証のもとで製造されています。',
+          },
+        ],
+        faq: [
+          {
+            question: '3,5-ジメチル-1-ヘキシン-3-オールは主に何に使用されますか？',
+            answer:
+              'コーティングおよびインクにおけるアセチレン系ジオール界面活性剤およびフロー制御添加剤の前駆体です。',
+          },
+          {
+            question: '極性および非極性溶媒の両方と適合性がありますか？',
+            answer: 'はい、アルコール、ケトン、炭化水素を含む幅広い溶媒適合性を示します。',
+          },
+          {
+            question: 'パイロットグレード材料の純度はどのくらいですか？',
+            answer: 'VUPは通常≥ 98%の純度を供給し、GC分析により検証されています。',
+          },
+          {
+            question: '危険有害性分類はありますか？',
+            answer:
+              '通常の輸送条件下では危険物として分類されていません。SDSガイダンスに従って取り扱ってください。',
+          },
+          {
+            question: 'この化合物をコーティング用途に適したものにするものは何ですか？',
+            answer:
+              'ヒドロキシル官能性と組み合わせたアセチレン構造が、フローおよび濡れ改質剤に必要な反応性と表面活性の理想的なバランスを提供します。',
+          },
+          {
+            question: 'REACH準拠ですか？',
+            answer:
+              'アセチレンアルコールとしてECHAに登録されており、REACH準拠です。具体的な登録詳細についてはVUPまでお問い合わせください。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: dimethylheptynol.id,
+      locale: 'jp',
+      data: {
+        name: '3,6-ジメチル-1-ヘプチン-3-オール',
+        description:
+          '界面活性剤およびコーティング添加剤合成における中間体として使用される第三級アセチレンアルコール。VUP, a.s.（プリエヴィッザ、スロバキア）によってパイロットプラント規模で生産されており、この化合物は反応性と疎水性特性を組み合わせ、コーティング、インク、接着剤用の濡れ剤およびフロー制御剤の配合に有用です。',
+        applications: [
+          {
+            application: 'コーティングと塗料',
+            description: '動的表面張力の低減によりフロー、光沢、欠陥制御を向上させます。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '印刷インク',
+            description: '疎水性基材上での濡れ性と顔料分散を促進します。',
+            image: image2Doc.id,
+          },
+          {
+            application: '接着剤とシーラント',
+            description: '拡散と界面接着を改善し、結合性能を向上させます。',
+            image: image3Doc.id,
+          },
+          {
+            application: 'ポリマー合成',
+            description: 'ポリマー用途における官能性モノマーおよび反応性添加剤の中間体。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'ファインケミカル研究開発',
+            description: 'アセチレンアルコール反応性研究における参照化合物として使用されます。',
+            image: image2Doc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '反応性中間体',
+            description: 'アセチレン系界面活性剤および表面活性剤の合成に使用されます。',
+          },
+          {
+            feature: '疎水性鎖バランス',
+            description: '溶剤系システムにおいて強力な濡れ性とフロー性能を提供します。',
+          },
+          {
+            feature: '第三級アルコールの安定性',
+            description: '通常の処理条件下で酸化に耐性があります。',
+          },
+          {
+            feature: '配合の多様性',
+            description: 'コーティング、インク、ポリマー配合で効果的です。',
+          },
+          {
+            feature: 'パイロットプラントの入手可能性',
+            description: 'スケールアップ、開発試験、配合評価に適しています。',
+          },
+          {
+            feature: '一貫した品質',
+            description: 'トレーサブルな分析性能のためにISO 9001:2015のもとで製造されています。',
+          },
+        ],
+        faq: [
+          {
+            question: '3,6-ジメチル-1-ヘプチン-3-オールの主な用途は何ですか？',
+            answer:
+              'コーティング、界面活性剤、接着剤用の第三級アセチレンアルコール中間体として機能します。',
+          },
+          {
+            question: 'この製品はVUPのアセチレン系ジオールファミリーの一部ですか？',
+            answer: 'はい、TMDDおよび他の動的表面張力制御剤と構造的に関連しています。',
+          },
+          {
+            question: 'VUPが供給する純度はどのくらいですか？',
+            answer: 'パイロットグレード材料は通常≥ 98%の純度を有し、GCにより確認されています。',
+          },
+          {
+            question: '製品はREACH登録されていますか？',
+            answer:
+              'アセチレンアルコールのグループ登録でカバーされています。詳細についてはVUP規制部門までお問い合わせください。',
+          },
+          {
+            question: 'この化合物を他のアセチレンアルコールと異なるものにするものは何ですか？',
+            answer:
+              'その第三級アルコール構造は、反応性と溶剤系配合に理想的な疎水性特性を維持しながら、酸化に対する耐性を強化します。',
+          },
+          {
+            question: '水系システムで使用できますか？',
+            answer:
+              '水溶性が低いため主に溶剤系システムに適していますが、適切な共界面活性剤を使用してエマルジョンまたは分散液に配合することができます。',
+          },
+        ],
+      },
+    }),
   ])
 
   //? -------------------- END ADDING TRANSLATIONS FOR PRODUCTS -------------------- ?//
@@ -8416,6 +13131,47 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       .catch((err) => {
         payload.logger.error(`- Error updating polymerisation-inhibitors category: ${err}`)
       }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        id: epoxides.id,
+        data: {
+          featuredProducts: [
+            diepoxyoctane.id,
+            epoxyHexene.id,
+            epoxyhexane.id,
+            epoxyoctane.id,
+            epoxy7octene.id,
+            epoxydecane.id,
+            diepoxyhexane.id,
+            dimethylepoxybutane.id,
+          ],
+          image: demoImageDoc.id,
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`- Error updating epoxides category: ${err}`)
+      }),
+
+    payload
+      .update({
+        collection: 'productCategories',
+        id: acetylenicAlcohols.id,
+        data: {
+          featuredProducts: [
+            tmdd.id,
+            longChainTmdd.id,
+            dmhd.id,
+            dimethylhexynol.id,
+            dimethylheptynol.id,
+          ],
+          image: demoImageDoc.id,
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`- Error updating acetylenic-alcohols category: ${err}`)
+      }),
   ])
 
   return {
@@ -8427,6 +13183,9 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       specialtyHinderedAmines,
       diaminopolyethyleneGlycols,
       chromanolsDerivatives,
+      freeRadicals,
+      epoxides,
+      acetylenicAlcohols,
     },
     products: {
       dmpa,
@@ -8452,6 +13211,19 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       aminoTempo,
       spiroTempoAcid,
       galvinoxyl,
+      diepoxyoctane,
+      epoxyHexene,
+      epoxyhexane,
+      epoxyoctane,
+      epoxy7octene,
+      epoxydecane,
+      diepoxyhexane,
+      dimethylepoxybutane,
+      tmdd,
+      longChainTmdd,
+      dmhd,
+      dimethylhexynol,
+      dimethylheptynol,
     },
   }
 }

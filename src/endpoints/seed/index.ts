@@ -76,8 +76,8 @@ export const seed = async ({
   // Define the order for deletion. Collections with dependencies should be deleted before their dependencies.
   const orderedCollections: CollectionSlug[] = [
     'search',
-    'form-submissions',
-    'forms',
+    // 'form-submissions',
+    // 'forms',
     'pages',
     'posts',
     // 'users',

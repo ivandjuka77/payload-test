@@ -131,7 +131,7 @@ export default async function Product({ params: paramsPromise }: Args) {
         />
       )}
 
-      {product.applications && product.applications.length > 0 && (
+      {product.isKeyProduct && product.applications && product.applications.length > 0 && (
         <ApplicationsAndIndustries
           product={product}
           title={t('sections.applications')}
