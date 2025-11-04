@@ -28,6 +28,27 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     temponeStructureDoc,
     colaminPhosphateStructureDoc,
     vupinStructureDoc,
+    cas68227338StructureDoc,
+    cas1075540StructureDoc,
+    cas1268863StructureDoc,
+    cas1423003StructureDoc,
+    cas1436346StructureDoc,
+    cas1888897StructureDoc,
+    cas2245309StructureDoc,
+    cas2370185StructureDoc,
+    cas2403896StructureDoc,
+    cas2404446StructureDoc,
+    cas2426075StructureDoc,
+    cas2984501StructureDoc,
+    cas10353534StructureDoc,
+    cas14691884StructureDoc,
+    cas19549985StructureDoc,
+    cas19600636StructureDoc,
+    cas36768624StructureDoc,
+    cas41556267StructureDoc,
+    cas52829079StructureDoc,
+    cas768661StructureDoc,
+    cas79550StructureDoc,
   } = media
 
   // --------------------
@@ -2133,7 +2154,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'The foundational intermediate for producing a wide range of Hindered Amine Light Stabilizers (HALS) and the versatile stable radical TEMPO. VUP produces high-purity TEMP (min. 99%) at its pilot plant facility.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas768661StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,2,6,6-Tetramethylpiperidine',
           casNumber: '768-66-1',
@@ -3309,7 +3330,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'An N-methylated hindered amine intermediate used for synthesizing specific types of HALS (Hindered Amine Light Stabilizers) like Tinuvin 765/292 and other functional molecules requiring this specialized piperidine structure.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas79550StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2,2,6,6-Pentamethylpiperidine',
           casNumber: '79-55-0',
@@ -3420,7 +3441,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A functionalized N-methylated hindered amine containing a hydroxyl group, used as an intermediate for HALS synthesis (e.g., Tinuvin 765/292). The combination of N-methyl and hydroxyl functionalities provides unique reactivity.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: cas2403896StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2,2,6,6-Pentamethyl-4-piperidinol',
           casNumber: '2403-89-6',
@@ -3532,7 +3553,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A sterically hindered primary amine intermediate crucial for synthesizing specialized HALS compounds and pharmaceutical intermediates. The primary amino group provides excellent reactivity while the hindered structure offers stability and unique chemical properties for advanced applications.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: cas36768624StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '4-Amino-2,2,6,6-tetramethylpiperidine',
           casNumber: '36768-62-4',
@@ -3647,7 +3668,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Industry-standard high-molecular-weight HALS (equivalent to Tinuvin 770) providing superior UV protection for polyolefins, ABS, and other polymers. Low volatility and excellent thermal stability make it ideal for demanding outdoor applications requiring long-term performance.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas52829079StructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'bis(2,2,6,6-tetramethyl-4-piperidyl) sebacate',
           casNumber: '52829-07-9',
@@ -3766,7 +3787,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'High-performance liquid HALS light stabilizer providing exceptional UV protection for coatings, inks, and plastics. Features excellent thermal stability and broad polymer compatibility. VUP Lab Verified Synthesis ensures consistent quality.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: cas41556267StructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'bis(1,2,2,6,6-pentamethyl-4-piperidyl) sebacate',
           casNumber: '41556-26-7',
@@ -3887,7 +3908,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'Amino-functionalized TEMPO radical featuring stable nitroxyl functionality combined with reactive amino group. Ideal for spin labeling, bioconjugation, and advanced materials research. VUP Lab Researched quality.',
-        chemicalStructureImage: image3Doc.id,
+        chemicalStructureImage: cas14691884StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '4-Amino-2,2,6,6-tetramethylpiperidinyloxyl',
           casNumber: '14691-88-4',
@@ -4105,7 +4126,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A highly stable phenoxyl radical structurally distinct from TEMPO derivatives. Used as analytical standard for radical scavenging studies and antioxidant research. Deep blue color provides visual indication of radical concentration.',
-        chemicalStructureImage: image2Doc.id,
+        chemicalStructureImage: cas2370185StructureDoc.id,
         technicalSpecifications: {
           chemicalName:
             '2,6-di-tert-butyl-4-((3,5-di-tert-butyl-4-oxocyclohexa-2,5-dien-1-ylidene)methyl)phenoxy radical',
@@ -4220,7 +4241,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A bifunctional aliphatic diepoxide used as a reactive, low-viscosity diluent and crosslinking agent in epoxy coatings, adhesives, and composites. Produced at pilot-plant scale by VUP with short EU lead times and REACH coverage.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas2426075StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2,7,8-Diepoxyoctane',
           casNumber: '2426-07-5',
@@ -4338,7 +4359,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A versatile reactive monoepoxide containing both an epoxy group and a terminal double bond. Used as a reactive diluent, chain extender, and building block in epoxy coatings, adhesives, and specialty polymer systems.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas10353534StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2-Epoxy-5-hexene',
           casNumber: '10353-53-4',
@@ -4468,7 +4489,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A versatile reactive monoepoxide providing terminal epoxy functionality for organic synthesis and polymer modifications. Used as a low-viscosity reactive diluent in high-solids epoxy coatings, adhesives, and specialty chemical applications.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas1436346StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2-Epoxyhexane',
           casNumber: '1436-34-6',
@@ -4597,7 +4618,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A reactive aliphatic monoepoxide combining low volatility and high reactivity, serving as a flexible building block for advanced resin and adhesive formulations. Supports formulation development in coatings, polymer modification, and crosslinking applications.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas2984501StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2-Epoxyoctane',
           casNumber: '2984-50-1',
@@ -4726,7 +4747,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A dual-functional aliphatic epoxide featuring both an oxirane ring and a terminal double bond, providing versatile reactivity for polymer modification and crosslinking. Suitable for coatings, adhesives, and specialty intermediates benefiting from controlled flexibility.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas19600636StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2-Epoxy-7-octene',
           casNumber: '19600-63-6',
@@ -4851,7 +4872,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A long-chain aliphatic monoepoxide that combines high hydrophobicity with reactive epoxy functionality. Suitable for coatings, adhesives, and surface modification applications where flexibility, low polarity, and water resistance are required.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas2404446StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2-Epoxydecane',
           casNumber: '2404-44-6',
@@ -4978,7 +4999,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A bifunctional aliphatic epoxide containing two terminal oxirane groups. Serves as a specialty crosslinker and chain extender in coatings, adhesives, and polymer synthesis applications that require increased flexibility, low viscosity, and enhanced reactivity.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas1888897StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '1,2,5,6-Diepoxyhexane',
           casNumber: '1888-89-7',
@@ -5104,7 +5125,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A compact tertiary monoepoxide valued for its sterically hindered reactivity and volatility, making it suitable for laboratory-scale synthesis and mechanistic studies. Serves as a reactive intermediate for fine chemical development, coatings research, and polymer model systems.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas2245309StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '3,3-Dimethyl-1,2-epoxybutane',
           casNumber: '2245-30-9',
@@ -5219,7 +5240,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A high-performance acetylenic diol surfactant offering superior control of surface tension and flow in coating and ink formulations. TMDD serves as a multifunctional additive providing improved wetting, leveling, and compatibility across a wide range of solvent-borne and aqueous systems.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas1268863StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,4,7,9-Tetramethyl-5-decyne-4,7-diol',
           casNumber: '126-86-3',
@@ -5345,7 +5366,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A long-chain acetylenic diol surfactant combining excellent dynamic surface tension control with enhanced hydrophobicity. Provides superior performance in solventborne and high-solids systems, supporting improved wetting, leveling, and film uniformity.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas68227338StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,5,8,11-Tetramethyl-6-dodecyne-5,8-diol',
           casNumber: '68227-33-8',
@@ -5466,7 +5487,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A symmetrical acetylenic diol used as a reactive intermediate for surfactant and additive development. Serves as a model compound for structure–activity studies and as a versatile wetting and surface-control additive precursor.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas1423003StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2,5-Dimethyl-3-hexyne-2,5-diol',
           casNumber: '142-30-3',
@@ -5589,7 +5610,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A short-chain acetylenic alcohol used as a key intermediate in surfactant and coating additive synthesis. Produced in pilot-plant quantities by VUP, a.s. (Prievidza, Slovakia), this compound combines reactivity and solubility ideal for applications in polymer modification, adhesives, and fine-chemical development.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas1075540StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '3,5-Dimethyl-1-hexyne-3-ol',
           casNumber: '107-54-0',
@@ -5712,7 +5733,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A tertiary acetylenic alcohol used as an intermediate for surfactant and coating additive synthesis. Produced in pilot-plant quantities by VUP, a.s. (Prievidza, Slovakia), this compound combines reactivity with hydrophobic character, making it valuable in formulating wetting and flow-control agents for coatings, inks, and adhesives.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: cas19549985StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '3,6-Dimethyl-1-heptyne-3-ol',
           casNumber: '19549-98-5',

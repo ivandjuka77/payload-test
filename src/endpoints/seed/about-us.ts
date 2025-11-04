@@ -6,10 +6,14 @@ type AboutUsArgs = {
   timeline3Image: Media
   timeline4Image: Media
   content2Image: Media
-  rd: TeamMember
-  commercial: TeamMember
-  atbel: TeamMember
-  cosmetics: TeamMember
+  ceoDoc: TeamMember
+  rdDoc: TeamMember
+  commercialDoc: TeamMember
+  atbelDoc: TeamMember
+  cosmeticsDoc: TeamMember
+  hrDoc: TeamMember
+  productionDoc: TeamMember
+  economicsDoc: TeamMember
   ceoMessageImage: Media
   aboutUsPageImage: Media
 }
@@ -21,10 +25,14 @@ export function aboutUsEn(args: AboutUsArgs) {
     timeline3Image,
     timeline4Image,
     content2Image,
-    rd,
-    commercial,
-    atbel,
-    cosmetics,
+    ceoDoc,
+    rdDoc,
+    commercialDoc,
+    atbelDoc,
+    cosmeticsDoc,
+    hrDoc,
+    productionDoc,
+    economicsDoc,
     ceoMessageImage,
     aboutUsPageImage,
   } = args
@@ -576,7 +584,16 @@ export function aboutUsEn(args: AboutUsArgs) {
           'At VUP, our strength lies in our dedicated and experienced team of scientists, engineers, technicians, and professionals. We foster a culture of collaboration, innovation, and continuous learning.',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [
+          ceoDoc.id,
+          rdDoc.id,
+          commercialDoc.id,
+          atbelDoc.id,
+          cosmeticsDoc.id,
+          hrDoc.id,
+          productionDoc.id,
+          economicsDoc.id,
+        ],
       },
     ],
     meta: {
@@ -598,10 +615,14 @@ export function aboutUsSk(args: AboutUsArgs) {
     timeline3Image,
     timeline4Image,
     content2Image,
-    rd,
-    commercial,
-    atbel,
-    cosmetics,
+    ceoDoc,
+    rdDoc,
+    commercialDoc,
+    atbelDoc,
+    cosmeticsDoc,
+    hrDoc,
+    productionDoc,
+    economicsDoc,
     ceoMessageImage,
   } = args
 
@@ -1135,7 +1156,16 @@ export function aboutUsSk(args: AboutUsArgs) {
           'V spoločnosti VUP spočíva naša sila v našom oddanom a skúsenom tíme vedcov, inžinierov, technikov a odborníkov. Podporujeme kultúru spolupráce, inovácií a neustáleho vzdelávania.',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [
+          ceoDoc.id,
+          rdDoc.id,
+          commercialDoc.id,
+          atbelDoc.id,
+          cosmeticsDoc.id,
+          hrDoc.id,
+          productionDoc.id,
+          economicsDoc.id,
+        ],
       },
     ],
     meta: {
@@ -1157,11 +1187,14 @@ export function aboutUsJp(args: AboutUsArgs) {
     timeline3Image,
     timeline4Image,
     content2Image,
-
-    rd,
-    commercial,
-    atbel,
-    cosmetics,
+    ceoDoc,
+    rdDoc,
+    commercialDoc,
+    atbelDoc,
+    cosmeticsDoc,
+    hrDoc,
+    productionDoc,
+    economicsDoc,
     ceoMessageImage,
   } = args
 
@@ -1706,7 +1739,16 @@ export function aboutUsJp(args: AboutUsArgs) {
           'VUPの強みは、献身的で経験豊富な科学者、エンジニア、技術者、専門家からなるチームにあります。私たちは協業、革新、そして継続的な学習の文化を育んでいます。',
         blockName: 'Team',
         blockType: 'team',
-        teamMembers: [rd.id, commercial.id, atbel.id, cosmetics.id],
+        teamMembers: [
+          ceoDoc.id,
+          rdDoc.id,
+          commercialDoc.id,
+          atbelDoc.id,
+          cosmeticsDoc.id,
+          hrDoc.id,
+          productionDoc.id,
+          economicsDoc.id,
+        ],
       },
     ],
     meta: {

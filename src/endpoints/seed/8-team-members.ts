@@ -247,7 +247,7 @@ export const seedTeamMembers = async (payload: Payload, media: SeededMedia) => {
   // Create team members in English first
   const teamMembersDataEn = getTeamMembersDataEn(media)
 
-  const [rdDoc, commercialDoc, atbelDoc, cosmeticsDoc, hrDoc, productionDoc, economicsDoc, ceoDoc] =
+  const [ceoDoc, rdDoc, commercialDoc, atbelDoc, cosmeticsDoc, hrDoc, productionDoc, economicsDoc] =
     await Promise.all(
       teamMembersDataEn.map((data) =>
         payload.create({
@@ -305,10 +305,14 @@ export const seedTeamMembers = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('✓ Japanese translations added')
 
   return {
+    ceoDoc,
     rdDoc,
     commercialDoc,
     atbelDoc,
     cosmeticsDoc,
+    hrDoc,
+    productionDoc,
+    economicsDoc,
   }
 }
 

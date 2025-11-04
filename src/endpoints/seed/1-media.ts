@@ -102,6 +102,111 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/vupin-sf.png`,
     alt: 'VUPIN Structure',
   },
+  {
+    key: 'cas68227338StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/68227-33-8 (structural formula).png`,
+    alt: '68227-33-8 Structure',
+  },
+  {
+    key: 'cas1075540StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/107-54-0 (structural formula).png`,
+    alt: '107-54-0 Structure',
+  },
+  {
+    key: 'cas1268863StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/126-86-3 (structural formula).png`,
+    alt: '126-86-3 Structure',
+  },
+  {
+    key: 'cas1423003StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/142-30-3 (structural formula).png`,
+    alt: '142-30-3 Structure',
+  },
+  {
+    key: 'cas1436346StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/1436-34-6 (structural formula).png`,
+    alt: '1436-34-6 Structure',
+  },
+  {
+    key: 'cas1888897StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/1888-89-7 (structural formula).png`,
+    alt: '1888-89-7 Structure',
+  },
+  {
+    key: 'cas2245309StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2245-30-9 (structural formula).png`,
+    alt: '2245-30-9 Structure',
+  },
+  {
+    key: 'cas2370185StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2370-18-5 (structural formula).png`,
+    alt: '2370-18-5 Structure',
+  },
+  {
+    key: 'cas2403896StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2403-89-6 (structural formula).png`,
+    alt: '2403-89-6 Structure',
+  },
+  {
+    key: 'cas2404446StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2404-44-6 (structural formula).png`,
+    alt: '2404-44-6 Structure',
+  },
+  {
+    key: 'cas2426075StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2426-07-5 (structural formula).png`,
+    alt: '2426-07-5 Structure',
+  },
+  {
+    key: 'cas2984501StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2984-50-1 (structural formula).png`,
+    alt: '2984-50-1 Structure',
+  },
+  {
+    key: 'cas10353534StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/10353-53-4 (structural formula).png`,
+    alt: '10353-53-4 Structure',
+  },
+  {
+    key: 'cas14691884StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/14691-88-4 (structural formula).png`,
+    alt: '14691-88-4 Structure',
+  },
+  {
+    key: 'cas19549985StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/19549-98-5 (structural formula).png`,
+    alt: '19549-98-5 Structure',
+  },
+  {
+    key: 'cas19600636StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/19600-63-6 (structural formula).png`,
+    alt: '19600-63-6 Structure',
+  },
+  {
+    key: 'cas36768624StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/36768-62-4 (structural formula).png`,
+    alt: '36768-62-4 Structure',
+  },
+  {
+    key: 'cas41556267StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/41556-26-7 (structural formula).png`,
+    alt: '41556-26-7 Structure',
+  },
+  {
+    key: 'cas52829079StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/52829-07-9 (structural formula).png`,
+    alt: '52829-07-9 Structure',
+  },
+  {
+    key: 'cas79550StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/79-55-0 (structural formula).png`,
+    alt: '79-55-0 Structure',
+  },
+  {
+    key: 'cas768661StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/768-66-1 (structural formula).png`,
+    alt: '768-66-1 Structure',
+  },
   // Badges
   {
     key: 'badge1Doc',
