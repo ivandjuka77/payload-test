@@ -4,17 +4,38 @@ import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import { toast } from 'sonner'
+import { subscribeToNewsletter } from '@/actions/productActions'
 
 export default function NewsletterFooter() {
   const t = useTranslations('footer.newsletter')
   const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // In a real application, you would handle the form submission here,
-    // e.g., send the email to your newsletter service.
-    console.log('Subscribed with:', email)
-    setEmail('')
+    setIsSubmitting(true)
+
+    try {
+      const result = await subscribeToNewsletter({ email })
+      if (result.success) {
+        toast.success('Success!', {
+          description: result.message,
+        })
+        setEmail('')
+      } else {
+        toast.error('Error', {
+          description: result.message,
+        })
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error)
+      toast.error('Error', {
+        description: 'Failed to subscribe. Please try again.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
   return (
     <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
@@ -33,8 +54,8 @@ export default function NewsletterFooter() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <Button type="submit" className="w-full px-6 sm:w-auto h-10">
-            {t('subscribeButton')}
+          <Button type="submit" disabled={isSubmitting} className="w-full px-6 sm:w-auto h-10">
+            {isSubmitting ? 'Subscribing...' : t('subscribeButton')}
           </Button>
         </div>
         <p className="font-secondary mt-2 text-xs text-muted-foreground">{t('privacyNotice')}</p>

@@ -8,6 +8,7 @@ import { toast } from 'sonner'
 import Link from 'next/link'
 import { cn } from '@/utilities/ui'
 import { useTranslations, useLocale } from 'next-intl'
+import { subscribeToNewsletter } from '@/actions/productActions'
 
 interface NewsletterProps {
   className?: string
@@ -16,6 +17,7 @@ interface NewsletterProps {
 
 export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
   const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useTranslations('newsletter')
   const locale = useLocale()
 
@@ -23,12 +25,30 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
   console.log('Newsletter component - Current locale:', locale)
   console.log('Newsletter component - Translation test:', t('badge'))
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    toast.success(t('toast.success'), {
-      description: t('toast.description'),
-    })
-    setEmail('')
+    setIsSubmitting(true)
+
+    try {
+      const result = await subscribeToNewsletter({ email })
+      if (result.success) {
+        toast.success(t('toast.success'), {
+          description: t('toast.description'),
+        })
+        setEmail('')
+      } else {
+        toast.error('Error', {
+          description: result.message,
+        })
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error)
+      toast.error('Error', {
+        description: 'Failed to subscribe. Please try again.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const socialLinks = [
@@ -92,12 +112,15 @@ export function Newsletter({ className, variant = 'white' }: NewsletterProps) {
               />
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className={cn(
                   'h-14 px-8 text-lg',
                   variant === 'white' ? '' : 'bg-white text-primary hover:bg-white/90',
                 )}
               >
-                <span className="hidden sm:inline">{t('form.subscribe')}</span>
+                <span className="hidden sm:inline">
+                  {isSubmitting ? 'Subscribing...' : t('form.subscribe')}
+                </span>
                 <ArrowRight className="h-5 w-5 sm:ml-2" />
               </Button>
             </div>

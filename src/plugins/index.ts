@@ -14,6 +14,7 @@ import { searchFields } from '@/search/fieldOverrides'
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { sendEmail, createContactFormEmail } from '@/utilities/email'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | VUP A.S.` : 'VUP A.S.'
@@ -89,6 +90,56 @@ export const plugins: Plugin[] = [
           }
           return field
         })
+      },
+    },
+    formSubmissionOverrides: {
+      hooks: {
+        afterChange: [
+          async ({ doc, req, operation }) => {
+            // Only send email on create operation
+            if (operation === 'create') {
+              try {
+                // Get the form title to determine the type
+                const form =
+                  typeof doc.form === 'number'
+                    ? await req.payload.findByID({
+                        collection: 'forms',
+                        id: doc.form,
+                      })
+                    : doc.form
+
+                // Extract form data into a key-value object
+                const formData: Record<string, string> = {}
+                if (doc.submissionData) {
+                  doc.submissionData.forEach((item) => {
+                    formData[item.field] = item.value
+                  })
+                }
+
+                // Only send email for Contact Form (FormBlock submissions)
+                // Other forms (Product Inquiry, Career Application) are handled by their respective actions
+                if (form.title === 'Contact Form') {
+                  const emailHtml = createContactFormEmail({
+                    name: formData.name || formData['full-name'] || 'N/A',
+                    email: formData.email || 'N/A',
+                    subject: formData.subject || 'Contact Form Submission',
+                    message: formData.message || 'N/A',
+                  })
+
+                  await sendEmail({
+                    to: 'ivandjuka777@gmail.com',
+                    subject: `Contact Form: ${formData.subject || 'New Submission'}`,
+                    html: emailHtml,
+                    replyTo: formData.email,
+                  })
+                }
+              } catch (error) {
+                console.error('Error sending form submission email:', error)
+                // Don't throw error - we don't want to fail the form submission if email fails
+              }
+            }
+          },
+        ],
       },
     },
   }),

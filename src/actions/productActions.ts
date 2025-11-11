@@ -3,6 +3,13 @@
 import { CaseStudy, Industry, Product, ProductCategory } from '@/payload-types'
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
+import {
+  sendEmail,
+  createProductInquiryEmail,
+  createCareerApplicationEmail,
+  createContactFormEmail,
+  createNewsletterSubscriptionEmail,
+} from '@/utilities/email'
 
 interface FilterCriteria {
   searchQuery?: string
@@ -57,6 +64,10 @@ interface CareerApplicationData {
   phone: string
   coverLetter?: string
   gdprConsent: boolean
+}
+
+interface NewsletterSubscriptionData {
+  email: string
 }
 
 export async function fetchFilteredProductsAction(
@@ -337,6 +348,15 @@ export async function submitProductInquiry(
       },
     })
 
+    // Send email notification
+    const emailHtml = createProductInquiryEmail(inquiryData)
+    await sendEmail({
+      to: 'ivandjuka777@gmail.com',
+      subject: `Product Inquiry: ${inquiryData.productName}`,
+      html: emailHtml,
+      replyTo: inquiryData.email,
+    })
+
     return {
       success: true,
       message: 'Product inquiry submitted successfully. We will get back to you within 24 hours.',
@@ -385,6 +405,15 @@ export async function submitContactForm(
         form: formId,
         submissionData,
       },
+    })
+
+    // Send email notification
+    const emailHtml = createContactFormEmail(contactData)
+    await sendEmail({
+      to: 'ivandjuka777@gmail.com',
+      subject: `Contact Form: ${contactData.subject}`,
+      html: emailHtml,
+      replyTo: contactData.email,
     })
 
     return {
@@ -445,6 +474,15 @@ export async function submitCareerApplication(
       },
     })
 
+    // Send email notification
+    const emailHtml = createCareerApplicationEmail(applicationData)
+    await sendEmail({
+      to: 'ivandjuka777@gmail.com',
+      subject: `Career Application: ${applicationData.fullName}`,
+      html: emailHtml,
+      replyTo: applicationData.email,
+    })
+
     return {
       success: true,
       message: 'Application submitted successfully! We will review it and get back to you soon.',
@@ -455,6 +493,31 @@ export async function submitCareerApplication(
       success: false,
       message:
         'There was an error submitting your application. Please try again or contact us directly.',
+    }
+  }
+}
+
+export async function subscribeToNewsletter(
+  subscriptionData: NewsletterSubscriptionData,
+): Promise<{ success: boolean; message: string }> {
+  try {
+    // Send email notification
+    const emailHtml = createNewsletterSubscriptionEmail(subscriptionData)
+    await sendEmail({
+      to: 'ivandjuka777@gmail.com',
+      subject: 'New Newsletter Subscription',
+      html: emailHtml,
+    })
+
+    return {
+      success: true,
+      message: 'Successfully subscribed to the newsletter!',
+    }
+  } catch (error) {
+    console.error('Error subscribing to newsletter:', error)
+    return {
+      success: false,
+      message: 'Failed to subscribe. Please try again.',
     }
   }
 }
