@@ -111,7 +111,7 @@ export const plugins: Plugin[] = [
                 // Extract form data into a key-value object
                 const formData: Record<string, string> = {}
                 if (doc.submissionData) {
-                  doc.submissionData.forEach((item) => {
+                  doc.submissionData.forEach((item: { field: string; value: string }) => {
                     formData[item.field] = item.value
                   })
                 }
