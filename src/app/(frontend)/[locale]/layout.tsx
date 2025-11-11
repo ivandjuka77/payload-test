@@ -45,6 +45,25 @@ export default async function RootLayout({
   return (
     <html className={cn(raleway.variable, inter.variable)} lang={locale} suppressHydrationWarning>
       <head>
+        <Script
+          id="ketch-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(){
+                window.semaphore=window.semaphore||[];
+                window.ketch=function(){window.semaphore.push(arguments)};
+                var e=new URLSearchParams(document.location.search);
+                var n=document.createElement("script");
+                n.type="text/javascript";
+                n.src="https://global.ketchcdn.com/web/v3/config/vupas/website_smart_tag/boot.js";
+                n.defer=n.async=!0;
+                document.getElementsByTagName("head")[0].appendChild(n);
+              }();
+            `,
+          }}
+        />
+
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
