@@ -419,7 +419,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Free Radicals',
         description:
           'Specialty stable radicals — primarily TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl) and its key derivatives — designed for controlled oxidation, polymerisation moderation, and mechanistic research. With over five decades of chemical R&D expertise, VUP offers pilot-plant and laboratory-scale radicals for precise control in organic synthesis, living polymerisation (NMP), and redox catalysis.',
-        image: demoImageDoc.id,
+        image: hTempoStructureDoc.id,
         slug: 'free-radicals',
 
         productComparison: true,
@@ -465,7 +465,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Epoxides',
         description:
           'Specialty aliphatic and multifunctional epoxides offered in both pilot-plant and laboratory scales. Key reactive intermediates in polymer synthesis, coatings, adhesives, and fine-chemical development. With over 50 years of expertise, VUP supports industrial innovation in crosslinking, viscosity control, hydrophobic modification, and waterborne formulation design.',
-        image: demoImageDoc.id,
+        image: cas768661StructureDoc.id,
         slug: 'epoxides',
 
         productComparison: true,
@@ -517,7 +517,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'Acetylenic Alcohols',
         description:
           'High-purity acetylenic alcohols — a family of triple-bond diols and tertiary propargylic alcohols widely used as wetting agents, flow modifiers, and reactive intermediates in coatings, polymer, and ink systems. These molecules combine hydroxyl functionality with acetylenic unsaturation, providing a balance of reactivity and surface activity essential for modern formulations.',
-        image: demoImageDoc.id,
+        image: cas1268863StructureDoc.id,
         slug: 'acetylenic-alcohols',
 
         productComparison: true,
@@ -1517,7 +1517,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     aminoTempo,
 
     // Batch 8
-    spiroTempoAcid,
+    // spiroTempoAcid,
     galvinoxyl,
     diepoxyoctane,
 
@@ -4008,116 +4008,116 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         slug: 'amino-tempo',
       },
     }),
-    payload.create({
-      collection: 'products',
-      data: {
-        isKeyProduct: false,
-        name: '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
-        _status: 'published',
-        description:
-          'A stable nitroxyl radical with unique spiro structure and carboxylic acid functionality. Ideal for bioconjugation, spin labeling, and analytical applications requiring robust paramagnetic properties. VUP Lab Researched quality ensures reliable performance.',
-        chemicalStructureImage: demoImageDoc.id,
-        technicalSpecifications: {
-          chemicalName:
-            '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
-          casNumber: '71792-73-7',
-          synonyms: [{ synonym: 'Spiro-TEMPO-acid' }, { synonym: 'Spiro-TEMPO carboxylic acid' }],
-          molecularFormula: 'C₁₂H₂₀NO₅',
-          molecularWeight: '258.29 g/mol',
-          labVerified: 'Researched',
-        },
-        VupSpecifications: {
-          appearance: 'Orange to red crystalline solid',
-          purity: 'min. 95.0 % wt',
-          solubility: 'Soluble in organic solvents, limited water solubility',
-        },
-        chemicalFamily: [specialtyHinderedAmines],
-        applications: [
-          {
-            application: 'Protein Spin Labeling',
-            description:
-              'Covalent attachment to proteins via amide bond formation for EPR spectroscopy studies. The spiro structure provides unique steric environment and reduced mobility.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Bioconjugation Chemistry',
-            description:
-              'Forms stable amide linkages with amino groups in biomolecules for creating paramagnetic bioconjugates. Enables tracking and structural analysis in biological systems.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'Synthetic Building Block',
-            description:
-              'Intermediate for synthesizing more complex spin-labeled molecules and probes. The carboxylic acid provides versatile coupling chemistry for custom applications.',
-            image: image3Doc.id,
-          },
-          {
-            application: 'EPR Spectroscopy Research',
-            description:
-              'Standard probe for electron paramagnetic resonance studies requiring well-defined spin environments. Useful in distance measurements and conformational analysis.',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Unique Spiro Architecture',
-            description:
-              'Rigid spiro structure provides distinct steric environment and reduced conformational flexibility compared to linear TEMPO derivatives.',
-          },
-          {
-            feature: 'Carboxylic Acid Reactivity',
-            description:
-              'Enables amide bond formation with amines and amino acids for bioconjugation. Compatible with standard peptide coupling chemistry.',
-          },
-          {
-            feature: 'Stable Radical Character',
-            description:
-              'Maintains paramagnetic properties under physiological conditions. Resistant to reduction and dimerization in biological environments.',
-          },
-          {
-            feature: 'Enhanced Rigidity',
-            description:
-              'Spiro structure reduces molecular motion providing sharper EPR signals and improved distance measurements in protein studies.',
-          },
-          {
-            feature: 'VUP Research Grade',
-            description:
-              'Lab researched quality with controlled synthesis ensuring consistent radical properties and minimal paramagnetic impurities.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question:
-              'What advantages does the spiro structure offer over linear TEMPO derivatives?',
-            answer:
-              'The spiro structure provides enhanced rigidity and unique steric environment, resulting in sharper EPR signals and reduced conformational flexibility for more precise measurements.',
-          },
-          {
-            question: 'How stable is this compound under biological conditions?',
-            answer:
-              'Very stable under physiological pH and temperature. The spiro structure protects the radical center from reduction and maintains paramagnetic properties in biological systems.',
-          },
-          {
-            question: 'What coupling methods work best with the carboxylic acid group?',
-            answer:
-              'Standard amide coupling reagents like EDC/NHS, HATU, or PyBOP work effectively. The carboxylic acid readily forms amide bonds with primary and secondary amines.',
-          },
-          {
-            question: 'Is this compound suitable for protein labeling applications?',
-            answer:
-              'Yes, excellent for protein spin labeling via amide formation with lysine residues or N-terminus. The rigid structure provides well-defined spin environments for EPR studies.',
-          },
-          {
-            question: 'What are the storage requirements for this radical compound?',
-            answer:
-              'Store in dark, cool conditions under inert atmosphere. Avoid exposure to reducing agents, strong acids, or bases that could compromise radical stability.',
-          },
-        ],
-        slug: 'spiro-tempo-acid',
-      },
-    }),
+    // payload.create({
+    //   collection: 'products',
+    //   data: {
+    //     isKeyProduct: false,
+    //     name: '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
+    //     _status: 'published',
+    //     description:
+    //       'A stable nitroxyl radical with unique spiro structure and carboxylic acid functionality. Ideal for bioconjugation, spin labeling, and analytical applications requiring robust paramagnetic properties. VUP Lab Researched quality ensures reliable performance.',
+    //     chemicalStructureImage: demoImageDoc.id,
+    //     technicalSpecifications: {
+    //       chemicalName:
+    //         '8-Oxyl-7,7,9,9-tetramethyl-1,4-dioxa-8-azaspiro[4.5]decane-2-carboxylic acid',
+    //       casNumber: '71792-73-7',
+    //       synonyms: [{ synonym: 'Spiro-TEMPO-acid' }, { synonym: 'Spiro-TEMPO carboxylic acid' }],
+    //       molecularFormula: 'C₁₂H₂₀NO₅',
+    //       molecularWeight: '258.29 g/mol',
+    //       labVerified: 'Researched',
+    //     },
+    //     VupSpecifications: {
+    //       appearance: 'Orange to red crystalline solid',
+    //       purity: 'min. 95.0 % wt',
+    //       solubility: 'Soluble in organic solvents, limited water solubility',
+    //     },
+    //     chemicalFamily: [specialtyHinderedAmines],
+    //     applications: [
+    //       {
+    //         application: 'Protein Spin Labeling',
+    //         description:
+    //           'Covalent attachment to proteins via amide bond formation for EPR spectroscopy studies. The spiro structure provides unique steric environment and reduced mobility.',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'Bioconjugation Chemistry',
+    //         description:
+    //           'Forms stable amide linkages with amino groups in biomolecules for creating paramagnetic bioconjugates. Enables tracking and structural analysis in biological systems.',
+    //         image: image2Doc.id,
+    //       },
+    //       {
+    //         application: 'Synthetic Building Block',
+    //         description:
+    //           'Intermediate for synthesizing more complex spin-labeled molecules and probes. The carboxylic acid provides versatile coupling chemistry for custom applications.',
+    //         image: image3Doc.id,
+    //       },
+    //       {
+    //         application: 'EPR Spectroscopy Research',
+    //         description:
+    //           'Standard probe for electron paramagnetic resonance studies requiring well-defined spin environments. Useful in distance measurements and conformational analysis.',
+    //         image: demoImageDoc.id,
+    //       },
+    //     ],
+    //     keyFeatures: [
+    //       {
+    //         feature: 'Unique Spiro Architecture',
+    //         description:
+    //           'Rigid spiro structure provides distinct steric environment and reduced conformational flexibility compared to linear TEMPO derivatives.',
+    //       },
+    //       {
+    //         feature: 'Carboxylic Acid Reactivity',
+    //         description:
+    //           'Enables amide bond formation with amines and amino acids for bioconjugation. Compatible with standard peptide coupling chemistry.',
+    //       },
+    //       {
+    //         feature: 'Stable Radical Character',
+    //         description:
+    //           'Maintains paramagnetic properties under physiological conditions. Resistant to reduction and dimerization in biological environments.',
+    //       },
+    //       {
+    //         feature: 'Enhanced Rigidity',
+    //         description:
+    //           'Spiro structure reduces molecular motion providing sharper EPR signals and improved distance measurements in protein studies.',
+    //       },
+    //       {
+    //         feature: 'VUP Research Grade',
+    //         description:
+    //           'Lab researched quality with controlled synthesis ensuring consistent radical properties and minimal paramagnetic impurities.',
+    //       },
+    //     ],
+    //     caseStudies: [],
+    //     relatedProducts: [],
+    //     faq: [
+    //       {
+    //         question:
+    //           'What advantages does the spiro structure offer over linear TEMPO derivatives?',
+    //         answer:
+    //           'The spiro structure provides enhanced rigidity and unique steric environment, resulting in sharper EPR signals and reduced conformational flexibility for more precise measurements.',
+    //       },
+    //       {
+    //         question: 'How stable is this compound under biological conditions?',
+    //         answer:
+    //           'Very stable under physiological pH and temperature. The spiro structure protects the radical center from reduction and maintains paramagnetic properties in biological systems.',
+    //       },
+    //       {
+    //         question: 'What coupling methods work best with the carboxylic acid group?',
+    //         answer:
+    //           'Standard amide coupling reagents like EDC/NHS, HATU, or PyBOP work effectively. The carboxylic acid readily forms amide bonds with primary and secondary amines.',
+    //       },
+    //       {
+    //         question: 'Is this compound suitable for protein labeling applications?',
+    //         answer:
+    //           'Yes, excellent for protein spin labeling via amide formation with lysine residues or N-terminus. The rigid structure provides well-defined spin environments for EPR studies.',
+    //       },
+    //       {
+    //         question: 'What are the storage requirements for this radical compound?',
+    //         answer:
+    //           'Store in dark, cool conditions under inert atmosphere. Avoid exposure to reducing agents, strong acids, or bases that could compromise radical stability.',
+    //       },
+    //     ],
+    //     slug: 'spiro-tempo-acid',
+    //   },
+    // }),
     payload.create({
       collection: 'products',
       data: {
@@ -10012,96 +10012,96 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('- Adding Slovak translations for batch 8 products...')
 
   await Promise.all([
-    payload.update({
-      collection: 'products',
-      id: spiroTempoAcid.id,
-      locale: 'sk',
-      data: {
-        name: '8-Oxyl-7,7,9,9-tetrametyl-1,4-dioxa-8-azaspiro[4.5]dekán-2-karboxylová kyselina',
-        description:
-          'Stabilný nitroxylový radikál s jedinečnou spiro štruktúrou a funkcionalitou karboxylovej kyseliny. Ideálny pre biokonjugáciu, spin labeling a analytické aplikácie vyžadujúce robustné paramagnetické vlastnosti. VUP Lab Researched kvalita zabezpečuje spoľahlivý výkon.',
-        applications: [
-          {
-            application: 'Spin labeling proteínov',
-            description:
-              'Kovalentné pripojenie k proteínom prostredníctvom tvorby amidovej väzby pre štúdie EPR spektroskopie. Spiro štruktúra poskytuje jedinečné sterické prostredie a zníženú mobilitu.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Biokonjugačná chémia',
-            description:
-              'Tvorí stabilné amidové väzby s aminoskupinami v biomolekulách pre vytvorenie paramagnetických biokonjugátov. Umožňuje sledovanie a štrukturálnu analýzu v biologických systémoch.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Syntetický stavebný blok',
-            description:
-              'Medziproduk pre syntézu zložitejších spin-označených molekúl a sond. Karboxylová kyselina poskytuje všestrannú spojovú chémiu pre vlastné aplikácie.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Výskum EPR spektroskopie',
-            description:
-              'Štandardná sonda pre štúdie elektrónovej paramagnetickej rezonancie vyžadujúce dobre definované spinové prostredia. Užitočná pri meraniach vzdialenosti a konformačnej analýze.',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Jedinečná spiro architektúra',
-            description:
-              'Rigídna spiro štruktúra poskytuje odlišné sterické prostredie a zníženú konformačnú flexibilitu v porovnaní s lineárnymi TEMPO derivátmi.',
-          },
-          {
-            feature: 'Reaktivita karboxylovej kyseliny',
-            description:
-              'Umožňuje tvorbu amidových väzieb s amínmi a aminokyselinami pre biokonjugáciu. Kompatibilná so štandardnou peptidovou spojovacou chémiou.',
-          },
-          {
-            feature: 'Stabilný radikálový charakter',
-            description:
-              'Udržuje paramagnetické vlastnosti za fyziologických podmienok. Odolný voči redukcii a dimerizácii v biologických prostrediach.',
-          },
-          {
-            feature: 'Zvýšená rigidita',
-            description:
-              'Spiro štruktúra znižuje molekulárny pohyb poskytujúc ostrejšie EPR signály a zlepšené merania vzdialenosti v štúdiách proteínov.',
-          },
-          {
-            feature: 'VUP výskumný stupeň',
-            description:
-              'Laboratórne skúmaná kvalita s kontrolovanou syntézou zabezpečujúca konzistentné radikálové vlastnosti a minimálne paramagnetické nečistoty.',
-          },
-        ],
-        faq: [
-          {
-            question: 'Aké výhody ponúka spiro štruktúra oproti lineárnym TEMPO derivátom?',
-            answer:
-              'Spiro štruktúra poskytuje zvýšenú rigiditu a jedinečné sterické prostredie, výsledkom čoho sú ostrejšie EPR signály a znížená konformačná flexibilita pre presnejšie merania.',
-          },
-          {
-            question: 'Ako stabilná je táto zlúčenina za biologických podmienok?',
-            answer:
-              'Veľmi stabilná pri fyziologickom pH a teplote. Spiro štruktúra chráni radikálové centrum pred redukciou a udržuje paramagnetické vlastnosti v biologických systémoch.',
-          },
-          {
-            question: 'Ktoré spojové metódy fungují najlepšie s karboxylovou skupinou?',
-            answer:
-              'Štandardné amidové spojové činidlá ako EDC/NHS, HATU alebo PyBOP fungujú účinne. Karboxylová kyselina ľahko tvorí amidové väzby s primárnymi a sekundárnymi amínmi.',
-          },
-          {
-            question: 'Je táto zlúčenina vhodná pre aplikácie označovania proteínov?',
-            answer:
-              'Áno, výborná pre spin labeling proteínov prostredníctvom tvorby amidu s lyzínovými zvyškami alebo N-terminálom. Rigídna štruktúra poskytuje dobre definované spinové prostredia pre EPR štúdie.',
-          },
-          {
-            question: 'Aké sú požiadavky na skladovanie tejto radikálovej zlúčeniny?',
-            answer:
-              'Skladovať v tmavých, chladných podmienkach pod inertnou atmosférou. Vyhnúť sa vystaveniu redukčným činidlám, silným kyselinám alebo zásadám, ktoré by mohli kompromitovať stabilitu radikálu.',
-          },
-        ],
-      },
-    }),
+    // payload.update({
+    //   collection: 'products',
+    //   id: spiroTempoAcid.id,
+    //   locale: 'sk',
+    //   data: {
+    //     name: '8-Oxyl-7,7,9,9-tetrametyl-1,4-dioxa-8-azaspiro[4.5]dekán-2-karboxylová kyselina',
+    //     description:
+    //       'Stabilný nitroxylový radikál s jedinečnou spiro štruktúrou a funkcionalitou karboxylovej kyseliny. Ideálny pre biokonjugáciu, spin labeling a analytické aplikácie vyžadujúce robustné paramagnetické vlastnosti. VUP Lab Researched kvalita zabezpečuje spoľahlivý výkon.',
+    //     applications: [
+    //       {
+    //         application: 'Spin labeling proteínov',
+    //         description:
+    //           'Kovalentné pripojenie k proteínom prostredníctvom tvorby amidovej väzby pre štúdie EPR spektroskopie. Spiro štruktúra poskytuje jedinečné sterické prostredie a zníženú mobilitu.',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'Biokonjugačná chémia',
+    //         description:
+    //           'Tvorí stabilné amidové väzby s aminoskupinami v biomolekulách pre vytvorenie paramagnetických biokonjugátov. Umožňuje sledovanie a štrukturálnu analýzu v biologických systémoch.',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'Syntetický stavebný blok',
+    //         description:
+    //           'Medziproduk pre syntézu zložitejších spin-označených molekúl a sond. Karboxylová kyselina poskytuje všestrannú spojovú chémiu pre vlastné aplikácie.',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'Výskum EPR spektroskopie',
+    //         description:
+    //           'Štandardná sonda pre štúdie elektrónovej paramagnetickej rezonancie vyžadujúce dobre definované spinové prostredia. Užitočná pri meraniach vzdialenosti a konformačnej analýze.',
+    //         image: demoImageDoc.id,
+    //       },
+    //     ],
+    //     keyFeatures: [
+    //       {
+    //         feature: 'Jedinečná spiro architektúra',
+    //         description:
+    //           'Rigídna spiro štruktúra poskytuje odlišné sterické prostredie a zníženú konformačnú flexibilitu v porovnaní s lineárnymi TEMPO derivátmi.',
+    //       },
+    //       {
+    //         feature: 'Reaktivita karboxylovej kyseliny',
+    //         description:
+    //           'Umožňuje tvorbu amidových väzieb s amínmi a aminokyselinami pre biokonjugáciu. Kompatibilná so štandardnou peptidovou spojovacou chémiou.',
+    //       },
+    //       {
+    //         feature: 'Stabilný radikálový charakter',
+    //         description:
+    //           'Udržuje paramagnetické vlastnosti za fyziologických podmienok. Odolný voči redukcii a dimerizácii v biologických prostrediach.',
+    //       },
+    //       {
+    //         feature: 'Zvýšená rigidita',
+    //         description:
+    //           'Spiro štruktúra znižuje molekulárny pohyb poskytujúc ostrejšie EPR signály a zlepšené merania vzdialenosti v štúdiách proteínov.',
+    //       },
+    //       {
+    //         feature: 'VUP výskumný stupeň',
+    //         description:
+    //           'Laboratórne skúmaná kvalita s kontrolovanou syntézou zabezpečujúca konzistentné radikálové vlastnosti a minimálne paramagnetické nečistoty.',
+    //       },
+    //     ],
+    //     faq: [
+    //       {
+    //         question: 'Aké výhody ponúka spiro štruktúra oproti lineárnym TEMPO derivátom?',
+    //         answer:
+    //           'Spiro štruktúra poskytuje zvýšenú rigiditu a jedinečné sterické prostredie, výsledkom čoho sú ostrejšie EPR signály a znížená konformačná flexibilita pre presnejšie merania.',
+    //       },
+    //       {
+    //         question: 'Ako stabilná je táto zlúčenina za biologických podmienok?',
+    //         answer:
+    //           'Veľmi stabilná pri fyziologickom pH a teplote. Spiro štruktúra chráni radikálové centrum pred redukciou a udržuje paramagnetické vlastnosti v biologických systémoch.',
+    //       },
+    //       {
+    //         question: 'Ktoré spojové metódy fungují najlepšie s karboxylovou skupinou?',
+    //         answer:
+    //           'Štandardné amidové spojové činidlá ako EDC/NHS, HATU alebo PyBOP fungujú účinne. Karboxylová kyselina ľahko tvorí amidové väzby s primárnymi a sekundárnymi amínmi.',
+    //       },
+    //       {
+    //         question: 'Je táto zlúčenina vhodná pre aplikácie označovania proteínov?',
+    //         answer:
+    //           'Áno, výborná pre spin labeling proteínov prostredníctvom tvorby amidu s lyzínovými zvyškami alebo N-terminálom. Rigídna štruktúra poskytuje dobre definované spinové prostredia pre EPR štúdie.',
+    //       },
+    //       {
+    //         question: 'Aké sú požiadavky na skladovanie tejto radikálovej zlúčeniny?',
+    //         answer:
+    //           'Skladovať v tmavých, chladných podmienkach pod inertnou atmosférou. Vyhnúť sa vystaveniu redukčným činidlám, silným kyselinám alebo zásadám, ktoré by mohli kompromitovať stabilitu radikálu.',
+    //       },
+    //     ],
+    //   },
+    // }),
     payload.update({
       collection: 'products',
       id: galvinoxyl.id,
@@ -11564,96 +11564,96 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   payload.logger.info('- Adding Japanese translations for batch 8 products...')
 
   await Promise.all([
-    payload.update({
-      collection: 'products',
-      id: spiroTempoAcid.id,
-      locale: 'jp',
-      data: {
-        name: '8-オキシル-7,7,9,9-テトラメチル-1,4-ジオキサ-8-アザスピロ[4.5]デカン-2-カルボン酸',
-        description:
-          '独特なスピロ構造とカルボン酸機能性を持つ安定なニトロキシルラジカル。堅牢な常磁性特性を要求するバイオコンジュゲーション、スピンラベリング、分析用途に理想的。VUP Lab Researched品質が信頼性の高い性能を保証します。',
-        applications: [
-          {
-            application: 'タンパク質スピンラベリング',
-            description:
-              'EPR分光研究のためのアミド結合形成を通じたタンパク質への共有結合。スピロ構造は独特な立体環境と低下した移動性を提供します。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'バイオコンジュゲーション化学',
-            description:
-              '常磁性バイオコンジュゲート作成のために生体分子のアミノ基と安定なアミド結合を形成。生物学的システムでの追跡と構造解析を可能にします。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: '合成構築ブロック',
-            description:
-              'より複雑なスピンラベル分子とプローブの合成のための中間体。カルボン酸はカスタム用途のための多用途結合化学を提供します。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'EPR分光研究',
-            description:
-              '明確に定義されたスピン環境を要求する電子常磁性共鳴研究の標準プローブ。距離測定と構造解析で有用です。',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: '独特なスピロ構造',
-            description:
-              '剛直なスピロ構造が線形TEMPO誘導体と比較して独特な立体環境と低下した構造柔軟性を提供します。',
-          },
-          {
-            feature: 'カルボン酸反応性',
-            description:
-              'バイオコンジュゲーションのためのアミンとアミノ酸とのアミド結合形成を可能にします。標準ペプチド結合化学と互換性があります。',
-          },
-          {
-            feature: '安定ラジカル特性',
-            description:
-              '生理学的条件下で常磁性特性を維持。生物学的環境での還元と二量化に耐性があります。',
-          },
-          {
-            feature: '向上した剛性',
-            description:
-              'スピロ構造が分子運動を減少させ、より鋭いEPR信号とタンパク質研究での改良された距離測定を提供します。',
-          },
-          {
-            feature: 'VUP研究グレード',
-            description:
-              '一貫したラジカル特性と最小限の常磁性不純物を確保する制御された合成による実験室研究品質。',
-          },
-        ],
-        faq: [
-          {
-            question: 'スピロ構造は線形TEMPO誘導体に対してどのような利点を提供しますか？',
-            answer:
-              'スピロ構造は向上した剛性と独特な立体環境を提供し、より鋭いEPR信号とより正確な測定のための低下した構造柔軟性をもたらします。',
-          },
-          {
-            question: 'この化合物は生物学的条件下でどの程度安定ですか？',
-            answer:
-              '生理学的pHと温度で非常に安定です。スピロ構造がラジカル中心を還元から保護し、生物学的システムで常磁性特性を維持します。',
-          },
-          {
-            question: 'カルボン酸基でどの結合方法が最も効果的ですか？',
-            answer:
-              'EDC/NHS、HATU、PyBOPなどの標準アミド結合試薬が効果的に機能します。カルボン酸は一級および二級アミンと容易にアミド結合を形成します。',
-          },
-          {
-            question: 'この化合物はタンパク質ラベリング用途に適していますか？',
-            answer:
-              'はい、リジン残基またはN末端とのアミド形成を通じたタンパク質スピンラベリングに優れています。剛直な構造がEPR研究のための明確に定義されたスピン環境を提供します。',
-          },
-          {
-            question: 'このラジカル化合物の保管要件は何ですか？',
-            answer:
-              '不活性雰囲気下で暗く涼しい条件で保管。ラジカル安定性を損なう可能性のある還元剤、強酸、強塩基への暴露を避けてください。',
-          },
-        ],
-      },
-    }),
+    // payload.update({
+    //   collection: 'products',
+    //   id: spiroTempoAcid.id,
+    //   locale: 'jp',
+    //   data: {
+    //     name: '8-オキシル-7,7,9,9-テトラメチル-1,4-ジオキサ-8-アザスピロ[4.5]デカン-2-カルボン酸',
+    //     description:
+    //       '独特なスピロ構造とカルボン酸機能性を持つ安定なニトロキシルラジカル。堅牢な常磁性特性を要求するバイオコンジュゲーション、スピンラベリング、分析用途に理想的。VUP Lab Researched品質が信頼性の高い性能を保証します。',
+    //     applications: [
+    //       {
+    //         application: 'タンパク質スピンラベリング',
+    //         description:
+    //           'EPR分光研究のためのアミド結合形成を通じたタンパク質への共有結合。スピロ構造は独特な立体環境と低下した移動性を提供します。',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'バイオコンジュゲーション化学',
+    //         description:
+    //           '常磁性バイオコンジュゲート作成のために生体分子のアミノ基と安定なアミド結合を形成。生物学的システムでの追跡と構造解析を可能にします。',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: '合成構築ブロック',
+    //         description:
+    //           'より複雑なスピンラベル分子とプローブの合成のための中間体。カルボン酸はカスタム用途のための多用途結合化学を提供します。',
+    //         image: demoImageDoc.id,
+    //       },
+    //       {
+    //         application: 'EPR分光研究',
+    //         description:
+    //           '明確に定義されたスピン環境を要求する電子常磁性共鳴研究の標準プローブ。距離測定と構造解析で有用です。',
+    //         image: demoImageDoc.id,
+    //       },
+    //     ],
+    //     keyFeatures: [
+    //       {
+    //         feature: '独特なスピロ構造',
+    //         description:
+    //           '剛直なスピロ構造が線形TEMPO誘導体と比較して独特な立体環境と低下した構造柔軟性を提供します。',
+    //       },
+    //       {
+    //         feature: 'カルボン酸反応性',
+    //         description:
+    //           'バイオコンジュゲーションのためのアミンとアミノ酸とのアミド結合形成を可能にします。標準ペプチド結合化学と互換性があります。',
+    //       },
+    //       {
+    //         feature: '安定ラジカル特性',
+    //         description:
+    //           '生理学的条件下で常磁性特性を維持。生物学的環境での還元と二量化に耐性があります。',
+    //       },
+    //       {
+    //         feature: '向上した剛性',
+    //         description:
+    //           'スピロ構造が分子運動を減少させ、より鋭いEPR信号とタンパク質研究での改良された距離測定を提供します。',
+    //       },
+    //       {
+    //         feature: 'VUP研究グレード',
+    //         description:
+    //           '一貫したラジカル特性と最小限の常磁性不純物を確保する制御された合成による実験室研究品質。',
+    //       },
+    //     ],
+    //     faq: [
+    //       {
+    //         question: 'スピロ構造は線形TEMPO誘導体に対してどのような利点を提供しますか？',
+    //         answer:
+    //           'スピロ構造は向上した剛性と独特な立体環境を提供し、より鋭いEPR信号とより正確な測定のための低下した構造柔軟性をもたらします。',
+    //       },
+    //       {
+    //         question: 'この化合物は生物学的条件下でどの程度安定ですか？',
+    //         answer:
+    //           '生理学的pHと温度で非常に安定です。スピロ構造がラジカル中心を還元から保護し、生物学的システムで常磁性特性を維持します。',
+    //       },
+    //       {
+    //         question: 'カルボン酸基でどの結合方法が最も効果的ですか？',
+    //         answer:
+    //           'EDC/NHS、HATU、PyBOPなどの標準アミド結合試薬が効果的に機能します。カルボン酸は一級および二級アミンと容易にアミド結合を形成します。',
+    //       },
+    //       {
+    //         question: 'この化合物はタンパク質ラベリング用途に適していますか？',
+    //         answer:
+    //           'はい、リジン残基またはN末端とのアミド形成を通じたタンパク質スピンラベリングに優れています。剛直な構造がEPR研究のための明確に定義されたスピン環境を提供します。',
+    //       },
+    //       {
+    //         question: 'このラジカル化合物の保管要件は何ですか？',
+    //         answer:
+    //           '不活性雰囲気下で暗く涼しい条件で保管。ラジカル安定性を損なう可能性のある還元剤、強酸、強塩基への暴露を避けてください。',
+    //       },
+    //     ],
+    //   },
+    // }),
     payload.update({
       collection: 'products',
       id: galvinoxyl.id,
@@ -13092,7 +13092,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             aminoTmp.id,
             hals770.id,
             hals765.id,
-            spiroTempoAcid.id,
+            // spiroTempoAcid.id,
           ],
           image: hTempoStructureDoc.id,
         },
@@ -13230,7 +13230,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       hals770,
       hals765,
       aminoTempo,
-      spiroTempoAcid,
+      // spiroTempoAcid,
       galvinoxyl,
       diepoxyoctane,
       epoxyHexene,

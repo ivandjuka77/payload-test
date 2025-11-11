@@ -39,6 +39,10 @@ const nextConfig = {
         hostname: 'ludwreuxuzoyeevqvihu.supabase.co',
       },
       {
+        protocol: 'https',
+        hostname: 'pvlaaqfvwdcbuouhmggy.storage.supabase.co',
+      },
+      {
         protocol: 'http',
         hostname: '127.0.0.1',
         port: '54321',

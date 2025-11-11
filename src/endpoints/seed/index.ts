@@ -80,7 +80,7 @@ export const seed = async ({
     // 'forms',
     'pages',
     'posts',
-    'users',
+    // 'users',
     'careers',
     'caseStudies',
     'industries',
