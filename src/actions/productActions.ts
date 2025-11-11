@@ -349,13 +349,24 @@ export async function submitProductInquiry(
     })
 
     // Send email notification
+    console.log('📬 Preparing to send Product Inquiry email...')
+    console.log('  Product:', inquiryData.productName)
+    console.log('  From:', inquiryData.email)
+    console.log('  Company:', inquiryData.company)
+    
     const emailHtml = createProductInquiryEmail(inquiryData)
-    await sendEmail({
+    const emailResult = await sendEmail({
       to: 'ivandjuka777@gmail.com',
       subject: `Product Inquiry: ${inquiryData.productName}`,
       html: emailHtml,
       replyTo: inquiryData.email,
     })
+    
+    if (emailResult.success) {
+      console.log('✅ Product Inquiry email sent successfully')
+    } else {
+      console.error('⚠️ Product Inquiry email failed to send:', emailResult.error)
+    }
 
     return {
       success: true,
@@ -408,13 +419,23 @@ export async function submitContactForm(
     })
 
     // Send email notification
+    console.log('📬 Preparing to send Contact Form email...')
+    console.log('  From:', contactData.email)
+    console.log('  Subject:', contactData.subject)
+    
     const emailHtml = createContactFormEmail(contactData)
-    await sendEmail({
+    const emailResult = await sendEmail({
       to: 'ivandjuka777@gmail.com',
       subject: `Contact Form: ${contactData.subject}`,
       html: emailHtml,
       replyTo: contactData.email,
     })
+    
+    if (emailResult.success) {
+      console.log('✅ Contact Form email sent successfully')
+    } else {
+      console.error('⚠️ Contact Form email failed to send:', emailResult.error)
+    }
 
     return {
       success: true,
@@ -475,13 +496,23 @@ export async function submitCareerApplication(
     })
 
     // Send email notification
+    console.log('📬 Preparing to send Career Application email...')
+    console.log('  Applicant:', applicationData.fullName)
+    console.log('  Email:', applicationData.email)
+    
     const emailHtml = createCareerApplicationEmail(applicationData)
-    await sendEmail({
+    const emailResult = await sendEmail({
       to: 'ivandjuka777@gmail.com',
       subject: `Career Application: ${applicationData.fullName}`,
       html: emailHtml,
       replyTo: applicationData.email,
     })
+    
+    if (emailResult.success) {
+      console.log('✅ Career Application email sent successfully')
+    } else {
+      console.error('⚠️ Career Application email failed to send:', emailResult.error)
+    }
 
     return {
       success: true,
@@ -502,19 +533,28 @@ export async function subscribeToNewsletter(
 ): Promise<{ success: boolean; message: string }> {
   try {
     // Send email notification
+    console.log('📬 Preparing to send Newsletter Subscription email...')
+    console.log('  Subscriber:', subscriptionData.email)
+    
     const emailHtml = createNewsletterSubscriptionEmail(subscriptionData)
-    await sendEmail({
+    const emailResult = await sendEmail({
       to: 'ivandjuka777@gmail.com',
       subject: 'New Newsletter Subscription',
       html: emailHtml,
     })
+    
+    if (emailResult.success) {
+      console.log('✅ Newsletter Subscription email sent successfully')
+    } else {
+      console.error('⚠️ Newsletter Subscription email failed to send:', emailResult.error)
+    }
 
     return {
       success: true,
       message: 'Successfully subscribed to the newsletter!',
     }
   } catch (error) {
-    console.error('Error subscribing to newsletter:', error)
+    console.error('❌ Error subscribing to newsletter:', error)
     return {
       success: false,
       message: 'Failed to subscribe. Please try again.',

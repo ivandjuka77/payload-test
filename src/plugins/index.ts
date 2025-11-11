@@ -119,6 +119,11 @@ export const plugins: Plugin[] = [
                 // Only send email for Contact Form (FormBlock submissions)
                 // Other forms (Product Inquiry, Career Application) are handled by their respective actions
                 if (form.title === 'Contact Form') {
+                  console.log('📬 Preparing to send FormBlock Contact Form email...')
+                  console.log('  Form Title:', form.title)
+                  console.log('  From:', formData.email || 'N/A')
+                  console.log('  Subject:', formData.subject || 'Contact Form Submission')
+                  
                   const emailHtml = createContactFormEmail({
                     name: formData.name || formData['full-name'] || 'N/A',
                     email: formData.email || 'N/A',
@@ -126,15 +131,23 @@ export const plugins: Plugin[] = [
                     message: formData.message || 'N/A',
                   })
 
-                  await sendEmail({
+                  const emailResult = await sendEmail({
                     to: 'ivandjuka777@gmail.com',
                     subject: `Contact Form: ${formData.subject || 'New Submission'}`,
                     html: emailHtml,
                     replyTo: formData.email,
                   })
+                  
+                  if (emailResult.success) {
+                    console.log('✅ FormBlock Contact Form email sent successfully')
+                  } else {
+                    console.error('⚠️ FormBlock Contact Form email failed to send:', emailResult.error)
+                  }
+                } else {
+                  console.log('ℹ️ FormBlock submission received for form:', form.title, '(email handled elsewhere)')
                 }
               } catch (error) {
-                console.error('Error sending form submission email:', error)
+                console.error('❌ Error in FormBlock email hook:', error)
                 // Don't throw error - we don't want to fail the form submission if email fails
               }
             }
