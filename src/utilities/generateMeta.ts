@@ -26,10 +26,28 @@ export const generateMeta = async (args: {
 }): Promise<Metadata> => {
   const { doc, locale, pathPrefix } = args
 
+  if (!doc) {
+    return {
+      description: '',
+      alternates: {
+        canonical: '',
+      },
+    }
+  }
+
   const ogImage = getImageURL(doc?.meta?.image)
 
-  const title = doc?.meta?.title ? doc?.meta?.title + ' | VUP ' : 'VUP '
+  let title = ''
 
+  if ('name' in doc && doc?.name) {
+    title = doc.name + ' | VUP '
+  } else if (doc?.title) {
+    title = doc?.meta?.title
+      ? doc?.meta?.title + ' | VUP '
+      : doc?.title
+        ? doc?.title + ' | VUP '
+        : 'VUP '
+  }
   // Generate canonical URL
   const serverUrl = getServerSideURL()
   let canonicalPath = ''

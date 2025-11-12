@@ -49,6 +49,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     cas52829079StructureDoc,
     cas768661StructureDoc,
     cas79550StructureDoc,
+    cas2226962StructureDoc,
   } = media
 
   // --------------------
@@ -60,7 +61,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     hinderedAmines,
     phospholipidPrecursors,
     polymerisationInhibitors,
-    specialtyHinderedAmines,
     diaminopolyethyleneGlycols,
     chromanolsDerivatives,
     freeRadicals,
@@ -124,7 +124,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _order: '2',
         name: 'Hindered Amines',
         description:
-          'High-purity hindered amines with sterically hindered piperidine structure and stable radicals. Essential building blocks for HALS light stabilizers, TEMPO derivatives for selective oxidation, and versatile intermediates for demanding applications.',
+          'High-purity hindered amines with sterically hindered piperidine structure. Essential building blocks for HALS light stabilizers and versatile intermediates for demanding applications.',
         image: image2Doc.id,
         slug: 'hindered-amines',
 
@@ -135,30 +135,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             title: 'Polymer Light Stabilization',
             description:
               'HALS intermediates and ready-to-use light stabilizers protecting polymers from UV degradation and extending service life.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Polymerization Inhibition',
-            description:
-              'Stable radical systems for controlled radical processes and precise polymerization control in industrial applications.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Selective Oxidation',
-            description:
-              'TEMPO-based catalysts enabling efficient and highly selective chemical transformations in organic synthesis.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Pharmaceutical Intermediates',
-            description:
-              'Specialized TEMPO derivatives serving as key building blocks and API intermediates in pharmaceutical synthesis.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Spin Labeling / EPR Spectroscopy',
-            description:
-              'Advanced stable radical probes for molecular analysis and spectroscopic research applications.',
           },
           {
             imageSrc: applicationsImage6Doc.id,
@@ -274,61 +250,10 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
-        _order: '7',
-        name: 'Specialty Hindered Amines & Derivatives',
-        description:
-          'VUP leverages extensive R&D expertise to offer specialized derivatives including HALS intermediates, ready-to-use HALS products, and unique functionalized TEMPO derivatives for research and advanced materials.',
-        image: image3Doc.id,
-        slug: 'specialty-hindered-amines',
-
-        productComparison: true,
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'HALS Synthesis Intermediates',
-            description:
-              'Advanced intermediates like pentamethylpiperidine and amino-TMP for synthesizing high-performance hindered amine light stabilizers.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Polymer Light Stabilization',
-            description:
-              'Ready-to-use HALS products equivalent to Tinuvin 770 and 765/292 for protecting polymers, coatings, and plastics from UV degradation.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Spin Labeling & EPR Spectroscopy',
-            description:
-              'Functionalized TEMPO derivatives like amino-TEMPO and spiro-TEMPO-acid for bioconjugation and advanced analytical studies.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Custom Synthesis Building Blocks',
-            description:
-              'Versatile functionalized derivatives serving as starting materials for specialized chemical synthesis and material development.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Radical Chemistry Research',
-            description:
-              'Stable radical compounds and intermediates for studying radical mechanisms and developing new radical-based applications.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Advanced Materials Development',
-            description:
-              'Specialized derivatives enabling innovation in functional materials, bioconjugates, and next-generation chemical products.',
-          },
-        ],
-      },
-    }),
-    payload.create({
-      collection: 'productCategories',
-      data: {
         _order: '3',
         name: 'Diaminopolyethylene Glycols',
         description:
-          'VUP is the unique global producer of high-purity DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
+          'VUP is the unique global producer of high-quality DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
         image: demoImageDoc.id,
         slug: 'diaminopolyethylene-glycols',
 
@@ -362,7 +287,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             imageSrc: applicationsImage5Doc.id,
             title: 'Research Chemicals',
             description:
-              'High-purity reagent for fundamental research in biomaterials science, surface chemistry, and polymer chemistry applications.',
+              'High-quality reagent for fundamental research in biomaterials science, surface chemistry, and polymer chemistry applications.',
           },
         ],
       },
@@ -620,37 +545,13 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       data: {
         name: 'Stericky bránené amíny',
         description:
-          'Vysokočisté stericky bránené amíny so stericky bránenou piperidínovou štruktúrou a stabilnými radikálmi. Základné stavebné bloky pre svetelné stabilizátory HALS, deriváty TEMPO pre selektívnu oxidáciu a všestranné medziprodukty pre náročné aplikácie.',
+          'Vysokočisté stericky bránené amíny so stericky bránenou piperidínovou štruktúrou. Základné stavebné bloky pre svetelné stabilizátory HALS a všestranné medziprodukty pre náročné aplikácie.',
         applications: [
           {
             imageSrc: applicationsdemoImageDoc.id,
             title: 'Svetelná stabilizácia polymérov',
             description:
               'Medziprodukty HALS a hotové svetelné stabilizátory chrániace polyméry pred UV degradáciou a predlžujúce ich životnosť.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Inhibícia polymerizácie',
-            description:
-              'Stabilné radikálové systémy pre riadené radikálové procesy a presnú kontrolu polymerizácie v priemyselných aplikáciách.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Selektívna oxidácia',
-            description:
-              'Katalyzátory na báze TEMPO umožňujúce efektívne a vysoko selektívne chemické transformácie v organickej syntéze.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Farmaceutické medziprodukty',
-            description:
-              'Špecializované deriváty TEMPO slúžiace ako kľúčové stavebné bloky a medziprodukty API vo farmaceutickej syntéze.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Spinové značenie / EPR spektroskopia',
-            description:
-              'Pokročilé stabilné radikálové sondy pre molekulárnu analýzu a spektroskopické výskumné aplikácie.',
           },
           {
             imageSrc: applicationsImage6Doc.id,
@@ -759,60 +660,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: specialtyHinderedAmines.id,
-      locale: 'sk',
-      data: {
-        name: 'Špeciálne stericky bránené amíny a deriváty',
-        description:
-          'VUP využíva rozsiahle odborné znalosti v R&D na ponuku špecializovaných derivátov vrátane medziprodukto HALS, hotových produktov HALS a jedinečných funkcionalizovaných derivátov TEMPO pre výskum a pokročilé materiály.',
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Medziprodukty pre syntézu HALS',
-            description:
-              'Pokročilé medziprodukty ako pentametylpiperidín a amino-TMP na syntézu vysokovýkonných stericky bránených amínových svetelných stabilizátorov.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Svetelná stabilizácia polymérov',
-            description:
-              'Hotové produkty HALS ekvivalentné Tinuvin 770 a 765/292 na ochranu polymérov, náterov a plastov pred UV degradáciou.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Spinové značenie a EPR spektroskopia',
-            description:
-              'Funkcionalizované deriváty TEMPO ako amino-TEMPO a spiro-TEMPO-kyselina pre biokonjugáciu a pokročilé analytické štúdie.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Stavebné bloky pre zákazkovú syntézu',
-            description:
-              'Všestranné funkcionalizované deriváty slúžiace ako východiskové materiály pre špecializovanú chemickú syntézu a vývoj materiálov.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Výskum radikálovej chémie',
-            description:
-              'Stabilné radikálové zlúčeniny a medziprodukty na štúdium radikálových mechanizmov a vývoj nových aplikácií na báze radikálov.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Vývoj pokročilých materiálov',
-            description:
-              'Špecializované deriváty umožňujúce inovácie vo funkčných materiáloch, biokonjugátoch a chemických produktoch novej generácie.',
-          },
-        ],
-      },
-    }),
-    payload.update({
-      collection: 'productCategories',
       id: diaminopolyethyleneGlycols.id,
       locale: 'sk',
       data: {
         name: 'Diaminopolyetylénglykoly',
         description:
-          'VUP je jedinečný globálny výrobca vysokočistých polymérov DAPEG s PEG reťazcami s reaktívnymi aminovými koncovými skupinami, nevyhnutné pre biomedicínske nátery a aplikácie povrchovej modifikácie.',
+          'VUP je jedinečný globálny výrobca vysokej kvality polymérov DAPEG s PEG reťazcami s reaktívnymi aminovými koncovými skupinami, nevyhnutné pre biomedicínske nátery a aplikácie povrchovej modifikácie.',
         applications: [
           {
             imageSrc: applicationsdemoImageDoc.id,
@@ -1084,36 +937,13 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       data: {
         name: '立体障害アミン',
         description:
-          '立体障害ピペリジン構造と安定ラジカルを持つ高純度立体障害アミン。HALS光安定剤、選択酸化用TEMPO誘導体、要求の厳しい用途向けの多用途中間体の必須構成要素です。',
+          '立体障害ピペリジン構造を持つ高純度立体障害アミン。HALS光安定剤、要求の厳しい用途向けの多用途中間体の必須構成要素です。',
         applications: [
           {
             imageSrc: applicationsdemoImageDoc.id,
             title: 'ポリマーの光安定化',
             description:
               'ポリマーを紫外線による劣化から保護し、耐用年数を延ばすHALS中間体および即時使用可能な光安定剤。',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: '重合禁止',
-            description:
-              '産業用途におけるラジカルプロセスの制御と精密な重合制御のための安定ラジカルシステム。',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: '選択的酸化',
-            description:
-              '有機合成における効率的で高選択的な化学変換を可能にするTEMPOベースの触媒。',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: '医薬品中間体',
-            description:
-              '医薬品合成における重要なビルディングブロックおよびAPI中間体として機能する特殊なTEMPO誘導体。',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'スピンラベリング / EPR分光法',
-            description: '分子分析および分光学的研究用途のための高度な安定ラジカルプローブ。',
           },
           {
             imageSrc: applicationsImage6Doc.id,
@@ -1215,59 +1045,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: specialtyHinderedAmines.id,
-      locale: 'jp',
-      data: {
-        name: '特殊立体障害アミンと誘導体',
-        description:
-          'VUPは豊富なR&D専門知識を活用して、HALS中間体、既製HALS製品、研究と先進材料用の独特な機能化TEMPO誘導体を含む特殊誘導体を提供します。',
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'HALS合成中間体',
-            description:
-              '高性能な立体障害アミン光安定剤を合成するためのペンタメチルピペリジンやアミノTMPなどの高度な中間体。',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'ポリマーの光安定化',
-            description:
-              'ポリマー、コーティング、プラスチックを紫外線劣化から保護するためのTinuvin 770および765/292と同等の即時使用可能なHALS製品。',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'スピンラベリングとEPR分光法',
-            description:
-              '生体共役および高度な分析研究のためのアミノTEMPOやスピロTEMPO酸などの機能化TEMPO誘導体。',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'カスタム合成ビルディングブロック',
-            description:
-              '特殊な化学合成および材料開発の出発物質として機能する多用途な機能化誘導体。',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'ラジカル化学研究',
-            description:
-              'ラジカル機構の研究や新しいラジカルベースのアプリケーションを開発するための安定ラジカル化合物および中間体。',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: '先端材料開発',
-            description: '機能性材料、生体共役体、次世代化学製品の革新を可能にする特殊誘導体。',
-          },
-        ],
-      },
-    }),
-    payload.update({
-      collection: 'productCategories',
       id: diaminopolyethyleneGlycols.id,
       locale: 'jp',
       data: {
         name: 'ジアミノポリエチレングリコール',
         description:
-          'VUPは反応性アミノ末端を持つPEG鎖を特徴とする高純度DAPEGポリマーの独自のグローバル生産者であり、生物医学コーティングと表面改質用途に不可欠です。',
+          'VUPは反応性アミノ末端を持つPEG鎖を特徴とする高品質DAPEGポリマーの独自のグローバル生産者であり、生物医学コーティングと表面改質用途に不可欠です。',
         applications: [
           {
             imageSrc: applicationsdemoImageDoc.id,
@@ -1906,7 +1689,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A key functionalized derivative of TEMPO featuring both a stable nitroxyl radical and reactive hydroxyl group. Serves as a versatile antioxidant, catalyst, spin label, and crucial intermediate for synthesizing specialty chemicals.',
-        chemicalStructureImage: hTempoStructureDoc.id,
+        chemicalStructureImage: cas2226962StructureDoc.id,
         technicalSpecifications: {
           chemicalName: '4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl',
           casNumber: '2226-96-2',
@@ -1925,14 +1708,8 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           appearance: 'Orange or reddish-orange crystalline solid/powder',
           purity: '≥98.0 % wt',
         },
-        chemicalFamily: [hinderedAmines, polymerisationInhibitors],
+        chemicalFamily: [hinderedAmines],
         applications: [
-          {
-            application: 'Polymerization Inhibitor Synthesis',
-            description:
-              'Key raw material for producing formulated liquid polymerization inhibitors like the VUPIN range used in petrochemicals and monomer stabilization applications.',
-            image: media.HTempoApplication1Doc.id,
-          },
           {
             application: 'Catalysis & Oxidation',
             description:
@@ -2389,7 +2166,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'A liquid polymerization inhibitor formulation combining 4-Hydroxy-TEMPO with 2-Butoxyethanol solvent. Prevents unwanted polymerization in petrochemical streams, monomer handling, and FCC gasoline applications.',
-        chemicalStructureImage: vupinStructureDoc.id,
+        chemicalStructureImage: cas2226962StructureDoc.id,
         technicalSpecifications: {
           chemicalName:
             'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl in 2-Butoxyethanol',
@@ -2635,7 +2412,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         chemicalStructureImage: benzoyloxyTmpStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '(2,2,6,6-Tetramethylpiperidin-4-yl) benzoate',
-          casNumber: '3589-98-4',
+          casNumber: '26275-88-7',
           ecNumber: '222-733-9',
           synonyms: [
             { synonym: '2,2,6,6-Tetramethyl-4-piperidinyl benzoate' },
@@ -2970,13 +2747,13 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         chemicalStructureImage: colaminPhosphateStructureDoc.id,
         technicalSpecifications: {
           chemicalName: 'Calcium bis(2-aminoethyl hydrogen phosphate)',
-          casNumber: '17257-58-0',
+          casNumber: '18672-70-3',
           synonyms: [
             { synonym: 'Calcium Phosphorylethanolamine' },
             { synonym: 'Colamin Phosphate Calcium' },
           ],
           molecularFormula: 'C₄H₁₄CaN₂O₈P₂',
-          molecularWeight: '316.18 g/mol',
+          molecularWeight: '320.19 g/mol',
           labVerified: 'Verified',
         },
         VupSpecifications: {
@@ -3230,7 +3007,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           purity: 'min. 98.0 % wt',
           solubility: 'Readily soluble in water',
         },
-        chemicalFamily: [polymerisationInhibitors],
+        chemicalFamily: [phospholipidPrecursors],
         applications: [
           {
             application: 'Liquid Formulations',
@@ -3680,7 +3457,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             { synonym: 'ADK Stab LA-77' },
           ],
           molecularFormula: 'C₂₈H₅₂N₂O₄',
-          molecularWeight: '484.72 g/mol',
+          molecularWeight: '480.72 g/mol',
           labVerified: 'Verified',
         },
         VupSpecifications: {
@@ -3800,7 +3577,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             { synonym: 'Sabostab UV 62' },
           ],
           molecularFormula: 'C₃₀H₅₆N₂O₄',
-          molecularWeight: '512.77 g/mol',
+          molecularWeight: '508.78 g/mol',
           labVerified: 'Verified',
         },
         VupSpecifications: {
@@ -4147,7 +3924,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           purity: 'Research grade',
           solubility: 'Soluble in organic solvents, insoluble in water',
         },
-        chemicalFamily: [specialtyHinderedAmines],
+        chemicalFamily: [freeRadicals],
         applications: [
           {
             application: 'Radical Scavenging Standards',
@@ -13193,6 +12970,18 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       .catch((err) => {
         payload.logger.error(`- Error updating acetylenic-alcohols category: ${err}`)
       }),
+    payload
+      .update({
+        collection: 'productCategories',
+        id: freeRadicals.id,
+        data: {
+          featuredProducts: [temp.id, hTempo.id, tempone.id],
+          image: tempoStructureDoc.id,
+        },
+      })
+      .catch((err) => {
+        payload.logger.error(`- Error updating free-radicals category: ${err}`)
+      }),
   ])
 
   return {
@@ -13201,7 +12990,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       hinderedAmines,
       phospholipidPrecursors,
       polymerisationInhibitors,
-      specialtyHinderedAmines,
       diaminopolyethyleneGlycols,
       chromanolsDerivatives,
       freeRadicals,

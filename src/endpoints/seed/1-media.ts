@@ -207,6 +207,11 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/768-66-1 (structural formula).png`,
     alt: '768-66-1 Structure',
   },
+  {
+    key: 'cas2226962StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2226-96-2 (structural formula).png`,
+    alt: '2226-96-2 Structure',
+  },
   // Badges
   {
     key: 'badge1Doc',
