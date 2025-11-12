@@ -24,6 +24,8 @@ export async function POST(request: NextRequest) {
         meta: true,
         description: true,
         doc: true,
+        casNumber: true,
+        ecNumber: true,
       },
       pagination: false,
       where: {
@@ -50,6 +52,16 @@ export async function POST(request: NextRequest) {
           },
           {
             description: {
+              like: query,
+            },
+          },
+          {
+            casNumber: {
+              like: query,
+            },
+          },
+          {
+            ecNumber: {
               like: query,
             },
           },
@@ -90,6 +102,8 @@ export async function GET(request: NextRequest) {
         meta: true,
         description: true,
         doc: true,
+        casNumber: true,
+        ecNumber: true,
       },
       pagination: false,
       where: {
@@ -116,6 +130,16 @@ export async function GET(request: NextRequest) {
           },
           {
             description: {
+              like: query,
+            },
+          },
+          {
+            casNumber: {
+              like: query,
+            },
+          },
+          {
+            ecNumber: {
               like: query,
             },
           },

@@ -1784,6 +1784,8 @@ export interface Search {
       };
   slug?: string | null;
   description?: string | null;
+  casNumber?: string | null;
+  ecNumber?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -3267,6 +3269,8 @@ export interface SearchSelect<T extends boolean = true> {
   doc?: T;
   slug?: T;
   description?: T;
+  casNumber?: T;
+  ecNumber?: T;
   meta?:
     | T
     | {

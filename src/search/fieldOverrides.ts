@@ -20,6 +20,24 @@ export const searchFields: Field[] = [
     },
   },
   {
+    name: 'casNumber',
+    type: 'text',
+    index: true,
+    localized: true,
+    admin: {
+      readOnly: true,
+    },
+  },
+  {
+    name: 'ecNumber',
+    type: 'text',
+    index: true,
+    localized: true,
+    admin: {
+      readOnly: true,
+    },
+  },
+  {
     name: 'meta',
     label: 'Meta',
     type: 'group',

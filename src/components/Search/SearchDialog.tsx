@@ -23,6 +23,8 @@ interface SearchResult {
     relationTo: string
     value: any
   }
+  casNumber?: string
+  ecNumber?: string
 }
 
 // Helper function to generate correct URL based on collection
@@ -147,12 +149,14 @@ export default function SearchDialog({ children }: SearchDialogProps) {
     }
   }
 
+  console.log(searchResults)
+
   return (
     <Dialog open={isSearchDialogOpen} onOpenChange={handleDialogClose}>
       <DialogTrigger className="block lg:hidden xl:block" asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="max-w-[90%] mx-auto rounded-md sm:max-w-[550px] p-0">
+      <DialogContent className="max-w-[90%] mx-auto rounded-md sm:max-w-[650px] p-0">
         <div className="flex flex-col h-[450px]">
           <div className="flex items-center border-b px-3">
             <Search className="mr-2 h-4 w-4 shrink-0 text-gray-500" />
@@ -218,8 +222,13 @@ export default function SearchDialog({ children }: SearchDialogProps) {
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1 min-w-0">
-                            <div className="font-medium text-gray-900 line-clamp-1">
-                              {result.title}
+                            <div className="font-medium text-gray-900 text-md line-clamp-1 flex flex-col gap-1">
+                              {result.casNumber && (
+                                <span className="text-xs text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded w-fit">
+                                  CAS: {result.casNumber}
+                                </span>
+                              )}
+                              {result.title}{' '}
                             </div>
                             {(result.description || result.meta?.description) && (
                               <div className="text-xs text-gray-500 mt-1 line-clamp-2">
