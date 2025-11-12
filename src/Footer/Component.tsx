@@ -47,7 +47,7 @@ export async function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Image
                 src="/assets/logo-vup.png"
-                alt="VUP A.S. Logo"
+                alt="VUP, a.s Logo"
                 width={150}
                 height={50}
                 className="h-auto w-28 lg:w-[150px]"

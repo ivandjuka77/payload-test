@@ -827,7 +827,7 @@ export const seed = async ({
                 type: 'custom',
                 newTab: null,
                 url: '/products/category/hindered-amines',
-                label: 'Hydroxy Acids',
+                label: 'Hindered Amines',
               },
             },
 
@@ -927,7 +927,7 @@ export const seed = async ({
         },
       ],
       companyInfo: {
-        address: 'VUP A.S., a.s.\nNábrežná 4, 971 01\nPrievidza, Slovakia',
+        address: 'VUP,a.s \nNábrežná 4, 971 01\nPrievidza, Slovakia',
         email: 'vup@vupas.sk',
       },
     },

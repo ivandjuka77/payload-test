@@ -329,7 +329,7 @@ export const post4: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: "VUP a.s.'s EcoVadis Silver Medal is a testament to our 70-year journey of innovation, quality, and an evolving, deepening commitment to sustainability. It offers our partners globally the assurance that VUP is a reliable, forward-thinking supplier dedicated to not just chemical excellence, but also to building sustainable partnerships.",
+                text: "VUP, a.s's EcoVadis Silver Medal is a testament to our 70-year journey of innovation, quality, and an evolving, deepening commitment to sustainability. It offers our partners globally the assurance that VUP is a reliable, forward-thinking supplier dedicated to not just chemical excellence, but also to building sustainable partnerships.",
                 version: 1,
               },
             ],

@@ -17,7 +17,7 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { sendEmail, createContactFormEmail } from '@/utilities/email'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | VUP A.S.` : 'VUP A.S.'
+  return doc?.title ? `${doc.title} | VUP, a.s` : 'VUP, a.s'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -123,7 +123,7 @@ export const plugins: Plugin[] = [
                   console.log('  Form Title:', form.title)
                   console.log('  From:', formData.email || 'N/A')
                   console.log('  Subject:', formData.subject || 'Contact Form Submission')
-                  
+
                   const emailHtml = createContactFormEmail({
                     name: formData.name || formData['full-name'] || 'N/A',
                     email: formData.email || 'N/A',
@@ -137,14 +137,21 @@ export const plugins: Plugin[] = [
                     html: emailHtml,
                     replyTo: formData.email,
                   })
-                  
+
                   if (emailResult.success) {
                     console.log('✅ FormBlock Contact Form email sent successfully')
                   } else {
-                    console.error('⚠️ FormBlock Contact Form email failed to send:', emailResult.error)
+                    console.error(
+                      '⚠️ FormBlock Contact Form email failed to send:',
+                      emailResult.error,
+                    )
                   }
                 } else {
-                  console.log('ℹ️ FormBlock submission received for form:', form.title, '(email handled elsewhere)')
+                  console.log(
+                    'ℹ️ FormBlock submission received for form:',
+                    form.title,
+                    '(email handled elsewhere)',
+                  )
                 }
               } catch (error) {
                 console.error('❌ Error in FormBlock email hook:', error)

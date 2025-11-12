@@ -158,7 +158,7 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: '“Despite the challenges facing Europe’s chemical sector, we believe this investment strengthens the region’s self-sufficiency and competitiveness,” said Roman Karlubík, CEO of VUP a.s. “Our focus remains on innovation, quality, and long-term collaboration with our customers.”',
+                text: '“Despite the challenges facing Europe’s chemical sector, we believe this investment strengthens the region’s self-sufficiency and competitiveness,” said Roman Karlubík, CEO of VUP, a.s “Our focus remains on innovation, quality, and long-term collaboration with our customers.”',
                 version: 1,
               },
             ],
