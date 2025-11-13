@@ -218,6 +218,17 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/2226-96-2 (structural formula).png`,
     alt: '2226-96-2 Structure',
   },
+  {
+    key: 'cas3923522StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/3923-52-2 (structural formula).png`,
+    alt: '3923-52-2 Structure',
+  },
+  {
+    key: 'cas1483745StructureDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/products/1483-74-5 (structural formula).png`,
+    alt: '1483-74-5 Structure',
+  },
+
   // Badges
   {
     key: 'badge1Doc',

@@ -50,6 +50,8 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     cas768661StructureDoc,
     cas79550StructureDoc,
     cas2226962StructureDoc,
+    cas3923522StructureDoc,
+    cas1483745StructureDoc,
   } = media
 
   // --------------------
@@ -1287,7 +1289,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     tempone,
 
     // Batch 5
-    colamin,
+    colaminPhosphateCalciumSalt,
     colaminPhosphate,
 
     // Batch 6
@@ -1324,6 +1326,10 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     dmhd,
     dimethylhexynol,
     dimethylheptynol,
+
+    // Batch 13
+    diphenylpropynol,
+    tetraphenylbutynediol,
   ] = await Promise.all([
     payload.create({
       collection: 'products',
@@ -2860,7 +2866,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         _status: 'published',
         description:
           'High-purity fundamental biochemical precursor required for synthesizing phosphatidylethanolamine (PE), a critical phospholipid component of all cell membranes. Essential for cellular structure and function in pharmaceutical applications.',
-        chemicalStructureImage: demoImageDoc.id,
+        chemicalStructureImage: colaminPhosphateStructureDoc.id,
         technicalSpecifications: {
           chemicalName: '2-Aminoethyl dihydrogen phosphate',
           casNumber: '1071-23-4',
@@ -5503,6 +5509,250 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         slug: '36-dimethyl-1-heptyne-3-ol',
       },
     }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,1-Diphenyl-2-propyn-1-ol',
+        _status: 'published',
+        description:
+          'An aromatic acetylenic alcohol combining a reactive C≡C triple bond with two phenyl substituents that impart high thermal and oxidative stability. Produced in laboratory quantities by VUP, serving as a model intermediate in fine-chemical synthesis, polymer research, and coordination-chemistry studies.',
+        chemicalStructureImage: cas3923522StructureDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,1-Diphenyl-2-propyn-1-ol',
+          casNumber: '3923-52-2',
+          ecNumber: 'Not listed',
+          synonyms: [
+            { synonym: 'Diphenylpropargyl alcohol' },
+            { synonym: 'α,α-Diphenylpropargyl alcohol' },
+          ],
+          molecularFormula: 'C₁₅H₁₂O',
+          molecularWeight: '208.26 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'White to faintly beige crystalline solid',
+          purity: '≥ 98.0 % (laboratory grade)',
+          meltingPoint: '94 – 97 °C (lit.)',
+          boilingPoint: '~ 174 °C (5 mm Hg)',
+          solubility: 'Soluble in ethanol, acetone, benzene; insoluble in water',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Fine Organic Synthesis',
+            description:
+              'Intermediate for aromatic alkyne derivatives in advanced chemical synthesis.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Catalyst Development',
+            description:
+              'Test substrate for transition-metal hydrogenation or coupling reactions in catalytic research.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Polymer R&D',
+            description:
+              'Monomeric model for rigid aromatic units in advanced polymer materials research.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Academic Research',
+            description:
+              'Reference compound for propargylic alcohol mechanism studies in research laboratories.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reactive Acetylenic Alcohol',
+            description:
+              'Useful precursor for oxidative coupling and metal-catalysed addition studies.',
+          },
+          {
+            feature: 'Aromatic Stability',
+            description:
+              'Phenyl groups enhance thermal and oxidative resistance for demanding applications.',
+          },
+          {
+            feature: 'Dual Reactivity',
+            description:
+              'Hydroxyl and alkyne groups enable diverse derivatisation pathways in synthesis.',
+          },
+          {
+            feature: 'High-Purity Research Grade',
+            description: '≥ 98% purity, verified by GC/NMR for reliable experimental results.',
+          },
+          {
+            feature: 'ISO 9001:2015 Production',
+            description:
+              'Prepared under controlled laboratory conditions at VUP ensuring consistent quality.',
+          },
+          {
+            feature: 'Laboratory-Scale Availability',
+            description:
+              'Available in 25 g, 100 g, or 250 g quantities suitable for research applications.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is 1,1-Diphenyl-2-propyn-1-ol used for?',
+            answer:
+              'It serves as a model intermediate for fine-chemical synthesis, polymer research, and coordination-chemistry studies in laboratory settings.',
+          },
+          {
+            question: 'What makes this compound different from other acetylenic alcohols?',
+            answer:
+              'The two phenyl substituents provide exceptional thermal and oxidative stability while maintaining the reactive acetylenic functionality.',
+          },
+          {
+            question: 'What purity level does VUP supply?',
+            answer:
+              'VUP supplies laboratory-grade material at ≥ 98% purity, verified by GC and NMR analysis.',
+          },
+          {
+            question: 'Is this product REACH registered?',
+            answer:
+              'Research-use exemption applies (< 1 t per year). No CLP classification found; standard laboratory PPE recommended.',
+          },
+          {
+            question: 'What are the storage requirements?',
+            answer:
+              'Store in a tightly sealed container in a cool and dry environment to maintain stability and purity.',
+          },
+          {
+            question: 'What applications is this compound suitable for?',
+            answer:
+              'All applications are restricted to research and development use, including fine synthesis, catalyst development, and polymer research.',
+          },
+        ],
+        slug: '11-diphenyl-2-propyn-1-ol',
+      },
+    }),
+    payload.create({
+      collection: 'products',
+      data: {
+        isKeyProduct: false,
+        name: '1,1,4,4-Tetraphenyl-2-butyne-1,4-diol',
+        _status: 'published',
+        description:
+          'A rigid, aromatic acetylenic diol featuring two tertiary alcohol groups and a central carbon–carbon triple bond. Produced by VUP on a laboratory scale, this compound is primarily used as a model structure and specialty intermediate in polymer and catalyst studies.',
+        chemicalStructureImage: cas1483745StructureDoc.id,
+        technicalSpecifications: {
+          chemicalName: '1,1,4,4-Tetraphenyl-2-butyne-1,4-diol',
+          casNumber: '1483-74-5',
+          ecNumber: 'Not listed',
+          synonyms: [
+            { synonym: 'Tetraphenylbutynediol' },
+            { synonym: '1,4-Di-tert-phenyl-2-butyne-1,4-diol' },
+          ],
+          molecularFormula: 'C₂₈H₂₀O₂',
+          molecularWeight: '388.46 g/mol',
+          labVerified: 'Verified',
+        },
+        VupSpecifications: {
+          appearance: 'White to pale-cream crystalline solid',
+          purity: '≥ 98.0 % (laboratory grade)',
+          meltingPoint: '~ 234 – 236 °C (lit.)',
+          solubility: 'Low in water; soluble in aromatic solvents and alcohols',
+        },
+        chemicalFamily: [acetylenicAlcohols],
+        applications: [
+          {
+            application: 'Polymer R&D',
+            description:
+              'Structural model for rigid, phenyl-substituted diols in advanced polymer research.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Catalyst Studies',
+            description:
+              'Ligand precursor or model substrate for oxidative coupling research in catalytic systems.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Organic Synthesis',
+            description:
+              'Intermediate in aryl-acetylene chemistry for complex molecule construction.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Materials Science',
+            description:
+              'Used in design of cross-linking and aromatic network polymers for advanced materials.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Rigid Aromatic Core',
+            description:
+              'Provides thermal stability and defined geometry for model polymer and catalyst systems.',
+          },
+          {
+            feature: 'Dual Hydroxyl Groups',
+            description:
+              'Allows derivatisation to esters or ethers for polymer backbone modification.',
+          },
+          {
+            feature: 'Stable Triple Bond',
+            description:
+              'Useful for studying acetylene reactivity and oxidative coupling mechanisms.',
+          },
+          {
+            feature: 'High Purity, Research Grade',
+            description: '≥ 98% purity verified by GC/NMR analysis for reliable results.',
+          },
+          {
+            feature: 'Laboratory Production by VUP',
+            description: 'Prepared under ISO 9001:2015 analytical control for consistent quality.',
+          },
+          {
+            feature: 'Exceptional Thermal Stability',
+            description:
+              'High melting point (234-236°C) enables processing under demanding thermal conditions.',
+          },
+        ],
+        caseStudies: [],
+        relatedProducts: [],
+        faq: [
+          {
+            question: 'What is 1,1,4,4-Tetraphenyl-2-butyne-1,4-diol used for?',
+            answer:
+              'It serves as a model structure and specialty intermediate in polymer research, catalyst studies, and materials science applications.',
+          },
+          {
+            question: 'What makes this compound unique?',
+            answer:
+              'The combination of rigid aromatic core with four phenyl groups, dual tertiary alcohols, and a central triple bond provides exceptional thermal stability and defined geometry.',
+          },
+          {
+            question: 'What purity does VUP supply?',
+            answer:
+              'VUP supplies laboratory-grade material at ≥ 98% purity, verified by GC and NMR analysis.',
+          },
+          {
+            question: 'Is this product REACH registered?',
+            answer:
+              'Laboratory use only (< 1 t per year exemption). Not classified under CLP; handle with standard PPE.',
+          },
+          {
+            question: 'What are the solubility characteristics?',
+            answer:
+              'Low solubility in water; soluble in aromatic solvents and alcohols, making it suitable for organic synthesis applications.',
+          },
+          {
+            question: 'What applications is this compound suitable for?',
+            answer:
+              'All applications are restricted to research and development use, including polymer R&D, catalyst studies, and materials science.',
+          },
+        ],
+        slug: '1144-tetraphenyl-2-butyne-14-diol',
+      },
+    }),
   ])
 
   //? -------------------- START ADDING TRANSLATIONS FOR PRODUCTS -------------------- ?//
@@ -7514,7 +7764,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'products',
-      id: colamin.id,
+      id: colaminPhosphateCalciumSalt.id,
       locale: 'sk',
       data: {
         name: 'Colamin Phosphate Calcium Salt',
@@ -7819,7 +8069,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'products',
-      id: colamin.id,
+      id: colaminPhosphateCalciumSalt.id,
       locale: 'jp',
       data: {
         name: 'コラミンリン酸カルシウム塩',
@@ -11030,6 +11280,212 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   ])
 
   // --------------------
+  // ADDING SLOVAK TRANSLATIONS FOR PRODUCTS (BATCH 13: DIPHENYL-PROPYNOL, TETRAPHENYL-BUTYNEDIOL, COLAMIN-PHOSPHATE-CA)
+  // --------------------
+
+  payload.logger.info('- Adding Slovak translations for batch 13 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: diphenylpropynol.id,
+      locale: 'sk',
+      data: {
+        name: '1,1-Difenyl-2-propín-1-ol',
+        description:
+          'Aromatický acetylenický alkohol kombinujúci reaktívnu trojitú väzbu C≡C s dvoma fenylovými substituentmi, ktoré poskytujú vysokú tepelnú a oxidačnú stabilitu. Vyrábaný v laboratórnych množstvách spoločnosťou VUP, slúži ako modelový medziproduk v syntéze jemných chemikálií, výskume polymérov a koordinačno-chemických štúdiách.',
+        applications: [
+          {
+            application: 'Jemná organická syntéza',
+            description:
+              'Medziproduk pre deriváty aromatických alkýnov v pokročilej chemickej syntéze.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Vývoj katalyzátorov',
+            description:
+              'Testovací substrát pre hydrogenovanie prechodných kovov alebo väzbové reakcie v katalytickom výskume.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Výskum a vývoj polymérov',
+            description:
+              'Monomérny model pre tuhé aromatické jednotky vo výskume pokročilých polymérnych materiálov.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Akademický výskum',
+            description:
+              'Referenčná zlúčenina pre štúdie mechanizmov propargylových alkoholov vo výskumných laboratóriách.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Reaktívny acetylenický alkohol',
+            description:
+              'Užitočný prekurzor pre oxidačné väzbové a kovom katalyzované adičné štúdie.',
+          },
+          {
+            feature: 'Aromatická stabilita',
+            description:
+              'Fenylové skupiny zvyšujú tepelnú a oxidačnú odolnosť pre náročné aplikácie.',
+          },
+          {
+            feature: 'Duálna reaktivita',
+            description:
+              'Hydroxylové a alkýnové skupiny umožňujú rôzne derivatizačné dráhy v syntéze.',
+          },
+          {
+            feature: 'Vysoká čistota výskumnej kvality',
+            description:
+              'Čistota ≥ 98%, overená pomocou GC/NMR pre spoľahlivé experimentálne výsledky.',
+          },
+          {
+            feature: 'Výroba podľa ISO 9001:2015',
+            description:
+              'Pripravené v kontrolovaných laboratórnych podmienkach vo VUP zabezpečujúc konzistentnú kvalitu.',
+          },
+          {
+            feature: 'Dostupnosť v laboratórnom meradle',
+            description:
+              'K dispozícii v množstvách 25 g, 100 g alebo 250 g vhodných pre výskumné aplikácie.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa používa 1,1-Difenyl-2-propín-1-ol?',
+            answer:
+              'Slúži ako modelový medziproduk pre syntézu jemných chemikálií, výskum polymérov a koordinačno-chemické štúdie v laboratórnom prostredí.',
+          },
+          {
+            question: 'Čo robí túto zlúčeninu odlišnou od iných acetylenických alkoholov?',
+            answer:
+              'Dva fenylové substituenty poskytujú výnimočnú tepelnú a oxidačnú stabilitu pri zachovaní reaktívnej acetylénickej funkčnosti.',
+          },
+          {
+            question: 'Akú úroveň čistoty dodáva VUP?',
+            answer: 'VUP dodáva laboratórny materiál s čistotou ≥ 98%, overenou analýzou GC a NMR.',
+          },
+          {
+            question: 'Je tento produkt registrovaný podľa REACH?',
+            answer:
+              'Platí výnimka pre výskumné použitie (< 1 t ročne). Žiadna klasifikácia CLP nebola nájdená; odporúča sa štandardné laboratórne OOP.',
+          },
+          {
+            question: 'Aké sú požiadavky na skladovanie?',
+            answer:
+              'Skladujte v tesne uzavretej nádobe v chladnom a suchom prostredí na zachovanie stability a čistoty.',
+          },
+          {
+            question: 'Pre aké aplikácie je táto zlúčenina vhodná?',
+            answer:
+              'Všetky aplikácie sú obmedzené na výskum a vývoj, vrátane jemnej syntézy, vývoja katalyzátorov a výskumu polymérov.',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: tetraphenylbutynediol.id,
+      locale: 'sk',
+      data: {
+        name: '1,1,4,4-Tetrafenyl-2-butín-1,4-diol',
+        description:
+          'Tuhý, aromatický acetylenický diol obsahujúci dve terciárne alkoholové skupiny a centrálnu trojitú väzbu uhlík–uhlík. Vyrábaný spoločnosťou VUP v laboratórnom meradle, táto zlúčenina sa primárne používa ako modelová štruktúra a špecializovaný medziproduk v štúdiách polymérov a katalyzátorov.',
+        applications: [
+          {
+            application: 'Výskum a vývoj polymérov',
+            description:
+              'Štrukturálny model pre tuhé, fenylom substituované dioly v pokročilom výskume polymérov.',
+            image: demoImageDoc.id,
+          },
+          {
+            application: 'Štúdie katalyzátorov',
+            description:
+              'Prekurzor ligandu alebo modelový substrát pre výskum oxidačného spojenia v katalytických systémoch.',
+            image: image2Doc.id,
+          },
+          {
+            application: 'Organická syntéza',
+            description:
+              'Medziproduk v aryl-acetylénovej chémii pre konštrukciu komplexných molekúl.',
+            image: image3Doc.id,
+          },
+          {
+            application: 'Materiálové vedy',
+            description:
+              'Používa sa pri navrhovaní sieťovaných a aromatických sieťových polymérov pre pokročilé materiály.',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: 'Tuhé aromatické jadro',
+            description:
+              'Poskytuje tepelnú stabilitu a definovanú geometriu pre modelové polymérne a katalyzátorové systémy.',
+          },
+          {
+            feature: 'Duálne hydroxylové skupiny',
+            description:
+              'Umožňuje derivatizáciu na estery alebo étery pre modifikáciu polymernej kostry.',
+          },
+          {
+            feature: 'Stabilná trojitá väzba',
+            description:
+              'Užitočná pre štúdium reaktivity acetylénu a mechanizmov oxidačného spojenia.',
+          },
+          {
+            feature: 'Vysoká čistota výskumnej kvality',
+            description: 'Čistota ≥ 98% overená analýzou GC/NMR pre spoľahlivé výsledky.',
+          },
+          {
+            feature: 'Laboratórna výroba vo VUP',
+            description:
+              'Pripravené pod analytickou kontrolou ISO 9001:2015 pre konzistentnú kvalitu.',
+          },
+          {
+            feature: 'Výnimočná tepelná stabilita',
+            description:
+              'Vysoký bod topenia (234-236°C) umožňuje spracovanie v náročných tepelných podmienkach.',
+          },
+        ],
+        faq: [
+          {
+            question: 'Na čo sa používa 1,1,4,4-Tetrafenyl-2-butín-1,4-diol?',
+            answer:
+              'Slúži ako modelová štruktúra a špecializovaný medziproduk vo výskume polymérov, štúdiách katalyzátorov a aplikáciách materiálových vied.',
+          },
+          {
+            question: 'Čo robí túto zlúčeninu jedinečnou?',
+            answer:
+              'Kombinácia tuhého aromatického jadra so štyrmi fenylovými skupinami, duálnymi terciárnymi alkoholmi a centrálnou trojitou väzbou poskytuje výnimočnú tepelnú stabilitu a definovanú geometriu.',
+          },
+          {
+            question: 'Akú čistotu dodáva VUP?',
+            answer: 'VUP dodáva laboratórny materiál s čistotou ≥ 98%, overenou analýzou GC a NMR.',
+          },
+          {
+            question: 'Je tento produkt registrovaný podľa REACH?',
+            answer:
+              'Len na laboratórne použitie (výnimka < 1 t ročne). Nie je klasifikovaný podľa CLP; manipulujte so štandardným OOP.',
+          },
+          {
+            question: 'Aké sú charakteristiky rozpustnosti?',
+            answer:
+              'Nízka rozpustnosť vo vode; rozpustný v aromatických rozpúšťadlách a alkoholoch, čo ho robí vhodným pre aplikácie organickej syntézy.',
+          },
+          {
+            question: 'Pre aké aplikácie je táto zlúčenina vhodná?',
+            answer:
+              'Všetky aplikácie sú obmedzené na výskum a vývoj, vrátane výskumu polymérov, štúdií katalyzátorov a materiálových vied.',
+          },
+        ],
+      },
+    }),
+  ])
+
+  // --------------------
   // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 8: SPIRO-TEMPO-ACID, GALVINOXYL, DIEPOXYOCTANE)
   // --------------------
 
@@ -12526,6 +12982,197 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
   ])
 
+  // --------------------
+  // ADDING JAPANESE TRANSLATIONS FOR PRODUCTS (BATCH 13: DIPHENYL-PROPYNOL, TETRAPHENYL-BUTYNEDIOL, COLAMIN-PHOSPHATE-CA)
+  // --------------------
+
+  payload.logger.info('- Adding Japanese translations for batch 13 products...')
+
+  await Promise.all([
+    payload.update({
+      collection: 'products',
+      id: diphenylpropynol.id,
+      locale: 'jp',
+      data: {
+        name: '1,1-ジフェニル-2-プロピン-1-オール',
+        description:
+          '反応性C≡C三重結合と、高い熱的および酸化的安定性を与える2つのフェニル置換基を組み合わせた芳香族アセチレンアルコール。VUPによって実験室規模で生産され、ファインケミカル合成、ポリマー研究、配位化学研究におけるモデル中間体として機能します。',
+        applications: [
+          {
+            application: 'ファイン有機合成',
+            description: '高度な化学合成における芳香族アルキン誘導体の中間体。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '触媒開発',
+            description: '触媒研究における遷移金属水素化またはカップリング反応の試験基質。',
+            image: image2Doc.id,
+          },
+          {
+            application: 'ポリマー研究開発',
+            description: '高度なポリマー材料研究における剛性芳香族ユニットのモノマーモデル。',
+            image: image3Doc.id,
+          },
+          {
+            application: '学術研究',
+            description: '研究室におけるプロパルギルアルコールメカニズム研究の参照化合物。',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '反応性アセチレンアルコール',
+            description: '酸化カップリングおよび金属触媒付加研究の有用な前駆体。',
+          },
+          {
+            feature: '芳香族安定性',
+            description: 'フェニル基が要求の厳しい用途に対して熱的および酸化的耐性を強化。',
+          },
+          {
+            feature: '二重反応性',
+            description: '合成における多様な誘導体化経路を可能にするヒドロキシル基とアルキン基。',
+          },
+          {
+            feature: '高純度研究グレード',
+            description: '信頼性の高い実験結果のためにGC/NMRで検証された≥ 98%純度。',
+          },
+          {
+            feature: 'ISO 9001:2015生産',
+            description: '一貫した品質を確保するVUPの管理された実験室条件下で調製。',
+          },
+          {
+            feature: '実験室規模の入手可能性',
+            description: '研究用途に適した25 g、100 g、または250 g量で入手可能。',
+          },
+        ],
+        faq: [
+          {
+            question: '1,1-ジフェニル-2-プロピン-1-オールは何に使用されますか？',
+            answer:
+              '実験室環境におけるファインケミカル合成、ポリマー研究、配位化学研究のモデル中間体として機能します。',
+          },
+          {
+            question: 'この化合物を他のアセチレンアルコールと異なるものにするものは何ですか？',
+            answer:
+              '2つのフェニル置換基が、反応性アセチレン官能性を維持しながら、卓越した熱的および酸化的安定性を提供します。',
+          },
+          {
+            question: 'VUPはどのような純度レベルを供給していますか？',
+            answer:
+              'VUPはGCおよびNMR分析により検証された≥ 98%純度の実験室グレード材料を供給します。',
+          },
+          {
+            question: 'この製品はREACH登録されていますか？',
+            answer:
+              '研究使用免除が適用されます（年間< 1トン）。CLP分類は見つかりませんでした。標準的な実験室用PPEを推奨します。',
+          },
+          {
+            question: '保管要件は何ですか？',
+            answer:
+              '安定性と純度を維持するために、密閉容器に入れて涼しく乾燥した環境で保管してください。',
+          },
+          {
+            question: 'この化合物はどのような用途に適していますか？',
+            answer:
+              'すべての用途は研究開発使用に限定されており、ファイン合成、触媒開発、ポリマー研究が含まれます。',
+          },
+        ],
+      },
+    }),
+    payload.update({
+      collection: 'products',
+      id: tetraphenylbutynediol.id,
+      locale: 'jp',
+      data: {
+        name: '1,1,4,4-テトラフェニル-2-ブチン-1,4-ジオール',
+        description:
+          '2つの第三級アルコール基と中央の炭素–炭素三重結合を特徴とする剛性芳香族アセチレンジオール。VUPによって実験室規模で生産され、この化合物は主にポリマーおよび触媒研究におけるモデル構造および特殊中間体として使用されます。',
+        applications: [
+          {
+            application: 'ポリマー研究開発',
+            description: '高度なポリマー研究における剛性フェニル置換ジオールの構造モデル。',
+            image: demoImageDoc.id,
+          },
+          {
+            application: '触媒研究',
+            description: '触媒系における酸化カップリング研究のリガンド前駆体またはモデル基質。',
+            image: image2Doc.id,
+          },
+          {
+            application: '有機合成',
+            description: '複雑な分子構築のためのアリール-アセチレン化学における中間体。',
+            image: image3Doc.id,
+          },
+          {
+            application: '材料科学',
+            description: '高度な材料のための架橋および芳香族ネットワークポリマーの設計に使用。',
+            image: demoImageDoc.id,
+          },
+        ],
+        keyFeatures: [
+          {
+            feature: '剛性芳香族コア',
+            description:
+              'モデルポリマーおよび触媒系のための熱安定性と定義された幾何学的構造を提供。',
+          },
+          {
+            feature: '二重ヒドロキシル基',
+            description:
+              'ポリマー骨格改質のためのエステルまたはエーテルへの誘導体化を可能にします。',
+          },
+          {
+            feature: '安定した三重結合',
+            description: 'アセチレン反応性および酸化カップリング機構の研究に有用。',
+          },
+          {
+            feature: '高純度研究グレード',
+            description: '信頼性の高い結果のためにGC/NMR分析により検証された≥ 98%純度。',
+          },
+          {
+            feature: 'VUPによる実験室生産',
+            description: '一貫した品質のためにISO 9001:2015分析管理下で調製。',
+          },
+          {
+            feature: '卓越した熱安定性',
+            description: '高い融点（234-236°C）により、厳しい熱条件下での加工が可能。',
+          },
+        ],
+        faq: [
+          {
+            question: '1,1,4,4-テトラフェニル-2-ブチン-1,4-ジオールは何に使用されますか？',
+            answer:
+              'ポリマー研究、触媒研究、材料科学応用におけるモデル構造および特殊中間体として機能します。',
+          },
+          {
+            question: 'この化合物の独自性は何ですか？',
+            answer:
+              '4つのフェニル基を持つ剛性芳香族コア、二重第三級アルコール、中央三重結合の組み合わせが、卓越した熱安定性と定義された幾何学的構造を提供します。',
+          },
+          {
+            question: 'VUPはどのような純度を供給していますか？',
+            answer:
+              'VUPはGCおよびNMR分析により検証された≥ 98%純度の実験室グレード材料を供給します。',
+          },
+          {
+            question: 'この製品はREACH登録されていますか？',
+            answer:
+              '実験室使用のみ（年間< 1トン免除）。CLP分類なし。標準的なPPEで取り扱ってください。',
+          },
+          {
+            question: '溶解性の特性は何ですか？',
+            answer:
+              '水への溶解性は低く、芳香族溶媒およびアルコールに可溶で、有機合成用途に適しています。',
+          },
+          {
+            question: 'この化合物はどのような用途に適していますか？',
+            answer:
+              'すべての用途は研究開発使用に限定されており、ポリマー研究、触媒研究、材料科学が含まれます。',
+          },
+        ],
+      },
+    }),
+  ])
+
   //? -------------------- END ADDING TRANSLATIONS FOR PRODUCTS -------------------- ?//
 
   // --------------------
@@ -12710,7 +13357,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       benzoyloxyTmp,
       acetamidoTempo,
       tempone,
-      colamin,
+      colaminPhosphateCalciumSalt,
       colaminPhosphate,
       vupin,
       pentamethylpiperidine,
@@ -12734,6 +13381,8 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       dmhd,
       dimethylhexynol,
       dimethylheptynol,
+      diphenylpropynol,
+      tetraphenylbutynediol,
     },
   }
 }
