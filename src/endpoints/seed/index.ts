@@ -319,7 +319,6 @@ export const seed = async ({
         timeline2Image: media.aboutUsTimeline2ImageDoc,
         timeline3Image: media.aboutUsTimeline3ImageDoc,
         timeline4Image: media.aboutUsTimeline4ImageDoc,
-        content2Image: media.demoImageDoc,
         ceoDoc: teamMembers.ceoDoc,
         rdDoc: teamMembers.rdDoc,
         commercialDoc: teamMembers.commercialDoc,
@@ -493,7 +492,6 @@ export const seed = async ({
       timeline3Image: media.aboutUsTimeline3ImageDoc,
       timeline4Image: media.aboutUsTimeline4ImageDoc,
       ceoMessageImage: media.ceoMessageImageDoc,
-      content2Image: media.demoImageDoc,
       ceoDoc: teamMembers.ceoDoc,
       rdDoc: teamMembers.rdDoc,
       commercialDoc: teamMembers.commercialDoc,
@@ -668,7 +666,6 @@ export const seed = async ({
       timeline3Image: media.aboutUsTimeline3ImageDoc,
       timeline4Image: media.aboutUsTimeline4ImageDoc,
       ceoMessageImage: media.ceoMessageImageDoc,
-      content2Image: media.demoImageDoc,
       ceoDoc: teamMembers.ceoDoc,
       rdDoc: teamMembers.rdDoc,
       commercialDoc: teamMembers.commercialDoc,
@@ -826,8 +823,8 @@ export const seed = async ({
               link: {
                 type: 'custom',
                 newTab: null,
-                url: '/products/category/hindered-amines',
-                label: 'Hindered Amines',
+                url: '/products/category/free-radicals',
+                label: 'Free Radicals',
               },
             },
 
@@ -835,8 +832,35 @@ export const seed = async ({
               link: {
                 type: 'custom',
                 newTab: null,
-                url: '/products/category/glycol-ethers',
-                label: 'Glycol Ethers',
+                url: '/products/category/polymerisation-inhibitors',
+                label: 'Polymerisation Inhibitors',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/epoxides',
+                label: 'Epoxides',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/diaminopolyethylene-glycols',
+                label: 'DAPEG',
+              },
+            },
+
+            {
+              link: {
+                type: 'custom',
+                newTab: null,
+                url: '/products/category/hindered-amines',
+                label: 'Hindered Amines',
               },
             },
           ],

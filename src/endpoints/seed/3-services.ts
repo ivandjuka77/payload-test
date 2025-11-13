@@ -1158,29 +1158,34 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     collection: 'services',
     locale: 'sk',
     data: {
-      title: 'Analytické testovacie služby',
+      title: 'Akreditované analytické, technickobezpečnostné a environmentálne služby',
       description:
-        'Akreditované analytické, technickobezpečnostné a ekologické testovacie služby s SNAS S-118 (ISO/IEC 17025) certifikáciou. Komplexná chemická analýza a testovanie regulačnej súlady.',
+        'Divízia ATBEL (Analytické, technickobezpečnostné a environmentálne laboratóriá) je špecializované testovacie centrum v rámci VUP, a.s., poskytujúce odborné analytické služby pre interné projekty výskumu a vývoja aj externých partnerov. Dodávame spoľahlivé, akreditované výsledky podľa Certifikátu SNAS č. S-118 (ISO/IEC 17025) a ISO 9001, zabezpečujúce najvyššie štandardy kvality a presnosti. Naše služby vedie vedúci divízie Ing. Ľudovít Žiak, PhD.',
       features: [
         {
-          feature: 'SNAS akreditácia',
+          feature: 'Akreditovaná a certifikovaná kvalita',
           description:
-            'SNAS S-118 akreditácia podľa ISO/IEC 17025 zabezpečujúca spoľahlivé, medzinárodne uznávané analytické výsledky s prísnymi kontrolami kvality',
+            'Dôvera v kvalitu údajov podporená akreditáciou SNAS S-118 (ISO/IEC 17025) a certifikáciou ISO 9001 pre všetky analytické a laboratórne testovanie.',
         },
         {
-          feature: 'Komplexné testovanie',
+          feature: 'Komplexné portfólio služieb',
           description:
-            'Široká škála analytických techník vrátane chromatografie, spektroskopie, titrimetrickej analýzy a fyzikálno-chemického testovania v jednom akreditovanom zariadení',
+            'Široká škála analytických techník vrátane chromatografie, spektroskopie, mokrej chémie a technickobezpečnostného testovania dostupných v jednom zariadení.',
         },
         {
-          feature: 'Odborné vedenie',
+          feature: 'Odborné vedenie a tím',
           description:
-            'Vedené Ing. Ľudovítom Žiakom, PhD., s viac ako 15-ročnými skúsenosťami v analytických laboratóriách a špecializovanou odbornosťou v monitorovaní atmosféry na pracovisku',
+            'Vedené Ing. Ľudovítom Žiakom, PhD., absolventom analytickej chémie s viac ako 15-ročnými skúsenosťami, špecializujúcim sa na chemickú analýzu a odbery vzoriek vzduchu na pracovisku.',
         },
         {
-          feature: 'Regulačná súlada',
+          feature: 'Regulačná súlad a podpora',
           description:
-            'Testovanie podľa medzinárodných štandardov (OECD, ISO, DIN) a predpisov vrátane súlady s REACH a automobilovými štandardmi',
+            'Testovanie podľa medzinárodných štandardov (OECD, ISO, DIN) na podporu vašej registrácie REACH, monitorovania bezpečnosti na pracovisku a potrieb kontroly kvality.',
+        },
+        {
+          feature: 'Riešenie problémov a vývoj metód',
+          description:
+            'Odborná podpora pre riešenie problémov výskumu a vývoja, analýzu kontaminácie a schopnosť vyvíjať vlastné analytické metodiky pre jedinečné výzvy.',
         },
       ],
       subServices: [
@@ -2014,29 +2019,34 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     collection: 'services',
     locale: 'jp',
     data: {
-      title: '分析テストサービス',
+      title: '認定分析、技術安全、環境サービス',
       description:
-        'SNAS S-118（ISO/IEC 17025）認証による認定分析、技術安全、生態学的テストサービス。包括的な化学分析と規制コンプライアンステスト。',
+        'ATBEL（分析、技術安全、環境ラボ）部門は、VUP, a.s.内の専門テストセンターであり、内部研究開発プロジェクトと外部パートナーの両方に専門的な分析サービスを提供しています。SNAS証明書No. S-118（ISO/IEC 17025）とISO 9001に基づく信頼性の高い認定結果を提供し、最高水準の品質と精度を保証します。当社のサービスは部門長Ing. Ľudovít Žiak, PhD.が率いています。',
       features: [
         {
-          feature: 'SNAS認定',
+          feature: '認定・認証品質',
           description:
-            'ISO/IEC 17025に基づくSNAS S-118認定により、厳格な品質管理による信頼性の高い国際的に認められた分析結果を保証',
+            'すべての分析およびラボテストに対するSNAS S-118（ISO/IEC 17025）認定とISO 9001認証に支えられたデータ品質への信頼。',
         },
         {
-          feature: '包括的テスト',
+          feature: '包括的サービスポートフォリオ',
           description:
-            'クロマトグラフィー、分光法、滴定分析、物理化学テストを含む幅広い分析技術を一つの認定施設で提供',
+            'クロマトグラフィー、分光法、湿式化学、技術安全テストを含む幅広い分析技術を一つの施設で利用可能。',
         },
         {
-          feature: '専門リーダーシップ',
+          feature: '専門的リーダーシップとチーム',
           description:
-            '15年以上の分析ラボ経験と職場環境モニタリングの専門知識を持つIng. Ľudovít Žiak, PhD.による指導',
+            '化学分析と職場空気サンプリングを専門とする15年以上の経験を持つ分析化学の卒業生Ing. Ľudovít Žiak, PhD.が率いる。',
         },
         {
-          feature: '規制コンプライアンス',
+          feature: '規制コンプライアンスとサポート',
           description:
-            'REACHコンプライアンスと自動車規格を含む国際基準（OECD、ISO、DIN）と規制に従ったテスト',
+            'REACH登録、職場安全モニタリング、品質管理ニーズをサポートするための国際基準（OECD、ISO、DIN）に従ったテスト。',
+        },
+        {
+          feature: '問題解決と方法開発',
+          description:
+            '研究開発トラブルシューティング、汚染分析、および独自の課題に対するカスタム分析方法を開発する能力のための専門サポート。',
         },
       ],
       subServices: [
@@ -2483,159 +2493,129 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
     data: {
       title: 'カスタム合成・製造',
       description:
-        'VUPと協力して、ヨーロッパでの専門的なカスタム化学合成と信頼性の高い小規模製造を実現。複雑な化学、確実な納期。',
+        'VUPと協力して、ヨーロッパでの専門的なカスタム化学合成と信頼性の高い小規模製造を実現。複雑な化学、確実な納品。',
       features: [
         {
-          feature: '専門問題解決',
+          feature: '専門的問題解決',
           description:
-            '多段階ルート、専門化学、困難なアプリケーションでの実証済み実績を持つ、複雑な合成課題のためにVUPの70年以上の研究開発専門知識を活用。',
+            '要求の厳しいアプリケーションでの実証済み実績を持つ、多段階ルートや専門化学を含む複雑な合成課題のためのVUPの70年以上の研究開発経験の活用。',
         },
         {
           feature: '品質保証',
           description:
-            '開発から生産まで厳格な品質管理のためのISO 9001:2015認証システムと包括的分析テストによるSNAS S-118認定ATBELラボ。',
+            'ISO 9001:2015認証プロセスとSNAS S-118認定分析ラボに裏付けられた高純度重視と厳格な品質管理により、信頼性の高い国際的に認められた結果を保証。',
         },
         {
-          feature: 'スケーラブル生産',
+          feature: 'スケーラビリティ',
           description:
-            '複雑な化学にとって重要な特定製品の最大250 t/年のパイロットプラント容量で、ラボから商業規模へのシームレスなスケールアップ。',
+            '多用途パイロットプラントインフラを利用した最大250 t/年の柔軟な製造能力により、グラムスケール合成からパイロットスケール生産へのシームレスな移行。',
         },
         {
-          feature: '規制専門知識',
+          feature: '知的財産セキュリティ',
           description:
-            'DMPA、DMBA、TEMPO誘導体の成功したREACH登録を含む実証済みコンプライアンス経験による規制要件の統合サポート。',
+            'クライアントイノベーションと独自合成ルートの保護における実証済み経験による厳格な機密保持契約と知的財産の安全な取扱い。',
         },
         {
-          feature: '包括的能力',
+          feature: 'ヨーロッパパートナー',
           description:
-            '実験室から生産、分析から規制文書まで、完全な技術基盤とコンプライアンスサポートを備えた統合アプローチ。',
+            'ヨーロッパ市場内での規制コンプライアンス、安全なサプライチェーン、費用対効果の高いソリューションを保証する信頼性の高いEUベースの合成・製造サービス。',
         },
         {
-          feature: '実証済み信頼性',
+          feature: '統合サービス',
           description:
-            'DSM、UPM、Perstorpを含む主要国際クライアントとの成功したコラボレーションの実績と専門合成における確立されたリーダーシップ。',
+            '初期ルート開発から商業生産とコンプライアンスサポートまで、包括的ソリューションを提供する研究開発、合成、分析、規制専門知識の統合。',
         },
       ],
       subServices: [
         {
-          title: 'スケールアップ・パイロットプラント',
+          title: 'カスタム合成',
           description:
-            '包括的なプロセステストと商業準備性のための最大250 t/年容量の専用パイロットプラント施設。技術移転リスクを最小化し、製品品質を保証するため、ラボスケールから商業生産への確実な移行を可能にします。パイロットプラント容量により、大規模な資本コミットメント前の製品検証とプロセス最適化が可能になります。',
+            'カタログ外ファインケミカル、複雑な中間体、標準物質、化学特殊品の専門合成。アセチレン化学、TEMPO誘導体、ヒドロキシ酸、その他の専門化学における深い専門知識を活用して、困難な多段階合成ルートに取り組みます。ルート探索と実現可能性研究から実験室スケール合成まで、お客様の特定要件に合わせた高純度化合物を提供します。',
           image: CSMServicePageService1Doc.id,
           displayItems: [
-            { item: '250 t/年パイロット容量' },
-            { item: 'プロセス検証' },
-            { item: '技術移転サポート' },
-            { item: '商業準備性テスト' },
+            { item: 'ルート探索・実現可能性研究' },
+            { item: '実験室スケール合成（g-kg）' },
+            { item: '高純度基準' },
+            { item: '多段階複雑合成' },
           ],
           features: [
             {
-              feature: 'スケールアップ専門知識',
+              feature: '合成専門知識',
               description:
-                'ラボから商業スケールへのプロセス移転における深い経験で、一般的なスケールアップ課題を予測し軽減する能力。',
+                '実証済みの商業的成功を持つアセチレン化学、TEMPO誘導体、専門機能性分子を含む複雑な有機合成における深い知識。',
             },
             {
-              feature: '専用施設',
+              feature: 'スケール範囲',
               description:
-                '複雑な化学プロセスの包括的テストと検証のために設計された柔軟で設備の整ったパイロットプラント、クライアント特有のニーズに適応。',
+                'すべてのスケールで一貫した品質と再現性を持つ、実験室グラムからキログラム量までの柔軟な合成能力。',
             },
             {
-              feature: 'プロセス検証',
+              feature: '純度重視',
               description:
-                '商業運営の成功を保証するため、堅牢な製造プロセスを確立するための厳格なテストとデータ収集プロトコル。',
+                '包括的な分析特性化と品質文書によるクライアント仕様に合わせた高純度基準の達成重視。',
             },
           ],
-          link: 'scale-up-pilot-plant',
+          link: 'custom-synthesis',
         },
         {
-          title: '専門化学合成',
+          title: 'プロセス開発とスケールアップ',
           description:
-            'アセチレン化学、TEMPO誘導体、メチロールアルカン酸、ポリウレタン触媒を含む複雑で困難な化学における専門的専門知識。当社の経験豊富な化学者は、標準技術が不十分な場合の特殊試薬、多段階合成、精密化学変換を扱います。カスタム合成ソリューションにより、革新的な化学技術への市場アクセスを可能にします。',
+            '効率性、安全性、収率、費用対効果の向上のための合成ルートの最適化。実験室最適化からパイロットプラント検証まで、商業生産のための堅牢な技術基盤を生成する包括的プロセス開発サービスを提供します。経験豊富なチームが実用的な化学知識とエンジニアリング専門知識を組み合わせて、成功したスケールアップの移行を保証します。',
           image: CSMServicePageService2Doc.id,
           displayItems: [
-            { item: 'アセチレン化学' },
-            { item: 'TEMPO誘導体' },
-            { item: 'メチロールアルカン酸' },
-            { item: 'ポリウレタン触媒' },
+            { item: 'プロセス最適化' },
+            { item: '安全性評価と検証' },
+            { item: '収率改善研究' },
+            { item: 'スケールアップ検証' },
           ],
           features: [
             {
-              feature: '困難な化学',
+              feature: '生産能力',
               description:
-                '多くの生産者が回避する複雑で要求の厳しい合成における確立された専門知識で、ユニークな化学的機会への市場アクセスを可能にする。',
+                '包括的スケールアップ検証のための多用途反応器と下流処理ユニットを備えた最大250 t/年の容量を持つパイロットプラントインフラ。',
             },
             {
-              feature: '実証済み方法',
+              feature: '技術文書',
               description:
-                'TEMPO誘導体合成やアセチレン化学などの専門分野での成功した生産実績により、信頼性の高い結果と拡張可能なプロセスを確保。',
+                '商業実装をサポートする安全性評価、操作手順、技術基盤を含む包括的プロセス文書。',
             },
             {
-              feature: '革新的アプローチ',
+              feature: 'リスク軽減',
               description:
-                '困難な合成課題のための革新的ソリューション開発における実証済み能力で、クライアントの製品差別化と市場優位性を支援。',
+                '安全性考慮事項、設備制限、プロセス最適化機会を含むスケールアップ課題の特定と対処のための体系的アプローチ。',
             },
           ],
-          link: 'specialized-synthesis',
+          link: 'process-development',
         },
         {
-          title: '小規模製造',
+          title: '小規模・委託製造',
           description:
-            '専門化学品の信頼性の高い小規模製造、ニッチ市場アプリケーションと革新的化学技術に最適。当社の製造アプローチは高品質基準、柔軟な生産量、厳格な分析テストを重視し、特殊化学品市場での一貫した供給と製品品質を保証します。専用設備により効率的な製造と迅速な市場対応が可能です。',
+            '多用途パイロットプラントインフラを利用したファインケミカルと特殊品の信頼性の高い受託製造。VUP開発またはクライアント提供の確立されたプロセスに基づく、キログラムから複数トンのキャンペーンのための柔軟な委託製造サービスを提供します。当社のISO 9001:2015認証製造プロセスは、お客様の生産ニーズに対して一貫した品質と信頼性の高い納品を保証します。',
           image: CSMServicePageService3Doc.id,
           displayItems: [
-            { item: '柔軟な生産量' },
-            { item: '専門設備' },
-            { item: '品質保証' },
-            { item: '一貫した供給' },
+            { item: '受託製造（kg-トン）' },
+            { item: '委託加工サービス' },
+            { item: '厳格な品質管理' },
+            { item: '規制コンプライアンスサポート' },
           ],
           features: [
             {
-              feature: '品質重視',
+              feature: '製造柔軟性',
               description:
-                '一貫した製品品質と仕様遵守を保証するISO 9001:2015認証システムと包括的品質プロトコル。',
+                '実証済みの信頼性を持つ様々なバッチサイズと化学プロセスのための多用途パイロットプラント設備を利用した適応可能な生産能力。',
             },
             {
-              feature: '市場対応性',
+              feature: '品質システム',
               description:
-                '特殊化学品市場の進化するニーズに対応するため、変動需要と緊急要件に適応する柔軟な製造アプローチ。',
+                'SNAS S-118認定分析ラボを使用した厳格な工程内および最終製品品質管理を伴うISO 9001:2015認証製造プロセス。',
             },
             {
-              feature: '専門設備',
+              feature: 'サプライチェーンの信頼性',
               description:
-                '困難な化学と特殊製品要件を扱うために設計された設備により効率的で信頼性の高い小規模製造を可能にする。',
+                'EU市場内での信頼性の高いサプライチェーン、規制コンプライアンス、費用対効果の高い生産を保証する安全なヨーロッパ製造拠点。',
             },
           ],
-          link: 'small-scale-manufacturing',
-        },
-        {
-          title: '分析・品質サービス',
-          description:
-            'カスタム合成と製造における包括的分析サポート、SNAS S-118認定ATBELラボによる原材料から最終製品まで。高度な分析技術（GC-MS、HPLC、NMR、FT-IR）による品質保証により、すべての合成・製造活動にわたって製品純度、同定、仕様適合性を保証します。規制申請とコンプライアンス文書のための信頼性の高いデータを提供します。',
-          image: RTServicePageService4Doc.id,
-          displayItems: [
-            { item: '原材料テスト' },
-            { item: '工程内分析' },
-            { item: '最終製品検証' },
-            { item: '規制データ生成' },
-          ],
-          features: [
-            {
-              feature: '認定品質',
-              description:
-                '国際的に認められた基準への厳格な遵守を保証するSNAS S-118認定によるISO/IEC 17025基準に従った信頼性の高い分析サービス。',
-            },
-            {
-              feature: '包括的テスト',
-              description:
-                '製品開発から製造まで合成・製造ライフサイクル全体をサポートするクロマトグラフィー、分光法、物理化学テストの全範囲。',
-            },
-            {
-              feature: '規制サポート',
-              description:
-                'REACH、化粧品規制、その他の国際基準を含む規制申請とコンプライアンス文書のための詳細分析データの提供。',
-            },
-          ],
-          link: 'analytical-quality',
+          link: 'toll-manufacturing',
         },
       ],
       accreditations: [

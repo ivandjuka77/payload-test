@@ -35,6 +35,12 @@ const filesToSeed = [
     url: `${NEXT_PUBLIC_SERVER_URL}/assets/ecovadis.png`,
     alt: 'Ecovadis Medal',
   },
+  {
+    key: 'cosmeticsScreenshotsDoc',
+    url: `${NEXT_PUBLIC_SERVER_URL}/assets/cosmetics-screenshot.jpeg`,
+    alt: 'Cosmetics Screenshots',
+  },
+
   // Products Page
   {
     key: 'productsPageImageDoc',

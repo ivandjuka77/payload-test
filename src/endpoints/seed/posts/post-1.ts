@@ -7,7 +7,7 @@ export type PostArgs = {
   author: User
 }
 
-export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
+export const post1En: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   featuredImage,
   contentImage,
   author,
@@ -241,6 +241,489 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
       title: 'VUP to Invest €5 Million in Nováky Chemical Production',
       description:
         'VUP announces a €5 million investment for a new automated production line of dimethylolpropionic acid (DMPA) in Nováky, Slovakia.',
+      image: featuredImage.id,
+    },
+    publishedAt: '2025-10-20T10:00:00.000Z',
+    slug: 'vup-invests-5-million-in-novaky-production',
+    _status: 'published',
+  }
+}
+
+export const post1Sk: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
+  featuredImage,
+  contentImage,
+  author,
+}) => {
+  return {
+    title:
+      'VUP investuje 5 miliónov eur do novej výroby špeciálnych chemických medziproduktov v Novákoch',
+    type: 'news',
+    featured: true,
+    description:
+      'VUP, slovenská výskumno-vývojová spoločnosť, oznámila plány na novú výrobnú linku v priemyselnom parku Nováky v hodnote 5 miliónov eur pre automatizovanú výrobu DMPA.',
+    featuredImage: featuredImage.id,
+    author: author,
+    content: {
+      root: {
+        type: 'root',
+        children: [
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'VUP, slovenská výskumno-vývojová spoločnosť špecializujúca sa na pokročilé chemické medziprodukty, oznámila plány na novú výrobnú linku v priemyselnom parku Nováky. Investícia v hodnote približne 5 miliónov eur umožní automatizovanú výrobu kyseliny dimetylolopropiónovej (DMPA) — kľúčovej zložky používanej v náteroch novej generácie, farbách a polymérnych systémoch.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Projekt stavia na internom výskume VUP a desaťročiach skúseností so syntézou špeciálnych molekúl pre medzinárodných partnerov. S plánovanou ročnou kapacitou približne 600 ton bude závod v Novákoch predstavovať približne desať percent celosvetového dopytu po tomto materiáli.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'block',
+            fields: {
+              blockName: '',
+              blockType: 'mediaBlock',
+              media: contentImage.id,
+            },
+            format: '',
+            version: 2,
+          },
+          {
+            type: 'heading',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Detaily projektu a technológia',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            tag: 'h2',
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Technológia VUP je založená na vlastnom know-how vyvinutom výskumno-vývojovým tímom a podporovanom skoršími pilotními projektmi financovanými EÚ. Spoločnosť už vyrába malé objemy DMPA a súvisiacich zlúčenín na Slovensku, s aplikáciami od priemyselných náterov a lepidiel až po funkčné polyméry používané po celej Európe.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Výstavba by mala začať v roku 2025, dokončenie je plánované na rok 2026. Nový závod bude umiestnený v chemickom závode na Slovensku, ktorý ponúka plnú technickú infraštruktúru a dlhú priemyselnú tradíciu. Projekt bude prevádzkovať v rámci existujúcich územných a environmentálnych parametrov, čím sa minimalizuje jeho vplyv na miestnu komunitu.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'heading',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Budúci výhľad',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            tag: 'h2',
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '„Napriek výzvam, ktorým čelí európsky chemický sektor, veríme, že táto investícia posilňuje sebestačnosť a konkurencieschopnosť regiónu," povedal Roman Karlubík, generálny riaditeľ VUP, a.s. „Náš zámer zostáva zameraný na inovácie, kvalitu a dlhodobú spoluprácu s našimi zákazníkmi."',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'VUP naďalej rozširuje svoje portfólio náterových medziproduktov, kozmetických formulácií a analytických služieb, slúžiac klientom po celej Európe.',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Prečítajte si celý článok Forbes Slovakia tu: ',
+                version: 1,
+              },
+              {
+                type: 'link',
+                children: [
+                  {
+                    type: 'text',
+                    detail: 0,
+                    format: 1,
+                    mode: 'normal',
+                    style: '',
+                    text: 'https://www.forbes.sk/investicia-za-pat-milionov-sef-chemickeho-zvazu-chce-v-novakoch-vyrabat-surovinu-na-vyrobu-autolakov',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: 1,
+                indent: 0,
+                version: 3,
+                fields: {
+                  linkType: 'custom',
+                  url: 'https://www.forbes.sk/investicia-za-pat-milionov-sef-chemickeho-zvazu-chce-v-novakoch-vyrabat-surovinu-na-vyrobu-autolakov',
+                  newTab: true,
+                },
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+        ],
+        direction: 'ltr',
+        format: '',
+        indent: 0,
+        version: 1,
+      },
+    },
+    tags: [{ tag: 'Investícia' }, { tag: 'Chémia' }, { tag: 'Slovensko' }, { tag: 'VUP' }],
+    meta: {
+      title: 'VUP investuje 5 miliónov eur do chemickej výroby v Novákoch',
+      description:
+        'VUP oznamuje investíciu 5 miliónov eur do novej automatizovanej výrobnej linky kyseliny dimetylolopropiónovej (DMPA) v Novákoch na Slovensku.',
+      image: featuredImage.id,
+    },
+    publishedAt: '2025-10-20T10:00:00.000Z',
+    slug: 'vup-invests-5-million-in-novaky-production',
+    _status: 'published',
+  }
+}
+
+export const post1Jp: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
+  featuredImage,
+  contentImage,
+  author,
+}) => {
+  return {
+    title: 'VUP、ノヴァーキにおける特殊化学中間体の新規生産に500万ユーロを投資',
+    type: 'news',
+    featured: true,
+    description:
+      'スロバキアの研究開発企業VUPは、ノヴァーキ工業団地における500万ユーロの新生産ラインでDMPAの自動化生産を計画していると発表しました。',
+    featuredImage: featuredImage.id,
+    author: author,
+    content: {
+      root: {
+        type: 'root',
+        children: [
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '先進的な化学中間体を専門とするスロバキアの研究開発企業VUPは、ノヴァーキ工業団地に新生産ラインを建設する計画を発表しました。約500万ユーロの投資により、次世代のコーティング、塗料、ポリマーシステムに使用される重要成分であるジメチロールプロピオン酸（DMPA）の自動化生産が可能になります。',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'このプロジェクトは、VUPの社内研究と国際パートナー向けの特殊分子合成における数十年の経験に基づいています。年間約600トンの計画生産能力により、ノヴァーキ工場はこの材料の世界需要の約10％を占めることになります。',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'block',
+            fields: {
+              blockName: '',
+              blockType: 'mediaBlock',
+              media: contentImage.id,
+            },
+            format: '',
+            version: 2,
+          },
+          {
+            type: 'heading',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'プロジェクトの詳細と技術',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            tag: 'h2',
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'VUPの技術は、研究開発チームが開発した独自のノウハウに基づいており、以前のEU資金によるパイロットプロジェクトによってサポートされています。同社はすでにスロバキアでDMPAおよび関連化合物を少量生産しており、その用途は産業用コーティングや接着剤からヨーロッパ全域で使用される機能性ポリマーまで多岐にわたります。',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '建設は2025年に開始され、2026年に完成する予定です。新工場は、完全な技術インフラと長い産業の伝統を持つスロバキアの化学工場に建設されます。このプロジェクトは、既存の用途地域および環境パラメータ内で運営され、地域社会への影響を最小限に抑えます。',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'heading',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '今後の展望',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            tag: 'h2',
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: '「ヨーロッパの化学セクターが直面する課題にもかかわらず、この投資は地域の自給自足と競争力を強化すると信じています」とVUP, a.s.のCEOであるRoman Karlubíkは述べています。「私たちの焦点は、イノベーション、品質、そして顧客との長期的な協力関係に置かれています。」',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'VUPは、コーティング中間体、化粧品製剤、分析サービスのポートフォリオを拡大し続け、ヨーロッパ全域のクライアントにサービスを提供しています。',
+                version: 1,
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+          {
+            type: 'paragraph',
+            children: [
+              {
+                type: 'text',
+                detail: 0,
+                format: 0,
+                mode: 'normal',
+                style: '',
+                text: 'Forbes Slovakiaの記事全文はこちら: ',
+                version: 1,
+              },
+              {
+                type: 'link',
+                children: [
+                  {
+                    type: 'text',
+                    detail: 0,
+                    format: 1,
+                    mode: 'normal',
+                    style: '',
+                    text: 'https://www.forbes.sk/investicia-za-pat-milionov-sef-chemickeho-zvazu-chce-v-novakoch-vyrabat-surovinu-na-vyrobu-autolakov',
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: 1,
+                indent: 0,
+                version: 3,
+                fields: {
+                  linkType: 'custom',
+                  url: 'https://www.forbes.sk/investicia-za-pat-milionov-sef-chemickeho-zvazu-chce-v-novakoch-vyrabat-surovinu-na-vyrobu-autolakov',
+                  newTab: true,
+                },
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            textFormat: 0,
+            version: 1,
+          },
+        ],
+        direction: 'ltr',
+        format: '',
+        indent: 0,
+        version: 1,
+      },
+    },
+    tags: [{ tag: '投資' }, { tag: '化学' }, { tag: 'スロバキア' }, { tag: 'VUP' }],
+    meta: {
+      title: 'VUP、ノヴァーキでの化学品生産に500万ユーロを投資',
+      description:
+        'VUPは、スロバキアのノヴァーキにおけるジメチロールプロピオン酸（DMPA）の新自動化生産ラインに500万ユーロの投資を発表しました。',
       image: featuredImage.id,
     },
     publishedAt: '2025-10-20T10:00:00.000Z',

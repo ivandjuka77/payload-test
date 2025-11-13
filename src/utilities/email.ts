@@ -30,7 +30,7 @@ export async function sendEmail({ to, subject, html, replyTo }: EmailData) {
     })
 
     console.log('✅ Email sent successfully!')
-    console.log('  Email ID:', data.id)
+    console.log('  Email ID:', data.data?.id)
 
     return { success: true, data }
   } catch (error) {
@@ -321,4 +321,3 @@ export function createNewsletterSubscriptionEmail(data: { email: string }) {
 </html>
   `
 }
-

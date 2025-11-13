@@ -5,7 +5,6 @@ type AboutUsArgs = {
   timeline2Image: Media
   timeline3Image: Media
   timeline4Image: Media
-  content2Image: Media
   ceoDoc: TeamMember
   rdDoc: TeamMember
   commercialDoc: TeamMember
@@ -24,7 +23,6 @@ export function aboutUsEn(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content2Image,
     ceoDoc,
     rdDoc,
     commercialDoc,
@@ -614,7 +612,6 @@ export function aboutUsSk(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content2Image,
     ceoDoc,
     rdDoc,
     commercialDoc,
@@ -624,14 +621,16 @@ export function aboutUsSk(args: AboutUsArgs) {
     productionDoc,
     economicsDoc,
     ceoMessageImage,
+    aboutUsPageImage,
   } = args
 
   return {
     title: 'O nás',
     hero: {
-      type: 'minimal',
+      type: 'backgroundVideo',
       title: 'O nás',
-      description: 'Zistite viac o našej spoločnosti, našej misii, vízii a tíme.',
+      description:
+        'Sme VUP, slovenská spoločnosť s desaťročiami odborných znalostí v petrochemickom a organickom chemickom výskume, vývoji a výrobe. Dodávame inovatívne chemické riešenia, služby priemyselnej ekológie a analytickú podporu partnerom na Slovensku a mimo neho.',
       cta: {
         links: [],
       },
@@ -928,7 +927,7 @@ export function aboutUsSk(args: AboutUsArgs) {
             textFormat: 1,
           },
         },
-        image: content2Image.id,
+        image: aboutUsPageImage.id,
         blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',
@@ -1186,7 +1185,6 @@ export function aboutUsJp(args: AboutUsArgs) {
     timeline2Image,
     timeline3Image,
     timeline4Image,
-    content2Image,
     ceoDoc,
     rdDoc,
     commercialDoc,
@@ -1196,14 +1194,16 @@ export function aboutUsJp(args: AboutUsArgs) {
     productionDoc,
     economicsDoc,
     ceoMessageImage,
+    aboutUsPageImage,
   } = args
 
   return {
     title: 'VUPについて',
     hero: {
-      type: 'minimal',
+      type: 'backgroundVideo',
       title: 'VUPについて',
-      description: '私たちの会社、使命、ビジョン、そしてチームについて詳しくご覧ください。',
+      description:
+        'VUPは、石油化学および有機化学の研究、開発、生産において数十年の専門知識を持つスロバキアの企業です。スロバキア国内外のパートナーに革新的な化学ソリューション、産業エコロジーサービス、分析サポートを提供しています。',
       cta: {
         links: [],
       },
@@ -1500,7 +1500,7 @@ export function aboutUsJp(args: AboutUsArgs) {
             textFormat: 1,
           },
         },
-        image: content2Image.id,
+        image: aboutUsPageImage.id,
         blockName: 'Mission & Values',
         blockType: 'contentImage',
         layout: 'right',

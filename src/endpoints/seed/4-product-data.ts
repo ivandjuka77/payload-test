@@ -57,14 +57,16 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
   // --------------------
 
   const [
+    // --- Main Categories --- //
     hydroxyAcids,
-    hinderedAmines,
-    phospholipidPrecursors,
-    polymerisationInhibitors,
-    diaminopolyethyleneGlycols,
-    chromanolsDerivatives,
     freeRadicals,
+    polymerisationInhibitors,
     epoxides,
+    diaminopolyethyleneGlycols,
+    hinderedAmines,
+    // --- Other Categories --- //
+    phosphocolamines,
+    chromanolsDerivatives,
     acetylenicAlcohols,
   ] = await Promise.all([
     payload.create({
@@ -122,76 +124,44 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       collection: 'productCategories',
       data: {
         _order: '2',
-        name: 'Hindered Amines',
+        name: 'Free Radicals',
         description:
-          'High-purity hindered amines with sterically hindered piperidine structure. Essential building blocks for HALS light stabilizers and versatile intermediates for demanding applications.',
-        image: image2Doc.id,
-        slug: 'hindered-amines',
+          'Specialty stable radicals — primarily TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl) and its key derivatives — designed for controlled oxidation, polymerisation moderation, and mechanistic research. With over five decades of chemical R&D expertise, VUP offers pilot-plant and laboratory-scale radicals for precise control in organic synthesis, living polymerisation (NMP), and redox catalysis.',
+        image: hTempoStructureDoc.id,
+        slug: 'free-radicals',
 
         productComparison: true,
+        featuredProducts: [],
         applications: [
           {
             imageSrc: applicationsdemoImageDoc.id,
-            title: 'Polymer Light Stabilization',
+            title: 'Catalytic Oxidation',
             description:
-              'HALS intermediates and ready-to-use light stabilizers protecting polymers from UV degradation and extending service life.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Advanced Chemical Synthesis',
-            description:
-              'Versatile hindered amine intermediates and functional molecules for complex synthetic pathways and research.',
-          },
-        ],
-      },
-    }),
-    payload.create({
-      collection: 'productCategories',
-      data: {
-        _order: '5',
-        name: 'Phosphocolamines',
-        description:
-          'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
-        image: image3Doc.id,
-        slug: 'phosphocolamines',
-
-        productComparison: true,
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Dietary Supplements',
-            description:
-              'Cognitive health and cellular integrity formulations targeting general wellness and brain function support.',
+              'Selective alcohol-to-aldehyde and amine-to-imine transformations under mild conditions for fine chemical and pharmaceutical synthesis.',
           },
           {
             imageSrc: applicationsImage2Doc.id,
-            title: 'Veterinary Nutrition',
+            title: 'Controlled Radical Polymerisation (NMP)',
             description:
-              'Feed additives enhancing animal health, development, and cellular function in veterinary applications.',
+              'Nitroxide-mediated polymerisation for precise molecular weight control and synthesis of well-defined polymer architectures.',
           },
           {
             imageSrc: applicationsImage3Doc.id,
-            title: 'Pharmaceutical Formulations',
+            title: 'Redox Catalysis',
             description:
-              'High-purity intermediates and excipients for pharmaceutical manufacturing and drug development.',
+              'Employed in electrochemical and chemical redox cycles for organic synthesis and catalytic transformations.',
           },
           {
             imageSrc: applicationsImage4Doc.id,
-            title: 'Cell Culture Media',
+            title: 'Spin Labeling & EPR Research',
             description:
-              'Essential components for cell biology research, tissue culture, and biotechnology applications.',
+              'Stable radicals for mechanistic and structural analysis in ESR/EPR spectroscopy and biophysical studies.',
           },
           {
             imageSrc: applicationsImage5Doc.id,
-            title: 'Biochemical Research',
+            title: 'Antioxidant & Stability Studies',
             description:
-              'Premium-grade reagents for scientific investigation and phospholipid metabolism studies.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Cosmetic Formulations',
-            description:
-              'Specialized ingredients for advanced skincare products targeting cellular health and membrane integrity.',
+              'Used in oxidative stability modelling of polymers and organic materials for research and development applications.',
           },
         ],
       },
@@ -199,7 +169,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
-        _order: '6',
+        _order: '3',
         name: 'Polymerisation Inhibitors',
         description:
           'Advanced liquid polymerisation inhibitor formulations, including our VUPIN range based on proven H-TEMPO chemistry, designed to enhance process safety, protect equipment, and ensure product quality in demanding petrochemical applications.',
@@ -250,7 +220,59 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
-        _order: '3',
+        _order: '4',
+        name: 'Epoxides',
+        description:
+          'Specialty aliphatic and multifunctional epoxides offered in both pilot-plant and laboratory scales. Key reactive intermediates in polymer synthesis, coatings, adhesives, and fine-chemical development. With over 50 years of expertise, VUP supports industrial innovation in crosslinking, viscosity control, hydrophobic modification, and waterborne formulation design.',
+        image: cas768661StructureDoc.id,
+        slug: 'epoxides',
+
+        productComparison: true,
+        featuredProducts: [],
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Coatings & Sealants',
+            description:
+              'Improve flexibility, adhesion, and gloss in epoxy, urethane, and hybrid coatings for enhanced performance and durability.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Adhesives',
+            description:
+              'Enhance substrate bonding and strength while lowering formulation viscosity for improved application properties.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Polymer Modification',
+            description:
+              'Introduce epoxy or allyl functionality into polymer backbones for tailored material properties and performance.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Reactive Diluents',
+            description:
+              'Enable VOC reduction and low-viscosity formulations for high-solids systems and environmentally friendly applications.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Surface Functionalisation',
+            description:
+              'Modify hydrophobic or low-energy surfaces for enhanced compatibility and improved adhesion properties.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Fine Chemical Synthesis',
+            description:
+              'Versatile intermediates for creating specialty monomers and modifiers in advanced chemical synthesis.',
+          },
+        ],
+      },
+    }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '5',
         name: 'Diaminopolyethylene Glycols',
         description:
           'VUP is the unique global producer of high-quality DAPEG polymers featuring PEG chains with reactive amino terminals, essential for biomedical coatings and surface modification applications.',
@@ -288,6 +310,84 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             title: 'Research Chemicals',
             description:
               'High-quality reagent for fundamental research in biomaterials science, surface chemistry, and polymer chemistry applications.',
+          },
+        ],
+      },
+    }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '6',
+        name: 'Hindered Amines',
+        description:
+          'High-purity hindered amines with sterically hindered piperidine structure. Essential building blocks for HALS light stabilizers and versatile intermediates for demanding applications.',
+        image: image2Doc.id,
+        slug: 'hindered-amines',
+
+        productComparison: true,
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Polymer Light Stabilization',
+            description:
+              'HALS intermediates and ready-to-use light stabilizers protecting polymers from UV degradation and extending service life.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Advanced Chemical Synthesis',
+            description:
+              'Versatile hindered amine intermediates and functional molecules for complex synthetic pathways and research.',
+          },
+        ],
+      },
+    }),
+    payload.create({
+      collection: 'productCategories',
+      data: {
+        _order: '7',
+        name: 'Phosphocolamines',
+        description:
+          'Essential biochemical building blocks for phospholipid synthesis - the foundation of healthy cell membranes. VUP supplies high-purity Colamin Phosphate and its salts, crucial for supplement, veterinary, and pharmaceutical applications.',
+        image: image3Doc.id,
+        slug: 'phosphocolamines',
+
+        productComparison: true,
+        applications: [
+          {
+            imageSrc: applicationsdemoImageDoc.id,
+            title: 'Dietary Supplements',
+            description:
+              'Cognitive health and cellular integrity formulations targeting general wellness and brain function support.',
+          },
+          {
+            imageSrc: applicationsImage2Doc.id,
+            title: 'Veterinary Nutrition',
+            description:
+              'Feed additives enhancing animal health, development, and cellular function in veterinary applications.',
+          },
+          {
+            imageSrc: applicationsImage3Doc.id,
+            title: 'Pharmaceutical Formulations',
+            description:
+              'High-purity intermediates and excipients for pharmaceutical manufacturing and drug development.',
+          },
+          {
+            imageSrc: applicationsImage4Doc.id,
+            title: 'Cell Culture Media',
+            description:
+              'Essential components for cell biology research, tissue culture, and biotechnology applications.',
+          },
+          {
+            imageSrc: applicationsImage5Doc.id,
+            title: 'Biochemical Research',
+            description:
+              'Premium-grade reagents for scientific investigation and phospholipid metabolism studies.',
+          },
+          {
+            imageSrc: applicationsImage6Doc.id,
+            title: 'Cosmetic Formulations',
+            description:
+              'Specialized ingredients for advanced skincare products targeting cellular health and membrane integrity.',
           },
         ],
       },
@@ -340,105 +440,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload.create({
       collection: 'productCategories',
       data: {
-        _order: '4',
-        name: 'Free Radicals',
-        description:
-          'Specialty stable radicals — primarily TEMPO (2,2,6,6-Tetramethylpiperidin-1-oxyl) and its key derivatives — designed for controlled oxidation, polymerisation moderation, and mechanistic research. With over five decades of chemical R&D expertise, VUP offers pilot-plant and laboratory-scale radicals for precise control in organic synthesis, living polymerisation (NMP), and redox catalysis.',
-        image: hTempoStructureDoc.id,
-        slug: 'free-radicals',
-
-        productComparison: true,
-        featuredProducts: [],
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Catalytic Oxidation',
-            description:
-              'Selective alcohol-to-aldehyde and amine-to-imine transformations under mild conditions for fine chemical and pharmaceutical synthesis.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Controlled Radical Polymerisation (NMP)',
-            description:
-              'Nitroxide-mediated polymerisation for precise molecular weight control and synthesis of well-defined polymer architectures.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Redox Catalysis',
-            description:
-              'Employed in electrochemical and chemical redox cycles for organic synthesis and catalytic transformations.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Spin Labeling & EPR Research',
-            description:
-              'Stable radicals for mechanistic and structural analysis in ESR/EPR spectroscopy and biophysical studies.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Antioxidant & Stability Studies',
-            description:
-              'Used in oxidative stability modelling of polymers and organic materials for research and development applications.',
-          },
-        ],
-      },
-    }),
-    payload.create({
-      collection: 'productCategories',
-      data: {
         _order: '9',
-        name: 'Epoxides',
-        description:
-          'Specialty aliphatic and multifunctional epoxides offered in both pilot-plant and laboratory scales. Key reactive intermediates in polymer synthesis, coatings, adhesives, and fine-chemical development. With over 50 years of expertise, VUP supports industrial innovation in crosslinking, viscosity control, hydrophobic modification, and waterborne formulation design.',
-        image: cas768661StructureDoc.id,
-        slug: 'epoxides',
-
-        productComparison: true,
-        featuredProducts: [],
-        applications: [
-          {
-            imageSrc: applicationsdemoImageDoc.id,
-            title: 'Coatings & Sealants',
-            description:
-              'Improve flexibility, adhesion, and gloss in epoxy, urethane, and hybrid coatings for enhanced performance and durability.',
-          },
-          {
-            imageSrc: applicationsImage2Doc.id,
-            title: 'Adhesives',
-            description:
-              'Enhance substrate bonding and strength while lowering formulation viscosity for improved application properties.',
-          },
-          {
-            imageSrc: applicationsImage3Doc.id,
-            title: 'Polymer Modification',
-            description:
-              'Introduce epoxy or allyl functionality into polymer backbones for tailored material properties and performance.',
-          },
-          {
-            imageSrc: applicationsImage4Doc.id,
-            title: 'Reactive Diluents',
-            description:
-              'Enable VOC reduction and low-viscosity formulations for high-solids systems and environmentally friendly applications.',
-          },
-          {
-            imageSrc: applicationsImage5Doc.id,
-            title: 'Surface Functionalisation',
-            description:
-              'Modify hydrophobic or low-energy surfaces for enhanced compatibility and improved adhesion properties.',
-          },
-          {
-            imageSrc: applicationsImage6Doc.id,
-            title: 'Fine Chemical Synthesis',
-            description:
-              'Versatile intermediates for creating specialty monomers and modifiers in advanced chemical synthesis.',
-          },
-        ],
-      },
-    }),
-    payload.create({
-      collection: 'productCategories',
-      data: {
-        _order: '10',
         name: 'Acetylenic Alcohols',
         description:
           'High-purity acetylenic alcohols — a family of triple-bond diols and tertiary propargylic alcohols widely used as wetting agents, flow modifiers, and reactive intermediates in coatings, polymer, and ink systems. These molecules combine hydroxyl functionality with acetylenic unsaturation, providing a balance of reactivity and surface activity essential for modern formulations.',
@@ -564,7 +566,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: phospholipidPrecursors.id,
+      id: phosphocolamines.id,
       locale: 'sk',
       data: {
         name: 'Phosphocolamines',
@@ -956,7 +958,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'productCategories',
-      id: phospholipidPrecursors.id,
+      id: phosphocolamines.id,
       locale: 'jp',
       data: {
         name: 'Phosphocolamines',
@@ -1287,7 +1289,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     // Batch 5
     colamin,
     colaminPhosphate,
-    colaminPhosphatesodiumSalt,
 
     // Batch 6
     pentamethylpiperidine,
@@ -2760,7 +2761,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           appearance: 'White to off-white solid/powder',
           purity: 'min. 98.0 % wt',
         },
-        chemicalFamily: [phospholipidPrecursors],
+        chemicalFamily: [phosphocolamines],
         applications: [
           {
             application: 'Dietary Supplements',
@@ -2879,7 +2880,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           purity: 'min. 98.0 % wt',
           solubility: 'Readily soluble in water',
         },
-        chemicalFamily: [phospholipidPrecursors],
+        chemicalFamily: [phosphocolamines],
         applications: [
           {
             application: 'Pharmaceutical Synthesis',
@@ -2979,124 +2980,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           },
         ],
         slug: 'colamin-phosphate',
-      },
-    }),
-    payload.create({
-      collection: 'products',
-      data: {
-        isKeyProduct: false,
-        name: 'Colamin Phosphate Sodium Salt',
-        _status: 'published',
-        description:
-          'The sodium salt form of the essential phospholipid precursor, Phosphorylethanolamine. This salt offers enhanced solubility and formulation flexibility compared to the parent compound, making it valuable for liquid supplements, pharmaceutical formulations, and specialized applications requiring improved dissolution characteristics.',
-        chemicalStructureImage: colaminPhosphateStructureDoc.id,
-        technicalSpecifications: {
-          chemicalName: 'Sodium (2-aminoethyl) phosphate',
-          casNumber: '3842-01-5',
-          synonyms: [
-            { synonym: 'Phosphorylethanolamine Sodium Salt' },
-            { synonym: 'Ethanolamine Phosphate Sodium Salt' },
-            { synonym: 'Colamin Phosphate Sodium' },
-          ],
-          molecularFormula: 'C₂H₇NNaO₄P',
-          molecularWeight: '163.04 g/mol',
-          labVerified: 'Verified',
-        },
-        VupSpecifications: {
-          appearance: 'White crystalline powder/solid',
-          purity: 'min. 98.0 % wt',
-          solubility: 'Readily soluble in water',
-        },
-        chemicalFamily: [phospholipidPrecursors],
-        applications: [
-          {
-            application: 'Liquid Formulations',
-            description:
-              'Enhanced water solubility makes it ideal for liquid supplements and pharmaceutical solutions where faster dissolution and improved compatibility are required.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Dietary Supplements',
-            description:
-              'Provides bioavailable phosphorylethanolamine for cellular health support with improved formulation flexibility in both liquid and solid dosage forms.',
-            image: image2Doc.id,
-          },
-          {
-            application: 'Cell Culture Media',
-            description:
-              'Component in specialized pH-controlled media formulations, providing essential building blocks for phosphatidylethanolamine synthesis during cell proliferation.',
-            image: image3Doc.id,
-          },
-          {
-            application: 'Pharmaceutical Formulations',
-            description:
-              'Used as intermediate or excipient where specific solubility profile and pH characteristics of the sodium salt offer formulation advantages over the parent compound.',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Enhanced Solubility',
-            description:
-              'Improved water solubility and faster dissolution rates compared to Colamin Phosphate, particularly beneficial in neutral to slightly alkaline aqueous solutions.',
-          },
-          {
-            feature: 'Formulation Flexibility',
-            description:
-              'Offers formulators an alternative form that may be easier to handle or more stable in specific liquid or solid dosage forms requiring consistent performance.',
-          },
-          {
-            feature: 'Essential Precursor Function',
-            description:
-              'Delivers the core phosphorylethanolamine molecule required for phosphatidylethanolamine synthesis and healthy cell membrane function across applications.',
-          },
-          {
-            feature: 'pH Modification Potential',
-            description:
-              'Salt form provides controlled pH characteristics and potential buffering capacity beneficial for specialized formulation requirements.',
-          },
-          {
-            feature: 'VUP Quality Assurance',
-            description:
-              'Manufactured leveraging VUP specialty chemical production expertise with proven capability for consistent quality delivery and reliable supply.',
-          },
-        ],
-        caseStudies: [],
-        relatedProducts: [],
-        faq: [
-          {
-            question:
-              'What advantages does the sodium salt form offer over regular Colamin Phosphate?',
-            answer:
-              'The sodium salt provides enhanced water solubility, faster dissolution rates, and different handling characteristics, particularly beneficial for liquid formulations and neutral pH applications.',
-          },
-          {
-            question: 'What are the main applications for Colamin Phosphate Sodium Salt?',
-            answer:
-              'Used in liquid supplements, pharmaceutical formulations, cell culture media, and veterinary applications where improved solubility and specific salt properties are advantageous.',
-          },
-          {
-            question: 'How does it support cellular health like regular Colamin Phosphate?',
-            answer:
-              'It provides the same essential phosphorylethanolamine core for phosphatidylethanolamine synthesis and cell membrane health, just in a more soluble salt form.',
-          },
-          {
-            question: 'What purity level does VUP offer for this sodium salt?',
-            answer:
-              'VUP supplies Colamin Phosphate Sodium Salt with minimum 98% purity, ensuring reliable performance for demanding pharmaceutical and supplement applications.',
-          },
-          {
-            question: 'Is this form suitable for liquid supplement formulations?',
-            answer:
-              'Yes, the enhanced solubility makes it particularly suitable for liquid supplements where consistent dissolution and homogeneous distribution are critical.',
-          },
-          {
-            question: 'How does the sodium content affect its nutritional profile?',
-            answer:
-              'While providing some sodium ions, the primary nutritional benefit remains the phosphorylethanolamine core for cellular health rather than sodium supplementation.',
-          },
-        ],
-        slug: 'colamin-phosphate-sodium',
       },
     }),
     payload.create({
@@ -8157,101 +8040,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     }),
     payload.update({
       collection: 'products',
-      id: colaminPhosphatesodiumSalt.id,
-      locale: 'sk',
-      data: {
-        name: 'Colamin Phosphate Sodium Salt',
-        description:
-          'Sodíková soľ formy nevyhnutného prekurzora fosfolipidov, Phosphorylethanolamine. Táto soľ ponúka zvýšenú rozpustnosť a formulačnú flexibilitu v porovnaní s materskou zlúčeninou, čo ju robí cennou pre tekuté doplnky, farmaceutické formulácie a špecializované aplikácie vyžadujúce zlepšené rozpúšťacie charakteristiky.',
-        applications: [
-          {
-            application: 'Tekuté formulácie',
-            description:
-              'Zvýšená rozpustnosť vo vode ju robí ideálnou pre tekuté doplnky a farmaceutické roztoky, kde je potrebné rýchlejšie rozpúšťanie a zlepšená kompatibilita.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Dietetické doplnky',
-            description:
-              'Poskytuje bioprístupný phosphorylethanolamine pre podporu bunkového zdravia so zlepšenou formulačnou flexibilitou v tekutých aj pevných dávkovacích formách.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Média bunkovej kultúry',
-            description:
-              'Zložka v špecializovaných pH-kontrolovaných mediálnych formuláciách, poskytujúca nevyhnutné stavebné bloky pre syntézu fosfatidyletanolamínu počas bunkovej proliferácie.',
-            image: demoImageDoc.id,
-          },
-          {
-            application: 'Farmaceutické formulácie',
-            description:
-              'Používa sa ako medziproduk alebo pomocná látka, kde špecifický rozpustnostný profil a pH charakteristiky sodíkovej soli ponúkajú formulačné výhody oproti materskej zlúčenine.',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: 'Zvýšená rozpustnosť',
-            description:
-              'Zlepšená rozpustnosť vo vode a rýchlejšie rýchlosti rozpúšťania v porovnaní s Colamin Phosphate, obzvlášť prospešné v neutrálnych až mierne alkalických vodných roztokoch.',
-          },
-          {
-            feature: 'Formulačná flexibilita',
-            description:
-              'Ponúka formulátorom alternatívnu formu, ktorá môže byť ľahšia na manipuláciu alebo stabilnejšia v špecifických tekutých alebo pevných dávkovacích formách vyžadujúcich konzistentný výkon.',
-          },
-          {
-            feature: 'Funkcia nevyhnutného prekurzora',
-            description:
-              'Dodáva jadrovú molekulu phosphorylethanolamine potrebnú pre syntézu fosfatidyletanolamínu a zdravú funkciu bunkovej membrány vo všetkých aplikáciách.',
-          },
-          {
-            feature: 'Potenciál modifikácie pH',
-            description:
-              'Soľová forma poskytuje kontrolované pH charakteristiky a potenciálnu pufovaciu kapacitu prospešnú pre špecializované formulačné požiadavky.',
-          },
-          {
-            feature: 'VUP zabezpečenie kvality',
-            description:
-              'Vyrábaný využívajúc odbornosť VUP v výrobe špeciálnych chemikálií s osvedčenou schopnosťou konzistentného dodávania kvality a spoľahlivého zásobovania.',
-          },
-        ],
-        faq: [
-          {
-            question: 'Aké výhody ponúka forma sodíkovej soli oproti bežnému Colamin Phosphate?',
-            answer:
-              'Sodíková soľ poskytuje zvýšenú rozpustnosť vo vode, rýchlejšie rýchlosti rozpúšťania a odlišné manipulačné charakteristiky, obzvlášť prospešné pre tekuté formulácie a aplikácie s neutrálnym pH.',
-          },
-          {
-            question: 'Aké sú hlavné aplikácie pre Colamin Phosphate Sodium Salt?',
-            answer:
-              'Používa sa v tekutých doplnkoch, farmaceutických formuláciách, médiách bunkovej kultúry a veterinárnych aplikáciách, kde sú výhodné zlepšená rozpustnosť a špecifické vlastnosti soli.',
-          },
-          {
-            question: 'Ako podporuje bunkové zdravie ako bežný Colamin Phosphate?',
-            answer:
-              'Poskytuje rovnaké nevyhnutné jadro phosphorylethanolamine pre syntézu fosfatidyletanolamínu a zdravie bunkovej membrány, len v rozpustnejšej soľovej forme.',
-          },
-          {
-            question: 'Akú úroveň čistoty ponúka VUP pre túto sodíkovú soľ?',
-            answer:
-              'VUP dodáva Colamin Phosphate Sodium Salt s minimálnou čistotou 98%, zabezpečujúc spoľahlivý výkon pre náročné farmaceutické a doplnkové aplikácie.',
-          },
-          {
-            question: 'Je táto forma vhodná pre formulácie tekutých doplnkov?',
-            answer:
-              'Áno, zvýšená rozpustnosť ju robí obzvlášť vhodnou pre tekuté doplnky, kde sú kritické konzistentné rozpúšťanie a homogénne rozdelenie.',
-          },
-          {
-            question: 'Ako obsah sodíka ovplyvňuje jej výživový profil?',
-            answer:
-              'Hoci poskytuje niektoré sodíkové ióny, primárny výživový prínos zostáva jadro phosphorylethanolamine pre bunkové zdravie skôr ako doplnok sodíka.',
-          },
-        ],
-      },
-    }),
-    payload.update({
-      collection: 'products',
       id: vupin.id,
       locale: 'sk',
       data: {
@@ -8460,100 +8248,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         ],
       },
     }),
-    payload.update({
-      collection: 'products',
-      id: colaminPhosphatesodiumSalt.id,
-      locale: 'jp',
-      data: {
-        name: 'コラミンリン酸ナトリウム塩',
-        description:
-          '必須リン脂質前駆体ホスホリルエタノールアミンのナトリウム塩形。この塩は親化合物と比較して溶解性と製剤柔軟性が向上し、改良された溶解特性を必要とする液体サプリメント、製薬製剤、特殊用途に価値があります。',
-        applications: [
-          {
-            application: '液体製剤',
-            description:
-              '向上した水溶性により、より速い溶解と改良された適合性が必要な液体サプリメントと製薬溶液に理想的。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: '栄養補助食品',
-            description:
-              '液体および固体剤形の両方での改良された製剤柔軟性により、細胞健康サポートのための生物学的利用可能なホスホリルエタノールアミンを提供。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: '細胞培養培地',
-            description:
-              '特殊pH制御培地製剤の成分で、細胞増殖中のホスファチジルエタノールアミン合成のための必須構成要素を提供。',
-            image: demoImageDoc.id,
-          },
-          {
-            application: '製薬製剤',
-            description:
-              'ナトリウム塩の特定の溶解性プロファイルとpH特性が親化合物より製剤上の利点を提供する中間体または賦形剤として使用。',
-            image: demoImageDoc.id,
-          },
-        ],
-        keyFeatures: [
-          {
-            feature: '向上した溶解性',
-            description:
-              'コラミンリン酸と比較して改良された水溶性とより速い溶解速度、特に中性からやや塩基性の水溶液で有益。',
-          },
-          {
-            feature: '製剤柔軟性',
-            description:
-              '一貫した性能を要求する特定の液体または固体剤形で取扱いが容易または安定である代替形を製剤設計者に提供。',
-          },
-          {
-            feature: '必須前駆体機能',
-            description:
-              'ホスファチジルエタノールアミン合成と健康な細胞膜機能に必要なコアホスホリルエタノールアミン分子を用途全体で提供。',
-          },
-          {
-            feature: 'pH修飾ポテンシャル',
-            description: '塩形は特殊製剤要件に有益な制御されたpH特性と潜在的緩衝能力を提供。',
-          },
-          {
-            feature: 'VUP品質保証',
-            description:
-              '一貫した品質配送と信頼性の高い供給の実証能力を持つVUP特殊化学生産専門知識を活用して製造。',
-          },
-        ],
-        faq: [
-          {
-            question: 'ナトリウム塩形は通常のコラミンリン酸と比較してどのような利点がありますか？',
-            answer:
-              'ナトリウム塩は向上した水溶性、より速い溶解速度、異なる取扱い特性を提供し、特に液体製剤と中性pH用途で有益です。',
-          },
-          {
-            question: 'コラミンリン酸ナトリウム塩の主な用途は何ですか？',
-            answer:
-              '改良された溶解性と特定の塩特性が有利な液体サプリメント、製薬製剤、細胞培養培地、獣医用途で使用されます。',
-          },
-          {
-            question: '通常のコラミンリン酸のように細胞健康をサポートしますか？',
-            answer:
-              'ホスファチジルエタノールアミン合成と細胞膜健康のための同じ必須ホスホリルエタノールアミンコアを、より溶解性の高い塩形で提供します。',
-          },
-          {
-            question: 'VUPはこのナトリウム塩をどの純度レベルで提供していますか？',
-            answer:
-              'VUPは厳しい製薬およびサプリメント用途での信頼性の高い性能を確保する最低98%純度でコラミンリン酸ナトリウム塩を供給しています。',
-          },
-          {
-            question: 'この形は液体サプリメント製剤に適していますか？',
-            answer:
-              'はい、向上した溶解性により、一貫した溶解と均質な分布が重要な液体サプリメントに特に適しています。',
-          },
-          {
-            question: 'ナトリウム含有量は栄養プロファイルにどう影響しますか？',
-            answer:
-              'いくらかのナトリウムイオンを提供しますが、主要な栄養上の利益はナトリウム補給よりも細胞健康のためのホスホリルエタノールアミンコアです。',
-          },
-        ],
-      },
-    }),
+
     payload.update({
       collection: 'products',
       id: vupin.id,
@@ -12907,9 +12602,9 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     payload
       .update({
         collection: 'productCategories',
-        id: phospholipidPrecursors.id,
+        id: phosphocolamines.id,
         data: {
-          featuredProducts: [colaminPhosphate.id, colaminPhosphatesodiumSalt.id],
+          featuredProducts: [colaminPhosphate.id],
           image: colaminPhosphateStructureDoc.id,
         },
       })
@@ -12975,7 +12670,14 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         collection: 'productCategories',
         id: freeRadicals.id,
         data: {
-          featuredProducts: [temp.id, hTempo.id, tempone.id],
+          featuredProducts: [
+            tempo.id,
+            hTempo.id,
+            tempone.id,
+            acetamidoTempo.id,
+            aminoTempo.id,
+            galvinoxyl.id,
+          ],
           image: tempoStructureDoc.id,
         },
       })
@@ -12988,7 +12690,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
     categories: {
       hydroxyAcids,
       hinderedAmines,
-      phospholipidPrecursors,
+      phosphocolamines,
       polymerisationInhibitors,
       diaminopolyethyleneGlycols,
       chromanolsDerivatives,
@@ -13010,7 +12712,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       tempone,
       colamin,
       colaminPhosphate,
-      colaminPhosphatesodiumSalt,
       vupin,
       pentamethylpiperidine,
       pentamethylpiperidinol,
