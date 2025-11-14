@@ -851,7 +851,7 @@ export const seed = async ({
                 type: 'custom',
                 newTab: null,
                 url: '/products/category/diaminopolyethylene-glycols',
-                label: 'DAPEG',
+                label: 'Diaminopolyethylene Glycols',
               },
             },
 

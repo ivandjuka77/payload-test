@@ -339,17 +339,6 @@ export const seedIndustries = async (
             caseStudies: [],
           },
           {
-            title: 'Biomedical Materials & Device Coatings',
-            challenge:
-              'Developing advanced medical devices and therapies often requires specialized biocompatible materials with unique functional properties.',
-            solution:
-              "VUP is the unique global producer of O,O'-Bis(3-aminopropyl)polyethyleneglycol (DAPEG), a high-value intermediate used to create lubricious, hydrophilic coatings for vascular intervention devices and other surgical applications. Building on this, we have developed pilot capabilities for PEG-diacrylamide (PEGDAA), a derivative with significant potential in tissue engineering, 3D bioprinting, and drug delivery systems. Our R&D team actively collaborates with partners like DSM Biomedical in this area.",
-            image: pharmaChallenge2Doc.id,
-            challengeLink: 'biomedical-materials',
-            relatedServices: [researchDevelopment.id],
-            caseStudies: [],
-          },
-          {
             title: 'Diagnostic Aids & Healthcare Products',
             challenge:
               'Reliable and safe consumable materials are essential for routine diagnostic procedures in healthcare settings.',
@@ -768,14 +757,7 @@ export const seedIndustries = async (
               'Špecializujeme sa na výrobu TEMPO (CAS 2564-83-2) a príbuzných nitroxidových radikálov, ktoré slúžia ako všestranné katalyzátory, antioxidanty a suroviny. Služba Zákazkovej syntézy od VUP poskytuje na mieru šitú výrobu ďalších komplexných organických medziproduktov potrebných pre vývojové pipeline liekov, podloženú robustnou kontrolou kvality.',
             image: pharmaChallenge1Doc.id,
           },
-          {
-            title: 'Biomedicínske materiály a povlaky pre zdravotnícke pomôcky',
-            challenge:
-              'Vývoj pokročilých zdravotníckych pomôcok a terapií si často vyžaduje špecializované biokompatibilné materiály s unikátnymi funkčnými vlastnosťami.',
-            solution:
-              "VUP je unikátnym globálnym výrobcom O,O'-Bis(3-aminopropyl)polyetylénglykolu (DAPEG), vysokohodnotného medziproduktu používaného na vytváranie lubrikačných, hydrofilných povlakov pre cievne intervenčné pomôcky a iné chirurgické aplikácie. Na tomto základe sme vyvinuli pilotné kapacity pre PEG-diakrylamid (PEGDAA), derivát s významným potenciálom v tkanivovom inžinierstve, 3D biotlači a systémoch na podávanie liečiv. Náš tím výskumu a vývoja aktívne spolupracuje s partnermi ako DSM Biomedical v tejto oblasti.",
-            image: pharmaChallenge2Doc.id,
-          },
+
           {
             title: 'Diagnostické pomôcky a zdravotnícke výrobky',
             challenge:
@@ -1139,14 +1121,6 @@ export const seedIndustries = async (
             solution:
               '当社は、TEMPO（CAS 2564-83-2）および関連するニトロキシドラジカルの製造を専門としています。これらは多目的な触媒、抗酸化剤、原料として機能します。VUPのカスタム合成サービスは、堅牢な品質管理に裏打ちされた、医薬品開発パイプラインに必要な他の複雑な有機中間体の特注生産を提供します。',
             image: pharmaChallenge1Doc.id,
-          },
-          {
-            title: '生物医学材料とデバイスコーティング',
-            challenge:
-              '先進的な医療機器や治療法の開発には、独自の機能特性を持つ特殊な生体適合性材料がしばしば必要とされます。',
-            solution:
-              "VUPは、血管インターベンションデバイスやその他の外科用途向けの潤滑性、親水性コーティングを作成するために使用される高価値中間体であるO,O'-ビス(3-アミノプロピル)ポリエチレングリコール（DAPEG）のユニークな世界的生産者です。これを基に、組織工学、3Dバイオプリンティング、ドラッグデリバリーシステムで大きな可能性を秘めた誘導体であるPEG-ジアクリルアミド（PEGDAA）のパイロット能力を開発しました。当社の研究開発チームは、この分野でDSM Biomedicalなどのパートナーと積極的に協力しています。",
-            image: pharmaChallenge2Doc.id,
           },
           {
             title: '診断補助剤とヘルスケア製品',

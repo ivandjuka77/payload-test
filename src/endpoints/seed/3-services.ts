@@ -82,11 +82,6 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
             description:
               'Seamless support from analytical services to production capabilities, providing complete technological foundations for commercialization',
           },
-          {
-            feature: 'Proven Track Record',
-            description:
-              'Successful collaborations with leading international partners including DSM, UPM, and Perstorp across diverse chemical sectors',
-          },
         ],
         subServices: [
           {
@@ -950,11 +945,6 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           description:
             'Bezproblémová podpora od analytických služieb po výrobné schopnosti, poskytujúca kompletné technologické základy pre komercializáciu',
         },
-        {
-          feature: 'Overená história úspechov',
-          description:
-            'Úspešná spolupráca s popredných medzinárodných partnermi vrátane DSM, UPM a Perstorp v rôznych chemických sektoroch',
-        },
       ],
       subServices: [
         {
@@ -1810,11 +1800,6 @@ export const seedServices = async (payload: Payload, media: SeededMedia) => {
           feature: '統合ソリューション',
           description:
             '分析サービスから生産能力まで、商業化のための完全な技術基盤を提供するシームレスなサポート',
-        },
-        {
-          feature: '実績ある成功記録',
-          description:
-            'DSM、UPM、Perstorpを含む多様な化学セクターにわたる主要な国際パートナーとの成功した協力',
         },
       ],
       subServices: [

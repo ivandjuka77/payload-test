@@ -2056,7 +2056,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             { synonym: 'α,ω-Diamino-PEG' },
           ],
           molecularFormula: 'H₂N(CH₂)₃[O(CH₂)₂]nO(CH₂)₃NH₂',
-          molecularWeight: '700-3400 g/mol',
+          molecularWeight: '1500-2000mw',
           labVerified: 'Verified',
         },
         VupSpecifications: {
@@ -2088,12 +2088,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             description:
               'Building block for synthesizing hydrogels for tissue engineering and drug delivery, block copolymers, and other functional polymer architectures.',
             image: media.DAPEGApplication4Doc.id,
-          },
-          {
-            application: 'PEGDAA Synthesis',
-            description:
-              'Direct precursor for producing Poly(ethylene glycol) diacrylamide (PEGDAA), used in hydrogel formation and specialized coating applications.',
-            image: media.DAPEGApplication5Doc.id,
           },
         ],
         keyFeatures: [
@@ -2147,11 +2141,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Primary amines are versatile reactive handles for covalent attachment to surfaces with carboxyl or NHS-ester groups and for conjugation in bioconjugation or polymer synthesis.',
           },
           {
-            question: 'What molecular weight grades does VUP offer for DAPEG?',
-            answer:
-              'VUP offers DAPEG in various average molecular weight grades ranging from approximately 700 to 3400 g/mol. Contact VUP to discuss specific grades and availability.',
-          },
-          {
             question: 'Is DAPEG suitable for medical device applications?',
             answer:
               'Yes, DAPEG is widely used as a raw material for biomedical coatings. Discuss your specific application requirements with VUP to ensure appropriate grade selection.',
@@ -2172,14 +2161,13 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
         name: 'VUPIN H37-B Polymerization Inhibitor',
         _status: 'published',
         description:
-          'A liquid polymerization inhibitor formulation combining 4-Hydroxy-TEMPO with 2-Butoxyethanol solvent. Prevents unwanted polymerization in petrochemical streams, monomer handling, and FCC gasoline applications.',
+          'A liquid polymerization inhibitor formulation based on 4-Hydroxy-TEMPO. Prevents unwanted polymerization in petrochemical streams, monomer handling, and FCC gasoline applications.',
         chemicalStructureImage: cas2226962StructureDoc.id,
         technicalSpecifications: {
-          chemicalName:
-            'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl in 2-Butoxyethanol',
-          casNumber: '2226-96-2 (Active), 111-76-2 (Solvent)',
-          ecNumber: '218-760-9 (Active), 203-905-0 (Solvent)',
-          synonyms: [{ synonym: 'H-TEMPO in 2-Butoxyethanol' }, { synonym: 'VUPIN H37-B' }],
+          chemicalName: 'Formulation of 4-Hydroxy-2,2,6,6-tetramethylpiperidin-1-oxyl',
+          casNumber: '2226-96-2 (Active)',
+          ecNumber: '218-760-9 (Active)',
+          synonyms: [{ synonym: 'H-TEMPO Solution' }, { synonym: 'VUPIN H37-B' }],
           molecularFormula: 'Formulation',
           molecularWeight: 'Formulation',
           labVerified: 'Verified',
@@ -2228,11 +2216,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Supplied as convenient liquid solution simplifying handling, dosing, and incorporation into process streams compared to solid inhibitors.',
           },
           {
-            feature: 'Superior Solvency Properties',
-            description:
-              'Utilizes 2-Butoxyethanol glycol ether solvent providing excellent compatibility with various substances and effective distribution in process streams.',
-          },
-          {
             feature: 'Industrial-Grade Reliability',
             description:
               'Manufactured by VUP leveraging expertise in hindered amine chemistry and specialty chemical production for consistent quality and performance.',
@@ -2249,17 +2232,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           {
             question: 'What exactly is VUPIN H37-B and its main components?',
             answer:
-              'VUPIN H37-B is a liquid formulation containing 4-Hydroxy-TEMPO (CAS 2226-96-2) as the active polymerization inhibitor dissolved in 2-Butoxyethanol solvent for industrial petrochemical applications.',
+              'VUPIN H37-B is a liquid formulation containing 4-Hydroxy-TEMPO (CAS 2226-96-2) as the active polymerization inhibitor for industrial petrochemical applications.',
           },
           {
             question: 'What is the primary application for VUPIN H37-B?',
             answer:
               'It is used as a component in additive packages for FCC gasoline in refineries and has proven effectiveness in stabilizing reactive monomers during storage, transport, and processing.',
-          },
-          {
-            question: 'What makes VUPIN H37-B effective as a polymerization inhibitor?',
-            answer:
-              'It combines the potent radical scavenging ability of H-TEMPO with excellent solvency and compatibility properties of 2-Butoxyethanol carrier, ensuring effective distribution and performance.',
           },
           {
             question: 'How does VUPIN H37-B prevent polymer fouling in process equipment?',
@@ -7119,12 +7097,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Stavebný blok na syntézu hydrogélov pre tkanivové inžinierstvo a dodávku liekov, blokové kopolyméry a iné funkčné polymérne architektúry.',
             image: demoImageDoc.id,
           },
-          {
-            application: 'Syntéza PEGDAA',
-            description:
-              'Priamy prekurzor na výrobu Poly(etylénglykolyl) diakrylamidu (PEGDAA), používaného pri tvorbe hydrogélov a špecializovaných náterových aplikáciách.',
-            image: demoImageDoc.id,
-          },
         ],
         keyFeatures: [
           {
@@ -7174,11 +7146,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             answer:
               'Primárne amíny sú všestranné reaktívne úchytky pre kovalentné pripojenie k povrchom s karboxylovou alebo NHS-esterovými skupinami a pre konjugáciu v biokonjugácii alebo syntéze polymérov.',
           },
-          {
-            question: 'Aké stupne molekulovej hmotnosti ponúka VUP pre DAPEG?',
-            answer:
-              'VUP ponúka DAPEG v rôznych stupňoch priemernej molekulovej hmotnosti v rozsahu približne 700 až 3400 g/mol. Kontaktujte VUP na diskusiu špecifických stupňov a dostupnosti.',
-          },
+
           {
             question: 'Je DAPEG vhodný pre aplikácie medicínskych zariadení?',
             answer:
@@ -7406,12 +7374,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               '組織工学と薬物送達のためのハイドロゲル、ブロック共重合体、その他の機能的ポリマー構造の合成のための構成要素。',
             image: demoImageDoc.id,
           },
-          {
-            application: 'PEGDAA合成',
-            description:
-              'ハイドロゲル形成と特殊コーティング用途で使用されるポリ（エチレングリコール）ジアクリルアミド（PEGDAA）の製造のための直接前駆体。',
-            image: demoImageDoc.id,
-          },
         ],
         keyFeatures: [
           {
@@ -7461,11 +7423,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
             answer:
               '一級アミンはカルボキシルまたはNHS-エステル基を持つ表面への共有結合およびバイオコンジュゲーションまたはポリマー合成での共役のための多用途反応ハンドルです。',
           },
-          {
-            question: 'VUPはDAPEGのどの分子量グレードを提供していますか？',
-            answer:
-              'VUPは約700から3400g/molの範囲の様々な平均分子量グレードでDAPEGを提供しています。特定のグレードと入手可能性についてはVUPにお問い合わせください。',
-          },
+
           {
             question: 'DAPEGは医療デバイス用途に適していますか？',
             answer:
@@ -8295,7 +8253,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       data: {
         name: 'VUPIN H37-B Polymerizačný inhibítor',
         description:
-          'Tekutá formulácia polymerizačného inhibítora kombinujúca 4-Hydroxy-TEMPO s rozpúšťadlom 2-Butoxyethanol. Predchádza nežiaducemu polymerizácii v petrochemických tokoch, manipulácii s monomermi a aplikáciách FCC benzínu.',
+          'Tekutá formulácia polymerizačného inhibítora na báze 4-Hydroxy-TEMPO. Predchádza nežiaducemu polymerizácii v petrochemických tokoch, manipulácii s monomermi a aplikáciách FCC benzínu.',
         applications: [
           {
             application: 'Stabilizácia FCC benzínu',
@@ -8334,11 +8292,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               'Dodáva sa ako pohodlný tekutý roztok zjednodušujúci manipuláciu, dávkovanie a začlenenie do procesných tokov v porovnaní s pevnými inhibítormi.',
           },
           {
-            feature: 'Vynikajúce rozpúšťacie vlastnosti',
-            description:
-              'Využíva rozpúšťadlo 2-Butoxyethanol glycol éter poskytujúce vynikajúcu kompatibilitu s rôznymi látkami a efektívne rozdelenie v procesných tokoch.',
-          },
-          {
             feature: 'Spoľahlivosť priemyselného stupňa',
             description:
               'Vyrábaný VUP využívajúc odbornosť v chémii stericky bránených amínov a výrobe špeciálnych chemikálií pre konzistentnú kvalitu a výkon.',
@@ -8353,17 +8306,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           {
             question: 'Čo presne je VUPIN H37-B a jeho hlavné zložky?',
             answer:
-              'VUPIN H37-B je tekutá formulácia obsahujúca 4-Hydroxy-TEMPO (CAS 2226-96-2) ako aktívny polymerizačný inhibítor rozpustený v rozpúšťadle 2-Butoxyethanol pre priemyselné petrochemické aplikácie.',
+              'VUPIN H37-B je tekutá formulácia obsahujúca 4-Hydroxy-TEMPO (CAS 2226-96-2) ako aktívny polymerizačný inhibítor pre priemyselné petrochemické aplikácie.',
           },
           {
             question: 'Aká je primárna aplikácia pre VUPIN H37-B?',
             answer:
               'Používa sa ako zložka v aditívnych balíčkoch pre FCC benzín v rafinériách a má osvedčenú efektívnosť v stabilizácii reaktívnych monomerov počas skladovania, transportu a spracovania.',
-          },
-          {
-            question: 'Čo robí VUPIN H37-B efektívnym ako polymerizačný inhibítor?',
-            answer:
-              'Kombinuje schopnosť zachytávania radikálov H-TEMPO s vynikajúcimi rozpúšťacími a kompatibilnými vlastnosťami nosiča 2-Butoxyethanol, zabezpečujúc efektívne rozdelenie a výkon.',
           },
           {
             question: 'Ako VUPIN H37-B predchádza polymérnemu zanášaniu v procesnom zariadení?',
@@ -8506,7 +8454,7 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
       data: {
         name: 'VUPIN H37-B 重合禁止剤',
         description:
-          '4-ヒドロキシ-TEMPOと2-ブトキシエタノール溶媒を組み合わせた液体重合禁止剤配合。石油化学ストリーム、モノマー取扱い、FCCガソリン用途での望ましくない重合を防止。',
+          '4-ヒドロキシ-TEMPOベースの液体重合禁止剤配合。石油化学ストリーム、モノマー取扱い、FCCガソリン用途での望ましくない重合を防止。',
         applications: [
           {
             application: 'FCCガソリン安定化',
@@ -8545,11 +8493,6 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
               '固体禁止剤と比較して取扱い、投薬、プロセスストリームへの組み込みを簡素化する便利な液体溶液として供給。',
           },
           {
-            feature: '優れた溶媒特性',
-            description:
-              '様々な物質との優れた適合性とプロセスストリームでの効果的な分布を提供する2-ブトキシエタノールグリコールエーテル溶媒を利用。',
-          },
-          {
             feature: '産業グレード信頼性',
             description:
               '一貫した品質と性能のための立体障害アミン化学と特殊化学生産の専門知識を活用してVUPによって製造。',
@@ -8564,17 +8507,12 @@ export const seedProductData = async (payload: Payload, media: SeededMedia) => {
           {
             question: 'VUPIN H37-Bとは正確に何で、その主要成分は？',
             answer:
-              'VUPIN H37-Bは産業石油化学用途のために2-ブトキシエタノール溶媒に溶解した活性重合禁止剤として4-ヒドロキシ-TEMPO（CAS 2226-96-2）を含む液体配合です。',
+              'VUPIN H37-Bは産業石油化学用途のための活性重合禁止剤として4-ヒドロキシ-TEMPO（CAS 2226-96-2）を含む液体配合です。',
           },
           {
             question: 'VUPIN H37-Bの主要用途は何ですか？',
             answer:
               '製油所でのFCCガソリンの添加剤パッケージの成分として使用され、貯蔵、輸送、処理中の反応性モノマーの安定化で実証済みの効果があります。',
-          },
-          {
-            question: 'VUPIN H37-Bを重合禁止剤として効果的にするのは何ですか？',
-            answer:
-              'H-TEMPOの強力なラジカル捕獲能力と2-ブトキシエタノールキャリアの優れた溶媒性と適合性特性を組み合わせ、効果的な分布と性能を確保。',
           },
           {
             question: 'VUPIN H37-Bはプロセス機器でのポリマー汚染をどのように防止しますか？',
