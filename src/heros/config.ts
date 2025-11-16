@@ -186,6 +186,36 @@ export const hero: Field = {
                 localized: true,
               },
             }),
+            {
+              name: 'badge',
+              type: 'select',
+              options: [
+                {
+                  label: 'Product',
+                  value: 'product',
+                },
+                {
+                  label: 'Industry ',
+                  value: 'industry',
+                },
+                {
+                  label: 'Research',
+                  value: 'research',
+                },
+
+                {
+                  label: 'Sustainability',
+                  value: 'sustainability',
+                },
+                {
+                  label: 'None',
+                  value: 'none',
+                },
+              ],
+              defaultValue: 'none',
+              localized: false,
+              required: false,
+            },
           ],
         },
         {
@@ -210,6 +240,36 @@ export const hero: Field = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+            },
+            {
+              name: 'badge',
+              type: 'select',
+              options: [
+                {
+                  label: 'Product',
+                  value: 'product',
+                },
+                {
+                  label: 'Industry ',
+                  value: 'industry',
+                },
+                {
+                  label: 'Research',
+                  value: 'research',
+                },
+
+                {
+                  label: 'Sustainability',
+                  value: 'sustainability',
+                },
+                {
+                  label: 'None',
+                  value: 'none',
+                },
+              ],
+              defaultValue: 'none',
+              localized: false,
+              required: false,
             },
             linkGroup({
               appearances: ['default'],

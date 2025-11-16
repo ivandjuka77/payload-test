@@ -8,6 +8,23 @@ import { Page } from '@/payload-types'
 import { Media } from '@/components/Media'
 import Link from 'next/link'
 import { CMSLink } from '@/components/Link'
+import { Badge } from '@/components/ui/badge'
+
+function getBadge(badge: string) {
+  switch (badge) {
+    case 'product':
+      return { text: 'Product', color: 'bg-blue-600' }
+    case 'industry':
+      return { text: 'Industry', color: 'bg-[#FF5733]' }
+    case 'research':
+      return { text: 'Research', color: 'bg-purple-500' }
+    case 'sustainability':
+      return { text: 'Sustainability', color: 'bg-green-500' }
+    case 'none':
+    default:
+      return { text: '', color: 'bg-gray-500' }
+  }
+}
 
 //? Responsive
 export const CarouselHero: React.FC<Page['hero']> = (props) => {
@@ -272,6 +289,15 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                           href={slide.featuredItem.links[0].link?.url || ''}
                           className="block relative rounded-xl overflow-hidden h-full min-h-[300px] group/card cursor-pointer"
                         >
+                          {/* Badge added here */}
+                          {slide.featuredItem.badge && slide.featuredItem.badge !== 'none' && (
+                            <Badge
+                              className={`absolute top-4 left-4 z-30 ${getBadge(slide.featuredItem.badge).color}`}
+                            >
+                              {getBadge(slide.featuredItem.badge).text}
+                            </Badge>
+                          )}
+
                           {/* Featured image as background */}
                           <Media
                             resource={slide.featuredItem.image}
@@ -280,16 +306,14 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                             priority
                             imgClassName="object-cover z-0 w-full h-full transition-transform duration-300 group-hover/card:scale-105"
                           />
-
                           {/* Gradient overlay for text readability */}
                           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/60 to-primary-dark/20 z-10"></div>
-
                           {/* Additional dark gradient overlay at the bottom */}
                           <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-
                           {/* Featured content floating on image */}
+
                           <div className="relative p-6 z-20 h-full flex flex-col justify-end">
-                            <h3 className="text-white font-semibold mb-3 font-primary text-xl group-hover/card:text-white/90">
+                            <h3 className="text-white font-semibold mb-3 font-primary text-xl group-hover/card:text-white/90 flex items-center gap-2">
                               {slide.featuredItem.title}
                             </h3>
                             <p className="text-white/90 text-sm mb-4">
@@ -308,16 +332,27 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                 {/* Featured Cards - Full Width Row */}
                 {slide.featuredCards && slide.featuredCards.length > 0 && (
                   <div className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-auto hidden md:grid">
-                    {slide.featuredCards.map((card, idx) => {
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                    {slide.featuredCards.map((card: any, idx: number) => {
                       const hasLinks = card.links && card.links.length > 0
                       const firstLink = hasLinks && card.links ? card.links[0].link : null
+                      const badge = card.badge || 'none'
 
                       return hasLinks && firstLink ? (
                         <Link
                           key={idx}
                           href={firstLink.url || ''}
-                          className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden hover:bg-white/30 transition-all group cursor-pointer flex flex-col"
+                          className="relative bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden hover:bg-white/30 transition-all group cursor-pointer flex flex-col"
                         >
+                          {/* Badge added here */}
+                          {badge && badge !== 'none' && (
+                            <Badge
+                              className={`absolute top-4 left-4 z-10 ${getBadge(badge).color}`}
+                            >
+                              {getBadge(badge).text}
+                            </Badge>
+                          )}
+
                           {/* Card Image */}
                           <div className="relative h-24 sm:h-28 md:h-32 w-full">
                             <Media
@@ -347,8 +382,11 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
                       ) : (
                         <div
                           key={idx}
-                          className="bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden"
+                          className="relative bg-white/20 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl overflow-hidden"
                         >
+                          {/* Badge added here */}
+                          <Badge className="absolute top-4 left-4 z-10">Product</Badge>
+
                           {/* Card Image */}
                           <div className="relative h-24 sm:h-28 md:h-32 w-full">
                             <Media

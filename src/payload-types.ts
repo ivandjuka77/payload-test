@@ -15,6 +15,7 @@ export type FCards =
       title: string;
       description: string;
       image: number | Media;
+      badge?: ('product' | 'industry' | 'research' | 'sustainability' | 'none') | null;
       links?:
         | {
             link: {
@@ -778,6 +779,7 @@ export interface FItem {
         id?: string | null;
       }[]
     | null;
+  badge?: ('product' | 'industry' | 'research' | 'sustainability' | 'none') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2139,6 +2141,7 @@ export interface FItemSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  badge?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2148,6 +2151,7 @@ export interface FCardsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   image?: T;
+  badge?: T;
   links?:
     | T
     | {

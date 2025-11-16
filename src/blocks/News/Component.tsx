@@ -19,7 +19,7 @@ async function FeaturedNewsItem({ post }: FeaturedNewsItemProps) {
           <div className="px-6 py-8 sm:px-8 sm:py-10 md:px-12 lg:px-16 md:py-16 md:w-3/5 flex flex-col justify-center">
             <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full bg-white text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-5 md:mb-6 w-fit">
               <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-              <span>{post.type}</span>
+              <span>{post.type?.charAt(0).toUpperCase() + post.type?.slice(1)}</span>
             </div>
 
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 font-primary text-white">
@@ -78,7 +78,7 @@ async function CompactNewsItem({
           <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
           <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
             <Badge variant="secondary" className="text-xs bg-primary text-white px-2 py-1">
-              {type}
+              {type?.charAt(0).toUpperCase() + type?.slice(1)}
             </Badge>
           </div>
         </div>
@@ -123,10 +123,13 @@ export const NewsSection: React.FC<NewsBlock> = async ({
       <div className="container">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10 md:mb-12">
           <div className="flex flex-col gap-3 sm:gap-4">
-            <div className="inline-flex w-fit items-center px-2.5 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2">
-              <Rss className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-              <span>{badge}</span>
-            </div>
+            {badge && (
+              <div className="inline-flex w-fit items-center px-2.5 sm:px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2">
+                <Rss className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+
+                <span>{badge?.charAt(0).toUpperCase() + badge?.slice(1)}</span>
+              </div>
+            )}
 
             <h2 className="font-bold tracking-tighter font-primary text-2xl sm:text-3xl md:text-4xl">
               {title}

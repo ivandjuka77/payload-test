@@ -81,6 +81,7 @@ export function homeEn(args: HomeArgs) {
               title: 'Hindered Amines',
               description: 'precursors for HALS stabilizers and oxidation catalysts',
               image: slide1HeroCard1Doc,
+              badge: 'product',
               links: [
                 {
                   link: {
@@ -97,6 +98,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'VUP supplies 4‑Hydroxy‑TEMPO, a stable nitroxyl radical used by polymer manufacturers and refiners as a polymerisation inhibitor for monomer storage and transport.',
               image: slide1HeroCard2Doc,
+              badge: 'product',
               links: [
                 {
                   link: {
@@ -113,6 +115,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Diaminopolyethylene glycols for biomedical and surface modification applications',
               image: slide1HeroCard3Doc,
+              badge: 'product',
               links: [
                 {
                   link: {
@@ -134,6 +137,7 @@ export function homeEn(args: HomeArgs) {
             description:
               'DMPA, DMBA and HPVA are high‑purity hydroxy acids used to synthesize waterborne polyurethane dispersions and durable polyester resins for coatings, inks and adhesives',
             image: slide1HeroFeaturedItemDoc,
+            badge: 'product',
             links: [
               {
                 link: {
@@ -168,6 +172,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Tailored chemical synthesis solutions designed to meet your specific requirements',
               image: slide2HeroCard1Doc,
+              badge: 'research',
               links: [
                 {
                   link: {
@@ -184,6 +189,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Innovative R&D services to advance your product development initiatives',
               image: slide2HeroCard2Doc,
+              badge: 'research',
               links: [
                 {
                   link: {
@@ -200,6 +206,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Expert guidance on compliance, documentation, and technical specifications',
               image: slide2HeroCard3Doc,
+              badge: 'research',
               links: [
                 {
                   link: {
@@ -221,6 +228,7 @@ export function homeEn(args: HomeArgs) {
             description:
               'State-of-the-art analytical testing and quality control services ensuring the highest standards of precision and reliability.',
             image: slide2HeroFeaturedItemDoc,
+            badge: 'research',
             links: [
               {
                 link: {
@@ -255,6 +263,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Recognized excellence in sustainable practices and environmental stewardship',
               image: slide3HeroCard1Doc,
+              badge: 'sustainability',
               links: [
                 {
                   link: {
@@ -271,6 +280,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Pioneering sustainable chemical solutions through constant research and development',
               image: slide3HeroCard2Doc,
+              badge: 'sustainability',
               links: [
                 {
                   link: {
@@ -287,6 +297,7 @@ export function homeEn(args: HomeArgs) {
               description:
                 'Dedicated to reducing environmental impact while delivering exceptional quality',
               image: slide3HeroCard3Doc,
+              badge: 'sustainability',
               links: [
                 {
                   link: {
@@ -308,6 +319,7 @@ export function homeEn(args: HomeArgs) {
             description:
               'Proud recipient of the EcoVadis sustainability medal, demonstrating our commitment to environmental excellence and responsible business practices.',
             image: slide3HeroFeaturedItemDoc,
+            badge: 'sustainability',
             links: [
               {
                 link: {
