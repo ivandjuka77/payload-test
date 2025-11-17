@@ -132,7 +132,7 @@ export const plugins: Plugin[] = [
                   })
 
                   const emailResult = await sendEmail({
-                    to: 'ivandjuka777@gmail.com',
+                    to: 'vup@vupas.sk',
                     subject: `Contact Form: ${formData.subject || 'New Submission'}`,
                     html: emailHtml,
                     replyTo: formData.email,

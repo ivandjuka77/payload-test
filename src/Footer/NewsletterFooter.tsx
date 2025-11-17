@@ -49,7 +49,7 @@ export default function NewsletterFooter() {
           <Input
             type="email"
             placeholder={t('emailPlaceholder')}
-            className="h-10 flex-1 border-primary/20 focus-visible:ring-primary/30"
+            className="h-10 flex-1 border-primary/20 text-black focus-visible:ring-primary/30"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

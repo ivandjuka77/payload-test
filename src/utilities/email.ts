@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const RESEND_AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID
 
 interface EmailData {
   to: string
@@ -22,7 +23,7 @@ export async function sendEmail({ to, subject, html, replyTo }: EmailData) {
     console.log('  Reply-To:', replyTo || 'N/A')
 
     const data = await resend.emails.send({
-      from: 'VUP Chemicals <noreply@vupinternational.com>',
+      from: 'VUP Chemicals <website@vupas.sk>',
       to,
       subject,
       html,
@@ -322,4 +323,43 @@ export function createNewsletterSubscriptionEmail(data: { email: string }) {
 </body>
 </html>
   `
+}
+
+// Add contact to Resend Audience
+export async function addToNewsletterAudience(email: string) {
+  try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error('❌ RESEND_API_KEY is not set in environment variables')
+      return { success: false, error: 'Email service not configured' }
+    }
+
+    if (!RESEND_AUDIENCE_ID) {
+      console.error('❌ RESEND_AUDIENCE_ID is not set in environment variables')
+      return { success: false, error: 'Newsletter audience not configured' }
+    }
+
+    console.log('📋 Adding contact to Resend Audience...')
+    console.log('  Email:', email)
+    console.log('  Audience ID:', RESEND_AUDIENCE_ID)
+
+    const response = await resend.contacts.create({
+      email,
+      audienceId: RESEND_AUDIENCE_ID,
+    })
+
+    console.log('✅ Contact added to audience successfully!')
+    console.log('  Contact ID:', response.data?.id)
+
+    return { success: true, data: response.data }
+  } catch (error) {
+    // Handle duplicate email error gracefully
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    if (errorMessage.includes('already exists')) {
+      console.log('ℹ️ Email already subscribed to newsletter')
+      return { success: true, message: 'Already subscribed' }
+    }
+
+    console.error('❌ Error adding contact to audience:', error)
+    return { success: false, error }
+  }
 }

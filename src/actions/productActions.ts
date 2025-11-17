@@ -9,6 +9,7 @@ import {
   createCareerApplicationEmail,
   createContactFormEmail,
   createNewsletterSubscriptionEmail,
+  addToNewsletterAudience,
 } from '@/utilities/email'
 
 interface FilterCriteria {
@@ -353,15 +354,15 @@ export async function submitProductInquiry(
     console.log('  Product:', inquiryData.productName)
     console.log('  From:', inquiryData.email)
     console.log('  Company:', inquiryData.company)
-    
+
     const emailHtml = createProductInquiryEmail(inquiryData)
     const emailResult = await sendEmail({
-      to: 'ivandjuka777@gmail.com',
+      to: 'vup@vupas.sk',
       subject: `Product Inquiry: ${inquiryData.productName}`,
       html: emailHtml,
       replyTo: inquiryData.email,
     })
-    
+
     if (emailResult.success) {
       console.log('✅ Product Inquiry email sent successfully')
     } else {
@@ -422,15 +423,15 @@ export async function submitContactForm(
     console.log('📬 Preparing to send Contact Form email...')
     console.log('  From:', contactData.email)
     console.log('  Subject:', contactData.subject)
-    
+
     const emailHtml = createContactFormEmail(contactData)
     const emailResult = await sendEmail({
-      to: 'ivandjuka777@gmail.com',
+      to: 'vup@vupas.sk',
       subject: `Contact Form: ${contactData.subject}`,
       html: emailHtml,
       replyTo: contactData.email,
     })
-    
+
     if (emailResult.success) {
       console.log('✅ Contact Form email sent successfully')
     } else {
@@ -499,15 +500,15 @@ export async function submitCareerApplication(
     console.log('📬 Preparing to send Career Application email...')
     console.log('  Applicant:', applicationData.fullName)
     console.log('  Email:', applicationData.email)
-    
+
     const emailHtml = createCareerApplicationEmail(applicationData)
     const emailResult = await sendEmail({
-      to: 'ivandjuka777@gmail.com',
+      to: 'vup@vupas.sk',
       subject: `Career Application: ${applicationData.fullName}`,
       html: emailHtml,
       replyTo: applicationData.email,
     })
-    
+
     if (emailResult.success) {
       console.log('✅ Career Application email sent successfully')
     } else {
@@ -532,21 +533,32 @@ export async function subscribeToNewsletter(
   subscriptionData: NewsletterSubscriptionData,
 ): Promise<{ success: boolean; message: string }> {
   try {
-    // Send email notification
-    console.log('📬 Preparing to send Newsletter Subscription email...')
+    console.log('📬 Processing Newsletter Subscription...')
     console.log('  Subscriber:', subscriptionData.email)
-    
+
+    // Add email to Resend Audience
+    const audienceResult = await addToNewsletterAudience(subscriptionData.email)
+
+    if (!audienceResult.success) {
+      console.error('⚠️ Failed to add contact to Resend Audience:', audienceResult.error)
+      // Continue anyway - we still want to send notification email
+    }
+
+    // Send email notification to admin
     const emailHtml = createNewsletterSubscriptionEmail(subscriptionData)
     const emailResult = await sendEmail({
-      to: 'ivandjuka777@gmail.com',
+      to: 'vup@vupas.sk',
       subject: 'New Newsletter Subscription',
       html: emailHtml,
     })
-    
+
     if (emailResult.success) {
-      console.log('✅ Newsletter Subscription email sent successfully')
+      console.log('✅ Newsletter Subscription notification email sent successfully')
     } else {
-      console.error('⚠️ Newsletter Subscription email failed to send:', emailResult.error)
+      console.error(
+        '⚠️ Newsletter Subscription notification email failed to send:',
+        emailResult.error,
+      )
     }
 
     return {
