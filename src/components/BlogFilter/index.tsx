@@ -105,9 +105,10 @@ export function ArticlesGrid({ articles, allTags, showFilters = true }: Articles
           {/* Articles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredArticles.map((article) => (
-              <div
+              <Link
                 key={article.id}
-                className="group flex flex-col overflow-hidden rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                href={article.slug ? `/news/${article.slug}` : '#'}
+                className="group flex flex-col overflow-hidden rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="relative h-48">
                   <Image
@@ -156,17 +157,12 @@ export function ArticlesGrid({ articles, allTags, showFilters = true }: Articles
                     )}
                   </div>
 
-                  <Button asChild variant="outline" className="w-fit mt-auto">
-                    <Link
-                      href={article.slug ? `/news/${article.slug}` : '#'}
-                      className="inline-flex items-center gap-2"
-                    >
-                      Read more
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <div className="flex items-center gap-2 text-primary font-medium text-sm mt-auto">
+                    Read more
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

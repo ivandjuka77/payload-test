@@ -2,6 +2,28 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import configPromise from '@/payload.config'
 
+/**
+ * Sanitizes search query by removing common prefixes like "CAS:", "EC number:", etc.
+ */
+function sanitizeQuery(query: string): string {
+  let cleaned = query.trim()
+
+  // Remove common prefixes (case insensitive)
+  const prefixPatterns = [
+    /^cas\s*number\s*:?\s*/i,
+    /^cas\s*:?\s*/i,
+    /^ec\s*number\s*:?\s*/i,
+    /^ec\s*:?\s*/i,
+    /^number\s*:?\s*/i,
+  ]
+
+  for (const pattern of prefixPatterns) {
+    cleaned = cleaned.replace(pattern, '')
+  }
+
+  return cleaned.trim()
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { query, locale } = await request.json()
@@ -9,6 +31,9 @@ export async function POST(request: NextRequest) {
     if (!query || typeof query !== 'string' || query.trim() === '') {
       return NextResponse.json({ docs: [], totalDocs: 0 })
     }
+
+    // Sanitize the query to remove common prefixes
+    const sanitizedQuery = sanitizeQuery(query)
 
     const payload = await getPayload({ config: configPromise })
 
@@ -32,37 +57,37 @@ export async function POST(request: NextRequest) {
         or: [
           {
             title: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             'meta.description': {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             'meta.title': {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             slug: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             description: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             casNumber: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             ecNumber: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
         ],
@@ -88,6 +113,9 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ docs: [], totalDocs: 0 })
   }
 
+  // Sanitize the query to remove common prefixes
+  const sanitizedQuery = sanitizeQuery(query)
+
   try {
     const payload = await getPayload({ config: configPromise })
 
@@ -110,37 +138,37 @@ export async function GET(request: NextRequest) {
         or: [
           {
             title: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             'meta.description': {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             'meta.title': {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             slug: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             description: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             casNumber: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
           {
             ecNumber: {
-              like: query,
+              like: sanitizedQuery,
             },
           },
         ],
