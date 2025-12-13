@@ -13,12 +13,6 @@ const BeforeDashboard: React.FC = () => {
           <strong>Welcome to the VUP Dashboard!</strong>
         </h4>
       </Banner>
-      <Banner className={`${baseClass}__banner type-info`} type="info">
-        <h4>
-          <strong>INFO:</strong> This is the staging environment. Any changes you make here will not
-          be reflected on the live website.
-        </h4>
-      </Banner>
       <span>Below are some quick links and utilities:</span>
       <ul className={`${baseClass}__instructions`}>
         <li>
