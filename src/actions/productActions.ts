@@ -11,6 +11,7 @@ import {
   createNewsletterSubscriptionEmail,
   addToNewsletterAudience,
 } from '@/utilities/email'
+import { unstable_cache } from 'next/cache'
 
 interface FilterCriteria {
   searchQuery?: string
@@ -233,61 +234,70 @@ export async function fetchFilteredProductsAction(
   }
 }
 
+const getCachedFilterOptions = (locale: string) =>
+  unstable_cache(
+    async () => {
+      const payload = await getPayload({ config: configPromise })
+
+      const [categories, industries, products] = await Promise.all([
+        payload.find({
+          collection: 'productCategories',
+          sort: '_order',
+          draft: false,
+          overrideAccess: false,
+          locale: locale as 'en' | 'sk' | 'jp' | 'all',
+          limit: 1000,
+        }),
+        payload.find({
+          collection: 'industries',
+          draft: false,
+          overrideAccess: false,
+          locale: locale as 'en' | 'sk' | 'jp' | 'all',
+          limit: 1000,
+        }),
+        payload.find({
+          collection: 'products',
+          sort: '_order',
+          draft: false,
+          overrideAccess: false,
+          locale: locale as 'en' | 'sk' | 'jp' | 'all',
+          limit: 1000,
+          select: {
+            applications: true,
+          },
+        }),
+      ])
+
+      const applications = new Set<string>()
+      products.docs.forEach((product: Product) => {
+        product.applications?.forEach((app: NonNullable<Product['applications']>[number]) => {
+          if (app.application && typeof app.application === 'string') {
+            applications.add(app.application)
+          }
+        })
+      })
+
+      return {
+        categories: [
+          'All Categories',
+          ...categories.docs.map((cat: ProductCategory) => cat.name).filter(Boolean),
+        ],
+        industries: [
+          'All Industries',
+          ...industries.docs.map((ind: Industry) => ind.name).filter(Boolean),
+        ],
+        applications: ['All Applications', ...Array.from(applications).sort()],
+      }
+    },
+    ['product-filter-options', locale],
+    { revalidate: 3600, tags: ['product-filter-options', `product-filter-options-${locale}`] },
+  )
+
 export async function fetchFilterOptionsAction(
   locale: 'en' | 'sk' | 'jp' | 'all' = 'en',
 ): Promise<FilterOptions> {
-  const payload = await getPayload({ config: configPromise })
-
   try {
-    // Fetch all product categories
-    const categories = await payload.find({
-      collection: 'productCategories',
-      sort: '_order',
-      draft: false,
-      overrideAccess: false,
-      locale,
-      limit: 1000, // Ensure we get all categories
-    })
-
-    // Fetch all industries
-    const industries = await payload.find({
-      collection: 'industries',
-      draft: false,
-      overrideAccess: false,
-      locale,
-      limit: 1000, // Ensure we get all industries
-    })
-
-    // Fetch unique applications from products
-    const products = await payload.find({
-      collection: 'products',
-      sort: '_order',
-      draft: false,
-      overrideAccess: false,
-      locale,
-      limit: 1000, // Get more products to ensure we capture all applications
-    })
-
-    const applications = new Set<string>()
-    products.docs.forEach((product: Product) => {
-      product.applications?.forEach((app: NonNullable<Product['applications']>[number]) => {
-        if (app.application && typeof app.application === 'string') {
-          applications.add(app.application)
-        }
-      })
-    })
-
-    return {
-      categories: [
-        'All Categories',
-        ...categories.docs.map((cat: ProductCategory) => cat.name).filter(Boolean),
-      ],
-      industries: [
-        'All Industries',
-        ...industries.docs.map((ind: Industry) => ind.name).filter(Boolean),
-      ],
-      applications: ['All Applications', ...Array.from(applications).sort()],
-    }
+    return await getCachedFilterOptions(locale)()
   } catch (error) {
     console.error('Error fetching filter options:', error)
     throw new Error('Failed to fetch filter options. Please try again.')

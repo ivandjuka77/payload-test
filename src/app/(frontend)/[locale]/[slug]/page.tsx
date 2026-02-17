@@ -7,33 +7,34 @@ import { cache } from 'react'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
-// import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import SustainabilityPartner from '@/components/SustainabilityPartner'
 
-// export async function generateStaticParams() {
-//   const payload = await getPayload({ config: configPromise })
-//   const pages = await payload.find({
-//     collection: 'pages',
-//     draft: false,
-//     limit: 1000,
-//     overrideAccess: false,
-//     pagination: false,
-//     select: {
-//       slug: true,
-//     },
-//   })
+export const revalidate = 43200
 
-//   const locales: TypedLocale[] = ['en', 'sk', 'jp']
-//   const params: { locale: TypedLocale; slug: string }[] = pages.docs.flatMap(({ slug }) => {
-//     return locales.map((locale) => ({
-//       locale,
-//       slug: slug || '',
-//     }))
-//   })
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise })
+  const pages = await payload.find({
+    collection: 'pages',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: {
+      slug: true,
+    },
+  })
 
-//   return params
-// }
+  const locales: TypedLocale[] = ['en', 'sk', 'jp']
+  const params: { locale: TypedLocale; slug: string }[] = pages.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug: slug || '',
+    }))
+  })
+
+  return params
+}
 
 type Args = {
   params: Promise<{

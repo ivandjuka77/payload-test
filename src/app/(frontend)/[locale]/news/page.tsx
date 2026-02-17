@@ -6,9 +6,10 @@ import PageClient from './page.client'
 import { Newsletter } from '@/components/Newsletter'
 import { Pagination } from '@/components/Pagination'
 import { getTranslations } from 'next-intl/server'
+import { getCachedPostTags } from '@/utilities/queries'
 
 export const dynamic = 'force-static'
-export const revalidate = 600
+export const revalidate = 3600
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -16,28 +17,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   const payload = await getPayload({ config: configPromise })
 
-  // Get first page of posts (page 1)
   const posts = await payload.find({
     collection: 'posts',
-    depth: 3,
+    depth: 1,
     limit: 9,
     page: 1,
     overrideAccess: false,
   })
 
-  // Get all tags for filtering
-  const allPostsData = await payload.find({
-    collection: 'posts',
-    depth: 1,
-    limit: 0,
-    overrideAccess: false,
-  })
-
-  const allTags = Array.from(
-    new Set(
-      allPostsData.docs.flatMap((post) => post.tags?.map((tag) => tag.tag).filter(Boolean) || []),
-    ),
-  ) as string[]
+  const allTags = await getCachedPostTags()
 
   return (
     <div>

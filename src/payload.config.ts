@@ -82,11 +82,10 @@ export default buildConfig({
   //* -------- DB -------- *//
   db: postgresAdapter({
     pool: {
-      max: 20,
+      max: 10,
       min: 0,
       connectionString: process.env.DATABASE_URI,
     },
-    // logger: true,
   }),
 
   //* -------- COLLECTIONS -------- *//

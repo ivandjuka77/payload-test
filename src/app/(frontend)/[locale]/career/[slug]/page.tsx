@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import { generateMeta } from '@/utilities/generateMeta'
@@ -14,31 +14,31 @@ import BenefitsSection from '@/components/career/Benefits'
 import RelatedPositions from '@/components/career/RelatedPositions'
 import type { Career } from '@/payload-types'
 
-// export async function generateStaticParams() {
-//   const payload = await getPayload({ config: configPromise })
-//   const careers = await payload.find({
-//     collection: 'careers',
-//     draft: false,
-//     limit: 1000,
-//     overrideAccess: false,
-//     pagination: false,
-//     select: {
-//       slug: true,
-//     },
-//   })
+export const revalidate = 43200
 
-//   const locales = ['', 'sk', 'jp'] // '' represents default (English)
-//   const params = careers.docs.flatMap(({ slug }) => {
-//     return locales.map((locale) => ({
-//       locale,
-//       slug,
-//     }))
-//   })
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise })
+  const careers = await payload.find({
+    collection: 'careers',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: {
+      slug: true,
+    },
+  })
 
-//   console.log('Careers', params.length)
+  const locales: TypedLocale[] = ['en', 'sk', 'jp']
+  const params = careers.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug: slug || '',
+    }))
+  })
 
-//   return params
-// }
+  return params
+}
 
 type Args = {
   params: Promise<{

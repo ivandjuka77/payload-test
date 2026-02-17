@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@/payload.config'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 import { draftMode } from 'next/headers'
 import { cache } from 'react'
 import RichText from '@/components/RichText'
@@ -12,25 +12,31 @@ import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
 
-// export async function generateStaticParams() {
-//   const payload = await getPayload({ config: configPromise })
-//   const posts = await payload.find({
-//     collection: 'posts',
-//     draft: false,
-//     limit: 1000,
-//     overrideAccess: false,
-//     pagination: false,
-//     select: {
-//       slug: true,
-//     },
-//   })
+export const revalidate = 43200
 
-//   const params = posts.docs.map(({ slug }) => {
-//     return { slug }
-//   })
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise })
+  const posts = await payload.find({
+    collection: 'posts',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: {
+      slug: true,
+    },
+  })
 
-//   return params
-// }
+  const locales: TypedLocale[] = ['en', 'sk', 'jp']
+  const params = posts.docs.flatMap(({ slug }) => {
+    return locales.map((locale) => ({
+      locale,
+      slug: slug || '',
+    }))
+  })
+
+  return params
+}
 
 type Args = {
   params: Promise<{
