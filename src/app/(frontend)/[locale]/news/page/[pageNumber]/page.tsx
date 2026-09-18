@@ -9,6 +9,7 @@ import { notFound, redirect } from 'next/navigation'
 import { Newsletter } from '@/components/Newsletter'
 import { getCachedPostTags } from '@/utilities/queries'
 
+export const dynamic = 'force-static'
 export const revalidate = 3600
 
 type Args = {
