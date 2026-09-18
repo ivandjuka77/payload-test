@@ -41,7 +41,7 @@ const getSearchResultUrl = (result: SearchResult): string => {
     case 'pages':
       return `/${result.slug}`
     default:
-      return `/search?q=${encodeURIComponent(result.title)}`
+      return '/'
   }
 }
 
@@ -157,13 +157,6 @@ export default function MobileSearch({ onResultClick }: MobileSearchProps) {
           ) : !isSearching ? (
             <div className="p-2 text-sm text-gray-500 text-center">
               <div>No results found</div>
-              <Link
-                href={`/search?q=${encodeURIComponent(searchQuery)}`}
-                className="text-blue-600 hover:text-blue-700 text-xs mt-1 inline-block"
-                onClick={handleResultClick}
-              >
-                Try advanced search →
-              </Link>
             </div>
           ) : (
             <div className="p-2 text-sm text-gray-500 text-center">

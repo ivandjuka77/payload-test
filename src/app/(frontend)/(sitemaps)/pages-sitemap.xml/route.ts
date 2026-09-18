@@ -23,7 +23,7 @@ const getPagesSitemap = unstable_cache(
     const sitemap: Array<{ loc: string; lastmod: string }> = []
 
     // Static pages for each locale
-    const staticPages = ['/search', '/news', '/products', '/industries', '/services', '/career']
+    const staticPages = ['/news', '/products', '/industries', '/services', '/career']
 
     staticPages.forEach((page) => {
       locales.forEach((locale) => {

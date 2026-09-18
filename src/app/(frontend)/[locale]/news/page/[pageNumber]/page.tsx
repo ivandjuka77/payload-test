@@ -91,12 +91,15 @@ export async function generateStaticParams() {
   })
 
   const totalPages = Math.ceil(totalDocs / 9)
+  const locales = ['en', 'sk', 'jp']
 
-  const pages: { pageNumber: string }[] = []
+  const pages: { locale: string; pageNumber: string }[] = []
 
   // Start from page 2 since page 1 is handled by /news
   for (let i = 2; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
+    locales.forEach((locale) => {
+      pages.push({ locale, pageNumber: String(i) })
+    })
   }
 
   return pages

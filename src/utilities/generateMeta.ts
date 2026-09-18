@@ -7,16 +7,24 @@ import { getServerSideURL } from './getURL'
 
 const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   const serverUrl = getServerSideURL()
+  const fallbackURL = `${serverUrl}/website-template-OG.webp`
 
-  let url = serverUrl + '/website-template-OG.webp'
-
-  if (image && typeof image === 'object' && 'url' in image) {
-    const ogUrl = image.sizes?.og?.url
-
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
+  if (!image || typeof image !== 'object' || !('url' in image)) {
+    return fallbackURL
   }
 
-  return url
+  const imageURL = image.sizes?.og?.url || image.url
+
+  if (!imageURL) {
+    return fallbackURL
+  }
+
+  // Media stored on remote storage already has an absolute URL
+  if (/^https?:\/\//i.test(imageURL)) {
+    return imageURL
+  }
+
+  return `${serverUrl}${imageURL.startsWith('/') ? '' : '/'}${imageURL}`
 }
 
 export const generateMeta = async (args: {

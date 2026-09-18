@@ -7,6 +7,7 @@ import { Newsletter } from '@/components/Newsletter'
 import { Pagination } from '@/components/Pagination'
 import { getTranslations } from 'next-intl/server'
 import { getCachedPostTags } from '@/utilities/queries'
+import { getServerSideURL } from '@/utilities/getURL'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -70,7 +71,7 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'news' })
 
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+  const serverUrl = getServerSideURL()
   const localePrefix = locale && locale !== 'en' ? `/${locale}` : ''
   const canonical = `${serverUrl}${localePrefix}/news`
 

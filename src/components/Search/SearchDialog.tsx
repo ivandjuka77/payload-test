@@ -47,7 +47,7 @@ const getSearchResultUrl = (result: SearchResult): string => {
     case 'pages':
       return `/${result.slug}`
     default:
-      return `/search?q=${encodeURIComponent(result.title)}`
+      return '/'
   }
 }
 

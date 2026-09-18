@@ -42,8 +42,11 @@ export default async function RootLayout({
   // Get messages for the specific locale
   const messages = await getMessages()
 
+  // Japanese is served under /jp, but its language code is ja
+  const htmlLang = locale === 'jp' ? 'ja' : locale
+
   return (
-    <html className={cn(raleway.variable, inter.variable)} lang={locale} suppressHydrationWarning>
+    <html className={cn(raleway.variable, inter.variable)} lang={htmlLang} suppressHydrationWarning>
       <head>
         <Script
           id="ketch-script"
