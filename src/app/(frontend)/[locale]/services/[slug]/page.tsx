@@ -143,23 +143,3 @@ const queryServiceBySlug = cache(
     return result.docs?.[0] || null
   },
 )
-
-export async function queryServices({
-  limit,
-  locale = 'en',
-}: {
-  limit: number
-  locale: TypedLocale
-}) {
-  const payload = await getPayload({ config: configPromise })
-  const services = await payload.find({
-    collection: 'services',
-    draft: false,
-    limit,
-    overrideAccess: false,
-    pagination: false,
-    locale,
-  })
-
-  return services.docs || []
-}

@@ -269,7 +269,7 @@ const getCachedFilterOptions = (locale: string) =>
       ])
 
       const applications = new Set<string>()
-      products.docs.forEach((product: Product) => {
+      products.docs.forEach((product) => {
         product.applications?.forEach((app: NonNullable<Product['applications']>[number]) => {
           if (app.application && typeof app.application === 'string') {
             applications.add(app.application)

@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return generateMeta({ doc: page, locale })
 }
 
-export async function queryProducts({
+async function queryProducts({
   limit = 1,
   locale = 'en',
 }: {
@@ -65,26 +65,4 @@ export async function queryProducts({
   })
 
   return result.docs?.[0] || null
-}
-
-export async function queryProductCategories({
-  limit = 100,
-  locale = 'en',
-}: {
-  limit?: number
-  locale?: TypedLocale
-}) {
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'productCategories',
-    sort: '_order',
-    draft: false, // Always false for static generation
-    limit: limit || 100,
-    pagination: false,
-    overrideAccess: false, // Use published content only
-    locale,
-  })
-
-  return result.docs || []
 }
