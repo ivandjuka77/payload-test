@@ -179,7 +179,7 @@ export function MobileNav({
 
                           {/* VUP Cosmetics Special Link */}
                           <Link
-                            href="http://vupcosmetics.sk/"
+                            href="https://www.vupcosmetics.sk/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block py-2 px-2 text-sm bg-green-50 rounded-lg hover:bg-green-100 transition-colors my-2"

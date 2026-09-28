@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Product } from '@/payload-types'
-import Head from 'next/head'
 
 export function FAQ({
   product,
@@ -35,12 +34,11 @@ export function FAQ({
 
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
+      {/* JSON-LD has to be rendered in the body - `next/head` is a no-op in the App Router */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="w-full py-16 bg-white px-4 sm:px-6 lg:px-0">
         <div className="container max-w-5xl mx-auto">
           <div className="flex flex-col items-center text-center mb-10">

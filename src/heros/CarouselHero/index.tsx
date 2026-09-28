@@ -208,6 +208,12 @@ export const CarouselHero: React.FC<Page['hero']> = (props) => {
 
   return (
     <section className="w-full h-full relative">
+      {/*
+        Single page-level heading for the homepage. The slide titles below are
+        per-slide H2s, so they cannot carry the H1 - and this one is
+        translatable, unlike generic hero copy.
+      */}
+      {props.title && <h1 className="sr-only">{props.title}</h1>}
       <Carousel
         setApi={setApi}
         className="h-full w-full"

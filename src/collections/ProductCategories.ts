@@ -4,6 +4,10 @@ import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { slugField } from '@/fields/slug'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
+import {
+  revalidatePagesSitemap,
+  revalidatePagesSitemapDelete,
+} from '@/hooks/revalidatePagesSitemap'
 
 export const ProductCategories: CollectionConfig = {
   slug: 'productCategories',
@@ -142,4 +146,8 @@ export const ProductCategories: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [revalidatePagesSitemap],
+    afterDelete: [revalidatePagesSitemapDelete],
+  },
 }

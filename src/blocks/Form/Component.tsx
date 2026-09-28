@@ -367,7 +367,7 @@ export const FormBlock: React.FC<
                               {t('privacy.text')}{' '}
                               <CMSLink
                                 type="custom"
-                                url="/privacy"
+                                url="/privacy-policy"
                                 className="underline hover:text-primary transition-colors"
                               >
                                 {t('privacy.link')}

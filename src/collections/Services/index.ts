@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { slugField } from '@/fields/slug'
+import {
+  revalidatePagesSitemap,
+  revalidatePagesSitemapDelete,
+} from '@/hooks/revalidatePagesSitemap'
 
 export const Services: CollectionConfig = {
   slug: 'services',
@@ -264,5 +268,9 @@ export const Services: CollectionConfig = {
     },
     ...slugField(),
   ],
+  hooks: {
+    afterChange: [revalidatePagesSitemap],
+    afterDelete: [revalidatePagesSitemapDelete],
+  },
   timestamps: true,
 }

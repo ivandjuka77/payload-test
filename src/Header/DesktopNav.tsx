@@ -80,9 +80,9 @@ function IndustriesMegaMenu({
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20 opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
               <div className="absolute inset-x-0 bottom-0 transition-transform duration-300 ease-out group-hover:-translate-y-2">
                 <div className="p-2.5">
-                  <h3 className="text-md font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
+                  <div className="text-md font-secondary font-medium text-white group-hover:text-blue-300 transition-colors">
                     {industry.name}
-                  </h3>
+                  </div>
                   <p className="mt-0.5 text-xs text-gray-300 line-clamp-2 opacity-85">
                     {industry.description}
                   </p>
@@ -155,9 +155,9 @@ function ProductsMegaMenu({
                 <div className="flex items-start gap-4">
                   <div className="text-blue-500 mt-1">{productCategoryIcons[index]}</div>
                   <div>
-                    <h3 className="text-lg font-secondary leading-tight font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <div className="text-lg font-secondary leading-tight font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                       {productCategory.name}
-                    </h3>
+                    </div>
                     <p className="mt-1 text-xs font-secondary text-gray-500 leading-relaxed line-clamp-2">
                       {productCategory.description}
                     </p>
@@ -237,9 +237,9 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
               <div className="text-blue-500 mt-1">{serviceIcons[index]}</div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="text-lg font-secondary font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <div className="text-lg font-secondary font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                     {service.title}
-                  </h3>
+                  </div>
                 </div>
                 <p className="mt-1 text-xs font-secondary text-gray-500 leading-relaxed line-clamp-2">
                   {service.description}
@@ -261,7 +261,7 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
 
         {/* VUP Cosmetics Special Link */}
         <Link
-          href="http://vupcosmetics.sk/"
+          href="https://www.vupcosmetics.sk/"
           target="_blank"
           rel="noopener noreferrer"
           className="group p-5 rounded-lg bg-green-100 hover:bg-green-200 transition-colors border border-green-300"
@@ -273,9 +273,9 @@ function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-secondary font-medium flex items-center gap-x-2 text-gray-900 group-hover:text-green-700 transition-colors">
+                <div className="text-lg font-secondary font-medium flex items-center gap-x-2 text-gray-900 group-hover:text-green-700 transition-colors">
                   {t('vupCosmetics.title')} <ExternalLink size={16} />
-                </h3>
+                </div>
               </div>
               <p className="mt-1 text-xs font-secondary text-gray-600 leading-relaxed line-clamp-2">
                 {t('vupCosmetics.description')}

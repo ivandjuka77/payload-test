@@ -2,12 +2,50 @@ import type { Metadata } from 'next'
 
 import type { Media, Page, Post, Config } from '../payload-types'
 
-import { mergeOpenGraph } from './mergeOpenGraph'
+import { mergeOpenGraph, DEFAULT_OG_IMAGE_PATH } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
+
+type TitledDoc = Partial<Page> & {
+  name?: string | null
+  technicalSpecifications?: { casNumber?: string | null } | null
+}
+
+const BRAND_SUFFIX = ' | VUP'
+
+/**
+ * Titles are, in order of precedence: the hand-written SEO title, a title
+ * derived from the document (products and categories use `name`, and products
+ * additionally expose their CAS number, which is what buyers search for), then
+ * the brand alone. The brand is appended unless the title already names it.
+ */
+const buildTitle = (doc: TitledDoc): string => {
+  const seoTitle = doc.meta?.title?.trim()
+
+  let title = ''
+
+  if (seoTitle) {
+    title = seoTitle
+  } else {
+    const name = doc.name?.trim()
+    const casNumber = doc.technicalSpecifications?.casNumber?.trim()
+
+    if (name && casNumber) {
+      title = `${name} | CAS ${casNumber}`
+    } else if (name) {
+      title = name
+    } else {
+      title = doc.title?.trim() || ''
+    }
+  }
+
+  if (!title) return 'VUP, a.s'
+
+  return /vup/i.test(title) ? title : `${title}${BRAND_SUFFIX}`
+}
 
 const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   const serverUrl = getServerSideURL()
-  const fallbackURL = `${serverUrl}/website-template-OG.webp`
+  const fallbackURL = `${serverUrl}${DEFAULT_OG_IMAGE_PATH}`
 
   if (!image || typeof image !== 'object' || !('url' in image)) {
     return fallbackURL
@@ -45,17 +83,7 @@ export const generateMeta = async (args: {
 
   const ogImage = getImageURL(doc?.meta?.image)
 
-  let title = ''
-
-  if ('name' in doc && doc?.name) {
-    title = doc.name + ' | VUP '
-  } else if (doc?.title) {
-    title = doc?.meta?.title
-      ? doc?.meta?.title + ' | VUP '
-      : doc?.title
-        ? doc?.title + ' | VUP '
-        : 'VUP '
-  }
+  const title = buildTitle(doc)
   // Generate canonical URL
   const serverUrl = getServerSideURL()
   let canonicalPath = ''

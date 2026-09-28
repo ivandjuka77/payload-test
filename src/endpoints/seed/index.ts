@@ -943,7 +943,7 @@ export const seed = async ({
               link: {
                 type: 'custom',
                 newTab: null,
-                url: '/sitemap-index.xml',
+                url: '/sitemap.xml',
                 label: 'Sitemap',
               },
             },

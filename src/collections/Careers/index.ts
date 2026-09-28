@@ -8,6 +8,10 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+import {
+  revalidatePagesSitemap,
+  revalidatePagesSitemapDelete,
+} from '@/hooks/revalidatePagesSitemap'
 
 export const Careers: CollectionConfig = {
   slug: 'careers',
@@ -254,5 +258,9 @@ export const Careers: CollectionConfig = {
     },
     ...slugField(),
   ],
+  hooks: {
+    afterChange: [revalidatePagesSitemap],
+    afterDelete: [revalidatePagesSitemapDelete],
+  },
   timestamps: true,
 }

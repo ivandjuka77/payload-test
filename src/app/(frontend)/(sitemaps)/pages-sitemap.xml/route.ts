@@ -224,7 +224,20 @@ const getPagesSitemap = unstable_cache(
         })
     }
 
-    return sitemap
+    // The static route list above overlaps with documents that also live in the
+    // Pages collection (e.g. /products), so emit one entry per URL, keeping the
+    // most recent lastmod.
+    const byLoc = new Map<string, { loc: string; lastmod: string }>()
+
+    sitemap.forEach((entry) => {
+      const existing = byLoc.get(entry.loc)
+
+      if (!existing || new Date(entry.lastmod) > new Date(existing.lastmod)) {
+        byLoc.set(entry.loc, entry)
+      }
+    })
+
+    return [...byLoc.values()]
   },
   ['pages-sitemap'],
   {

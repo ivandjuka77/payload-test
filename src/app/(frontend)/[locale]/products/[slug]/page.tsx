@@ -74,7 +74,6 @@ export default async function Product({ params: paramsPromise }: Args) {
   if (!product) return <PayloadRedirects url={url} />
 
   const documents = await getProductDocuments(product.id)
-  console.log('documents', documents)
 
   return (
     <main>

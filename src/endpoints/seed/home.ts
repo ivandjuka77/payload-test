@@ -233,7 +233,7 @@ export function homeEn(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/services/analytical-testing',
+                  url: '/services/analytical-testing-atbel',
                   label: 'Discover Services',
                   appearance: 'default',
                 },
@@ -793,7 +793,7 @@ export function homeSk(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/services/analytical-testing',
+                  url: '/services/analytical-testing-atbel',
                   label: 'Objaviť služby',
                   appearance: 'default',
                 },
@@ -1344,7 +1344,7 @@ export function homeJp(args: HomeArgs) {
               {
                 link: {
                   type: 'custom',
-                  url: '/services/analytical-testing',
+                  url: '/services/analytical-testing-atbel',
                   label: 'サービスを発見',
                   appearance: 'default',
                 },
