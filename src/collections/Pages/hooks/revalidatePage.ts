@@ -3,40 +3,69 @@ import type { CollectionAfterChangeHook, CollectionAfterDeleteHook } from 'paylo
 import { revalidatePath, revalidateTag } from 'next/cache'
 
 import type { Page } from '../../../payload-types'
+import { routing } from '../../../i18n/routing'
+
+/**
+ * Resolves the URL a page is served at. The `home` slug is rendered by the
+ * locale root route, and `localePrefix: 'as-needed'` means the default locale
+ * has no URL prefix.
+ */
+const pagePath = (locale: string, slug?: string | null) => {
+  const prefix = locale === routing.defaultLocale ? '' : `/${locale}`
+
+  if (!slug || slug === 'home') return prefix || '/'
+
+  return `${prefix}/${slug}`
+}
+
+/**
+ * Page routes are statically rendered (`revalidate = 43200`), so every locale
+ * needs to be invalidated explicitly - `revalidatePath` does not match
+ * unprefixed paths against a `[locale]` route segment.
+ */
+const revalidatePages = (slugs: (string | null | undefined)[]) => {
+  const uniqueSlugs = [...new Set(slugs.filter((slug): slug is string => Boolean(slug)))]
+
+  routing.locales.forEach((locale) => {
+    uniqueSlugs.forEach((slug) => revalidatePath(pagePath(locale, slug)))
+  })
+
+  revalidateTag('pages-sitemap')
+}
 
 export const revalidatePage: CollectionAfterChangeHook<Page> = ({
   doc,
   previousDoc,
   req: { payload, context },
 }) => {
-  if (!context.disableRevalidate) {
-    if (doc._status === 'published') {
-      const path = doc.slug === 'home' ? '/' : `/${doc.slug}`
+  if (context.disableRevalidate) return doc
 
-      payload.logger.info(`Revalidating page at path: ${path}`)
+  if (doc._status === 'published') {
+    payload.logger.info(`Revalidating page at path: ${pagePath(routing.defaultLocale, doc.slug)}`)
 
-      revalidatePath(path)
-      revalidateTag('pages-sitemap')
-    }
-
-    // If the page was previously published, we need to revalidate the old path
-    if (previousDoc?._status === 'published' && doc._status !== 'published') {
-      const oldPath = previousDoc.slug === 'home' ? '/' : `/${previousDoc.slug}`
-
-      payload.logger.info(`Revalidating old page at path: ${oldPath}`)
-
-      revalidatePath(oldPath)
-      revalidateTag('pages-sitemap')
-    }
+    revalidatePages([doc.slug])
   }
+
+  // If the page was previously published, we need to revalidate the old path
+  if (previousDoc?._status === 'published' && doc._status !== 'published') {
+    payload.logger.info(
+      `Revalidating old page at path: ${pagePath(routing.defaultLocale, previousDoc.slug)}`,
+    )
+
+    revalidatePages([previousDoc.slug])
+  }
+
+  // A renamed published page leaves its previous URL cached
+  if (previousDoc?._status === 'published' && previousDoc.slug && previousDoc.slug !== doc.slug) {
+    revalidatePages([previousDoc.slug])
+  }
+
   return doc
 }
 
 export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { context } }) => {
   if (!context.disableRevalidate) {
-    const path = doc?.slug === 'home' ? '/' : `/${doc?.slug}`
-    revalidatePath(path)
-    revalidateTag('pages-sitemap')
+    revalidatePages([doc?.slug])
   }
 
   return doc
