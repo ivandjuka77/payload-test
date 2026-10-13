@@ -9,6 +9,11 @@ export type HeaderIndustry = Pick<
   challenges?: { title: string; challengeLink?: string | null; id?: string | null }[] | null
 }
 
-export type HeaderProductCategory = Pick<ProductCategory, 'id' | 'name' | 'slug' | 'description'>
+export type HeaderProductCategory = Pick<
+  ProductCategory,
+  'id' | 'name' | 'slug' | 'description' | 'featuredProducts'
+> & {
+  applications?: { title?: string | null; id?: string | null }[] | null
+}
 
 export type HeaderService = Pick<Service, 'id' | 'title' | 'slug' | 'description' | 'features'>

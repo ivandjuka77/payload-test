@@ -28,7 +28,15 @@ const getHeaderNav = async (locale: string) => {
       collection: 'productCategories',
       sort: '_order',
       draft: false,
-      select: { name: true, slug: true, description: true },
+      select: {
+        name: true,
+        slug: true,
+        description: true,
+        featuredProducts: true,
+        applications: { title: true },
+      },
+      // featuredProducts populate at depth 1; the menu only needs their name and slug
+      populate: { products: { name: true, slug: true } },
       limit: 6,
       pagination: false,
       overrideAccess: false,
