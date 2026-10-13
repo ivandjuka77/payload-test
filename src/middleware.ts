@@ -20,11 +20,39 @@ const SEARCH_REDIRECTS: Record<string, string> = {
   '/jp/search': '/jp',
 }
 
+// The home page lives at the locale root; /home is a duplicate of it
+const HOME_REDIRECTS: Record<string, string> = {
+  '/home': '/',
+  '/en/home': '/',
+  '/sk/home': '/sk',
+  '/jp/home': '/jp',
+}
+
+// The previous site served everything from the root with query parameters
+// (/?lang=sk&menufix=50&kat=484). Only the product pages (menufix=50) can be mapped
+// with confidence; the rest go to the home page of the matching language.
+function getLegacyRedirect({ pathname, searchParams }: NextRequest['nextUrl']): string | undefined {
+  if (pathname !== '/') return undefined
+  if (!searchParams.has('lang') && !searchParams.has('menufix') && !searchParams.has('kat')) {
+    return undefined
+  }
+
+  const lang = searchParams.get('lang')
+  const prefix = lang === 'sk' || lang === 'jp' ? `/${lang}` : ''
+  const isProducts = searchParams.get('menufix') === '50' || searchParams.has('kat')
+
+  return isProducts ? `${prefix}/products` : prefix || '/'
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const host = (request.headers.get('host') || '').split(':')[0].toLowerCase()
 
-  const searchRedirect = SEARCH_REDIRECTS[pathname.replace(/\/+$/, '') || '/']
+  const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+  const searchRedirect =
+    SEARCH_REDIRECTS[normalizedPath] ??
+    HOME_REDIRECTS[normalizedPath] ??
+    getLegacyRedirect(request.nextUrl)
 
   if (PRODUCTION_ALIAS_HOSTS.includes(host)) {
     const url = request.nextUrl.clone()
