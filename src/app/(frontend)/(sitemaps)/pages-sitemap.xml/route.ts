@@ -2,6 +2,7 @@ import { getServerSideSitemap } from 'next-sitemap'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { unstable_cache } from 'next/cache'
+import { withAlternates } from '@/utilities/sitemapAlternates'
 
 const getPagesSitemap = unstable_cache(
   async () => {
@@ -237,7 +238,7 @@ const getPagesSitemap = unstable_cache(
       }
     })
 
-    return [...byLoc.values()]
+    return withAlternates([...byLoc.values()])
   },
   ['pages-sitemap'],
   {
