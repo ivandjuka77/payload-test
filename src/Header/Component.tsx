@@ -2,6 +2,7 @@ import Navbar from './Component.client'
 import configPromise from '@/payload.config'
 import { getPayload, TypedLocale } from 'payload'
 import { unstable_cache } from 'next/cache'
+import type { HeaderIndustry, HeaderProductCategory, HeaderService } from './types'
 
 const getHeaderNav = async (locale: string) => {
   const payload = await getPayload({ config: configPromise })
@@ -10,6 +11,13 @@ const getHeaderNav = async (locale: string) => {
     payload.find({
       collection: 'industries',
       draft: false,
+      select: {
+        name: true,
+        slug: true,
+        description: true,
+        featuredImage: true,
+        challenges: { title: true, challengeLink: true },
+      },
       limit: 6,
       pagination: false,
       overrideAccess: false,
@@ -20,6 +28,7 @@ const getHeaderNav = async (locale: string) => {
       collection: 'productCategories',
       sort: '_order',
       draft: false,
+      select: { name: true, slug: true, description: true },
       limit: 6,
       pagination: false,
       overrideAccess: false,
@@ -29,6 +38,7 @@ const getHeaderNav = async (locale: string) => {
     payload.find({
       collection: 'services',
       draft: false,
+      select: { title: true, slug: true, description: true, features: true },
       limit: 5,
       pagination: false,
       overrideAccess: false,
@@ -38,9 +48,9 @@ const getHeaderNav = async (locale: string) => {
   ])
 
   return {
-    industries: industriesResult.docs,
-    productCategories: productCategoriesResult.docs,
-    services: servicesResult.docs,
+    industries: industriesResult.docs as HeaderIndustry[],
+    productCategories: productCategoriesResult.docs as HeaderProductCategory[],
+    services: servicesResult.docs as HeaderService[],
   }
 }
 

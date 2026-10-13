@@ -18,7 +18,8 @@ import {
   ExternalLink,
 } from 'lucide-react'
 import { cn } from '@/utilities/ui'
-import { Industry, Product, ProductCategory, Service } from '@/payload-types'
+import { Product } from '@/payload-types'
+import type { HeaderIndustry, HeaderProductCategory, HeaderService } from './types'
 import { useTranslations } from 'next-intl'
 import { useWindowSize } from './hooks/useWindowSize'
 
@@ -30,9 +31,9 @@ interface NavItem {
 
 interface DesktopNavProps {
   navItems: NavItem[]
-  industries: Industry[]
-  productCategories: ProductCategory[]
-  services: Service[]
+  industries: HeaderIndustry[]
+  productCategories: HeaderProductCategory[]
+  services: HeaderService[]
 }
 
 const serviceIcons = [
@@ -57,7 +58,7 @@ function IndustriesMegaMenu({
   industries,
 }: {
   onClose: () => void
-  industries: Industry[]
+  industries: HeaderIndustry[]
 }) {
   const t = useTranslations('header')
 
@@ -125,7 +126,7 @@ function ProductsMegaMenu({
   productCategories,
 }: {
   onClose: () => void
-  productCategories: ProductCategory[]
+  productCategories: HeaderProductCategory[]
 }) {
   const t = useTranslations('header')
 
@@ -220,7 +221,13 @@ function ProductsMegaMenu({
   )
 }
 
-function ServicesMegaMenu({ onClose, services }: { onClose: () => void; services: Service[] }) {
+function ServicesMegaMenu({
+  onClose,
+  services,
+}: {
+  onClose: () => void
+  services: HeaderService[]
+}) {
   const t = useTranslations('header')
 
   return (

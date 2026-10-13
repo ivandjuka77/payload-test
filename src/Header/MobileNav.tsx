@@ -18,7 +18,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Industry, ProductCategory, Service } from '@/payload-types'
+import type { HeaderIndustry, HeaderProductCategory, HeaderService } from './types'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import Image from 'next/image'
@@ -33,9 +33,9 @@ interface MobileNavProps {
   isOpen: boolean
   onClose: () => void
   navItems: NavItem[]
-  industries: Industry[]
-  productCategories: ProductCategory[]
-  services: Service[]
+  industries: HeaderIndustry[]
+  productCategories: HeaderProductCategory[]
+  services: HeaderService[]
 }
 
 const serviceIcons = [

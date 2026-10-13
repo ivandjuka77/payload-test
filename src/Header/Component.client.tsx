@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Search, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utilities/ui'
-import { Industry, ProductCategory, Service } from '@/payload-types'
+import type { HeaderIndustry, HeaderProductCategory, HeaderService } from './types'
 import { SearchDialog } from '@/components/Search'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
@@ -14,9 +14,9 @@ import { DesktopNav } from './DesktopNav'
 import { MobileNav } from './MobileNav'
 
 interface NavbarProps {
-  industries: Industry[]
-  productCategories: ProductCategory[]
-  services: Service[]
+  industries: HeaderIndustry[]
+  productCategories: HeaderProductCategory[]
+  services: HeaderService[]
 }
 
 export default function Navbar({ industries, productCategories, services }: NavbarProps) {
