@@ -28,13 +28,15 @@ const HOME_REDIRECTS: Record<string, string> = {
   '/jp/home': '/jp',
 }
 
-// The previous site served everything from the root with query parameters
-// (/?lang=sk&menufix=50&kat=484). Only the product pages (menufix=50) can be mapped
-// with confidence; the rest go to the home page of the matching language.
+// The previous site served everything from / or /index.php with query parameters
+// (/?lang=sk&menufix=50&kat=484). /index.php is handled here and not in redirects.js
+// so that its query string is dropped in the same single redirect. Only the product
+// pages (menufix=50) can be mapped with confidence; the rest go to the home page of
+// the matching language.
 function getLegacyRedirect({ pathname, searchParams }: NextRequest['nextUrl']): string | undefined {
-  if (pathname !== '/') return undefined
+  if (pathname !== '/' && pathname !== '/index.php') return undefined
   if (!searchParams.has('lang') && !searchParams.has('menufix') && !searchParams.has('kat')) {
-    return undefined
+    return pathname === '/index.php' ? '/' : undefined
   }
 
   const lang = searchParams.get('lang')
@@ -83,5 +85,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api|trpc|_next|_vercel|admin|.*\\..*).*)',
+  matcher: ['/index.php', '/((?!api|trpc|_next|_vercel|admin|.*\\..*).*)'],
 }
