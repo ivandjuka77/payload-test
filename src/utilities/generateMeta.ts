@@ -7,6 +7,8 @@ import { getServerSideURL } from './getURL'
 
 type TitledDoc = Partial<Page> & {
   name?: string | null
+  // Plain text on products, categories, industries and services; rich text on careers
+  description?: unknown
   technicalSpecifications?: { casNumber?: string | null } | null
 }
 
@@ -41,6 +43,30 @@ const buildTitle = (doc: TitledDoc): string => {
   if (!title) return 'VUP, a.s'
 
   return /vup/i.test(title) ? title : `${title}${BRAND_SUFFIX}`
+}
+
+const MAX_DESCRIPTION_LENGTH = 160
+
+/**
+ * The hand-written SEO description wins. Documents without one (most products and
+ * categories) fall back to their plain text `description`, trimmed to what search
+ * results display, so every page has a unique description instead of none.
+ */
+const buildDescription = (doc: TitledDoc): string | undefined => {
+  const seoDescription = doc.meta?.description?.trim()
+
+  if (seoDescription) return seoDescription
+  if (typeof doc.description !== 'string') return undefined
+
+  const text = doc.description.replace(/\s+/g, ' ').trim()
+
+  if (!text) return undefined
+  if (text.length <= MAX_DESCRIPTION_LENGTH) return text
+
+  const cut = text.slice(0, MAX_DESCRIPTION_LENGTH - 1)
+  const lastSpace = cut.lastIndexOf(' ')
+
+  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.-]+$/, '')}…`
 }
 
 const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
@@ -84,6 +110,7 @@ export const generateMeta = async (args: {
   const ogImage = getImageURL(doc?.meta?.image)
 
   const title = buildTitle(doc)
+  const description = buildDescription(doc)
   // Generate canonical URL
   const serverUrl = getServerSideURL()
   let canonicalPath = ''
@@ -110,13 +137,13 @@ export const generateMeta = async (args: {
   }
 
   return {
-    description: doc?.meta?.description,
+    description,
     alternates: {
       canonical,
       languages,
     },
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description: description || '',
       images: ogImage
         ? [
             {
